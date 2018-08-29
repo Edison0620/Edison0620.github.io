@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.4.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="&amp;#160; &amp;#160; &amp;#160; &amp;#160;最近在把公司原 OC 项目 Swift 化，学到了很多东西，做个笔记记录下。 一、代理（delegate）1.代理的说明&amp;#160; &amp;#160; &amp;#160; &amp;#160;首先解释关于代理。代理（delegate）是 Cocoa 的一个术语，表示将一个对象的部分功能转交给另一个对象。 &amp;#160; &amp;#160; &amp;#160; &amp;#160;比">
+<meta name="keywords" content="EXP,iOS,Swift">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift笔记 - 代理和闭包">
+<meta property="og:url" content="http://kaaaaai.cn/articles/024.html">
+<meta property="og:site_name" content="壹拾肆">
+<meta property="og:description" content="&amp;#160; &amp;#160; &amp;#160; &amp;#160;最近在把公司原 OC 项目 Swift 化，学到了很多东西，做个笔记记录下。 一、代理（delegate）1.代理的说明&amp;#160; &amp;#160; &amp;#160; &amp;#160;首先解释关于代理。代理（delegate）是 Cocoa 的一个术语，表示将一个对象的部分功能转交给另一个对象。 &amp;#160; &amp;#160; &amp;#160; &amp;#160;比">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-07-23T09:23:17.459Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Swift笔记 - 代理和闭包">
+<meta name="twitter:description" content="&amp;#160; &amp;#160; &amp;#160; &amp;#160;最近在把公司原 OC 项目 Swift 化，学到了很多东西，做个笔记记录下。 一、代理（delegate）1.代理的说明&amp;#160; &amp;#160; &amp;#160; &amp;#160;首先解释关于代理。代理（delegate）是 Cocoa 的一个术语，表示将一个对象的部分功能转交给另一个对象。 &amp;#160; &amp;#160; &amp;#160; &amp;#160;比">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="壹拾肆" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="http://kaaaaai.cn/articles/024.html"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Swift笔记 - 代理和闭包 | 壹拾肆</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">壹拾肆</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">闲言和碎语</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://kaaaaai.cn/articles/024.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaaaaai">
+      <meta itemprop="description" content="我独自一人/照顾着/历代的星辰">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="壹拾肆">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Swift笔记 - 代理和闭包
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-06 21:00:52" itemprop="dateCreated datePublished" datetime="2018-06-06T21:00:52+08:00">2018-06-06</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-07-23 17:23:17" itemprop="dateModified" datetime="2018-07-23T17:23:17+08:00">2018-07-23</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>&#160; &#160; &#160; &#160;最近在把公司原 OC 项目 Swift 化，学到了很多东西，做个笔记记录下。</p>
+<h1 id="一、代理（delegate）"><a href="#一、代理（delegate）" class="headerlink" title="一、代理（delegate）"></a>一、代理（delegate）</h1><h2 id="1-代理的说明"><a href="#1-代理的说明" class="headerlink" title="1.代理的说明"></a>1.代理的说明</h2><p>&#160; &#160; &#160; &#160;首先解释关于代理。代理（delegate）是 <code>Cocoa</code> 的一个术语，表示将一个对象的部分功能转交给另一个对象。</p>
+<p>&#160; &#160; &#160; &#160;比如对象 A 希望对象 B 知道将要发生或已经发生某件事情，对象A可以把对象B的引用存为一个实例变量。这个对象B称为委托。当事件发生时，它检查委托对象是否实现了与该事件相适应的方法。如果已经实现，则调用该方法。</p>
+<p>&#160; &#160; &#160; &#160;由于松耦合的原因，一个对象能成为多个对象的代理。某些情况下，相较于通过继承让子类实现相关的处理方法，可以有效减少代码复杂度。所以 <code>iOS</code> 中也大量的使用了代理。</p>
+<h2 id="2-代理的使用"><a href="#2-代理的使用" class="headerlink" title="2.代理的使用"></a>2.代理的使用</h2><h3 id="2-1-自定义cell的类，"><a href="#2-1-自定义cell的类，" class="headerlink" title="2.1 自定义cell的类，"></a>2.1 自定义cell的类，</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">protocol TestTableCellDelegate:<span class="built_in">NSObjectProtocol</span> &#123;</span><br><span class="line"><span class="comment">//这里我设置方法传入的是一个模型，大家可根据需要传入不同值，用法和 OC 一样，写法稍有不同。</span></span><br><span class="line">    func selectedGroup(model:LXGroupModel)</span><br><span class="line">    func deletedGroup(model:LXGroupModel)</span><br><span class="line">    func modifyGroup(model:LXGroupModel)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> TEstTableViewCell: <span class="built_in">UITableViewCell</span> &#123;</span><br><span class="line"> override func awakeFromNib() &#123;</span><br><span class="line">        <span class="keyword">super</span>.awakeFromNib()</span><br><span class="line">        <span class="comment">// Initialization code</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"> @IBAction func groupClick(_ sender: <span class="built_in">UIButton</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.delegate.selectedGroup(model: <span class="keyword">self</span>.model!)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    @IBAction func modeifyClick(_ sender: <span class="built_in">UIButton</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.delegate.modifyGroup(model: <span class="keyword">self</span>.model!)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    @IBAction func deletedClick(_ sender: <span class="built_in">UIButton</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.delegate.deletedGroup(model: <span class="keyword">self</span>.model!)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    required init?(coder aDecoder: <span class="built_in">NSCoder</span>) &#123;</span><br><span class="line">        <span class="keyword">super</span>.init(coder: aDecoder)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    override init(style: <span class="built_in">UITableViewCellStyle</span>, reuseIdentifier: String?) &#123;</span><br><span class="line">        <span class="keyword">super</span>.init(style: style, reuseIdentifier: reuseIdentifier)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-Controller-类的核心代码"><a href="#2-2-Controller-类的核心代码" class="headerlink" title="2.2 Controller 类的核心代码"></a>2.2 Controller 类的核心代码</h3><p>&#160; &#160; &#160; &#160;这里和 OC 没有区别，主要声明 cell 的代理，创建 cell 时，把响应焦点设置为当前类。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> TestViewController: <span class="built_in">UIViewController</span>, <span class="built_in">UITableViewDelegate</span>, <span class="built_in">UITableViewDataSource</span>,TestTableCellDelegate&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">func tableView(_ tableView: <span class="built_in">UITableView</span>, cellForRowAt indexPath: IndexPath) -&gt; <span class="built_in">UITableViewCell</span> &#123;</span><br><span class="line">        let cell:TestTableViewCell = (tableView.dequeueReusableCell(withIdentifier: <span class="string">"TestTableViewCell"</span>, <span class="keyword">for</span>: indexPath) as? LXSwiftGroupTableViewCell)!</span><br><span class="line">        cell.model = groupArray?[indexPath.row] as? LXGroupModel</span><br><span class="line">        cell.delegate = <span class="keyword">self</span></span><br><span class="line">        <span class="keyword">return</span> cell</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-3-实现代理方法"><a href="#2-3-实现代理方法" class="headerlink" title="2.3 实现代理方法"></a>2.3 实现代理方法</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">func selectedGroup(model: LXGroupModel) &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line">func deletedGroup(model: LXGroupModel) &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line">func modifyGroup(model: LXGroupModel) &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="二、OC-中的-Block，Swift-中的-Closure（闭包）"><a href="#二、OC-中的-Block，Swift-中的-Closure（闭包）" class="headerlink" title="二、OC 中的 Block，Swift 中的 Closure（闭包）"></a>二、OC 中的 Block，Swift 中的 Closure（闭包）</h1><h2 id="1-闭包的说明"><a href="#1-闭包的说明" class="headerlink" title="1.闭包的说明"></a>1.闭包的说明</h2><p>&#160; &#160; &#160; &#160;Swift 中的闭包和 Objective-C 中的 block 类似，闭包是功能性自包含模块，可以在代码中被传递和使用。 在 Swift 中 函数只是闭包的一种特殊形式。</p>
+<p>1.全局函数是一个有名字但不会捕获任何值的闭包<br>2.内嵌函数是一个有名字可以捕获到所在的函数域内值的闭包<br>3.闭包表达式是一个没有名字的可以捕获上下文中的变量或者常量的闭包</p>
+<h2 id="2-闭包的使用"><a href="#2-闭包的使用" class="headerlink" title="2.闭包的使用"></a>2.闭包的使用</h2><h3 id="2-1-方式一：利用typealias最完整的创建"><a href="#2-1-方式一：利用typealias最完整的创建" class="headerlink" title="2.1 方式一：利用typealias最完整的创建"></a>2.1 方式一：利用typealias最完整的创建</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//为(_ num1: Int, _ num2: Int) -&gt; (Int) 类型的闭包定义别名：Add</span></span><br><span class="line">    <span class="keyword">typealias</span> <span class="type">Add</span> = (<span class="number">_</span> num1: <span class="type">Int</span>, <span class="number">_</span> num2: <span class="type">Int</span>) -&gt; (<span class="type">Int</span>)</span><br><span class="line"><span class="comment">//创建一个 Add 类型的闭包常量：addCloser1</span></span><br><span class="line">    <span class="keyword">let</span> addCloser1: <span class="type">Add</span></span><br><span class="line"><span class="comment">//为已经创建好的常量 addCloser1 赋值</span></span><br><span class="line">    addCloser1 = &#123;</span><br><span class="line">        (<span class="number">_</span> num1: <span class="type">Int</span>, <span class="number">_</span> num2: <span class="type">Int</span>) -&gt; (<span class="type">Int</span>) <span class="keyword">in</span></span><br><span class="line">        <span class="keyword">return</span> num1 + num2</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//调用闭包并接受返回值</span></span><br><span class="line">    <span class="keyword">let</span> result = addCloser1(<span class="number">20</span>, <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-方式二：闭包类型申明和变量的创建合并在一起"><a href="#2-2-方式二：闭包类型申明和变量的创建合并在一起" class="headerlink" title="2.2 方式二：闭包类型申明和变量的创建合并在一起"></a>2.2 方式二：闭包类型申明和变量的创建合并在一起</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建一个 (_ num1: Int, _ num2: Int) -&gt; (Int) 类型的闭包常量：addCloser1</span></span><br><span class="line">    <span class="keyword">let</span> addCloser1: (<span class="number">_</span> num1: <span class="type">Int</span>, <span class="number">_</span> num2: <span class="type">Int</span>) -&gt; (<span class="type">Int</span>)</span><br><span class="line"><span class="comment">//为已经创建好的常量 addCloser1 赋值</span></span><br><span class="line">    addCloser1 = &#123;</span><br><span class="line">         (<span class="number">_</span> num1: <span class="type">Int</span>, <span class="number">_</span> num2: <span class="type">Int</span>) -&gt; (<span class="type">Int</span>) <span class="keyword">in</span></span><br><span class="line">         <span class="keyword">return</span> num1 + num2</span><br><span class="line">    &#125;</span><br><span class="line"> <span class="comment">//调用闭包并接受返回值</span></span><br><span class="line">    <span class="keyword">let</span> result = addCloser1(<span class="number">20</span>, <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="2-3-方式三：省略闭包接收的形参、省略闭包体中返回值"><a href="#2-3-方式三：省略闭包接收的形参、省略闭包体中返回值" class="headerlink" title="2.3 方式三：省略闭包接收的形参、省略闭包体中返回值"></a>2.3 方式三：省略闭包接收的形参、省略闭包体中返回值</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建一个 (Int, Int) -&gt; (Int) 类型的闭包常量：addCloser1</span></span><br><span class="line">    <span class="keyword">let</span> addCloser1: (<span class="type">Int</span>, <span class="type">Int</span>) -&gt; (<span class="type">Int</span>)</span><br><span class="line"><span class="comment">//为已经创建好的常量 addCloser1 赋值</span></span><br><span class="line">    addCloser1 = &#123;</span><br><span class="line">         (num1, num2) <span class="keyword">in</span></span><br><span class="line">         <span class="keyword">return</span> num1 + num2</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//调用闭包并接受返回值</span></span><br><span class="line">    <span class="keyword">let</span> result = addCloser1(<span class="number">20</span>, <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="2-4-方式四：在形式三的基础上进一步精简"><a href="#2-4-方式四：在形式三的基础上进一步精简" class="headerlink" title="2.4 方式四：在形式三的基础上进一步精简"></a>2.4 方式四：在形式三的基础上进一步精简</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建一个 (Int, Int) -&gt; (Int) 类型的闭包常量：addCloser1 并赋值</span></span><br><span class="line">    <span class="keyword">let</span> addCloser1: (<span class="type">Int</span>, <span class="type">Int</span>) -&gt; (<span class="type">Int</span>) = &#123;</span><br><span class="line">           (num1, num2) <span class="keyword">in</span></span><br><span class="line">           <span class="keyword">return</span> num1 + num2</span><br><span class="line">        &#125;    </span><br><span class="line"><span class="comment">//调用闭包并接受返回值</span></span><br><span class="line">    <span class="keyword">let</span> result = addCloser1(<span class="number">20</span>, <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="2-5-方式五：如果闭包没有接收参数省略in"><a href="#2-5-方式五：如果闭包没有接收参数省略in" class="headerlink" title="2.5 方式五：如果闭包没有接收参数省略in"></a>2.5 方式五：如果闭包没有接收参数省略in</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建一个 () -&gt; (String) 类型的闭包常量：addCloser1 并赋值</span></span><br><span class="line">    <span class="keyword">let</span> addCloser1: () -&gt; (<span class="type">String</span>) = &#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="string">"这个闭包没有参数，但是有返回值"</span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//调用闭包并接受返回值</span></span><br><span class="line">    <span class="keyword">let</span> result = addCloser1()</span><br></pre></td></tr></table></figure>
+<h3 id="2-6-方式六：简写的实际参数名"><a href="#2-6-方式六：简写的实际参数名" class="headerlink" title="2.6 方式六：简写的实际参数名"></a>2.6 方式六：简写的实际参数名</h3><pre><code class="swift"><span class="comment">//创建一个 (String, String) -&gt; (String) 类型的闭包常量：addCloser1 并赋值</span>
+    <span class="keyword">let</span> addCloser1: (<span class="type">String</span>, <span class="type">String</span>) -&gt; (<span class="type">String</span>) = {
+           <span class="keyword">return</span> <span class="string">"闭包的返回值是:\($0),\($1)"</span>
+        }
+<span class="comment">//调用闭包并接受返回值</span>
+     <span class="keyword">let</span> result = addCloser1(<span class="string">"Hello"</span>, <span class="string">"Swift!"</span>)
+</code></pre>
+<p><em>说明： 得益于Swift的类型推断机制，我们在使用闭包的时候可以省略很多东西，而且Swift自动对行内闭包提供简写实际参数名，你也可以通过 $0, $1, $2 这样的语法来引用闭包的实际参数值。如果你在闭包表达式中使用这些简写实际参数名，那么你可以在闭包的实际参数列表中忽略对其的定义，并且简写实际参数名的数字和类型将会从期望的函数类型中推断出来。in关键字也能被省略，$0 和 $1 分别是闭包的第一个和第二个 String类型的 实际参数（引自文档翻译）。</em></p>
+<p>以上。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/EXP/" rel="tag"># EXP</a>
+          
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
+          
+            <a href="/tags/Swift/" rel="tag"># Swift</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/articles/023.html" rel="next" title="春末即兴">
+                <i class="fa fa-chevron-left"></i> 春末即兴
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/articles/025.html" rel="prev" title="他三本书厚的青春">
+                他三本书厚的青春 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Kaaaaai</p>
+              <p class="site-description motion-element" itemprop="description">我独自一人/照顾着/历代的星辰</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">34</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、代理（delegate）"><span class="nav-number">1.</span> <span class="nav-text">一、代理（delegate）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-代理的说明"><span class="nav-number">1.1.</span> <span class="nav-text">1.代理的说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-代理的使用"><span class="nav-number">1.2.</span> <span class="nav-text">2.代理的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-自定义cell的类，"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 自定义cell的类，</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-Controller-类的核心代码"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 Controller 类的核心代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-实现代理方法"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3 实现代理方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、OC-中的-Block，Swift-中的-Closure（闭包）"><span class="nav-number">2.</span> <span class="nav-text">二、OC 中的 Block，Swift 中的 Closure（闭包）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-闭包的说明"><span class="nav-number">2.1.</span> <span class="nav-text">1.闭包的说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-闭包的使用"><span class="nav-number">2.2.</span> <span class="nav-text">2.闭包的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-方式一：利用typealias最完整的创建"><span class="nav-number">2.2.1.</span> <span class="nav-text">2.1 方式一：利用typealias最完整的创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-方式二：闭包类型申明和变量的创建合并在一起"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.2 方式二：闭包类型申明和变量的创建合并在一起</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-方式三：省略闭包接收的形参、省略闭包体中返回值"><span class="nav-number">2.2.3.</span> <span class="nav-text">2.3 方式三：省略闭包接收的形参、省略闭包体中返回值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-方式四：在形式三的基础上进一步精简"><span class="nav-number">2.2.4.</span> <span class="nav-text">2.4 方式四：在形式三的基础上进一步精简</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-方式五：如果闭包没有接收参数省略in"><span class="nav-number">2.2.5.</span> <span class="nav-text">2.5 方式五：如果闭包没有接收参数省略in</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6-方式六：简写的实际参数名"><span class="nav-number">2.2.6.</span> <span class="nav-text">2.6 方式六：简写的实际参数名</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kaaaaai</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.4.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

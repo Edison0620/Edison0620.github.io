@@ -1,0 +1,31 @@
+{"name":"hexo","hostname":"kaaaaaideMacBook-Pro.local","pid":29481,"level":20,"msg":"Hexo version: \u001b[35m3.7.1\u001b[39m","time":"2018-06-07T05:42:35.467Z","v":0}
+{"name":"hexo","hostname":"kaaaaaideMacBook-Pro.local","pid":29481,"level":20,"msg":"Working directory: \u001b[35m~/Documents/Blog/\u001b[39m","time":"2018-06-07T05:42:35.471Z","v":0}
+{"name":"hexo","hostname":"kaaaaaideMacBook-Pro.local","pid":29481,"level":20,"msg":"Config loaded: \u001b[35m~/Documents/Blog/_config.yml\u001b[39m","time":"2018-06-07T05:42:35.845Z","v":0}
+{"name":"hexo","hostname":"kaaaaaideMacBook-Pro.local","pid":29481,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-category\u001b[39m","time":"2018-06-07T05:42:35.968Z","v":0}
+{"name":"hexo","hostname":"kaaaaaideMacBook-Pro.local","pid":29481,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-archive\u001b[39m","time":"2018-06-07T05:42:35.976Z","v":0}
+{"name":"hexo","hostname":"kaaaaaideMacBook-Pro.local","pid":29481,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-deployer-git\u001b[39m","time":"2018-06-07T05:42:36.081Z","v":0}
+{"name":"hexo","hostname":"kaaaaaideMacBook-Pro.local","pid":29481,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-feed\u001b[39m","time":"2018-06-07T05:42:36.164Z","v":0}
+{"name":"hexo","hostname":"kaaaaaideMacBook-Pro.local","pid":29481,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-tag\u001b[39m","time":"2018-06-07T05:42:36.176Z","v":0}
+{"name":"hexo","hostname":"kaaaaaideMacBook-Pro.local","pid":29481,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-index\u001b[39m","time":"2018-06-07T05:42:36.184Z","v":0}
+{"name":"hexo","hostname":"kaaaaaideMacBook-Pro.local","pid":29481,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-helper-live2d\u001b[39m","time":"2018-06-07T05:42:36.293Z","v":0}
+{"name":"hexo","hostname":"kaaaaaideMacBook-Pro.local","pid":29481,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-searchdb\u001b[39m","time":"2018-06-07T05:42:36.318Z","v":0}
+{"name":"hexo","hostname":"kaaaaaideMacBook-Pro.local","pid":29481,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-renderer-marked\u001b[39m","time":"2018-06-07T05:42:36.380Z","v":0}
+{"name":"hexo","hostname":"kaaaaaideMacBook-Pro.local","pid":29481,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-renderer-stylus\u001b[39m","time":"2018-06-07T05:42:36.386Z","v":0}
+{"name":"hexo","hostname":"kaaaaaideMacBook-Pro.local","pid":29481,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-renderer-ejs\u001b[39m","time":"2018-06-07T05:42:36.464Z","v":0}
+{"name":"hexo","hostname":"kaaaaaideMacBook-Pro.local","pid":29481,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-tag-aplayer\u001b[39m","time":"2018-06-07T05:42:38.256Z","v":0}
+{"name":"hexo","hostname":"kaaaaaideMacBook-Pro.local","pid":29481,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-wordcount\u001b[39m","time":"2018-06-07T05:42:38.761Z","v":0}
+{"name":"hexo","hostname":"kaaaaaideMacBook-Pro.local","pid":29481,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-server\u001b[39m","time":"2018-06-07T05:42:39.047Z","v":0}
+{"name":"hexo","hostname":"kaaaaaideMacBook-Pro.local","pid":29481,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-fs\u001b[39m","time":"2018-06-07T05:42:39.055Z","v":0}
+{"name":"hexo","hostname":"kaaaaaideMacBook-Pro.local","pid":29481,"level":20,"msg":"Script loaded: \u001b[35mthemes/next/scripts/image-stream.js\u001b[39m","time":"2018-06-07T05:42:39.065Z","v":0}
+{"name":"hexo","hostname":"kaaaaaideMacBook-Pro.local","pid":29481,"level":20,"msg":"Script loaded: \u001b[35mthemes/next/scripts/merge-configs.js\u001b[39m","time":"2018-06-07T05:42:39.074Z","v":0}
+{"name":"hexo","hostname":"kaaaaaideMacBook-Pro.local","pid":29481,"level":20,"msg":"Script loaded: \u001b[35mthemes/next/scripts/tags/center-quote.js\u001b[39m","time":"2018-06-07T05:42:39.074Z","v":0}
+{"name":"hexo","hostname":"kaaaaaideMacBook-Pro.local","pid":29481,"level":20,"msg":"Script loaded: \u001b[35mthemes/next/scripts/tags/button.js\u001b[39m","time":"2018-06-07T05:42:39.075Z","v":0}
+{"name":"hexo","hostname":"kaaaaaideMacBook-Pro.local","pid":29481,"level":20,"msg":"Script loaded: \u001b[35mthemes/next/scripts/tags/full-image.js\u001b[39m","time":"2018-06-07T05:42:39.076Z","v":0}
+{"name":"hexo","hostname":"kaaaaaideMacBook-Pro.local","pid":29481,"level":20,"msg":"Script loaded: \u001b[35mthemes/next/scripts/tags/exturl.js\u001b[39m","time":"2018-06-07T05:42:39.081Z","v":0}
+{"name":"hexo","hostname":"kaaaaaideMacBook-Pro.local","pid":29481,"level":20,"msg":"Script loaded: \u001b[35mthemes/next/scripts/tags/lazy-image.js\u001b[39m","time":"2018-06-07T05:42:39.082Z","v":0}
+{"name":"hexo","hostname":"kaaaaaideMacBook-Pro.local","pid":29481,"level":20,"msg":"Script loaded: \u001b[35mthemes/next/scripts/tags/note.js\u001b[39m","time":"2018-06-07T05:42:39.083Z","v":0}
+{"name":"hexo","hostname":"kaaaaaideMacBook-Pro.local","pid":29481,"level":20,"msg":"Script loaded: \u001b[35mthemes/next/scripts/tags/group-pictures.js\u001b[39m","time":"2018-06-07T05:42:39.087Z","v":0}
+{"name":"hexo","hostname":"kaaaaaideMacBook-Pro.local","pid":29481,"level":20,"msg":"Script loaded: \u001b[35mthemes/next/scripts/merge.js\u001b[39m","time":"2018-06-07T05:42:39.092Z","v":0}
+{"name":"hexo","hostname":"kaaaaaideMacBook-Pro.local","pid":29481,"level":30,"msg":"Deleted database.","time":"2018-06-07T05:42:39.097Z","v":0}
+{"name":"hexo","hostname":"kaaaaaideMacBook-Pro.local","pid":29481,"level":30,"msg":"Deleted public folder.","time":"2018-06-07T05:42:39.569Z","v":0}
+{"name":"hexo","hostname":"kaaaaaideMacBook-Pro.local","pid":29481,"level":20,"msg":"Database saved","time":"2018-06-07T05:42:39.662Z","v":0}

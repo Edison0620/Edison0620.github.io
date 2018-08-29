@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>childOrder</key>
+	<array>
+		<string>fifthart</string>
+		<string>firstart</string>
+		<string>fourthart</string>
+		<string>secondart</string>
+		<string>thirdart</string>
+		<string>Sixthart</string>
+	</array>
+	<key>createMarkedFile</key>
+	<false/>
+	<key>sheetClusters</key>
+	<array>
+		<array>
+			<string>fifthart.md</string>
+		</array>
+		<array>
+			<string>firstart.md</string>
+		</array>
+		<array>
+			<string>fourthart.md</string>
+		</array>
+		<array>
+			<string>Hello-Edison-s-World.md</string>
+		</array>
+		<array>
+			<string>hello-world.md</string>
+		</array>
+		<array>
+			<string>secondart.md</string>
+		</array>
+		<array>
+			<string>thirdart.md</string>
+		</array>
+		<array>
+			<string>Sixthart.md</string>
+		</array>
+	</array>
+</dict>
+</plist>
