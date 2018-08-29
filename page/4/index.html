@@ -1,30 +1,24 @@
-<!DOCTYPE html>
-
-
-
-
-
-
-
-
-
+<!doctype html>
 
 
 
   
 
 
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next mist use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
-<meta name="theme-color" content="#222">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
 
-
-
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
 
 
 
@@ -49,7 +43,36 @@
 
 
 
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
 
 
 
@@ -58,57 +81,28 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=6.4.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.0">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.0">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=6.4.0" color="#222">
+  <meta name="keywords" content="kaaaaai, NexT,自我修炼,ios，android,书单，电影" />
 
 
 
 
 
+  <link rel="alternate" href="/atom.xml" title="壹拾肆" type="application/atom+xml" />
 
 
 
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    version: '6.4.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-  
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
 
 
 
 
-  <meta name="description" content="我独自一人/照顾着/历代的星辰">
+
+
+<meta name="description" content="我独自一人/照顾着/历代的星辰">
 <meta property="og:type" content="website">
 <meta property="og:title" content="壹拾肆">
 <meta property="og:url" content="http://kaaaaai.cn/page/4/index.html">
@@ -121,8 +115,27 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="壹拾肆" type="application/atom+xml" />
-
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
 
 
 
@@ -130,13 +143,9 @@
 
 
 
-<script type="text/javascript" id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
 
-  <title>壹拾肆</title>
+
+  <title>壹拾肆 - 我独自一人/照顾着/历代的星辰</title>
   
 
 
@@ -147,32 +156,10 @@
 
 
 
-  <noscript>
-  <style type="text/css">
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
 
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
 
-    .use-motion {
-      .logo-line-before i { left: initial; }
-      .logo-line-after i { right: initial; }
-    }
-  </style>
-</noscript>
+
+
 
 </head>
 
@@ -184,7 +171,8 @@
   
 
   <div class="container sidebar-position-left 
-  page-home">
+   page-home 
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -193,21 +181,19 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">壹拾肆</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-    
       
-        <p class="site-subtitle">闲言和碎语</p>
+        <h1 class="site-subtitle" itemprop="description">闲言和碎语</h1>
       
-    
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
+    <button>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -215,53 +201,220 @@
   </div>
 </div>
 
-
-
 <nav class="site-nav">
+  
+
   
     <ul id="menu" class="menu">
       
         
-        
-        
-          
-          <li class="menu-item menu-item-home">
-    <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-    <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-about">
-    <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
-  </li>
-
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
       
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-xumi">
+          <a href="/xumi" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-coffee"></i> <br />
+            
+            须弥
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
       
         <li class="menu-item menu-item-search">
           
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
         </li>
       
+<!-- 参考Never_yu的High一下功能 
+     网站位置：https://neveryu.github.io/2016/09/30/hexo-next-two,
+               https://neveryu.github.io/2016/11/11/hexo-next-three/-->
+    <li class="menu-item"> <a title="把这个链接拖到你的Chrome收藏夹工具栏中" href='javascript:(function() {
+    function c() {
+        var e = document.createElement("link");
+        e.setAttribute("type", "text/css");
+        e.setAttribute("rel", "stylesheet");
+        e.setAttribute("href", f);
+        e.setAttribute("class", l);
+        document.body.appendChild(e)
+    }
+
+    function h() {
+        var e = document.getElementsByClassName(l);
+        for (var t = 0; t < e.length; t++) {
+            document.body.removeChild(e[t])
+        }
+    }
+
+    function p() {
+        var e = document.createElement("div");
+        e.setAttribute("class", a);
+        document.body.appendChild(e);
+        setTimeout(function() {
+            document.body.removeChild(e)
+        }, 100)
+    }
+
+    function d(e) {
+        return {
+            height : e.offsetHeight,
+            width : e.offsetWidth
+        }
+    }
+
+    function v(i) {
+        var s = d(i);
+        return s.height > e && s.height < n && s.width > t && s.width < r
+    }
+
+    function m(e) {
+        var t = e;
+        var n = 0;
+        while (!!t) {
+            n += t.offsetTop;
+            t = t.offsetParent
+        }
+        return n
+    }
+
+    function g() {
+        var e = document.documentElement;
+        if (!!window.innerWidth) {
+            return window.innerHeight
+        } else if (e && !isNaN(e.clientHeight)) {
+            return e.clientHeight
+        }
+        return 0
+    }
+
+    function y() {
+        if (window.pageYOffset) {
+            return window.pageYOffset
+        }
+        return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+    }
+
+    function E(e) {
+        var t = m(e);
+        return t >= w && t <= b + w
+    }
+
+    function S() {
+        var e = document.createElement("audio");
+        e.setAttribute("class", l);
+        e.src = i;
+        e.loop = false;
+        e.addEventListener("canplay", function() {
+            setTimeout(function() {
+                x(k)
+            }, 500);
+            setTimeout(function() {
+                N();
+                p();
+                for (var e = 0; e < O.length; e++) {
+                    T(O[e])
+                }
+            }, 15500)
+        }, true);
+        e.addEventListener("ended", function() {
+            N();
+            h()
+        }, true);
+        e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+        document.body.appendChild(e);
+        e.play()
+    }
+
+    function x(e) {
+        e.className += " " + s + " " + o
+    }
+
+    function T(e) {
+        e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+    }
+
+    function N() {
+        var e = document.getElementsByClassName(s);
+        var t = new RegExp("\\b" + s + "\\b");
+        for (var n = 0; n < e.length; ) {
+            e[n].className = e[n].className.replace(t, "")
+        }
+    }
+
+    var e = 1;
+    var t = 1;
+    var n = 1000;
+    var r = 1200;
+    var i = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake.mp3";
+    var s = "mw-harlem_shake_me";
+    var o = "im_first";
+    var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+    var a = "mw-strobe_light";
+    var f = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";
+    var l = "mw_added_css";
+    var b = g();
+    var w = y();
+    var C = document.getElementsByTagName("*");
+    var k = null;
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            if (E(A)) {
+                k = A;
+                break
+            }
+        }
+    }
+    if (A === null) {
+        console.warn("Could not find a node of the right size. Please try a different page.");
+        return
+    }
+    c();
+    S();
+    var O = [];
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            O.push(A)
+        }
+    }
+})()    '><font color="#FF0000"><i class="menu-item-icon fa fa-music fa-fw"></i>High一下</a></font></li>
+<!-- end High一下 -->
     </ul>
-  
-
-  
-    
-
   
 
   
@@ -292,20 +445,12 @@
 
 
 
-  
-
-
-
-</div>
+ </div>
     </header>
-
-    
-
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
@@ -318,19 +463,13 @@
   
   
 
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://kaaaaai.cn/articles/seventhart.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kaaaaai">
-      <meta itemprop="description" content="我独自一人/照顾着/历代的星辰">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://os1i62usc.bkt.clouddn.com/head.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -342,23 +481,13 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/articles/seventhart.html" itemprop="url">
-                  突然的自我
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/articles/seventhart.html" itemprop="url">突然的自我</a></h2>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -366,30 +495,13 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2017-07-08 10:05:59" itemprop="dateCreated datePublished" datetime="2017-07-08T10:05:59+08:00">2017-07-08</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-08T10:05:59+08:00">
+                2017-07-08
+              </time>
             
 
             
-              
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-06-14 16:33:52" itemprop="dateModified" datetime="2018-06-14T16:33:52+08:00">2018-06-14</time>
-              
             
           </span>
 
@@ -405,7 +517,11 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/涂鸦/" itemprop="url" rel="index"><span itemprop="name">涂鸦</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/涂鸦/" itemprop="url" rel="index">
+                    <span itemprop="name">涂鸦</span>
+                  </a>
+                </span>
 
                 
                 
@@ -414,6 +530,17 @@
           
 
           
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/articles/seventhart.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://kaaaaai.cn/articles/seventhart.html" class="cy_cmt_count" data-xid="/articles/seventhart.html" itemprop="commentsCount" ></span>
+                </a>
+              
             
           
 
@@ -430,9 +557,6 @@
       </header>
     
 
-    
-    
-    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -441,38 +565,34 @@
       
         
           
-            <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　傍晚朋友打电话过来，叫我一起吃晚饭，我有些困说不想去，太累了。他重复，来嘛，我请客的。我笑了一下，不再坚持。骑自行车去吧，好像楼下有辆摩拜。<br> 　　路边有一个女孩，我想看清她长相，她抬头看过来，她和我对视了一会，我把目光轻巧的抽了回来。有个朋友总和我说他一个理论，他把和人对视看做一种比赛。一定不能认输，要看的对方先避开你才行。我觉得那种胜负太刻意了，有时候避开也不见得是输。<br>　　你以为我在看你吗，一点也没有。路上一辆警车把一辆巡逻摩托车撞倒了，副驾驶下来了一个人，他挺直了腰，指挥起了因为这个小车祸有点紊乱的交通。我骑车上了过河桥。<br> 　　有点挤。是因为刚刚的车祸吗？天气可真热啊。桥下的河堤有一个男人，那个河堤我之前都没有见过有人走下去。那个男人刚挂了电话，背着手看河，过了一会，在那个方寸里踱起了步，悠闲的快没了形状。那么悠闲的男人，那么平静的河流。<br>　　我下桥的时候，回头看了一眼那个男人，他已经融化在岸边，变成一滩平静的水洼了。我想那么年轻就能成为自己想成为的事物可真好啊。虽然他可能更想变成河流。<br>　　在骑进一条窄巷前，又接到朋友电话，你还来不来啊，我们可先吃了。旁边一个小声音，都快吃完了。<br>　　那，我待会给你们上饭后甜点。挂了电话，车铃因为经过一个坑响了声，叮铃~铃。刚刚出来门好像只锁了一下，早上洗头发的时候好像用的是那瓶新的洗发水，旧的还有多少，丢了吧，和那瓶过期的花露水一起丢了好了。<br>　　接下来是一条窄巷，一只大熊牵着一只小熊，小熊走路的节奏是冲刺的跑一阵，再挂在大熊的手上走不动一阵。起初我不知道，以为他们是在匀速走，我贴近，想从旁边绕过去，小熊停下，我急刹车，没有绕过去。大熊说，你看你不好好走路，后边的叔叔都过不去了。我又刹了一下车。我倒像蹒跚学步的小孩了。我从旁边绕过去，歪头说，不是叔叔，是哥哥。但又全然不是因为计较年龄才说的。<br>　　夏日傍晚的小巷里，一只大熊一只小熊在那呆住一会。谁看见，食欲都会变得旺盛起来。<br>　　差不多到了。我把单车停好。坐电梯，进了饭店，正找他们坐哪呢，天花板上传来一个声音，你怎么才来啊，我们都快吃完了。原来是我朋友喝醉了，飘在了天花板上，还有一些我不认识的陌生人，也醉眼朦胧的飘在上面。我问他，他们呢那个房间。哝哝就那里。我牵着他散了的鞋带，带着他往里走。<br>　　诶我说，你们怎么都不照顾一下他，他都飘到大厅去了。房间里还有两个人，说请我吃饭的朋友，正准备夹菜。他喝醉了，拉不住啊。拉不住在天花板喃喃，放开我，我要去救紫霞仙子。<br>　　我们都笑了，不一会，就融化在房间里了。</p>
-<div id="aplayer1" class="aplayer" style="margin-bottom: 20px;"></div>
-		<script>
-			new APlayer({
-				element: document.getElementById("aplayer1"),
-				narrow: false,
-				autoplay: true,
-				showlrc: 0,
-				music: {
-					title: "突然的自我",
-					author: "伍佰",
-					url: "http://osm7cxvrb.bkt.clouddn.com/%E7%AA%81%E7%84%B6%E7%9A%84%E8%87%AA%E6%88%91%20-%20%E4%BC%8D%E4%BD%B0.mp3",
-					pic: "http://osm7cxvrb.bkt.clouddn.com/music1_pic.png",
-				}
-			});
-		</script>
-          
+           　　傍晚朋友打电话过来，叫我一起吃晚饭，我有些困说不想去，太累了。他重复，来嘛，我请客的。我笑了一下，不再坚持。骑自行车去吧，好像楼下有辆摩拜。 　　路边有一个女孩，我想看清她长相，她抬头看过来，她和我对视了一会，我把目光轻巧的抽了回来。有个朋友总和我说他一个理论，他把和人对视看做一种比赛。一定不
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/articles/seventhart.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
 
-    
+    <div>
+      
+    </div>
 
-    
-    
-    
+    <div>
+      
+    </div>
 
+    <div>
+      
+    </div>
     
-
-    
-
-    
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
       
@@ -486,10 +606,6 @@
         <div class="post-eof"></div>
       
     </footer>
-  </div>
-  
-  
-  
   </article>
 
 
@@ -502,19 +618,13 @@
   
   
 
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://kaaaaai.cn/articles/Sixthart.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kaaaaai">
-      <meta itemprop="description" content="我独自一人/照顾着/历代的星辰">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://os1i62usc.bkt.clouddn.com/head.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -526,23 +636,13 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/articles/Sixthart.html" itemprop="url">
-                  Android 笔记 - 调用系统发短信功能，自定义号码和短信内容
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/articles/Sixthart.html" itemprop="url">Android 笔记 - 调用系统发短信功能，自定义号码和短信内容</a></h2>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -550,30 +650,13 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2017-07-07 20:31:05" itemprop="dateCreated datePublished" datetime="2017-07-07T20:31:05+08:00">2017-07-07</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-07T20:31:05+08:00">
+                2017-07-07
+              </time>
             
 
             
-              
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-06-14 16:33:52" itemprop="dateModified" datetime="2018-06-14T16:33:52+08:00">2018-06-14</time>
-              
             
           </span>
 
@@ -589,7 +672,11 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
 
                 
                 
@@ -598,6 +685,17 @@
           
 
           
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/articles/Sixthart.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://kaaaaai.cn/articles/Sixthart.html" class="cy_cmt_count" data-xid="/articles/Sixthart.html" itemprop="commentsCount" ></span>
+                </a>
+              
             
           
 
@@ -614,9 +712,6 @@
       </header>
     
 
-    
-    
-    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -625,35 +720,35 @@
       
         
           
-            <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>&#160; &#160; &#160; &#160;开发需用使用到系统短信功能，昨天看了下文档，弄了一下午，现在已经得到我想要的效果，做个笔记记一下。具体有两种方法，一种需要跳到系统短信界面发送，可自带号码和短信内容参数，另一种可以直接在App内发送，并返回发送状态。两种方法都写在下面。</p>
-<p>&#160; &#160; &#160; &#160;<em>无论是哪种方法，都需要申请权限，在app/src/main/AndroidManifest.xml文件内添加</em><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;uses-permission android:name=<span class="string">"android.permission.SEND_SMS"</span> /&gt;</span><br></pre></td></tr></table></figure></p>
-<h2 id="跳到系统界面发送短信"><a href="#跳到系统界面发送短信" class="headerlink" title="跳到系统界面发送短信"></a>跳到系统界面发送短信</h2><h3 id="新建工具类"><a href="#新建工具类" class="headerlink" title="新建工具类"></a>新建工具类</h3><p>　　为了方便使用，我们定义一个工具类用来调用。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ContentUtil</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">	    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">showToast</span><span class="params">(Context context, String msg)</span></span></span><br><span class="line"><span class="function">	    </span>&#123;</span><br><span class="line">	        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();;</span><br><span class="line">	    &#125;</span><br><span class="line">	</span><br><span class="line">	    <span class="comment">/**</span></span><br><span class="line"><span class="comment">	     * 调用系统界面，给指定的号码发送短信，并附带短信内容</span></span><br><span class="line"><span class="comment">	     *</span></span><br><span class="line"><span class="comment">	     * <span class="doctag">@param</span> context</span></span><br><span class="line"><span class="comment">	     * <span class="doctag">@param</span> number</span></span><br><span class="line"><span class="comment">	     * <span class="doctag">@param</span> body</span></span><br><span class="line"><span class="comment">	     */</span></span><br><span class="line">	    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sendSmsWithBody</span><span class="params">(Context context, String number, String body)</span> </span>&#123;</span><br><span class="line">	        Intent sendIntent = <span class="keyword">new</span> Intent(Intent.ACTION_SENDTO);</span><br><span class="line">	        sendIntent.setData(Uri.parse(<span class="string">"smsto:"</span> + number));</span><br><span class="line">	        sendIntent.putExtra(<span class="string">"sms_body"</span>, body);</span><br><span class="line">	        context.startActivity(sendIntent);</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="xml-布局文件修改"><a href="#xml-布局文件修改" class="headerlink" title="xml 布局文件修改"></a>xml 布局文件修改</h3><p>　　这里我放了两个文本输入框，和一个发送按钮。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">\&lt;RelativeLayout xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">	    xmlns:tools=<span class="string">"http://schemas.android.com/tools"</span></span><br><span class="line">	    android:layout_width=<span class="string">"match_parent"</span></span><br><span class="line">	    android:layout_height=<span class="string">"match_parent"</span></span><br><span class="line">	    android:paddingBottom=<span class="string">"@dimen/activity_vertical_margin"</span></span><br><span class="line">	    android:paddingLeft=<span class="string">"@dimen/activity_horizontal_margin"</span></span><br><span class="line">	    android:paddingRight=<span class="string">"@dimen/activity_horizontal_margin"</span></span><br><span class="line">	    android:paddingTop=<span class="string">"@dimen/activity_vertical_margin"</span></span><br><span class="line">	    tools:context=<span class="string">".MessageActivity"</span>&gt;</span><br><span class="line">	</span><br><span class="line">	    &lt;EditText</span><br><span class="line">	        android:id=<span class="string">"@+id/phonenumber_edit"</span></span><br><span class="line">	        android:layout_width=<span class="string">"match_parent"</span></span><br><span class="line">	        android:layout_height=<span class="string">"wrap_content"</span></span><br><span class="line">	        android:text=<span class="string">"13879327137"</span>/&gt;</span><br><span class="line">	</span><br><span class="line">	    &lt;EditText</span><br><span class="line">	        android:id=<span class="string">"@+id/message_edit"</span></span><br><span class="line">	        android:layout_width=<span class="string">"match_parent"</span></span><br><span class="line">	        android:layout_height=<span class="string">"wrap_content"</span></span><br><span class="line">	        android:layout_below=<span class="string">"@id/phonenumber_edit"</span></span><br><span class="line">	        android:text=<span class="string">"你好吗？"</span>/&gt;</span><br><span class="line">	</span><br><span class="line">	    &lt;Button</span><br><span class="line">	        android:id=<span class="string">"@+id/message_btn"</span></span><br><span class="line">	        android:layout_width=<span class="string">"wrap_content"</span></span><br><span class="line">	        android:layout_height=<span class="string">"wrap_content"</span></span><br><span class="line">	        android:layout_below=<span class="string">"@+id/message_edit"</span></span><br><span class="line">	        android:text=<span class="string">"发送"</span>/&gt;</span><br><span class="line">	&lt;/RelativeLayout&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="Activity-活动文件修改"><a href="#Activity-活动文件修改" class="headerlink" title="Activity 活动文件修改"></a>Activity 活动文件修改</h3><p>方法实现</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MessageActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> EditText phoneNumedit;</span><br><span class="line">    <span class="keyword">private</span> EditText msgEdit;</span><br><span class="line">    <span class="keyword">private</span> Button msgBtn;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_message);</span><br><span class="line"></span><br><span class="line">        phoneNumedit=(EditText) findViewById(R.id.phonenumber_edit);</span><br><span class="line">        msgEdit=(EditText) findViewById(R.id.message_edit);</span><br><span class="line">        msgBtn=(Button)findViewById(R.id.message_btn);</span><br><span class="line">        msgBtn.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (msgEdit.getText().toString() != <span class="string">""</span> &amp;&amp; phoneNumedit.getText().toString() != <span class="string">""</span>) <span class="comment">//判断手机号和短信内容不为空</span></span><br><span class="line">                &#123;</span><br><span class="line">                    ContentUtil.sendSmsWithBody(MessageActivity.<span class="keyword">this</span>, phoneNumedit.getText().toString() , msgEdit.getText().toString());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>　　点击运行就可以看到效果了。</p>
-<h2 id="后台静默发短信"><a href="#后台静默发短信" class="headerlink" title="后台静默发短信"></a>后台静默发短信</h2><p>　　布局文件和上面的差不多，就是名字不一样。所以省略一下，下面是方法实现</p>
-<h3 id="Activity-活动文件修改-1"><a href="#Activity-活动文件修改-1" class="headerlink" title="Activity 活动文件修改"></a>Activity 活动文件修改</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Message_second</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> EditText phone_number_editText;</span><br><span class="line">    <span class="keyword">private</span> EditText sms_content_editText;</span><br><span class="line">    <span class="keyword">private</span> Button send_sms_button;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_message_second);</span><br><span class="line"></span><br><span class="line">        phone_number_editText = (EditText) findViewById(R.id.phone_number_editText);</span><br><span class="line">        sms_content_editText = (EditText) findViewById(R.id.sms_content_editText);</span><br><span class="line">        send_sms_button = (Button) findViewById(R.id.send_sms_button);</span><br><span class="line"></span><br><span class="line">        send_sms_button.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View arg0)</span> </span>&#123;</span><br><span class="line">                String phone_number = phone_number_editText.getText().toString().trim();</span><br><span class="line">                String sms_content = sms_content_editText.getText().toString().trim();</span><br><span class="line">                <span class="keyword">if</span>(phone_number.equals(<span class="string">""</span>)) &#123;</span><br><span class="line">                    Toast.makeText(Message_second.<span class="keyword">this</span>, R.string.str_remind_input_phone_number, Toast.LENGTH_LONG).show();</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    SmsManager smsManager = SmsManager.getDefault();</span><br><span class="line">                    <span class="keyword">if</span>(sms_content.length() &gt; <span class="number">70</span>) &#123;</span><br><span class="line">                        List&lt;String&gt; contents = smsManager.divideMessage(sms_content);</span><br><span class="line">                        <span class="keyword">for</span>(String sms : contents) &#123;</span><br><span class="line">                            smsManager.sendTextMessage(phone_number, <span class="keyword">null</span>, sms, <span class="keyword">null</span>, <span class="keyword">null</span>);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        smsManager.sendTextMessage(phone_number, <span class="keyword">null</span>, sms_content, <span class="keyword">null</span>, <span class="keyword">null</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                    Toast.makeText(Message_second.<span class="keyword">this</span>, R.string.str_remind_sms_send_finish, Toast.LENGTH_SHORT).show();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="OVER"><a href="#OVER" class="headerlink" title="OVER"></a>OVER</h2><p>　　托谷歌的福，以上就是我半天的工作成果。其他时间需要做对短信内容进行AES加密，不过我还不怎么懂。稍微了解了一下发现很有意思的一点，寻常意义上的加密，是用通信双方约定好的密匙，然后对要传达的信息进行加密。但原来现在有很多加密方法，是把要送达的信息当做密匙用，而加密内容反而要双方约定好。从送信的动作传达信息，而不是通过信本身，这点我觉得很有意思。聪明人可真多啊~</p>
-
-          
+           &#160; &#160; &#160; &#160;开发需用使用到系统短信功能，昨天看了下文档，弄了一下午，现在已经得到我想要的效果，做个笔记记一下。具体有两种方法，一种需要跳到系统短信界面发送，可自带号码和短信内容参数，另一种可以直接在App内发送，并返回发送状态。两种方法都写在下面。
+&#1
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/articles/Sixthart.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
 
-    
+    <div>
+      
+    </div>
 
-    
-    
-    
+    <div>
+      
+    </div>
 
+    <div>
+      
+    </div>
     
-
-    
-
-    
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
       
@@ -667,10 +762,6 @@
         <div class="post-eof"></div>
       
     </footer>
-  </div>
-  
-  
-  
   </article>
 
 
@@ -683,19 +774,13 @@
   
   
 
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://kaaaaai.cn/articles/fifthart.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kaaaaai">
-      <meta itemprop="description" content="我独自一人/照顾着/历代的星辰">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://os1i62usc.bkt.clouddn.com/head.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -707,23 +792,13 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/articles/fifthart.html" itemprop="url">
-                  最近的读书笔记
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/articles/fifthart.html" itemprop="url">最近的读书笔记</a></h2>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -731,30 +806,13 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2017-07-01 13:00:52" itemprop="dateCreated datePublished" datetime="2017-07-01T13:00:52+08:00">2017-07-01</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-01T13:00:52+08:00">
+                2017-07-01
+              </time>
             
 
             
-              
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-06-14 16:33:52" itemprop="dateModified" datetime="2018-06-14T16:33:52+08:00">2018-06-14</time>
-              
             
           </span>
 
@@ -770,7 +828,11 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
 
                 
                 
@@ -779,6 +841,17 @@
           
 
           
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/articles/fifthart.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://kaaaaai.cn/articles/fifthart.html" class="cy_cmt_count" data-xid="/articles/fifthart.html" itemprop="commentsCount" ></span>
+                </a>
+              
             
           
 
@@ -795,9 +868,6 @@
       </header>
     
 
-    
-    
-    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -806,37 +876,39 @@
       
         
           
-            <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="《罗曼蒂克消亡史》"><a href="#《罗曼蒂克消亡史》" class="headerlink" title="《罗曼蒂克消亡史》"></a>《罗曼蒂克消亡史》</h2><div align="right"><a href="https://www.amazon.cn/dp/B01N2UNFB6/ref=cm_sw_r_qz_2_dp_2unvzb8Y953A4" target="_blank" rel="noopener">程耳</a></div><div align="right">9 条标注，2 条笔记</div>
+           《罗曼蒂克消亡史》程耳9 条标注，2 条笔记
 
 
-<blockquote>
-<p>她读书不多，却自以为并不少，偏爱被廉价的诗意打动。同时她也没能碰到好老师，并不真正会读书，翻去再多的页码也没有用处，知识与视野都很局限。 </p>
-<p>她生在普通人家，父母都颇为急功近利，渴望改变。她从小的教训便仅限于不近人情的严苛，却不得要领。她在压抑中学会了忍耐与逃避，离有效的解决之道相去甚远。这使得胡小姐即使在成名之后也仍然时时拘谨、紧张刻板。谈吐之间既没有市井的灵活风趣，也没有她所期待或是她以为拥有的智慧，无知而刻板。<br>* 真是刻薄啊~</p>
-<p>但不会真的没有影响，而且不好的影响总在致命之处，比如她内心的懦弱。她在成名之后跟沪上著名的富二代同居数年，数年之中一定有过很多次机会，可惜她都没有抓住，最终也没有解决掉临门一脚。分手弄得满城风雨，她敏感脆弱，上海几乎待不下去。在最为孤独困苦的时候她回到家乡，回到父母家小住，是躲避也是想从家里得些安慰或启示。</p>
-<p>父母却都不是敏感的人，离世界比她更遥远，而且真正关心的无非是利害。他们缺少远见，拥有的只是丧失自信后的迂腐。</p>
-<p>再抬头望过去，静静地看着自己，她奇怪地感到从接了电话直到现在，担心突然减弱了，只剩下一种徒劳和对自己的厌恶——像是看到了小时候，土气和穷酸历历在目。</p>
-<p>她有时会想起在杜先生家的盥洗室，从镜子里瞥见自己的那一刻，一切早已铸就，往昔从未离她而去。</p>
-<p>他长得不算丑陋，力气又大，反复推搡纠缠之后，胸终于被他掏了出来，暴露在空气里，乳头瞬间变硬。羞耻感蹿升使她的反抗停顿了片刻。他抓住这片刻时机，捅了进去，把握野蛮与温柔的尺度，在激烈与平静间摇摆，很快占据主动，渐渐变得从容。<br>第一次总是这样的流程吧。久而久之，她也就伸出手来，即便不算抱住但至少是扶着或仅仅只是停留在他的腰或是背上。所谓爱情或爱情的错觉便从这去意不明的手开始萌发生长。<br>* 便从这目的明确的欲望开始</p>
-<p>他们在幽暗中聊天，一些不重要的话，说说停停，前言不搭后语，好像在等待什么也好像什么也没有等待。想不想跟我回去？我很便宜的，她突然说。他没有回答，他们陷入了沉默。</p>
-<p>她一步跨到床上，熟练地在他身上坐了下来。他感到床铺以及整个房间都在随着她震荡摇摆。为了不被迅速蔓延的快感过早击倒，他紧闭双唇，用舌尖顶住上颚，望着发黄以及发黑的天花板，就着裸露的白炽灯泡的光线，数墙上的裂纹。好像回到了小时候。</p>
-</blockquote>
 
-          
+她读书不多，却自以为并不少，偏爱被廉价的诗意打动。同时她也没能碰到好老师，并不真正会读书，翻去再多的页码也没有用处，知识与视野都很局限。 
+她生在普通人家，父母都颇为急功近利，渴望改变。她从小的教训便仅限于不近人情的严苛，却不得要领。她在压抑中学
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/articles/fifthart.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
 
-    
+    <div>
+      
+    </div>
 
-    
-    
-    
+    <div>
+      
+    </div>
 
+    <div>
+      
+    </div>
     
-
-    
-
-    
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
       
@@ -850,10 +922,6 @@
         <div class="post-eof"></div>
       
     </footer>
-  </div>
-  
-  
-  
   </article>
 
 
@@ -866,19 +934,13 @@
   
   
 
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://kaaaaai.cn/articles/fourthart.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kaaaaai">
-      <meta itemprop="description" content="我独自一人/照顾着/历代的星辰">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://os1i62usc.bkt.clouddn.com/head.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -890,23 +952,13 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/articles/fourthart.html" itemprop="url">
-                  今日文风：东北偏北一级微风
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/articles/fourthart.html" itemprop="url">今日文风：东北偏北一级微风</a></h2>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -914,30 +966,13 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2017-06-26 12:44:41" itemprop="dateCreated datePublished" datetime="2017-06-26T12:44:41+08:00">2017-06-26</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-26T12:44:41+08:00">
+                2017-06-26
+              </time>
             
 
             
-              
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-06-14 16:33:52" itemprop="dateModified" datetime="2018-06-14T16:33:52+08:00">2018-06-14</time>
-              
             
           </span>
 
@@ -953,7 +988,11 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/涂鸦/" itemprop="url" rel="index"><span itemprop="name">涂鸦</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/涂鸦/" itemprop="url" rel="index">
+                    <span itemprop="name">涂鸦</span>
+                  </a>
+                </span>
 
                 
                 
@@ -962,6 +1001,17 @@
           
 
           
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/articles/fourthart.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://kaaaaai.cn/articles/fourthart.html" class="cy_cmt_count" data-xid="/articles/fourthart.html" itemprop="commentsCount" ></span>
+                </a>
+              
             
           
 
@@ -978,9 +1028,6 @@
       </header>
     
 
-    
-    
-    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -989,28 +1036,34 @@
       
         
           
-            <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>&#160; &#160; &#160; &#160;为了让网站看起来充实一点，我最近都想把日记都搬到这上面来写。之前看太宰治不成熟，虽然仍旧是摆弄消极情绪但技巧上却用力过度的处女作，忽然原谅他是看到书里一句，“怀着美好的情感，人往往做出低劣的作品”。真的是让人原谅他到想和他抱头痛哭。这也大概是我最近的状态吧。<br>&#160; &#160; &#160; &#160;我经常看一本书，看久了，写字时的语气就会下意识的模仿作者，特别专心致志的时候，连心里话也下意识的用那个语气。<br>&#160; &#160; &#160; &#160;早以前很喜欢村上春树，写作文总是模仿他，虽然他是男性作家，但情感细腻丰富，要使用大量长短句铺开来写，所以那时候我的作文总是亢长，段落结构大都雷同，先写一点现实生活，最好带点趣味性，再写想到的回忆，也最好带点趣味性，然后再回来写某段路上看到的风景，“某处传来一阵声音，俶尔远逝，风景中有一些不可名状的色彩，太阳在远处的山坡上落下。”大致抓到捉摸不透的感觉就行，然后因为一些难以言喻的感觉，讲个大道理，总结全文。<br>&#160; &#160; &#160; &#160;也不知道是不是运气好，那会有个老师挺喜欢我的。不过因为我自己惫懒，因为这样写一篇作文总是得写三四页，加上词汇量不丰富总喜欢在作文里用“不可名状”“难以言喻”“未及分辨”等含糊的词语，三两次以后被老师发现了，她总是用红笔圈出来，在旁边写，到底是什么形状，到底是什么感觉，到底是什么东西。就总是拖欠作文，甚至后面再没交过作文。记得老师也说过我，忘记我当时是用什么态度和她解释的，打那以后她就不怎么关心我了。<br>&#160; &#160; &#160; &#160;在学村上之前也还学过韩寒和小四，但学的不是很好，有意思的段子和精致的词汇知道的都挺少，虽然后来发现这些都只是留于表面，但那会已经在看其他的书了。现在偶尔还会去看韩寒以前的博客，和以前想的不一样，现在就觉得网上虽然也有很多正义的人对社会现状不满意大肆批判的人，但都带着太多戾气，而且总是时不时的写些煽动性的句子，很不好。一等不好的是，总是“你国你国”的。阴阳怪气。<br>&#160; &#160; &#160; &#160;从村上跳出来，我对琢磨情绪的细微处有什么和描写不可名状的事物感到乏味。开始看王朔王小波冯唐，冯唐比较好学，王朔比较难学，王小波学不来。共同点是都挺敞着的，大开大合，北京大老爷们，冯唐有点不像的地方是书里书外零零碎碎自恋，不讨人喜欢。不过这点又比胡兰成好一点，胡兰成，老派文人，文风一板一眼，有时也像个风流才子，多数时候像个富态乡绅，总拿女孩子为自己做了很多说事，自恋，自恋的不好看，老不正经。当时还同时看了很多书，什么都学了一点，什么也都不像。<br>&#160; &#160; &#160; &#160;后来又很喜欢卡佛，他的文风漫不经心不着边际，结尾总是戛然而止，让人摸不着头脑却留有余味。当时想，这才是真正的直男写作风格啊！冯唐在书里写了那么多性器官也都弱爆了，也都没有卡佛有男子气概好不好？在刻意的模仿了一阵子后相差还是很大。念念不忘，最近在网易音乐看到一句很有卡佛味道的话，</p>
-<blockquote>
-<p>“真正准备离开的人，只会挑一个风和日丽的下午，随意裹上一件外套出门，再也不会回来。真正要走的人是不会说再见的 ​。” </p>
-</blockquote>
-<p>&#160; &#160; &#160; &#160;不写后半句不会说再见做补充就更像了。<br>&#160; &#160; &#160; &#160;至于总是模仿别人，好不好我也说不上，莫言的魔幻现实学了马尔克斯大半，王小波的书也隐约有卡夫卡的影子。我当然不是在自比大师，只是大师都这么做了，我这么做也应该没什么坏处。现在比以前更敢于写作了，以前不敢的原因是写的糟糕，另外又怕给人留下印象，你天天写东西以后是不是要当个作家啊。因为知道自己没什么才华，所以没有底气接受这个印象。现在的专业、职业规划和写作都没什么关系，写作成了真正兴趣使然的事情，就无所畏惧了。<br>&#160; &#160; &#160; &#160;前阵子刚看完木心老先生的《文学回忆录》，写的很好。木心老先生的文风，下结论的时候诚恳果断，偶尔对自己的结论再做递进说明，比如，可爱，可爱的一塌糊涂。浪漫，浪漫的一塌糊涂。关联词用的少，说一句是一句，很有底气。<br>&#160; &#160; &#160; &#160;先生说自己和陶潜相似，喜欢写风，文笔、格调都有风的特征。所以我模仿他的时候总对自己说，要像风一点要轻盈一些。<br>&#160; &#160; &#160; &#160;不过这篇学的并不是很好。</p>
-
-          
+           &#160; &#160; &#160; &#160;为了让网站看起来充实一点，我最近都想把日记都搬到这上面来写。之前看太宰治不成熟，虽然仍旧是摆弄消极情绪但技巧上却用力过度的处女作，忽然原谅他是看到书里一句，“怀着美好的情感，人往往做出低劣的作品”。真的是让人原谅他到想和他抱头痛哭。这也大概是我
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/articles/fourthart.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
 
-    
+    <div>
+      
+    </div>
 
-    
-    
-    
+    <div>
+      
+    </div>
 
+    <div>
+      
+    </div>
     
-
-    
-
-    
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
       
@@ -1024,10 +1077,6 @@
         <div class="post-eof"></div>
       
     </footer>
-  </div>
-  
-  
-  
   </article>
 
 
@@ -1040,19 +1089,13 @@
   
   
 
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://kaaaaai.cn/articles/thirdart.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kaaaaai">
-      <meta itemprop="description" content="我独自一人/照顾着/历代的星辰">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://os1i62usc.bkt.clouddn.com/head.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1064,23 +1107,13 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/articles/thirdart.html" itemprop="url">
-                  记一篇以前写的诗
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/articles/thirdart.html" itemprop="url">记一篇以前写的诗</a></h2>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1088,30 +1121,13 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2017-06-25 12:38:54" itemprop="dateCreated datePublished" datetime="2017-06-25T12:38:54+08:00">2017-06-25</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-25T12:38:54+08:00">
+                2017-06-25
+              </time>
             
 
             
-              
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-06-14 16:33:52" itemprop="dateModified" datetime="2018-06-14T16:33:52+08:00">2018-06-14</time>
-              
             
           </span>
 
@@ -1127,7 +1143,11 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/涂鸦/" itemprop="url" rel="index"><span itemprop="name">涂鸦</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/涂鸦/" itemprop="url" rel="index">
+                    <span itemprop="name">涂鸦</span>
+                  </a>
+                </span>
 
                 
                 
@@ -1136,6 +1156,17 @@
           
 
           
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/articles/thirdart.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://kaaaaai.cn/articles/thirdart.html" class="cy_cmt_count" data-xid="/articles/thirdart.html" itemprop="commentsCount" ></span>
+                </a>
+              
             
           
 
@@ -1152,9 +1183,6 @@
       </header>
     
 
-    
-    
-    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1163,25 +1191,36 @@
       
         
           
-            <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>《金福南杀人事件始末》</p>
-<p>我在厕所的时候<br>突然想要<br>毁灭这个世界了<br>先从厕所开始<br>接下来是浴缸<br>接着是床<br>接着是女人<br>女人是毁灭不了的<br>我的计划<br>好像即将马上立即<br>要失败了<br>此时的厕所变得不安<br>点燃一支发条长颈鹿<br>是件残酷的事<br>可是我想谢谢你<br>玛莲很棒</p>
+           《金福南杀人事件始末》
+我在厕所的时候突然想要毁灭这个世界了先从厕所开始接下来是浴缸接着是床接着是女人女人是毁灭不了的我的计划好像即将马上立即要失败了此时的厕所变得不安点燃一支发条长颈鹿是件残酷的事可是我想谢谢你玛莲很棒
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/articles/thirdart.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
 
-    
+    <div>
+      
+    </div>
 
-    
-    
-    
+    <div>
+      
+    </div>
 
+    <div>
+      
+    </div>
     
-
-    
-
-    
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
       
@@ -1195,10 +1234,6 @@
         <div class="post-eof"></div>
       
     </footer>
-  </div>
-  
-  
-  
   </article>
 
 
@@ -1211,19 +1246,13 @@
   
   
 
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://kaaaaai.cn/articles/secondart.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kaaaaai">
-      <meta itemprop="description" content="我独自一人/照顾着/历代的星辰">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://os1i62usc.bkt.clouddn.com/head.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1235,23 +1264,13 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/articles/secondart.html" itemprop="url">
-                  今天中午吃汉堡，加点葱花加点糖
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/articles/secondart.html" itemprop="url">今天中午吃汉堡，加点葱花加点糖</a></h2>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1259,30 +1278,13 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2017-06-25 12:32:40" itemprop="dateCreated datePublished" datetime="2017-06-25T12:32:40+08:00">2017-06-25</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-25T12:32:40+08:00">
+                2017-06-25
+              </time>
             
 
             
-              
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-06-14 16:33:52" itemprop="dateModified" datetime="2018-06-14T16:33:52+08:00">2018-06-14</time>
-              
             
           </span>
 
@@ -1298,7 +1300,11 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/涂鸦/" itemprop="url" rel="index"><span itemprop="name">涂鸦</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/涂鸦/" itemprop="url" rel="index">
+                    <span itemprop="name">涂鸦</span>
+                  </a>
+                </span>
 
                 
                 
@@ -1307,6 +1313,17 @@
           
 
           
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/articles/secondart.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://kaaaaai.cn/articles/secondart.html" class="cy_cmt_count" data-xid="/articles/secondart.html" itemprop="commentsCount" ></span>
+                </a>
+              
             
           
 
@@ -1323,9 +1340,6 @@
       </header>
     
 
-    
-    
-    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1334,24 +1348,34 @@
       
         
           
-            <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>&#160; &#160; &#160; &#160;前天我在脖子上贴了个纹身，是一句藏文，意思是，除了上帝没有人可以惩罚你。<br>&#160; &#160; &#160; &#160;中午吃麦当劳，回去的时候在电梯里听到外面远远的一个声音，等一下等一下啊。我按了开门键，一个女生，她点了下头和我说了声谢谢，我也点了下头，什么也没说。<br>&#160; &#160; &#160; &#160;电梯里只有两个人，可能是为了缓和沉闷的气氛，她和我搭话，问，诶，你脖子上的，那个纹身？是韩文吗，是什么意思？<br>&#160; &#160; &#160; &#160;是藏文。<br>&#160; &#160; &#160; &#160;我想到虽然纹身很酷，这句话的意思也很酷，但如果在电梯里对一个陌生人口述出来，会显得很中二，不酷。<br>&#160; &#160; &#160; &#160;就是，今天中午吃汉堡，加点葱花加点糖的意思。<br>&#160; &#160; &#160; &#160;我在心里耸耸肩，语气是敷衍的酷。心里预期的效果是我说了一句敷衍的俏皮话，她笑一下，不再追问，大家和和气气的在各自楼层离开电梯。<br>&#160; &#160; &#160; &#160;她笑了起来，哈没想到西藏人民也爱吃炸鸡汉堡啊。她甩着马尾辫在二楼离开了。<br>&#160; &#160; &#160; &#160;我心情愉快，有那么一会，甚至不想酷了。</p>
-
-          
+           &#160; &#160; &#160; &#160;前天我在脖子上贴了个纹身，是一句藏文，意思是，除了上帝没有人可以惩罚你。&#160; &#160; &#160; &#160;中午吃麦当劳，回去的时候在电梯里听到外面远远的一个声音，等一下等一下啊。我按了开门键，一个女生，她点了下头和我说了声谢
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/articles/secondart.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
 
-    
+    <div>
+      
+    </div>
 
-    
-    
-    
+    <div>
+      
+    </div>
 
+    <div>
+      
+    </div>
     
-
-    
-
-    
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
       
@@ -1365,10 +1389,6 @@
         <div class="post-eof"></div>
       
     </footer>
-  </div>
-  
-  
-  
   </article>
 
 
@@ -1381,19 +1401,13 @@
   
   
 
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://kaaaaai.cn/articles/firstart.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kaaaaai">
-      <meta itemprop="description" content="我独自一人/照顾着/历代的星辰">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://os1i62usc.bkt.clouddn.com/head.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1405,23 +1419,13 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/articles/firstart.html" itemprop="url">
-                  欸，下午放学前记得帮我把要给前面那个女孩的情书写好
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/articles/firstart.html" itemprop="url">欸，下午放学前记得帮我把要给前面那个女孩的情书写好</a></h2>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1429,30 +1433,13 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2017-06-24 14:00:05" itemprop="dateCreated datePublished" datetime="2017-06-24T14:00:05+08:00">2017-06-24</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-24T14:00:05+08:00">
+                2017-06-24
+              </time>
             
 
             
-              
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-06-14 16:33:52" itemprop="dateModified" datetime="2018-06-14T16:33:52+08:00">2018-06-14</time>
-              
             
           </span>
 
@@ -1468,7 +1455,11 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/涂鸦/" itemprop="url" rel="index"><span itemprop="name">涂鸦</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/涂鸦/" itemprop="url" rel="index">
+                    <span itemprop="name">涂鸦</span>
+                  </a>
+                </span>
 
                 
                 
@@ -1477,6 +1468,17 @@
           
 
           
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/articles/firstart.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://kaaaaai.cn/articles/firstart.html" class="cy_cmt_count" data-xid="/articles/firstart.html" itemprop="commentsCount" ></span>
+                </a>
+              
             
           
 
@@ -1493,9 +1495,6 @@
       </header>
     
 
-    
-    
-    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1504,24 +1503,35 @@
       
         
           
-            <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><pre><code>暂无访问权限。
-</code></pre>
+           暂无访问权限。
+
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/articles/firstart.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
 
-    
+    <div>
+      
+    </div>
 
-    
-    
-    
+    <div>
+      
+    </div>
 
+    <div>
+      
+    </div>
     
-
-    
-
-    
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
       
@@ -1535,10 +1545,6 @@
         <div class="post-eof"></div>
       
     </footer>
-  </div>
-  
-  
-  
   </article>
 
 
@@ -1551,19 +1557,13 @@
   
   
 
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://kaaaaai.cn/articles/Hello-Edison-s-World.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kaaaaai">
-      <meta itemprop="description" content="我独自一人/照顾着/历代的星辰">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://os1i62usc.bkt.clouddn.com/head.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1575,23 +1575,13 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/articles/Hello-Edison-s-World.html" itemprop="url">
-                  Here is Kai's World
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/articles/Hello-Edison-s-World.html" itemprop="url">Here is Kai's World</a></h2>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1599,30 +1589,13 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2017-06-23 21:25:54" itemprop="dateCreated datePublished" datetime="2017-06-23T21:25:54+08:00">2017-06-23</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-23T21:25:54+08:00">
+                2017-06-23
+              </time>
             
 
             
-              
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-06-14 16:33:52" itemprop="dateModified" datetime="2018-06-14T16:33:52+08:00">2018-06-14</time>
-              
             
           </span>
 
@@ -1638,7 +1611,11 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/肇始/" itemprop="url" rel="index"><span itemprop="name">肇始</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/肇始/" itemprop="url" rel="index">
+                    <span itemprop="name">肇始</span>
+                  </a>
+                </span>
 
                 
                 
@@ -1647,6 +1624,17 @@
           
 
           
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/articles/Hello-Edison-s-World.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://kaaaaai.cn/articles/Hello-Edison-s-World.html" class="cy_cmt_count" data-xid="/articles/Hello-Edison-s-World.html" itemprop="commentsCount" ></span>
+                </a>
+              
             
           
 
@@ -1663,9 +1651,6 @@
       </header>
     
 
-    
-    
-    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1674,39 +1659,34 @@
       
         
           
-            <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>&#160; &#160; &#160; &#160;哈哈哈我终于解决了部署时出现的cannot find module、local hexo not found in finder等问题用<code>github</code>仓库做服务器弄好了基于<code>Node.js</code>的静态博客<code>Hexo</code>我的独立博客了不过，会不会写东西就不知道喽~~~~</p>
-<div id="aplayer0" class="aplayer" style="margin-bottom: 20px;"></div>
-		<script>
-			new APlayer({
-				element: document.getElementById("aplayer0"),
-				narrow: false,
-				autoplay: true,
-				showlrc: 0,
-				music: {
-					title: "Let's Dance",
-					author: "David Bowie",
-					url: "http://os1i62usc.bkt.clouddn.com/David%20Bowie%20-%20Let%27s%20Dance.mp3",
-					pic: "http://os1i62usc.bkt.clouddn.com/Let%27s%20Dance_icon.png",
-				}
-			});
-		</script>
-
-          
+           &#160; &#160; &#160; &#160;哈哈哈我终于解决了部署时出现的cannot find module、local hexo not found in finder等问题用github仓库做服务器弄好了基于Node.js的静态博客Hexo我的独立博客了不过，会不会写东西就不知道喽
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/articles/Hello-Edison-s-World.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
 
-    
+    <div>
+      
+    </div>
 
-    
-    
-    
+    <div>
+      
+    </div>
 
+    <div>
+      
+    </div>
     
-
-    
-
-    
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
       
@@ -1720,10 +1700,6 @@
         <div class="post-eof"></div>
       
     </footer>
-  </div>
-  
-  
-  
   </article>
 
 
@@ -1736,19 +1712,13 @@
   
   
 
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://kaaaaai.cn/articles/hello-world.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kaaaaai">
-      <meta itemprop="description" content="我独自一人/照顾着/历代的星辰">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://os1i62usc.bkt.clouddn.com/head.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1760,23 +1730,13 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/articles/hello-world.html" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/articles/hello-world.html" itemprop="url">Hello World</a></h2>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1784,30 +1744,13 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2017-06-23 16:35:40" itemprop="dateCreated datePublished" datetime="2017-06-23T16:35:40+08:00">2017-06-23</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-23T16:35:40+08:00">
+                2017-06-23
+              </time>
             
 
             
-              
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-06-14 16:33:52" itemprop="dateModified" datetime="2018-06-14T16:33:52+08:00">2018-06-14</time>
-              
             
           </span>
 
@@ -1823,7 +1766,11 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/肇始/" itemprop="url" rel="index"><span itemprop="name">肇始</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/肇始/" itemprop="url" rel="index">
+                    <span itemprop="name">肇始</span>
+                  </a>
+                </span>
 
                 
                 
@@ -1832,6 +1779,17 @@
           
 
           
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/articles/hello-world.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://kaaaaai.cn/articles/hello-world.html" class="cy_cmt_count" data-xid="/articles/hello-world.html" itemprop="commentsCount" ></span>
+                </a>
+              
             
           
 
@@ -1848,9 +1806,6 @@
       </header>
     
 
-    
-    
-    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1859,32 +1814,34 @@
       
         
           
-            <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
+           Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/articles/hello-world.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
 
-    
+    <div>
+      
+    </div>
 
-    
-    
-    
+    <div>
+      
+    </div>
 
+    <div>
+      
+    </div>
     
-
-    
-
-    
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
       
@@ -1898,10 +1855,6 @@
         <div class="post-eof"></div>
       
     </footer>
-  </div>
-  
-  
-  
   </article>
 
 
@@ -1910,12 +1863,15 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
   </nav>
 
 
 
           </div>
+          
+
+
           
 
         </div>
@@ -1931,159 +1887,135 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">Kaaaaai</p>
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://os1i62usc.bkt.clouddn.com/head.jpg"
+               alt="Kaaaaai" />
+          <p class="site-author-name" itemprop="name">Kaaaaai</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
               <p class="site-description motion-element" itemprop="description">我独自一人/照顾着/历代的星辰</p>
-          </div>
+           
+        </div>
+        <nav class="site-state motion-element">
 
           
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">39</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  <a href="/categories/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">3</span>
-                    <span class="site-state-item-name">分类</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">34</span>
-                    <span class="site-state-item-name">标签</span>
-                  </a>
-                </div>
-              
-            </nav>
-          
-
-          
-            <div class="feed-link motion-element">
-              <a href="/atom.xml" rel="alternate">
-                <i class="fa fa-rss"></i>
-                RSS
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-name">日志</span>
               </a>
             </div>
           
 
           
-
-          
-          
-
-          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
           
 
           
             
-          
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Edison0620" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/lvkaimeiyouhenshuai" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
         </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Funny Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://htwins.net/scale2/" title="刻度" target="_blank">刻度</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://siida.me" title="Eric" target="_blank">Eric</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.rabbittu.com" title="某兔子の御用花园" target="_blank">某兔子の御用花园</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+
+        <script type="text/javascript" charset="utf-8" src="/js/src/tagcloud.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/js/src/tagcanvas.js"></script>
+        <div class="widget-wrap">
+            <h4 class="widget-title">Tag Cloud</h4>
+            <div id="myCanvasContainer" class="widget tagcloud">
+                <canvas width="250" height="250" id="resCanvas" style="width=100%">
+                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EXP/">EXP</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOS/">IOS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OC/">OC</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Poem/">Poem</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中国当代/">中国当代</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中国当代小说/">中国当代小说</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中国当代文学/">中国当代文学</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/写作计划/">写作计划</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/外国现当代/">外国现当代</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/季度总结/">季度总结</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/年度总结/">年度总结</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/幻想/">幻想</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/扯淡/">扯淡</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/扯谈/">扯谈</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日常/">日常</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/梦/">梦</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/武侠小说/">武侠小说</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/灵感碎片/">灵感碎片</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/生活/">生活</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/短篇故事/">短篇故事</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科幻/">科幻</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/肇始/">肇始</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/观影/">观影</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/诗歌/">诗歌</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书笔记/">读书笔记</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读后感/">读后感</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随感/">随感</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/青春文学/">青春文学</a><span class="tag-list-count">1</span></li></ul>
+                </canvas>
+            </div>
+        </div>
+        
+
+        
+
+
       </section>
 
       
@@ -2100,40 +2032,69 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Kaaaaai</span>
-
-  
-
-  
 </div>
 
 
-
-
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.4.0</div>
-
+<!-- time -->
+  <div id="show-time">
+    <span id="span_dt_dt"></span>
+  </div>
+  <script>
+      function show_date_time() {
+        window.setTimeout("show_date_time()", 1000);
+        BirthDay = new Date("6/23/2017 19:37:01");
+        today = new Date();
+        //总时间
+        timeold = (today.getTime() - BirthDay.getTime());
+        sectimeold = timeold / 1000
+        secondsold = Math.floor(sectimeold);
+        msPerDay = 24 * 60 * 60 * 1000
+        e_daysold = timeold / msPerDay
+        daysold = Math.floor(e_daysold);
+        e_hrsold = (e_daysold - daysold) * 24;
+        hrsold = Math.floor(e_hrsold);
+        e_minsold = (e_hrsold - hrsold) * 60;
+        minsold = Math.floor((e_hrsold - hrsold) * 60);
+        seconds = Math.floor((e_minsold - minsold) * 60);
+        span_dt_dt.innerHTML = "已存活 " + daysold + " 天 " + hrsold + " 小时 " + minsold + " 分 " + seconds + " 秒";
+    }
+show_date_time();
+  </script>
 
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
 
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
 
-
-
-
+  <div class="powered-by"></div>
+     <span class="post-count">博客全站共 49.0k 字</span>
+  
+  
+</div>
 
 
         
@@ -2144,14 +2105,11 @@
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
         
+          <span id="scrollpercent"><span>0</span>%</span>
+        
       </div>
     
 
-    
-	
-    
-
-    
   </div>
 
   
@@ -2170,14 +2128,10 @@
 
 
 
-
-
-
-
-
   
 
 
+  
 
 
 
@@ -2190,50 +2144,65 @@
 
 
   
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  
-    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
-  
-
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=6.4.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=6.4.0"></script>
-
-
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
   
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.0"></script>
-
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   
 
 
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
 
   
 
@@ -2241,8 +2210,20 @@
 
 
 
+  
 
 
+
+
+
+  
+
+
+
+
+  
+    <script id="cy_cmt_num" src="https://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cyt7DcHLm"></script>
+  
 
 
 
@@ -2297,8 +2278,6 @@
         .css('overflow', 'hidden');
       $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
 
-      
-
       $.ajax({
         url: path,
         dataType: isXml ? "xml" : "json",
@@ -2332,7 +2311,6 @@
                 var title = data.title.trim();
                 var titleInLowerCase = title.toLowerCase();
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
-                
                 var contentInLowerCase = content.toLowerCase();
                 var articleUrl = decodeURIComponent(data.url);
                 var indexOfTitle = [];
@@ -2575,23 +2553,46 @@
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
 
   
 
   
-  
 
   
 
-  
+ 
+ <!--崩溃欺骗-->
+<script type="text/javascript" src="/js/src/makeajoke.js"></script>
 
+    <script type="text/javascript" src="/live2d/script.js"></script>
+    <canvas id="live2dcanvas" width="150" height="300" class="live2d"></canvas>
+    <style>
+      #live2dcanvas {
+        position: fixed;
+        right: 0px;
+        z-index: 999;
+        pointer-events: none;
+        bottom: -20px;
+      }
+    </style>
+    <script>loadlive2d("live2dcanvas" ,"/live2d/assets/hijiki/hijiki.model.json")</script>
   
-
-  
-
-  
-
 </body>
 </html>
