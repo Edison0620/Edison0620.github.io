@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.4.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="一、CocoaPodsCocoaPods是什么？ CocoaPods 是一个负责管理 iOS 项目中第三方开源库的工具。 主页：https://github.com/CocoaPods 作者：CocoaPods 团队 版本：1.4.0 性质：CocoaPods 在引入第三方库时自动为我们完成各种配置（包括配置编译阶段、连接器选项、甚至是 ARC 环境下的 -fno-objc-arc 配置等）；C">
+<meta name="keywords" content="EXP,iOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS - CocoaPods 和 Carthage 的比较">
+<meta property="og:url" content="http://kaaaaai.cn/articles/036.html">
+<meta property="og:site_name" content="壹拾肆">
+<meta property="og:description" content="一、CocoaPodsCocoaPods是什么？ CocoaPods 是一个负责管理 iOS 项目中第三方开源库的工具。 主页：https://github.com/CocoaPods 作者：CocoaPods 团队 版本：1.4.0 性质：CocoaPods 在引入第三方库时自动为我们完成各种配置（包括配置编译阶段、连接器选项、甚至是 ARC 环境下的 -fno-objc-arc 配置等）；C">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-23T08:27:00.913Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS - CocoaPods 和 Carthage 的比较">
+<meta name="twitter:description" content="一、CocoaPodsCocoaPods是什么？ CocoaPods 是一个负责管理 iOS 项目中第三方开源库的工具。 主页：https://github.com/CocoaPods 作者：CocoaPods 团队 版本：1.4.0 性质：CocoaPods 在引入第三方库时自动为我们完成各种配置（包括配置编译阶段、连接器选项、甚至是 ARC 环境下的 -fno-objc-arc 配置等）；C">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="壹拾肆" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="http://kaaaaai.cn/articles/036.html"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>iOS - CocoaPods 和 Carthage 的比较 | 壹拾肆</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">壹拾肆</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">闲言和碎语</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://kaaaaai.cn/articles/036.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaaaaai">
+      <meta itemprop="description" content="我独自一人/照顾着/历代的星辰">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="壹拾肆">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS - CocoaPods 和 Carthage 的比较
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-08-15 14:24:52" itemprop="dateCreated datePublished" datetime="2018-08-15T14:24:52+08:00">2018-08-15</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-08-23 16:27:00" itemprop="dateModified" datetime="2018-08-23T16:27:00+08:00">2018-08-23</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="一、CocoaPods"><a href="#一、CocoaPods" class="headerlink" title="一、CocoaPods"></a>一、CocoaPods</h1><h2 id="CocoaPods是什么？"><a href="#CocoaPods是什么？" class="headerlink" title="CocoaPods是什么？"></a><code>CocoaPods</code>是什么？</h2><ul>
+<li><code>CocoaPods</code> 是一个负责管理 <code>iOS</code> 项目中第三方开源库的工具。</li>
+<li>主页：<a href="https://github.com/CocoaPods" target="_blank" rel="noopener">https://github.com/CocoaPods</a></li>
+<li>作者：<code>CocoaPods</code> 团队</li>
+<li>版本：1.4.0</li>
+<li>性质：<code>CocoaPods</code> 在引入第三方库时自动为我们完成各种配置（包括配置编译阶段、连接器选项、甚至是 <code>ARC</code> 环境下的 <code>-fno-objc-arc</code> 配置等）；<code>CocoaPods</code> 可以很方便的查找第三方库，可以快速方便的寻找到优秀的第三方库以及它们的各种信息。</li>
+<li>原理：<code>CocoaPods</code> 的原理是将所有的依赖库都放到另一个名为Pods的项目中，然后让主项目依赖 <code>Pods</code> 项目，这样，源码管理工作都从主项目移到了 <code>Pods</code> 项目中。<code>Pods</code> 项目最终会编译成一个名为 <code>libPods.a</code> 的文件，主项目只需要依赖这个 <code>.a</code> 文件即可。</li>
+<li>限制：会破坏文件结构，因为墙的原因有时会 <code>pod install</code> 失败，换成国内的源，导入第三方很慢，特别是大工程。</li>
+</ul>
+<h2 id="怎么使用-CocoaPods-导入项目"><a href="#怎么使用-CocoaPods-导入项目" class="headerlink" title="怎么使用 CocoaPods 导入项目"></a>怎么使用 <code>CocoaPods</code> 导入项目</h2><p id="div-border-left-green">1、安装 <code>CocoaPods</code><br>（1）替换 <code>ruby</code> 源<br>（2）更新 <code>Gem</code> 版本<br>（3）安装 <code>CocoaPods</code><br>（4）更新 Podspec 索引文件<br><br>2、使用 <code>CocoaPods</code><br>（1）新建 <code>Podfile</code> 文件<br>（2）编辑 <code>Podfile</code> 文件<br>（3）安装依赖开源库 或 更新第三方库<br>3、打开 <code>xxx.xcworkspace</code> 文件</p>
+
+<h2 id="让你的工程支持-CocoaPods"><a href="#让你的工程支持-CocoaPods" class="headerlink" title="让你的工程支持 CocoaPods"></a>让你的工程支持 <code>CocoaPods</code></h2><p id="div-border-left-blue">1、首先在 <code>github</code> 创建一个项目<br>2、在本地新建一个文件夹<br>3、新建一个 <code>Classes</code> 文件夹用来放我们需要支持的类<br>4、进入到有 <code>.git</code> 的文件夹内，生成 <code>{project}.podspec</code> 格式的文件<br>5、<code>podspec</code> 文件用 <code>xcode</code> 打开并配置一些需要的参数<br>6、创建 <code>Tag</code>，并推送到 <code>GitHub</code><br>7、验证 <code>podspec</code> 文件，第一次提交会收到邮件，点击链接验证，提交完成。</p>
+
+<h2 id="CocoaPods-好处？"><a href="#CocoaPods-好处？" class="headerlink" title="CocoaPods 好处？"></a>CocoaPods 好处？</h2><ul>
+<li>开发 <code>iOS</code> 项目不可避免地要使用第三方开源库，<code>CocoaPods</code> 的出现使得我们可以节省设置和更新第三方开源库的时间</li>
+<li>在引入第三方库时它可以自动为我们完成各种各样的配置，包括配置编译阶段、连接器选项、甚至是 <code>ARC</code> 环境下的 <code>-fno-objc-arc</code> 配置等</li>
+</ul>
+<h1 id="二、Carthage"><a href="#二、Carthage" class="headerlink" title="二、Carthage"></a>二、Carthage</h1><h2 id="Carthage-是什么？"><a href="#Carthage-是什么？" class="headerlink" title="Carthage 是什么？"></a>Carthage 是什么？</h2><ul>
+<li>主页：<a href="https://github.com/Carthage/Carthage.git" target="_blank" rel="noopener">https://github.com/Carthage/Carthage.git</a></li>
+<li>作者：Justin Spahr-Summers 等</li>
+<li>版本：0.6.6</li>
+<li>目标：用最简单的方式来管理 <code>Cocoa</code> 第三方框架</li>
+<li>性质：使用 <code>swift</code> 编写。<code>Carthage</code> 编译你的依赖，并提供框架的二进制 <code>.framework</code> 文件，但你仍然保留对项目的结构和设置的完整控制，<code>Carthage</code> 不会自动的修改你的项目文件或编译设置。是一个去中心化的 <code>Cocoa</code> 依赖管理工具。</li>
+<li>原理：自动将第三方框架编程为 <code>Dynamic framework</code>(动态库)</li>
+<li>限制：仅支持 <code>iOS8+</code>。它只支持框架，所以不能用来针对 <code>iOS8</code> 以前的系统版本进行开发</li>
+</ul>
+<h2 id="怎么使用-Carthage-导入第三方库？"><a href="#怎么使用-Carthage-导入第三方库？" class="headerlink" title="怎么使用 Carthage 导入第三方库？"></a>怎么使用 Carthage 导入第三方库？</h2><p id="div-border-left-green">1、安装 <code>Carthage</code><br>有三个方法<br>（1）直接下载安装包：地址，<code>dmg</code> 文件，直接打开安装<br>（2） 使用 <code>Homebrew</code> 安装，在终端运行:<br>    brew update<br>    brew install carthage<br>（3) 使用 <code>Xcode</code> 运行最新的开发版，clone <code>Carthage</code> 的仓库到本地，<code>make install</code><br><br>2、使用 <code>Carthage</code><br>（1）终端切换到工程目录，输入命令，创建一个 <code>Cartfile</code> 文件： <code>touch Cartfile</code><br>（2）使用任何编辑器(如 <code>Xcode</code>、文本编辑、<code>subtime line</code>)打开 <code>Cartfile</code> 文件，输入以下内容：<code>github &quot;SnapKit/SnapKit&quot;</code>，然后保存关闭。<br>（3）使用终端：<code>carthage update --platform iOS</code><br>（4）把 <code>framework</code> 加入你的项目：打开项目，选择 Targets -&gt; CarthageDemo -&gt; Build Phases -&gt;<br>Link Binary With Libraries -&gt; 点击 + 号 -&gt; Add Other -&gt; 找到 <code>framework</code> 添加<br>（5）现在点击 <code>Build Phases</code>(还是在当前选项卡) 左上角的 + 号，选择 <code>New Run Script Phase</code> ，填写内容。完成。</p>
+
+<h2 id="让你的工程支持-Carthage"><a href="#让你的工程支持-Carthage" class="headerlink" title="让你的工程支持 Carthage"></a>让你的工程支持 Carthage</h2><p id="div-border-left-blue">1、在已经写好的工程中。创建一个 <code>Framework</code><br>2、配置你的 <code>Framework</code><br>（1）选择你的工程<br>（2）选择 <code>framework</code> 所在的 <code>Target</code><br>（3.选择 <code>Build Phases</code><br>（4）点击 <code>Header</code> 左下角的+号把你要暴露的头文件添加到 <code>Public</code> 里面（默认添加到 <code>Project</code> 里面，用鼠标把它拽过去）<br>（5）在Compile source里面添加实现的.m文件<br>3、分享你的工程<br>（1）选择 <code>Manager Schemes</code>，勾上 <code>shared</code> (这样 <code>Carthage</code> 就可以编译你的工程)<br>（2）安装好 <code>Carthage</code> 的前提,我们 <code>cd</code> 到项目文件夹,运行：<code>carthage build —no-skip-current</code><br>（3）完成</p>
+
+<h2 id="Carthage-好处？"><a href="#Carthage-好处？" class="headerlink" title="Carthage 好处？"></a>Carthage 好处？</h2><ul>
+<li>通过Carthage可以将一部分不常变的库打包成framework，再引如到主工程，这样可以减少开发过程中的编译时间。</li>
+<li>可以将一些编译时间很长的库打包成framework。</li>
+<li>国内防火墙的缘故，有些库的下载慢到一定境界，这个时候，使用Carthage就是福音了。</li>
+<li>同时可以优化CI的编译、打包时间。</li>
+</ul>
+<h1 id="三、Carthage-和-CocoaPods-的不同之处："><a href="#三、Carthage-和-CocoaPods-的不同之处：" class="headerlink" title="三、Carthage 和 CocoaPods 的不同之处："></a>三、Carthage 和 CocoaPods 的不同之处：</h1><p id="div-border-top-yellow"><code>CocoaPods</code> (默认)自动建立和更新一个 <code>Xcode workspace</code>，用来管理你的项目和所有依赖。<code>Carthage</code> 使用<code>xcodebuild</code> 来编译出二进制库，剩下的集成工作完全交给开发人员。<br><code>CocoaPods</code> 使用起来方便，<code>Carthage</code> 更加灵活并且对现有项目没有太多的侵略性。<br><code>CocoaPods</code> 希望建立一个生态系统，可以更加方便的发现和集成第三方代码库。<code>Carthage</code> 希望变成一个去中心化的依赖管理系统，不提供中心化的项目列表，减少维护成本和单点失败的概率。不过这样给开发人员寻找项目带来不便。<br><code>CocoaPods</code> 的项目需要配置 <code>podspec</code> 文件，包含了项目和第三方库的信息。<code>Carthage</code> 并不使用类似的配置文件，第三方库的依赖关系是通过 <code>Xcode</code> 项目来配置的。</p>
+
+
+<h1 id="四、结论"><a href="#四、结论" class="headerlink" title="四、结论"></a>四、结论</h1><p id="div-border-top-red">选择这两个工具前，首先需要确定使用的第三库，是否支持 <code>Carthage</code> ，以这个为标准以下三种情况：<br>1、都支持 <code>Carthage</code>：使用 <code>Carthage</code>。<br>2、部分支持 <code>Carthage</code>：<code>Carthage</code> 和 <code>CocoaPods</code> 混合使用。<br>3、都不支持 <code>Carthage</code>：使用 <code>CocoaPods</code>。</p>
+
+
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/EXP/" rel="tag"># EXP</a>
+          
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/articles/035.html" rel="next" title="唯“鸭嘴兽”主义哲学">
+                <i class="fa fa-chevron-left"></i> 唯“鸭嘴兽”主义哲学
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/articles/037.html" rel="prev" title="在草房子外">
+                在草房子外 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Kaaaaai</p>
+              <p class="site-description motion-element" itemprop="description">我独自一人/照顾着/历代的星辰</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">34</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、CocoaPods"><span class="nav-number">1.</span> <span class="nav-text">一、CocoaPods</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CocoaPods是什么？"><span class="nav-number">1.1.</span> <span class="nav-text">CocoaPods是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#怎么使用-CocoaPods-导入项目"><span class="nav-number">1.2.</span> <span class="nav-text">怎么使用 CocoaPods 导入项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#让你的工程支持-CocoaPods"><span class="nav-number">1.3.</span> <span class="nav-text">让你的工程支持 CocoaPods</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CocoaPods-好处？"><span class="nav-number">1.4.</span> <span class="nav-text">CocoaPods 好处？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、Carthage"><span class="nav-number">2.</span> <span class="nav-text">二、Carthage</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Carthage-是什么？"><span class="nav-number">2.1.</span> <span class="nav-text">Carthage 是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#怎么使用-Carthage-导入第三方库？"><span class="nav-number">2.2.</span> <span class="nav-text">怎么使用 Carthage 导入第三方库？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#让你的工程支持-Carthage"><span class="nav-number">2.3.</span> <span class="nav-text">让你的工程支持 Carthage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Carthage-好处？"><span class="nav-number">2.4.</span> <span class="nav-text">Carthage 好处？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、Carthage-和-CocoaPods-的不同之处："><span class="nav-number">3.</span> <span class="nav-text">三、Carthage 和 CocoaPods 的不同之处：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、结论"><span class="nav-number">4.</span> <span class="nav-text">四、结论</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kaaaaai</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.4.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
