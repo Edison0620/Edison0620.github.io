@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kaaaaai.cn/"/>
-  <updated>2018-09-20T06:28:39.537Z</updated>
+  <updated>2018-10-08T08:33:01.445Z</updated>
   <id>http://kaaaaai.cn/</id>
   
   <author>
@@ -16,11 +16,55 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>iOS - Xcode 10 和 iOS 12 问题集合</title>
+    <link href="http://kaaaaai.cn/articles/043.html"/>
+    <id>http://kaaaaai.cn/articles/043.html</id>
+    <published>2018-10-08T08:24:52.000Z</published>
+    <updated>2018-10-08T08:33:01.445Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="1、运行时报错如下错："><a href="#1、运行时报错如下错：" class="headerlink" title="1、运行时报错如下错："></a>1、运行时报错如下错：</h2><figure class="highlight bash"><figcaption><span>log 打印</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Showing Recent Messages:-1:Multiple commands produce<span class="string">'/Users/edison/Library/Developer/Xcode/DerivedData/$(product name)-fxzbpoappydriwfozeeqaxxcyoho/Build/Products/Debug-iphoneos/$(product name).app'</span>:</span><br><span class="line"></span><br><span class="line">1) Target <span class="string">'$(product name)'</span> has create directory <span class="built_in">command</span> with output <span class="string">'/Users/edison/Library/Developer/Xcode/DerivedData/$(product name)-fxzbpoappydriwfozeeqaxxcyoho/Build/Products/Debug-iphoneos/$(product name).app'</span></span><br><span class="line"></span><br><span class="line">2) That <span class="built_in">command</span> depends on <span class="built_in">command</span> <span class="keyword">in</span> Target <span class="string">'$(product name)'</span>: script phase “[CP] Copy Pods Resources”</span><br></pre></td></tr></table></figure>
+<p>解决方法：选中项目 target -&gt; Build phase -&gt; Copy Pods Resources -&gt; Output Files  -&gt; 移除 <code>${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}</code> -&gt; Build</p>
+<h2 id="2、README-文件重复问题"><a href="#2、README-文件重复问题" class="headerlink" title="2、README 文件重复问题"></a>2、README 文件重复问题</h2><figure class="highlight bash"><figcaption><span>log 打印</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Showing Recent Messages:-1: Multiple commands produce <span class="string">'/Users/edison/Library/Developer/Xcode/DerivedData/$(product name)-fxzbpoappydriwfozeeqaxxcyoho/Build/Products/Debug-iphoneos/$(product name).app/README.md'</span>:</span><br><span class="line">1) Target <span class="string">'$(product name)'</span> (project <span class="string">'$(product name)'</span>) has copy <span class="built_in">command</span> from <span class="string">'/工程路径/.../README.md'</span> to <span class="string">'/工程路径/.../README.md'</span></span><br><span class="line"></span><br><span class="line">2) Target <span class="string">'$(product name)'</span> (project <span class="string">'$(product name)'</span>) has copy <span class="built_in">command</span> from <span class="string">'工程路径/.../README.md'</span> to <span class="string">'工程路径/.../README.md'</span></span><br><span class="line"></span><br><span class="line">3) Target <span class="string">'$(product name)'</span> (project <span class="string">'$(product name)'</span>) has copy <span class="built_in">command</span> from <span class="string">'工程路径/.../README.md'</span> to <span class="string">'工程路径/.../README.md'</span></span><br><span class="line"></span><br><span class="line">4) Target <span class="string">'$(product name)'</span> (project <span class="string">'$(product name)'</span>) has copy <span class="built_in">command</span> from <span class="string">'工程路径/.../README.md'</span> to <span class="string">'工程路径/.../README.md'</span></span><br></pre></td></tr></table></figure>
+<p>解决方法：在工程内搜索 <code>README</code>，删除所有搜索结果。</p>
+<p>Tips：除了 <code>README.md</code> 文件也可能是其他文件重复，都删除就好。</p>
+<h2 id="3、Info-plist-文件重复问题"><a href="#3、Info-plist-文件重复问题" class="headerlink" title="3、Info.plist 文件重复问题"></a>3、Info.plist 文件重复问题</h2><figure class="highlight bash"><figcaption><span>log 打印</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Multiple commands produce <span class="string">'/Users/jiaxiaoyan/Library/Developer/Xcode/DerivedData/LJShell-emaksjqtieseunfuiotagpjkluwp/Build/Products/Debug-iphonesimulator/Lianjia_Beike_SecondHand_Private/Lianjia_HomeLink_House_Private.bundle/Info.plist'</span>:</span><br><span class="line"></span><br><span class="line">1) Target <span class="string">'Lianjia_Beike_SecondHand_Private-Lianjia_HomeLink_House_Private'</span> has copy <span class="built_in">command</span> from <span class="string">'/Users/jiaxiaoyan/Desktop/LJworkspace/repoWorkSpaceRootPath/mobile_ios/lianjia_ios_platc/Lianjia_Beike_SecondHand/Lianjia_Beike_SecondHand/Lianjia_Beike_SecondHand/Private/HousePrivate/LJSecondHandHouseComponent/HouseVideo/AliyunVodPlayerSDK.framework/Info.plist'</span> to <span class="string">'/Users/jiaxiaoyan/Library/Developer/Xcode/DerivedData/LJShell-emaksjqtieseunfuiotagpjkluwp/Build/Products/Debug-iphonesimulator/Lianjia_Beike_SecondHand_Private/Lianjia_HomeLink_House_Private.bundle/Info.plist'</span></span><br><span class="line"></span><br><span class="line"> 2) Target <span class="string">'Lianjia_Beike_SecondHand_Private-Lianjia_HomeLink_House_Private'</span> has process <span class="built_in">command</span> with input <span class="string">'/Users/jiaxiaoyan/Desktop/LJworkspace/repoWorkSpaceRootPath/mobile_ios/lianjia_ios_platc/lianjia_ios_platc/Pods/Target Support Files/Lianjia_Beike_SecondHand_Private/ResourceBundle-Lianjia_HomeLink_House_Private-Info.plist'</span></span><br></pre></td></tr></table></figure>
+<p>原因：由于重复文件是其他部门有依赖，所以修改了xcode的配置暂时解决了编译报错的问题。</p>
+<p>解决办法：菜单栏点击 File —&gt; Workspace Settings —&gt; Build System  选择 legacy Build System</p>
+<p><img src="http://os1i62usc.bkt.clouddn.com/043_01.png" alt="043_01"></p>
+<h2 id="4、Swift-桥接文件报错“Cannot-find-interface-declaration-for-‘类-B’，superclass-of-‘类-A’”"><a href="#4、Swift-桥接文件报错“Cannot-find-interface-declaration-for-‘类-B’，superclass-of-‘类-A’”" class="headerlink" title="4、Swift 桥接文件报错“Cannot find interface declaration for ‘类 B’，superclass of ‘类 A’”"></a>4、Swift 桥接文件报错“Cannot find interface declaration for ‘类 B’，superclass of ‘类 A’”</h2><p>问题分析：这个问题我看了很多博客和论坛问答， 但都没有找到合适的解决方法。已知的是在 swift 混编工程里导入 OC 库，在 Xcode 10 上会有这个 bug，而在 Xcode 9 上只需要在桥接文件中将报错的代码注释掉，编译成功恢复回来就可以解决问题。但 xcode 10 的中的桥接文件修改后每次编译都会恢复原样，无法用通用的方式解决。</p>
+<p>解决方法：按着 Xcode 9 的思路，推测既然是桥接文件的问题，我就简单粗暴的新建了一个桥接文件：</p>
+<p><img src="http://os1i62usc.bkt.clouddn.com/043_02.png" alt="043_02"><br><img src="http://os1i62usc.bkt.clouddn.com/043_03.png" alt="043_03"></p>
+<p>然后编译一次，进入系统生成的 swift 桥接文件，把里面的代码全都复制到自己新建的桥接文件中：</p>
+<p><img src="http://os1i62usc.bkt.clouddn.com/043_04.png" alt="043_04"></p>
+<p>然后在工程配置中把 swift 引用的头文件路径修改成自己创建的文件</p>
+<p><img src="http://os1i62usc.bkt.clouddn.com/043_05.png" alt="043_05"></p>
+<p>运行一遍。</p>
+<p><strong>如果有报错，就把报错行注释，编译成功后恢复。问题解决。</strong></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
+    
+      <category term="Swift" scheme="http://kaaaaai.cn/tags/Swift/"/>
+    
+      <category term="OC" scheme="http://kaaaaai.cn/tags/OC/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Python - 学习笔记</title>
-    <link href="http://kaaaaai.cn/articles/2018-09-20.html"/>
-    <id>http://kaaaaai.cn/articles/2018-09-20.html</id>
+    <link href="http://kaaaaai.cn/articles/042.html"/>
+    <id>http://kaaaaai.cn/articles/042.html</id>
     <published>2018-09-20T08:24:52.000Z</published>
-    <updated>2018-09-20T06:28:39.537Z</updated>
+    <updated>2018-10-08T06:52:30.496Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>学习地址：<a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" target="_blank" rel="noopener">Python 教程</a><br>其他：<a href="https://docs.python.org/3/library/functions.html#abs" target="_blank" rel="noopener">官网-函数列表</a></p>
 <h2 id="一、基础笔记"><a href="#一、基础笔记" class="headerlink" title="一、基础笔记"></a>一、基础笔记</h2><h3 id="列表：list"><a href="#列表：list" class="headerlink" title="列表：list"></a>列表：list</h3><p>用 <code>len()</code> 函数可以获得 <code>list</code> 元素的个数：<br><figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>len(classmates)</span><br></pre></td></tr></table></figure></p>
@@ -1080,40 +1124,6 @@
       <category term="iOS" scheme="http://kaaaaai.cn/tags/iOS/"/>
     
       <category term="Swift" scheme="http://kaaaaai.cn/tags/Swift/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>春末即兴</title>
-    <link href="http://kaaaaai.cn/articles/023.html"/>
-    <id>http://kaaaaai.cn/articles/023.html</id>
-    <published>2018-04-09T13:00:52.000Z</published>
-    <updated>2018-08-29T02:34:35.605Z</updated>
-    
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　穿了好几个礼拜的短袖，以为已经到夏天了，这几天的气温骤降才发现春天还没有完全离场，它在这个以小长假开头的四月用尽最后一点力气试图让人们感知到它的存在，它的顽固让街上出现短袖和羽绒袄同时存在的矛盾又喜感的场面，又有大风把陌生路人的一板正经吹走——他们似乎也感到被风吹得七零八散的头发看起来很喜感，抢在别人取笑他们之前先绷不住笑了。城市因为天气的无常，让久居里面的人也忽然的对它感到一丝陌生。像被邀请到一场莫名其妙的派对，人们因为摸不着头脑，而主动向人释放初来乍到的善意，整座城市，一派和气。<br>　　春天即将过去，春天我都干了些什么？似乎什么都没干，但掰开揉碎似乎也有那么一些事情，和菩萨求了支上上签，和几乎不打算联系的朋友完成继初次认识以后的第二次关系破冰，换了份工作，和一个网友恢复通信，认识了一个很像老朋友的新朋友，看了几本书和几场电影。
-　　</p>
-<h1 id="一、和善男信女们一起"><a href="#一、和善男信女们一起" class="headerlink" title="一、和善男信女们一起"></a>一、和善男信女们一起</h1><p>　　<br>　　在旺季的大雄宝殿里，你会时刻有一种恍惚感，不只是因为香火熏着你的眼睛，而是整个大殿，被缭绕烟雾，绰绰人影和闪烁的烛火交相辉映，会让你有一丝远离人世的超脱感涌上心头，但就一会功夫，大殿外的鞭炮和所有善男信女们祈愿的声音又会让你知道，此刻，正是你离人间烟火距离最近又最远的时候。<br>　　和家人坐缆车上山，缆车在离山顶还有一段距离的位置停下。虽然现代科技让我们在朝圣的路上超了近道，但毕竟是去看菩萨，最后一段的“心诚则灵”，都要全凭自己。<br>　　去大殿的路上经过一座小庙，左右两边各立着两个尊者。表妹问我，哥哥，这些是什么神仙，他们都拜，我们要不要拜啊？我看了看我妈和我小姨在那双手合十念念有词，十分庄重。就低头和她说，不用了，这里都是些小角色，我们上山拜大个的。表妹哈哈大笑，拿着我的话和大人们说，他们也都会心一笑。<br>　　到了山顶，进殿点香，因为要给好多菩萨上香，每个人手里都拿着五六十根香，所以点香的时候很容易把整把香烧着，有的人看火灭不掉就把所有香丢掉，地上七零八散的散落了好多香，旁边有道士在劝阻，不用点那么多，可以去里面再点，每个人点三根就好了。但拦不住虔诚到红了眼的人们。我把香上的火刚扇灭，看我妈的香也在起火就把她的香拿了过来，走到一边，试图也把它弄灭。<br>　　拜菩萨的顺序，长辈们心里都有底，知道哪位菩萨要先来，哪位菩萨可以暂时放在一边，而到最后，怎么也不会冷落任何一位。我们小辈就随波逐流，见佛就拜。见到的有灶神，有弥勒佛，有送子送财送姻缘菩萨，有天王罗汉洋洋洒洒数十座，有老相识也有新面孔，我都没有厚此薄彼，迎面赶上，纳头便拜，偶尔福至心灵，就在心里念上一句，希望明年能如何如何。不过起身的时候总也免不了在心里嘀咕上一句，到底有没有菩萨？<br>　　最后长辈们让我们自己去找菩萨求根签，求签是怎么回事呢？大雄宝殿的中心位置，有很多蒲团，围绕着蒲团散落了一地的签，人们随手拿起一根，再拿两个贝壳形状的竹片往地上投掷，如果三次都是一正一反就说明这根签是给你的。听我妈说明怎么求签后，我算了一下，投掷一次出现正反的可能性大概是三分之一，投掷两次都是正反的可能性大概是九分之一，投掷三次都出现正反的可能性大概是二十七分之一。也就是说，如果说宗教是人们对生活、世界乃至宇宙里未知部分的一种推测结果，满天神佛就可能是那散落在从零到一里面的无限个概率，二十七分之一，这个概率代表了其中一位在派签的菩萨。这真是一个忙碌的概率。<br>　　在抽签大厅放眼望去，七八十个人头不断起伏涌动，人们快速的捡起继而投掷竹片，发现竹片两个面都一样就立马丢掉手中的签低头再捡一根，那种有些火急火燎的神态和盲目感让这些信徒看起来像在牌桌上一掷千金的赌徒，我想如果能听见人的心里话，他们里面大部分人可能都在说：快给我快给我，快给我啊。<br>　　我找了一个空地跪下， 挑了两块顺眼的竹片，慢条斯理的拿起一根签，投掷，正反，投掷，正反，投掷，正正。去你妈的。<br>　　事实证明我一开始的有条不紊，只是我刻意的想和周围人区别开来的一点做无用功，在久没有抽到签后，我也渐渐的和周围人一个神态，只是机械盲目的从地上捡签，投掷竹片，心里念，快给我快给我，快给我啊。直到有些意兴阑珊的时候，终于抽到了那根属于我的签。<br>　　然后根据签上的数字拿签文，再去找道士解签，老道士慈眉善目，他按签文上的字和我们说了一些模棱两可的话，在某个停顿间，我妈心照不宣在他面前的抽屉里放下香油钱。<br>　　吃了顿味道尚可的斋饭我们就下山了。坐在缆车上，我又回头看了看山顶的大雄宝殿，它仍旧被烟雾环绕着，没有了庙里喧嚣的声音，从远处看，它也真有几分仙家福地的气象。回过神来，忽然觉得，我们和菩萨离得最近的时候，大概是在那座小庙里开菩萨玩笑的时候。
-　　
-　　</p>
-<h1 id="二、做不成睡在风里的无脚鸟"><a href="#二、做不成睡在风里的无脚鸟" class="headerlink" title="二、做不成睡在风里的无脚鸟"></a>二、做不成睡在风里的无脚鸟</h1><p>　　春节后又无所事事了一阵也终于去投简历找工作了。每次找到工作的过程都大同小异，一开始都雄心壮志，觉得我什么都不缺，但哪里都可能缺一个我。然后经过几次失败的面试，开始认清自己，又经历几次失败，开始怀疑自己，然后又是失败，开始自暴自弃，随性发挥的时候，工作的事反而成了。<br>　　面试了一个半礼拜，就像参加一场大型考试，连续的做了好几日笔试试卷，还有一次面试还给安排了机试。面试的公司也千奇百怪，其中最古怪的还是有一家做共享单车做到公司就剩三个人了，问我有没有兴趣当合伙人。可能是合伙人这个名头，这顶帽子一下子扣下来，让初出牛犊的我觉得有些晕晕乎乎的，认真考虑了一下，又抬头看了看这顶帽子，破烂邋遢，想来遮风挡雨应该一样都不行，就委婉的说对共享单车这个行业没什么兴趣。<br>　　又有一次笔试，我和一个女生坐一张桌子，桌子小，两人挨着做试卷，一开始我没发现她和我是一样的试卷，后来她先发现了，挑了挑眉，然后礼貌的朝我笑笑，捂住了答案。我一阵瞠目，想了想就大大咧咧的把试卷朝她那推了推。后来面试完觉得当时貌似大方的举动其实是一种揶揄和挤兑。就想和她照个面打声招呼，就当做刚刚无礼的寥寥歉意。但她比我先面试完，已经早早离开。<br>　　在不知道她已经离开的时候，我也面试完，面试官叫我在接待室里先等等。大概是和人事科的人谈话，虽然关着门，但他们的说话声还是从门外传了过来。<br>　　“怎么样啊，这个？”<br>　　“是真材实料，就是基础有点差。”<br>　　前半句让我有些欣慰，这些天面试题没白背，后半句又让我有些懊悔面试题没多背背。<br>　　“那怎么办啊，这是今天最后一个了。”<br>　　“要我说今天来面试的人里随便挑，哪一个都成。”<br>　　“那这个，他怎么会基础差呢，学校里不是学这个的吗？”<br>　　“和学校没关系，学校也不教这个，这种基础全看各人。”<br>　　“哦，这样啊。”<br>　　后面他们又说了一些无关紧要的事，我没注意听。过了一会就有人进来，领我出去，和我说那今天的面试就到这里，后续有通知他们再联系我。<br>　　好的。我轻快的回答了她。但心里有些沮丧，从刚在门外的谈话听得出来他们是可以立马做出决定的，是我没有做到能让他们立马下决定的程度，这让我在心里反复的苛责自己，我在心里摔碎两百二十四个盘子，直到离开面试的大厦，烦闷和郁郁仍然挥之不去。<br>　　去坐地铁的路上，我骑单车在车道上漫无目的的左右摇摆，旁边穿过去一骑电瓶车的白背心老头，冲我大喊：靓仔，你到底左边走还是右边走啊。虽然心情不好，但听到问话我还是忍不住和他开起了玩笑，回他：两边都走喽。他超我两个车轮距离，仍旧大喊，语气像把紧攥着的拳头放在空中挥舞：“两边都走，我都没得走啦。”我不禁莞尔。老头一会功夫就骑得没影，我的坏心情似乎也跟着老头不翼而飞了。<br>　　我爱老头。
-　　</p>
-<h1 id="三、久违的老朋友和网友和可能在哪见过但久违的新朋友"><a href="#三、久违的老朋友和网友和可能在哪见过但久违的新朋友" class="headerlink" title="三、久违的老朋友和网友和可能在哪见过但久违的新朋友"></a>三、久违的老朋友和网友和可能在哪见过但久违的新朋友</h1><pre><code>被标记为&quot;Don&apos;t push!&quot;。
-</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
-    
-    </summary>
-    
-      <category term="涂鸦" scheme="http://kaaaaai.cn/categories/%E6%B6%82%E9%B8%A6/"/>
-    
-    
-      <category term="随笔" scheme="http://kaaaaai.cn/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-      <category term="扯谈" scheme="http://kaaaaai.cn/tags/%E6%89%AF%E8%B0%88/"/>
-    
-      <category term="季度总结" scheme="http://kaaaaai.cn/tags/%E5%AD%A3%E5%BA%A6%E6%80%BB%E7%BB%93/"/>
     
   </entry>
   

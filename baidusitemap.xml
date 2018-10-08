@@ -4,8 +4,32 @@
 
     
   <url>
-    <loc>http://kaaaaai.cn/articles/2018-09-20.html</loc>
-    <lastmod>2018-09-20T06:28:39.537Z</lastmod>
+    <loc>http://kaaaaai.cn/articles/043.html</loc>
+    <lastmod>2018-10-08T08:33:01.445Z</lastmod>
+    <data>
+        <display>
+        <title>iOS - Xcode 10 和 iOS 12 问题集合</title>
+        <pubTime>2018-10-08T08:24:52.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>Swift</tag>
+         
+        <tag>OC</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://kaaaaai.cn/articles/042.html</loc>
+    <lastmod>2018-10-08T06:52:30.496Z</lastmod>
     <data>
         <display>
         <title>Python - 学习笔记</title>
@@ -120,6 +144,7 @@
     
     
     
+    
   <url>
     <loc>http://kaaaaai.cn/articles/thirteenthart.html</loc>
     <lastmod>2018-08-29T02:34:35.615Z</lastmod>
@@ -143,7 +168,6 @@
     </data>
     </url>
 
-    
     
   <url>
     <loc>http://kaaaaai.cn/articles/twelfthart.html</loc>
@@ -170,14 +194,16 @@
 
     
   <url>
-    <loc>http://kaaaaai.cn/articles/thirdart.html</loc>
+    <loc>http://kaaaaai.cn/articles/tenthart.html</loc>
     <lastmod>2018-08-29T02:34:35.614Z</lastmod>
     <data>
         <display>
-        <title>记一篇以前写的诗</title>
-        <pubTime>2017-06-25T04:38:54.000Z</pubTime>
+        <title>无理猜想</title>
+        <pubTime>2017-07-24T13:59:19.000Z</pubTime>
         
-        <tag>Poem</tag>
+        <tag>扯谈</tag>
+         
+        <tag>梦</tag>
          
          
            
@@ -212,26 +238,6 @@
 
     
   <url>
-    <loc>http://kaaaaai.cn/articles/seventhart.html</loc>
-    <lastmod>2018-08-29T02:34:35.614Z</lastmod>
-    <data>
-        <display>
-        <title>突然的自我</title>
-        <pubTime>2017-07-08T02:05:59.000Z</pubTime>
-        
-        <tag>扯谈</tag>
-         
-         
-           
-             
-              <breadCrumb title="涂鸦" url="http://kaaaaai.cn/categories/%E6%B6%82%E9%B8%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://kaaaaai.cn/articles/seventeenthart.html</loc>
     <lastmod>2018-08-29T02:34:35.614Z</lastmod>
     <data>
@@ -254,16 +260,34 @@
 
     
   <url>
-    <loc>http://kaaaaai.cn/articles/tenthart.html</loc>
+    <loc>http://kaaaaai.cn/articles/seventhart.html</loc>
     <lastmod>2018-08-29T02:34:35.614Z</lastmod>
     <data>
         <display>
-        <title>无理猜想</title>
-        <pubTime>2017-07-24T13:59:19.000Z</pubTime>
+        <title>突然的自我</title>
+        <pubTime>2017-07-08T02:05:59.000Z</pubTime>
         
         <tag>扯谈</tag>
          
-        <tag>梦</tag>
+         
+           
+             
+              <breadCrumb title="涂鸦" url="http://kaaaaai.cn/categories/%E6%B6%82%E9%B8%A6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://kaaaaai.cn/articles/thirdart.html</loc>
+    <lastmod>2018-08-29T02:34:35.614Z</lastmod>
+    <data>
+        <display>
+        <title>记一篇以前写的诗</title>
+        <pubTime>2017-06-25T04:38:54.000Z</pubTime>
+        
+        <tag>Poem</tag>
          
          
            
@@ -358,6 +382,26 @@
 
     
   <url>
+    <loc>http://kaaaaai.cn/articles/fourteenthart.html</loc>
+    <lastmod>2018-08-29T02:34:35.611Z</lastmod>
+    <data>
+        <display>
+        <title>像你我的少年们</title>
+        <pubTime>2017-09-18T13:55:59.000Z</pubTime>
+        
+        <tag>随感</tag>
+         
+         
+           
+             
+              <breadCrumb title="涂鸦" url="http://kaaaaai.cn/categories/%E6%B6%82%E9%B8%A6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://kaaaaai.cn/articles/fifteenthart.html</loc>
     <lastmod>2018-08-29T02:34:35.611Z</lastmod>
     <data>
@@ -373,26 +417,6 @@
            
              
               <breadCrumb title="笔记" url="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://kaaaaai.cn/articles/fourteenthart.html</loc>
-    <lastmod>2018-08-29T02:34:35.611Z</lastmod>
-    <data>
-        <display>
-        <title>像你我的少年们</title>
-        <pubTime>2017-09-18T13:55:59.000Z</pubTime>
-        
-        <tag>随感</tag>
-         
-         
-           
-             
-              <breadCrumb title="涂鸦" url="http://kaaaaai.cn/categories/%E6%B6%82%E9%B8%A6/"/>
           
         </display>
     </data>
@@ -466,28 +490,6 @@
 
     
   <url>
-    <loc>http://kaaaaai.cn/articles/Hello-Edison-s-World.html</loc>
-    <lastmod>2018-08-29T02:34:35.610Z</lastmod>
-    <data>
-        <display>
-        <title>Here is Kai's World</title>
-        <pubTime>2017-06-23T13:25:54.000Z</pubTime>
-        
-        <tag>扯谈</tag>
-         
-        <tag>肇始</tag>
-         
-         
-           
-             
-              <breadCrumb title="肇始" url="http://kaaaaai.cn/categories/%E8%82%87%E5%A7%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://kaaaaai.cn/articles/Sixthart.html</loc>
     <lastmod>2018-08-29T02:34:35.610Z</lastmod>
     <data>
@@ -503,6 +505,28 @@
            
              
               <breadCrumb title="笔记" url="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://kaaaaai.cn/articles/Hello-Edison-s-World.html</loc>
+    <lastmod>2018-08-29T02:34:35.610Z</lastmod>
+    <data>
+        <display>
+        <title>Here is Kai's World</title>
+        <pubTime>2017-06-23T13:25:54.000Z</pubTime>
+        
+        <tag>扯谈</tag>
+         
+        <tag>肇始</tag>
+         
+         
+           
+             
+              <breadCrumb title="肇始" url="http://kaaaaai.cn/categories/%E8%82%87%E5%A7%8B/"/>
           
         </display>
     </data>
@@ -642,28 +666,6 @@
 
     
   <url>
-    <loc>http://kaaaaai.cn/articles/032.html</loc>
-    <lastmod>2018-08-29T02:34:35.607Z</lastmod>
-    <data>
-        <display>
-        <title>和轮廓渐现的黑暗告别</title>
-        <pubTime>2018-07-19T13:00:52.000Z</pubTime>
-        
-        <tag>读书笔记</tag>
-         
-        <tag>外国现当代</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://kaaaaai.cn/articles/033.html</loc>
     <lastmod>2018-08-29T02:34:35.607Z</lastmod>
     <data>
@@ -710,6 +712,28 @@
 
     
   <url>
+    <loc>http://kaaaaai.cn/articles/032.html</loc>
+    <lastmod>2018-08-29T02:34:35.607Z</lastmod>
+    <data>
+        <display>
+        <title>和轮廓渐现的黑暗告别</title>
+        <pubTime>2018-07-19T13:00:52.000Z</pubTime>
+        
+        <tag>读书笔记</tag>
+         
+        <tag>外国现当代</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://kaaaaai.cn/articles/030.html</loc>
     <lastmod>2018-08-29T02:34:35.607Z</lastmod>
     <data>
@@ -725,32 +749,6 @@
            
              
               <breadCrumb title="涂鸦" url="http://kaaaaai.cn/categories/%E6%B6%82%E9%B8%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://kaaaaai.cn/articles/028.html</loc>
-    <lastmod>2018-08-29T02:34:35.606Z</lastmod>
-    <data>
-        <display>
-        <title>给你的 iOS 马甲项目增加一点垃圾代码</title>
-        <pubTime>2018-06-28T11:37:05.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>iOS</tag>
-         
-        <tag>OC</tag>
-         
-        <tag>Python</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>
@@ -804,18 +802,44 @@
 
     
   <url>
-    <loc>http://kaaaaai.cn/articles/025.html</loc>
+    <loc>http://kaaaaai.cn/articles/028.html</loc>
+    <lastmod>2018-08-29T02:34:35.606Z</lastmod>
+    <data>
+        <display>
+        <title>给你的 iOS 马甲项目增加一点垃圾代码</title>
+        <pubTime>2018-06-28T11:37:05.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>iOS</tag>
+         
+        <tag>OC</tag>
+         
+        <tag>Python</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://kaaaaai.cn/articles/026.html</loc>
     <lastmod>2018-08-29T02:34:35.605Z</lastmod>
     <data>
         <display>
-        <title>他三本书厚的青春</title>
-        <pubTime>2018-06-10T13:00:52.000Z</pubTime>
+        <title>iOS 开发里的那些散手（二）</title>
+        <pubTime>2018-06-14T11:37:05.000Z</pubTime>
         
-        <tag>读书笔记</tag>
+        <tag>EXP</tag>
          
-        <tag>中国当代</tag>
+        <tag>iOS</tag>
          
-        <tag>青春文学</tag>
+        <tag>OC</tag>
          
          
            
@@ -852,30 +876,6 @@
 
     
   <url>
-    <loc>http://kaaaaai.cn/articles/026.html</loc>
-    <lastmod>2018-08-29T02:34:35.605Z</lastmod>
-    <data>
-        <display>
-        <title>iOS 开发里的那些散手（二）</title>
-        <pubTime>2018-06-14T11:37:05.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>iOS</tag>
-         
-        <tag>OC</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://kaaaaai.cn/articles/024.html</loc>
     <lastmod>2018-08-29T02:34:35.605Z</lastmod>
     <data>
@@ -888,6 +888,30 @@
         <tag>iOS</tag>
          
         <tag>Swift</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://kaaaaai.cn/articles/025.html</loc>
+    <lastmod>2018-08-29T02:34:35.605Z</lastmod>
+    <data>
+        <display>
+        <title>他三本书厚的青春</title>
+        <pubTime>2018-06-10T13:00:52.000Z</pubTime>
+        
+        <tag>读书笔记</tag>
+         
+        <tag>中国当代</tag>
+         
+        <tag>青春文学</tag>
          
          
            
