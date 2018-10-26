@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kaaaaai.cn/"/>
-  <updated>2018-10-08T08:33:01.445Z</updated>
+  <updated>2018-10-26T13:00:28.790Z</updated>
   <id>http://kaaaaai.cn/</id>
   
   <author>
@@ -14,6 +14,47 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS - 关于静态库的其他问题</title>
+    <link href="http://kaaaaai.cn/articles/044.html"/>
+    <id>http://kaaaaai.cn/articles/044.html</id>
+    <published>2018-10-26T08:24:52.000Z</published>
+    <updated>2018-10-26T13:00:28.790Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="一、Debug-和-Release-版本区别"><a href="#一、Debug-和-Release-版本区别" class="headerlink" title="一、Debug 和 Release 版本区别"></a>一、Debug 和 Release 版本区别</h1><p>1、Release 是发行版本,比 Debug 版本有一些优化，文件比 Debug 文件小，想要发布时，也就是说需要大众客户使用时，需要 build Release 版本，<br>2、Debug 是调试版本，Debug 和 Release 调用两个不同的底层库。我们开发者自己内部真机或模拟器调试时，使用 Debug 模式就好。<br>3、Debug 是调试版本，包括的程序信息更多 4、只有 Debug 版的程序才能设置断点、单步执行、使用 TRACE/ASSERT 等调试输出语句 5、Release 不包含任何调试信息，所以体积小、运行速度快</p>
+<p>使用时可以直接使用 Release 版本</p>
+<p>为什么要把所有类型包合并</p>
+<p>不用合并，使用时可以直接使用 Release 版本。</p>
+<h1 id="二、打包环境配置"><a href="#二、打包环境配置" class="headerlink" title="二、打包环境配置"></a>二、打包环境配置</h1><p><img src="http://os1i62usc.bkt.clouddn.com/Pasted Graphic 1.png" alt="Pasted Graphic 1"></p>
+<p>Build Active Architecture Only：Yes 表示只编译选中模拟器对应的架构,No 则为编译所有模拟器支持的cup架构(Debug 的 Yes 状态改为 No 即可)</p>
+<p>-ObjC：在用第三方库时，我们常常在Xcode的Build Settings 下 Other Linker Flags 里面加入 -ObjC 标志，它和 Objective-C 的一个重要特性：类别（category)有关。<br>根据这里的解释，Unix 的标准静态库实现和Objective-C的动态特性之间有一些冲突：Objective-C没有为每个函数（或者方法）定义链接符号，它只为每个类创建链接符号。<br>这样当在一个静态库中使用类别来扩展已有类的时候，链接器不知道如何把类原有的方法和类别中的方法整合起来，就会导致你调用类别中的方法时，出现”selector not recognized”，也就是找不到方法定义的错误。<br>为了解决这个问题，引入了-ObjC 标志，它的作用就是将静态库中所有的和对象相关的文件都加载进来。</p>
+<p>-all_load 和 -force_load：上面添加 -ObjC 并不能解决所有的引用问题，在64位的Mac系统或者iOS系统下，链接器有一个bug，会导致只包含有类别的静态库无法使用-ObjC标志来加载文件。<br>变通方法是使用-all_load或者-force_load标志，它们的作用都是加载静态库中所有文件，不过all_load作用于所有的库，而-force_load后面必须要指定具体的文件他们加载的位置也是在Xcode的Build Settings下Other Linker Flags里面。</p>
+<p>Mach-O的编译方式 ：默认选择的是Dynamic Library（动态库），要手动选择Static Library（静态库）</p>
+<h1 id="三、多层库嵌套"><a href="#三、多层库嵌套" class="headerlink" title="三、多层库嵌套"></a>三、多层库嵌套</h1><p>1.导入所有要打包的文件和其他第三方静态库<br>正常导入要打包的文件就可以了，在导入第三方静态库的时候要注意，不要选择添加到target中，如果添加进去要去target里面把第三方静态库删掉（只需导入，不要添加进target）</p>
+<p><img src="http://os1i62usc.bkt.clouddn.com/044_2.png" alt="044_2"></p>
+<p>导入第三方静态库之后再link依赖的系统库，像这样：</p>
+<p><img src="http://os1i62usc.bkt.clouddn.com/044_03.png" alt="044_03"></p>
+<h1 id="四、Swift-打包"><a href="#四、Swift-打包" class="headerlink" title="四、Swift 打包"></a>四、Swift 打包</h1><p>步骤细节都和 oc 是一致的。</p>
+<p>工程直接引用其他工程</p>
+<p>看到比较早的教程是，直接把另一个b工程拖进a工程，然后在 header search paths 配置路径。路径右边的设置为：recursive（递归查找文件）。</p>
+<p>但测试后无效，无法引用 b 工程内的文件。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
+    
+      <category term="iOS" scheme="http://kaaaaai.cn/tags/iOS/"/>
+    
+  </entry>
   
   <entry>
     <title>iOS - Xcode 10 和 iOS 12 问题集合</title>
@@ -53,9 +94,9 @@
     
       <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
     
-      <category term="Swift" scheme="http://kaaaaai.cn/tags/Swift/"/>
-    
       <category term="OC" scheme="http://kaaaaai.cn/tags/OC/"/>
+    
+      <category term="Swift" scheme="http://kaaaaai.cn/tags/Swift/"/>
     
   </entry>
   
@@ -1073,57 +1114,6 @@
       <category term="中国当代" scheme="http://kaaaaai.cn/tags/%E4%B8%AD%E5%9B%BD%E5%BD%93%E4%BB%A3/"/>
     
       <category term="青春文学" scheme="http://kaaaaai.cn/tags/%E9%9D%92%E6%98%A5%E6%96%87%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Swift笔记 - 代理和闭包</title>
-    <link href="http://kaaaaai.cn/articles/024.html"/>
-    <id>http://kaaaaai.cn/articles/024.html</id>
-    <published>2018-06-06T13:00:52.000Z</published>
-    <updated>2018-08-29T02:34:35.605Z</updated>
-    
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>&#160; &#160; &#160; &#160;最近在把公司原 OC 项目 Swift 化，学到了很多东西，做个笔记记录下。</p>
-<h1 id="一、代理（delegate）"><a href="#一、代理（delegate）" class="headerlink" title="一、代理（delegate）"></a>一、代理（delegate）</h1><h2 id="1-代理的说明"><a href="#1-代理的说明" class="headerlink" title="1.代理的说明"></a>1.代理的说明</h2><p>&#160; &#160; &#160; &#160;首先解释关于代理。代理（delegate）是 <code>Cocoa</code> 的一个术语，表示将一个对象的部分功能转交给另一个对象。</p>
-<p>&#160; &#160; &#160; &#160;比如对象 A 希望对象 B 知道将要发生或已经发生某件事情，对象A可以把对象B的引用存为一个实例变量。这个对象B称为委托。当事件发生时，它检查委托对象是否实现了与该事件相适应的方法。如果已经实现，则调用该方法。</p>
-<p>&#160; &#160; &#160; &#160;由于松耦合的原因，一个对象能成为多个对象的代理。某些情况下，相较于通过继承让子类实现相关的处理方法，可以有效减少代码复杂度。所以 <code>iOS</code> 中也大量的使用了代理。</p>
-<h2 id="2-代理的使用"><a href="#2-代理的使用" class="headerlink" title="2.代理的使用"></a>2.代理的使用</h2><h3 id="2-1-自定义cell的类，"><a href="#2-1-自定义cell的类，" class="headerlink" title="2.1 自定义cell的类，"></a>2.1 自定义cell的类，</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">protocol TestTableCellDelegate:<span class="built_in">NSObjectProtocol</span> &#123;</span><br><span class="line"><span class="comment">//这里我设置方法传入的是一个模型，大家可根据需要传入不同值，用法和 OC 一样，写法稍有不同。</span></span><br><span class="line">    func selectedGroup(model:LXGroupModel)</span><br><span class="line">    func deletedGroup(model:LXGroupModel)</span><br><span class="line">    func modifyGroup(model:LXGroupModel)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> TEstTableViewCell: <span class="built_in">UITableViewCell</span> &#123;</span><br><span class="line"> override func awakeFromNib() &#123;</span><br><span class="line">        <span class="keyword">super</span>.awakeFromNib()</span><br><span class="line">        <span class="comment">// Initialization code</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"> @IBAction func groupClick(_ sender: <span class="built_in">UIButton</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.delegate.selectedGroup(model: <span class="keyword">self</span>.model!)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    @IBAction func modeifyClick(_ sender: <span class="built_in">UIButton</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.delegate.modifyGroup(model: <span class="keyword">self</span>.model!)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    @IBAction func deletedClick(_ sender: <span class="built_in">UIButton</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.delegate.deletedGroup(model: <span class="keyword">self</span>.model!)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    required init?(coder aDecoder: <span class="built_in">NSCoder</span>) &#123;</span><br><span class="line">        <span class="keyword">super</span>.init(coder: aDecoder)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    override init(style: <span class="built_in">UITableViewCellStyle</span>, reuseIdentifier: String?) &#123;</span><br><span class="line">        <span class="keyword">super</span>.init(style: style, reuseIdentifier: reuseIdentifier)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="2-2-Controller-类的核心代码"><a href="#2-2-Controller-类的核心代码" class="headerlink" title="2.2 Controller 类的核心代码"></a>2.2 Controller 类的核心代码</h3><p>&#160; &#160; &#160; &#160;这里和 OC 没有区别，主要声明 cell 的代理，创建 cell 时，把响应焦点设置为当前类。</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> TestViewController: <span class="built_in">UIViewController</span>, <span class="built_in">UITableViewDelegate</span>, <span class="built_in">UITableViewDataSource</span>,TestTableCellDelegate&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">func tableView(_ tableView: <span class="built_in">UITableView</span>, cellForRowAt indexPath: IndexPath) -&gt; <span class="built_in">UITableViewCell</span> &#123;</span><br><span class="line">        let cell:TestTableViewCell = (tableView.dequeueReusableCell(withIdentifier: <span class="string">"TestTableViewCell"</span>, <span class="keyword">for</span>: indexPath) as? LXSwiftGroupTableViewCell)!</span><br><span class="line">        cell.model = groupArray?[indexPath.row] as? LXGroupModel</span><br><span class="line">        cell.delegate = <span class="keyword">self</span></span><br><span class="line">        <span class="keyword">return</span> cell</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="2-3-实现代理方法"><a href="#2-3-实现代理方法" class="headerlink" title="2.3 实现代理方法"></a>2.3 实现代理方法</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">func selectedGroup(model: LXGroupModel) &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line">func deletedGroup(model: LXGroupModel) &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line">func modifyGroup(model: LXGroupModel) &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="二、OC-中的-Block，Swift-中的-Closure（闭包）"><a href="#二、OC-中的-Block，Swift-中的-Closure（闭包）" class="headerlink" title="二、OC 中的 Block，Swift 中的 Closure（闭包）"></a>二、OC 中的 Block，Swift 中的 Closure（闭包）</h1><h2 id="1-闭包的说明"><a href="#1-闭包的说明" class="headerlink" title="1.闭包的说明"></a>1.闭包的说明</h2><p>&#160; &#160; &#160; &#160;Swift 中的闭包和 Objective-C 中的 block 类似，闭包是功能性自包含模块，可以在代码中被传递和使用。 在 Swift 中 函数只是闭包的一种特殊形式。</p>
-<p>1.全局函数是一个有名字但不会捕获任何值的闭包<br>2.内嵌函数是一个有名字可以捕获到所在的函数域内值的闭包<br>3.闭包表达式是一个没有名字的可以捕获上下文中的变量或者常量的闭包</p>
-<h2 id="2-闭包的使用"><a href="#2-闭包的使用" class="headerlink" title="2.闭包的使用"></a>2.闭包的使用</h2><h3 id="2-1-方式一：利用typealias最完整的创建"><a href="#2-1-方式一：利用typealias最完整的创建" class="headerlink" title="2.1 方式一：利用typealias最完整的创建"></a>2.1 方式一：利用typealias最完整的创建</h3><figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//为(_ num1: Int, _ num2: Int) -&gt; (Int) 类型的闭包定义别名：Add</span></span><br><span class="line">    <span class="keyword">typealias</span> <span class="type">Add</span> = (<span class="number">_</span> num1: <span class="type">Int</span>, <span class="number">_</span> num2: <span class="type">Int</span>) -&gt; (<span class="type">Int</span>)</span><br><span class="line"><span class="comment">//创建一个 Add 类型的闭包常量：addCloser1</span></span><br><span class="line">    <span class="keyword">let</span> addCloser1: <span class="type">Add</span></span><br><span class="line"><span class="comment">//为已经创建好的常量 addCloser1 赋值</span></span><br><span class="line">    addCloser1 = &#123;</span><br><span class="line">        (<span class="number">_</span> num1: <span class="type">Int</span>, <span class="number">_</span> num2: <span class="type">Int</span>) -&gt; (<span class="type">Int</span>) <span class="keyword">in</span></span><br><span class="line">        <span class="keyword">return</span> num1 + num2</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//调用闭包并接受返回值</span></span><br><span class="line">    <span class="keyword">let</span> result = addCloser1(<span class="number">20</span>, <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="2-2-方式二：闭包类型申明和变量的创建合并在一起"><a href="#2-2-方式二：闭包类型申明和变量的创建合并在一起" class="headerlink" title="2.2 方式二：闭包类型申明和变量的创建合并在一起"></a>2.2 方式二：闭包类型申明和变量的创建合并在一起</h3><figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建一个 (_ num1: Int, _ num2: Int) -&gt; (Int) 类型的闭包常量：addCloser1</span></span><br><span class="line">    <span class="keyword">let</span> addCloser1: (<span class="number">_</span> num1: <span class="type">Int</span>, <span class="number">_</span> num2: <span class="type">Int</span>) -&gt; (<span class="type">Int</span>)</span><br><span class="line"><span class="comment">//为已经创建好的常量 addCloser1 赋值</span></span><br><span class="line">    addCloser1 = &#123;</span><br><span class="line">         (<span class="number">_</span> num1: <span class="type">Int</span>, <span class="number">_</span> num2: <span class="type">Int</span>) -&gt; (<span class="type">Int</span>) <span class="keyword">in</span></span><br><span class="line">         <span class="keyword">return</span> num1 + num2</span><br><span class="line">    &#125;</span><br><span class="line"> <span class="comment">//调用闭包并接受返回值</span></span><br><span class="line">    <span class="keyword">let</span> result = addCloser1(<span class="number">20</span>, <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="2-3-方式三：省略闭包接收的形参、省略闭包体中返回值"><a href="#2-3-方式三：省略闭包接收的形参、省略闭包体中返回值" class="headerlink" title="2.3 方式三：省略闭包接收的形参、省略闭包体中返回值"></a>2.3 方式三：省略闭包接收的形参、省略闭包体中返回值</h3><figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建一个 (Int, Int) -&gt; (Int) 类型的闭包常量：addCloser1</span></span><br><span class="line">    <span class="keyword">let</span> addCloser1: (<span class="type">Int</span>, <span class="type">Int</span>) -&gt; (<span class="type">Int</span>)</span><br><span class="line"><span class="comment">//为已经创建好的常量 addCloser1 赋值</span></span><br><span class="line">    addCloser1 = &#123;</span><br><span class="line">         (num1, num2) <span class="keyword">in</span></span><br><span class="line">         <span class="keyword">return</span> num1 + num2</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//调用闭包并接受返回值</span></span><br><span class="line">    <span class="keyword">let</span> result = addCloser1(<span class="number">20</span>, <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="2-4-方式四：在形式三的基础上进一步精简"><a href="#2-4-方式四：在形式三的基础上进一步精简" class="headerlink" title="2.4 方式四：在形式三的基础上进一步精简"></a>2.4 方式四：在形式三的基础上进一步精简</h3><figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建一个 (Int, Int) -&gt; (Int) 类型的闭包常量：addCloser1 并赋值</span></span><br><span class="line">    <span class="keyword">let</span> addCloser1: (<span class="type">Int</span>, <span class="type">Int</span>) -&gt; (<span class="type">Int</span>) = &#123;</span><br><span class="line">           (num1, num2) <span class="keyword">in</span></span><br><span class="line">           <span class="keyword">return</span> num1 + num2</span><br><span class="line">        &#125;    </span><br><span class="line"><span class="comment">//调用闭包并接受返回值</span></span><br><span class="line">    <span class="keyword">let</span> result = addCloser1(<span class="number">20</span>, <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="2-5-方式五：如果闭包没有接收参数省略in"><a href="#2-5-方式五：如果闭包没有接收参数省略in" class="headerlink" title="2.5 方式五：如果闭包没有接收参数省略in"></a>2.5 方式五：如果闭包没有接收参数省略in</h3><figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建一个 () -&gt; (String) 类型的闭包常量：addCloser1 并赋值</span></span><br><span class="line">    <span class="keyword">let</span> addCloser1: () -&gt; (<span class="type">String</span>) = &#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="string">"这个闭包没有参数，但是有返回值"</span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//调用闭包并接受返回值</span></span><br><span class="line">    <span class="keyword">let</span> result = addCloser1()</span><br></pre></td></tr></table></figure>
-<h3 id="2-6-方式六：简写的实际参数名"><a href="#2-6-方式六：简写的实际参数名" class="headerlink" title="2.6 方式六：简写的实际参数名"></a>2.6 方式六：简写的实际参数名</h3><p><code>swift Swift
- //创建一个 (String, String) -&gt; (String) 类型的闭包常量：addCloser1 并赋值
-     let addCloser1: (String, String) -&gt; (String) = {
-            return &quot;闭包的返回值是:\($0),\($1)&quot;
-         }
- //调用闭包并接受返回值
-      let result = addCloser1(&quot;Hello&quot;, &quot;Swift!&quot;)</code>   </p>
-<p><em>说明： 得益于Swift的类型推断机制，我们在使用闭包的时候可以省略很多东西，而且Swift自动对行内闭包提供简写实际参数名，你也可以通过 $0, $1, $2 这样的语法来引用闭包的实际参数值。如果你在闭包表达式中使用这些简写实际参数名，那么你可以在闭包的实际参数列表中忽略对其的定义，并且简写实际参数名的数字和类型将会从期望的函数类型中推断出来。in关键字也能被省略，$0 和 $1 分别是闭包的第一个和第二个 String类型的 实际参数（引自文档翻译）。</em></p>
-<p>以上。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
-    
-    </summary>
-    
-      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
-    
-      <category term="iOS" scheme="http://kaaaaai.cn/tags/iOS/"/>
-    
-      <category term="Swift" scheme="http://kaaaaai.cn/tags/Swift/"/>
     
   </entry>
   

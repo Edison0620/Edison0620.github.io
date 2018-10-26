@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[iOS - 关于静态库的其他问题]]></title>
+    <url>%2Farticles%2F044.html</url>
+    <content type="text"><![CDATA[一、Debug 和 Release 版本区别1、Release 是发行版本,比 Debug 版本有一些优化，文件比 Debug 文件小，想要发布时，也就是说需要大众客户使用时，需要 build Release 版本，2、Debug 是调试版本，Debug 和 Release 调用两个不同的底层库。我们开发者自己内部真机或模拟器调试时，使用 Debug 模式就好。3、Debug 是调试版本，包括的程序信息更多 4、只有 Debug 版的程序才能设置断点、单步执行、使用 TRACE/ASSERT 等调试输出语句 5、Release 不包含任何调试信息，所以体积小、运行速度快 使用时可以直接使用 Release 版本 为什么要把所有类型包合并 不用合并，使用时可以直接使用 Release 版本。 二、打包环境配置 Build Active Architecture Only：Yes 表示只编译选中模拟器对应的架构,No 则为编译所有模拟器支持的cup架构(Debug 的 Yes 状态改为 No 即可) -ObjC：在用第三方库时，我们常常在Xcode的Build Settings 下 Other Linker Flags 里面加入 -ObjC 标志，它和 Objective-C 的一个重要特性：类别（category)有关。根据这里的解释，Unix 的标准静态库实现和Objective-C的动态特性之间有一些冲突：Objective-C没有为每个函数（或者方法）定义链接符号，它只为每个类创建链接符号。这样当在一个静态库中使用类别来扩展已有类的时候，链接器不知道如何把类原有的方法和类别中的方法整合起来，就会导致你调用类别中的方法时，出现”selector not recognized”，也就是找不到方法定义的错误。为了解决这个问题，引入了-ObjC 标志，它的作用就是将静态库中所有的和对象相关的文件都加载进来。 -all_load 和 -force_load：上面添加 -ObjC 并不能解决所有的引用问题，在64位的Mac系统或者iOS系统下，链接器有一个bug，会导致只包含有类别的静态库无法使用-ObjC标志来加载文件。变通方法是使用-all_load或者-force_load标志，它们的作用都是加载静态库中所有文件，不过all_load作用于所有的库，而-force_load后面必须要指定具体的文件他们加载的位置也是在Xcode的Build Settings下Other Linker Flags里面。 Mach-O的编译方式 ：默认选择的是Dynamic Library（动态库），要手动选择Static Library（静态库） 三、多层库嵌套1.导入所有要打包的文件和其他第三方静态库正常导入要打包的文件就可以了，在导入第三方静态库的时候要注意，不要选择添加到target中，如果添加进去要去target里面把第三方静态库删掉（只需导入，不要添加进target） 导入第三方静态库之后再link依赖的系统库，像这样： 四、Swift 打包步骤细节都和 oc 是一致的。 工程直接引用其他工程 看到比较早的教程是，直接把另一个b工程拖进a工程，然后在 header search paths 配置路径。路径右边的设置为：recursive（递归查找文件）。 但测试后无效，无法引用 b 工程内的文件。]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>EXP</tag>
+        <tag>iOS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[iOS - Xcode 10 和 iOS 12 问题集合]]></title>
     <url>%2Farticles%2F043.html</url>
     <content type="text"><![CDATA[1、运行时报错如下错：log 打印12345Showing Recent Messages:-1:Multiple commands produce'/Users/edison/Library/Developer/Xcode/DerivedData/$(product name)-fxzbpoappydriwfozeeqaxxcyoho/Build/Products/Debug-iphoneos/$(product name).app':1) Target '$(product name)' has create directory command with output '/Users/edison/Library/Developer/Xcode/DerivedData/$(product name)-fxzbpoappydriwfozeeqaxxcyoho/Build/Products/Debug-iphoneos/$(product name).app'2) That command depends on command in Target '$(product name)': script phase “[CP] Copy Pods Resources” 解决方法：选中项目 target -&gt; Build phase -&gt; Copy Pods Resources -&gt; Output Files -&gt; 移除 ${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH} -&gt; Build 2、README 文件重复问题log 打印12345678Showing Recent Messages:-1: Multiple commands produce '/Users/edison/Library/Developer/Xcode/DerivedData/$(product name)-fxzbpoappydriwfozeeqaxxcyoho/Build/Products/Debug-iphoneos/$(product name).app/README.md':1) Target '$(product name)' (project '$(product name)') has copy command from '/工程路径/.../README.md' to '/工程路径/.../README.md'2) Target '$(product name)' (project '$(product name)') has copy command from '工程路径/.../README.md' to '工程路径/.../README.md'3) Target '$(product name)' (project '$(product name)') has copy command from '工程路径/.../README.md' to '工程路径/.../README.md'4) Target '$(product name)' (project '$(product name)') has copy command from '工程路径/.../README.md' to '工程路径/.../README.md' 解决方法：在工程内搜索 README，删除所有搜索结果。 Tips：除了 README.md 文件也可能是其他文件重复，都删除就好。 3、Info.plist 文件重复问题log 打印12345Multiple commands produce '/Users/jiaxiaoyan/Library/Developer/Xcode/DerivedData/LJShell-emaksjqtieseunfuiotagpjkluwp/Build/Products/Debug-iphonesimulator/Lianjia_Beike_SecondHand_Private/Lianjia_HomeLink_House_Private.bundle/Info.plist':1) Target 'Lianjia_Beike_SecondHand_Private-Lianjia_HomeLink_House_Private' has copy command from '/Users/jiaxiaoyan/Desktop/LJworkspace/repoWorkSpaceRootPath/mobile_ios/lianjia_ios_platc/Lianjia_Beike_SecondHand/Lianjia_Beike_SecondHand/Lianjia_Beike_SecondHand/Private/HousePrivate/LJSecondHandHouseComponent/HouseVideo/AliyunVodPlayerSDK.framework/Info.plist' to '/Users/jiaxiaoyan/Library/Developer/Xcode/DerivedData/LJShell-emaksjqtieseunfuiotagpjkluwp/Build/Products/Debug-iphonesimulator/Lianjia_Beike_SecondHand_Private/Lianjia_HomeLink_House_Private.bundle/Info.plist' 2) Target 'Lianjia_Beike_SecondHand_Private-Lianjia_HomeLink_House_Private' has process command with input '/Users/jiaxiaoyan/Desktop/LJworkspace/repoWorkSpaceRootPath/mobile_ios/lianjia_ios_platc/lianjia_ios_platc/Pods/Target Support Files/Lianjia_Beike_SecondHand_Private/ResourceBundle-Lianjia_HomeLink_House_Private-Info.plist' 原因：由于重复文件是其他部门有依赖，所以修改了xcode的配置暂时解决了编译报错的问题。 解决办法：菜单栏点击 File —&gt; Workspace Settings —&gt; Build System 选择 legacy Build System 4、Swift 桥接文件报错“Cannot find interface declaration for ‘类 B’，superclass of ‘类 A’”问题分析：这个问题我看了很多博客和论坛问答， 但都没有找到合适的解决方法。已知的是在 swift 混编工程里导入 OC 库，在 Xcode 10 上会有这个 bug，而在 Xcode 9 上只需要在桥接文件中将报错的代码注释掉，编译成功恢复回来就可以解决问题。但 xcode 10 的中的桥接文件修改后每次编译都会恢复原样，无法用通用的方式解决。 解决方法：按着 Xcode 9 的思路，推测既然是桥接文件的问题，我就简单粗暴的新建了一个桥接文件： 然后编译一次，进入系统生成的 swift 桥接文件，把里面的代码全都复制到自己新建的桥接文件中： 然后在工程配置中把 swift 引用的头文件路径修改成自己创建的文件 运行一遍。 如果有报错，就把报错行注释，编译成功后恢复。问题解决。]]></content>
@@ -9,8 +21,8 @@
       </categories>
       <tags>
         <tag>EXP</tag>
-        <tag>Swift</tag>
         <tag>OC</tag>
+        <tag>Swift</tag>
       </tags>
   </entry>
   <entry>
