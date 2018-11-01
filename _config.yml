@@ -14,7 +14,7 @@ timezone:
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://kaaaaai.cn
 root: /
-permalink:  /articles/:title.html
+permalink: articles/:title.html
 permalink_defaults:
 
 # Directory

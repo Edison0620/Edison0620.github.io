@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kaaaaai.cn/"/>
-  <updated>2018-09-12T08:17:30.661Z</updated>
+  <updated>2018-10-26T13:04:18.009Z</updated>
   <id>http://kaaaaai.cn/</id>
   
   <author>
@@ -16,62 +16,276 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>iOS - .a 库和 framework 库详解</title>
-    <link href="http://kaaaaai.cn//articles/041.html"/>
-    <id>http://kaaaaai.cn//articles/041.html</id>
+    <title>iOS - 关于静态库的其他问题</title>
+    <link href="http://kaaaaai.cn/articles/044.html"/>
+    <id>http://kaaaaai.cn/articles/044.html</id>
+    <published>2018-10-26T08:24:52.000Z</published>
+    <updated>2018-10-26T13:04:18.009Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="一、Debug-和-Release-版本区别"><a href="#一、Debug-和-Release-版本区别" class="headerlink" title="一、Debug 和 Release 版本区别"></a>一、Debug 和 Release 版本区别</h1><p>1、Release 是发行版本,比 Debug 版本有一些优化，文件比 Debug 文件小，想要发布时，也就是说需要大众客户使用时，需要 build Release 版本，<br>2、Debug 是调试版本，Debug 和 Release 调用两个不同的底层库。我们开发者自己内部真机或模拟器调试时，使用 Debug 模式就好。<br>3、Debug 是调试版本，包括的程序信息更多 4、只有 Debug 版的程序才能设置断点、单步执行、使用 TRACE/ASSERT 等调试输出语句 5、Release 不包含任何调试信息，所以体积小、运行速度快</p>
+<p>使用时可以直接使用 Release 版本</p>
+<p>为什么要把所有类型包合并</p>
+<p>不用合并，使用时可以直接使用 Release 版本。</p>
+<h1 id="二、打包环境配置"><a href="#二、打包环境配置" class="headerlink" title="二、打包环境配置"></a>二、打包环境配置</h1><p><img src="http://os1i62usc.bkt.clouddn.com/Pasted%20Graphic%201.png" alt="Pasted Graphic 1"></p>
+<p>Build Active Architecture Only：Yes 表示只编译选中模拟器对应的架构,No 则为编译所有模拟器支持的cup架构(Debug 的 Yes 状态改为 No 即可)</p>
+<p>-ObjC：在用第三方库时，我们常常在Xcode的Build Settings 下 Other Linker Flags 里面加入 -ObjC 标志，它和 Objective-C 的一个重要特性：类别（category)有关。<br>根据这里的解释，Unix 的标准静态库实现和Objective-C的动态特性之间有一些冲突：Objective-C没有为每个函数（或者方法）定义链接符号，它只为每个类创建链接符号。<br>这样当在一个静态库中使用类别来扩展已有类的时候，链接器不知道如何把类原有的方法和类别中的方法整合起来，就会导致你调用类别中的方法时，出现”selector not recognized”，也就是找不到方法定义的错误。<br>为了解决这个问题，引入了-ObjC 标志，它的作用就是将静态库中所有的和对象相关的文件都加载进来。</p>
+<p>-all_load 和 -force_load：上面添加 -ObjC 并不能解决所有的引用问题，在64位的Mac系统或者iOS系统下，链接器有一个bug，会导致只包含有类别的静态库无法使用-ObjC标志来加载文件。<br>变通方法是使用-all_load或者-force_load标志，它们的作用都是加载静态库中所有文件，不过all_load作用于所有的库，而-force_load后面必须要指定具体的文件他们加载的位置也是在Xcode的Build Settings下Other Linker Flags里面。</p>
+<p>Mach-O的编译方式 ：默认选择的是Dynamic Library（动态库），要手动选择Static Library（静态库）</p>
+<h1 id="三、多层库嵌套"><a href="#三、多层库嵌套" class="headerlink" title="三、多层库嵌套"></a>三、多层库嵌套</h1><p>1.导入所有要打包的文件和其他第三方静态库<br>正常导入要打包的文件就可以了，在导入第三方静态库的时候要注意，不要选择添加到target中，如果添加进去要去target里面把第三方静态库删掉（只需导入，不要添加进target）</p>
+<p><img src="http://os1i62usc.bkt.clouddn.com/044_2.png" alt="044_2"></p>
+<p>导入第三方静态库之后再link依赖的系统库，像这样：</p>
+<p><img src="http://os1i62usc.bkt.clouddn.com/044_03.png" alt="044_03"></p>
+<h1 id="四、Swift-打包"><a href="#四、Swift-打包" class="headerlink" title="四、Swift 打包"></a>四、Swift 打包</h1><p>步骤细节都和 oc 是一致的。</p>
+<p>工程直接引用其他工程</p>
+<p>看到比较早的教程是，直接把另一个b工程拖进a工程，然后在 header search paths 配置路径。路径右边的设置为：recursive（递归查找文件）。</p>
+<p>但测试后无效，无法引用 b 工程内的文件。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
+    
+      <category term="iOS" scheme="http://kaaaaai.cn/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS - Xcode 10 和 iOS 12 问题集合</title>
+    <link href="http://kaaaaai.cn/articles/043.html"/>
+    <id>http://kaaaaai.cn/articles/043.html</id>
+    <published>2018-10-08T08:24:52.000Z</published>
+    <updated>2018-10-08T08:33:01.445Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="1、运行时报错如下错："><a href="#1、运行时报错如下错：" class="headerlink" title="1、运行时报错如下错："></a>1、运行时报错如下错：</h2><figure class="highlight bash"><figcaption><span>log 打印</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Showing Recent Messages:-1:Multiple commands produce<span class="string">'/Users/edison/Library/Developer/Xcode/DerivedData/$(product name)-fxzbpoappydriwfozeeqaxxcyoho/Build/Products/Debug-iphoneos/$(product name).app'</span>:</span><br><span class="line"></span><br><span class="line">1) Target <span class="string">'$(product name)'</span> has create directory <span class="built_in">command</span> with output <span class="string">'/Users/edison/Library/Developer/Xcode/DerivedData/$(product name)-fxzbpoappydriwfozeeqaxxcyoho/Build/Products/Debug-iphoneos/$(product name).app'</span></span><br><span class="line"></span><br><span class="line">2) That <span class="built_in">command</span> depends on <span class="built_in">command</span> <span class="keyword">in</span> Target <span class="string">'$(product name)'</span>: script phase “[CP] Copy Pods Resources”</span><br></pre></td></tr></table></figure>
+<p>解决方法：选中项目 target -&gt; Build phase -&gt; Copy Pods Resources -&gt; Output Files  -&gt; 移除 <code>${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}</code> -&gt; Build</p>
+<h2 id="2、README-文件重复问题"><a href="#2、README-文件重复问题" class="headerlink" title="2、README 文件重复问题"></a>2、README 文件重复问题</h2><figure class="highlight bash"><figcaption><span>log 打印</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Showing Recent Messages:-1: Multiple commands produce <span class="string">'/Users/edison/Library/Developer/Xcode/DerivedData/$(product name)-fxzbpoappydriwfozeeqaxxcyoho/Build/Products/Debug-iphoneos/$(product name).app/README.md'</span>:</span><br><span class="line">1) Target <span class="string">'$(product name)'</span> (project <span class="string">'$(product name)'</span>) has copy <span class="built_in">command</span> from <span class="string">'/工程路径/.../README.md'</span> to <span class="string">'/工程路径/.../README.md'</span></span><br><span class="line"></span><br><span class="line">2) Target <span class="string">'$(product name)'</span> (project <span class="string">'$(product name)'</span>) has copy <span class="built_in">command</span> from <span class="string">'工程路径/.../README.md'</span> to <span class="string">'工程路径/.../README.md'</span></span><br><span class="line"></span><br><span class="line">3) Target <span class="string">'$(product name)'</span> (project <span class="string">'$(product name)'</span>) has copy <span class="built_in">command</span> from <span class="string">'工程路径/.../README.md'</span> to <span class="string">'工程路径/.../README.md'</span></span><br><span class="line"></span><br><span class="line">4) Target <span class="string">'$(product name)'</span> (project <span class="string">'$(product name)'</span>) has copy <span class="built_in">command</span> from <span class="string">'工程路径/.../README.md'</span> to <span class="string">'工程路径/.../README.md'</span></span><br></pre></td></tr></table></figure>
+<p>解决方法：在工程内搜索 <code>README</code>，删除所有搜索结果。</p>
+<p>Tips：除了 <code>README.md</code> 文件也可能是其他文件重复，都删除就好。</p>
+<h2 id="3、Info-plist-文件重复问题"><a href="#3、Info-plist-文件重复问题" class="headerlink" title="3、Info.plist 文件重复问题"></a>3、Info.plist 文件重复问题</h2><figure class="highlight bash"><figcaption><span>log 打印</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Multiple commands produce <span class="string">'/Users/jiaxiaoyan/Library/Developer/Xcode/DerivedData/LJShell-emaksjqtieseunfuiotagpjkluwp/Build/Products/Debug-iphonesimulator/Lianjia_Beike_SecondHand_Private/Lianjia_HomeLink_House_Private.bundle/Info.plist'</span>:</span><br><span class="line"></span><br><span class="line">1) Target <span class="string">'Lianjia_Beike_SecondHand_Private-Lianjia_HomeLink_House_Private'</span> has copy <span class="built_in">command</span> from <span class="string">'/Users/jiaxiaoyan/Desktop/LJworkspace/repoWorkSpaceRootPath/mobile_ios/lianjia_ios_platc/Lianjia_Beike_SecondHand/Lianjia_Beike_SecondHand/Lianjia_Beike_SecondHand/Private/HousePrivate/LJSecondHandHouseComponent/HouseVideo/AliyunVodPlayerSDK.framework/Info.plist'</span> to <span class="string">'/Users/jiaxiaoyan/Library/Developer/Xcode/DerivedData/LJShell-emaksjqtieseunfuiotagpjkluwp/Build/Products/Debug-iphonesimulator/Lianjia_Beike_SecondHand_Private/Lianjia_HomeLink_House_Private.bundle/Info.plist'</span></span><br><span class="line"></span><br><span class="line"> 2) Target <span class="string">'Lianjia_Beike_SecondHand_Private-Lianjia_HomeLink_House_Private'</span> has process <span class="built_in">command</span> with input <span class="string">'/Users/jiaxiaoyan/Desktop/LJworkspace/repoWorkSpaceRootPath/mobile_ios/lianjia_ios_platc/lianjia_ios_platc/Pods/Target Support Files/Lianjia_Beike_SecondHand_Private/ResourceBundle-Lianjia_HomeLink_House_Private-Info.plist'</span></span><br></pre></td></tr></table></figure>
+<p>原因：由于重复文件是其他部门有依赖，所以修改了xcode的配置暂时解决了编译报错的问题。</p>
+<p>解决办法：菜单栏点击 File —&gt; Workspace Settings —&gt; Build System  选择 legacy Build System</p>
+<p><img src="http://os1i62usc.bkt.clouddn.com/043_01.png" alt="043_01"></p>
+<h2 id="4、Swift-桥接文件报错“Cannot-find-interface-declaration-for-‘类-B’，superclass-of-‘类-A’”"><a href="#4、Swift-桥接文件报错“Cannot-find-interface-declaration-for-‘类-B’，superclass-of-‘类-A’”" class="headerlink" title="4、Swift 桥接文件报错“Cannot find interface declaration for ‘类 B’，superclass of ‘类 A’”"></a>4、Swift 桥接文件报错“Cannot find interface declaration for ‘类 B’，superclass of ‘类 A’”</h2><p>问题分析：这个问题我看了很多博客和论坛问答， 但都没有找到合适的解决方法。已知的是在 swift 混编工程里导入 OC 库，在 Xcode 10 上会有这个 bug，而在 Xcode 9 上只需要在桥接文件中将报错的代码注释掉，编译成功恢复回来就可以解决问题。但 xcode 10 的中的桥接文件修改后每次编译都会恢复原样，无法用通用的方式解决。</p>
+<p>解决方法：按着 Xcode 9 的思路，推测既然是桥接文件的问题，我就简单粗暴的新建了一个桥接文件：</p>
+<p><img src="http://os1i62usc.bkt.clouddn.com/043_02.png" alt="043_02"><br><img src="http://os1i62usc.bkt.clouddn.com/043_03.png" alt="043_03"></p>
+<p>然后编译一次，进入系统生成的 swift 桥接文件，把里面的代码全都复制到自己新建的桥接文件中：</p>
+<p><img src="http://os1i62usc.bkt.clouddn.com/043_04.png" alt="043_04"></p>
+<p>然后在工程配置中把 swift 引用的头文件路径修改成自己创建的文件</p>
+<p><img src="http://os1i62usc.bkt.clouddn.com/043_05.png" alt="043_05"></p>
+<p>运行一遍。</p>
+<p><strong>如果有报错，就把报错行注释，编译成功后恢复。问题解决。</strong></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
+    
+      <category term="Swift" scheme="http://kaaaaai.cn/tags/Swift/"/>
+    
+      <category term="OC" scheme="http://kaaaaai.cn/tags/OC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python - 学习笔记</title>
+    <link href="http://kaaaaai.cn/articles/042.html"/>
+    <id>http://kaaaaai.cn/articles/042.html</id>
+    <published>2018-09-20T08:24:52.000Z</published>
+    <updated>2018-10-08T06:52:30.496Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>学习地址：<a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" target="_blank" rel="noopener">Python 教程</a><br>其他：<a href="https://docs.python.org/3/library/functions.html#abs" target="_blank" rel="noopener">官网-函数列表</a></p>
+<h2 id="一、基础笔记"><a href="#一、基础笔记" class="headerlink" title="一、基础笔记"></a>一、基础笔记</h2><h3 id="列表：list"><a href="#列表：list" class="headerlink" title="列表：list"></a>列表：list</h3><p>用 <code>len()</code> 函数可以获得 <code>list</code> 元素的个数：<br><figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>len(classmates)</span><br></pre></td></tr></table></figure></p>
+<p><code>list</code> 是一个可变的有序表，所以，可以往 <code>list</code> 中追加元素到末尾：<br><figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>classmates.append(<span class="string">'Adam'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>要删除 <code>list</code> 末尾的元素，用 <code>pop()</code> 方法。要删除指定位置的元素，用 <code>pop(i)</code> 方法，其中 i 是索引位置。</p>
+<h3 id="循环：for-和-while"><a href="#循环：for-和-while" class="headerlink" title="循环：for 和 while"></a>循环：for 和 while</h3><p>for 循环：<code>range()</code> 函数，可以生成一个整数序列，再通过 <code>list()</code> 函数可以转换为list。</p>
+<p>while 循环：<code>continue</code> 语句，跳过当前的这次循环，直接开始下一次循环。<code>break</code> 语句可以提前退出循环。</p>
+<h3 id="dict"><a href="#dict" class="headerlink" title="dict"></a>dict</h3><p>通过 <code>in</code> 判断 <code>key</code> 是否存在：<br><figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'Thomas'</span> <span class="keyword">in</span> d</span><br></pre></td></tr></table></figure></p>
+<p>通过 <code>dict</code> 提供的 <code>get()</code> 方法，如果 <code>key</code> 不存在，可以返回 <code>None</code>，或者自己指定的 <code>value</code>：<br><figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>d.get(<span class="string">'Thomas'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d.get(<span class="string">'Thomas'</span>, <span class="number">-1</span>)</span><br></pre></td></tr></table></figure></p>
+<p>要删除一个 <code>key</code> ，用 <code>pop(key)</code> 方法，对应的 <code>value</code> 也会从 <code>dict</code> 中删除：<br><figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>d.pop(<span class="string">'Bob'</span>)</span><br></pre></td></tr></table></figure></p>
+<h3 id="set"><a href="#set" class="headerlink" title="set"></a>set</h3><p><code>set</code> 和 <code>dict</code> 类似，也是一组 <code>key</code> 的集合，但不存储 <code>value</code>。由于 <code>key</code> 不能重复，所以，在 <code>set</code> 中，没有重复的 <code>key</code> 。</p>
+<p>通过 <code>add(key)</code> 方法可以添加元素到 <code>set</code> 中，可以重复添加，但不会有效果，通过 <code>remove(key)</code> 方法可以删除元素。</p>
+<h3 id="参数组合"><a href="#参数组合" class="headerlink" title="参数组合"></a>参数组合</h3><p>在 <code>Python</code> 中定义函数，可以用必选参数、默认参数、可变参数、关键字参数和命名关键字参数，这5种参数都可以组合使用。但是请注意，参数定义的顺序必须是：必选参数、默认参数、可变参数、命名关键字参数和关键字参数。</p>
+<h3 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h3><p>取前 3 个元素，用一行代码就可以完成切片：<br><figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>L[<span class="number">0</span>:<span class="number">3</span>]</span><br></pre></td></tr></table></figure></p>
+<p><code>Python</code> 支持 <code>L[-1]</code> 取倒数第一个元素，那么它同样支持倒数切片，试试：<br><figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>L[<span class="number">-2</span>:]</span><br><span class="line">[<span class="string">'Bob'</span>, <span class="string">'Jack'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>L[<span class="number">-2</span>:<span class="number">-1</span>]</span><br><span class="line">[<span class="string">'Bob'</span>]</span><br></pre></td></tr></table></figure></p>
+<p>所有数，每5个取一个：<br><figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>L[::<span class="number">5</span>]</span><br></pre></td></tr></table></figure></p>
+<h3 id="列表生成式"><a href="#列表生成式" class="headerlink" title="列表生成式"></a>列表生成式</h3><p>列表生成式即 List Comprehensions，是 <code>Python</code> 内置的非常简单却强大的可以用来创建 <code>list</code> 的生成式。</p>
+<p>举个例子，要生成 list [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]可以用 <code>list(range(1, 11))</code>：<br><figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>list(range(<span class="number">1</span>, <span class="number">11</span>))</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>]</span><br></pre></td></tr></table></figure></p>
+<p>但如果要生成[1x1, 2x2, 3x3, …, 10x10]怎么做？方法一是循环：<br><figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>L = []</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">11</span>):</span><br><span class="line"><span class="meta">... </span>   L.append(x * x)</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>L</span><br><span class="line">[<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>, <span class="number">36</span>, <span class="number">49</span>, <span class="number">64</span>, <span class="number">81</span>, <span class="number">100</span>]</span><br></pre></td></tr></table></figure></p>
+<p>但是循环太繁琐，而列表生成式则可以用一行语句代替循环生成上面的 <code>list</code>：<br><figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>[x * x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">11</span>)]</span><br><span class="line">[<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>, <span class="number">36</span>, <span class="number">49</span>, <span class="number">64</span>, <span class="number">81</span>, <span class="number">100</span>]</span><br></pre></td></tr></table></figure></p>
+<p>写列表生成式时，把要生成的元素x * x放到前面，后面跟for循环，就可以把list创建出来，十分有用，多写几次，很快就可以熟悉这种语法。</p>
+<p>for循环后面还可以加上if判断，这样我们就可以筛选出仅偶数的平方：<br><figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>[x * x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">11</span>) <span class="keyword">if</span> x % <span class="number">2</span> == <span class="number">0</span>]</span><br><span class="line">[<span class="number">4</span>, <span class="number">16</span>, <span class="number">36</span>, <span class="number">64</span>, <span class="number">100</span>]</span><br></pre></td></tr></table></figure></p>
+<p>还可以使用两层循环，可以生成全排列：<br><figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>[m + n <span class="keyword">for</span> m <span class="keyword">in</span> <span class="string">'ABC'</span> <span class="keyword">for</span> n <span class="keyword">in</span> <span class="string">'XYZ'</span>]</span><br><span class="line">[<span class="string">'AX'</span>, <span class="string">'AY'</span>, <span class="string">'AZ'</span>, <span class="string">'BX'</span>, <span class="string">'BY'</span>, <span class="string">'BZ'</span>, <span class="string">'CX'</span>, <span class="string">'CY'</span>, <span class="string">'CZ'</span>]</span><br></pre></td></tr></table></figure></p>
+<h2 id="二、函数式编程"><a href="#二、函数式编程" class="headerlink" title="二、函数式编程"></a>二、函数式编程</h2><p><code>map</code> 函数：接收一个函数和一个序列，并把传入的函数作用于每个元素</p>
+<p><code>reduce</code> 函数：把一个函数作用在一个序列[x1, x2, x3, …]上，这个函数必须接收两个参数，<code>reduce</code> 把结果继续和序列的下一个元素做累积计算，其效果就是：<br><figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reduce(f, [x1, x2, x3, x4]) = f(f(f(x1, x2), x3), x4)</span><br></pre></td></tr></table></figure></p>
+<p><code>fiter</code>函数：和 <code>map</code> 类似，区别是会根据返回值是 <code>True</code> 和 <code>False</code> 决定保留还是丢弃该元素</p>
+<p><code>sorted</code>函数：排序函数，可通过key实现自定义排序。可传入第三个参数 <code>reverse=True</code>，要进行反向排序，不必改动 <code>key</code> 函数。<br><figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sorted([<span class="string">'bob'</span>, <span class="string">'about'</span>, <span class="string">'Zoo'</span>, <span class="string">'Credit'</span>], key=str.lower, reverse=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure></p>
+<p>匿名函数：lambda x: x * x实际上就是：<br> <figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x * x</span><br></pre></td></tr></table></figure></p>
+<p>关键字 <code>lambda</code> 表示匿名函数，冒号前面的 <code>x</code> 表示函数参数。</p>
+<p>装饰器——？：需要再进一步了解。</p>
+<p>偏函数：<code>functools.partial</code> 就是帮助我们创建一个偏函数的，不需要我们自己定义 <code>int2()</code>，可以直接使用下面的代码创建一个新的函数 <code>int2</code>：<br><figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> functools</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>int2 = functools.partial(int, base=<span class="number">2</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>int2(<span class="string">'1000000'</span>)</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>定义：对原函数的默认参数进行改造，为我所用</li>
+<li>方式：<code>max8=functools.partial(max,8)</code>(当然要先导入 <code>functools</code> 包)</li>
+<li>新知：<code>int</code> 居然这么强，<code>int(&#39;1234234&#39;,2)</code></li>
+</ol>
+<h2 id="三、调试"><a href="#三、调试" class="headerlink" title="三、调试"></a>三、调试</h2><p>程序能一次写完并正常运行的概率很小，基本不超过 1%。总会有各种各样的 <code>bug</code> 需要修正。有的 <code>bug</code> 很简单，看看错误信息就知道，有的 <code>bug</code> 很复杂，我们需要知道出错时，哪些变量的值是正确的，哪些变量的值是错误的，因此，需要一整套调试程序的手段来修复 <code>bug</code>。<br>第一种方法简单直接粗暴有效，就是用 <code>print()</code> 把可能有问题的变量打印出来看看：<br><figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(s)</span>:</span></span><br><span class="line">    n = int(s)</span><br><span class="line">    print(<span class="string">'&gt;&gt;&gt; n = %d'</span> % n)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">10</span> / n</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    foo(<span class="string">'0'</span>)</span><br><span class="line"></span><br><span class="line">main()</span><br></pre></td></tr></table></figure></p>
+<p>执行后在输出中查找打印的变量值：<br><figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ python ~/documents/err.py</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>n = <span class="number">0</span></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  ...</span><br><span class="line">ZeroDivisionError: integer division <span class="keyword">or</span> modulo by zero</span><br></pre></td></tr></table></figure></p>
+<p>用 <code>print()</code> 最大的坏处是将来还得删掉它，想想程序里到处都是 <code>print()</code>，运行结果也会包含很多垃圾信息。所以，我们又有第二种方法。</p>
+<h3 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h3><p>凡是用 <code>print()</code> 来辅助查看的地方，都可以用断言（assert）来替代：<br><figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(s)</span>:</span></span><br><span class="line">    n = int(s)</span><br><span class="line">    <span class="keyword">assert</span> n != <span class="number">0</span>, <span class="string">'n is zero!'</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">10</span> / n</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    foo(<span class="string">'0'</span>)</span><br></pre></td></tr></table></figure></p>
+<p><code>assert</code> 的意思是，表达式 <code>n != 0</code> 应该是 <code>True</code>，否则，根据程序运行的逻辑，后面的代码肯定会出错。<br>如果断言失败，<code>assert</code> 语句本身就会抛出<br><figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">AssertionError：</span><br><span class="line">$ python ~/documents/err.py</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  ...</span><br><span class="line">AssertionError: n <span class="keyword">is</span> zero!</span><br></pre></td></tr></table></figure></p>
+<p>程序中如果到处充斥着 <code>assert</code>，和 <code>print()</code> 相比也好不到哪去。不过，启动 <code>Python</code> 解释器时可以用 -O 参数来关闭<code>assert</code>：<br><figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ python -O err.py</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  ...</span><br><span class="line">ZeroDivisionError: division by zero</span><br></pre></td></tr></table></figure></p>
+<p>关闭后，你可以把所有的 <code>assert</code> 语句当成<code>pass</code> 来看。</p>
+<h3 id="logging"><a href="#logging" class="headerlink" title="logging"></a>logging</h3><p>把 <code>print()</code> 替换为 <code>logging</code> 是第3种方式，和 <code>assert</code> 比，<code>logging</code> 不会抛出错误，而且可以输出到文件：<br><figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"></span><br><span class="line">s = <span class="string">'0'</span></span><br><span class="line">n = int(s)</span><br><span class="line">logging.info(<span class="string">'n = %d'</span> % n)</span><br><span class="line">print(<span class="number">10</span> / n)</span><br></pre></td></tr></table></figure></p>
+<p><code>logging.info()</code> 就可以输出一段文本。运行，发现除了 <code>ZeroDivisionError</code>，没有任何信息。怎么回事？<br>别急，在 <code>import logging</code> 之后添加一行配置再试试：<br><figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line">logging.basicConfig(level=logging.INFO)</span><br></pre></td></tr></table></figure></p>
+<p>看到输出了：<br><figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ python err.py</span><br><span class="line">INFO:root:n = <span class="number">0</span></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"err.py"</span>, line <span class="number">8</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    print(<span class="number">10</span> / n)</span><br><span class="line">ZeroDivisionError: division by zero</span><br></pre></td></tr></table></figure></p>
+<p>这就是 <code>logging</code> 的好处，它允许你指定记录信息的级别，有 <code>debug</code>，<code>info</code>，<code>warning</code>，<code>error</code> 等几个级别，当我们指定 <code>level=INFO</code> 时，<code>logging.debug</code> 就不起作用了。同理，指定 <code>level=WARNING</code> 后，<code>debug</code> 和 <code>info</code> 就不起作用了。这样一来，你可以放心地输出不同级别的信息，也不用删除，最后统一控制输出哪个级别的信息。<br><code>logging</code> 的另一个好处是通过简单的配置，一条语句可以同时输出到不同的地方，比如<code>console</code> 和文件。</p>
+<h3 id="pdb"><a href="#pdb" class="headerlink" title="pdb"></a>pdb</h3><p>第4种方式是启动 <code>Python</code> 的调试器 <code>pdb</code>，让程序以单步方式运行，可以随时查看运行状态。我们先准备好程序：</p>
+<figure class="highlight python"><figcaption><span>Python err.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">'0'</span></span><br><span class="line">n = int(s)</span><br><span class="line">print(<span class="number">10</span> / n)</span><br></pre></td></tr></table></figure>
+<p>然后启动：<br><figure class="highlight bash"><figcaption><span>终端</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ python -m pdb err.py</span><br><span class="line">&gt; /Users/michael/Github/learn-python3/samples/debug/err.py(2)&lt;module&gt;()</span><br><span class="line">-&gt; s = <span class="string">'0'</span></span><br></pre></td></tr></table></figure></p>
+<p>以参数 <code>-m pdb</code> 启动后，<code>pdb</code> 定位到下一步要执行的代码<code>-&gt; s = &#39;0&#39;</code>。输入命令 <code>l</code> 来查看代码：<br><figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(Pdb) l</span><br><span class="line">  <span class="number">1</span>     <span class="comment"># err.py</span></span><br><span class="line">  2  -&gt; s = '0'</span><br><span class="line">  <span class="number">3</span>     n = int(s)</span><br><span class="line">  <span class="number">4</span>     print(<span class="number">10</span> / n)</span><br></pre></td></tr></table></figure></p>
+<p>输入命令n可以单步执行代码：<br><figure class="highlight"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(Pdb) n</span><br><span class="line">&gt; /Users/michael/Github/learn-python3/samples/debug/err.py(<span class="number">3</span>)&lt;module&gt;()</span><br><span class="line">-&gt; n = int(s)</span><br><span class="line">(Pdb) n</span><br><span class="line">&gt; /Users/michael/Github/learn-python3/samples/debug/err.py(<span class="number">4</span>)&lt;module&gt;()</span><br><span class="line">-&gt; print(10 / n)</span><br></pre></td></tr></table></figure></p>
+<p>任何时候都可以输入命令p 变量名来查看变量：<br><figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(Pdb) p s</span><br><span class="line"><span class="string">'0'</span></span><br><span class="line">(Pdb) p n</span><br><span class="line"><span class="number">0</span></span><br></pre></td></tr></table></figure></p>
+<p>输入命令q结束调试，退出程序：<br><figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(Pdb) q</span><br></pre></td></tr></table></figure></p>
+<p>这种通过 <code>pdb</code> 在命令行调试的方法理论上是万能的，但实在是太麻烦了，如果有一千行代码，要运行到第 999 行得敲多少命令啊。还好，我们还有另一种调试方法。<br><figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pdb.set_trace()</span><br></pre></td></tr></table></figure></p>
+<p>这个方法也是用 <code>pdb</code>，但是不需要单步执行，我们只需要 <code>import pdb</code>，然后，在可能出错的地方放一个 <code>pdb.set_trace()</code>，就可以设置一个断点：<br><figure class="highlight python"><figcaption><span>Python err.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pdb</span><br><span class="line"></span><br><span class="line">s = <span class="string">'0'</span></span><br><span class="line">n = int(s)</span><br><span class="line">pdb.set_trace() <span class="comment"># 运行到这里会自动暂停</span></span><br><span class="line">print(<span class="number">10</span> / n)</span><br></pre></td></tr></table></figure></p>
+<p>运行代码，程序会自动在 <code>pdb.set_trace()</code> 暂停并进入 <code>pdb</code> 调试环境，可以用命令 <code>p</code> 查看变量，或者用命令 <code>c</code> 继续运行：<br><figure class="highlight bash"><figcaption><span>终端</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ python err.py </span><br><span class="line">&gt; /Users/michael/Github/learn-python3/samples/debug/err.py(7)&lt;module&gt;()</span><br><span class="line">-&gt; <span class="built_in">print</span>(10 / n)</span><br><span class="line">(Pdb) p n</span><br><span class="line">0</span><br><span class="line">(Pdb) c</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"err.py"</span>, line 7, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    <span class="built_in">print</span>(10 / n)</span><br><span class="line">ZeroDivisionError: division by zero</span><br></pre></td></tr></table></figure></p>
+<p>这个方式比直接启动 <code>pdb</code> 单步调试效率要高很多，但也高不到哪去。</p>
+<h3 id="IDE"><a href="#IDE" class="headerlink" title="IDE"></a>IDE</h3><p>如果要比较爽地设置断点、单步执行，就需要一个支持调试功能的 <code>IDE</code>。目前比较好的 <code>Python IDE</code> 有：<br><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code</a>：需要安装<code>Python</code> 插件。<br><a href="http://www.jetbrains.com/pycharm/" target="_blank" rel="noopener">PyCharm</a>。<br>另外，<code>Eclipse</code> 加上 <code>pydev</code> 插件也可以调试 <code>Python</code> 程序。</p>
+<p><strong>小结：</strong>写程序最痛苦的事情莫过于调试，程序往往会以你意想不到的流程来运行，你期待执行的语句其实根本没有执行，这时候，就需要调试了。<br>虽然用 <code>IDE</code> 调试起来比较方便，但是最后你会发现，<code>logging</code> 才是终极武器。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
+    
+      <category term="Python" scheme="http://kaaaaai.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS - 静态库.a 和 framework 详解</title>
+    <link href="http://kaaaaai.cn/articles/041.html"/>
+    <id>http://kaaaaai.cn/articles/041.html</id>
     <published>2018-09-12T08:24:52.000Z</published>
-    <updated>2018-09-12T08:17:30.661Z</updated>
+    <updated>2018-09-13T08:25:43.496Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="一、基本概念"><a href="#一、基本概念" class="headerlink" title="一、基本概念"></a>一、基本概念</h1><h2 id="1-什么是库？"><a href="#1-什么是库？" class="headerlink" title="1.什么是库？"></a>1.什么是库？</h2><p>库是共享程序代码的方式，一般分为静态库和动态库。</p>
 <h2 id="2-静态库与动态库的区别？"><a href="#2-静态库与动态库的区别？" class="headerlink" title="2.静态库与动态库的区别？"></a>2.静态库与动态库的区别？</h2><p>（1）静态库：之所以叫做静态，是因为静态库在编译的时候会被直接拷贝一份，复制到目标程序里，这段代码在目标程序里就不会再改变了。</p>
 <p>静态库的好处很明显，编译完成之后，库文件实际上就没有作用了。目标程序没有外部依赖，直接就可以运行。当然其缺点也很明显，就是会使用目标程序的体积增大。被多次使用就有多份冗余拷贝。</p>
 <p>（2）动态库：链接时不复制，程序运行时由系统动态加载到内存，供程序调用，系统只加载一次，多个程序共用，节省内存。</p>
 <p>动态库的优点是，不需要拷贝到目标程序中，不会影响目标程序的体积，而且同一份库可以被多个程序使用（因为这个原因，动态库也被称作共享库）。同时，编译时才载入的特性，也可以让我们随时对库进行替换，而不需要重新编译代码。动态库带来的问题主要是，动态载入会带来一部分性能损失，使用动态库也会使得程序依赖于外部环境。如果环境缺少动态库或者库的版本不正确，就会导致程序无法运行（Linux 下常见 lib not found 错误）。</p>
-<p>在 iOS8 之后，苹果开始支持开发自己的 framework。</p>
-<p>此时自己构建的 framework 和系统的 framework 还是有区别的，系统的 framework 并不需要复制到目标程序。<br>自己开发的 framework 无论是动态还是静态的，都要复制到目标程序，所以苹果又把这个叫做 embeded framework。</p>
-<h2 id="3-iOS-里静态库形式？"><a href="#3-iOS-里静态库形式？" class="headerlink" title="3.iOS 里静态库形式？"></a>3.iOS 里静态库形式？</h2><p>.a 和.framework</p>
-<h2 id="4-iOS-里动态库形式？"><a href="#4-iOS-里动态库形式？" class="headerlink" title="4.iOS 里动态库形式？"></a>4.iOS 里动态库形式？</h2><p>.dylib 和.framework</p>
-<h2 id="5-framework-为什么既是静态库又是动态库？"><a href="#5-framework-为什么既是静态库又是动态库？" class="headerlink" title="5.framework 为什么既是静态库又是动态库？"></a>5.framework 为什么既是静态库又是动态库？</h2><p>系统的.framework 是动态库，我们自己建立的.framework 是静态库。</p>
+<p>在 iOS8 之后，苹果开始支持开发自己的 <code>framework</code>。</p>
+<p>此时自己构建的 <code>framework</code> 和系统的 <code>framework</code> 还是有区别的，系统的 framework 并不需要复制到目标程序。<br>自己开发的 <code>framework</code> 无论是动态还是静态的，都要复制到目标程序，所以苹果又把这个叫做 <code>embeded framework</code>。</p>
+<h2 id="3-iOS-里静态库形式？"><a href="#3-iOS-里静态库形式？" class="headerlink" title="3.iOS 里静态库形式？"></a>3.iOS 里静态库形式？</h2><p><code>.a</code> 和<code>.framework</code></p>
+<h2 id="4-iOS-里动态库形式？"><a href="#4-iOS-里动态库形式？" class="headerlink" title="4.iOS 里动态库形式？"></a>4.iOS 里动态库形式？</h2><p><code>.dylib</code> 和<code>.framework</code></p>
+<h2 id="5-framework-为什么既是静态库又是动态库？"><a href="#5-framework-为什么既是静态库又是动态库？" class="headerlink" title="5.framework 为什么既是静态库又是动态库？"></a>5.framework 为什么既是静态库又是动态库？</h2><p>系统的<code>.framework</code> 是动态库，我们自己建立的<code>.framework</code> 是静态库。</p>
 <h2 id="6-a与-framework-有什么区别？"><a href="#6-a与-framework-有什么区别？" class="headerlink" title="6.a与.framework 有什么区别？"></a>6.a与.framework 有什么区别？</h2><p><code>.a</code> 是一个纯二进制文件，<code>.framework</code> 中除了有二进制文件之外还有资源文件。</p>
-<p>.a 文件不能直接使用，至少要有.h文件配合，.framework文件可以直接使用。</p>
-<p>.a + .h + sourceFile = .framework。</p>
-<p>建议用.framework.</p>
+<p><code>.a</code> 文件不能直接使用，至少要有<code>.h</code>文件配合，<code>.framework</code> 文件可以直接使用。</p>
+<p><code>.a</code> + <code>.h</code> + <code>sourceFile</code> = <code>.framework</code>。</p>
+<p>建议用<code>.framework</code>。</p>
 <h2 id="7-为什么要使用静态库？"><a href="#7-为什么要使用静态库？" class="headerlink" title="7.为什么要使用静态库？"></a>7.为什么要使用静态库？</h2><p>方便共享代码，便于合理使用。</p>
 <p>实现 iOS 程序的模块化。可以把固定的业务模块化成静态库。</p>
 <p>和别人分享你的代码库，但不想让别人看到你代码的实现。</p>
-<p>开发第三方sdk的需要。</p>
-<h2 id="8-制作静态库时的几点注意："><a href="#8-制作静态库时的几点注意：" class="headerlink" title="8.制作静态库时的几点注意："></a>8.制作静态库时的几点注意：</h2><p>1 注意理解：无论是.a 静态库还.framework 静态库，我们需要的都是二进制文件+.h+其它资源文件的形式，不同的是，.a 本身就是二进制文件，需要我们自己配上.h 和其它文件才能使用，而.framework 本身已经包含了.h 和其它文件，可以直接使用。</p>
-<p>2 图片资源的处理：两种静态库，一般都是把图片文件单独的放在一个.bundle 文件中，一般.bundle 的名字和.a 或.framework 的名字相同。.bundle 文件很好弄，新建一个文件夹，把它改名为.bundle 就可以了，右键，显示包内容可以向其中添加图片资源。</p>
-<p>3 category 是我们实际开发项目中经常用到的，把category 打成静态库是没有问题的，但是在用这个静态库的工程中，调用 category 中的方法时会有找不到该方法的运行时错误（selector not recognized），解决办法是：在使用静态库的工程中配置 other linker flags 的值为-ObjC。</p>
-<p>4 如果一个静态库很复杂，需要暴露的.h 比较多的话，就可以在静态库的内部创建一个.h 文件（一般这个.h 文件的名字和静态库的名字相同），然后把所有需要暴露出来的.h 文件都集中放在这个.h 文件中，而那些原本需要暴露的.h 都不需要再暴露了，只需要把.h 暴露出来就可以了。</p>
-<h1 id="二、制作-a-静态库"><a href="#二、制作-a-静态库" class="headerlink" title="二、制作.a 静态库"></a>二、制作.a 静态库</h1><h2 id="1-新建工程，选择-Cocoa-Touch-Static-Library，创建-a-静态库"><a href="#1-新建工程，选择-Cocoa-Touch-Static-Library，创建-a-静态库" class="headerlink" title="1.新建工程，选择 Cocoa Touch Static Library，创建.a 静态库"></a>1.新建工程，选择 Cocoa Touch Static Library，创建.a 静态库</h2><p><img src="media/15366372877383/15367364426657.jpg" alt=""></p>
-<p><img src="media/15366372877383/15367364585166.jpg" alt=""><br>默认会生成.h 和.m 文件，可删可不删。</p>
-<h2 id="2-添加自己要封装的文件"><a href="#2-添加自己要封装的文件" class="headerlink" title="2.添加自己要封装的文件"></a>2.添加自己要封装的文件</h2><p>头文件最好一起放在一个.h 文件中，方便使用时只导入一个h 文件，这里放在 CommonKitHeader 里； </p>
-<p>如果需要用到图片，可以添加 Bundle 文件：<br><img src="media/15366372877383/20180322165752498.gif" alt="20180322165752498"><br><img src="media/15366372877383/20180322165718794.gif" alt="20180322165718794"></p>
-<h2 id="3-修改项目配置，把要暴露的-h-文件，添加到-Target-gt-Build-Phases-gt-Copy-Files"><a href="#3-修改项目配置，把要暴露的-h-文件，添加到-Target-gt-Build-Phases-gt-Copy-Files" class="headerlink" title="3.修改项目配置，把要暴露的 .h 文件，添加到 Target-&gt; Build Phases -&gt; Copy Files"></a>3.修改项目配置，把要暴露的 .h 文件，添加到 Target-&gt; Build Phases -&gt; Copy Files</h2><p><img src="media/15366372877383/20180322170205684.gif" alt="20180322170205684"></p>
-<ul>
-<li>添加暴露的头文件的另一种方式，是添加 Headers 里的 Public 中：<br><img src="media/15366372877383/15367367168925.jpg" alt=""></li>
-</ul>
-<h2 id="4-修改编译指令集"><a href="#4-修改编译指令集" class="headerlink" title="4.修改编译指令集"></a>4.修改编译指令集</h2><p><img src="media/15366372877383/15367367484516.jpg" alt=""></p>
+<p>开发第三方 <code>sdk</code> 的需要。</p>
+<h2 id="8-制作静态库时的几点注意："><a href="#8-制作静态库时的几点注意：" class="headerlink" title="8.制作静态库时的几点注意："></a>8.制作静态库时的几点注意：</h2><p>1 注意理解：无论是<code>.a</code> 静态库还<code>.framework</code> 静态库，我们需要的都是二进制文件+<code>.h</code>+其它资源文件的形式，不同的是，<code>.a</code> 本身就是二进制文件，需要我们自己配上<code>.h</code> 和其它文件才能使用，而<code>.framework</code> 本身已经包含了<code>.h</code> 和其它文件，可以直接使用。</p>
+<p>2 图片资源的处理：两种静态库，一般都是把图片文件单独的放在一个<code>.bundle</code> 文件中，一般<code>.bundle</code> 的名字和<code>.a</code> 或<code>.framework</code> 的名字相同。<code>.bundle</code> 文件很好弄，新建一个文件夹，把它改名为<code>.bundle</code> 就可以了，右键，显示包内容可以向其中添加图片资源。</p>
+<p>3 <code>category</code> 是我们实际开发项目中经常用到的，把 <code>category</code> 打成静态库是没有问题的，但是在用这个静态库的工程中，调用 <code>category</code> 中的方法时会有找不到该方法的运行时错误（selector not recognized），解决办法是：在使用静态库的工程中配置 <code>other linker flags</code> 的值为<code>-ObjC</code>。</p>
+<p>4 如果一个静态库很复杂，需要暴露的<code>.h</code> 比较多的话，就可以在静态库的内部创建一个<code>.h</code> 文件（一般这个<code>.h</code> 文件的名字和静态库的名字相同），然后把所有需要暴露出来的.h 文件都集中放在这个.h 文件中，而那些原本需要暴露的<code>.h</code> 都不需要再暴露了，只需要把<code>.h</code> 暴露出来就可以了。</p>
+<h1 id="二、制作-a-静态库"><a href="#二、制作-a-静态库" class="headerlink" title="二、制作.a 静态库"></a>二、制作.a 静态库</h1><h2 id="1-新建工程，选择-Cocoa-Touch-Static-Library，创建-a-静态库"><a href="#1-新建工程，选择-Cocoa-Touch-Static-Library，创建-a-静态库" class="headerlink" title="1.新建工程，选择 Cocoa Touch Static Library，创建.a 静态库"></a>1.新建工程，选择 Cocoa Touch Static Library，创建.a 静态库</h2><center><img src="http://os1i62usc.bkt.clouddn.com/041_01.jpg" alt="041_01"></center>
+
+<center><img src="http://os1i62usc.bkt.clouddn.com/042_02.jpg" alt="042_02"></center>
+
+<h2 id="2-配置工程环境"><a href="#2-配置工程环境" class="headerlink" title="2.配置工程环境"></a>2.配置工程环境</h2><h3 id="2-1-配置最低支持版本"><a href="#2-1-配置最低支持版本" class="headerlink" title="2.1 配置最低支持版本"></a>2.1 配置最低支持版本</h3><center><img src="http://os1i62usc.bkt.clouddn.com/041_03.jpg" alt="041_03"></center>
+
+<h3 id="2-2-设置适配所有模拟器架构重要"><a href="#2-2-设置适配所有模拟器架构重要" class="headerlink" title="2.2 设置适配所有模拟器架构重要"></a>2.2 设置适配所有模拟器架构重要</h3><p>project -&gt; buildSeting -&gt; Build Active Architecture Only 设为NO</p>
+<center><img src="http://os1i62usc.bkt.clouddn.com/041_04.jpg" alt="041_04"></center>
+
 <p><em>Build Active Architecture Only：指定是否只对当前连接设备所支持的指令集编译<br>设置为 YES，是为了 Debug 的时候编译速度更快，它只编译当前的 Architecture 版本，而设置为 NO 时，会编译所有的版本。 所以，一般默认 Debug 设置为 YES，Release 时为 NO，以适应不同设备。但是我们是在 Debug 模式下创建所有机型都可执行的静态库，所以我们要把 Bebug 下设置 NO。若为 YES，那么编译出来的.a 静态库就只包含当前设备的指令集。</em></p>
-<h2 id="5-编译一下（Command-B）"><a href="#5-编译一下（Command-B）" class="headerlink" title="5.编译一下（Command+B）"></a>5.编译一下（Command+B）</h2><p>编译时，需要用模拟器和真机（也可以选 Generic iOS Device）各编译一次，如果想要通用需要将模拟器编译生成的静态库与真机编译生成的静态库合并成一个静态库。<br>选中 libCommonKit1.a 右键 show in Finder，进入 Products 目录下，其中 include 文件夹是暴露的头文件，libCommonKit1.a 文件内部包含着方法的实现，无法修改亦不可见：<br><img src="media/15366372877383/20180322170404270.gif" alt="20180322170404270"></p>
-<p>终端命令格式：</p>
-<figure class="highlight bash"><figcaption><span>终端</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//命令查看静态库支持的指令集：</span><br><span class="line">lipo -info 静态库路径</span><br><span class="line">//命令合并成一个静态库：</span><br><span class="line">lipo -create 第一个.a 文件的绝对路径  第二个.a文件的绝对路径 -output 最终的.a 文件路径</span><br></pre></td></tr></table></figure>
+<h2 id="3-添加自己要封装的文件"><a href="#3-添加自己要封装的文件" class="headerlink" title="3.添加自己要封装的文件"></a>3.添加自己要封装的文件</h2><p>头文件最好一起放在一个.h 文件中，方便使用时只导入一个h 文件，这里放在 TestStaticHeader 里； </p>
+<p>如果需要用到图片，可以添加 Bundle 文件： </p>
+<center><img src="http://os1i62usc.bkt.clouddn.com/041_05.gif" alt="041_05"></center>
+
+
+<h2 id="4-修改项目配置，把要暴露的-h-文件，添加到-Target-gt-Build-Phases-gt-Copy-Files"><a href="#4-修改项目配置，把要暴露的-h-文件，添加到-Target-gt-Build-Phases-gt-Copy-Files" class="headerlink" title="4.修改项目配置，把要暴露的 .h 文件，添加到 Target-&gt; Build Phases -&gt; Copy Files"></a>4.修改项目配置，把要暴露的 .h 文件，添加到 Target-&gt; Build Phases -&gt; Copy Files</h2><center><img src="http://os1i62usc.bkt.clouddn.com/041_06.gif" alt="041_06"></center>
+
+
+<p><strong>添加暴露的头文件的另一种方式，是添加 Headers 里的 Public 中：</strong></p>
+<center><img src="http://os1i62usc.bkt.clouddn.com/041_07.jpg" alt="041_07"></center>
+
+<center><img src="http://os1i62usc.bkt.clouddn.com/041_08.jpg" alt="041_08"></center>
+
+<h2 id="5-生成-a-文件"><a href="#5-生成-a-文件" class="headerlink" title="5.生成.a 文件"></a>5.生成.a 文件</h2><p><strong>此处注意需要生成 4 个</strong></p>
+<h3 id="5-1修改环境"><a href="#5-1修改环境" class="headerlink" title="5.1修改环境"></a>5.1修改环境</h3><center><img src="http://os1i62usc.bkt.clouddn.com/041_09.jpg" alt="041_09"></center>
+
+<center><img src="http://os1i62usc.bkt.clouddn.com/041_10.jpg" alt="041_10"></center>
+
+<h3 id="5-2-选择模拟器-Debug-环境-“cmd-R”生成-a"><a href="#5-2-选择模拟器-Debug-环境-“cmd-R”生成-a" class="headerlink" title="5.2 选择模拟器+Debug 环境+“cmd+R”生成.a"></a>5.2 选择模拟器+Debug 环境+“cmd+R”生成.a</h3><center><img src="http://os1i62usc.bkt.clouddn.com/041_11.jpg" alt="041_11"></center>
+
+<p>此处注意需要生成4个<br>如此类推打出四种.a</p>
+<ul>
+<li>真机-Debug版本</li>
+<li>真机-Release版本</li>
+<li>模拟器-Debug版本</li>
+<li>模拟器-Release版本 </li>
+</ul>
+<p>最终生成结果：</p>
+<center><img src="http://os1i62usc.bkt.clouddn.com/041_12.jpg" alt="041_12"></center>
+
+<h3 id="5-3-合并-debug-两个包和-release-两个包"><a href="#5-3-合并-debug-两个包和-release-两个包" class="headerlink" title="5.3 合并 debug 两个包和 release 两个包"></a>5.3 合并 debug 两个包和 release 两个包</h3><p>注意：这里的合并指的是 1.debug 下真机+模拟器合并 2.release 下真机+模拟器合并</p>
+<p>（1）将4个.a文件拷贝到单独文件夹</p>
+<center><img src="http://os1i62usc.bkt.clouddn.com/041_13.jpg" alt="041_13"></center>
+
+<p>（2）合并</p>
+<p>打开终端，切到上述文件夹目录，执行以下语句</p>
+<figure class="highlight bash"><figcaption><span>终端</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lipo -create+空格+模拟器Debug路径+空格+模拟器Release路径+空格-output+空格+输出路径+输出名字（可自定义）</span><br></pre></td></tr></table></figure>
+<center><img src="http://os1i62usc.bkt.clouddn.com/041_14.jpg" alt="041_14"></center>
+
+<p>同理 release 也是如此,最后生成两个文件</p>
+<center><img src="http://os1i62usc.bkt.clouddn.com/041_15.jpg" alt="041_15"></center>
+
 <p>好了，这样就创建完.a 静态库了，使用的时候，只需在工程中导入.a 文件和暴露的.h 文件，配置 Header search path 路径就可以了。</p>
 <p><em>注意：如果静态库中有 category 类，则在使用静态库的项目配置中【Other Linker Flags】需要添加参数【-ObjC]或者【-all_load】。<br>为了开发方便，我们可以使用生成的通用静态库，但是最终上线的使用我们可以只导入真机的，这样工程的体积也会小一些。</em></p>
-<h1 id="三、制作-framework-静态库"><a href="#三、制作-framework-静态库" class="headerlink" title="三、制作 framework 静态库"></a>三、制作 framework 静态库</h1><h2 id="1-新建-framework"><a href="#1-新建-framework" class="headerlink" title="1.新建 framework"></a>1.新建 framework</h2><p><img src="media/15366372877383/15367376726430.jpg" alt=""></p>
-<h2 id="2-新建文件类"><a href="#2-新建文件类" class="headerlink" title="2.新建文件类"></a>2.新建文件类</h2><p><img src="media/15366372877383/15367376921260.jpg" alt=""></p>
+<h1 id="三、制作-framework-静态库"><a href="#三、制作-framework-静态库" class="headerlink" title="三、制作 framework 静态库"></a>三、制作 framework 静态库</h1><h2 id="1-新建-framework-工程"><a href="#1-新建-framework-工程" class="headerlink" title="1.新建 framework 工程"></a>1.新建 framework 工程</h2><center><img src="http://os1i62usc.bkt.clouddn.com/041_16.jpg" alt="041_16"></center>
+
+<h2 id="2-新建文件类"><a href="#2-新建文件类" class="headerlink" title="2.新建文件类"></a>2.新建文件类</h2><center><img src="http://os1i62usc.bkt.clouddn.com/041_17.jpg" alt="041_17"></center>
+
 <h2 id="3-修改工程文件配置"><a href="#3-修改工程文件配置" class="headerlink" title="3.修改工程文件配置"></a>3.修改工程文件配置</h2><p>build setting -&gt;搜索 mach -&gt; 修改 mach -O Type -&gt;static Library</p>
-<p><img src="media/15366372877383/15367377073201.jpg" alt=""></p>
-<p><img src="media/15366372877383/15367377210591.jpg" alt=""></p>
-<h2 id="4-引入其他第三方库（如果有的话）"><a href="#4-引入其他第三方库（如果有的话）" class="headerlink" title="4.引入其他第三方库（如果有的话）"></a>4.引入其他第三方库（如果有的话）</h2><p>⚠️注意：导入第三方静态库的时候不要选择添加到target中</p>
-<p><img src="media/15366372877383/15367377569666.jpg" alt=""></p>
-<h2 id="5-暴露头文件"><a href="#5-暴露头文件" class="headerlink" title="5.暴露头文件"></a>5.暴露头文件</h2><p>拖拽文件到这里</p>
-<p><img src="media/15366372877383/15367377725422.jpg" alt=""></p>
-<h2 id="6-生成-framework"><a href="#6-生成-framework" class="headerlink" title="6.生成 .framework"></a>6.生成 .framework</h2><h3 id="6-1-修改环境"><a href="#6-1-修改环境" class="headerlink" title="6.1 修改环境"></a>6.1 修改环境</h3><p><img src="media/15366372877383/15367377965947.jpg" alt=""></p>
-<p>这里可以选择 Debug 和 Release 环境<br><img src="media/15366372877383/15367378230242.jpg" alt=""></p>
-<h3 id="6-2-选择模拟器-Debug-环境-“cmd-R”生成-a"><a href="#6-2-选择模拟器-Debug-环境-“cmd-R”生成-a" class="headerlink" title="6.2 选择模拟器+Debug 环境+“cmd+R”生成.a"></a>6.2 选择模拟器+Debug 环境+“cmd+R”生成.a</h3><p><img src="media/15366372877383/15367378495653.jpg" alt=""></p>
-<p><em>此处注意需要生成4个<br>如此类推打出四种.a</em></p>
+<center><img src="http://os1i62usc.bkt.clouddn.com/041_18.jpg" alt="041_18"></center>
+
+<center><img src="http://os1i62usc.bkt.clouddn.com/041_19.jpg" alt="041_19"></center>
+
+<p>⚠️注意：如果需要导入第三方静态库，在拖入工程添加的时候，不要勾选添加到target中。</p>
+<h2 id="4-暴露头文件"><a href="#4-暴露头文件" class="headerlink" title="4.暴露头文件"></a>4.暴露头文件</h2><center><img src="http://os1i62usc.bkt.clouddn.com/041_20.jpg" alt="041_20"></center>
+
+<h2 id="5-生成-framework"><a href="#5-生成-framework" class="headerlink" title="5.生成 .framework"></a>5.生成 .framework</h2><h3 id="5-1-修改环境"><a href="#5-1-修改环境" class="headerlink" title="5.1 修改环境"></a>5.1 修改环境</h3><center><img src="http://os1i62usc.bkt.clouddn.com/041_21.jpg" alt="041_21"></center>
+
+<p>这里可以选择 Debug 和 Release 环境</p>
+<center><img src="http://os1i62usc.bkt.clouddn.com/041_22.jpg" alt="041_22"></center>
+
+<h3 id="5-2-选择模拟器-Debug-环境-“cmd-R”生成-a-1"><a href="#5-2-选择模拟器-Debug-环境-“cmd-R”生成-a-1" class="headerlink" title="5.2 选择模拟器+Debug 环境+“cmd+R”生成.a"></a>5.2 选择模拟器+Debug 环境+“cmd+R”生成.a</h3><center><img src="http://os1i62usc.bkt.clouddn.com/041_23.jpg" alt="041_23"></center>
+
+<p><em>此处注意需要生成4个<br>如此类推打出四种.framework</em></p>
 <ul>
 <li>真机-Debug版本</li>
 <li>真机-Release版本</li>
@@ -79,17 +293,25 @@
 <li>模拟器-Release版本 </li>
 </ul>
 <p>最终生成结果</p>
-<p><img src="media/15366372877383/15367378918997.jpg" alt=""></p>
-<h2 id="7-合并-debug-两个包和-release-两个包"><a href="#7-合并-debug-两个包和-release-两个包" class="headerlink" title="7.合并 debug 两个包和 release 两个包"></a>7.合并 debug 两个包和 release 两个包</h2><p><em>注意：这里的合并指的是 1.debug 下真机+模拟器合并</em><br><em>2.release 下真机+模拟器合并</em></p>
-<h3 id="7-1-将-4-个-a-文件拷贝到单独文件夹"><a href="#7-1-将-4-个-a-文件拷贝到单独文件夹" class="headerlink" title="7.1 将 4 个.a 文件拷贝到单独文件夹"></a>7.1 将 4 个.a 文件拷贝到单独文件夹</h3><p><img src="media/15366372877383/15367379680852.jpg" alt=""></p>
-<h3 id="7-2-合并"><a href="#7-2-合并" class="headerlink" title="7.2 合并"></a>7.2 合并</h3><p>打开终端，输入命令规则</p>
-<figure class="highlight bash"><figcaption><span>终端</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">lipo -create+空格+模拟器Debug路径+空格+模拟器Release路径+空格-output+空格+输出路径+输出名字（可自定义）</span><br><span class="line"></span><br><span class="line">例如：</span><br><span class="line">lipo -create /Users/fujia/Desktop/framework/StaticFramework-Release-iphoneos /Users/fujia/Desktop/framework/StaticFramework-Release-iphonesimulator -output /Users/fujia/Desktop/framework/StaticFramework-Release</span><br></pre></td></tr></table></figure>
-<p><img src="media/15366372877383/15367381361592.jpg" alt=""></p>
-<p>标注出是自己起名</p>
-<p>同理 release 也是如此 最后生成两个文件</p>
-<h3 id="7-3替换文件"><a href="#7-3替换文件" class="headerlink" title="7.3替换文件"></a>7.3替换文件</h3><p>（1）寻找之前生成的 任意framework<br>（2）替换二进制文件</p>
-<p>替换前<br><img src="media/15366372877383/15367381852146.jpg" alt=""></p>
-<p>替换后<br><img src="media/15366372877383/15367382031280.jpg" alt=""></p>
+<center><img src="http://os1i62usc.bkt.clouddn.com/041_24.jpg" alt="041_24"></center>
+
+<h2 id="6-合并-debug-两个包和-release-两个包"><a href="#6-合并-debug-两个包和-release-两个包" class="headerlink" title="6.合并 debug 两个包和 release 两个包"></a>6.合并 debug 两个包和 release 两个包</h2><p><em>注意：这里的合并指的是 1.debug 下真机+模拟器合并</em><br><em>2.release 下真机+模拟器合并</em></p>
+<h3 id="6-1-将-4-个-framework-文件拷贝到单独文件夹"><a href="#6-1-将-4-个-framework-文件拷贝到单独文件夹" class="headerlink" title="6.1 将 4 个 .framework 文件拷贝到单独文件夹"></a>6.1 将 4 个 .framework 文件拷贝到单独文件夹</h3><center><img src="http://os1i62usc.bkt.clouddn.com/041_25.jpg" alt="041_25"></center>
+
+<h3 id="6-2-合并"><a href="#6-2-合并" class="headerlink" title="6.2 合并"></a>6.2 合并</h3><p>打开终端，输入命令规则</p>
+<figure class="highlight bash"><figcaption><span>终端</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">lipo -create+空格+模拟器Debug路径+空格+模拟器Release路径+空格-output+空格+输出路径+输出名字（可自定义）</span><br><span class="line"></span><br><span class="line">//For example：</span><br><span class="line">lipo -create /Users/Kaaaaai/Desktop/frameworkProduct/TestStatic_framework-Debug-iphoneos /Users/Kaaaaai/Desktop/frameworkProduct/TestStatic_framework-Debug-iphonesimulator -output /Users/Kaaaaai/Desktop/frameworkProduct/TestStatic_framework-Debug</span><br></pre></td></tr></table></figure>
+<p>同理 release 也是如此，最后生成两个文件。</p>
+<center><img src="http://os1i62usc.bkt.clouddn.com/041_26.jpg" alt="041_26"></center>
+
+<h3 id="6-3替换文件"><a href="#6-3替换文件" class="headerlink" title="6.3替换文件"></a>6.3替换文件</h3><p>（1）寻找之前生成的 任意framework<br>（2）替换二进制文件</p>
+<p>替换前：</p>
+<center><img src="http://os1i62usc.bkt.clouddn.com/041_27.jpg" alt="041_27"></center>
+
+<p>替换后:</p>
+<center><img src="http://os1i62usc.bkt.clouddn.com/041_28.jpg" alt="041_28"></center>
+
+
+<p>大功告成。</p>
 ]]></content>
     
     <summary type="html">
@@ -111,8 +333,8 @@
   
   <entry>
     <title>胡安另一些片段</title>
-    <link href="http://kaaaaai.cn//articles/040.html"/>
-    <id>http://kaaaaai.cn//articles/040.html</id>
+    <link href="http://kaaaaai.cn/articles/040.html"/>
+    <id>http://kaaaaai.cn/articles/040.html</id>
     <published>2018-09-03T10:00:52.000Z</published>
     <updated>2018-09-04T07:56:29.026Z</updated>
     
@@ -138,8 +360,8 @@
   
   <entry>
     <title>中文文案排版学习</title>
-    <link href="http://kaaaaai.cn//articles/039.html"/>
-    <id>http://kaaaaai.cn//articles/039.html</id>
+    <link href="http://kaaaaai.cn/articles/039.html"/>
+    <id>http://kaaaaai.cn/articles/039.html</id>
     <published>2018-09-03T07:00:52.000Z</published>
     <updated>2018-09-04T07:56:06.871Z</updated>
     
@@ -175,8 +397,8 @@
   
   <entry>
     <title>iOS - CocoaLumberjack 日志框架源码分析</title>
-    <link href="http://kaaaaai.cn//articles/038.html"/>
-    <id>http://kaaaaai.cn//articles/038.html</id>
+    <link href="http://kaaaaai.cn/articles/038.html"/>
+    <id>http://kaaaaai.cn/articles/038.html</id>
     <published>2018-08-28T06:24:52.000Z</published>
     <updated>2018-08-29T02:34:35.609Z</updated>
     
@@ -243,8 +465,8 @@
   
   <entry>
     <title>在草房子外</title>
-    <link href="http://kaaaaai.cn//articles/037.html"/>
-    <id>http://kaaaaai.cn//articles/037.html</id>
+    <link href="http://kaaaaai.cn/articles/037.html"/>
+    <id>http://kaaaaai.cn/articles/037.html</id>
     <published>2018-08-23T10:00:52.000Z</published>
     <updated>2018-08-29T02:34:35.609Z</updated>
     
@@ -271,8 +493,8 @@
   
   <entry>
     <title>iOS - CocoaPods 和 Carthage 的比较</title>
-    <link href="http://kaaaaai.cn//articles/036.html"/>
-    <id>http://kaaaaai.cn//articles/036.html</id>
+    <link href="http://kaaaaai.cn/articles/036.html"/>
+    <id>http://kaaaaai.cn/articles/036.html</id>
     <published>2018-08-15T06:24:52.000Z</published>
     <updated>2018-08-29T02:34:35.608Z</updated>
     
@@ -337,8 +559,8 @@
   
   <entry>
     <title>唯“鸭嘴兽”主义哲学</title>
-    <link href="http://kaaaaai.cn//articles/035.html"/>
-    <id>http://kaaaaai.cn//articles/035.html</id>
+    <link href="http://kaaaaai.cn/articles/035.html"/>
+    <id>http://kaaaaai.cn/articles/035.html</id>
     <published>2018-08-07T10:00:52.000Z</published>
     <updated>2018-08-29T02:34:35.608Z</updated>
     
@@ -362,8 +584,8 @@
   
   <entry>
     <title>iOS 关于第三方库的选择</title>
-    <link href="http://kaaaaai.cn//articles/034.html"/>
-    <id>http://kaaaaai.cn//articles/034.html</id>
+    <link href="http://kaaaaai.cn/articles/034.html"/>
+    <id>http://kaaaaai.cn/articles/034.html</id>
     <published>2018-08-02T06:24:52.000Z</published>
     <updated>2018-08-29T02:34:35.608Z</updated>
     
@@ -544,8 +766,8 @@
   
   <entry>
     <title>iOS 应用架构 - VIPER 开发模式</title>
-    <link href="http://kaaaaai.cn//articles/033.html"/>
-    <id>http://kaaaaai.cn//articles/033.html</id>
+    <link href="http://kaaaaai.cn/articles/033.html"/>
+    <id>http://kaaaaai.cn/articles/033.html</id>
     <published>2018-07-20T06:24:52.000Z</published>
     <updated>2018-08-29T02:34:35.607Z</updated>
     
@@ -595,8 +817,8 @@
   
   <entry>
     <title>和轮廓渐现的黑暗告别</title>
-    <link href="http://kaaaaai.cn//articles/032.html"/>
-    <id>http://kaaaaai.cn//articles/032.html</id>
+    <link href="http://kaaaaai.cn/articles/032.html"/>
+    <id>http://kaaaaai.cn/articles/032.html</id>
     <published>2018-07-19T13:00:52.000Z</published>
     <updated>2018-08-29T02:34:35.607Z</updated>
     
@@ -624,8 +846,8 @@
   
   <entry>
     <title>iOS 通过 NSData 流代码播放 PCM</title>
-    <link href="http://kaaaaai.cn//articles/031.html"/>
-    <id>http://kaaaaai.cn//articles/031.html</id>
+    <link href="http://kaaaaai.cn/articles/031.html"/>
+    <id>http://kaaaaai.cn/articles/031.html</id>
     <published>2018-07-19T09:00:52.000Z</published>
     <updated>2018-08-29T02:34:35.607Z</updated>
     
@@ -660,8 +882,8 @@
   
   <entry>
     <title>长大成人</title>
-    <link href="http://kaaaaai.cn//articles/030.html"/>
-    <id>http://kaaaaai.cn//articles/030.html</id>
+    <link href="http://kaaaaai.cn/articles/030.html"/>
+    <id>http://kaaaaai.cn/articles/030.html</id>
     <published>2018-07-12T09:00:52.000Z</published>
     <updated>2018-08-29T02:34:35.607Z</updated>
     
@@ -693,8 +915,8 @@
   
   <entry>
     <title>Android 的轻量储存 —— SharedPreferences</title>
-    <link href="http://kaaaaai.cn//articles/029.html"/>
-    <id>http://kaaaaai.cn//articles/029.html</id>
+    <link href="http://kaaaaai.cn/articles/029.html"/>
+    <id>http://kaaaaai.cn/articles/029.html</id>
     <published>2018-07-04T11:37:05.000Z</published>
     <updated>2018-08-29T02:34:35.606Z</updated>
     
@@ -738,8 +960,8 @@
   
   <entry>
     <title>给你的 iOS 马甲项目增加一点垃圾代码</title>
-    <link href="http://kaaaaai.cn//articles/028.html"/>
-    <id>http://kaaaaai.cn//articles/028.html</id>
+    <link href="http://kaaaaai.cn/articles/028.html"/>
+    <id>http://kaaaaai.cn/articles/028.html</id>
     <published>2018-06-28T11:37:05.000Z</published>
     <updated>2018-08-29T02:34:35.606Z</updated>
     
@@ -783,8 +1005,8 @@
   
   <entry>
     <title>焉识！焉识？</title>
-    <link href="http://kaaaaai.cn//articles/027.html"/>
-    <id>http://kaaaaai.cn//articles/027.html</id>
+    <link href="http://kaaaaai.cn/articles/027.html"/>
+    <id>http://kaaaaai.cn/articles/027.html</id>
     <published>2018-06-20T13:00:52.000Z</published>
     <updated>2018-08-29T02:34:35.606Z</updated>
     
@@ -813,8 +1035,8 @@
   
   <entry>
     <title>iOS 开发里的那些散手（二）</title>
-    <link href="http://kaaaaai.cn//articles/026.html"/>
-    <id>http://kaaaaai.cn//articles/026.html</id>
+    <link href="http://kaaaaai.cn/articles/026.html"/>
+    <id>http://kaaaaai.cn/articles/026.html</id>
     <published>2018-06-14T11:37:05.000Z</published>
     <updated>2018-08-29T02:34:35.605Z</updated>
     
@@ -857,8 +1079,8 @@
   
   <entry>
     <title>他三本书厚的青春</title>
-    <link href="http://kaaaaai.cn//articles/025.html"/>
-    <id>http://kaaaaai.cn//articles/025.html</id>
+    <link href="http://kaaaaai.cn/articles/025.html"/>
+    <id>http://kaaaaai.cn/articles/025.html</id>
     <published>2018-06-10T13:00:52.000Z</published>
     <updated>2018-08-29T02:34:35.605Z</updated>
     
@@ -892,124 +1114,6 @@
       <category term="中国当代" scheme="http://kaaaaai.cn/tags/%E4%B8%AD%E5%9B%BD%E5%BD%93%E4%BB%A3/"/>
     
       <category term="青春文学" scheme="http://kaaaaai.cn/tags/%E9%9D%92%E6%98%A5%E6%96%87%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Swift笔记 - 代理和闭包</title>
-    <link href="http://kaaaaai.cn//articles/024.html"/>
-    <id>http://kaaaaai.cn//articles/024.html</id>
-    <published>2018-06-06T13:00:52.000Z</published>
-    <updated>2018-08-29T02:34:35.605Z</updated>
-    
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>&#160; &#160; &#160; &#160;最近在把公司原 OC 项目 Swift 化，学到了很多东西，做个笔记记录下。</p>
-<h1 id="一、代理（delegate）"><a href="#一、代理（delegate）" class="headerlink" title="一、代理（delegate）"></a>一、代理（delegate）</h1><h2 id="1-代理的说明"><a href="#1-代理的说明" class="headerlink" title="1.代理的说明"></a>1.代理的说明</h2><p>&#160; &#160; &#160; &#160;首先解释关于代理。代理（delegate）是 <code>Cocoa</code> 的一个术语，表示将一个对象的部分功能转交给另一个对象。</p>
-<p>&#160; &#160; &#160; &#160;比如对象 A 希望对象 B 知道将要发生或已经发生某件事情，对象A可以把对象B的引用存为一个实例变量。这个对象B称为委托。当事件发生时，它检查委托对象是否实现了与该事件相适应的方法。如果已经实现，则调用该方法。</p>
-<p>&#160; &#160; &#160; &#160;由于松耦合的原因，一个对象能成为多个对象的代理。某些情况下，相较于通过继承让子类实现相关的处理方法，可以有效减少代码复杂度。所以 <code>iOS</code> 中也大量的使用了代理。</p>
-<h2 id="2-代理的使用"><a href="#2-代理的使用" class="headerlink" title="2.代理的使用"></a>2.代理的使用</h2><h3 id="2-1-自定义cell的类，"><a href="#2-1-自定义cell的类，" class="headerlink" title="2.1 自定义cell的类，"></a>2.1 自定义cell的类，</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">protocol TestTableCellDelegate:<span class="built_in">NSObjectProtocol</span> &#123;</span><br><span class="line"><span class="comment">//这里我设置方法传入的是一个模型，大家可根据需要传入不同值，用法和 OC 一样，写法稍有不同。</span></span><br><span class="line">    func selectedGroup(model:LXGroupModel)</span><br><span class="line">    func deletedGroup(model:LXGroupModel)</span><br><span class="line">    func modifyGroup(model:LXGroupModel)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> TEstTableViewCell: <span class="built_in">UITableViewCell</span> &#123;</span><br><span class="line"> override func awakeFromNib() &#123;</span><br><span class="line">        <span class="keyword">super</span>.awakeFromNib()</span><br><span class="line">        <span class="comment">// Initialization code</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"> @IBAction func groupClick(_ sender: <span class="built_in">UIButton</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.delegate.selectedGroup(model: <span class="keyword">self</span>.model!)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    @IBAction func modeifyClick(_ sender: <span class="built_in">UIButton</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.delegate.modifyGroup(model: <span class="keyword">self</span>.model!)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    @IBAction func deletedClick(_ sender: <span class="built_in">UIButton</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.delegate.deletedGroup(model: <span class="keyword">self</span>.model!)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    required init?(coder aDecoder: <span class="built_in">NSCoder</span>) &#123;</span><br><span class="line">        <span class="keyword">super</span>.init(coder: aDecoder)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    override init(style: <span class="built_in">UITableViewCellStyle</span>, reuseIdentifier: String?) &#123;</span><br><span class="line">        <span class="keyword">super</span>.init(style: style, reuseIdentifier: reuseIdentifier)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="2-2-Controller-类的核心代码"><a href="#2-2-Controller-类的核心代码" class="headerlink" title="2.2 Controller 类的核心代码"></a>2.2 Controller 类的核心代码</h3><p>&#160; &#160; &#160; &#160;这里和 OC 没有区别，主要声明 cell 的代理，创建 cell 时，把响应焦点设置为当前类。</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> TestViewController: <span class="built_in">UIViewController</span>, <span class="built_in">UITableViewDelegate</span>, <span class="built_in">UITableViewDataSource</span>,TestTableCellDelegate&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">func tableView(_ tableView: <span class="built_in">UITableView</span>, cellForRowAt indexPath: IndexPath) -&gt; <span class="built_in">UITableViewCell</span> &#123;</span><br><span class="line">        let cell:TestTableViewCell = (tableView.dequeueReusableCell(withIdentifier: <span class="string">"TestTableViewCell"</span>, <span class="keyword">for</span>: indexPath) as? LXSwiftGroupTableViewCell)!</span><br><span class="line">        cell.model = groupArray?[indexPath.row] as? LXGroupModel</span><br><span class="line">        cell.delegate = <span class="keyword">self</span></span><br><span class="line">        <span class="keyword">return</span> cell</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="2-3-实现代理方法"><a href="#2-3-实现代理方法" class="headerlink" title="2.3 实现代理方法"></a>2.3 实现代理方法</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">func selectedGroup(model: LXGroupModel) &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line">func deletedGroup(model: LXGroupModel) &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line">func modifyGroup(model: LXGroupModel) &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="二、OC-中的-Block，Swift-中的-Closure（闭包）"><a href="#二、OC-中的-Block，Swift-中的-Closure（闭包）" class="headerlink" title="二、OC 中的 Block，Swift 中的 Closure（闭包）"></a>二、OC 中的 Block，Swift 中的 Closure（闭包）</h1><h2 id="1-闭包的说明"><a href="#1-闭包的说明" class="headerlink" title="1.闭包的说明"></a>1.闭包的说明</h2><p>&#160; &#160; &#160; &#160;Swift 中的闭包和 Objective-C 中的 block 类似，闭包是功能性自包含模块，可以在代码中被传递和使用。 在 Swift 中 函数只是闭包的一种特殊形式。</p>
-<p>1.全局函数是一个有名字但不会捕获任何值的闭包<br>2.内嵌函数是一个有名字可以捕获到所在的函数域内值的闭包<br>3.闭包表达式是一个没有名字的可以捕获上下文中的变量或者常量的闭包</p>
-<h2 id="2-闭包的使用"><a href="#2-闭包的使用" class="headerlink" title="2.闭包的使用"></a>2.闭包的使用</h2><h3 id="2-1-方式一：利用typealias最完整的创建"><a href="#2-1-方式一：利用typealias最完整的创建" class="headerlink" title="2.1 方式一：利用typealias最完整的创建"></a>2.1 方式一：利用typealias最完整的创建</h3><figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//为(_ num1: Int, _ num2: Int) -&gt; (Int) 类型的闭包定义别名：Add</span></span><br><span class="line">    <span class="keyword">typealias</span> <span class="type">Add</span> = (<span class="number">_</span> num1: <span class="type">Int</span>, <span class="number">_</span> num2: <span class="type">Int</span>) -&gt; (<span class="type">Int</span>)</span><br><span class="line"><span class="comment">//创建一个 Add 类型的闭包常量：addCloser1</span></span><br><span class="line">    <span class="keyword">let</span> addCloser1: <span class="type">Add</span></span><br><span class="line"><span class="comment">//为已经创建好的常量 addCloser1 赋值</span></span><br><span class="line">    addCloser1 = &#123;</span><br><span class="line">        (<span class="number">_</span> num1: <span class="type">Int</span>, <span class="number">_</span> num2: <span class="type">Int</span>) -&gt; (<span class="type">Int</span>) <span class="keyword">in</span></span><br><span class="line">        <span class="keyword">return</span> num1 + num2</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//调用闭包并接受返回值</span></span><br><span class="line">    <span class="keyword">let</span> result = addCloser1(<span class="number">20</span>, <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="2-2-方式二：闭包类型申明和变量的创建合并在一起"><a href="#2-2-方式二：闭包类型申明和变量的创建合并在一起" class="headerlink" title="2.2 方式二：闭包类型申明和变量的创建合并在一起"></a>2.2 方式二：闭包类型申明和变量的创建合并在一起</h3><figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建一个 (_ num1: Int, _ num2: Int) -&gt; (Int) 类型的闭包常量：addCloser1</span></span><br><span class="line">    <span class="keyword">let</span> addCloser1: (<span class="number">_</span> num1: <span class="type">Int</span>, <span class="number">_</span> num2: <span class="type">Int</span>) -&gt; (<span class="type">Int</span>)</span><br><span class="line"><span class="comment">//为已经创建好的常量 addCloser1 赋值</span></span><br><span class="line">    addCloser1 = &#123;</span><br><span class="line">         (<span class="number">_</span> num1: <span class="type">Int</span>, <span class="number">_</span> num2: <span class="type">Int</span>) -&gt; (<span class="type">Int</span>) <span class="keyword">in</span></span><br><span class="line">         <span class="keyword">return</span> num1 + num2</span><br><span class="line">    &#125;</span><br><span class="line"> <span class="comment">//调用闭包并接受返回值</span></span><br><span class="line">    <span class="keyword">let</span> result = addCloser1(<span class="number">20</span>, <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="2-3-方式三：省略闭包接收的形参、省略闭包体中返回值"><a href="#2-3-方式三：省略闭包接收的形参、省略闭包体中返回值" class="headerlink" title="2.3 方式三：省略闭包接收的形参、省略闭包体中返回值"></a>2.3 方式三：省略闭包接收的形参、省略闭包体中返回值</h3><figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建一个 (Int, Int) -&gt; (Int) 类型的闭包常量：addCloser1</span></span><br><span class="line">    <span class="keyword">let</span> addCloser1: (<span class="type">Int</span>, <span class="type">Int</span>) -&gt; (<span class="type">Int</span>)</span><br><span class="line"><span class="comment">//为已经创建好的常量 addCloser1 赋值</span></span><br><span class="line">    addCloser1 = &#123;</span><br><span class="line">         (num1, num2) <span class="keyword">in</span></span><br><span class="line">         <span class="keyword">return</span> num1 + num2</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//调用闭包并接受返回值</span></span><br><span class="line">    <span class="keyword">let</span> result = addCloser1(<span class="number">20</span>, <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="2-4-方式四：在形式三的基础上进一步精简"><a href="#2-4-方式四：在形式三的基础上进一步精简" class="headerlink" title="2.4 方式四：在形式三的基础上进一步精简"></a>2.4 方式四：在形式三的基础上进一步精简</h3><figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建一个 (Int, Int) -&gt; (Int) 类型的闭包常量：addCloser1 并赋值</span></span><br><span class="line">    <span class="keyword">let</span> addCloser1: (<span class="type">Int</span>, <span class="type">Int</span>) -&gt; (<span class="type">Int</span>) = &#123;</span><br><span class="line">           (num1, num2) <span class="keyword">in</span></span><br><span class="line">           <span class="keyword">return</span> num1 + num2</span><br><span class="line">        &#125;    </span><br><span class="line"><span class="comment">//调用闭包并接受返回值</span></span><br><span class="line">    <span class="keyword">let</span> result = addCloser1(<span class="number">20</span>, <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="2-5-方式五：如果闭包没有接收参数省略in"><a href="#2-5-方式五：如果闭包没有接收参数省略in" class="headerlink" title="2.5 方式五：如果闭包没有接收参数省略in"></a>2.5 方式五：如果闭包没有接收参数省略in</h3><figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建一个 () -&gt; (String) 类型的闭包常量：addCloser1 并赋值</span></span><br><span class="line">    <span class="keyword">let</span> addCloser1: () -&gt; (<span class="type">String</span>) = &#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="string">"这个闭包没有参数，但是有返回值"</span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//调用闭包并接受返回值</span></span><br><span class="line">    <span class="keyword">let</span> result = addCloser1()</span><br></pre></td></tr></table></figure>
-<h3 id="2-6-方式六：简写的实际参数名"><a href="#2-6-方式六：简写的实际参数名" class="headerlink" title="2.6 方式六：简写的实际参数名"></a>2.6 方式六：简写的实际参数名</h3><p><code>swift Swift
- //创建一个 (String, String) -&gt; (String) 类型的闭包常量：addCloser1 并赋值
-     let addCloser1: (String, String) -&gt; (String) = {
-            return &quot;闭包的返回值是:\($0),\($1)&quot;
-         }
- //调用闭包并接受返回值
-      let result = addCloser1(&quot;Hello&quot;, &quot;Swift!&quot;)</code>   </p>
-<p><em>说明： 得益于Swift的类型推断机制，我们在使用闭包的时候可以省略很多东西，而且Swift自动对行内闭包提供简写实际参数名，你也可以通过 $0, $1, $2 这样的语法来引用闭包的实际参数值。如果你在闭包表达式中使用这些简写实际参数名，那么你可以在闭包的实际参数列表中忽略对其的定义，并且简写实际参数名的数字和类型将会从期望的函数类型中推断出来。in关键字也能被省略，$0 和 $1 分别是闭包的第一个和第二个 String类型的 实际参数（引自文档翻译）。</em></p>
-<p>以上。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
-    
-    </summary>
-    
-      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
-    
-      <category term="iOS" scheme="http://kaaaaai.cn/tags/iOS/"/>
-    
-      <category term="Swift" scheme="http://kaaaaai.cn/tags/Swift/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>春末即兴</title>
-    <link href="http://kaaaaai.cn//articles/023.html"/>
-    <id>http://kaaaaai.cn//articles/023.html</id>
-    <published>2018-04-09T13:00:52.000Z</published>
-    <updated>2018-08-29T02:34:35.605Z</updated>
-    
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　穿了好几个礼拜的短袖，以为已经到夏天了，这几天的气温骤降才发现春天还没有完全离场，它在这个以小长假开头的四月用尽最后一点力气试图让人们感知到它的存在，它的顽固让街上出现短袖和羽绒袄同时存在的矛盾又喜感的场面，又有大风把陌生路人的一板正经吹走——他们似乎也感到被风吹得七零八散的头发看起来很喜感，抢在别人取笑他们之前先绷不住笑了。城市因为天气的无常，让久居里面的人也忽然的对它感到一丝陌生。像被邀请到一场莫名其妙的派对，人们因为摸不着头脑，而主动向人释放初来乍到的善意，整座城市，一派和气。<br>　　春天即将过去，春天我都干了些什么？似乎什么都没干，但掰开揉碎似乎也有那么一些事情，和菩萨求了支上上签，和几乎不打算联系的朋友完成继初次认识以后的第二次关系破冰，换了份工作，和一个网友恢复通信，认识了一个很像老朋友的新朋友，看了几本书和几场电影。
-　　</p>
-<h1 id="一、和善男信女们一起"><a href="#一、和善男信女们一起" class="headerlink" title="一、和善男信女们一起"></a>一、和善男信女们一起</h1><p>　　<br>　　在旺季的大雄宝殿里，你会时刻有一种恍惚感，不只是因为香火熏着你的眼睛，而是整个大殿，被缭绕烟雾，绰绰人影和闪烁的烛火交相辉映，会让你有一丝远离人世的超脱感涌上心头，但就一会功夫，大殿外的鞭炮和所有善男信女们祈愿的声音又会让你知道，此刻，正是你离人间烟火距离最近又最远的时候。<br>　　和家人坐缆车上山，缆车在离山顶还有一段距离的位置停下。虽然现代科技让我们在朝圣的路上超了近道，但毕竟是去看菩萨，最后一段的“心诚则灵”，都要全凭自己。<br>　　去大殿的路上经过一座小庙，左右两边各立着两个尊者。表妹问我，哥哥，这些是什么神仙，他们都拜，我们要不要拜啊？我看了看我妈和我小姨在那双手合十念念有词，十分庄重。就低头和她说，不用了，这里都是些小角色，我们上山拜大个的。表妹哈哈大笑，拿着我的话和大人们说，他们也都会心一笑。<br>　　到了山顶，进殿点香，因为要给好多菩萨上香，每个人手里都拿着五六十根香，所以点香的时候很容易把整把香烧着，有的人看火灭不掉就把所有香丢掉，地上七零八散的散落了好多香，旁边有道士在劝阻，不用点那么多，可以去里面再点，每个人点三根就好了。但拦不住虔诚到红了眼的人们。我把香上的火刚扇灭，看我妈的香也在起火就把她的香拿了过来，走到一边，试图也把它弄灭。<br>　　拜菩萨的顺序，长辈们心里都有底，知道哪位菩萨要先来，哪位菩萨可以暂时放在一边，而到最后，怎么也不会冷落任何一位。我们小辈就随波逐流，见佛就拜。见到的有灶神，有弥勒佛，有送子送财送姻缘菩萨，有天王罗汉洋洋洒洒数十座，有老相识也有新面孔，我都没有厚此薄彼，迎面赶上，纳头便拜，偶尔福至心灵，就在心里念上一句，希望明年能如何如何。不过起身的时候总也免不了在心里嘀咕上一句，到底有没有菩萨？<br>　　最后长辈们让我们自己去找菩萨求根签，求签是怎么回事呢？大雄宝殿的中心位置，有很多蒲团，围绕着蒲团散落了一地的签，人们随手拿起一根，再拿两个贝壳形状的竹片往地上投掷，如果三次都是一正一反就说明这根签是给你的。听我妈说明怎么求签后，我算了一下，投掷一次出现正反的可能性大概是三分之一，投掷两次都是正反的可能性大概是九分之一，投掷三次都出现正反的可能性大概是二十七分之一。也就是说，如果说宗教是人们对生活、世界乃至宇宙里未知部分的一种推测结果，满天神佛就可能是那散落在从零到一里面的无限个概率，二十七分之一，这个概率代表了其中一位在派签的菩萨。这真是一个忙碌的概率。<br>　　在抽签大厅放眼望去，七八十个人头不断起伏涌动，人们快速的捡起继而投掷竹片，发现竹片两个面都一样就立马丢掉手中的签低头再捡一根，那种有些火急火燎的神态和盲目感让这些信徒看起来像在牌桌上一掷千金的赌徒，我想如果能听见人的心里话，他们里面大部分人可能都在说：快给我快给我，快给我啊。<br>　　我找了一个空地跪下， 挑了两块顺眼的竹片，慢条斯理的拿起一根签，投掷，正反，投掷，正反，投掷，正正。去你妈的。<br>　　事实证明我一开始的有条不紊，只是我刻意的想和周围人区别开来的一点做无用功，在久没有抽到签后，我也渐渐的和周围人一个神态，只是机械盲目的从地上捡签，投掷竹片，心里念，快给我快给我，快给我啊。直到有些意兴阑珊的时候，终于抽到了那根属于我的签。<br>　　然后根据签上的数字拿签文，再去找道士解签，老道士慈眉善目，他按签文上的字和我们说了一些模棱两可的话，在某个停顿间，我妈心照不宣在他面前的抽屉里放下香油钱。<br>　　吃了顿味道尚可的斋饭我们就下山了。坐在缆车上，我又回头看了看山顶的大雄宝殿，它仍旧被烟雾环绕着，没有了庙里喧嚣的声音，从远处看，它也真有几分仙家福地的气象。回过神来，忽然觉得，我们和菩萨离得最近的时候，大概是在那座小庙里开菩萨玩笑的时候。
-　　
-　　</p>
-<h1 id="二、做不成睡在风里的无脚鸟"><a href="#二、做不成睡在风里的无脚鸟" class="headerlink" title="二、做不成睡在风里的无脚鸟"></a>二、做不成睡在风里的无脚鸟</h1><p>　　春节后又无所事事了一阵也终于去投简历找工作了。每次找到工作的过程都大同小异，一开始都雄心壮志，觉得我什么都不缺，但哪里都可能缺一个我。然后经过几次失败的面试，开始认清自己，又经历几次失败，开始怀疑自己，然后又是失败，开始自暴自弃，随性发挥的时候，工作的事反而成了。<br>　　面试了一个半礼拜，就像参加一场大型考试，连续的做了好几日笔试试卷，还有一次面试还给安排了机试。面试的公司也千奇百怪，其中最古怪的还是有一家做共享单车做到公司就剩三个人了，问我有没有兴趣当合伙人。可能是合伙人这个名头，这顶帽子一下子扣下来，让初出牛犊的我觉得有些晕晕乎乎的，认真考虑了一下，又抬头看了看这顶帽子，破烂邋遢，想来遮风挡雨应该一样都不行，就委婉的说对共享单车这个行业没什么兴趣。<br>　　又有一次笔试，我和一个女生坐一张桌子，桌子小，两人挨着做试卷，一开始我没发现她和我是一样的试卷，后来她先发现了，挑了挑眉，然后礼貌的朝我笑笑，捂住了答案。我一阵瞠目，想了想就大大咧咧的把试卷朝她那推了推。后来面试完觉得当时貌似大方的举动其实是一种揶揄和挤兑。就想和她照个面打声招呼，就当做刚刚无礼的寥寥歉意。但她比我先面试完，已经早早离开。<br>　　在不知道她已经离开的时候，我也面试完，面试官叫我在接待室里先等等。大概是和人事科的人谈话，虽然关着门，但他们的说话声还是从门外传了过来。<br>　　“怎么样啊，这个？”<br>　　“是真材实料，就是基础有点差。”<br>　　前半句让我有些欣慰，这些天面试题没白背，后半句又让我有些懊悔面试题没多背背。<br>　　“那怎么办啊，这是今天最后一个了。”<br>　　“要我说今天来面试的人里随便挑，哪一个都成。”<br>　　“那这个，他怎么会基础差呢，学校里不是学这个的吗？”<br>　　“和学校没关系，学校也不教这个，这种基础全看各人。”<br>　　“哦，这样啊。”<br>　　后面他们又说了一些无关紧要的事，我没注意听。过了一会就有人进来，领我出去，和我说那今天的面试就到这里，后续有通知他们再联系我。<br>　　好的。我轻快的回答了她。但心里有些沮丧，从刚在门外的谈话听得出来他们是可以立马做出决定的，是我没有做到能让他们立马下决定的程度，这让我在心里反复的苛责自己，我在心里摔碎两百二十四个盘子，直到离开面试的大厦，烦闷和郁郁仍然挥之不去。<br>　　去坐地铁的路上，我骑单车在车道上漫无目的的左右摇摆，旁边穿过去一骑电瓶车的白背心老头，冲我大喊：靓仔，你到底左边走还是右边走啊。虽然心情不好，但听到问话我还是忍不住和他开起了玩笑，回他：两边都走喽。他超我两个车轮距离，仍旧大喊，语气像把紧攥着的拳头放在空中挥舞：“两边都走，我都没得走啦。”我不禁莞尔。老头一会功夫就骑得没影，我的坏心情似乎也跟着老头不翼而飞了。<br>　　我爱老头。
-　　</p>
-<h1 id="三、久违的老朋友和网友和可能在哪见过但久违的新朋友"><a href="#三、久违的老朋友和网友和可能在哪见过但久违的新朋友" class="headerlink" title="三、久违的老朋友和网友和可能在哪见过但久违的新朋友"></a>三、久违的老朋友和网友和可能在哪见过但久违的新朋友</h1><pre><code>被标记为&quot;Don&apos;t push!&quot;。
-</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
-    
-    </summary>
-    
-      <category term="涂鸦" scheme="http://kaaaaai.cn/categories/%E6%B6%82%E9%B8%A6/"/>
-    
-    
-      <category term="随笔" scheme="http://kaaaaai.cn/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-      <category term="扯谈" scheme="http://kaaaaai.cn/tags/%E6%89%AF%E8%B0%88/"/>
-    
-      <category term="季度总结" scheme="http://kaaaaai.cn/tags/%E5%AD%A3%E5%BA%A6%E6%80%BB%E7%BB%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>成舟</title>
-    <link href="http://kaaaaai.cn//articles/021.html"/>
-    <id>http://kaaaaai.cn//articles/021.html</id>
-    <published>2018-01-16T13:00:52.000Z</published>
-    <updated>2018-08-29T02:34:35.604Z</updated>
-    
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
-<p>13号的梦</p>
-</blockquote>
-<p>　　当我躺在床上，伸展四肢，感受着头皮所有的毛囊都在放松，向着枕头方向缓慢流淌的时候，一只猫从我下体处爬了出来，我有点迷糊，我可是个男的啊，怎么还事生产了呢？<br>　　而且，还是一只猫。<br>　　在我纠结我是怎么生下猫的时候，另一猫又爬出来，在我的身体其他部位，陆陆续续的开始爬出各种各样的动物，我的胸口跳出两只羊，我的小腿钻出两只犀牛，我的胳肢窝迈出了两只鸵鸟。我见过的，我没见过的，最后两个人类一男一女从我的肚脐里爬了出来，他们站起身，我才看到是两个肌肉健硕的成年人。<br>　　海浪拍打着我的床沿，我听见他们在讨论把我拆掉做成遮风挡雨的房子。我感觉到他们诞生的地方在一点点消失，我的小腿，我的阴茎，我的胸膛。只剩下头颅的时候，听见男声问：还要继续拆吗？<br>　　女声斩钉截铁：动手吧。<br>　　<br>　　我大汗淋漓的醒了过来。</p>
-<p>　　</p>
-<blockquote>
-<p>15号的梦</p>
-</blockquote>
-<p>　　我和两个陌生人，叫他们A和B好了。大概是一个网络游戏的场景，我们待在一个新手区，准确的来说，我们在一个房子里——新手房，房子外面守着一个十级的人类反派Boss。可能这是个武侠类的游戏，我们都宽袍大袖，手拿宝剑。<br>　　我们要做的事是完成新手试炼，杀死外面那个Boss或者从他手底下逃走，进入下一个区域。<br>　　A想到一个让我们逃跑的计划，就是他先冲出去，他速度快，带着Boss在房子外面绕圈圈，而我和B则抓住他们跑到房子周长二分之一的位置时候开始跑向下一个区域，等我们离开房子，他再跑一又二分之一圈，就开始追上我们，一起到下一个区域。<br>　　按计划展开了。我们跑出房间，通往下一个区域的是一条笔直向上、一眼望不到头的大理石阶梯。我们施展着类似周星驰电影《功夫》里和包租婆赛跑姿势的轻功，在阶梯上飞驰。<br>　　A很快就追了上来，后面不远就是那个大Boss。我们眼神交换，意味不言自明：接下来该怎么办？<br>　　B说：要不然，你再去拖住他。<br>　　我们都清楚在这丝毫没有辗转腾挪余地的阶梯上，再去拖住他，意味着什么。也清楚B把话说出口，对A意味着什么。<br>　　A面无表情，向我挑了挑眉。好像在说：你呢，你怎么想。<br>　　因为心里被恐惧占了一大半，在B说出那个主意时，我心里竟涌出松了口气的欣喜。但当我面临要做出让队友去送死的选择，我手心发汗，不知所措，有些难为情，想告诉他要不然试一下吧，但在心里挣扎了一会，最后还是泄气的摇了摇头。<br>　　A点了点头，不再说话。一阵剑光。<br>　　我又回到了那个新手房，B说我们都被杀了，回档到了这里。他问A，要不要再试试那个计划。<br>　　A说不用了，你们先等上一阵。<br>　　可能是一盏茶的时间，也可能过了很久，A什么话也没交代，径直推开门走了出去。<br>　　很快外面传来了剑刃交击的声音，声音不绝于耳。又过了一会，外面传来一声清啸，之后便什么声音都没有了。<br>　　我们从门缝悄悄的往外看，鲜血流淌了一地，没看见A的身影，Boss仍在不远处守着房子。<br>　　B退回来问：你说A是死了，还是已经走了？<br>　　我摇摇头没有说话，被要永远困在这里的预感击溃，我蜷缩在房子的角落，试图躲进黑暗里。<br>　　<br>　　后来我就醒了，想继续睡过去，继续做那个梦，但没有成功。我也没有机会告诉B，如果A死了，我们可以在房子里看到回档的他，如果A走了，那么Boss应该是死的，但Boss活着，而且他手里的那柄剑是A的。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
-    
-    </summary>
-    
-      <category term="涂鸦" scheme="http://kaaaaai.cn/categories/%E6%B6%82%E9%B8%A6/"/>
-    
-    
-      <category term="扯谈" scheme="http://kaaaaai.cn/tags/%E6%89%AF%E8%B0%88/"/>
-    
-      <category term="梦" scheme="http://kaaaaai.cn/tags/%E6%A2%A6/"/>
     
   </entry>
   
