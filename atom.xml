@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kaaaaai.cn/"/>
-  <updated>2018-10-26T13:04:18.009Z</updated>
+  <updated>2018-11-01T07:12:50.487Z</updated>
   <id>http://kaaaaai.cn/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://kaaaaai.cn/articles/044.html"/>
     <id>http://kaaaaai.cn/articles/044.html</id>
     <published>2018-10-26T08:24:52.000Z</published>
-    <updated>2018-10-26T13:04:18.009Z</updated>
+    <updated>2018-11-01T07:12:50.487Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="一、Debug-和-Release-版本区别"><a href="#一、Debug-和-Release-版本区别" class="headerlink" title="一、Debug 和 Release 版本区别"></a>一、Debug 和 Release 版本区别</h1><p>1、Release 是发行版本,比 Debug 版本有一些优化，文件比 Debug 文件小，想要发布时，也就是说需要大众客户使用时，需要 build Release 版本，<br>2、Debug 是调试版本，Debug 和 Release 调用两个不同的底层库。我们开发者自己内部真机或模拟器调试时，使用 Debug 模式就好。<br>3、Debug 是调试版本，包括的程序信息更多 4、只有 Debug 版的程序才能设置断点、单步执行、使用 TRACE/ASSERT 等调试输出语句 5、Release 不包含任何调试信息，所以体积小、运行速度快</p>
 <p>使用时可以直接使用 Release 版本</p>
@@ -61,7 +61,7 @@
     <link href="http://kaaaaai.cn/articles/043.html"/>
     <id>http://kaaaaai.cn/articles/043.html</id>
     <published>2018-10-08T08:24:52.000Z</published>
-    <updated>2018-10-08T08:33:01.445Z</updated>
+    <updated>2018-11-01T07:12:50.487Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="1、运行时报错如下错："><a href="#1、运行时报错如下错：" class="headerlink" title="1、运行时报错如下错："></a>1、运行时报错如下错：</h2><figure class="highlight bash"><figcaption><span>log 打印</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Showing Recent Messages:-1:Multiple commands produce<span class="string">'/Users/edison/Library/Developer/Xcode/DerivedData/$(product name)-fxzbpoappydriwfozeeqaxxcyoho/Build/Products/Debug-iphoneos/$(product name).app'</span>:</span><br><span class="line"></span><br><span class="line">1) Target <span class="string">'$(product name)'</span> has create directory <span class="built_in">command</span> with output <span class="string">'/Users/edison/Library/Developer/Xcode/DerivedData/$(product name)-fxzbpoappydriwfozeeqaxxcyoho/Build/Products/Debug-iphoneos/$(product name).app'</span></span><br><span class="line"></span><br><span class="line">2) That <span class="built_in">command</span> depends on <span class="built_in">command</span> <span class="keyword">in</span> Target <span class="string">'$(product name)'</span>: script phase “[CP] Copy Pods Resources”</span><br></pre></td></tr></table></figure>
 <p>解决方法：选中项目 target -&gt; Build phase -&gt; Copy Pods Resources -&gt; Output Files  -&gt; 移除 <code>${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}</code> -&gt; Build</p>
@@ -94,9 +94,9 @@
     
       <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
     
-      <category term="Swift" scheme="http://kaaaaai.cn/tags/Swift/"/>
-    
       <category term="OC" scheme="http://kaaaaai.cn/tags/OC/"/>
+    
+      <category term="Swift" scheme="http://kaaaaai.cn/tags/Swift/"/>
     
   </entry>
   
@@ -105,7 +105,7 @@
     <link href="http://kaaaaai.cn/articles/042.html"/>
     <id>http://kaaaaai.cn/articles/042.html</id>
     <published>2018-09-20T08:24:52.000Z</published>
-    <updated>2018-10-08T06:52:30.496Z</updated>
+    <updated>2018-11-01T07:12:50.487Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>学习地址：<a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" target="_blank" rel="noopener">Python 教程</a><br>其他：<a href="https://docs.python.org/3/library/functions.html#abs" target="_blank" rel="noopener">官网-函数列表</a></p>
 <h2 id="一、基础笔记"><a href="#一、基础笔记" class="headerlink" title="一、基础笔记"></a>一、基础笔记</h2><h3 id="列表：list"><a href="#列表：list" class="headerlink" title="列表：list"></a>列表：list</h3><p>用 <code>len()</code> 函数可以获得 <code>list</code> 元素的个数：<br><figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>len(classmates)</span><br></pre></td></tr></table></figure></p>
@@ -188,7 +188,7 @@
     <link href="http://kaaaaai.cn/articles/041.html"/>
     <id>http://kaaaaai.cn/articles/041.html</id>
     <published>2018-09-12T08:24:52.000Z</published>
-    <updated>2018-09-13T08:25:43.496Z</updated>
+    <updated>2018-11-01T07:12:50.486Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="一、基本概念"><a href="#一、基本概念" class="headerlink" title="一、基本概念"></a>一、基本概念</h1><h2 id="1-什么是库？"><a href="#1-什么是库？" class="headerlink" title="1.什么是库？"></a>1.什么是库？</h2><p>库是共享程序代码的方式，一般分为静态库和动态库。</p>
 <h2 id="2-静态库与动态库的区别？"><a href="#2-静态库与动态库的区别？" class="headerlink" title="2.静态库与动态库的区别？"></a>2.静态库与动态库的区别？</h2><p>（1）静态库：之所以叫做静态，是因为静态库在编译的时候会被直接拷贝一份，复制到目标程序里，这段代码在目标程序里就不会再改变了。</p>
@@ -336,7 +336,7 @@
     <link href="http://kaaaaai.cn/articles/040.html"/>
     <id>http://kaaaaai.cn/articles/040.html</id>
     <published>2018-09-03T10:00:52.000Z</published>
-    <updated>2018-09-04T07:56:29.026Z</updated>
+    <updated>2018-11-01T07:12:50.486Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote class="blockquote-center">　　鹿同时是阿喀琉斯和乌龟，同时是弓和箭：它们奔跑着，却永远追不到自己；<br>它们停下来，有些东西却永远留在身外继续疾驰。</blockquote>
 
@@ -363,7 +363,7 @@
     <link href="http://kaaaaai.cn/articles/039.html"/>
     <id>http://kaaaaai.cn/articles/039.html</id>
     <published>2018-09-03T07:00:52.000Z</published>
-    <updated>2018-09-04T07:56:06.871Z</updated>
+    <updated>2018-11-01T07:12:50.485Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><em>　　偶尔在知乎、少数派或其他社区资讯网站上看文章，会发现有的文章看起来很舒服，有的感觉怪怪的，变扭。细究之下，大概就是排版的原因。那么如何学习好的排版呢，再细究，发现里面的学问也有不少，如何分段落，如何引用图片，以及句子段落本身的排版。刻意去看了下<a href="https://github.com/mzlogin/chinese-copywriting-guidelines" target="_blank" rel="noopener">中文文案排版指北</a>，这里介绍了一些中文文案，中英文排版约定俗成的标准，而且许多网站也都引入了这些标准。值得学习，那现在就一起来看看。</em></p>
 <p>　　第一部分讲空格，引言有这么一段：</p>
@@ -400,7 +400,7 @@
     <link href="http://kaaaaai.cn/articles/038.html"/>
     <id>http://kaaaaai.cn/articles/038.html</id>
     <published>2018-08-28T06:24:52.000Z</published>
-    <updated>2018-08-29T02:34:35.609Z</updated>
+    <updated>2018-11-01T07:12:50.485Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="CocoaLumberjack"><a href="#CocoaLumberjack" class="headerlink" title="CocoaLumberjack"></a>CocoaLumberjack</h1><p>CocoaLumberjack 是一个适用于 Mac 和 iOS 的快速、简单，而且功能强大且灵活的日志框架</p>
 <h1 id="一、功能介绍"><a href="#一、功能介绍" class="headerlink" title="一、功能介绍"></a>一、功能介绍</h1><p><span id="inline-toc">1.</span>支持日志打印到 Xcode 控制台，打印到 mac 的 console 程序、打印到文件<br><span id="inline-toc">2.</span>日志功能支持关闭和打开，支持 Error、Warning、Info、Debug、Verbose、All 日志等级<br><span id="inline-toc">3.</span> 支持基于 DDLogFormatter 协议自定义日志格式和继承 DDAbstractLogger 和协议 DDLogger 自定义 logger<br><span id="inline-toc">4.</span>可将日志打印上传到服务器<br><span id="inline-toc">5.</span>基于多线程、GCD、运行时态等</p>
@@ -468,7 +468,7 @@
     <link href="http://kaaaaai.cn/articles/037.html"/>
     <id>http://kaaaaai.cn/articles/037.html</id>
     <published>2018-08-23T10:00:52.000Z</published>
-    <updated>2018-08-29T02:34:35.609Z</updated>
+    <updated>2018-11-01T07:12:50.484Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　看了曹文轩的《草房子》，内容讲的是发生桑桑这个小主人公周围的事，有孩子的故事，也有大人的故事。<br>　　<br>　　叙事口吻平淡朴实，像静谧的流水，又像傍晚从远处村庄传来带着泥土气息的风，让人也不由自主的想起自己的童年时光，就好像成年后在某个瞬间想起小时候放学经过正开饭的陌生人家闻到饭菜的味道，那个瞬间中所处的情景和记忆中的画面，便重叠串在一起。这本书也有类似的力量。<br>　　<br>　　书里写了许多大概每个人童年都会发生的事情，一个让人印象深刻的漂亮女孩，一个早早退学的朋友，一个在学校里因为彼此都很优秀而暗地里较真的小伙伴，还有因为人小所以身不由己的当了大人的传声筒，卷进大人们的爱情故事里。甚至是每个人都可能生过的一场发生在童年无可避免的大病。</p>
 <p>　　在那个大人的爱情故事里出现的男主人公，是桑桑的老师，那个老师是个很特别的人，会在节日庆典组织学生排练舞蹈，会在河边吹笛子吹出悠扬的曲子，穿白衬衫，皮鞋，英俊潇洒。在那种封闭的小村庄里，那样的人似乎很少，但又似乎每个村子都会有那么一两个那样的人。<br>　　<br>　　我童年记忆里像那样代表性的人大概是我的小学语文老师，爱扎羊角辫和马尾，都很好看。有时会提着一桶衣服穿过两三条街道，到我们家旁边的那条河洗衣服，我有时候会站在家门口偷看，看她把衣服放在河里，攥着一角轻轻摆动，涤荡干净。她夏天爱穿裙子，快分开的那个夏天，她总喜欢穿的是一条淡绿色的裙子，常常在我们早读的时候站在教室外的阳台上，发呆，眺望远方，有风的时候，裙子会轻轻扬起来。以致于在我反复回忆起这段记忆的时候，有时候想不起老师的样子，但裙子的颜色却越发鲜艳起来。</p>
@@ -496,7 +496,7 @@
     <link href="http://kaaaaai.cn/articles/036.html"/>
     <id>http://kaaaaai.cn/articles/036.html</id>
     <published>2018-08-15T06:24:52.000Z</published>
-    <updated>2018-08-29T02:34:35.608Z</updated>
+    <updated>2018-11-01T07:12:50.484Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="一、CocoaPods"><a href="#一、CocoaPods" class="headerlink" title="一、CocoaPods"></a>一、CocoaPods</h1><h2 id="CocoaPods是什么？"><a href="#CocoaPods是什么？" class="headerlink" title="CocoaPods是什么？"></a><code>CocoaPods</code>是什么？</h2><ul>
 <li><code>CocoaPods</code> 是一个负责管理 <code>iOS</code> 项目中第三方开源库的工具。</li>
@@ -562,7 +562,7 @@
     <link href="http://kaaaaai.cn/articles/035.html"/>
     <id>http://kaaaaai.cn/articles/035.html</id>
     <published>2018-08-07T10:00:52.000Z</published>
-    <updated>2018-08-29T02:34:35.608Z</updated>
+    <updated>2018-11-01T07:12:50.484Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　A：”就站在比较正的三观上来说，每个人有权利选择自己的生活方式。你每天上网无所事事做咸鱼，我每天上班为生活疲于奔命，其实没什么优劣之分，只是做了不同的选择而已。但我还是想问，这一切的意义在哪里，你的人生的意义在哪，人生需要意义吗？”<br>　　B：“我都打算出家当和尚的人，你就别问我人生意义了。你觉得你的人生意义又是什么？”<br>　　A：“就以前和你讲过的那样，呆在山脚下，就觉得应该上山看看，以后和人说知足常乐这几个字，不会显得那么没底气。”<br>　　B：“如果你现在死了，你会觉得遗憾吗？”<br>　　A：“不会吧。”<br>　　B：“嗯？”<br>　　A：“我又不是处！”<br>　　B：“去你妈的。我觉得我不会遗憾，虽然很多东西都没吃到，很多地方都没去过，但我觉得我过得挺开心的。”<br>　　A：“我想我也不会遗憾吧。主要是遗憾没什么用，如果必须死的话，说不定我还不会遗憾，我会试图说服自己接受去死，毕竟有那么多宗教，可以信信来生啊什么的。这一点上我还是比较犬儒的。”<br>　　……<br>　　A：“其实我们现在说的想的，什么精神啊思想的，早就有人这么说过做过了，我们只是在不断地重复而已。”<br>　　B：“是吗，那你说，我们要怎样才可以不重复啊？”<br>　　A：“怎样都会重复的，所以学哲学家说空话是没什么用的，只有德先生和赛先生才可以拯救世界。”<br>　　<br>　　和朋友进行了一次一棒子打死哲学家的谈话之后，非常打脸的，我看完了一本谈论哲学的书，《柏拉图和鸭嘴兽一起去酒吧》。<br>　　人们普遍对哲学的印象是深奥，拗口，诡辩，对哲学家的印象是严肃，爱钻牛角尖，动不动就因为想不明白终极问题去自杀。但这本书则完全推翻了那些刻板印象，他展示了一个有趣生动的哲学，甚至还非常接地气的说了一连串的荤段子。可能他不是第一个想到把严肃的事变得轻松甚至荒诞的人，但在哲学这个体系他应该是第一个说女人像鲜花的人，他向人们展示了一种把哲学的严肃稀释掉的可能。<br>　　这本书结合笑话向读者构建了一个微小的哲学体系，就像一个颇负盛名的苍蝇馆，菜单可能不够丰富和精致，但剑走偏锋还能做出地道的美食这点，就值得让人竖起拇指称赞。对这本书的结论是，不懂哲学的，适合看， 懂哲学的，更适合看。能让外行人看热闹，内行人看门道，也是这本书出彩的一个地方，好的东西不一定都能雅俗共赏，但能雅俗共赏的一定是好的东西。<br>　　书以外的，有一个不算正确甚至可能是用力过度的想法是，除了悲剧会刻意用喜剧的外壳包装和喜剧的样子本来就是喜剧（不谈内核）以外，其他的各种事物，他们的样子应当是他们本来的样子，历史应当庄重，哲学应当严肃，笑话固然好看，但把所有的事都用笑话包装起来却不一定是好事。不只是这一个点，从许多事上似乎可以看到这种趋势：人们热衷于创造和接受把严肃的事物讲成一个笑话，在心里不放下任何一种庄重的情感。这是不是意味着我们已经在各个方面向《娱乐至死》里所描写的世界迈进了?<br>　　用力过度的想法以外的，用哲学的理论来看，这个想法完全符合因为一个错误的观点得出正确的结论，所以让观点看起来也像正确的。这在哲学上叫 Affirming the Consequent，肯定结果的谬误。</p>
 ]]></content>
@@ -587,7 +587,7 @@
     <link href="http://kaaaaai.cn/articles/034.html"/>
     <id>http://kaaaaai.cn/articles/034.html</id>
     <published>2018-08-02T06:24:52.000Z</published>
-    <updated>2018-08-29T02:34:35.608Z</updated>
+    <updated>2018-11-01T07:12:50.484Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><em>　　由于公司需要，对，仍然是由于公司需要，最近调研了一遍常用的第三方库，按功能分类，综合 GitHub 上 Star 的数量，最近更新的时间，百度、谷歌搜索（把这个列入参考的目的是考虑到开发过程中可能遇到种种问题，需要面向搜索编程，检索出的条目越多就越容易解决问题，另一方面也证明有很多人使用。）的条目数量，和实际使用体验得出比较适合稳定持续开发使用的框架。</em></p>
 <h1 id="一、Log-输出打印调研"><a href="#一、Log-输出打印调研" class="headerlink" title="一、Log 输出打印调研"></a>一、Log 输出打印调研</h1><h2 id="1-CocoaLumberjack（OC）"><a href="#1-CocoaLumberjack（OC）" class="headerlink" title="1.CocoaLumberjack（OC）"></a>1.<a href="https://github.com/CocoaLumberjack/CocoaLumberjack" target="_blank" rel="noopener">CocoaLumberjack</a>（OC）</h2><div class="note default no-icon"><p><i class="fa fa-star" aria-hidden="true"></i> Star 数：10,467<br><i class="fa fa-calendar" aria-hidden="true"></i> 最近一次更新时间：29 天以前<br><i class="fa fa-google"></i> 谷歌搜索词条结果：32,000<br><i class="fa fa-search-plus" aria-hidden="true"></i> 百度搜索词条结果：5,000<br><i class="fa fa-toggle-on"></i> 是否也支持 Swift：是<br><i class="fa fa-font"></i>是否有中文文档：否 </p>
@@ -769,7 +769,7 @@
     <link href="http://kaaaaai.cn/articles/033.html"/>
     <id>http://kaaaaai.cn/articles/033.html</id>
     <published>2018-07-20T06:24:52.000Z</published>
-    <updated>2018-08-29T02:34:35.607Z</updated>
+    <updated>2018-11-01T07:12:50.483Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p><code>VIPER</code> 模式的理念不属于 <code>MV(X)</code> 系类，其理念来自于建筑设计。</p>
 <p>建筑领域流行这样一句话，“我们虽然在营造建筑，但建筑也会重新塑造我们”。正如所有开发者最终领悟到的，这句话同样适用于构建软件。</p>
@@ -820,7 +820,7 @@
     <link href="http://kaaaaai.cn/articles/032.html"/>
     <id>http://kaaaaai.cn/articles/032.html</id>
     <published>2018-07-19T13:00:52.000Z</published>
-    <updated>2018-08-29T02:34:35.607Z</updated>
+    <updated>2018-11-01T07:12:50.483Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="《刺杀骑士团长》"><a href="#《刺杀骑士团长》" class="headerlink" title="《刺杀骑士团长》"></a>《刺杀骑士团长》</h2><div align="right"> <a href="https://www.amazon.cn/dp/B079FLYB49/ref=sr_1_1?ie=UTF8&amp;qid=1532067759&amp;sr=8-1&amp;keywords=%E5%88%BA%E6%9D%80%E9%AA%91%E5%A3%AB%E5%9B%A2%E9%95%BF" target="_blank" rel="noopener">村上春树</a> </div><div align="right"> 10 条标注 </div> 
 
@@ -849,7 +849,7 @@
     <link href="http://kaaaaai.cn/articles/031.html"/>
     <id>http://kaaaaai.cn/articles/031.html</id>
     <published>2018-07-19T09:00:52.000Z</published>
-    <updated>2018-08-29T02:34:35.607Z</updated>
+    <updated>2018-11-01T07:12:50.483Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><em>　　因为公司一个蓝牙项目的需求，需要拿到通过 ble 传送过来的音频文件，然后转成可播放的音频文件。查了一下，发现可以直接用 Audio Queue 的服务直接转，但有一个限制是你传过来的音频文件必须是 pcm 格式的。如果是其他格式的就需要配合 AudioFileStream 或者 AudioFile 解析后播放。</em></p>
 <p>　　因为比较着急的原因，所以也没展开去好好了解 Audio Queue，就着急上马的用上了里面的东西。不过这里给大家推荐一个写的比较详细的博客系列：<a href="http://msching.github.io/blog/categories/audio/" target="_blank" rel="noopener">iOS音频播放</a></p>
@@ -885,7 +885,7 @@
     <link href="http://kaaaaai.cn/articles/030.html"/>
     <id>http://kaaaaai.cn/articles/030.html</id>
     <published>2018-07-12T09:00:52.000Z</published>
-    <updated>2018-08-29T02:34:35.607Z</updated>
+    <updated>2018-11-01T07:12:50.483Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　看了《动物世界》和《我不是药神》（以下简称《动》和《药神》）。<br>　　剧情略过不提。<br>　　先从内容讲讲我的看法。虽然两部电影类型和主题都迥然不同，但我觉得他们讲的其实是一个东西，有关善良和蜕变。<br>　　《动》说的善良是小善，是守得住自己。《药神》说的是大善，度己度人。可能有人会觉得上善若水，善良应该像水一样润物无声。而《药神》里的男主角程勇所表现的，普度众生的那种善对平常人来说实在太过庞大，仿佛选择行善便是选择背水一战，有些咄咄逼人。但在本质上，他其实也是因为守住了自己，然后因为这种小善才衍生出了大善。<br>　　说时势造英雄，我觉得时势并不能造英雄，时势只是把英雄们身上的某些属于英雄的特质给激发了。同理，好人也基本如此，《药神》里的程勇，经历了自己得白血病的朋友去世，也终于放下独善其身的想法和对坐牢的恐惧，在泰国清晨的大雾中看清了自己，义无反顾的投身于倒卖药品救助病患的“违法犯罪”行动中。只是他受审被定为有罪，虽然法律不外乎人情给他减了刑，但当押送他的警车穿过泱泱人群的画面出现时，我仍然有些疑问，这等时势逼出的好人，好固然是好，但真的是社会所需要的吗？<br>　　《动》里的郑开司在被关进小黑屋用自己的聪明出来时，老人家跪在他面前求他给自己孩子托句话，他面无表情闪开，我当时想，这是要开始黑化了？因为前面的剧情，甚至对这点隐隐有些期待。然而当他说出一段台词：</p>
 <blockquote>
@@ -918,7 +918,7 @@
     <link href="http://kaaaaai.cn/articles/029.html"/>
     <id>http://kaaaaai.cn/articles/029.html</id>
     <published>2018-07-04T11:37:05.000Z</published>
-    <updated>2018-08-29T02:34:35.606Z</updated>
+    <updated>2018-11-01T07:12:50.483Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><em>　　在 iOS 开发里，如果保存一些软件通用设置包括用户名密码等，我们一般会用 <code>NSUserDefaults</code> 这个类来记录进和访问应用包里的 <code>plist</code> 文件。那么类似的逻辑在 Android 中实现则是需要用到 <code>SharedPreferences</code> 这个类 </em></p>
 <h1 id="一、关于-SharedPreferences"><a href="#一、关于-SharedPreferences" class="headerlink" title="一、关于 SharedPreferences"></a>一、关于 SharedPreferences</h1><p>　　<code>SharedPreferences</code> 的使用非常简单，能够轻松的存放数据和读取数据。<code>SharedPreferences</code> 只能保存简单类型的数据，例如，<code>String</code>、<code>int</code> 等。一般会将复杂类型的数据转换成 <code>Base64</code> 编码，然后将转换后的数据以字符串的形式保存在 <code>XML</code> 文件中，再用 <code>SharedPreferences</code> 保存。</p>
@@ -963,7 +963,7 @@
     <link href="http://kaaaaai.cn/articles/028.html"/>
     <id>http://kaaaaai.cn/articles/028.html</id>
     <published>2018-06-28T11:37:05.000Z</published>
-    <updated>2018-08-29T02:34:35.606Z</updated>
+    <updated>2018-11-01T07:12:50.482Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><em>　　由于公司的一个项目屡次出现 <code>Guideline 4.3 - Design</code> 审核被拒问题，想着能最大程度的解决这种问题出现，就去了解了一下怎么给项目增加垃圾代码以通过审核，这里给大家推荐两种。</em></p>
 <h1 id="一、用-Python-生成垃圾文件"><a href="#一、用-Python-生成垃圾文件" class="headerlink" title="一、用 Python 生成垃圾文件"></a>一、用 Python 生成垃圾文件</h1><h2 id="1-第一步-首先生成一个500位的数组-驼峰类型的元素-用作文件名-eg-AsdfdfGsd"><a href="#1-第一步-首先生成一个500位的数组-驼峰类型的元素-用作文件名-eg-AsdfdfGsd" class="headerlink" title="1.第一步:首先生成一个500位的数组 驼峰类型的元素 用作文件名 eg:AsdfdfGsd"></a>1.第一步:首先生成一个500位的数组 驼峰类型的元素 用作文件名 eg:AsdfdfGsd</h2><figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line"></span><br><span class="line">first = <span class="string">"ABCDEFGHIJKLMNOPQRSTUVWXYZ"</span></span><br><span class="line"></span><br><span class="line">second = <span class="string">"abcdefghijklmnopqrstuvwxyz"</span></span><br><span class="line"></span><br><span class="line">number = <span class="string">"345"</span></span><br><span class="line"></span><br><span class="line">index = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">array = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">500</span>):</span><br><span class="line"></span><br><span class="line">    final=(random.choice(first))</span><br><span class="line"></span><br><span class="line">    index = random.randint(<span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(index):</span><br><span class="line"></span><br><span class="line">        final+=(random.choice(second))</span><br><span class="line"></span><br><span class="line">    final += (random.choice(first))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(index):</span><br><span class="line"></span><br><span class="line">        final+=(random.choice(second))</span><br><span class="line"></span><br><span class="line">    array.append(final)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">print</span> (array)</span><br></pre></td></tr></table></figure>
@@ -1008,7 +1008,7 @@
     <link href="http://kaaaaai.cn/articles/027.html"/>
     <id>http://kaaaaai.cn/articles/027.html</id>
     <published>2018-06-20T13:00:52.000Z</published>
-    <updated>2018-08-29T02:34:35.606Z</updated>
+    <updated>2018-11-01T07:12:50.482Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　去年冯小刚的《芳华》上映，因为电影去看了原著小说，小说写的很好，看的见有女性细腻的心思在里面，但又不会显得格局小，聪明又不咄咄逼人，词条上搜索作者，严歌苓，照片上的人风姿卓卓，依稀可见年轻时候的好看样子。当时还在看龙应台的《目送》，虽然文笔不错，感情也很真挚，但抒情的方式总像八九十年代的武打片，走硬桥硬马的路子，缺乏灵活变通。可能是我们彼此之间有着一个时代的间隔，所以我不能理解，和彼不能被理解，都情有可原，不过一个刻板的老先生的印象还是被留在了我的脑海里，看网上的照片发现原来作者是女的，纠正之后是，一个刻板的老女人，后来又看了她在<a href="https://www.youtube.com/watch?v=ZV7Uz4DqWFI" target="_blank" rel="noopener">香港大学的演讲</a>，刻板又变成了刻薄，此处按下不表。总之，才华和人都很有看头，是一件很难得的事。<br>　　看了《芳华》之后，一直想把她其他的书都给看了，不过被其他的事分了心，直到前几天才看完《陆犯焉识》。<br>　　书讲的是一个中国近代的知识分子陆焉识，出国留学，回国后当老师，被继母的安排下和她家里的表侄女缔结了封建时代的婚姻，开始在风情而精明的继母和温婉而坚韧的妻子夹缝间尴尬的家庭生活，之后解放后因为不谙世事的张扬激越而成为”反革命”，在漫长的分离中意识到让自己一直抵触的封建婚姻，在它的另一头站着的那个人——冯婉瑜，他是爱她的。而在平反后，久别重逢，冯婉喻失忆了。他像一个新朋友陪在她身边，照顾她，在冯婉喻去世后，他也离开了上海，离开了他的儿子女儿。<br>　　看完之后回来看书名，《陆犯焉识》，焉识既是男主角的名字，又是故事后半段剧情的呼应，冯婉喻失忆了，焉识偌大的活人站在她面前她也不认识，焉识，焉识，如何认识。小说作者用了双螺旋的手法，一边从陆焉识成为犯人劳改开始，一边从陆焉识童年开始，最后时间线两两相接，知道陆焉识何以成为犯人，平反之后的人情世事又何以得到当前布局。故事两面，一面粗粝蛮横，善恶模糊，一面是多姿多彩，夹杂当时战局时事和家长里短的琐碎，两面都好看。<br>　　有一些遗憾的是，陆焉识是如何从一个翩翩浊世佳公子变成冷酷谨慎的犯人老几的过程，作者没有细写，但凡文学作品里，这种人物发生巨大变化的过程，因为前面铺垫都有了，只要稍花心思就可以写的很精彩。但不写的原因，如果不是忘记写了，我想到的可能是，变化往往意味着需要否定自己从前一直信奉的东西，对于主人公——原型是作者的姥爷，可能作者出于私心的维护，不去写他如何否定自己，去接受了一种新的更为野蛮的生存法则的全部心理活动，把陆焉识人生里那样晦暗不明的部分选择性的藏了起来。<br>　　阅经千帆后经过不断反刍往事而爱上冯婉喻的陆焉识，对他们俩关系的总结是，冯婉喻是他寡味的开端，却是他完美的归宿。正如书里所说的，这种爱也是不对等的，因为他爱上婉瑜的过程里，二十年间可以接触的只有劳改的犯人，他可想可思的只有一人。相较之下，冯婉喻的源自旧社会里跟一个人就跟他一辈子的爱，虽然盲目的有些可笑，但在量在质上都胜出他大半截，毛姆《面纱》的那段经典对白放在这里大概可以改成这样：</p>
 <blockquote>
@@ -1038,7 +1038,7 @@
     <link href="http://kaaaaai.cn/articles/026.html"/>
     <id>http://kaaaaai.cn/articles/026.html</id>
     <published>2018-06-14T11:37:05.000Z</published>
-    <updated>2018-08-29T02:34:35.605Z</updated>
+    <updated>2018-11-01T07:12:50.482Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><em>　　一直有把 iOS 开发里用到的一些边边角角的小技巧写成一个集合的想法，但一直没有付诸实践。刚好备忘录里的零零碎碎记的东西够凑成一篇东西来，就把之前的一篇 <a href="http://kaaaaai.cn/articles/eleventh">OC 笔记 - 一些小技巧和问题处理的集合</a> 给改了名，加上现在的第二篇，打算以后写成一个系列。长路漫漫，与诸君共勉。</em></p>
 <h2 id="一、打印bool值"><a href="#一、打印bool值" class="headerlink" title="一、打印bool值"></a>一、打印bool值</h2><figure class="highlight objectivec"><figcaption><span>Objective-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Bool _YESorNO = <span class="literal">YES</span>;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"BOOL--YESorNO--&gt;%@"</span>,_YESorNO?<span class="string">@"YES"</span>:<span class="string">@"NO"</span>);</span><br></pre></td></tr></table></figure>
@@ -1082,7 +1082,7 @@
     <link href="http://kaaaaai.cn/articles/025.html"/>
     <id>http://kaaaaai.cn/articles/025.html</id>
     <published>2018-06-10T13:00:52.000Z</published>
-    <updated>2018-08-29T02:34:35.605Z</updated>
+    <updated>2018-11-01T07:12:50.482Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="《少年巴比伦》"><a href="#《少年巴比伦》" class="headerlink" title="《少年巴比伦》"></a>《少年巴比伦》</h2><div align="right"> <a href="https://www.amazon.cn/dp/B00XOIYY9S/ref=sr_1_2?ie=UTF8&amp;qid=1522639554&amp;sr=8-2&amp;keywords=%E5%B0%91%E5%B9%B4%E5%B7%B4%E6%AF%94%E4%BC%A6" target="_blank" rel="noopener">路内</a> </div><div align="right"> 5 条标注 </div> 
 

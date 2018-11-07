@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="壹拾肆">
 <meta property="og:description" content="因为公司一个蓝牙项目的需求，需要拿到通过 ble 传送过来的音频文件，然后转成可播放的音频文件。查了一下，发现可以直接用 Audio Queue 的服务直接转，但有一个限制是你传过来的音频文件必须是 pcm 格式的。如果是其他格式的就需要配合 AudioFileStream 或者 AudioFile 解析后播放。 　　因为比较着急的原因，所以也没展开去好好了解 Audio Queue，就着急">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-29T02:34:35.607Z">
+<meta property="og:updated_time" content="2018-11-01T07:12:50.483Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS 通过 NSData 流代码播放 PCM">
 <meta name="twitter:description" content="因为公司一个蓝牙项目的需求，需要拿到通过 ble 传送过来的音频文件，然后转成可播放的音频文件。查了一下，发现可以直接用 Audio Queue 的服务直接转，但有一个限制是你传过来的音频文件必须是 pcm 格式的。如果是其他格式的就需要配合 AudioFileStream 或者 AudioFile 解析后播放。 　　因为比较着急的原因，所以也没展开去好好了解 Audio Queue，就着急">
@@ -528,17 +528,6 @@
           
 
           
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/articles/031.html#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="articles/031.html" itemprop="commentsCount"></span>
-                </a>
-              
             
           
 
@@ -1077,21 +1066,6 @@ show_date_time();
 
 
 
-
-  
-    <script type="text/javascript">
-    (function(){
-      var appid = 'cyt7DcHLm';
-      var conf = '15e02112921b28316e497dd1bfb30125';
-      var width = window.innerWidth || document.documentElement.clientWidth;
-      if (width < 960) {
-      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){
-        window.changyan.api.config({appid:appid,conf:conf})});
-      }
-    })();
-    </script>
-    <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
-  
 
 
 
