@@ -84,7 +84,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="kaaaaai, NexT,自我修炼,ios，android,书单，电影" />
+  <meta name="keywords" content="EXP,iOS,Swift," />
 
 
 
@@ -102,16 +102,23 @@
 
 
 
-<meta name="description" content="我独自一人/照顾着/历代的星辰">
-<meta property="og:type" content="website">
-<meta property="og:title" content="壹拾肆">
-<meta property="og:url" content="http://kaaaaai.cn/archives/2018/09/index.html">
+<meta name="description" content="SwiftyBeaverSwiftyBeaver 可以为 Xcode 控制台提供强大的日志记录功能，包括颜色（Xcode 9 以后都没有颜色输出了，但表情可以。）， 可自定义格式等等。 一、功能介绍 登录 Xcode控制台 或者 登录到文件 添加 自定义日志目标 处理程序以登录 Loggly，Redis 等。 将带有端到端 AES256 加密的日志发送到 SwiftyBeaver Mac App">
+<meta name="keywords" content="EXP,iOS,Swift">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS - SwiftyBeaver 日志框架源码分析">
+<meta property="og:url" content="http://kaaaaai.cn/articles/045.html">
 <meta property="og:site_name" content="壹拾肆">
-<meta property="og:description" content="我独自一人/照顾着/历代的星辰">
+<meta property="og:description" content="SwiftyBeaverSwiftyBeaver 可以为 Xcode 控制台提供强大的日志记录功能，包括颜色（Xcode 9 以后都没有颜色输出了，但表情可以。）， 可自定义格式等等。 一、功能介绍 登录 Xcode控制台 或者 登录到文件 添加 自定义日志目标 处理程序以登录 Loggly，Redis 等。 将带有端到端 AES256 加密的日志发送到 SwiftyBeaver Mac App">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://s1.ax1x.com/2018/11/12/iLniJx.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/11/12/iLnASK.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/11/12/iLnFW6.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/11/12/iLnPF1.jpg">
+<meta property="og:updated_time" content="2018-11-12T04:03:55.458Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="壹拾肆">
-<meta name="twitter:description" content="我独自一人/照顾着/历代的星辰">
+<meta name="twitter:title" content="iOS - SwiftyBeaver 日志框架源码分析">
+<meta name="twitter:description" content="SwiftyBeaverSwiftyBeaver 可以为 Xcode 控制台提供强大的日志记录功能，包括颜色（Xcode 9 以后都没有颜色输出了，但表情可以。）， 可自定义格式等等。 一、功能介绍 登录 Xcode控制台 或者 登录到文件 添加 自定义日志目标 处理程序以登录 Loggly，Redis 等。 将带有端到端 AES256 加密的日志发送到 SwiftyBeaver Mac App">
+<meta name="twitter:image" content="https://s1.ax1x.com/2018/11/12/iLniJx.png">
 
 
 
@@ -139,13 +146,13 @@
 
 
 
-  <link rel="canonical" href="http://kaaaaai.cn/archives/2018/09/"/>
+  <link rel="canonical" href="http://kaaaaai.cn/articles/045.html"/>
 
 
 
 
 
-  <title>归档 | 壹拾肆</title>
+  <title>iOS - SwiftyBeaver 日志框架源码分析 | 壹拾肆</title>
   
 
 
@@ -170,7 +177,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -452,176 +459,350 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-       
-      
-      OK! 目前共计 46 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2018">2018</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/articles/042.html" itemprop="url">
-              
-                <span itemprop="name">Python - 学习笔记</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-20T16:24:52+08:00"
-              content="2018-09-20" >
-          09-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/articles/041.html" itemprop="url">
-              
-                <span itemprop="name">iOS - 静态库.a 和 framework 详解</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-12T16:24:52+08:00"
-              content="2018-09-12" >
-          09-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/articles/040.html" itemprop="url">
-              
-                <span itemprop="name">胡安另一些片段</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-03T18:00:52+08:00"
-              content="2018-09-03" >
-          09-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/articles/039.html" itemprop="url">
-              
-                <span itemprop="name">中文文案排版学习</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-03T15:00:52+08:00"
-              content="2018-09-03" >
-          09-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
 
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kaaaaai.cn/articles/045.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaaaaai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://os1i62usc.bkt.clouddn.com/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="壹拾肆">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">iOS - SwiftyBeaver 日志框架源码分析</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-12T14:24:52+08:00">
+                2018-11-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">热度
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>℃ |
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  1,723 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  7 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="SwiftyBeaver"><a href="#SwiftyBeaver" class="headerlink" title="SwiftyBeaver"></a>SwiftyBeaver</h1><p>SwiftyBeaver 可以为 Xcode 控制台提供强大的日志记录功能，包括颜色（Xcode 9 以后都没有颜色输出了，但表情可以。）， 可自定义格式等等。</p>
+<h2 id="一、功能介绍"><a href="#一、功能介绍" class="headerlink" title="一、功能介绍"></a>一、功能介绍</h2><ol>
+<li>登录 Xcode控制台 或者 登录到文件</li>
+<li>添加 自定义日志目标 处理程序以登录 Loggly，Redis 等。</li>
+<li>将带有端到端 AES256 加密的日志发送到 SwiftyBeaver Mac App</li>
+<li>彩色输出 到日志文件等</li>
+<li>使用 自己的串行后台队列/线程 以获得出色的性能</li>
+<li>低于设定的最小值的日志级别不会执行，以获得更好的发布性能</li>
+<li>“Needle in the Haystack”模式提高了工作效率，节省了大量时间</li>
+<li>配置简单方便</li>
+<li>使用多个日志记录目标和设置，即使是相同类型</li>
+<li>已经有很好的默认值</li>
+<li>完全可定制的 日志格式</li>
+<li>强大的过滤器</li>
+<li>使用 log.debug(“foo”) 语法</li>
+<li>开始使用2行代码</li>
+<li>通过Carthage，CocoaPods，Swift Package Manager进行简单安装或下载</li>
+<li>非常详细的日志记录（可选）：<ul>
+<li>时间（精确到微秒）</li>
+<li>水平（颜色输出）</li>
+<li>线程名称  （如果不是主线程）</li>
+<li>文件名，功能和行</li>
+<li>消息（可以是字符串或任何类型的变量）</li>
+</ul>
+</li>
+<li>对领先的 Xcode 开发插件的原生支持 </li>
+</ol>
+<p>##　二、安装</p>
+<blockquote>
+<p>对于  Swift 3，  请安装最新的SwiftyBeaver版本</p>
+<p>对于  Swift 2，  安装SwiftyBeaver 0.7.0</p>
+</blockquote>
+<h3 id="支持的平台和安装工具"><a href="#支持的平台和安装工具" class="headerlink" title="支持的平台和安装工具"></a>支持的平台和安装工具</h3><table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center"><strong>OSX 10.9+</strong></th>
+<th style="text-align:center"><strong>watchOS 2+</strong></th>
+<th style="text-align:center"><strong>tvOS9+</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Swift Package Manager</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+</tr>
+<tr>
+<td style="text-align:center">Carthage</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+</tr>
+<tr>
+<td style="text-align:center">CocoaPods</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+</tr>
+<tr>
+<td style="text-align:center">Download</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+</tr>
+</tbody>
+</table>
+<h3 id="通过-Swift-Package-Manager-安装"><a href="#通过-Swift-Package-Manager-安装" class="headerlink" title="通过 Swift Package Manager 安装"></a>通过 Swift Package Manager 安装</h3><p>对于 <a href="https://swift.org/package-manager/" target="_blank" rel="noopener">Swift Package Manager</a> 和 Swift 3，将以下包添加到 Package.swift 文件中：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.<span class="type">Package</span>(url: <span class="string">"https://github.com/SwiftyBeaver/SwiftyBeaver.git"</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="通过-Carthage-安装"><a href="#通过-Carthage-安装" class="headerlink" title="通过 Carthage 安装"></a>通过 Carthage 安装</h3><p>您可以使用 <a href="https://github.com/Carthage/Carthage" target="_blank" rel="noopener">Carthage</a> 在 Swift 3 下安装 SwiftyBeaver，方法是将其添加到您的Cartfile中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">github &quot;SwiftyBeaver/SwiftyBeaver&quot;</span><br></pre></td></tr></table></figure>
+<p>对于Swift 2：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">github “SwiftyBeaver / SwiftyBeaver” 〜&gt; 0.7</span><br></pre></td></tr></table></figure>
+<h3 id="通过-CocoaPods-安装"><a href="#通过-CocoaPods-安装" class="headerlink" title="通过 CocoaPods 安装"></a>通过 CocoaPods 安装</h3><p>要将 <a href="https://cocoapods.org/" target="_blank" rel="noopener">CocoaPods</a> 与 Swift 3 一起使用，请将其添加到您的 Podfile 中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod &apos;SwiftyBeaver&apos;</span><br></pre></td></tr></table></figure>
+<p>对于Swift 2：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">target &apos;MyProject&apos; do</span><br><span class="line">  use_frameworks!</span><br><span class="line"></span><br><span class="line">  # Pods for MyProject</span><br><span class="line">  pod &apos;SwiftyBeaver&apos;, &apos;~&gt; 0.7&apos;</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">post_install do |installer|</span><br><span class="line">  installer.pods_project.build_configurations.each do |config|</span><br><span class="line">    # Configure Pod targets for Xcode 8 with Swift 2.3</span><br><span class="line">    config.build_settings[&apos;SWIFT_VERSION&apos;] = &apos;2.3&apos;</span><br><span class="line">  end</span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
+<h3 id="通过下载安装"><a href="#通过下载安装" class="headerlink" title="通过下载安装"></a>通过下载安装</h3><p>您可以使用以下3个简单步骤在项目中下载和嵌入SwiftyBeaver Framework：</p>
+<p>从<a href="https://github.com/SwiftyBeaver/SwiftyBeaver/releases" target="_blank" rel="noopener">这里</a>下载最新的发布 zip<br>将<code>/sources</code>文件夹拖放  到项目中（确保选中“如果需要，复制项目”）<br>如果您愿意，可以将“sources”组重命名为“SwiftyBeaver”<br>注意：如果以 <code>import SwiftyBeaver</code> 这种方式安装，则不必  。</p>
+<h2 id="三、使用"><a href="#三、使用" class="headerlink" title="三、使用"></a>三、使用</h2><h3 id="3-1-项目中使用-SwiftyBeaver，在AppDelegate-swift-文件中，添加如下代码。"><a href="#3-1-项目中使用-SwiftyBeaver，在AppDelegate-swift-文件中，添加如下代码。" class="headerlink" title="3.1 项目中使用 SwiftyBeaver，在AppDelegate.swift 文件中，添加如下代码。"></a>3.1 项目中使用 SwiftyBeaver，在AppDelegate.swift 文件中，添加如下代码。</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> SwiftyBeaver</span><br><span class="line"><span class="keyword">let</span> log = <span class="type">SwiftyBeaver</span>.<span class="keyword">self</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-2-在AppDelegate-didFinishLaunchingWithOptions-方法中添加SwiftyBeaver-日志目的（控制台、文件、等等），可以选择调整日志格式，完成后可以全局调用以下log级别输出日志。"><a href="#3-2-在AppDelegate-didFinishLaunchingWithOptions-方法中添加SwiftyBeaver-日志目的（控制台、文件、等等），可以选择调整日志格式，完成后可以全局调用以下log级别输出日志。" class="headerlink" title="3.2 在AppDelegate:didFinishLaunchingWithOptions()方法中添加SwiftyBeaver 日志目的（控制台、文件、等等），可以选择调整日志格式，完成后可以全局调用以下log级别输出日志。"></a>3.2 在AppDelegate:didFinishLaunchingWithOptions()方法中添加SwiftyBeaver 日志目的（控制台、文件、等等），可以选择调整日志格式，完成后可以全局调用以下log级别输出日志。</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//添加log目的,最少一项</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Xcode控制台日志</span></span><br><span class="line"><span class="keyword">let</span> console = <span class="type">ConsoleDestination</span>() </span><br><span class="line"><span class="comment">// 默认swiftybeaver.log文件日志</span></span><br><span class="line"><span class="keyword">let</span> file = <span class="type">FileDestination</span>()</span><br><span class="line"><span class="comment">// cloud平台配置</span></span><br><span class="line"><span class="keyword">let</span> cloud = <span class="type">SBPlatformDestination</span>(appID: <span class="string">"foo"</span>, appSecret: <span class="string">"bar"</span>, encryptionKey: <span class="string">"123"</span>)</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"><span class="comment">// 使用自定义格式输出短时间、日志级别、信息</span></span><br><span class="line"><span class="comment">// console.format = "$DHH:mm:ss$d $L $M"</span></span><br><span class="line"><span class="comment">// 或者使用 console.format = "$J" 输出JSON格式</span></span><br><span class="line">        </span><br><span class="line"><span class="comment">//添加配置到SwiftyBeaver</span></span><br><span class="line">log.addDestination(console)</span><br><span class="line">log.addDestination(file)</span><br><span class="line">log.addDestination(cloud)</span><br><span class="line">        </span><br><span class="line"><span class="comment">//日志具有不同重要性</span></span><br><span class="line">log.verbose(<span class="string">"not so important"</span>)                 <span class="comment">// 优先级 1, VERBOSE   紫色</span></span><br><span class="line">log.debug(<span class="string">"something to debug"</span>)                 <span class="comment">// 优先级 2, DEBUG     绿色</span></span><br><span class="line">log.info(<span class="string">"a nice information"</span>)                  <span class="comment">// 优先级 3, INFO      蓝色</span></span><br><span class="line">log.warning(<span class="string">"oh no, that won’t be good"</span>)        <span class="comment">// 优先级 4, WARNING   黄色</span></span><br><span class="line">log.error(<span class="string">"ouch, an error did occur!"</span>)          <span class="comment">// 优先级 5, ERROR     红色</span></span><br><span class="line">        </span><br><span class="line"><span class="comment">//支持类型: 字符串,数字,日期,等等</span></span><br><span class="line">log.verbose(<span class="number">123</span>)</span><br><span class="line">log.info(-<span class="number">123.45678</span>)</span><br><span class="line">log.warning(<span class="type">Date</span>())</span><br><span class="line">log.error([<span class="string">"I"</span>, <span class="string">"like"</span>, <span class="string">"logs!"</span>])</span><br><span class="line">log.error([<span class="string">"name"</span>: <span class="string">"Mr Beaver"</span>, <span class="string">"address"</span>: <span class="string">"7 Beaver Lodge"</span>])</span><br></pre></td></tr></table></figure>
+<h3 id="3-3-效果"><a href="#3-3-效果" class="headerlink" title="3.3 效果"></a>3.3 效果</h3><p><img src="https://s1.ax1x.com/2018/11/12/iLniJx.png" alt=""></p>
+<h2 id="四、输出到不同的打印窗口"><a href="#四、输出到不同的打印窗口" class="headerlink" title="四、输出到不同的打印窗口"></a>四、输出到不同的打印窗口</h2><h3 id="4-1-输出到文件"><a href="#4-1-输出到文件" class="headerlink" title="4.1 输出到文件"></a>4.1 输出到文件</h3><p>输出到文件非常适合开发。您可以在 <code>Terminal.app</code> 的帮助下跟踪您的日志文件，在发布时您可以将日志文件附加到电子邮件或发送到您的服务器。文件位置是可调整的，默认情况下，文件存储在应用程序的 <code>Document</code> 目录中。</p>
+<p>SwiftyBeaver Framework 自动为每条日志消息添加颜色，而无需第三方插件。 </p>
+<p><img src="https://s1.ax1x.com/2018/11/12/iLnASK.png" alt=""><br><strong>初始化</strong></p>
+<p>要输出到文件，您只需要实例化 <code>FileDestination()</code>，可选择调整属性，然后将实例添加到 <code>SwiftyBeaver</code> 本身。如果创建并添加了多个文件目标实例，则可以以不同的格式登录到多个文件（示例请参见下面的内容）。将自动创建一个不存在的文件。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> file = <span class="type">FileDestination</span>()</span><br><span class="line">log.addDestination(file)</span><br></pre></td></tr></table></figure>
+<p><strong>示例</strong><br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> file = <span class="type">FileDestination</span>() <span class="comment">// get new file destination instance</span></span><br><span class="line"><span class="comment">// uses standard logging to swiftybeaver.log in the application cache directory</span></span><br><span class="line">console.format = <span class="string">"$DHH:mm:ss$d $C$L$c: $M"</span>  <span class="comment">// hour, minute, second, colored log level and message</span></span><br><span class="line">file.minLevel = <span class="type">Level</span>.verbose</span><br><span class="line">log.addDestination(file) <span class="comment">// add to SwiftyBeaver to use destination</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// the second file with different properties and custom filename</span></span><br><span class="line"><span class="keyword">let</span> file2 = <span class="type">FileDestination</span>()</span><br><span class="line">file2.format = <span class="string">"$Dyyyy-MM-dd HH:mm:ss.SSS$d $C$L$c: $M"</span>  <span class="comment">// full datetime, colored log level and message</span></span><br><span class="line">file2.minLevel = <span class="type">Level</span>.info</span><br><span class="line">file2.levelString.error = <span class="string">"Beaver Love!"</span></span><br><span class="line">file2.logFileURL = <span class="type">URL</span>(fileURLWithPath: <span class="string">"/tmp/app_info.log"</span>)  <span class="comment">// tmp is just possible for a macOS app</span></span><br><span class="line">log.addDestination(file2)</span><br></pre></td></tr></table></figure></p>
+<h3 id="4-2-输出到-Xcode-控制到"><a href="#4-2-输出到-Xcode-控制到" class="headerlink" title="4.2 输出到 Xcode 控制到"></a>4.2 输出到 Xcode 控制到</h3><p>来自Apple的Xcode是我们用来为Apple平台构建应用程序的唯一开发工具。不幸的是，Xcode除了NSLog（）之外没有内置的日志记录，甚至需要一个繁琐的DIY解决方案。 </p>
+<p>使用SwiftyBeaver Framework， Xcode最终可以为其控制台提供强大的日志记录功能，包括颜色， 可自定义格式等等。</p>
+<p><img src="https://s1.ax1x.com/2018/11/12/iLnFW6.png" alt=""><br><em>带有彩色电平指示器的Xcode控制台的屏幕截图（Xcode 8）</em></p>
+<p><strong>初始化</strong></p>
+<p>要输出到 Xcode Console，您只需要实例化 <code>ConsoleDestination()</code>，可选择调整属性，然后将实例添加到 SwiftyBeaver 本身：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> console = <span class="type">ConsoleDestination</span>()</span><br><span class="line">log.addDestination(console)</span><br></pre></td></tr></table></figure>
+<p><strong>示例</strong></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> console = <span class="type">ConsoleDestination</span>()</span><br><span class="line">console.format = <span class="string">"$DHH:mm:ss$d $L: $M"</span>  <span class="comment">// hour, minute, second, loglevel and message</span></span><br><span class="line">console.minLevel = .info <span class="comment">// just log .info, .warning &amp; .error</span></span><br><span class="line">log.addDestination(console) <span class="comment">// add to SwiftyBeaver</span></span><br></pre></td></tr></table></figure>
+<h3 id="4-3-输出到-SwiftyBeaver-平台"><a href="#4-3-输出到-SwiftyBeaver-平台" class="headerlink" title="4.3 输出到 SwiftyBeaver 平台"></a>4.3 输出到 SwiftyBeaver 平台</h3><p>SwiftyBeaver平台是世界上第一个Swift的日志记录平台。它可以非常方便地自动，高度安全地接收和分析应用程序在发布时创建的日志，分析用户和设备数据  。 </p>
+<p><a href="https://swiftybeaver.com/" target="_blank" rel="noopener">该平台</a>包含以下组件：</p>
+<blockquote>
+<p><strong>SwiftyBeaver Framework</strong>  在开发和发布期间在您的应用程序中创建日志</p>
+<p><strong>SwiftyBeaver Crypto Cloud</strong> 用于存储和同步加密日志</p>
+<p><strong>SwiftyBeaver Mac App</strong>  下载，搜索和分析从您的app发送的日志</p>
+</blockquote>
+<p><img src="https://s1.ax1x.com/2018/11/12/iLnPF1.jpg" alt=""></p>
+<p><strong>初始化</strong></p>
+<p>要输出到平台，您只需要 <code>SBPlatformDestination()</code> 使用凭据进行实例化，可以选择调整属性，然后将实例添加到 SwiftyBeaver 本身。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> platform = <span class="type">SBPlatformDestination</span>(appID: <span class="string">"YourAppID"</span>, appSecret: <span class="string">"YourAppSecret"</span>, encryptionKey: <span class="string">"Your32CharKey"</span>)</span><br><span class="line">log.addDestination(platform)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------本文结束 <i class="fa fa-thermometer-three-quarters" aria-hidden="true"></i> 感谢阅读------</div>
+        <div>
+	    <p id="div-border-left-red">
+	   <b>本文地址：</b><a href="/articles/045.html" title="iOS - SwiftyBeaver 日志框架源码分析">http://kaaaaai.cn/articles/045.html</a><br/>
+	    <span>
+	    <b>本文基于<a target="_blank" title="Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)" href="http://creativecommons.org/licenses/by-sa/4.0/"> 知识共享署名-相同方式共享 4.0 </a>国际许可协议发布</b><br/><b>转载请注明出处，谢谢！</b>
+	    </span>
+	    </p>
+</div>
+    
+</div>
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>众筹项目：拯救世界！</br></div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://os1i62usc.bkt.clouddn.com/wechatpay.gif" alt="Kaaaaai WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+    
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/EXP/" rel="tag"><i class="fa fa-tag"></i> EXP</a>
+          
+            <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
+          
+            <a href="/tags/Swift/" rel="tag"><i class="fa fa-tag"></i> Swift</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/articles/044.html" rel="next" title="iOS - 关于静态库的其他问题">
+                <i class="fa fa-chevron-left"></i> iOS - 关于静态库的其他问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -629,6 +810,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="SOHUCS"></div>
+    
+  </div>
+
 
         </div>
         
@@ -648,8 +835,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://os1i62usc.bkt.clouddn.com/head.jpg"
@@ -774,6 +970,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SwiftyBeaver"><span class="nav-text">SwiftyBeaver</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、功能介绍"><span class="nav-text">一、功能介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#支持的平台和安装工具"><span class="nav-text">支持的平台和安装工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过-Swift-Package-Manager-安装"><span class="nav-text">通过 Swift Package Manager 安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过-Carthage-安装"><span class="nav-text">通过 Carthage 安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过-CocoaPods-安装"><span class="nav-text">通过 CocoaPods 安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过下载安装"><span class="nav-text">通过下载安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、使用"><span class="nav-text">三、使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-项目中使用-SwiftyBeaver，在AppDelegate-swift-文件中，添加如下代码。"><span class="nav-text">3.1 项目中使用 SwiftyBeaver，在AppDelegate.swift 文件中，添加如下代码。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-在AppDelegate-didFinishLaunchingWithOptions-方法中添加SwiftyBeaver-日志目的（控制台、文件、等等），可以选择调整日志格式，完成后可以全局调用以下log级别输出日志。"><span class="nav-text">3.2 在AppDelegate:didFinishLaunchingWithOptions()方法中添加SwiftyBeaver 日志目的（控制台、文件、等等），可以选择调整日志格式，完成后可以全局调用以下log级别输出日志。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-效果"><span class="nav-text">3.3 效果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、输出到不同的打印窗口"><span class="nav-text">四、输出到不同的打印窗口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-输出到文件"><span class="nav-text">4.1 输出到文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-输出到-Xcode-控制到"><span class="nav-text">4.2 输出到 Xcode 控制到</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-输出到-SwiftyBeaver-平台"><span class="nav-text">4.3 输出到 SwiftyBeaver 平台</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -935,11 +1147,9 @@ show_date_time();
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
 
 
   
