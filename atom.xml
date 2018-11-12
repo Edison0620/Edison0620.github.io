@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kaaaaai.cn/"/>
-  <updated>2018-11-12T04:33:13.831Z</updated>
+  <updated>2018-11-12T04:42:26.375Z</updated>
   <id>http://kaaaaai.cn/</id>
   
   <author>
@@ -14,6 +14,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS - Reachability 日志框架源码分析</title>
+    <link href="http://kaaaaai.cn/articles/047.html"/>
+    <id>http://kaaaaai.cn/articles/047.html</id>
+    <published>2018-11-12T08:24:52.000Z</published>
+    <updated>2018-11-12T04:42:26.375Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="1-功能介绍"><a href="#1-功能介绍" class="headerlink" title="1. 功能介绍"></a>1. 功能介绍</h2><h3 id="1-1-Reachability"><a href="#1-1-Reachability" class="headerlink" title="1.1 Reachability"></a>1.1 Reachability</h3><p>Reachablity 是一个 iOS 下检测,iOS 设备网络环境用的库。</p>
+<ul>
+<li>监视目标网络是否可用</li>
+<li>监视当前网络的连接方式</li>
+<li>监测连接方式的变更</li>
+</ul>
+<p>苹果官方提供的 Doc：<a href="http://developer.apple.com/library/ios/#samplecode/Reachability/Introduction/Intro.html" target="_blank" rel="noopener">链接</a></p>
+<h3 id="1-2-Reachability-的安装"><a href="#1-2-Reachability-的安装" class="headerlink" title="1.2  Reachability 的安装"></a>1.2  Reachability 的安装</h3><p>（1）.创建 network 工程（network是我创建的demo工程，附件中可以下载到）<br> （2）.使用Cocoaspod安装依赖<br>在项目中添加 SystemConfiguration.framework 库<br>由于Reachability非常常用。直接将其加入到Supporting Files/networ-Prefix.pch中:</p>
+<h2 id="2-使用"><a href="#2-使用" class="headerlink" title="2. 使用"></a>2. 使用</h2><h3 id="2-1-Block-的使用"><a href="#2-1-Block-的使用" class="headerlink" title="2.1 Block 的使用"></a>2.1 Block 的使用</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad  </span><br><span class="line">&#123;  </span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];  </span><br><span class="line">     DLog(<span class="string">@"开启 www.apple.com 的网络检测"</span>);  </span><br><span class="line">     Reachability* reach = [Reachability reachabilityWithHostname:<span class="string">@"www.apple.com"</span>];  </span><br><span class="line">     DLog(<span class="string">@"-- current status: %@"</span>, reach.currentReachabilityString);  </span><br><span class="line">      </span><br><span class="line">     <span class="comment">// start the notifier which will cause the reachability object to retain itself!  </span></span><br><span class="line">      </span><br><span class="line">     [[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span>  </span><br><span class="line">                                                        selector:<span class="keyword">@selector</span>(reachabilityChanged:)  </span><br><span class="line">                                                             name:kReachabilityChangedNotification  </span><br><span class="line">                                                          object:<span class="literal">nil</span>];  </span><br><span class="line">      </span><br><span class="line">     reach.reachableBlock = ^(Reachability * reachability)  </span><br><span class="line">    &#123;  </span><br><span class="line">        <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;  </span><br><span class="line">            <span class="keyword">self</span>.blockLabel.text = <span class="string">@"网络可用"</span>;  </span><br><span class="line">               <span class="keyword">self</span>.blockLabel.backgroundColor = [<span class="built_in">UIColor</span> greenColor];  </span><br><span class="line">        &#125;);  </span><br><span class="line">    &#125;;  </span><br><span class="line">     </span><br><span class="line">    reach.unreachableBlock = ^(Reachability * reachability)  </span><br><span class="line">    &#123;  </span><br><span class="line">        <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;  </span><br><span class="line">            <span class="keyword">self</span>.blockLabel.text = <span class="string">@"网络不可用"</span>;  </span><br><span class="line">               <span class="keyword">self</span>.blockLabel.backgroundColor = [<span class="built_in">UIColor</span> redColor];  </span><br><span class="line">        &#125;);  </span><br><span class="line">    &#125;;  </span><br><span class="line">      </span><br><span class="line">     [reach startNotifier];  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-通知的使用"><a href="#2-2-通知的使用" class="headerlink" title="2.2 通知的使用"></a>2.2 通知的使用</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad  </span><br><span class="line">&#123;  </span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];  </span><br><span class="line">     DLog(<span class="string">@"开启 www.apple.com 的网络检测"</span>);  </span><br><span class="line">     Reachability* reach = [Reachability reachabilityWithHostname:<span class="string">@"www.apple.com"</span>];  </span><br><span class="line">     DLog(<span class="string">@"-- current status: %@"</span>, reach.currentReachabilityString);  </span><br><span class="line">      </span><br><span class="line">     <span class="comment">// start the notifier which will cause the reachability object to retain itself!  </span></span><br><span class="line">      </span><br><span class="line">     [[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span>  </span><br><span class="line">                                                        selector:<span class="keyword">@selector</span>(reachabilityChanged:)  </span><br><span class="line">                                                             name:kReachabilityChangedNotification  </span><br><span class="line">                                                          object:<span class="literal">nil</span>];  </span><br><span class="line">     [reach startNotifier];  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line">- (<span class="keyword">void</span>) reachabilityChanged: (<span class="built_in">NSNotification</span>*)note &#123;  </span><br><span class="line">     Reachability * reach = [note object];  </span><br><span class="line">     </span><br><span class="line">    <span class="keyword">if</span>(![reach isReachable])  </span><br><span class="line">    &#123;  </span><br><span class="line">        <span class="keyword">self</span>.notificationLabel.text = <span class="string">@"网络不可用"</span>;  </span><br><span class="line">          <span class="keyword">self</span>.notificationLabel.backgroundColor = [<span class="built_in">UIColor</span> redColor];  </span><br><span class="line">          <span class="keyword">self</span>.wifiOnlyLabel.backgroundColor = [<span class="built_in">UIColor</span> redColor];  </span><br><span class="line">          <span class="keyword">self</span>.wwanOnlyLabel.backgroundColor = [<span class="built_in">UIColor</span> redColor];  </span><br><span class="line">          <span class="keyword">return</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">         </span><br><span class="line">     <span class="keyword">self</span>.notificationLabel.text = <span class="string">@"网络可用"</span>;  </span><br><span class="line">     <span class="keyword">self</span>.notificationLabel.backgroundColor = [<span class="built_in">UIColor</span> greenColor];  </span><br><span class="line">      </span><br><span class="line">     <span class="keyword">if</span> (reach.isReachableViaWiFi) &#123;  </span><br><span class="line">          <span class="keyword">self</span>.wifiOnlyLabel.backgroundColor = [<span class="built_in">UIColor</span> greenColor];  </span><br><span class="line">          <span class="keyword">self</span>.wifiOnlyLabel.text = <span class="string">@"当前通过wifi连接"</span>;  </span><br><span class="line">     &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">          <span class="keyword">self</span>.wifiOnlyLabel.backgroundColor = [<span class="built_in">UIColor</span> redColor];  </span><br><span class="line">          <span class="keyword">self</span>.wifiOnlyLabel.text = <span class="string">@"wifi未开启，不能用"</span>;  </span><br><span class="line">     &#125;  </span><br><span class="line">      </span><br><span class="line">     <span class="keyword">if</span> (reach.isReachableViaWWAN) &#123;  </span><br><span class="line">          <span class="keyword">self</span>.wwanOnlyLabel.backgroundColor = [<span class="built_in">UIColor</span> greenColor];  </span><br><span class="line">          <span class="keyword">self</span>.wwanOnlyLabel.text = <span class="string">@"当前通过2g or 3g连接"</span>;  </span><br><span class="line">     &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">          <span class="keyword">self</span>.wwanOnlyLabel.backgroundColor = [<span class="built_in">UIColor</span> redColor];  </span><br><span class="line">          <span class="keyword">self</span>.wwanOnlyLabel.text = <span class="string">@"2g or 3g网络未使用"</span>;  </span><br><span class="line">     &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
+    
+      <category term="iOS" scheme="http://kaaaaai.cn/tags/iOS/"/>
+    
+      <category term="OC" scheme="http://kaaaaai.cn/tags/OC/"/>
+    
+  </entry>
   
   <entry>
     <title>iOS - YTKNetwork 日志框架源码分析</title>
@@ -1314,36 +1350,6 @@ return @{
       <category term="OC" scheme="http://kaaaaai.cn/tags/OC/"/>
     
       <category term="Python" scheme="http://kaaaaai.cn/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>焉识！焉识？</title>
-    <link href="http://kaaaaai.cn/articles/027.html"/>
-    <id>http://kaaaaai.cn/articles/027.html</id>
-    <published>2018-06-20T13:00:52.000Z</published>
-    <updated>2018-11-01T07:12:50.482Z</updated>
-    
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　去年冯小刚的《芳华》上映，因为电影去看了原著小说，小说写的很好，看的见有女性细腻的心思在里面，但又不会显得格局小，聪明又不咄咄逼人，词条上搜索作者，严歌苓，照片上的人风姿卓卓，依稀可见年轻时候的好看样子。当时还在看龙应台的《目送》，虽然文笔不错，感情也很真挚，但抒情的方式总像八九十年代的武打片，走硬桥硬马的路子，缺乏灵活变通。可能是我们彼此之间有着一个时代的间隔，所以我不能理解，和彼不能被理解，都情有可原，不过一个刻板的老先生的印象还是被留在了我的脑海里，看网上的照片发现原来作者是女的，纠正之后是，一个刻板的老女人，后来又看了她在<a href="https://www.youtube.com/watch?v=ZV7Uz4DqWFI" target="_blank" rel="noopener">香港大学的演讲</a>，刻板又变成了刻薄，此处按下不表。总之，才华和人都很有看头，是一件很难得的事。<br>　　看了《芳华》之后，一直想把她其他的书都给看了，不过被其他的事分了心，直到前几天才看完《陆犯焉识》。<br>　　书讲的是一个中国近代的知识分子陆焉识，出国留学，回国后当老师，被继母的安排下和她家里的表侄女缔结了封建时代的婚姻，开始在风情而精明的继母和温婉而坚韧的妻子夹缝间尴尬的家庭生活，之后解放后因为不谙世事的张扬激越而成为”反革命”，在漫长的分离中意识到让自己一直抵触的封建婚姻，在它的另一头站着的那个人——冯婉瑜，他是爱她的。而在平反后，久别重逢，冯婉喻失忆了。他像一个新朋友陪在她身边，照顾她，在冯婉喻去世后，他也离开了上海，离开了他的儿子女儿。<br>　　看完之后回来看书名，《陆犯焉识》，焉识既是男主角的名字，又是故事后半段剧情的呼应，冯婉喻失忆了，焉识偌大的活人站在她面前她也不认识，焉识，焉识，如何认识。小说作者用了双螺旋的手法，一边从陆焉识成为犯人劳改开始，一边从陆焉识童年开始，最后时间线两两相接，知道陆焉识何以成为犯人，平反之后的人情世事又何以得到当前布局。故事两面，一面粗粝蛮横，善恶模糊，一面是多姿多彩，夹杂当时战局时事和家长里短的琐碎，两面都好看。<br>　　有一些遗憾的是，陆焉识是如何从一个翩翩浊世佳公子变成冷酷谨慎的犯人老几的过程，作者没有细写，但凡文学作品里，这种人物发生巨大变化的过程，因为前面铺垫都有了，只要稍花心思就可以写的很精彩。但不写的原因，如果不是忘记写了，我想到的可能是，变化往往意味着需要否定自己从前一直信奉的东西，对于主人公——原型是作者的姥爷，可能作者出于私心的维护，不去写他如何否定自己，去接受了一种新的更为野蛮的生存法则的全部心理活动，把陆焉识人生里那样晦暗不明的部分选择性的藏了起来。<br>　　阅经千帆后经过不断反刍往事而爱上冯婉喻的陆焉识，对他们俩关系的总结是，冯婉喻是他寡味的开端，却是他完美的归宿。正如书里所说的，这种爱也是不对等的，因为他爱上婉瑜的过程里，二十年间可以接触的只有劳改的犯人，他可想可思的只有一人。相较之下，冯婉喻的源自旧社会里跟一个人就跟他一辈子的爱，虽然盲目的有些可笑，但在量在质上都胜出他大半截，毛姆《面纱》的那段经典对白放在这里大概可以改成这样：</p>
-<blockquote>
-<p>　　我知道你骄傲，自大，没有用场，然而我爱你。我知道你的企图、你的理想，你不爱我、想远远逃离，然而我爱你。我知道你只是怜悯我才施舍些许的温柔，然而我爱你。<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="原文：我知道你愚蠢、轻佻、头脑空虚，然而我爱你。我知道你的企图、你的理想，你势利、庸俗，然而我爱你。我知道你是个二流货色，然而我爱你。">[1]</span></a></sup></p>
-</blockquote>
-<p>　　当然冯婉喻没有这样的见地，她怎么可能有，她第一次见面就被他的潇洒样子迷得神魂颠倒了。这些话只是我作为局外人打抱不平的一些牢骚。虽然一开始我是站焉识的。后面婉瑜失忆，他一直陪伴左右，仿佛补上婚前的一段自由恋爱，作者这么安排大概也是为了看起来像是一种补偿，直到婉瑜撒手人世，终无亏欠。<br>　　从主线出来，细枝末节也有很多可看的地方，被继母说没有用场——有本事但不同人事的陆焉识，他的儿子终于有了用场，终成俗庸小市民。他的女儿是精英分子，才貌俱佳，但最终也在成为大龄剩女后胡乱选择了一个配偶，也混入芸芸众生的平庸面孔之中。陆焉识最后的离开和他的子女们活的不太清爽也有很大的关系。<br>　　张艺谋拍了小说的电影版《归来》，看了一遍，觉得一般，没像《活着》把整个故事展开，而是截取了一小段——陆焉识平反回来，陪在冯婉喻身边。比小说逊色很多，把一篇长篇故事缩水成了一个小品。不过影片开始，陆焉识越狱出来，在火车站上和冯婉喻互相呼喊着想拥抱对方，但一直被政府人员拦下，这个桥段仍然触动到了我。<br>　　整本书看完印象深刻的除了他们的爱情，还有中国的政治。文革，是不会原谅的。
-　　　　</p>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">原文：我知道你愚蠢、轻佻、头脑空虚，然而我爱你。我知道你的企图、你的理想，你势利、庸俗，然而我爱你。我知道你是个二流货色，然而我爱你。<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
-    
-    <summary type="html">
-    
-      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
-    
-    </summary>
-    
-      <category term="涂鸦" scheme="http://kaaaaai.cn/categories/%E6%B6%82%E9%B8%A6/"/>
-    
-    
-      <category term="随笔" scheme="http://kaaaaai.cn/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-      <category term="读后感" scheme="http://kaaaaai.cn/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/"/>
     
   </entry>
   
