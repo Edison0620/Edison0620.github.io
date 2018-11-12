@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kaaaaai.cn/"/>
-  <updated>2018-11-12T04:33:02.581Z</updated>
+  <updated>2018-11-12T04:33:13.831Z</updated>
   <id>http://kaaaaai.cn/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://kaaaaai.cn/articles/046.html"/>
     <id>http://kaaaaai.cn/articles/046.html</id>
     <published>2018-11-12T07:24:52.000Z</published>
-    <updated>2018-11-12T04:33:02.581Z</updated>
+    <updated>2018-11-12T04:33:13.831Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="1-功能介绍"><a href="#1-功能介绍" class="headerlink" title="1. 功能介绍"></a>1. 功能介绍</h3><h4 id="1-1-YTKNetwork"><a href="#1-1-YTKNetwork" class="headerlink" title="1.1 YTKNetwork"></a>1.1 <code>YTKNetwork</code></h4><p><code>YTKNetwork</code> 基于 <code>AFNetWorking</code> 封装的一个网络请求库，相比 <code>AFNetworking</code>，<code>YTKNetwork</code> 提供了以下更高级的功能:    </p>
 <ul>
