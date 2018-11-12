@@ -1,0 +1,1611 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="EXP,iOS,OC," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="壹拾肆" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="1. 功能介绍1.1 YTKNetworkYTKNetwork 基于 AFNetWorking 封装的一个网络请求库，相比 AFNetworking，YTKNetwork 提供了以下更高级的功能:      支持按时间缓存网络请求内容 支持按版本号缓存网络请求内容 支持统一设置服务器和 CDN 的地址 支持检查返回 JSON 内容的合法性 支持文件的断点续传 支持 block 和 delegat">
+<meta name="keywords" content="EXP,iOS,OC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS - YTKNetwork 日志框架源码分析">
+<meta property="og:url" content="http://kaaaaai.cn/articles/046.html">
+<meta property="og:site_name" content="壹拾肆">
+<meta property="og:description" content="1. 功能介绍1.1 YTKNetworkYTKNetwork 基于 AFNetWorking 封装的一个网络请求库，相比 AFNetworking，YTKNetwork 提供了以下更高级的功能:      支持按时间缓存网络请求内容 支持按版本号缓存网络请求内容 支持统一设置服务器和 CDN 的地址 支持检查返回 JSON 内容的合法性 支持文件的断点续传 支持 block 和 delegat">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://kaaaaai.cn/pics/flowchart.png">
+<meta property="og:image" content="http://kaaaaai.cn/pics/request_start.png">
+<meta property="og:image" content="http://kaaaaai.cn/pics/new.png">
+<meta property="og:image" content="http://kaaaaai.cn/pics/iOS网络请求库UML.png">
+<meta property="og:updated_time" content="2018-11-12T04:33:02.581Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS - YTKNetwork 日志框架源码分析">
+<meta name="twitter:description" content="1. 功能介绍1.1 YTKNetworkYTKNetwork 基于 AFNetWorking 封装的一个网络请求库，相比 AFNetworking，YTKNetwork 提供了以下更高级的功能:      支持按时间缓存网络请求内容 支持按版本号缓存网络请求内容 支持统一设置服务器和 CDN 的地址 支持检查返回 JSON 内容的合法性 支持文件的断点续传 支持 block 和 delegat">
+<meta name="twitter:image" content="http://kaaaaai.cn/pics/flowchart.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://kaaaaai.cn/articles/046.html"/>
+
+
+
+
+
+  <title>iOS - YTKNetwork 日志框架源码分析 | 壹拾肆</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">壹拾肆</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">闲言和碎语</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-xumi">
+          <a href="/xumi" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-coffee"></i> <br />
+            
+            须弥
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+<!-- 参考Never_yu的High一下功能 
+     网站位置：https://neveryu.github.io/2016/09/30/hexo-next-two,
+               https://neveryu.github.io/2016/11/11/hexo-next-three/-->
+    <li class="menu-item"> <a title="把这个链接拖到你的Chrome收藏夹工具栏中" href='javascript:(function() {
+    function c() {
+        var e = document.createElement("link");
+        e.setAttribute("type", "text/css");
+        e.setAttribute("rel", "stylesheet");
+        e.setAttribute("href", f);
+        e.setAttribute("class", l);
+        document.body.appendChild(e)
+    }
+
+    function h() {
+        var e = document.getElementsByClassName(l);
+        for (var t = 0; t < e.length; t++) {
+            document.body.removeChild(e[t])
+        }
+    }
+
+    function p() {
+        var e = document.createElement("div");
+        e.setAttribute("class", a);
+        document.body.appendChild(e);
+        setTimeout(function() {
+            document.body.removeChild(e)
+        }, 100)
+    }
+
+    function d(e) {
+        return {
+            height : e.offsetHeight,
+            width : e.offsetWidth
+        }
+    }
+
+    function v(i) {
+        var s = d(i);
+        return s.height > e && s.height < n && s.width > t && s.width < r
+    }
+
+    function m(e) {
+        var t = e;
+        var n = 0;
+        while (!!t) {
+            n += t.offsetTop;
+            t = t.offsetParent
+        }
+        return n
+    }
+
+    function g() {
+        var e = document.documentElement;
+        if (!!window.innerWidth) {
+            return window.innerHeight
+        } else if (e && !isNaN(e.clientHeight)) {
+            return e.clientHeight
+        }
+        return 0
+    }
+
+    function y() {
+        if (window.pageYOffset) {
+            return window.pageYOffset
+        }
+        return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+    }
+
+    function E(e) {
+        var t = m(e);
+        return t >= w && t <= b + w
+    }
+
+    function S() {
+        var e = document.createElement("audio");
+        e.setAttribute("class", l);
+        e.src = i;
+        e.loop = false;
+        e.addEventListener("canplay", function() {
+            setTimeout(function() {
+                x(k)
+            }, 500);
+            setTimeout(function() {
+                N();
+                p();
+                for (var e = 0; e < O.length; e++) {
+                    T(O[e])
+                }
+            }, 15500)
+        }, true);
+        e.addEventListener("ended", function() {
+            N();
+            h()
+        }, true);
+        e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+        document.body.appendChild(e);
+        e.play()
+    }
+
+    function x(e) {
+        e.className += " " + s + " " + o
+    }
+
+    function T(e) {
+        e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+    }
+
+    function N() {
+        var e = document.getElementsByClassName(s);
+        var t = new RegExp("\\b" + s + "\\b");
+        for (var n = 0; n < e.length; ) {
+            e[n].className = e[n].className.replace(t, "")
+        }
+    }
+
+    var e = 1;
+    var t = 1;
+    var n = 1000;
+    var r = 1200;
+    var i = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake.mp3";
+    var s = "mw-harlem_shake_me";
+    var o = "im_first";
+    var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+    var a = "mw-strobe_light";
+    var f = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";
+    var l = "mw_added_css";
+    var b = g();
+    var w = y();
+    var C = document.getElementsByTagName("*");
+    var k = null;
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            if (E(A)) {
+                k = A;
+                break
+            }
+        }
+    }
+    if (A === null) {
+        console.warn("Could not find a node of the right size. Please try a different page.");
+        return
+    }
+    c();
+    S();
+    var O = [];
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            O.push(A)
+        }
+    }
+})()    '><font color="#FF0000"><i class="menu-item-icon fa fa-music fa-fw"></i>High一下</a></font></li>
+<!-- end High一下 -->
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kaaaaai.cn/articles/046.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaaaaai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://os1i62usc.bkt.clouddn.com/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="壹拾肆">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">iOS - YTKNetwork 日志框架源码分析</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-12T15:24:52+08:00">
+                2018-11-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">热度
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>℃ |
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  8,226 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  37 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="1-功能介绍"><a href="#1-功能介绍" class="headerlink" title="1. 功能介绍"></a>1. 功能介绍</h3><h4 id="1-1-YTKNetwork"><a href="#1-1-YTKNetwork" class="headerlink" title="1.1 YTKNetwork"></a>1.1 <code>YTKNetwork</code></h4><p><code>YTKNetwork</code> 基于 <code>AFNetWorking</code> 封装的一个网络请求库，相比 <code>AFNetworking</code>，<code>YTKNetwork</code> 提供了以下更高级的功能:    </p>
+<ul>
+<li>支持按时间缓存网络请求内容</li>
+<li>支持按版本号缓存网络请求内容</li>
+<li>支持统一设置服务器和 <code>CDN</code> 的地址</li>
+<li>支持检查返回 <code>JSON</code> 内容的合法性</li>
+<li>支持文件的断点续传</li>
+<li>支持 <code>block</code> 和 <code>delegate</code> 两种模式的回调方式</li>
+<li>支持批量的网络请求发送，并统一设置它们的回调（实现在 <code>YTKBatchRequest</code> 类中）</li>
+<li>支持方便地设置有相互依赖的网络请求的发送，例如：发送请求A，根据请求A的结果，选择性的发送请求B和C，再根据B和C的结果，选择性的发送请求D。（实现在 <code>YTKChainRequest</code> 类中）</li>
+<li>支持网络请求 <code>URL</code> 的 <code>filter</code>，可以统一为网络请求加上一些参数，或者修改一些路径   </li>
+<li>定义了一套插件机制，可以很方便地为 <code>YTKNetwork</code> 增加功能。猿题库官方现在提供了一个插件，可以在某些网络请求发起时，在界面上显示“正在加载”的 <code>HUD</code></li>
+</ul>
+<h4 id="1-2-YTKNetwork-的基本使用"><a href="#1-2-YTKNetwork-的基本使用" class="headerlink" title="1.2  YTKNetwork 的基本使用"></a>1.2  <code>YTKNetwork</code> 的基本使用</h4><h5 id="Step-1-如需统一为网络请求接口加上一些参数和设置统一的服务器，需要在入口类的application-didFinishLaunchingWithOptions-中进行如下配置："><a href="#Step-1-如需统一为网络请求接口加上一些参数和设置统一的服务器，需要在入口类的application-didFinishLaunchingWithOptions-中进行如下配置：" class="headerlink" title="Step 1: 如需统一为网络请求接口加上一些参数和设置统一的服务器，需要在入口类的application didFinishLaunchingWithOptions:中进行如下配置："></a>Step 1: 如需统一为网络请求接口加上一些参数和设置统一的服务器，需要在入口类的<code>application didFinishLaunchingWithOptions</code>:中进行如下配置：</h5><pre><code>- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    NSString *appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@&quot;CFBundleShortVersionString&quot;];
+    //设置统一的服务器接口，可通过如下的baseUrl 进行设置（也可不同过详见下文）如不需要，可忽略
+    YTKNetworkConfig *config = [YTKNetworkConfig sharedConfig];
+    config.baseUrl = @&quot;http://api.alilo.com.cn&quot;;
+config.cdnUrl = @&quot;http://fen.bi&quot;;
+    // Filter 表示统一为所有的请求添加一个或多个参数(例如统一添加版本号参数)  （如不需要，可忽略）        
+    YTKUrlArgumentsFilter *urlFilter = [YTKUrlArgumentsFilter filterWithArguments:@{@&quot;version&quot;: appVersion}];
+    [config addUrlFilter:urlFilter];
+    return YES;
+}
+</code></pre><p>设置好之后，所有的网络请求都会默认使用 <code>YTKNetworkConfig</code> 中 <code>baseUrl</code> 参数指定的地址。<br>大部分企业应用都需要对一些静态资源（例如图片、js、css）使用 <code>CDN</code>。<code>YTKNetworkConfig</code> 的 <code>cdnUrl</code> 参数用于统一设置这一部分网络请求的地址。<br>当我们需要切换服务器地址时，只需要修改 <code>YTKNetworkConfig</code> 中的 <code>baseUrl</code> 和 <code>cdnUrl</code> 参数即可。</p>
+<h5 id="Step-2-构建请求对象继承于父类-YTKRequest-，重写父类的方法-填写参数。"><a href="#Step-2-构建请求对象继承于父类-YTKRequest-，重写父类的方法-填写参数。" class="headerlink" title="Step 2:构建请求对象继承于父类(YTKRequest)，重写父类的方法,填写参数。"></a>Step 2:构建请求对象继承于父类(<code>YTKRequest</code>)，重写父类的方法,填写参数。</h5><p>例：修改请求路径需要重写父类的 <code>requestUrl</code> 方法   </p>
+<pre><code>- (NSString *)requestUrl {
+        return @&quot;/adidata/hotcity.html&quot;;
+}
+以及填写请求参数requestArgument方法
+- (id)requestArgument {
+return @{
+         @&quot;app_installtime&quot;: @&quot;1433937421&quot;,
+         @&quot;client_id&quot;: @&quot;qyer_ios&quot;,
+         @&quot;client_secret&quot;: @&quot;cd254439208ab658ddf9&quot;,
+         @&quot;count&quot;: @&quot;10&quot;,
+         @&quot;lat&quot;: @&quot;34.72321769638572&quot;,
+         @&quot;lon&quot;: @&quot;113.7348921712425&quot;,
+         @&quot;page&quot;: @&quot;1&quot;,
+         @&quot;track_app_channel&quot;: @&quot;App%2520Store&quot;,
+         @&quot;track_app_version&quot;: @&quot;6.3&quot;,
+         @&quot;track_device_info&quot;: @&quot;iPad%2520mini%28Wifi%29&quot;,
+         @&quot;track_deviceid&quot;: @&quot;C113A3BD-0DD9-4EB1-9BFE-ACFC1590ABBC&quot;,
+         @&quot;track_os&quot;: @&quot;ios%25207.1.2&quot;,
+         @&quot;type&quot;: @&quot;index&quot;,
+         @&quot;v&quot;: @&quot;1&quot;
+         };
+}
+</code></pre><h5 id="step-3-开始请求"><a href="#step-3-开始请求" class="headerlink" title="step 3: 开始请求"></a>step 3: 开始请求</h5><p>例:<code>TestGETRequest：YTKRequest</code>    </p>
+<pre><code>TestGETRequest *test = [[TestGETRequest alloc] init];
+[test startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest *request) {
+    NSLog(@&quot; responseJSONObject ==  \n %@&quot;,request.responseJSONObject);
+} failure:^(__kindof YTKBaseRequest *request) {
+    NSLog(@&quot;requestOperationError == %@&quot;,request.requestOperationError);    
+}];
+</code></pre><p>相关教程和 Demo 可参考</p>
+<ul>
+<li><a href="https://github.com/yuantiku/YTKNetwork/blob/master/Docs/BasicGuide_cn.md" target="_blank" rel="noopener">基础教程</a></li>
+<li><a href="https://github.com/yuantiku/YTKNetwork/blob/master/Docs/ProGuide_cn.md" target="_blank" rel="noopener">高级教程</a></li>
+</ul>
+<h3 id="2-总体设计-图文"><a href="#2-总体设计-图文" class="headerlink" title="2. 总体设计(图文)"></a>2. 总体设计(图文)</h3><h4 id="2-1总体结构图"><a href="#2-1总体结构图" class="headerlink" title="2.1总体结构图"></a>2.1总体结构图</h4><p><img src="/pics/flowchart.png" alt=""><br>上面是UIL的总体设计图，整个库分为 <code>YTKRequest</code>，<code>YTKNetworkAgent</code>,<code>YTKNetworkConfig</code> 和 <code>YTKNetworkPrivate</code> 四个模块。    </p>
+<p>简而言之，对于我们项目中所有的网络请求结果，当数据从 <code>AFNetWorking</code> 回调回来时，<code>YTKNetworkAgent</code> 先对它进行 <code>JSON</code> 的合法性的校验和版本号缓存，最后再交给最初创建的 <code>YTKRequest</code> 对象进行处理。    </p>
+<h4 id="2-2UIL-中的概念"><a href="#2-2UIL-中的概念" class="headerlink" title="2.2UIL 中的概念"></a>2.2UIL 中的概念</h4><ul>
+<li>YTKRequest: 负责网络请求根据版本号和时间进行缓存的网络请求基类，继承于 YTKBaseRequest 我们的网络请求如果需要缓存功能都需要继承于YTKRequest；    </li>
+<li>YTKBatchRequest: 批量网络请求基类；    </li>
+<li>YTKChainRequest: 链式请求基类；    </li>
+<li>YTKNetworkAgent: 负责管理所有的网络请求；    </li>
+<li>YTKNetworkConfig: 负责统一为网络请求加上一些参数，或者修改一些路径；   </li>
+<li>YTKNetworkPrivate: 负责 JSON 数据合法性的检查,URL 的拼接以及加密等功能。<br>(详见4.2)</li>
+</ul>
+<h3 id="3-流程图"><a href="#3-流程图" class="headerlink" title="3. 流程图"></a>3. 流程图</h3><p>YTKNewWork 网络请求库中最核心的两步：请求过程处理，以及请求到数据时的处理</p>
+<p>图3.1<br><img src="/pics/request_start.png" alt=""><br>上图为 YTKNetwork 网络开始请求过程流程图：<br>下图为 YTKNetWork 处理返回结果流程图：<br>图3.2<br><img src="/pics/new.png" alt=""></p>
+<h3 id="4-详细设计"><a href="#4-详细设计" class="headerlink" title="4. 详细设计"></a>4. 详细设计</h3><h4 id="4-1类关系UML"><a href="#4-1类关系UML" class="headerlink" title="4.1类关系UML"></a>4.1类关系UML</h4><p><img src="/pics/iOS网络请求库UML.png" alt="">    </p>
+<h4 id="4-2-核心类功能介绍"><a href="#4-2-核心类功能介绍" class="headerlink" title="4.2  核心类功能介绍"></a>4.2  核心类功能介绍</h4><p>目录：    </p>
+<p><a href="https://github.com/subvin/YTKNetworkAnalysis#4.2.1 YTKBaseRequest" target="_blank" rel="noopener">1、YTKNetwork.h</a><br><a href="https://github.com/subvin/YTKNetworkAnalysis#4.2.2 YTKBaseRequest" target="_blank" rel="noopener">2、YTKBaseRequest</a><br><a href="https://github.com/subvin/YTKNetworkAnalysis# 4.2.3 YTKRequest" target="_blank" rel="noopener">3、YTKRequest</a><br><a href="https://github.com/subvin/YTKNetworkAnalysis#4.2.4 YTKNetworkConfig" target="_blank" rel="noopener">4、YTKNetworkConfig</a><br><a href="https://github.com/subvin/YTKNetworkAnalysis# 4.2.5 YTKNetworkAgent" target="_blank" rel="noopener">5、YTKNetworkAgent</a><br><a href="https://github.com/subvin/YTKNetworkAnalysis# 4.2.6 YTKBatchRequest" target="_blank" rel="noopener">6、YTKBatchRequest</a><br><a href="https://github.com/subvin/YTKNetworkAnalysis#4.2.7 YTKBatchRequestAgent" target="_blank" rel="noopener">7、YTKBatchRequestAgent</a><br><a href="https://github.com/subvin/YTKNetworkAnalysis#4.2.8 YTKChainRequest" target="_blank" rel="noopener">8、YTKChainRequest</a><br><a href="https://github.com/subvin/YTKNetworkAnalysis#4.2.9 YTKNetworkPrivate" target="_blank" rel="noopener">9、YTKNetworkPrivate</a></p>
+<h5 id="4-2-1-YTKBaseRequest"><a href="#4-2-1-YTKBaseRequest" class="headerlink" title="4.2.1 YTKBaseRequest"></a>4.2.1 YTKBaseRequest</h5><p>功能: YTKNetwork 通过 YTKNetwork.h 管理其他类别，只需要在 .pch 导入 YTKNetwork.h 即可，YTKNetwork.h 代码如下：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#ifndef _YTKNETWORK_</span></span><br><span class="line">    <span class="meta">#define _YTKNETWORK_</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#if __has_include(<span class="meta-string">&lt;YTKNetwork/YTKNetwork.h&gt;</span>)</span></span><br><span class="line"></span><br><span class="line">    FOUNDATION_EXPORT <span class="keyword">double</span> YTKNetworkVersionNumber;</span><br><span class="line">    FOUNDATION_EXPORT <span class="keyword">const</span> <span class="keyword">unsigned</span> <span class="keyword">char</span> YTKNetworkVersionString[];</span><br><span class="line"></span><br><span class="line">    <span class="meta">#import <span class="meta-string">&lt;YTKNetwork/YTKRequest.h&gt;</span></span></span><br><span class="line">    <span class="meta">#import <span class="meta-string">&lt;YTKNetwork/YTKBaseRequest.h&gt;</span></span></span><br><span class="line">    <span class="meta">#import <span class="meta-string">&lt;YTKNetwork/YTKNetworkAgent.h&gt;</span></span></span><br><span class="line">    <span class="meta">#import <span class="meta-string">&lt;YTKNetwork/YTKBatchRequest.h&gt;</span></span></span><br><span class="line">    <span class="meta">#import <span class="meta-string">&lt;YTKNetwork/YTKBatchRequestAgent.h&gt;</span></span></span><br><span class="line">    <span class="meta">#import <span class="meta-string">&lt;YTKNetwork/YTKChainRequest.h&gt;</span></span></span><br><span class="line">    <span class="meta">#import <span class="meta-string">&lt;YTKNetwork/YTKChainRequestAgent.h&gt;</span></span></span><br><span class="line">    <span class="meta">#import <span class="meta-string">&lt;YTKNetwork/YTKNetworkConfig.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#else</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">#import <span class="meta-string">"YTKRequest.h"</span></span></span><br><span class="line">    <span class="meta">#import <span class="meta-string">"YTKBaseRequest.h"</span></span></span><br><span class="line">    <span class="meta">#import <span class="meta-string">"YTKNetworkAgent.h"</span></span></span><br><span class="line">    <span class="meta">#import <span class="meta-string">"YTKBatchRequest.h"</span></span></span><br><span class="line">    <span class="meta">#import <span class="meta-string">"YTKBatchRequestAgent.h"</span></span></span><br><span class="line">    <span class="meta">#import <span class="meta-string">"YTKChainRequest.h"</span></span></span><br><span class="line">    <span class="meta">#import <span class="meta-string">"YTKChainRequestAgent.h"</span></span></span><br><span class="line">    <span class="meta">#import <span class="meta-string">"YTKNetworkConfig.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#endif /* __has_include */</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#endif /* _YTKNETWORK_ */</span></span><br></pre></td></tr></table></figure>
+<h5 id="4-2-2-YTKBaseRequest"><a href="#4-2-2-YTKBaseRequest" class="headerlink" title="4.2.2 YTKBaseRequest"></a>4.2.2 YTKBaseRequest</h5><p>功能：所有请求类的基类，持有 NSURLSessionTask 实例，responseData 等重要数据，提供了一些需要子类实现的与网络请求相关的放阿飞，处理回调的 block 和代理，命令 YTKNetworkAgent 发起网络请求。    </p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="built_in">NS_ASSUME_NONNULL_BEGIN</span></span><br><span class="line"></span><br><span class="line">FOUNDATION_EXPORT <span class="built_in">NSString</span> *<span class="keyword">const</span> YTKRequestValidationErrorDomain;</span><br><span class="line"></span><br><span class="line"><span class="built_in">NS_ENUM</span>(<span class="built_in">NSInteger</span>) &#123;</span><br><span class="line">    YTKRequestValidationErrorInvalidStatusCode = <span class="number">-8</span>,</span><br><span class="line">    YTKRequestValidationErrorInvalidJSONFormat = <span class="number">-9</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// HTTP 请求方式</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSInteger</span>, YTKRequestMethod) &#123;</span><br><span class="line">    YTKRequestMethodGET = <span class="number">0</span>,</span><br><span class="line">    YTKRequestMethodPOST,</span><br><span class="line">    YTKRequestMethodHEAD,</span><br><span class="line">    YTKRequestMethodPUT,</span><br><span class="line">    YTKRequestMethodDELETE,</span><br><span class="line">    YTKRequestMethodPATCH,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 请求数据序列化的方式 HTTP 还是 JSON</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSInteger</span>, YTKRequestSerializerType) &#123;</span><br><span class="line">    YTKRequestSerializerTypeHTTP = <span class="number">0</span>,</span><br><span class="line">    YTKRequestSerializerTypeJSON,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回数据的序列化方式，决定了 responseObject 的数据类型</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSInteger</span>, YTKResponseSerializerType) &#123;</span><br><span class="line">    -- <span class="built_in">NSData</span></span><br><span class="line">    YTKResponseSerializerTypeHTTP,</span><br><span class="line">    -- JSON 对象</span><br><span class="line">    YTKResponseSerializerTypeJSON,</span><br><span class="line">    -- <span class="built_in">NSXMLParser</span></span><br><span class="line">    YTKResponseSerializerTypeXMLParser,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 请求的优先级</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSInteger</span>, YTKRequestPriority) &#123;</span><br><span class="line">    YTKRequestPriorityLow = <span class="number">-4</span>L,</span><br><span class="line">    YTKRequestPriorityDefault = <span class="number">0</span>,</span><br><span class="line">    YTKRequestPriorityHigh = <span class="number">4</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 声明了3个 block</span></span><br><span class="line"><span class="class"><span class="keyword">@protocol</span> <span class="title">AFMultipartFormData</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">void</span> (^AFConstructingBlock)(<span class="keyword">id</span>&lt;AFMultipartFormData&gt; formData);</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">void</span> (^AFURLSessionTaskProgressBlock)(<span class="built_in">NSProgress</span> *);</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@class</span> <span class="title">YTKBaseRequest</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">void</span>(^YTKRequestCompletionBlock)(__kindof YTKBaseRequest *request);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 声明了YTKRequestDelegate 协议，定义了一系列可以用来接受网络相关的消息的方法，所有的代理方法将在主队列中调用</span></span><br><span class="line"><span class="class"><span class="keyword">@protocol</span> <span class="title">YTKRequestDelegate</span> &lt;<span class="title">NSObject</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@optional</span></span><br><span class="line"><span class="comment">// 请求成功结束</span></span><br><span class="line">- (<span class="keyword">void</span>)requestFinished:(__kindof YTKBaseRequest *)request;</span><br><span class="line"><span class="comment">// 请求失败</span></span><br><span class="line">- (<span class="keyword">void</span>)requestFailed:(__kindof YTKBaseRequest *)request;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// YTKRequestAccessory 协议定义了一系列用来跟踪请求状态的方法，所有的代理方法将在主队列中调用</span></span><br><span class="line"><span class="class"><span class="keyword">@protocol</span> <span class="title">YTKRequestAccessory</span> &lt;<span class="title">NSObject</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@optional</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 请求即将开始</span></span><br><span class="line">- (<span class="keyword">void</span>)requestWillStart:(<span class="keyword">id</span>)request;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 请求即将结束（这个方法将在调用 requestFinished 和 successCompletionBlock 前执行）</span></span><br><span class="line">- (<span class="keyword">void</span>)requestWillStop:(<span class="keyword">id</span>)request;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 请求已经结束（这个方法将在调用 requestFinished 和 successCompletionBlock 后执行）</span></span><br><span class="line">- (<span class="keyword">void</span>)requestDidStop:(<span class="keyword">id</span>)request;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// YTKBaseRequest 是网络请求的抽象类，它提供了许多选项用于构建请求，是 YTKRequest 的基类</span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">YTKBaseRequest</span> : <span class="title">NSObject</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#pragma mark - Request and Response Information</span></span><br><span class="line"><span class="comment">///=============================================================================</span></span><br><span class="line"><span class="comment">/// @name Request and Response Information</span></span><br><span class="line"><span class="comment">///=============================================================================</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// NSURLSessionTask 底层相关的</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 在请求开始之前这个值是空且不应该被访问</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>, <span class="keyword">readonly</span>) <span class="built_in">NSURLSessionTask</span> *requestTask;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 就是 requestTask.currentRequest</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>, <span class="keyword">readonly</span>) <span class="built_in">NSURLRequest</span> *currentRequest;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 就是 requestTask.originalRequest</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>, <span class="keyword">readonly</span>) <span class="built_in">NSURLRequest</span> *originalRequest;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 就是 requestTask.response</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>, <span class="keyword">readonly</span>) <span class="built_in">NSHTTPURLResponse</span> *response;</span><br><span class="line"></span><br><span class="line"><span class="comment">///  The response status code.</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">NSInteger</span> responseStatusCode;</span><br><span class="line"></span><br><span class="line"><span class="comment">///  The response header fields.</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>, <span class="keyword">readonly</span>, <span class="keyword">nullable</span>) <span class="built_in">NSDictionary</span> *responseHeaders;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 响应的数据表现形式，请求失败则是 nil</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>, <span class="keyword">readonly</span>, <span class="keyword">nullable</span>) <span class="built_in">NSData</span> *responseData;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 响应的字符串表现形式，请求失败则是 nil</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>, <span class="keyword">readonly</span>, <span class="keyword">nullable</span>) <span class="built_in">NSString</span> *responseString;</span><br><span class="line"></span><br><span class="line"><span class="comment">///  This serialized response object. The actual type of this object is determined by</span></span><br><span class="line"><span class="comment">///  `YTKResponseSerializerType`. Note this value can be nil if request failed.</span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">///  @discussion If `resumableDownloadPath` and DownloadTask is using, this value will</span></span><br><span class="line"><span class="comment">///              be the path to which file is successfully saved (NSURL), or nil if request failed.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>, <span class="keyword">readonly</span>, <span class="keyword">nullable</span>) <span class="keyword">id</span> responseObject;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果设置响应序列化方式是 YTKResponseSerializerTypeJSON，这个就是响应结果序列化后的对象</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>, <span class="keyword">readonly</span>, <span class="keyword">nullable</span>) <span class="keyword">id</span> responseJSONObject;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 请求序列化错误或者网络错误，默认是 nil</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>, <span class="keyword">readonly</span>, <span class="keyword">nullable</span>) <span class="built_in">NSError</span> *error;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 请求任务是否已经取消（self.requestTask.state == NSURLSessionTaskStateCanceling）</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>, <span class="keyword">getter</span>=isCancelled) <span class="built_in">BOOL</span> cancelled;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 请求任务是否在执行（self.requestTask.state == NSURLSessionTaskStateRunning）</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>, <span class="keyword">getter</span>=isExecuting) <span class="built_in">BOOL</span> executing;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#pragma mark - Request Configuration</span></span><br><span class="line"><span class="comment">///=============================================================================</span></span><br><span class="line"><span class="comment">/// @name Request Configuration</span></span><br><span class="line"><span class="comment">///=============================================================================</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// tag 可以用来标识请求，默认是0</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">NSInteger</span> tag;</span><br><span class="line"></span><br><span class="line"><span class="comment">// userInfo 可以用来存储请求的附加信息，默认是 nil</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>, <span class="keyword">nullable</span>) <span class="built_in">NSDictionary</span> *userInfo;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 请求的代理，如果使用了 block 回调就可以忽略这个，默认为 nil</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">weak</span>, <span class="keyword">nullable</span>) <span class="keyword">id</span>&lt;YTKRequestDelegate&gt; delegate;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 请求成功的回调，如果 block 存在并且 requestFinished 代理方法也实现了的话，两个都会被调用，先调用代理，再在主队列中调用block</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>, <span class="keyword">nullable</span>) YTKRequestCompletionBlock successCompletionBlock;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 请求失败的回调，如果 block 存在并且 requestFailed 代理方法也实现了的话，两个都会被调用，先调用代理，再在主队列中调用 block</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>, <span class="keyword">nullable</span>) YTKRequestCompletionBlock failureCompletionBlock;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置附加对象（这是什么鬼？）如果调用 addAccessory 来增加，这个数组会自动创建，默认是 nil</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>, <span class="keyword">nullable</span>) <span class="built_in">NSMutableArray</span>&lt;<span class="keyword">id</span>&lt;YTKRequestAccessory&gt;&gt; *requestAccessories;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以用于在 POST 请求中需要时构造 HTTP body，默认是 nil</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>, <span class="keyword">nullable</span>) AFConstructingBlock constructingBodyBlock;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置断点续传下载请求的地址，默认是 nil</span></span><br><span class="line"><span class="comment">// 在请求开始之前，路径上的文件将被删除。如果请求成功，文件将会自动保存到这个路径，否则响应将被保存到 responseData 和 responseString 中。为了实现这个工作，服务器必须支持 Range 并且响应需要支持`Last-Modified`和`Etag`，具体了解 NSURLSessionDownloadTask</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>, <span class="keyword">nullable</span>) <span class="built_in">NSString</span> *resumableDownloadPath;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 捕获下载进度，也可以看看 resumableDownloadPath</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>, <span class="keyword">nullable</span>) AFURLSessionTaskProgressBlock resumableDownloadProgressBlock;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置请求优先级，在 iOS8 + 可用，默认是YTKRequestPriorityDefault = 0</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) YTKRequestPriority requestPriority;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置请求完成回调 block</span></span><br><span class="line">- (<span class="keyword">void</span>)setCompletionBlockWithSuccess:(<span class="keyword">nullable</span> YTKRequestCompletionBlock)success</span><br><span class="line">                              failure:(<span class="keyword">nullable</span> YTKRequestCompletionBlock)failure;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 清除请求回调 block</span></span><br><span class="line">- (<span class="keyword">void</span>)clearCompletionBlock;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加遵循 `YTKRequestAccessory` 协议的请求对象，相关的 `requestAccessories`</span></span><br><span class="line">- (<span class="keyword">void</span>)addAccessory:(<span class="keyword">id</span>&lt;YTKRequestAccessory&gt;)accessory;</span><br><span class="line"></span><br><span class="line"><span class="meta">#pragma mark - Request Action</span></span><br><span class="line"><span class="comment">// 将当前 self 网络请求加入请求队列，并且开始请求</span></span><br><span class="line">- (<span class="keyword">void</span>)start;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从请求队列中移除 self 网络请求，并且取消请求</span></span><br><span class="line">- (<span class="keyword">void</span>)stop;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用带有成功失败 `block` 回调的方法开始请求(储存 block，调用 start)</span></span><br><span class="line">- (<span class="keyword">void</span>)startWithCompletionBlockWithSuccess:(<span class="keyword">nullable</span> YTKRequestCompletionBlock)success</span><br><span class="line">                                    failure:(<span class="keyword">nullable</span> YTKRequestCompletionBlock)failure;</span><br><span class="line"></span><br><span class="line"><span class="meta">#pragma mark - Subclass Override</span></span><br><span class="line"><span class="comment">///=============================================================================</span></span><br><span class="line"><span class="comment">/// @name Subclass Override</span></span><br><span class="line"><span class="comment">///=============================================================================</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 请求成功后，在切换到主线程之前，在后台线程上调用。要注意，如果加载了缓存，则将在主线程上调用此方法，就像`request Complete Filter`一样。</span></span><br><span class="line">- (<span class="keyword">void</span>)requestCompletePreprocessor;</span><br><span class="line"><span class="comment">// 请求成功时会在主线程被调用</span></span><br><span class="line">- (<span class="keyword">void</span>)requestCompleteFilter;</span><br><span class="line"><span class="comment">// 请求成功后，在切换到主线程之前，在后台线程上调用。</span></span><br><span class="line">- (<span class="keyword">void</span>)requestFailedPreprocessor;</span><br><span class="line"><span class="comment">// 请求失败时会在主线程被调用</span></span><br><span class="line">- (<span class="keyword">void</span>)requestFailedFilter;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 基础URL，应该只包含地址的主要地址部分，如 http://www.example.com</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)baseUrl;</span><br><span class="line"><span class="comment">// 请求地址的URL,应该只包含地址的路径部分，如/v1/user。baseUrl 和requestUrl 使用[NSURL URLWithString:relativeToURL]进行连接。所以要正确返回。</span></span><br><span class="line"><span class="comment">// 如果 requestUrl 本身就是一个有效的 URL,将不再和 baseUrl 连接， baseUrl 将被忽略</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)requestUrl;</span><br><span class="line"><span class="comment">// 可选的 CDN 请求地址</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)cdnUrl;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置请求超时时间，默认 60 秒.</span></span><br><span class="line"><span class="comment">// 如果使用了 resumableDownloadPath(NSURLSessionDownloadTask)，NSURLReques t的 timeoutInterval 将会被完全忽略，一个有效的设置超时时间的方法就是设置 NSURLSessionConfiguration 的 timeoutIntervalForResource 属性。</span></span><br><span class="line">- (<span class="built_in">NSTimeInterval</span>)requestTimeoutInterval;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置请求的参数</span></span><br><span class="line">- (<span class="keyword">nullable</span> <span class="keyword">id</span>)requestArgument;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 重写这个方法可以在缓存时过滤请求中的某些参数</span></span><br><span class="line">- (<span class="keyword">id</span>)cacheFileNameFilterForRequestArgument:(<span class="keyword">id</span>)argument;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置 HTTP 请求方式</span></span><br><span class="line">- (YTKRequestMethod)requestMethod;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置请求数据序列化的方式</span></span><br><span class="line">- (YTKRequestSerializerType)requestSerializerType;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置请求数据序列化的方式. See also `responseObject`.</span></span><br><span class="line">- (YTKResponseSerializerType)responseSerializerType;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 用来 HTTP 授权的用户名和密码，应该返回@[@"Username", @"Password"]这种格式</span></span><br><span class="line">- (<span class="keyword">nullable</span> <span class="built_in">NSArray</span>&lt;<span class="built_in">NSString</span> *&gt; *)requestAuthorizationHeaderFieldArray;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 附加的 HTTP 请求头</span></span><br><span class="line">- (<span class="keyword">nullable</span> <span class="built_in">NSDictionary</span>&lt;<span class="built_in">NSString</span> *, <span class="built_in">NSString</span> *&gt; *)requestHeaderFieldValueDictionary;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 用来创建完全自定义的请求，返回一个 NSURLRequest，忽略`requestUrl`, `requestTimeoutInterval`,`requestArgument`, `allowsCellularAccess`, `requestMethod`，`requestSerializerType`</span></span><br><span class="line">- (<span class="keyword">nullable</span> <span class="built_in">NSURLRequest</span> *)buildCustomUrlRequest;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 发送请求时是否使用 CDN</span></span><br><span class="line">- (<span class="built_in">BOOL</span>)useCDN;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 是否允许请求使用蜂窝网络，默认是允许</span></span><br><span class="line">- (<span class="built_in">BOOL</span>)allowsCellularAccess;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 验证 responseJSONObject 是否正确的格式化了</span></span><br><span class="line">- (<span class="keyword">nullable</span> <span class="keyword">id</span>)jsonValidator;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 验证 responseStatusCode 是否是有效的，默认是 code 在200-300之间是有效的</span></span><br><span class="line">- (<span class="built_in">BOOL</span>)statusCodeValidator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">NS_ASSUME_NONNULL_END</span></span><br><span class="line">```   </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">##### 4.2.3 `YTKRequest`     </span></span><br><span class="line"></span><br><span class="line">功能：`YTKBaseRequest` 的子类。负责缓存的处理，请求前查询缓存；请求后写入缓存。</span><br><span class="line"></span><br><span class="line">```objectivec</span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">YTKRequest</span> : <span class="title">YTKBaseRequest</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//表示当前请求，是否忽略本地缓存 responseData</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> ignoreCache;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 返回当前缓存的对象</span></span><br><span class="line">- (<span class="keyword">id</span>)cacheJson;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 是否当前的数据从缓存获得</span></span><br><span class="line">- (<span class="built_in">BOOL</span>)isDataFromCache;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 返回是否当前缓存需要更新【缓存是否超时】</span></span><br><span class="line">- (<span class="built_in">BOOL</span>)isCacheVersionExpired;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 强制更新缓存【不使用缓存数据】</span></span><br><span class="line">- (<span class="keyword">void</span>)startWithoutCache;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 手动将其他请求的 JsonResponse 写入该请求的缓存</span></span><br><span class="line">- (<span class="keyword">void</span>)saveJsonResponseToCacheFile:(<span class="keyword">id</span>)jsonResponse;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 子类重写方法【参数方法】</span></span><br><span class="line">- (<span class="built_in">NSInteger</span>)cacheTimeInSeconds;    <span class="comment">//当前请求指定时间内，使用缓存数据</span></span><br><span class="line">- (<span class="keyword">long</span> <span class="keyword">long</span>)cacheVersion;    <span class="comment">//当前请求，指定使用版本号的缓存数据</span></span><br><span class="line">- (<span class="keyword">id</span>)cacheSensitiveData;   </span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p>发现 <code>YTKRequest</code> 主要是对请求数据缓存方面的处理。再看 .m 实现文件：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//YTKRequest.m</span></span><br><span class="line">- (<span class="keyword">void</span>)start &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//1. 如果忽略缓存 -&gt; 请求</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>.ignoreCache) &#123;</span><br><span class="line">        [<span class="keyword">self</span> startWithoutCache];</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//2. 如果存在下载未完成的文件 -&gt; 请求</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>.resumableDownloadPath) &#123;</span><br><span class="line">        [<span class="keyword">self</span> startWithoutCache];</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//3. 获取缓存失败 -&gt; 请求</span></span><br><span class="line">    <span class="keyword">if</span> (![<span class="keyword">self</span> loadCacheWithError:<span class="literal">nil</span>]) &#123;</span><br><span class="line">        [<span class="keyword">self</span> startWithoutCache];</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//4. 到这里，说明一定能拿到可用的缓存，可以直接回调了（因为一定能拿到可用的缓存，所以一定是调用成功的 block 和代理）</span></span><br><span class="line">    _dataFromCache = <span class="literal">YES</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//5. 回调之前的操作</span></span><br><span class="line">        <span class="comment">//5.1 缓存处理</span></span><br><span class="line">        [<span class="keyword">self</span> requestCompletePreprocessor];</span><br><span class="line"></span><br><span class="line">        <span class="comment">//5.2 用户可以在这里进行真正回调前的操作</span></span><br><span class="line">        [<span class="keyword">self</span> requestCompleteFilter];</span><br><span class="line"></span><br><span class="line">        YTKRequest *strongSelf = <span class="keyword">self</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//6. 执行回调</span></span><br><span class="line">        <span class="comment">//6.1 请求完成的代理</span></span><br><span class="line">        [strongSelf.delegate requestFinished:strongSelf];</span><br><span class="line"></span><br><span class="line">        <span class="comment">//6.2 请求成功的 block</span></span><br><span class="line">        <span class="keyword">if</span> (strongSelf.successCompletionBlock) &#123;</span><br><span class="line">            strongSelf.successCompletionBlock(strongSelf);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//7. 把成功和失败的 block 都设置为 nil，避免循环引用</span></span><br><span class="line">        [strongSelf clearCompletionBlock];</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过 <code>start()</code> 方法可以看出，它做的是请求之前的查询和检查工作。下面是具体实现的过程：</p>
+<p>（1）<code>.ignoreCache</code> 属性是用户手动设置的，如果用户强制忽略缓存，则无论是否缓存是否存在，直接发送请求。</p>
+<p>（2）<code>resumableDownloadPath</code> 是断点下载路径，如果该路径不为空，说明有未完成的下载任务，则直接发送请求继续下载。</p>
+<p>（3）<code>loadCacheWithError</code>：方法验证了加载缓存是否成功的方法（方法如果返回 <code>YES</code>，说明可以加载缓存，反正则不可以加载缓存）下面是 <code>loadCacheWithError</code> 的具体实现：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)loadCacheWithError:(<span class="built_in">NSError</span> * _Nullable __autoreleasing *)error &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 缓存时间小于0，则返回（缓存时间默认为-1，需要用户手动设置，单位是秒）</span></span><br><span class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span> cacheTimeInSeconds] &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (error) &#123;</span><br><span class="line">            *error = [<span class="built_in">NSError</span> errorWithDomain:YTKRequestCacheErrorDomain code:YTKRequestCacheErrorInvalidCacheTime userInfo:@&#123; <span class="built_in">NSLocalizedDescriptionKey</span>:<span class="string">@"Invalid cache time"</span>&#125;];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 是否有缓存的元数据，如果没有，返回错误（元数据是指数据的数据，在这里描述了缓存数据本身的一些特征：包括版本号，缓存时间，敏感信息等等）</span></span><br><span class="line">    <span class="keyword">if</span> (![<span class="keyword">self</span> loadCacheMetadata]) &#123;</span><br><span class="line">        <span class="keyword">if</span> (error) &#123;</span><br><span class="line">            *error = [<span class="built_in">NSError</span> errorWithDomain:YTKRequestCacheErrorDomain code:YTKRequestCacheErrorInvalidMetadata userInfo:@&#123; <span class="built_in">NSLocalizedDescriptionKey</span>:<span class="string">@"Invalid metadata. Cache may not exist"</span>&#125;];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 有缓存，再验证是否有效</span></span><br><span class="line">    <span class="keyword">if</span> (![<span class="keyword">self</span> validateCacheWithError:error]) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 有缓存，而且有效，再验证是否能取出来</span></span><br><span class="line">    <span class="keyword">if</span> (![<span class="keyword">self</span> loadCacheData]) &#123;</span><br><span class="line">        <span class="keyword">if</span> (error) &#123;</span><br><span class="line">            *error = [<span class="built_in">NSError</span> errorWithDomain:YTKRequestCacheErrorDomain code:YTKRequestCacheErrorInvalidCacheData userInfo:@&#123; <span class="built_in">NSLocalizedDescriptionKey</span>:<span class="string">@"Invalid cache data"</span>&#125;];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码标红的提到缓存的元数据的，<code>.m</code> 也实现类元数据的获取方法：<code>loadCacheMetadata</code></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//YTKRequest.m</span></span><br><span class="line">- (<span class="built_in">BOOL</span>)loadCacheMetadata &#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSString</span> *path = [<span class="keyword">self</span> cacheMetadataFilePath];</span><br><span class="line">    <span class="built_in">NSFileManager</span> * fileManager = [<span class="built_in">NSFileManager</span> defaultManager];</span><br><span class="line">    <span class="keyword">if</span> ([fileManager fileExistsAtPath:path isDirectory:<span class="literal">nil</span>]) &#123;</span><br><span class="line">        <span class="keyword">@try</span> &#123;</span><br><span class="line">            <span class="comment">//将序列化之后被保存在磁盘里的文件反序列化到当前对象的属性cacheMetadata</span></span><br><span class="line">            _cacheMetadata = [<span class="built_in">NSKeyedUnarchiver</span> unarchiveObjectWithFile:path];</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        &#125; <span class="keyword">@catch</span> (<span class="built_in">NSException</span> *exception) &#123;</span><br><span class="line">            YTKLog(<span class="string">@"Load cache metadata failed, reason = %@"</span>, exception.reason);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">&#125;</span><br><span class="line">`cacheMetadata`（YTKCacheMetadata） 是当前 `reqeust` 类用来保存缓存元数据的属性。</span><br><span class="line">`YTKCacheMetadata` 类被定义在 `YTKRequest.m` 文件里面：</span><br><span class="line"></span><br><span class="line"><span class="comment">//YTKRequest.m</span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">YTKCacheMetadata</span> : <span class="title">NSObject</span>@<span class="title">property</span> (<span class="title">nonatomic</span>, <span class="title">assign</span>) <span class="title">long</span> <span class="title">long</span> <span class="title">version</span>;</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSString</span> *sensitiveDataString;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">NSStringEncoding</span> stringEncoding;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSDate</span> *creationDate;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSString</span> *appVersionString;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//通过归档方式进行元数据的存储</span></span><br><span class="line">- (<span class="keyword">void</span>)encodeWithCoder:(<span class="built_in">NSCoder</span> *)aCoder &#123;</span><br><span class="line">    [aCoder encodeObject:@(<span class="keyword">self</span>.version) forKey:<span class="built_in">NSStringFromSelector</span>(<span class="keyword">@selector</span>(version))];</span><br><span class="line">    [aCoder encodeObject:<span class="keyword">self</span>.sensitiveDataString forKey:<span class="built_in">NSStringFromSelector</span>(<span class="keyword">@selector</span>(sensitiveDataString))];</span><br><span class="line">    [aCoder encodeObject:@(<span class="keyword">self</span>.stringEncoding) forKey:<span class="built_in">NSStringFromSelector</span>(<span class="keyword">@selector</span>(stringEncoding))];</span><br><span class="line">    [aCoder encodeObject:<span class="keyword">self</span>.creationDate forKey:<span class="built_in">NSStringFromSelector</span>(<span class="keyword">@selector</span>(creationDate))];</span><br><span class="line">    [aCoder encodeObject:<span class="keyword">self</span>.appVersionString forKey:<span class="built_in">NSStringFromSelector</span>(<span class="keyword">@selector</span>(appVersionString))];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">nullable</span> <span class="keyword">instancetype</span>)initWithCoder:(<span class="built_in">NSCoder</span> *)aDecoder &#123;</span><br><span class="line">    <span class="keyword">self</span> = [<span class="keyword">self</span> init];</span><br><span class="line">    <span class="keyword">if</span> (!<span class="keyword">self</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">self</span>.version = [[aDecoder decodeObjectOfClass:[<span class="built_in">NSNumber</span> <span class="keyword">class</span>] forKey:<span class="built_in">NSStringFromSelector</span>(<span class="keyword">@selector</span>(version))] integerValue];</span><br><span class="line">    <span class="keyword">self</span>.sensitiveDataString = [aDecoder decodeObjectOfClass:[<span class="built_in">NSString</span> <span class="keyword">class</span>] forKey:<span class="built_in">NSStringFromSelector</span>(<span class="keyword">@selector</span>(sensitiveDataString))];</span><br><span class="line">    <span class="keyword">self</span>.stringEncoding = [[aDecoder decodeObjectOfClass:[<span class="built_in">NSNumber</span> <span class="keyword">class</span>] forKey:<span class="built_in">NSStringFromSelector</span>(<span class="keyword">@selector</span>(stringEncoding))] integerValue];</span><br><span class="line">    <span class="keyword">self</span>.creationDate = [aDecoder decodeObjectOfClass:[<span class="built_in">NSDate</span> <span class="keyword">class</span>] forKey:<span class="built_in">NSStringFromSelector</span>(<span class="keyword">@selector</span>(creationDate))];</span><br><span class="line">    <span class="keyword">self</span>.appVersionString = [aDecoder decodeObjectOfClass:[<span class="built_in">NSString</span> <span class="keyword">class</span>] forKey:<span class="built_in">NSStringFromSelector</span>(<span class="keyword">@selector</span>(appVersionString))];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>loadCacheMetadata</code> 方法的目的是将之前被序列化保存的缓存元数据信息反序列化，赋给自身的 <code>cacheMetadata</code> 属性上。</p>
+<p>现在获取了缓存的元数据并赋值给 <code>cacheMetadata</code> 属性上，接下来要元数据的各项信息是否符合要求：使用 <code>validateCacheWithError</code>：方法进行验证。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)validateCacheWithError:(<span class="built_in">NSError</span> * _Nullable __autoreleasing *)error &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 是否大于过期时间</span></span><br><span class="line">    <span class="built_in">NSDate</span> *creationDate = <span class="keyword">self</span>.cacheMetadata.creationDate;</span><br><span class="line">    <span class="built_in">NSTimeInterval</span> duration = -[creationDate timeIntervalSinceNow];</span><br><span class="line">    <span class="keyword">if</span> (duration &lt; <span class="number">0</span> || duration &gt; [<span class="keyword">self</span> cacheTimeInSeconds]) &#123;</span><br><span class="line">        <span class="keyword">if</span> (error) &#123;</span><br><span class="line">            *error = [<span class="built_in">NSError</span> errorWithDomain:YTKRequestCacheErrorDomain code:YTKRequestCacheErrorExpired userInfo:@&#123; <span class="built_in">NSLocalizedDescriptionKey</span>:<span class="string">@"Cache expired"</span>&#125;];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 缓存的版本号是否符合</span></span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> cacheVersionFileContent = <span class="keyword">self</span>.cacheMetadata.version;</span><br><span class="line">    <span class="keyword">if</span> (cacheVersionFileContent != [<span class="keyword">self</span> cacheVersion]) &#123;</span><br><span class="line">        <span class="keyword">if</span> (error) &#123;</span><br><span class="line">            *error = [<span class="built_in">NSError</span> errorWithDomain:YTKRequestCacheErrorDomain code:YTKRequestCacheErrorVersionMismatch userInfo:@&#123; <span class="built_in">NSLocalizedDescriptionKey</span>:<span class="string">@"Cache version mismatch"</span>&#125;];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 敏感信息是否符合</span></span><br><span class="line">    <span class="built_in">NSString</span> *sensitiveDataString = <span class="keyword">self</span>.cacheMetadata.sensitiveDataString;</span><br><span class="line">    <span class="built_in">NSString</span> *currentSensitiveDataString = ((<span class="built_in">NSObject</span> *)[<span class="keyword">self</span> cacheSensitiveData]).description;</span><br><span class="line">    <span class="keyword">if</span> (sensitiveDataString || currentSensitiveDataString) &#123;</span><br><span class="line">        <span class="comment">// If one of the strings is nil, short-circuit evaluation will trigger</span></span><br><span class="line">        <span class="keyword">if</span> (sensitiveDataString.length != currentSensitiveDataString.length || ![sensitiveDataString isEqualToString:currentSensitiveDataString]) &#123;</span><br><span class="line">            <span class="keyword">if</span> (error) &#123;</span><br><span class="line">                *error = [<span class="built_in">NSError</span> errorWithDomain:YTKRequestCacheErrorDomain code:YTKRequestCacheErrorSensitiveDataMismatch userInfo:@&#123; <span class="built_in">NSLocalizedDescriptionKey</span>:<span class="string">@"Cache sensitive data mismatch"</span>&#125;];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// app 的版本是否符合</span></span><br><span class="line">    <span class="built_in">NSString</span> *appVersionString = <span class="keyword">self</span>.cacheMetadata.appVersionString;</span><br><span class="line">    <span class="built_in">NSString</span> *currentAppVersionString = [YTKNetworkUtils appVersionString];</span><br><span class="line">    <span class="keyword">if</span> (appVersionString || currentAppVersionString) &#123;</span><br><span class="line">        <span class="keyword">if</span> (appVersionString.length != currentAppVersionString.length || ![appVersionString isEqualToString:currentAppVersionString]) &#123;</span><br><span class="line">            <span class="keyword">if</span> (error) &#123;</span><br><span class="line">                *error = [<span class="built_in">NSError</span> errorWithDomain:YTKRequestCacheErrorDomain code:YTKRequestCacheErrorAppVersionMismatch userInfo:@&#123; <span class="built_in">NSLocalizedDescriptionKey</span>:<span class="string">@"App version mismatch"</span>&#125;];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果每一项元数据信息都能通过，再在 <code>loadCacheData</code> 方法里面验证缓存是否能取出：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)loadCacheData &#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSString</span> *path = [<span class="keyword">self</span> cacheFilePath];</span><br><span class="line">    <span class="built_in">NSFileManager</span> *fileManager = [<span class="built_in">NSFileManager</span> defaultManager];</span><br><span class="line">    <span class="built_in">NSError</span> *error = <span class="literal">nil</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ([fileManager fileExistsAtPath:path isDirectory:<span class="literal">nil</span>]) &#123;</span><br><span class="line">        <span class="built_in">NSData</span> *data = [<span class="built_in">NSData</span> dataWithContentsOfFile:path];</span><br><span class="line">        _cacheData = data;</span><br><span class="line">        _cacheString = [[<span class="built_in">NSString</span> alloc] initWithData:_cacheData encoding:<span class="keyword">self</span>.cacheMetadata.stringEncoding];</span><br><span class="line">        <span class="keyword">switch</span> (<span class="keyword">self</span>.responseSerializerType) &#123;</span><br><span class="line">            <span class="keyword">case</span> YTKResponseSerializerTypeHTTP:</span><br><span class="line">                <span class="comment">// Do nothing.</span></span><br><span class="line">                <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">            <span class="keyword">case</span> YTKResponseSerializerTypeJSON:</span><br><span class="line">                _cacheJSON = [<span class="built_in">NSJSONSerialization</span> JSONObjectWithData:_cacheData options:(<span class="built_in">NSJSONReadingOptions</span>)<span class="number">0</span> error:&amp;error];</span><br><span class="line">                <span class="keyword">return</span> error == <span class="literal">nil</span>;</span><br><span class="line">            <span class="keyword">case</span> YTKResponseSerializerTypeXMLParser:</span><br><span class="line">                _cacheXML = [[<span class="built_in">NSXMLParser</span> alloc] initWithData:_cacheData];</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果通过了最终的考验，则说明当前请求对应的缓存是符合各项要求并可以被成功取出，也就是可以直接进行回调了。当确认缓存可以成功取出后，手动设置 <code>dataFromCache</code> 属性为 <code>YES</code>，说明当前的请求结果是来自于缓存，而没有通过网络请求。</p>
+<p>在这里面还有一个比较重要的方法：<code>requestCompletePreprocessor</code></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//YTKRequest.m：</span></span><br><span class="line">- (<span class="keyword">void</span>)requestCompletePreprocessor &#123;</span><br><span class="line"></span><br><span class="line">    [<span class="keyword">super</span> requestCompletePreprocessor];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//是否异步将 responseData 写入缓存（写入缓存的任务放在专门的队列 ytkrequest_cache_writing_queue 进行）</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>.writeCacheAsynchronously) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">dispatch_async</span>(ytkrequest_cache_writing_queue(), ^&#123;</span><br><span class="line">            <span class="comment">//保存响应数据到缓存</span></span><br><span class="line">            [<span class="keyword">self</span> saveResponseDataToCacheFile:[<span class="keyword">super</span> responseData]];</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//保存响应数据到缓存</span></span><br><span class="line">        [<span class="keyword">self</span> saveResponseDataToCacheFile:[<span class="keyword">super</span> responseData]];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//YTKRequest.m：</span></span><br><span class="line"><span class="comment">//保存响应数据到缓存</span></span><br><span class="line">- (<span class="keyword">void</span>)saveResponseDataToCacheFile:(<span class="built_in">NSData</span> *)data &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span> cacheTimeInSeconds] &gt; <span class="number">0</span> &amp;&amp; ![<span class="keyword">self</span> isDataFromCache]) &#123;</span><br><span class="line">        <span class="keyword">if</span> (data != <span class="literal">nil</span>) &#123;</span><br><span class="line">            <span class="keyword">@try</span> &#123;</span><br><span class="line">                <span class="comment">// New data will always overwrite old data.</span></span><br><span class="line">                [data writeToFile:[<span class="keyword">self</span> cacheFilePath] atomically:<span class="literal">YES</span>];</span><br><span class="line"></span><br><span class="line">                YTKCacheMetadata *metadata = [[YTKCacheMetadata alloc] init];</span><br><span class="line">                metadata.version = [<span class="keyword">self</span> cacheVersion];</span><br><span class="line">                metadata.sensitiveDataString = ((<span class="built_in">NSObject</span> *)[<span class="keyword">self</span> cacheSensitiveData]).description;</span><br><span class="line">                metadata.stringEncoding = [YTKNetworkUtils stringEncodingWithRequest:<span class="keyword">self</span>];</span><br><span class="line">                metadata.creationDate = [<span class="built_in">NSDate</span> date];</span><br><span class="line">                metadata.appVersionString = [YTKNetworkUtils appVersionString];</span><br><span class="line">                [<span class="built_in">NSKeyedArchiver</span> archiveRootObject:metadata toFile:[<span class="keyword">self</span> cacheMetadataFilePath]];</span><br><span class="line"></span><br><span class="line">            &#125; <span class="keyword">@catch</span> (<span class="built_in">NSException</span> *exception) &#123;</span><br><span class="line">                YTKLog(<span class="string">@"Save cache failed, reason = %@"</span>, exception.reason);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们可以看到, <code>requestCompletePreprocessor</code> 方法的任务是将响应数据保存起来，也就是做缓存。但是，缓存的保存有两个条件，一个是需要 <code>cacheTimeInSeconds</code> 方法返回正整数（缓存时间，单位是秒）；另一个条件就是 <code>isDataFromCache</code> 方法返回 <code>NO</code>。</p>
+<p>进一步研究：<code>startWithoutCache</code></p>
+<p>这个方法做了哪些？</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//YTKRequest.m</span></span><br><span class="line">- (<span class="keyword">void</span>)startWithoutCache &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//1. 清除缓存</span></span><br><span class="line">    [<span class="keyword">self</span> clearCacheVariables];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//2. 调用父类的发起请求</span></span><br><span class="line">    [<span class="keyword">super</span> start];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//YTKBaseRequest.m:</span></span><br><span class="line">- (<span class="keyword">void</span>)start &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//1. 告诉 Accessories 即将回调了（其实是即将发起请求）</span></span><br><span class="line">    [<span class="keyword">self</span> toggleAccessoriesWillStartCallBack];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//2. 令 agent 添加请求并发起请求，在这里并不是组合关系，agent 只是一个单例</span></span><br><span class="line">    [[YTKNetworkAgent sharedAgent] addRequest:<span class="keyword">self</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="4-2-4-YTKNetworkConfig"><a href="#4-2-4-YTKNetworkConfig" class="headerlink" title="4.2.4 YTKNetworkConfig"></a>4.2.4 <code>YTKNetworkConfig</code></h5><p>功能：被 <code>YTKRequest</code> 和 <code>YTKNetworkAgent</code> 访问。负责所有请求的全局配置，对于 <code>baseUrl</code> 和 <code>CDNUrl</code> 等等。</p>
+<p>在实际业务中，作为公司的测试需要不断的切换服务器地址，确定数据的正确性，也间接说明 <code>YTKNetworkConfig</code> 的必要性。    </p>
+<p>下面是以自己目前公司所用的 <code>YTKNetwork</code> 的 <code>YTKNetworkConfig</code> 的用处：</p>
+<p>（1）首先在 AppDelegate 中：- (BOOL)application:(UIApplication <em>)application didFinishLaunchingWithOptions:(NSDictionary </em>)launchOptions 方法配置服务：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)applicationdidFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptinos &#123;</span><br><span class="line"><span class="meta">#ifdef DEBUG</span></span><br><span class="line">    <span class="comment">// test</span></span><br><span class="line">    <span class="comment">//[RLPickerViewModel parserAddressJson:nil];</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//配置日志</span></span><br><span class="line">    <span class="comment">//[self redirectNSLogToDocumentFolder];</span></span><br><span class="line"><span class="meta">#endif</span></span><br><span class="line"></span><br><span class="line">   <span class="comment">//配置请求服务</span></span><br><span class="line">   [<span class="keyword">self</span> setupServer];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>紧接着：[self setupServer];</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置后 server</span></span><br><span class="line">- (<span class="keyword">void</span>)setupServer &#123;</span><br><span class="line">    [IOAApiManager configNetwork];</span><br><span class="line">    [IOAApiManager startNetworkMonitoring];</span><br><span class="line">    [<span class="keyword">self</span> addNotification];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在 <code>IOAApiManager</code> 实现类方法：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">void</span>)configwork &#123;</span><br><span class="line">    YTKNetworkAgent *agent = [YTKNetworkAgent sharedAgent];</span><br><span class="line">    [agent setValue:[<span class="built_in">NSSet</span> setWithObjects:<span class="string">@"application/json"</span>,<span class="string">@"text/json"</span>,<span class="string">@"text/javascript"</span>,<span class="string">@"text/html"</span>,<span class="string">@"text/plain"</span>,<span class="string">@"application/x-www-form-urlencodem"</span>,<span class="literal">nil</span>] forKeyPath:<span class="string">@"_manager.responseSerializer.acceptableContentTypes"</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> ServerType serverType = kSeverTypeRelese;</span><br><span class="line">    YTKNetwor</span><br><span class="line">    kConfig *config = [YTKentworkConfig sharedConfig;</span><br><span class="line">    <span class="keyword">switch</span> (serverType)&#123;</span><br><span class="line">        <span class="keyword">case</span> kSeverTypeDev:    <span class="comment">//开发服务器地址</span></span><br><span class="line">            config.baseUrl = <span class="string">@"http://xxxxx.com/xxx"</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> kSeverTypeTest:    <span class="comment">//测试服务器地址</span></span><br><span class="line">            config.baseUrl = <span class="string">@"http://xxxxx.com/xxx"</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> kSeverTypeRelease:    <span class="comment">//发布版服务器地址</span></span><br><span class="line">            config.baseUrl = <span class="string">@"http://xxxxx.com/xxx"</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//证书配置</span></span><br><span class="line">    [<span class="keyword">self</span> configHttps];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们以后就可以通过 <code>baseUrl</code> 进行不同的地址访问啦。大部分企业可能需要一些静态资源（例如图片，js，css 等）这就使用到了 <code>CDN</code>，<code>YTKNetworkConfig</code> 的 <code>cdnUrl</code> 参数用于统一设置这一部分网络请求的地址。</p>
+<p><code>YTKNetworkConfig</code> 源码也提供了安全策略，<code>url</code> 过滤，缓存路径的过滤等方法如下:</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用类方法创建单例对象</span></span><br><span class="line">+ (YTKNetworkConfig *)sharedConfig;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 请求的根 URL，默认是空字符串</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSString</span> *baseUrl;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 请求 CDN URL，默认是空字符串</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSString</span> *cdnUrl;</span><br><span class="line"></span><br><span class="line"><span class="comment">// URL 过滤池（YTKUrlFilterProtocol 协议使用）</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>, <span class="keyword">readonly</span>) <span class="built_in">NSArray</span>&lt;<span class="keyword">id</span>&lt;YTKUrlFilterProtocol&gt;&gt; *urlFilters;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 缓存路径的过滤池（YTKCacheDirPathFilterProtocol 协议使用）</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>, <span class="keyword">readonly</span>) <span class="built_in">NSArray</span>&lt;<span class="keyword">id</span>&lt;YTKCacheDirPathFilterProtocol&gt;&gt; *cacheDirPathFilters;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 同 AFNetworking 中使用的安全策略</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) AFSecurityPolicy *securityPolicy;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 是否记录调试信息，默认是 NO</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> debugLogEnabled;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 用来初始化 AFHTTPSessionManager,默认是 nil</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSURLSessionConfiguration</span>* sessionConfiguration;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加一个新的 URL 过滤器</span></span><br><span class="line">- (<span class="keyword">void</span>)addUrlFilter:(<span class="keyword">id</span>&lt;YTKUrlFilterProtocol&gt;)filter;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除所有的 URL 过滤器</span></span><br><span class="line">- (<span class="keyword">void</span>)clearUrlFilter;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加一个新的缓存地址过滤器</span></span><br><span class="line">- (<span class="keyword">void</span>)addCacheDirPathFilter:(<span class="keyword">id</span>&lt;YTKCacheDirPathFilterProtocol&gt;)filter;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//删除所有的缓存地址过滤器</span></span><br><span class="line"> - (<span class="keyword">void</span>)clearCacheDirPathFilter; <span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<h5 id="4-2-5-YTKNetworkAgent"><a href="#4-2-5-YTKNetworkAgent" class="headerlink" title="4.2.5 YTKNetworkAgent"></a>4.2.5 <code>YTKNetworkAgent</code></h5><p>功能：真正发起请求的类，负责发起请求，结束请求，并持有一个字典来存储正在执行的请求。</p>
+<p>1、首先从请求开始：<code>YTKNetworkAgent</code> 把当前的请求对象添加到了自己身上并发送请求。  </p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//YTKNetworkAgent.m</span></span><br><span class="line">- (<span class="keyword">void</span>)addRequest:(YTKBaseRequest *)request &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//1. 获取 task</span></span><br><span class="line">    <span class="built_in">NSParameterAssert</span>(request != <span class="literal">nil</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSError</span> * __autoreleasing requestSerializationError = <span class="literal">nil</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//获取用户自定义的 requestURL</span></span><br><span class="line">    <span class="built_in">NSURLRequest</span> *customUrlRequest= [request buildCustomUrlRequest];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (customUrlRequest) &#123;</span><br><span class="line"></span><br><span class="line">        __block <span class="built_in">NSURLSessionDataTask</span> *dataTask = <span class="literal">nil</span>;</span><br><span class="line">        <span class="comment">//如果存在用户自定义 request，则直接走 AFNetworking 的 dataTaskWithRequest:方法</span></span><br><span class="line">        dataTask = [_manager dataTaskWithRequest:customUrlRequest completionHandler:^(<span class="built_in">NSURLResponse</span> * _Nonnull response, <span class="keyword">id</span>  _Nullable responseObject, <span class="built_in">NSError</span> * _Nullable error) &#123;</span><br><span class="line">            <span class="comment">//响应的统一处理</span></span><br><span class="line">            [<span class="keyword">self</span> handleRequestResult:dataTask responseObject:responseObject error:error];</span><br><span class="line">        &#125;];</span><br><span class="line">        request.requestTask = dataTask;</span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//如果用户没有自定义 url，则直接走这里</span></span><br><span class="line">        request.requestTask = [<span class="keyword">self</span> sessionTaskForRequest:request error:&amp;requestSerializationError];</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//序列化失败，则认定为请求失败</span></span><br><span class="line">    <span class="keyword">if</span> (requestSerializationError) &#123;</span><br><span class="line">        <span class="comment">//请求失败的处理</span></span><br><span class="line">        [<span class="keyword">self</span> requestDidFailWithRequest:request error:requestSerializationError];</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSAssert</span>(request.requestTask != <span class="literal">nil</span>, <span class="string">@"requestTask should not be nil"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 优先级的映射</span></span><br><span class="line">    <span class="comment">// !!Available on iOS 8 +</span></span><br><span class="line">    <span class="keyword">if</span> ([request.requestTask respondsToSelector:<span class="keyword">@selector</span>(priority)]) &#123;</span><br><span class="line">        <span class="keyword">switch</span> (request.requestPriority) &#123;</span><br><span class="line">            <span class="keyword">case</span> YTKRequestPriorityHigh:</span><br><span class="line">                request.requestTask.priority = <span class="built_in">NSURLSessionTaskPriorityHigh</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> YTKRequestPriorityLow:</span><br><span class="line">                request.requestTask.priority = <span class="built_in">NSURLSessionTaskPriorityLow</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> YTKRequestPriorityDefault:</span><br><span class="line">                <span class="comment">/*!!fall through*/</span></span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                request.requestTask.priority = <span class="built_in">NSURLSessionTaskPriorityDefault</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Retain request</span></span><br><span class="line">    YTKLog(<span class="string">@"Add request: %@"</span>, <span class="built_in">NSStringFromClass</span>([request <span class="keyword">class</span>]));</span><br><span class="line"></span><br><span class="line">    <span class="comment">//2. 将request放入保存请求的字典中，taskIdentifier 为 key，request 为值</span></span><br><span class="line">    [<span class="keyword">self</span> addRequestToRecord:request];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//3. 开始 task</span></span><br><span class="line">    [request.requestTask resume];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个方法可以看出调用了 <code>AFNetworking</code> 的请求方法，也验证了 <code>YTKNetwork</code> 对 <code>AFNetworking</code> 高度封装。这个方法可以分成三部分：</p>
+<p>(1).获取当前请求对应的 <code>task</code> 并赋值给 <code>request</code> 的 <code>requestTask</code> 属性</p>
+<p>(2).将 <code>request</code> 放入专门用来保存请求的字典中，key 为 <code>taskIdentifier</code></p>
+<p>(3).启动 <code>task</code></p>
+<h4 id="4-2-6-YTKBatchRequest"><a href="#4-2-6-YTKBatchRequest" class="headerlink" title="4.2.6 YTKBatchRequest"></a>4.2.6 <code>YTKBatchRequest</code></h4><p>功能介绍:可以发起批量请求，持有一个数组来保存所有的请求类。在请求执行后遍历这个数组发起请求，如果其中有一个请求返回失败，则认定本组请求失败。    </p>
+<p>下面看一个初始化方法:    </p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//YTKBatchRequest.m</span></span><br><span class="line">- (<span class="keyword">instancetype</span>)initWithRequestArray:(<span class="built_in">NSArray</span>*)requestArray &#123;</span><br><span class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> init];</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//保存为属性</span></span><br><span class="line">        _requestArray = [requestArray <span class="keyword">copy</span>];</span><br><span class="line"></span><br><span class="line">        <span class="comment">//批量请求完成的数量初始化为0</span></span><br><span class="line">        _finishedCount = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//类型检查，所有元素都必须为YTKRequest或的它的子类，否则强制初始化失败</span></span><br><span class="line">        <span class="keyword">for</span> (YTKRequest * req <span class="keyword">in</span> _requestArray) &#123;</span><br><span class="line">            <span class="keyword">if</span> (![req isKindOfClass:[YTKRequest <span class="keyword">class</span>]]) &#123;</span><br><span class="line">                YTKLog(<span class="string">@"Error, request item must be YTKRequest instance."</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>初始化以后，我们就可以调用 <code>start</code> 方法来发起当前 <code>YTKBatchRequest</code> 实例所管理的所有请求了。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)start &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//如果batch里第一个请求已经成功结束，则不能再start</span></span><br><span class="line">    <span class="keyword">if</span> (_finishedCount &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        YTKLog(<span class="string">@"Error! Batch request has already started."</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//最开始设定失败的request为nil</span></span><br><span class="line">    _failedRequest = <span class="literal">nil</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//使用YTKBatchRequestAgent来管理当前的批量请求</span></span><br><span class="line">    [[YTKBatchRequestAgent sharedAgent] addBatchRequest:<span class="keyword">self</span>];</span><br><span class="line">    [<span class="keyword">self</span> toggleAccessoriesWillStartCallBack];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//遍历所有request，并开始请求</span></span><br><span class="line">    <span class="keyword">for</span> (YTKRequest * req <span class="keyword">in</span> _requestArray) &#123;</span><br><span class="line">        req.delegate = <span class="keyword">self</span>;</span><br><span class="line">        [req clearCompletionBlock];</span><br><span class="line">        [req start];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>所以在这里是遍历 <code>YTKBatchRequest</code> 实例的 <code>_requestArray</code> 并逐一发送请求。因为已经封装好了单个的请求，所以在这里直接 <code>start</code> 就好了。</p>
+<p>（1）在请求之后，在每一个请求的回调的代理方法里面，来判断这次请求是否是成功的，也是在 <code>YTKRequest</code> 子类 <code>YTKBatchRequest.m</code> 判断。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//YTKBatchRequest.m</span></span><br><span class="line"><span class="meta">#pragma mark - Network Request Delegate</span></span><br><span class="line">- (<span class="keyword">void</span>)requestFinished:(YTKRequest *)request &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//某个request成功后，首先让_finishedCount + 1</span></span><br><span class="line">    _finishedCount++;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//如果_finishedCount等于_requestArray的个数，则判定当前batch请求成功</span></span><br><span class="line">    <span class="keyword">if</span> (_finishedCount == _requestArray.count) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//调用即将结束的代理</span></span><br><span class="line">        [<span class="keyword">self</span> toggleAccessoriesWillStopCallBack];</span><br><span class="line"></span><br><span class="line">        <span class="comment">//调用请求成功的代理</span></span><br><span class="line">        <span class="keyword">if</span> ([_delegate respondsToSelector:<span class="keyword">@selector</span>(batchRequestFinished:)]) &#123;</span><br><span class="line">            [_delegate batchRequestFinished:<span class="keyword">self</span>];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//调用批量请求成功的block</span></span><br><span class="line">        <span class="keyword">if</span> (_successCompletionBlock) &#123;</span><br><span class="line">            _successCompletionBlock(<span class="keyword">self</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//清空成功和失败的block</span></span><br><span class="line">        [<span class="keyword">self</span> clearCompletionBlock];</span><br><span class="line"></span><br><span class="line">        <span class="comment">//调用请求结束的代理</span></span><br><span class="line">        [<span class="keyword">self</span> toggleAccessoriesDidStopCallBack];</span><br><span class="line"></span><br><span class="line">        <span class="comment">//从YTKBatchRequestAgent里移除当前的batch</span></span><br><span class="line">        [[YTKBatchRequestAgent sharedAgent] removeBatchRequest:<span class="keyword">self</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在某个请求的回调成功以后，会让成功计数+1。在+1以后，如果成功计数和当前批量请求数组里元素的个数相等，则判定当前批量请求成功，并进行当前批量请求的成功回调。</p>
+<p>（2）失败回调</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//YTKBatchRequest.m</span></span><br><span class="line">- (<span class="keyword">void</span>)requestFailed:(YTKRequest *)request &#123;</span><br><span class="line"></span><br><span class="line">    _failedRequest = request;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//调用即将结束的代理</span></span><br><span class="line">    [<span class="keyword">self</span> toggleAccessoriesWillStopCallBack];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//停止batch里所有的请求</span></span><br><span class="line">    <span class="keyword">for</span> (YTKRequest *req <span class="keyword">in</span> _requestArray) &#123;</span><br><span class="line">        [req stop];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//调用请求失败的代理</span></span><br><span class="line">    <span class="keyword">if</span> ([_delegate respondsToSelector:<span class="keyword">@selector</span>(batchRequestFailed:)]) &#123;</span><br><span class="line">        [_delegate batchRequestFailed:<span class="keyword">self</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//调用请求失败的block</span></span><br><span class="line">    <span class="keyword">if</span> (_failureCompletionBlock) &#123;</span><br><span class="line">        _failureCompletionBlock(<span class="keyword">self</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//清空成功和失败的block</span></span><br><span class="line">    [<span class="keyword">self</span> clearCompletionBlock];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//调用请求结束的代理</span></span><br><span class="line">    [<span class="keyword">self</span> toggleAccessoriesDidStopCallBack];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//从YTKBatchRequestAgent里移除当前的batch</span></span><br><span class="line">    [[YTKBatchRequestAgent sharedAgent] removeBatchRequest:<span class="keyword">self</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从上面代码可以看出，如果批量请求里面有一个 <code>request</code> 失败了，则判定当前批量请求失败。</p>
+<h5 id="4-2-7-YTKBatchRequestAgent"><a href="#4-2-7-YTKBatchRequestAgent" class="headerlink" title="4.2.7 YTKBatchRequestAgent"></a>4.2.7 <code>YTKBatchRequestAgent</code></h5><p>功能简介：负责管理多个 <code>YTKBatchRequest</code> 实例，持有一个数组保存 <code>YTKBatchRequest</code>。支持添加和删除 <code>YTKBatchRequest</code> 实例。</p>
+<p><code>YTKBatchRequestAgent</code> 和 <code>YTKRequestAgent</code> 差不多，只不过是一个和多个区别，没有多少要核心讲的，可以自己看一下 <code>YTKBatchRequestAgent</code> 的源码，相信都能看懂。</p>
+<h5 id="4-2-8-YTKChainRequest"><a href="#4-2-8-YTKChainRequest" class="headerlink" title="4.2.8 YTKChainRequest"></a>4.2.8 <code>YTKChainRequest</code></h5><p>功能简介：可以发起链式请求，持有一个数组来保存所有的请求类。当某个请求结束后才能发起下一个请求，如果其中有一个请求返回失败，则认定本请求链失败。（链式请求：例如：发送请求 A，根据请求 A 的结果，选择性的发送请求 B 和 C，再根据 B 和 C 的结果，选择性的发送请求 D。）</p>
+<p>处理链式请求的类是 <code>YTKChainRequest</code>，利用 <code>YTKChainRequestAgent</code> 单例来管理 <code>YTKChainRequest</code> 实例。</p>
+<p>初始化方法:   </p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//YTKChainRequest.m</span></span><br><span class="line">- (<span class="keyword">instancetype</span>)init &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> init];</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//下一个请求的 index</span></span><br><span class="line">        _nextRequestIndex = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//保存链式请求的数组</span></span><br><span class="line">        _requestArray = [<span class="built_in">NSMutableArray</span> array];</span><br><span class="line"></span><br><span class="line">        <span class="comment">//保存回调的数组</span></span><br><span class="line">        _requestCallbackArray = [<span class="built_in">NSMutableArray</span> array];</span><br><span class="line"></span><br><span class="line">        <span class="comment">//空回调，用来填充用户没有定义的回调 block</span></span><br><span class="line">        _emptyCallback = ^(YTKChainRequest *chainRequest, YTKBaseRequest *baseRequest) &#123;</span><br><span class="line">            <span class="comment">// do nothing</span></span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>YTKChainRequest</code> 提供了添加和删除 <code>request</code> 的接口。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在当前 `chain` 添加 `request` 和 `callback`</span></span><br><span class="line">- (<span class="keyword">void</span>)addRequest:(YTKBaseRequest *)request callback:(YTKChainCallback)callback &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//保存当前请求</span></span><br><span class="line">    [_requestArray addObject:request];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (callback != <span class="literal">nil</span>) &#123;</span><br><span class="line">        [_requestCallbackArray addObject:callback];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//之所以特意弄一个空的 callback，是为了避免在用户没有给当前 request 的 callback 传值的情况下，造成 request 数组和 callback 数组的不对称</span></span><br><span class="line">        [_requestCallbackArray addObject:_emptyCallback];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>（1）链式请求发起</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//YTKChainRequest.m</span></span><br><span class="line">- (<span class="keyword">void</span>)start &#123;</span><br><span class="line">    <span class="comment">//如果第1个请求已经结束，就不再重复start了</span></span><br><span class="line">    <span class="keyword">if</span> (_nextRequestIndex &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        YTKLog(<span class="string">@"Error! Chain request has already started."</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//如果请求队列数组里面还有request，则取出并start</span></span><br><span class="line">    <span class="keyword">if</span> ([_requestArray count] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        [<span class="keyword">self</span> toggleAccessoriesWillStartCallBack];</span><br><span class="line">        <span class="comment">//取出当前request并start</span></span><br><span class="line">        [<span class="keyword">self</span> startNextRequest];</span><br><span class="line">        <span class="comment">//在当前的_requestArray添加当前的chain（YTKChainRequestAgent允许有多个chain）</span></span><br><span class="line">        [[YTKChainRequestAgent sharedAgent] addChainRequest:<span class="keyword">self</span>];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        YTKLog(<span class="string">@"Error! Chain request array is empty."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过查看链式请求的实现，发现链式请求的请求队列是可以变动的，用户可以无限制地添加请求。只要请求队列里面有请求存在，则 <code>YTKChainRequest</code> 就会继续发送它们。</p>
+<p>（2）链式请求的请求和回调</p>
+<p>下面是终止方法 <code>stop()</code></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//YTKChainRequest.m</span></span><br><span class="line"><span class="comment">//终止当前的chain</span></span><br><span class="line">- (<span class="keyword">void</span>)stop &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//首先调用即将停止的callback</span></span><br><span class="line">    [<span class="keyword">self</span> toggleAccessoriesWillStopCallBack];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//然后stop当前的请求，再清空chain里所有的请求和回掉block</span></span><br><span class="line">    [<span class="keyword">self</span> clearRequest];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//在YTKChainRequestAgent里移除当前的chain</span></span><br><span class="line">    [[YTKChainRequestAgent sharedAgent] removeChainRequest:<span class="keyword">self</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//最后调用已经结束的callback</span></span><br><span class="line">    [<span class="keyword">self</span> toggleAccessoriesDidStopCallBack];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>stop</code> 方法是可以在外部调用的，所以用户可以随时终止当前链式请求的进行。它首先调用 <code>clearReuqest</code> 方法，将当前 <code>request</code> 停止，再将请求队列数组和 <code>callback</code> 数组清空。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//YTKChainRequest.m</span></span><br><span class="line">- (<span class="keyword">void</span>)clearRequest &#123;</span><br><span class="line">    <span class="comment">//获取当前请求的index</span></span><br><span class="line">    <span class="built_in">NSUInteger</span> currentRequestIndex = _nextRequestIndex - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (currentRequestIndex &lt; [_requestArray count]) &#123;</span><br><span class="line">        YTKBaseRequest *request = _requestArray[currentRequestIndex];</span><br><span class="line">        [request stop];</span><br><span class="line">    &#125;</span><br><span class="line">    [_requestArray removeAllObjects];</span><br><span class="line">    [_requestCallbackArray removeAllObjects];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后在 <code>YTKChainRequestAgent</code> 单例里面，将自己移除掉。</p>
+<h5 id="4-2-9-YTKNetworkPrivate"><a href="#4-2-9-YTKNetworkPrivate" class="headerlink" title="4.2.9 YTKNetworkPrivate"></a>4.2.9 <code>YTKNetworkPrivate</code></h5><p>功能简介：提供 <code>JSON</code> 验证，<code>appVersion</code> 等辅助性的方法；给 <code>YTKBaseRequest</code> 增加一些分类。</p>
+<h3 id="5-杂谈：包括优缺点、配置方式、维护更新等。"><a href="#5-杂谈：包括优缺点、配置方式、维护更新等。" class="headerlink" title="5.杂谈：包括优缺点、配置方式、维护更新等。"></a>5.杂谈：包括优缺点、配置方式、维护更新等。</h3><h4 id="5-1、优缺点："><a href="#5-1、优缺点：" class="headerlink" title="5.1、优缺点："></a>5.1、优缺点：</h4><p>优点：方便更换底层网络库，方便在基类中处理缓存逻辑，以及其它一些公共逻辑，方便做对象持久化，维护更新方便    </p>
+<p>缺点：不适合于在网络请求简单的项目中使用，这样显得没有直接使用原生的网络库使用方便。    </p>
+<h4 id="5-2、配置方式："><a href="#5-2、配置方式：" class="headerlink" title="5.2、配置方式："></a>5.2、配置方式：</h4><p>将 <code>YTKNetwork</code> 库导入工程中无需做任何配置，具体使用详见（1.2）。</p>
+<h4 id="5-3-维护更新"><a href="#5-3-维护更新" class="headerlink" title="5.3 维护更新"></a>5.3 维护更新</h4><p>1、<code>CocoaPods</code> 方式：在 <code>Podfile</code> 文件中加入一行代码来使用 <code>YTKNetwork</code>：    </p>
+<pre><code>pod &apos;YTKNetwork&apos;
+</code></pre><p>2、非 <code>CocoaPods</code> 方式：<code>GitHub</code> 官网上下载最新版 <code>YTKNetwork</code> 库将 <code>AFNetworking</code> 和 <code>YTKNetwork</code> 库抽取出来放到项目中。    </p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------本文结束 <i class="fa fa-thermometer-three-quarters" aria-hidden="true"></i> 感谢阅读------</div>
+        <div>
+	    <p id="div-border-left-red">
+	   <b>本文地址：</b><a href="/articles/046.html" title="iOS - YTKNetwork 日志框架源码分析">http://kaaaaai.cn/articles/046.html</a><br/>
+	    <span>
+	    <b>本文基于<a target="_blank" title="Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)" href="http://creativecommons.org/licenses/by-sa/4.0/"> 知识共享署名-相同方式共享 4.0 </a>国际许可协议发布</b><br/><b>转载请注明出处，谢谢！</b>
+	    </span>
+	    </p>
+</div>
+    
+</div>
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>众筹项目：拯救世界！</br></div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://os1i62usc.bkt.clouddn.com/wechatpay.gif" alt="Kaaaaai WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+    
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/EXP/" rel="tag"><i class="fa fa-tag"></i> EXP</a>
+          
+            <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
+          
+            <a href="/tags/OC/" rel="tag"><i class="fa fa-tag"></i> OC</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/articles/045.html" rel="next" title="iOS - SwiftyBeaver 日志框架源码分析">
+                <i class="fa fa-chevron-left"></i> iOS - SwiftyBeaver 日志框架源码分析
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="SOHUCS"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://os1i62usc.bkt.clouddn.com/head.jpg"
+               alt="Kaaaaai" />
+          <p class="site-author-name" itemprop="name">Kaaaaai</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-description motion-element" itemprop="description">我独自一人/照顾着/历代的星辰</p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Edison0620" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/lvkaimeiyouhenshuai" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Funny Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://htwins.net/scale2/" title="刻度" target="_blank">刻度</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://siida.me" title="Eric" target="_blank">Eric</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.rabbittu.com" title="某兔子の御用花园" target="_blank">某兔子の御用花园</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+
+        <script type="text/javascript" charset="utf-8" src="/js/src/tagcloud.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/js/src/tagcanvas.js"></script>
+        <div class="widget-wrap">
+            <h4 class="widget-title">Tag Cloud</h4>
+            <div id="myCanvasContainer" class="widget tagcloud">
+                <canvas width="250" height="250" id="resCanvas" style="width=100%">
+                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EXP/">EXP</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOS/">IOS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OC/">OC</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Other/">Other</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Poem/">Poem</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中国当代/">中国当代</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中国当代小说/">中国当代小说</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中国当代文学/">中国当代文学</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/写作计划/">写作计划</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/外国现当代/">外国现当代</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/季度总结/">季度总结</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/年度总结/">年度总结</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/幻想/">幻想</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/扯淡/">扯淡</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/扯谈/">扯谈</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日常/">日常</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/梦/">梦</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/武侠小说/">武侠小说</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/灵感碎片/">灵感碎片</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/生活/">生活</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/短篇故事/">短篇故事</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科幻/">科幻</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/肇始/">肇始</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/观影/">观影</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/诗歌/">诗歌</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书笔记/">读书笔记</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读后感/">读后感</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随感/">随感</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/青春文学/">青春文学</a><span class="tag-list-count">1</span></li></ul>
+                </canvas>
+            </div>
+        </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-功能介绍"><span class="nav-text">1. 功能介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-YTKNetwork"><span class="nav-text">1.1 YTKNetwork</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-YTKNetwork-的基本使用"><span class="nav-text">1.2  YTKNetwork 的基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Step-1-如需统一为网络请求接口加上一些参数和设置统一的服务器，需要在入口类的application-didFinishLaunchingWithOptions-中进行如下配置："><span class="nav-text">Step 1: 如需统一为网络请求接口加上一些参数和设置统一的服务器，需要在入口类的application didFinishLaunchingWithOptions:中进行如下配置：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Step-2-构建请求对象继承于父类-YTKRequest-，重写父类的方法-填写参数。"><span class="nav-text">Step 2:构建请求对象继承于父类(YTKRequest)，重写父类的方法,填写参数。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#step-3-开始请求"><span class="nav-text">step 3: 开始请求</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-总体设计-图文"><span class="nav-text">2. 总体设计(图文)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1总体结构图"><span class="nav-text">2.1总体结构图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2UIL-中的概念"><span class="nav-text">2.2UIL 中的概念</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-流程图"><span class="nav-text">3. 流程图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-详细设计"><span class="nav-text">4. 详细设计</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1类关系UML"><span class="nav-text">4.1类关系UML</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-核心类功能介绍"><span class="nav-text">4.2  核心类功能介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#4-2-1-YTKBaseRequest"><span class="nav-text">4.2.1 YTKBaseRequest</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-2-2-YTKBaseRequest"><span class="nav-text">4.2.2 YTKBaseRequest</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-2-4-YTKNetworkConfig"><span class="nav-text">4.2.4 YTKNetworkConfig</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-2-5-YTKNetworkAgent"><span class="nav-text">4.2.5 YTKNetworkAgent</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-6-YTKBatchRequest"><span class="nav-text">4.2.6 YTKBatchRequest</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#4-2-7-YTKBatchRequestAgent"><span class="nav-text">4.2.7 YTKBatchRequestAgent</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-2-8-YTKChainRequest"><span class="nav-text">4.2.8 YTKChainRequest</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-2-9-YTKNetworkPrivate"><span class="nav-text">4.2.9 YTKNetworkPrivate</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-杂谈：包括优缺点、配置方式、维护更新等。"><span class="nav-text">5.杂谈：包括优缺点、配置方式、维护更新等。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1、优缺点："><span class="nav-text">5.1、优缺点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2、配置方式："><span class="nav-text">5.2、配置方式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-维护更新"><span class="nav-text">5.3 维护更新</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kaaaaai</span>
+</div>
+
+
+<!-- time -->
+  <div id="show-time">
+    <span id="span_dt_dt"></span>
+  </div>
+  <script>
+      function show_date_time() {
+        window.setTimeout("show_date_time()", 1000);
+        BirthDay = new Date("6/23/2017 19:37:01");
+        today = new Date();
+        //总时间
+        timeold = (today.getTime() - BirthDay.getTime());
+        sectimeold = timeold / 1000
+        secondsold = Math.floor(sectimeold);
+        msPerDay = 24 * 60 * 60 * 1000
+        e_daysold = timeold / msPerDay
+        daysold = Math.floor(e_daysold);
+        e_hrsold = (e_daysold - daysold) * 24;
+        hrsold = Math.floor(e_hrsold);
+        e_minsold = (e_hrsold - hrsold) * 60;
+        minsold = Math.floor((e_hrsold - hrsold) * 60);
+        seconds = Math.floor((e_minsold - minsold) * 60);
+        span_dt_dt.innerHTML = "已存活 " + daysold + " 天 " + hrsold + " 小时 " + minsold + " 分 " + seconds + " 秒";
+    }
+show_date_time();
+  </script>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+
+  <div class="powered-by"></div>
+     <span class="post-count">博客全站共 67.5k 字</span>
+  
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+ 
+ <!--崩溃欺骗-->
+<script type="text/javascript" src="/js/src/makeajoke.js"></script>
+
+    <script type="text/javascript" src="/live2d/script.js"></script>
+    <canvas id="live2dcanvas" width="150" height="300" class="live2d"></canvas>
+    <style>
+      #live2dcanvas {
+        position: fixed;
+        right: 0px;
+        z-index: 999;
+        pointer-events: none;
+        bottom: -20px;
+      }
+    </style>
+    <script>loadlive2d("live2dcanvas" ,"/live2d/assets/hijiki/hijiki.model.json")</script>
+  
+</body>
+</html>
