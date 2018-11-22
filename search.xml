@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[一位白头法师的革命开端]]></title>
+    <url>%2Farticles%2F048.html</url>
+    <content type="text"><![CDATA[上个礼拜去看了《神奇动物：格林德沃之罪》，和哈利波特系列比起来，精美壮观许多，如果不考虑人物关系，他更像后传，在内容上，延伸远多过补充。德普在这一部的戏份比上一部多，作为一个大反派，他的思想核心在所有的电影反派里也应该是数一数二站的住脚的了，用建立一个法师凌驾在麻瓜之上的阶级社会，来阻止预言中所看到二战的核弹爆炸，这让他的邪恶都蒙上一层睿智和远见的色彩，墓地里的会议，纯血法师整齐围成圈，恍如一个大豪门，魔法部的执行人员们从黑暗中走出来，都像在海上风雨飘摇的小舟。 故事主线是克雷登斯的身世之谜，但直在最后解开谜底之前，我仍然对克雷登斯这一部分的人物关系感到有些混乱，可能是内容太多的缘故，让前一部看起来就像围棋开始的一步闲手，或是序章，所有的主要铺垫内容都放在这一部一口气给交待了。还在凡人和法师为什么不能恋爱的规则里疑问，克雷登斯就找到家族的女仆，就和魔法部的人起冲突，但魔法部的人怎么又是格林德沃的帮凶。才从下水道的囚禁，黑人原来是个坏人的恍然大悟出来，邓布利多和格林德沃的回忆怎么看起来 gaygay 的。又有新的华丽魔法和可爱动物让人眼花缭乱，只能有些泄气的承认，我大概可能不是 HP 宇宙的核心粉吧。 看完缕清了所有人物关系，觉得有几处印象深刻，纽特和女巫姐姐从误会到重修旧好，火蜥蜴眼睛的比喻，笨拙可爱。女巫妹妹最后会跟随格林德沃一点也不奇怪，从讲故事上的手法来说，也是作为一个从中立阵营走向邪恶阵营的例子，举一反三的可以窥见其他法师们追随格林德沃的理由，但还是忍不住吐槽，为了爱情参加革命，因为革命而抛弃爱情这种桥段，原来魔法世界也不屡见不鲜。裘德洛演邓布利多，除了发际线比老邓布利多还要靠后，感觉像 BUG，其他没有任何毛病。克雷登斯最后落单的女随从，我觉得她在下一部的剧情应该会起到不小的作用。格林德沃预言中显示的坦克和核弹爆炸的蘑菇云，让我感觉一下子打穿了魔法世界和现实世界的壁垒，想到后面一切如预言显示的如期出现，不由得有些悲观的想，是不是魔法和想象力都不能阻止人类自我毁灭吧。 最后，比起所有阴谋诡计，我还是比较喜欢作为点缀出现的神奇动物们。]]></content>
+      <categories>
+        <category>涂鸦</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+        <tag>观影</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[iOS - Reachability 日志框架源码分析]]></title>
     <url>%2Farticles%2F047.html</url>
     <content type="text"><![CDATA[1. 功能介绍1.1 ReachabilityReachablity 是一个 iOS 下检测,iOS 设备网络环境用的库。 监视目标网络是否可用 监视当前网络的连接方式 监测连接方式的变更 苹果官方提供的 Doc：链接 1.2 Reachability 的安装（1）.创建 network 工程（network是我创建的demo工程，附件中可以下载到） （2）.使用Cocoaspod安装依赖在项目中添加 SystemConfiguration.framework 库由于Reachability非常常用。直接将其加入到Supporting Files/networ-Prefix.pch中: 2. 使用2.1 Block 的使用1234567891011121314151617181920212223242526272829303132- (void)viewDidLoad &#123; [super viewDidLoad]; DLog(@"开启 www.apple.com 的网络检测"); Reachability* reach = [Reachability reachabilityWithHostname:@"www.apple.com"]; DLog(@"-- current status: %@", reach.currentReachabilityString); // start the notifier which will cause the reachability object to retain itself! [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil]; reach.reachableBlock = ^(Reachability * reachability) &#123; dispatch_async(dispatch_get_main_queue(), ^&#123; self.blockLabel.text = @"网络可用"; self.blockLabel.backgroundColor = [UIColor greenColor]; &#125;); &#125;; reach.unreachableBlock = ^(Reachability * reachability) &#123; dispatch_async(dispatch_get_main_queue(), ^&#123; self.blockLabel.text = @"网络不可用"; self.blockLabel.backgroundColor = [UIColor redColor]; &#125;); &#125;; [reach startNotifier]; &#125; 2.2 通知的使用1234567891011121314151617181920212223242526272829303132333435363738394041424344454647- (void)viewDidLoad &#123; [super viewDidLoad]; DLog(@"开启 www.apple.com 的网络检测"); Reachability* reach = [Reachability reachabilityWithHostname:@"www.apple.com"]; DLog(@"-- current status: %@", reach.currentReachabilityString); // start the notifier which will cause the reachability object to retain itself! [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil]; [reach startNotifier]; &#125; - (void) reachabilityChanged: (NSNotification*)note &#123; Reachability * reach = [note object]; if(![reach isReachable]) &#123; self.notificationLabel.text = @"网络不可用"; self.notificationLabel.backgroundColor = [UIColor redColor]; self.wifiOnlyLabel.backgroundColor = [UIColor redColor]; self.wwanOnlyLabel.backgroundColor = [UIColor redColor]; return; &#125; self.notificationLabel.text = @"网络可用"; self.notificationLabel.backgroundColor = [UIColor greenColor]; if (reach.isReachableViaWiFi) &#123; self.wifiOnlyLabel.backgroundColor = [UIColor greenColor]; self.wifiOnlyLabel.text = @"当前通过wifi连接"; &#125; else &#123; self.wifiOnlyLabel.backgroundColor = [UIColor redColor]; self.wifiOnlyLabel.text = @"wifi未开启，不能用"; &#125; if (reach.isReachableViaWWAN) &#123; self.wwanOnlyLabel.backgroundColor = [UIColor greenColor]; self.wwanOnlyLabel.text = @"当前通过2g or 3g连接"; &#125; else &#123; self.wwanOnlyLabel.backgroundColor = [UIColor redColor]; self.wwanOnlyLabel.text = @"2g or 3g网络未使用"; &#125; &#125;]]></content>
@@ -60,8 +72,8 @@
       </categories>
       <tags>
         <tag>EXP</tag>
-        <tag>Swift</tag>
         <tag>OC</tag>
+        <tag>Swift</tag>
       </tags>
   </entry>
   <entry>
