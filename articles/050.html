@@ -84,7 +84,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="EXP,OC,Swift," />
+  <meta name="keywords" content="EXP,Swift,OC," />
 
 
 
@@ -103,14 +103,14 @@
 
 
 <meta name="description" content="一、权限1.info.plist 中可以请求的权限 蓝牙 - NSBluetoothPeripheralUsageDescription / Bluetooth Peripheral Usage Description 麦克风 - NSMicrophoneUsageDescription / Microphone Usage Description 媒体资料库 - NSAppleMusicUsa">
-<meta name="keywords" content="EXP,OC,Swift">
+<meta name="keywords" content="EXP,Swift,OC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS - 权限、二维码、crash、热更新的技术调研">
 <meta property="og:url" content="http://kaaaaai.cn/articles/050.html">
 <meta property="og:site_name" content="壹拾肆">
 <meta property="og:description" content="一、权限1.info.plist 中可以请求的权限 蓝牙 - NSBluetoothPeripheralUsageDescription / Bluetooth Peripheral Usage Description 麦克风 - NSMicrophoneUsageDescription / Microphone Usage Description 媒体资料库 - NSAppleMusicUsa">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-06T10:43:21.302Z">
+<meta property="og:updated_time" content="2018-12-08T02:46:48.369Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS - 权限、二维码、crash、热更新的技术调研">
 <meta name="twitter:description" content="一、权限1.info.plist 中可以请求的权限 蓝牙 - NSBluetoothPeripheralUsageDescription / Bluetooth Peripheral Usage Description 麦克风 - NSMicrophoneUsageDescription / Microphone Usage Description 媒体资料库 - NSAppleMusicUsa">
@@ -541,7 +541,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  3,179 字
+                  3,182 字
                 </span>
               
 
@@ -603,7 +603,7 @@
 <h2 id="2-其他"><a href="#2-其他" class="headerlink" title="2.其他"></a>2.其他</h2><ul>
 <li>联网</li>
 </ul>
-<p>导入#import <coretelephony ctcellulardata.h=""> //网络权限<br>说明:只能获取首次进入APP是否允许蜂窝网络权限,其实也可以不判断</coretelephony></p>
+<p>导入<code>#import &lt;CoreTelephony/CTCellularData.h&gt;</code>//网络权限<br>说明:只能获取首次进入APP是否允许蜂窝网络权限,其实也可以不判断</p>
 <figure class="highlight objectivec"><figcaption><span>Objective-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)getNetworkPermissions:(<span class="keyword">void</span> (^)(<span class="built_in">BOOL</span>))completion &#123;</span><br><span class="line">    <span class="built_in">CTCellularData</span> *cellularData = [[<span class="built_in">CTCellularData</span> alloc] init];</span><br><span class="line">    <span class="built_in">CTCellularDataRestrictedState</span> authState = cellularData.restrictedState;</span><br><span class="line">    <span class="keyword">if</span> (authState == kCTCellularDataRestrictedStateUnknown) &#123;</span><br><span class="line">        cellularData.cellularDataRestrictionDidUpdateNotifier = ^(<span class="built_in">CTCellularDataRestrictedState</span> state)&#123;</span><br><span class="line">            <span class="keyword">if</span> (state == kCTCellularDataNotRestricted) &#123;</span><br><span class="line">                <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">                    <span class="keyword">if</span> (completion) &#123;</span><br><span class="line">                        completion(<span class="literal">YES</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">                    [<span class="keyword">self</span> createAlertWithMessage:<span class="string">@"无线数据"</span>];</span><br><span class="line">                    <span class="keyword">if</span> (completion) &#123;</span><br><span class="line">                        completion(<span class="literal">NO</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (authState == kCTCellularDataNotRestricted)&#123;</span><br><span class="line">        <span class="keyword">if</span> (completion) &#123;</span><br><span class="line">            completion(<span class="literal">YES</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        [<span class="keyword">self</span> createAlertWithMessage:<span class="string">@"无线数据"</span>];</span><br><span class="line">        <span class="keyword">if</span> (completion) &#123;</span><br><span class="line">            completion(<span class="literal">NO</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>推送通知</li>
@@ -784,9 +784,9 @@
           
             <a href="/tags/EXP/" rel="tag"><i class="fa fa-tag"></i> EXP</a>
           
-            <a href="/tags/OC/" rel="tag"><i class="fa fa-tag"></i> OC</a>
-          
             <a href="/tags/Swift/" rel="tag"><i class="fa fa-tag"></i> Swift</a>
+          
+            <a href="/tags/OC/" rel="tag"><i class="fa fa-tag"></i> OC</a>
           
         </div>
       

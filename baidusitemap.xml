@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://kaaaaai.cn/articles/050.html</loc>
-    <lastmod>2018-12-06T10:43:21.302Z</lastmod>
+    <lastmod>2018-12-08T02:46:48.369Z</lastmod>
     <data>
         <display>
         <title>iOS - 权限、二维码、crash、热更新的技术调研</title>
@@ -13,9 +13,9 @@
         
         <tag>EXP</tag>
          
-        <tag>OC</tag>
-         
         <tag>Swift</tag>
+         
+        <tag>OC</tag>
          
          
            
@@ -303,38 +303,16 @@
 
     
   <url>
-    <loc>http://kaaaaai.cn/articles/tenthart.html</loc>
+    <loc>http://kaaaaai.cn/articles/seventeenthart.html</loc>
     <lastmod>2018-11-01T07:12:50.492Z</lastmod>
     <data>
         <display>
-        <title>无理猜想</title>
-        <pubTime>2017-07-24T13:59:19.000Z</pubTime>
+        <title>关于我和你的梦</title>
+        <pubTime>2017-12-13T13:00:52.000Z</pubTime>
         
         <tag>扯谈</tag>
          
         <tag>梦</tag>
-         
-         
-           
-             
-              <breadCrumb title="涂鸦" url="http://kaaaaai.cn/categories/%E6%B6%82%E9%B8%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://kaaaaai.cn/articles/sixteenart.html</loc>
-    <lastmod>2018-11-01T07:12:50.492Z</lastmod>
-    <data>
-        <display>
-        <title>傍晚</title>
-        <pubTime>2017-11-15T13:00:52.000Z</pubTime>
-        
-        <tag>短篇故事</tag>
-         
-        <tag>生活</tag>
          
          
            
@@ -367,16 +345,38 @@
 
     
   <url>
-    <loc>http://kaaaaai.cn/articles/seventeenthart.html</loc>
+    <loc>http://kaaaaai.cn/articles/tenthart.html</loc>
     <lastmod>2018-11-01T07:12:50.492Z</lastmod>
     <data>
         <display>
-        <title>关于我和你的梦</title>
-        <pubTime>2017-12-13T13:00:52.000Z</pubTime>
+        <title>无理猜想</title>
+        <pubTime>2017-07-24T13:59:19.000Z</pubTime>
         
         <tag>扯谈</tag>
          
         <tag>梦</tag>
+         
+         
+           
+             
+              <breadCrumb title="涂鸦" url="http://kaaaaai.cn/categories/%E6%B6%82%E9%B8%A6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://kaaaaai.cn/articles/sixteenart.html</loc>
+    <lastmod>2018-11-01T07:12:50.492Z</lastmod>
+    <data>
+        <display>
+        <title>傍晚</title>
+        <pubTime>2017-11-15T13:00:52.000Z</pubTime>
+        
+        <tag>短篇故事</tag>
+         
+        <tag>生活</tag>
          
          
            
@@ -652,9 +652,9 @@
         
         <tag>EXP</tag>
          
-        <tag>OC</tag>
-         
         <tag>Swift</tag>
+         
+        <tag>OC</tag>
          
          
            
@@ -759,21 +759,21 @@
 
     
   <url>
-    <loc>http://kaaaaai.cn/articles/037.html</loc>
+    <loc>http://kaaaaai.cn/articles/036.html</loc>
     <lastmod>2018-11-01T07:12:50.484Z</lastmod>
     <data>
         <display>
-        <title>在草房子外</title>
-        <pubTime>2018-08-23T10:00:52.000Z</pubTime>
+        <title>iOS - CocoaPods 和 Carthage 的比较</title>
+        <pubTime>2018-08-15T06:24:52.000Z</pubTime>
         
-        <tag>随笔</tag>
+        <tag>EXP</tag>
          
-        <tag>读后感</tag>
+        <tag>iOS</tag>
          
          
            
              
-              <breadCrumb title="涂鸦" url="http://kaaaaai.cn/categories/%E6%B6%82%E9%B8%A6/"/>
+              <breadCrumb title="笔记" url="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>
@@ -803,21 +803,21 @@
 
     
   <url>
-    <loc>http://kaaaaai.cn/articles/036.html</loc>
+    <loc>http://kaaaaai.cn/articles/037.html</loc>
     <lastmod>2018-11-01T07:12:50.484Z</lastmod>
     <data>
         <display>
-        <title>iOS - CocoaPods 和 Carthage 的比较</title>
-        <pubTime>2018-08-15T06:24:52.000Z</pubTime>
+        <title>在草房子外</title>
+        <pubTime>2018-08-23T10:00:52.000Z</pubTime>
         
-        <tag>EXP</tag>
+        <tag>随笔</tag>
          
-        <tag>iOS</tag>
+        <tag>读后感</tag>
          
          
            
              
-              <breadCrumb title="笔记" url="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+              <breadCrumb title="涂鸦" url="http://kaaaaai.cn/categories/%E6%B6%82%E9%B8%A6/"/>
           
         </display>
     </data>
@@ -847,16 +847,18 @@
 
     
   <url>
-    <loc>http://kaaaaai.cn/articles/032.html</loc>
+    <loc>http://kaaaaai.cn/articles/031.html</loc>
     <lastmod>2018-11-01T07:12:50.483Z</lastmod>
     <data>
         <display>
-        <title>和轮廓渐现的黑暗告别</title>
-        <pubTime>2018-07-19T13:00:52.000Z</pubTime>
+        <title>iOS 通过 NSData 流代码播放 PCM</title>
+        <pubTime>2018-07-19T09:00:52.000Z</pubTime>
         
-        <tag>读书笔记</tag>
+        <tag>EXP</tag>
          
-        <tag>外国现当代</tag>
+        <tag>iOS</tag>
+         
+        <tag>OC</tag>
          
          
            
@@ -915,18 +917,16 @@
 
     
   <url>
-    <loc>http://kaaaaai.cn/articles/031.html</loc>
+    <loc>http://kaaaaai.cn/articles/032.html</loc>
     <lastmod>2018-11-01T07:12:50.483Z</lastmod>
     <data>
         <display>
-        <title>iOS 通过 NSData 流代码播放 PCM</title>
-        <pubTime>2018-07-19T09:00:52.000Z</pubTime>
+        <title>和轮廓渐现的黑暗告别</title>
+        <pubTime>2018-07-19T13:00:52.000Z</pubTime>
         
-        <tag>EXP</tag>
+        <tag>读书笔记</tag>
          
-        <tag>iOS</tag>
-         
-        <tag>OC</tag>
+        <tag>外国现当代</tag>
          
          
            
@@ -1011,30 +1011,6 @@
 
     
   <url>
-    <loc>http://kaaaaai.cn/articles/024.html</loc>
-    <lastmod>2018-11-01T07:12:50.481Z</lastmod>
-    <data>
-        <display>
-        <title>Swift笔记 - 代理和闭包</title>
-        <pubTime>2018-06-06T13:00:52.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>iOS</tag>
-         
-        <tag>Swift</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://kaaaaai.cn/articles/023.html</loc>
     <lastmod>2018-11-01T07:12:50.481Z</lastmod>
     <data>
@@ -1052,6 +1028,30 @@
            
              
               <breadCrumb title="涂鸦" url="http://kaaaaai.cn/categories/%E6%B6%82%E9%B8%A6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://kaaaaai.cn/articles/024.html</loc>
+    <lastmod>2018-11-01T07:12:50.481Z</lastmod>
+    <data>
+        <display>
+        <title>Swift笔记 - 代理和闭包</title>
+        <pubTime>2018-06-06T13:00:52.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>iOS</tag>
+         
+        <tag>Swift</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>

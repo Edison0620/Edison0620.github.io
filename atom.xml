@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kaaaaai.cn/"/>
-  <updated>2018-12-06T10:43:21.302Z</updated>
+  <updated>2018-12-08T02:46:48.369Z</updated>
   <id>http://kaaaaai.cn/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://kaaaaai.cn/articles/050.html"/>
     <id>http://kaaaaai.cn/articles/050.html</id>
     <published>2018-12-06T12:24:52.000Z</published>
-    <updated>2018-12-06T10:43:21.302Z</updated>
+    <updated>2018-12-08T02:46:48.369Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="一、权限"><a href="#一、权限" class="headerlink" title="一、权限"></a>一、权限</h1><h2 id="1-info-plist-中可以请求的权限"><a href="#1-info-plist-中可以请求的权限" class="headerlink" title="1.info.plist 中可以请求的权限"></a>1.info.plist 中可以请求的权限</h2><ul>
 <li><strong>蓝牙</strong> - <code>NSBluetoothPeripheralUsageDescription</code> / <code>Bluetooth Peripheral Usage Description</code></li>
@@ -50,7 +50,7 @@
 <h2 id="2-其他"><a href="#2-其他" class="headerlink" title="2.其他"></a>2.其他</h2><ul>
 <li>联网</li>
 </ul>
-<p>导入#import <coretelephony ctcellulardata.h=""> //网络权限<br>说明:只能获取首次进入APP是否允许蜂窝网络权限,其实也可以不判断</coretelephony></p>
+<p>导入<code>#import &lt;CoreTelephony/CTCellularData.h&gt;</code>//网络权限<br>说明:只能获取首次进入APP是否允许蜂窝网络权限,其实也可以不判断</p>
 <figure class="highlight objectivec"><figcaption><span>Objective-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)getNetworkPermissions:(<span class="keyword">void</span> (^)(<span class="built_in">BOOL</span>))completion &#123;</span><br><span class="line">    <span class="built_in">CTCellularData</span> *cellularData = [[<span class="built_in">CTCellularData</span> alloc] init];</span><br><span class="line">    <span class="built_in">CTCellularDataRestrictedState</span> authState = cellularData.restrictedState;</span><br><span class="line">    <span class="keyword">if</span> (authState == kCTCellularDataRestrictedStateUnknown) &#123;</span><br><span class="line">        cellularData.cellularDataRestrictionDidUpdateNotifier = ^(<span class="built_in">CTCellularDataRestrictedState</span> state)&#123;</span><br><span class="line">            <span class="keyword">if</span> (state == kCTCellularDataNotRestricted) &#123;</span><br><span class="line">                <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">                    <span class="keyword">if</span> (completion) &#123;</span><br><span class="line">                        completion(<span class="literal">YES</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">                    [<span class="keyword">self</span> createAlertWithMessage:<span class="string">@"无线数据"</span>];</span><br><span class="line">                    <span class="keyword">if</span> (completion) &#123;</span><br><span class="line">                        completion(<span class="literal">NO</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (authState == kCTCellularDataNotRestricted)&#123;</span><br><span class="line">        <span class="keyword">if</span> (completion) &#123;</span><br><span class="line">            completion(<span class="literal">YES</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        [<span class="keyword">self</span> createAlertWithMessage:<span class="string">@"无线数据"</span>];</span><br><span class="line">        <span class="keyword">if</span> (completion) &#123;</span><br><span class="line">            completion(<span class="literal">NO</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>推送通知</li>
@@ -177,9 +177,9 @@
     
       <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
     
-      <category term="OC" scheme="http://kaaaaai.cn/tags/OC/"/>
-    
       <category term="Swift" scheme="http://kaaaaai.cn/tags/Swift/"/>
+    
+      <category term="OC" scheme="http://kaaaaai.cn/tags/OC/"/>
     
   </entry>
   
@@ -669,9 +669,9 @@ return @{
     
       <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
     
-      <category term="OC" scheme="http://kaaaaai.cn/tags/OC/"/>
-    
       <category term="Swift" scheme="http://kaaaaai.cn/tags/Swift/"/>
+    
+      <category term="OC" scheme="http://kaaaaai.cn/tags/OC/"/>
     
   </entry>
   
