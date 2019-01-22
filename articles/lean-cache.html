@@ -84,7 +84,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="kaaaaai, NexT,自我修炼,ios，android,书单，电影" />
+  <meta name="keywords" content="EXP,OC," />
 
 
 
@@ -102,16 +102,18 @@
 
 
 
-<meta name="description" content="我独自一人/照顾着/历代的星辰">
-<meta property="og:type" content="website">
-<meta property="og:title" content="壹拾肆">
-<meta property="og:url" content="http://kaaaaai.cn/tags/年度总结/index.html">
+<meta name="description" content="Cache Cache 提供了一个良好的公共 API，具有开箱即用的实现和出色的定制可能性。 Cache 利用 Swift 4中的 Codable 来执行序列化。 一、功能介绍 使用 Swift 4 Codable。符合 Codable 任何内容都将由 Storage 轻松保存和加载。 与内存和磁盘存储混合。 通过 DiskConfig 和 MemoryConfig 许多选项。 支持 expir">
+<meta name="keywords" content="EXP,OC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS - Cache 源码分析">
+<meta property="og:url" content="http://kaaaaai.cn/articles/lean-cache.html">
 <meta property="og:site_name" content="壹拾肆">
-<meta property="og:description" content="我独自一人/照顾着/历代的星辰">
+<meta property="og:description" content="Cache Cache 提供了一个良好的公共 API，具有开箱即用的实现和出色的定制可能性。 Cache 利用 Swift 4中的 Codable 来执行序列化。 一、功能介绍 使用 Swift 4 Codable。符合 Codable 任何内容都将由 Storage 轻松保存和加载。 与内存和磁盘存储混合。 通过 DiskConfig 和 MemoryConfig 许多选项。 支持 expir">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-22T08:49:34.811Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="壹拾肆">
-<meta name="twitter:description" content="我独自一人/照顾着/历代的星辰">
+<meta name="twitter:title" content="iOS - Cache 源码分析">
+<meta name="twitter:description" content="Cache Cache 提供了一个良好的公共 API，具有开箱即用的实现和出色的定制可能性。 Cache 利用 Swift 4中的 Codable 来执行序列化。 一、功能介绍 使用 Swift 4 Codable。符合 Codable 任何内容都将由 Storage 轻松保存和加载。 与内存和磁盘存储混合。 通过 DiskConfig 和 MemoryConfig 许多选项。 支持 expir">
 
 
 
@@ -139,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="http://kaaaaai.cn/tags/年度总结/"/>
+  <link rel="canonical" href="http://kaaaaai.cn/articles/lean-cache.html"/>
 
 
 
 
 
-  <title>标签: 年度总结 | 壹拾肆</title>
+  <title>iOS - Cache 源码分析 | 壹拾肆</title>
   
 
 
@@ -170,7 +172,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -452,72 +454,289 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2>年度总结<small>标签</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/articles/happy-new-year-2019.html" itemprop="url">
-              
-                <span itemprop="name">喘口气上来</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-12-31T18:00:52+08:00"
-              content="2018-12-31" >
-          12-31
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/articles/020.html" itemprop="url">
-              
-                <span itemprop="name">初入江湖的第一份报告</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-05T21:00:52+08:00"
-              content="2018-01-05" >
-          01-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </div>
 
   
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kaaaaai.cn/articles/lean-cache.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaaaaai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://os1i62usc.bkt.clouddn.com/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="壹拾肆">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">iOS - Cache 源码分析</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-22T20:24:52+08:00">
+                2019-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/articles/lean-cache.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="articles/lean-cache.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">热度
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>℃ |
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  1,104 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  5 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="Cache"><a href="#Cache" class="headerlink" title="Cache"></a>Cache</h1><p> Cache 提供了一个良好的公共 API，具有开箱即用的实现和出色的定制可能性。 Cache 利用 Swift 4中的 Codable 来执行序列化。</p>
+<h2 id="一、功能介绍"><a href="#一、功能介绍" class="headerlink" title="一、功能介绍"></a>一、功能介绍</h2><ul>
+<li>使用 Swift 4 Codable。符合 Codable 任何内容都将由 Storage 轻松保存和加载。</li>
+<li>与内存和磁盘存储混合。</li>
+<li>通过 DiskConfig 和 MemoryConfig 许多选项。</li>
+<li>支持 expiry 和清理过期的对象。</li>
+<li>线程安全。 可以从任何队列访问操作。</li>
+<li>默认情况下同步。 还支持异步 API。</li>
+<li>广泛的单元测试覆盖率和出色的文档。</li>
+<li>支持iOS，tvOS和macOS。</li>
+</ul>
+<h2 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h2><h3 id="CocoaPods"><a href="#CocoaPods" class="headerlink" title="CocoaPods"></a>CocoaPods</h3><p>在工程内 Podfile 文件中添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod&apos;Cache &apos;</span><br></pre></td></tr></table></figure>
+<h3 id="Carthage"><a href="#Carthage" class="headerlink" title="Carthage"></a>Carthage</h3><p>在工程内 Cartfile 文件中添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">github “ hyperoslo / Cache ”</span><br></pre></td></tr></table></figure>
+<p>您还需要在 copy-frameworks 脚本中添加 SwiftHash.framework 。</p>
+<h2 id="三、使用"><a href="#三、使用" class="headerlink" title="三、使用"></a>三、使用</h2><h3 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h3><p>Cache 是基于<a href="https://translate.googleusercontent.com/translate_c?act=url&amp;depth=1&amp;hl=zh-TW&amp;ie=UTF8&amp;prev=_t&amp;rurl=translate.google.com&amp;sl=en&amp;sp=nmt4&amp;tl=zh-CN&amp;u=https://en.wikipedia.org/wiki/Chain-of-responsibility_pattern&amp;xid=17259,15700023,15700124,15700149,15700186,15700190,15700201&amp;usg=ALkJrhgwipa-UMmtMil2WrwPT0byiuk2rg" target="_blank" rel="noopener">责任链模式</a>构建的，其中有许多处理对象，每个处理对象都知道如何执行 1 个任务并委托给下一个任务，因此您可以按照自己喜欢的方式编写存储。</p>
+<p>目前支持以下存储</p>
+<ul>
+<li>MemoryStorage ：将对象保存到内存。</li>
+<li>DiskStorage ：将对象保存到磁盘。</li>
+<li>HybridStorage ：将对象保存到内存和磁盘，因此您可以在磁盘上获得持久化对象，同时在内存对象中快速访问。</li>
+<li>SyncStorage ：阻塞API，所有读写操作都在串行队列中调度，所有同步方式。</li>
+<li>AsyncStorage ：非阻塞API，操作在内部队列中进行调度以进行串行处理。 不应该同时进行读写操作。</li>
+</ul>
+<p>虽然您可以自行决定使用这些存储，但您不必这样做。 因为我们还提供了一个方便的 Storage ，它使用了 HybridStorage ，同时通过 SyncStorage 和 AsyncStorage 公开同步和异步 API。</p>
+<p>您需要做的就是使用 DiskConfig 和 MemoryConfig 指定所需的配置。 默认配置很好，但您可以自定义很多。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> diskConfig = <span class="type">DiskConfig</span>(name: <span class="string">"Floppy"</span>)</span><br><span class="line"><span class="keyword">let</span> memoryConfig = <span class="type">MemoryConfig</span>(expiry: .never, countLimit: <span class="number">10</span>, totalCostLimit: <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> storage = <span class="keyword">try</span>? <span class="type">Storage</span>(</span><br><span class="line">  diskConfig: diskConfig,</span><br><span class="line">  memoryConfig: memoryConfig,</span><br><span class="line">  transformer: <span class="type">TransformerFactory</span>.forCodable(ofType: <span class="type">User</span>.<span class="keyword">self</span>) <span class="comment">// Storage&lt;User&gt;</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h3 id="同步API"><a href="#同步API" class="headerlink" title="同步API"></a>同步API</h3><p>Storage 默认是同步的并且是 thread safe ，您可以从任何队列访问它。 所有同步功能都受 StorageAware 协议的约束。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Save to storage</span></span><br><span class="line"><span class="keyword">try</span>? storage.setObject(<span class="number">10</span>, forKey: <span class="string">"score"</span>)</span><br><span class="line"><span class="keyword">try</span>? storage.setObject(<span class="string">"Oslo"</span>, forKey: <span class="string">"my favorite city"</span>, expiry: .never)</span><br><span class="line"><span class="keyword">try</span>? storage.setObject([<span class="string">"alert"</span>, <span class="string">"sounds"</span>, <span class="string">"badge"</span>], forKey: <span class="string">"notifications"</span>)</span><br><span class="line"><span class="keyword">try</span>? storage.setObject(data, forKey: <span class="string">"a bunch of bytes"</span>)</span><br><span class="line"><span class="keyword">try</span>? storage.setObject(authorizeURL, forKey: <span class="string">"authorization URL"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Load from storage</span></span><br><span class="line"><span class="keyword">let</span> score = <span class="keyword">try</span>? storage.object(forKey: <span class="string">"score"</span>)</span><br><span class="line"><span class="keyword">let</span> favoriteCharacter = <span class="keyword">try</span>? storage.object(forKey: <span class="string">"my favorite city"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Check if an object exists</span></span><br><span class="line"><span class="keyword">let</span> hasFavoriteCharacter = <span class="keyword">try</span>? storage.existsObject(forKey: <span class="string">"my favorite city"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Remove an object in storage</span></span><br><span class="line"><span class="keyword">try</span>? storage.removeObject(forKey: <span class="string">"my favorite city"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Remove all objects</span></span><br><span class="line"><span class="keyword">try</span>? storage.removeAll()</span><br><span class="line"></span><br><span class="line"><span class="comment">// Remove expired objects</span></span><br><span class="line"><span class="keyword">try</span>? storage.removeExpiredObjects()</span><br></pre></td></tr></table></figure>
+<h3 id="异步API"><a href="#异步API" class="headerlink" title="异步API"></a>异步API</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">storage.async.setObject(<span class="string">"Oslo"</span>, forKey: <span class="string">"my favorite city"</span>) &#123; result <span class="keyword">in</span></span><br><span class="line">  <span class="keyword">switch</span> result &#123;</span><br><span class="line">    <span class="keyword">case</span> .value:</span><br><span class="line">      <span class="built_in">print</span>(<span class="string">"saved successfully"</span>)</span><br><span class="line">    <span class="keyword">case</span> .error(<span class="keyword">let</span> error):</span><br><span class="line">      <span class="built_in">print</span>(error)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">storage.async.object(forKey: <span class="string">"my favorite city"</span>) &#123; result <span class="keyword">in</span></span><br><span class="line">  <span class="keyword">switch</span> result &#123;</span><br><span class="line">    <span class="keyword">case</span> .value(<span class="keyword">let</span> city):</span><br><span class="line">      <span class="built_in">print</span>(<span class="string">"my favorite city is \(city)"</span>)</span><br><span class="line">    <span class="keyword">case</span> .error(<span class="keyword">let</span> error):</span><br><span class="line">      <span class="built_in">print</span>(error)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">storage.async.existsObject(forKey: <span class="string">"my favorite city"</span>) &#123; result <span class="keyword">in</span></span><br><span class="line">  <span class="keyword">if</span> <span class="keyword">case</span> .value(<span class="keyword">let</span> exists) = result, exists &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"I have a favorite city"</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">storage.async.removeAll() &#123; result <span class="keyword">in</span></span><br><span class="line">  <span class="keyword">switch</span> result &#123;</span><br><span class="line">    <span class="keyword">case</span> .value:</span><br><span class="line">      <span class="built_in">print</span>(<span class="string">"removal completes"</span>)</span><br><span class="line">    <span class="keyword">case</span> .error(<span class="keyword">let</span> error):</span><br><span class="line">      <span class="built_in">print</span>(error)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">storage.async.removeExpiredObjects() &#123; result <span class="keyword">in</span></span><br><span class="line">  <span class="keyword">switch</span> result &#123;</span><br><span class="line">    <span class="keyword">case</span> .value:</span><br><span class="line">      <span class="built_in">print</span>(<span class="string">"removal completes"</span>)</span><br><span class="line">    <span class="keyword">case</span> .error(<span class="keyword">let</span> error):</span><br><span class="line">      <span class="built_in">print</span>(error)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="处理JSON响应"><a href="#处理JSON响应" class="headerlink" title="处理JSON响应"></a>处理JSON响应</h3><p>大多数情况下，我们的用例是从后端获取一些 json，在将 json 保存到存储器以供将来使用时显示它。 如果你使用像 Alamofire 或 Malibu 这样的库，你通常会以字典，字符串或数据的形式获得 json。</p>
+<p>Storage 可以持久化 String 或 Data。您甚至可以使用JSONArrayWrapper 和 JSONDictionaryWrapper 将 json 保存到 Storage ，但我们更喜欢保留强类型对象，因为这些是您将用于在 UI 中显示的对象。 此外，如果 json 数据无法转换为强类型对象，那么保存它的重点是什么？ </p>
+<p>您可以在 JSONDecoder 上使用这些扩展来将 json 字典，字符串或数据解码为对象。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user = <span class="type">JSONDecoder</span>.decode(jsonString, to: <span class="type">User</span>.<span class="keyword">self</span>)</span><br><span class="line"><span class="keyword">let</span> cities = <span class="type">JSONDecoder</span>.decode(jsonDictionary, to: [<span class="type">City</span>].<span class="keyword">self</span>)</span><br><span class="line"><span class="keyword">let</span> dragons = <span class="type">JSONDecoder</span>.decode(jsonData, to: [<span class="type">Dragon</span>].<span class="keyword">self</span>)</span><br></pre></td></tr></table></figure>
+<p>使用 Alamofire 执行对象转换和保存的 Alamofire</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Alamofire</span>.request(<span class="string">"https://gameofthrones.org/mostFavoriteCharacter"</span>).responseString &#123; response <span class="keyword">in</span></span><br><span class="line">  <span class="keyword">do</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> user = <span class="keyword">try</span> <span class="type">JSONDecoder</span>.decode(response.result.value, to: <span class="type">User</span>.<span class="keyword">self</span>)</span><br><span class="line">    <span class="keyword">try</span> storage.setObject(user, forKey: <span class="string">"most favorite character"</span>)</span><br><span class="line">  &#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(error)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------本文结束 <i class="fa fa-thermometer-three-quarters" aria-hidden="true"></i> 感谢阅读------</div>
+        <div>
+	    <p id="div-border-left-red">
+	   <b>本文地址：</b><a href="/articles/lean-cache.html" title="iOS - Cache 源码分析">http://kaaaaai.cn/articles/lean-cache.html</a><br/>
+	    <span>
+	    <b>本文基于<a target="_blank" title="Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)" href="http://creativecommons.org/licenses/by-sa/4.0/"> 知识共享署名-相同方式共享 4.0 </a>国际许可协议发布</b><br/><b>转载请注明出处，谢谢！</b>
+	    </span>
+	    </p>
+</div>
+    
+</div>
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>众筹项目：拯救世界！</br></div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://os1i62usc.bkt.clouddn.com/wechatpay.gif" alt="Kaaaaai WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+    
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/EXP/" rel="tag"><i class="fa fa-tag"></i> EXP</a>
+          
+            <a href="/tags/OC/" rel="tag"><i class="fa fa-tag"></i> OC</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/articles/swift-style-guide.html" rel="next" title="iOS - Swift 开发规范">
+                <i class="fa fa-chevron-left"></i> iOS - Swift 开发规范
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -525,6 +744,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -544,8 +774,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://os1i62usc.bkt.clouddn.com/head.jpg"
@@ -670,6 +909,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Cache"><span class="nav-text">Cache</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、功能介绍"><span class="nav-text">一、功能介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、安装"><span class="nav-text">二、安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CocoaPods"><span class="nav-text">CocoaPods</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Carthage"><span class="nav-text">Carthage</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、使用"><span class="nav-text">三、使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#存储"><span class="nav-text">存储</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#同步API"><span class="nav-text">同步API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异步API"><span class="nav-text">异步API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理JSON响应"><span class="nav-text">处理JSON响应</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -831,10 +1086,10 @@ show_date_time();
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 
@@ -852,6 +1107,18 @@ show_date_time();
       <script id="dsq-count-scr" src="https://kaaaaai-cn.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://kaaaaai.cn/articles/lean-cache.html';
+          this.page.identifier = 'articles/lean-cache.html';
+          this.page.title = 'iOS - Cache 源码分析';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://kaaaaai-cn.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kaaaaai.cn/"/>
-  <updated>2019-01-17T01:59:11.887Z</updated>
+  <updated>2019-01-22T08:49:34.811Z</updated>
   <id>http://kaaaaai.cn/</id>
   
   <author>
@@ -16,11 +16,72 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>iOS - Cache 源码分析</title>
+    <link href="http://kaaaaai.cn/articles/lean-cache.html"/>
+    <id>http://kaaaaai.cn/articles/lean-cache.html</id>
+    <published>2019-01-22T12:24:52.000Z</published>
+    <updated>2019-01-22T08:49:34.811Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="Cache"><a href="#Cache" class="headerlink" title="Cache"></a>Cache</h1><p> Cache 提供了一个良好的公共 API，具有开箱即用的实现和出色的定制可能性。 Cache 利用 Swift 4中的 Codable 来执行序列化。</p>
+<h2 id="一、功能介绍"><a href="#一、功能介绍" class="headerlink" title="一、功能介绍"></a>一、功能介绍</h2><ul>
+<li>使用 Swift 4 Codable。符合 Codable 任何内容都将由 Storage 轻松保存和加载。</li>
+<li>与内存和磁盘存储混合。</li>
+<li>通过 DiskConfig 和 MemoryConfig 许多选项。</li>
+<li>支持 expiry 和清理过期的对象。</li>
+<li>线程安全。 可以从任何队列访问操作。</li>
+<li>默认情况下同步。 还支持异步 API。</li>
+<li>广泛的单元测试覆盖率和出色的文档。</li>
+<li>支持iOS，tvOS和macOS。</li>
+</ul>
+<h2 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h2><h3 id="CocoaPods"><a href="#CocoaPods" class="headerlink" title="CocoaPods"></a>CocoaPods</h3><p>在工程内 Podfile 文件中添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod&apos;Cache &apos;</span><br></pre></td></tr></table></figure>
+<h3 id="Carthage"><a href="#Carthage" class="headerlink" title="Carthage"></a>Carthage</h3><p>在工程内 Cartfile 文件中添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">github “ hyperoslo / Cache ”</span><br></pre></td></tr></table></figure>
+<p>您还需要在 copy-frameworks 脚本中添加 SwiftHash.framework 。</p>
+<h2 id="三、使用"><a href="#三、使用" class="headerlink" title="三、使用"></a>三、使用</h2><h3 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h3><p>Cache 是基于<a href="https://translate.googleusercontent.com/translate_c?act=url&amp;depth=1&amp;hl=zh-TW&amp;ie=UTF8&amp;prev=_t&amp;rurl=translate.google.com&amp;sl=en&amp;sp=nmt4&amp;tl=zh-CN&amp;u=https://en.wikipedia.org/wiki/Chain-of-responsibility_pattern&amp;xid=17259,15700023,15700124,15700149,15700186,15700190,15700201&amp;usg=ALkJrhgwipa-UMmtMil2WrwPT0byiuk2rg" target="_blank" rel="noopener">责任链模式</a>构建的，其中有许多处理对象，每个处理对象都知道如何执行 1 个任务并委托给下一个任务，因此您可以按照自己喜欢的方式编写存储。</p>
+<p>目前支持以下存储</p>
+<ul>
+<li>MemoryStorage ：将对象保存到内存。</li>
+<li>DiskStorage ：将对象保存到磁盘。</li>
+<li>HybridStorage ：将对象保存到内存和磁盘，因此您可以在磁盘上获得持久化对象，同时在内存对象中快速访问。</li>
+<li>SyncStorage ：阻塞API，所有读写操作都在串行队列中调度，所有同步方式。</li>
+<li>AsyncStorage ：非阻塞API，操作在内部队列中进行调度以进行串行处理。 不应该同时进行读写操作。</li>
+</ul>
+<p>虽然您可以自行决定使用这些存储，但您不必这样做。 因为我们还提供了一个方便的 Storage ，它使用了 HybridStorage ，同时通过 SyncStorage 和 AsyncStorage 公开同步和异步 API。</p>
+<p>您需要做的就是使用 DiskConfig 和 MemoryConfig 指定所需的配置。 默认配置很好，但您可以自定义很多。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> diskConfig = <span class="type">DiskConfig</span>(name: <span class="string">"Floppy"</span>)</span><br><span class="line"><span class="keyword">let</span> memoryConfig = <span class="type">MemoryConfig</span>(expiry: .never, countLimit: <span class="number">10</span>, totalCostLimit: <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> storage = <span class="keyword">try</span>? <span class="type">Storage</span>(</span><br><span class="line">  diskConfig: diskConfig,</span><br><span class="line">  memoryConfig: memoryConfig,</span><br><span class="line">  transformer: <span class="type">TransformerFactory</span>.forCodable(ofType: <span class="type">User</span>.<span class="keyword">self</span>) <span class="comment">// Storage&lt;User&gt;</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h3 id="同步API"><a href="#同步API" class="headerlink" title="同步API"></a>同步API</h3><p>Storage 默认是同步的并且是 thread safe ，您可以从任何队列访问它。 所有同步功能都受 StorageAware 协议的约束。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Save to storage</span></span><br><span class="line"><span class="keyword">try</span>? storage.setObject(<span class="number">10</span>, forKey: <span class="string">"score"</span>)</span><br><span class="line"><span class="keyword">try</span>? storage.setObject(<span class="string">"Oslo"</span>, forKey: <span class="string">"my favorite city"</span>, expiry: .never)</span><br><span class="line"><span class="keyword">try</span>? storage.setObject([<span class="string">"alert"</span>, <span class="string">"sounds"</span>, <span class="string">"badge"</span>], forKey: <span class="string">"notifications"</span>)</span><br><span class="line"><span class="keyword">try</span>? storage.setObject(data, forKey: <span class="string">"a bunch of bytes"</span>)</span><br><span class="line"><span class="keyword">try</span>? storage.setObject(authorizeURL, forKey: <span class="string">"authorization URL"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Load from storage</span></span><br><span class="line"><span class="keyword">let</span> score = <span class="keyword">try</span>? storage.object(forKey: <span class="string">"score"</span>)</span><br><span class="line"><span class="keyword">let</span> favoriteCharacter = <span class="keyword">try</span>? storage.object(forKey: <span class="string">"my favorite city"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Check if an object exists</span></span><br><span class="line"><span class="keyword">let</span> hasFavoriteCharacter = <span class="keyword">try</span>? storage.existsObject(forKey: <span class="string">"my favorite city"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Remove an object in storage</span></span><br><span class="line"><span class="keyword">try</span>? storage.removeObject(forKey: <span class="string">"my favorite city"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Remove all objects</span></span><br><span class="line"><span class="keyword">try</span>? storage.removeAll()</span><br><span class="line"></span><br><span class="line"><span class="comment">// Remove expired objects</span></span><br><span class="line"><span class="keyword">try</span>? storage.removeExpiredObjects()</span><br></pre></td></tr></table></figure>
+<h3 id="异步API"><a href="#异步API" class="headerlink" title="异步API"></a>异步API</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">storage.async.setObject(<span class="string">"Oslo"</span>, forKey: <span class="string">"my favorite city"</span>) &#123; result <span class="keyword">in</span></span><br><span class="line">  <span class="keyword">switch</span> result &#123;</span><br><span class="line">    <span class="keyword">case</span> .value:</span><br><span class="line">      <span class="built_in">print</span>(<span class="string">"saved successfully"</span>)</span><br><span class="line">    <span class="keyword">case</span> .error(<span class="keyword">let</span> error):</span><br><span class="line">      <span class="built_in">print</span>(error)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">storage.async.object(forKey: <span class="string">"my favorite city"</span>) &#123; result <span class="keyword">in</span></span><br><span class="line">  <span class="keyword">switch</span> result &#123;</span><br><span class="line">    <span class="keyword">case</span> .value(<span class="keyword">let</span> city):</span><br><span class="line">      <span class="built_in">print</span>(<span class="string">"my favorite city is \(city)"</span>)</span><br><span class="line">    <span class="keyword">case</span> .error(<span class="keyword">let</span> error):</span><br><span class="line">      <span class="built_in">print</span>(error)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">storage.async.existsObject(forKey: <span class="string">"my favorite city"</span>) &#123; result <span class="keyword">in</span></span><br><span class="line">  <span class="keyword">if</span> <span class="keyword">case</span> .value(<span class="keyword">let</span> exists) = result, exists &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"I have a favorite city"</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">storage.async.removeAll() &#123; result <span class="keyword">in</span></span><br><span class="line">  <span class="keyword">switch</span> result &#123;</span><br><span class="line">    <span class="keyword">case</span> .value:</span><br><span class="line">      <span class="built_in">print</span>(<span class="string">"removal completes"</span>)</span><br><span class="line">    <span class="keyword">case</span> .error(<span class="keyword">let</span> error):</span><br><span class="line">      <span class="built_in">print</span>(error)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">storage.async.removeExpiredObjects() &#123; result <span class="keyword">in</span></span><br><span class="line">  <span class="keyword">switch</span> result &#123;</span><br><span class="line">    <span class="keyword">case</span> .value:</span><br><span class="line">      <span class="built_in">print</span>(<span class="string">"removal completes"</span>)</span><br><span class="line">    <span class="keyword">case</span> .error(<span class="keyword">let</span> error):</span><br><span class="line">      <span class="built_in">print</span>(error)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="处理JSON响应"><a href="#处理JSON响应" class="headerlink" title="处理JSON响应"></a>处理JSON响应</h3><p>大多数情况下，我们的用例是从后端获取一些 json，在将 json 保存到存储器以供将来使用时显示它。 如果你使用像 Alamofire 或 Malibu 这样的库，你通常会以字典，字符串或数据的形式获得 json。</p>
+<p>Storage 可以持久化 String 或 Data。您甚至可以使用JSONArrayWrapper 和 JSONDictionaryWrapper 将 json 保存到 Storage ，但我们更喜欢保留强类型对象，因为这些是您将用于在 UI 中显示的对象。 此外，如果 json 数据无法转换为强类型对象，那么保存它的重点是什么？ </p>
+<p>您可以在 JSONDecoder 上使用这些扩展来将 json 字典，字符串或数据解码为对象。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user = <span class="type">JSONDecoder</span>.decode(jsonString, to: <span class="type">User</span>.<span class="keyword">self</span>)</span><br><span class="line"><span class="keyword">let</span> cities = <span class="type">JSONDecoder</span>.decode(jsonDictionary, to: [<span class="type">City</span>].<span class="keyword">self</span>)</span><br><span class="line"><span class="keyword">let</span> dragons = <span class="type">JSONDecoder</span>.decode(jsonData, to: [<span class="type">Dragon</span>].<span class="keyword">self</span>)</span><br></pre></td></tr></table></figure>
+<p>使用 Alamofire 执行对象转换和保存的 Alamofire</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Alamofire</span>.request(<span class="string">"https://gameofthrones.org/mostFavoriteCharacter"</span>).responseString &#123; response <span class="keyword">in</span></span><br><span class="line">  <span class="keyword">do</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> user = <span class="keyword">try</span> <span class="type">JSONDecoder</span>.decode(response.result.value, to: <span class="type">User</span>.<span class="keyword">self</span>)</span><br><span class="line">    <span class="keyword">try</span> storage.setObject(user, forKey: <span class="string">"most favorite character"</span>)</span><br><span class="line">  &#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(error)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
+    
+      <category term="OC" scheme="http://kaaaaai.cn/tags/OC/"/>
+    
+  </entry>
+  
+  <entry>
     <title>iOS - Swift 开发规范</title>
     <link href="http://kaaaaai.cn/articles/swift-style-guide.html"/>
     <id>http://kaaaaai.cn/articles/swift-style-guide.html</id>
     <published>2019-01-16T12:24:52.000Z</published>
-    <updated>2019-01-17T01:59:11.887Z</updated>
+    <updated>2019-01-22T07:06:37.882Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><strong><em>规范文档翻译自 <a href="https://github.com/raywenderlich/swift-style-guide" target="_blank" rel="noopener">raywenderlich.com 的编码规范</a></em></strong></p>
 <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
@@ -317,6 +378,8 @@
     
     </summary>
     
+      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
     
       <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
     
@@ -359,7 +422,7 @@
     <link href="http://kaaaaai.cn/articles/objective-c-style-guide.html"/>
     <id>http://kaaaaai.cn/articles/objective-c-style-guide.html</id>
     <published>2018-12-29T12:24:52.000Z</published>
-    <updated>2019-01-09T06:46:28.965Z</updated>
+    <updated>2019-01-22T07:06:37.896Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><strong><em>规范文档翻译自 <a href="https://github.com/raywenderlich/objective-c-style-guide" target="_blank" rel="noopener">raywenderlich.com 的编码规范</a></em></strong></p>
 <h2 id="语言"><a href="#语言" class="headerlink" title="语言"></a>语言</h2><p>应该使用US英语.</p>
@@ -526,6 +589,8 @@
     
     </summary>
     
+      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
     
       <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
     
@@ -577,7 +642,7 @@
     <link href="http://kaaaaai.cn/articles/050.html"/>
     <id>http://kaaaaai.cn/articles/050.html</id>
     <published>2018-12-06T12:24:52.000Z</published>
-    <updated>2018-12-08T02:50:25.000Z</updated>
+    <updated>2019-01-22T07:06:37.906Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="一、权限"><a href="#一、权限" class="headerlink" title="一、权限"></a>一、权限</h1><h2 id="1-info-plist-中可以请求的权限"><a href="#1-info-plist-中可以请求的权限" class="headerlink" title="1.info.plist 中可以请求的权限"></a>1.info.plist 中可以请求的权限</h2><ul>
 <li><strong>蓝牙</strong> - <code>NSBluetoothPeripheralUsageDescription</code> / <code>Bluetooth Peripheral Usage Description</code></li>
@@ -730,6 +795,8 @@
       &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
     
     </summary>
+    
+      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
       <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
@@ -1686,31 +1753,6 @@ return @{
       <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
     
       <category term="iOS" scheme="http://kaaaaai.cn/tags/iOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>唯“鸭嘴兽”主义哲学</title>
-    <link href="http://kaaaaai.cn/articles/035.html"/>
-    <id>http://kaaaaai.cn/articles/035.html</id>
-    <published>2018-08-07T10:00:52.000Z</published>
-    <updated>2018-12-03T03:19:40.365Z</updated>
-    
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　A：”就站在比较正的三观上来说，每个人有权利选择自己的生活方式。你每天上网无所事事做咸鱼，我每天上班为生活疲于奔命，其实没什么优劣之分，只是做了不同的选择而已。但我还是想问，这一切的意义在哪里，你的人生的意义在哪，人生需要意义吗？”<br>　　B：“我都打算出家当和尚的人，你就别问我人生意义了。你觉得你的人生意义又是什么？”<br>　　A：“就以前和你讲过的那样，呆在山脚下，就觉得应该上山看看，以后和人说知足常乐这几个字，不会显得那么没底气。”<br>　　B：“如果你现在死了，你会觉得遗憾吗？”<br>　　A：“不会吧。”<br>　　B：“嗯？”<br>　　A：“我又不是处！”<br>　　B：“去你妈的。我觉得我不会遗憾，虽然很多东西都没吃到，很多地方都没去过，但我觉得我过得挺开心的。”<br>　　A：“我想我也不会遗憾吧。主要是遗憾没什么用，如果必须死的话，说不定我还不会遗憾，我会试图说服自己接受去死，毕竟有那么多宗教，可以信信来生啊什么的。这一点上我还是比较犬儒的。”<br>　　……<br>　　A：“其实我们现在说的想的，什么精神啊思想的，早就有人这么说过做过了，我们只是在不断地重复而已。”<br>　　B：“是吗，那你说，我们要怎样才可以不重复啊？”<br>　　A：“怎样都会重复的，所以学哲学家说空话是没什么用的，只有德先生和赛先生才可以拯救世界。”<br>　　<br>　　和朋友进行了一次一棒子打死哲学家的谈话之后，非常打脸的，我看完了一本谈论哲学的书，《柏拉图和鸭嘴兽一起去酒吧》。<br>　　人们普遍对哲学的印象是深奥，拗口，诡辩，对哲学家的印象是严肃，爱钻牛角尖，动不动就因为想不明白终极问题去自杀。但这本书则完全推翻了那些刻板印象，他展示了一个有趣生动的哲学，甚至还非常接地气的说了一连串的荤段子。可能他不是第一个想到把严肃的事变得轻松甚至荒诞的人，但在哲学这个体系他应该是第一个说女人像鲜花的人，他向人们展示了一种把哲学的严肃稀释掉的可能。<br>　　这本书结合笑话向读者构建了一个微小的哲学体系，就像一个颇负盛名的苍蝇馆，菜单可能不够丰富和精致，但剑走偏锋还能做出地道的美食这点，就值得让人竖起拇指称赞。对这本书的结论是，不懂哲学的，适合看， 懂哲学的，更适合看。能让外行人看热闹，内行人看门道，也是这本书出彩的一个地方，好的东西不一定都能雅俗共赏，但能雅俗共赏的一定是好的东西。<br>　　书以外的，有一个不算正确甚至可能是用力过度的想法是，除了悲剧会刻意用喜剧的外壳包装和喜剧的样子本来就是喜剧（不谈内核）以外，其他的各种事物，他们的样子应当是他们本来的样子，历史应当庄重，哲学应当严肃，笑话固然好看，但把所有的事都用笑话包装起来却不一定是好事。不只是这一个点，从许多事上似乎可以看到这种趋势：人们热衷于创造和接受把严肃的事物讲成一个笑话，在心里不放下任何一种庄重的情感。这是不是意味着我们已经在各个方面向《娱乐至死》里所描写的世界迈进了?<br>　　用力过度的想法以外的，用哲学的理论来看，这个想法完全符合因为一个错误的观点得出正确的结论，所以让观点看起来也像正确的。这在哲学上叫 Affirming the Consequent，肯定结果的谬误。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
-    
-    </summary>
-    
-      <category term="涂鸦" scheme="http://kaaaaai.cn/categories/%E6%B6%82%E9%B8%A6/"/>
-    
-    
-      <category term="随笔" scheme="http://kaaaaai.cn/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-      <category term="读后感" scheme="http://kaaaaai.cn/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/"/>
     
   </entry>
   
