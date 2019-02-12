@@ -111,7 +111,7 @@
 <meta property="og:description" content="因为某天坐地铁的时候忽然想到《黑衣人3》的结尾，因为特工 J 吃饭给了小费而避免了彗星撞击地球导致世界毁灭的蝴蝶效应现象。忽然想起第二部好像没看过，就抽空看了一下。　　　　在还没拍成电影之前，他还是一部动画片，记得以前在 CCTV 1 套每天下午播放，每天两集，但因为每次都在放学前就开始放了，所以导致我都只能看一集半，不过即使这样也无法阻止我当时对他的热爱。虽然现在关于动画的剧情已经忘记大半">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://s1.ax1x.com/2018/11/29/FeugbV.jpg">
-<meta property="og:updated_time" content="2018-11-30T08:38:38.634Z">
+<meta property="og:updated_time" content="2018-11-30T08:38:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="老派科幻">
 <meta name="twitter:description" content="因为某天坐地铁的时候忽然想到《黑衣人3》的结尾，因为特工 J 吃饭给了小费而避免了彗星撞击地球导致世界毁灭的蝴蝶效应现象。忽然想起第二部好像没看过，就抽空看了一下。　　　　在还没拍成电影之前，他还是一部动画片，记得以前在 CCTV 1 套每天下午播放，每天两集，但因为每次都在放学前就开始放了，所以导致我都只能看一集半，不过即使这样也无法阻止我当时对他的热爱。虽然现在关于动画的剧情已经忘记大半">
@@ -129,7 +129,7 @@
     motion: true,
     duoshuo: {
       userId: '0',
-      author: '博主'
+      author: 'author'
     },
     algolia: {
       applicationID: '',
@@ -215,7 +215,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            首页
+            menu.home
           </a>
         </li>
       
@@ -225,7 +225,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            归档
+            menu.archives
           </a>
         </li>
       
@@ -235,7 +235,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-coffee"></i> <br />
             
-            须弥
+            menu.xumi
           </a>
         </li>
       
@@ -245,7 +245,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            关于
+            menu.about
           </a>
         </li>
       
@@ -258,7 +258,7 @@
             
               <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
-            搜索
+            menu.search
           </a>
         </li>
       
@@ -432,7 +432,7 @@
     </span>
     <div class="local-search-input-wrapper">
       <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
+             placeholder="search.placeholder" spellcheck="false"
              type="text" id="local-search-input">
     </div>
   </div>
@@ -493,9 +493,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">post.posted</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-29T20:00:52+08:00">
+              <time title="post.created" itemprop="dateCreated datePublished" datetime="2018-11-29T20:00:52+08:00">
                 2018-11-29
               </time>
             
@@ -514,7 +514,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">post.in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -562,9 +562,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计</span>
+                  <span class="post-meta-item-text">post.wordcount</span>
                 
-                <span title="字数统计">
+                <span title="post.wordcount">
                   821 字
                 </span>
               
@@ -578,9 +578,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长</span>
+                  <span class="post-meta-item-text">post.min2read</span>
                 
-                <span title="阅读时长">
+                <span title="post.min2read">
                   3 分钟
                 </span>
               
@@ -769,7 +769,7 @@
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
                 <span class="site-state-item-count">56</span>
-                <span class="site-state-item-name">日志</span>
+                <span class="site-state-item-name">state.posts</span>
               </a>
             </div>
           
@@ -780,7 +780,7 @@
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
                 <span class="site-state-item-count">3</span>
-                <span class="site-state-item-name">分类</span>
+                <span class="site-state-item-name">state.categories</span>
               </a>
             </div>
           
@@ -791,7 +791,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
                 <span class="site-state-item-count">37</span>
-                <span class="site-state-item-name">标签</span>
+                <span class="site-state-item-name">state.tags</span>
               </a>
             </div>
           
@@ -1453,18 +1453,33 @@ show_date_time();
  <!--崩溃欺骗-->
 <script type="text/javascript" src="/js/src/makeajoke.js"></script>
 
-    <script type="text/javascript" src="/live2d/script.js"></script>
-    <canvas id="live2dcanvas" width="150" height="300" class="live2d"></canvas>
-    <style>
-      #live2dcanvas {
-        position: fixed;
-        right: 0px;
-        z-index: 999;
-        pointer-events: none;
-        bottom: -20px;
-      }
-    </style>
-    <script>loadlive2d("live2dcanvas" ,"/live2d/assets/hijiki/hijiki.model.json")</script>
-  
+<div id="hexo-helper-live2d">
+  <canvas id="live2dcanvas" width="150" height="300"></canvas>
+</div>
+<style>
+  #live2dcanvas{
+    position: fixed;
+    width: 150px;
+    height: 300px;
+    opacity:0.7;
+    right: 0px;
+    z-index: 999;
+    pointer-events: none;
+    bottom: -20px;
+  }
+</style>
+<script type="text/javascript" src="/live2d/device.min.js"></script>
+<script type="text/javascript">
+const loadScript = function loadScript(c,b){var a=document.createElement("script");a.type="text/javascript";"undefined"!=typeof b&&(a.readyState?a.onreadystatechange=function(){if("loaded"==a.readyState||"complete"==a.readyState)a.onreadystatechange=null,b()}:a.onload=function(){b()});a.src=c;document.body.appendChild(a)};
+(function(){
+  if((typeof(device) != 'undefined') && (device.mobile())){
+    document.getElementById("live2dcanvas").style.width = '75px';
+    document.getElementById("live2dcanvas").style.height = '150px';
+  }else
+    if (typeof(device) === 'undefined') console.error('Cannot find current-device script.');
+  loadScript("/live2d/script.js", function(){loadlive2d("live2dcanvas", "/live2d/assets/hijiki.model.json", 0.5);});
+})();
+</script>
+
 </body>
 </html>

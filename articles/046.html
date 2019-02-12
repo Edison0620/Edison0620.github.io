@@ -114,7 +114,7 @@
 <meta property="og:image" content="http://kaaaaai.cn/pics/request_start.png">
 <meta property="og:image" content="http://kaaaaai.cn/pics/new.png">
 <meta property="og:image" content="http://kaaaaai.cn/pics/iOS网络请求库UML.png">
-<meta property="og:updated_time" content="2018-11-12T04:33:13.831Z">
+<meta property="og:updated_time" content="2018-11-12T04:33:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS - YTKNetwork 日志框架源码分析">
 <meta name="twitter:description" content="1. 功能介绍1.1 YTKNetworkYTKNetwork 基于 AFNetWorking 封装的一个网络请求库，相比 AFNetworking，YTKNetwork 提供了以下更高级的功能:      支持按时间缓存网络请求内容 支持按版本号缓存网络请求内容 支持统一设置服务器和 CDN 的地址 支持检查返回 JSON 内容的合法性 支持文件的断点续传 支持 block 和 delegat">
@@ -132,7 +132,7 @@
     motion: true,
     duoshuo: {
       userId: '0',
-      author: '博主'
+      author: 'author'
     },
     algolia: {
       applicationID: '',
@@ -218,7 +218,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            首页
+            menu.home
           </a>
         </li>
       
@@ -228,7 +228,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            归档
+            menu.archives
           </a>
         </li>
       
@@ -238,7 +238,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-coffee"></i> <br />
             
-            须弥
+            menu.xumi
           </a>
         </li>
       
@@ -248,7 +248,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            关于
+            menu.about
           </a>
         </li>
       
@@ -261,7 +261,7 @@
             
               <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
-            搜索
+            menu.search
           </a>
         </li>
       
@@ -435,7 +435,7 @@
     </span>
     <div class="local-search-input-wrapper">
       <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
+             placeholder="search.placeholder" spellcheck="false"
              type="text" id="local-search-input">
     </div>
   </div>
@@ -496,9 +496,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">post.posted</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-12T15:24:52+08:00">
+              <time title="post.created" itemprop="dateCreated datePublished" datetime="2018-11-12T15:24:52+08:00">
                 2018-11-12
               </time>
             
@@ -517,7 +517,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">post.in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -565,9 +565,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计</span>
+                  <span class="post-meta-item-text">post.wordcount</span>
                 
-                <span title="字数统计">
+                <span title="post.wordcount">
                   8,226 字
                 </span>
               
@@ -581,9 +581,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长</span>
+                  <span class="post-meta-item-text">post.min2read</span>
                 
-                <span title="阅读时长">
+                <span title="post.min2read">
                   37 分钟
                 </span>
               
@@ -905,10 +905,10 @@ return @{
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
+            sidebar.toc
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
+            sidebar.overview
           </li>
         </ul>
       
@@ -930,7 +930,7 @@ return @{
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
                 <span class="site-state-item-count">56</span>
-                <span class="site-state-item-name">日志</span>
+                <span class="site-state-item-name">state.posts</span>
               </a>
             </div>
           
@@ -941,7 +941,7 @@ return @{
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
                 <span class="site-state-item-count">3</span>
-                <span class="site-state-item-name">分类</span>
+                <span class="site-state-item-name">state.categories</span>
               </a>
             </div>
           
@@ -952,7 +952,7 @@ return @{
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
                 <span class="site-state-item-count">37</span>
-                <span class="site-state-item-name">标签</span>
+                <span class="site-state-item-name">state.tags</span>
               </a>
             </div>
           
@@ -1630,18 +1630,33 @@ show_date_time();
  <!--崩溃欺骗-->
 <script type="text/javascript" src="/js/src/makeajoke.js"></script>
 
-    <script type="text/javascript" src="/live2d/script.js"></script>
-    <canvas id="live2dcanvas" width="150" height="300" class="live2d"></canvas>
-    <style>
-      #live2dcanvas {
-        position: fixed;
-        right: 0px;
-        z-index: 999;
-        pointer-events: none;
-        bottom: -20px;
-      }
-    </style>
-    <script>loadlive2d("live2dcanvas" ,"/live2d/assets/hijiki/hijiki.model.json")</script>
-  
+<div id="hexo-helper-live2d">
+  <canvas id="live2dcanvas" width="150" height="300"></canvas>
+</div>
+<style>
+  #live2dcanvas{
+    position: fixed;
+    width: 150px;
+    height: 300px;
+    opacity:0.7;
+    right: 0px;
+    z-index: 999;
+    pointer-events: none;
+    bottom: -20px;
+  }
+</style>
+<script type="text/javascript" src="/live2d/device.min.js"></script>
+<script type="text/javascript">
+const loadScript = function loadScript(c,b){var a=document.createElement("script");a.type="text/javascript";"undefined"!=typeof b&&(a.readyState?a.onreadystatechange=function(){if("loaded"==a.readyState||"complete"==a.readyState)a.onreadystatechange=null,b()}:a.onload=function(){b()});a.src=c;document.body.appendChild(a)};
+(function(){
+  if((typeof(device) != 'undefined') && (device.mobile())){
+    document.getElementById("live2dcanvas").style.width = '75px';
+    document.getElementById("live2dcanvas").style.height = '150px';
+  }else
+    if (typeof(device) === 'undefined') console.error('Cannot find current-device script.');
+  loadScript("/live2d/script.js", function(){loadlive2d("live2dcanvas", "/live2d/assets/hijiki.model.json", 0.5);});
+})();
+</script>
+
 </body>
 </html>

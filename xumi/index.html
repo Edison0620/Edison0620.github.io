@@ -263,7 +263,7 @@
 <meta property="og:image" content="http://ou60pw5k0.bkt.clouddn.com/p511118051.jpg">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
 <meta property="og:image" content="http://ou60pw5k0.bkt.clouddn.com/p480747492.jpg">
-<meta property="og:updated_time" content="2018-11-01T07:12:50.495Z">
+<meta property="og:updated_time" content="2018-11-01T07:12:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="干杯~">
 <meta name="twitter:description" content="为了所有毫无意义的事物   			 			 				var options = {&quot;narrow&quot;:false,&quot;autoplay&quot;:true,&quot;showlrc&quot;:3,&quot;mode&quot;:&quot;random&quot;,&quot;music&quot;:[{&quot;title&quot;:&quot;The Rain&quot;,&quot;author&quot;:&quot;久石让&quot;,&quot;url&quot;:&quot;http://osm7cxvrb.bkt.clouddn.com/%E4%B9%85%E7%9F">
@@ -281,7 +281,7 @@
     motion: true,
     duoshuo: {
       userId: '0',
-      author: '博主'
+      author: 'author'
     },
     algolia: {
       applicationID: '',
@@ -367,7 +367,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            首页
+            menu.home
           </a>
         </li>
       
@@ -377,7 +377,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            归档
+            menu.archives
           </a>
         </li>
       
@@ -387,7 +387,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-coffee"></i> <br />
             
-            须弥
+            menu.xumi
           </a>
         </li>
       
@@ -397,7 +397,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            关于
+            menu.about
           </a>
         </li>
       
@@ -410,7 +410,7 @@
             
               <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
-            搜索
+            menu.search
           </a>
         </li>
       
@@ -584,7 +584,7 @@
     </span>
     <div class="local-search-input-wrapper">
       <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
+             placeholder="search.placeholder" spellcheck="false"
              type="text" id="local-search-input">
     </div>
   </div>
@@ -626,7 +626,9 @@
 			<script>
 				var options = {"narrow":false,"autoplay":true,"showlrc":3,"mode":"random","music":[{"title":"The Rain","author":"久石让","url":"http://osm7cxvrb.bkt.clouddn.com/%E4%B9%85%E7%9F%B3%E8%AD%B2%20-%20The%20Rain.mp3","pic":"http://osm7cxvrb.bkt.clouddn.com/45079976764271.jpg"},{"title":"一生所爱","author":"卢冠廷","url":"http://osm7cxvrb.bkt.clouddn.com/%E4%B8%80%E7%94%9F%E6%89%80%E7%88%B1.mp3","pic":"http://osm7cxvrb.bkt.clouddn.com/6634453162971822.jpg"},{"title":"六月船歌","author":"Various Artists","url":"http://osm7cxvrb.bkt.clouddn.com/Various%20Artists%20-%20Tschaikovsky%20%E6%9F%B4%E5%8F%AF%E5%A4%AB%E6%96%AF%E5%9F%BA%EF%BC%9AJune%20Barcarolle%20Op.37%20No.6%20%E5%85%AD%E6%9C%88%E8%88%B9%E6%AD%8C.mp3","pic":"http://osm7cxvrb.bkt.clouddn.com/2528876746537480.jpg"},{"title":"情人的眼泪","author":"姚苏蓉","url":"http://osm7cxvrb.bkt.clouddn.com/%E5%A7%9A%E8%8B%8F%E8%93%89%20-%20%E6%83%85%E4%BA%BA%E7%9A%84%E7%9C%BC%E6%B3%AA.mp3","pic":"http://osm7cxvrb.bkt.clouddn.com/84662395351539.jpg"},{"title":"I Wanna Be Free","author":"The Monkees","url":"http://osm7cxvrb.bkt.clouddn.com/The%20Monkees%20-%20I%20Wanna%20Be%20Free.mp3","pic":"http://osm7cxvrb.bkt.clouddn.com/1700944488175542.jpg"},{"title":"巴赫:第一号无伴奏大提琴组曲前奏曲","author":"Various Artists","url":"http://osm7cxvrb.bkt.clouddn.com/Various%20Artists%20-%20%E5%B7%B4%E8%B5%AB%EF%BC%9A%E7%AC%AC%E4%B8%80%E5%8F%B7%E6%97%A0%E4%BC%B4%E5%A5%8F%E5%A4%A7%E6%8F%90%E7%90%B4%E7%BB%84%E6%9B%B2%E5%89%8D%E5%A5%8F%E6%9B%B2%E3%80%8A%E5%AF%BB%E7%BE%8A%E5%86%92%E9%99%A9%E8%AE%B0%E3%80%8B%20-%20instrumental.mp3","pic":"http://osm7cxvrb.bkt.clouddn.com/1754820557942844.jpg"}]};
 				options.element = document.getElementById("aplayer2");
-				new APlayer(options);
+				var ap = new APlayer(options);
+				window.aplayers || (window.aplayers = []);
+				window.aplayers.push(ap);
 			</script>
 
 		
@@ -842,7 +844,7 @@
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
                 <span class="site-state-item-count">56</span>
-                <span class="site-state-item-name">日志</span>
+                <span class="site-state-item-name">state.posts</span>
               </a>
             </div>
           
@@ -853,7 +855,7 @@
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
                 <span class="site-state-item-count">3</span>
-                <span class="site-state-item-name">分类</span>
+                <span class="site-state-item-name">state.categories</span>
               </a>
             </div>
           
@@ -864,7 +866,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
                 <span class="site-state-item-count">37</span>
-                <span class="site-state-item-name">标签</span>
+                <span class="site-state-item-name">state.tags</span>
               </a>
             </div>
           
@@ -1526,18 +1528,33 @@ show_date_time();
  <!--崩溃欺骗-->
 <script type="text/javascript" src="/js/src/makeajoke.js"></script>
 
-    <script type="text/javascript" src="/live2d/script.js"></script>
-    <canvas id="live2dcanvas" width="150" height="300" class="live2d"></canvas>
-    <style>
-      #live2dcanvas {
-        position: fixed;
-        right: 0px;
-        z-index: 999;
-        pointer-events: none;
-        bottom: -20px;
-      }
-    </style>
-    <script>loadlive2d("live2dcanvas" ,"/live2d/assets/hijiki/hijiki.model.json")</script>
-  
+<div id="hexo-helper-live2d">
+  <canvas id="live2dcanvas" width="150" height="300"></canvas>
+</div>
+<style>
+  #live2dcanvas{
+    position: fixed;
+    width: 150px;
+    height: 300px;
+    opacity:0.7;
+    right: 0px;
+    z-index: 999;
+    pointer-events: none;
+    bottom: -20px;
+  }
+</style>
+<script type="text/javascript" src="/live2d/device.min.js"></script>
+<script type="text/javascript">
+const loadScript = function loadScript(c,b){var a=document.createElement("script");a.type="text/javascript";"undefined"!=typeof b&&(a.readyState?a.onreadystatechange=function(){if("loaded"==a.readyState||"complete"==a.readyState)a.onreadystatechange=null,b()}:a.onload=function(){b()});a.src=c;document.body.appendChild(a)};
+(function(){
+  if((typeof(device) != 'undefined') && (device.mobile())){
+    document.getElementById("live2dcanvas").style.width = '75px';
+    document.getElementById("live2dcanvas").style.height = '150px';
+  }else
+    if (typeof(device) === 'undefined') console.error('Cannot find current-device script.');
+  loadScript("/live2d/script.js", function(){loadlive2d("live2dcanvas", "/live2d/assets/hijiki.model.json", 0.5);});
+})();
+</script>
+
 </body>
 </html>

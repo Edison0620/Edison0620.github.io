@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kaaaaai.cn/"/>
-  <updated>2019-01-22T08:49:34.811Z</updated>
+  <updated>2019-01-22T08:49:34.000Z</updated>
   <id>http://kaaaaai.cn/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://kaaaaai.cn/articles/lean-cache.html"/>
     <id>http://kaaaaai.cn/articles/lean-cache.html</id>
     <published>2019-01-22T12:24:52.000Z</published>
-    <updated>2019-01-22T08:49:34.811Z</updated>
+    <updated>2019-01-22T08:49:34.000Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="Cache"><a href="#Cache" class="headerlink" title="Cache"></a>Cache</h1><p> Cache 提供了一个良好的公共 API，具有开箱即用的实现和出色的定制可能性。 Cache 利用 Swift 4中的 Codable 来执行序列化。</p>
 <h2 id="一、功能介绍"><a href="#一、功能介绍" class="headerlink" title="一、功能介绍"></a>一、功能介绍</h2><ul>
@@ -81,7 +81,7 @@
     <link href="http://kaaaaai.cn/articles/swift-style-guide.html"/>
     <id>http://kaaaaai.cn/articles/swift-style-guide.html</id>
     <published>2019-01-16T12:24:52.000Z</published>
-    <updated>2019-01-22T07:06:37.882Z</updated>
+    <updated>2019-01-22T07:06:37.000Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><strong><em>规范文档翻译自 <a href="https://github.com/raywenderlich/swift-style-guide" target="_blank" rel="noopener">raywenderlich.com 的编码规范</a></em></strong></p>
 <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
@@ -392,7 +392,7 @@
     <link href="http://kaaaaai.cn/articles/happy-new-year-2019.html"/>
     <id>http://kaaaaai.cn/articles/happy-new-year-2019.html</id>
     <published>2018-12-31T10:00:52.000Z</published>
-    <updated>2019-01-16T01:46:43.978Z</updated>
+    <updated>2019-01-16T01:46:43.000Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　问朋友今年用什么字总结，他说，一。意思大概是一年都在原地踏步，年头年尾的状态没什么区别。我没有回他。<br>　　今年换了一份新的工作，状况比去年的好上很多，去年没来得及和朋友说的展望词，今年恰好可以作为总结——“木”：总算是从原来的处境脱身出来，另外也存了一些小钱。比起工作和休息，我反倒喜欢找工作，坐着公交地铁在城市里穿来穿去的感觉，固然傍晚回家会有点风尘仆仆的疲惫，甚至某天面试很糟糕的时候，看着车水马龙的城市，想到万家灯火，何处有我那盏，会有点泄气。但那时候觉得很自由，而且目的是为了找工作，并不是漫无目的的奔波，自由，且自由得很踏实。<br>　　和一个女性朋友说起我找工作就当观光的事，她说我很乐观。我收下了她的称赞，也很乐意把我好的一面给她看，她离我很远，那会找工作的时候，蓦然间看到一个很像她的人，便和她说了一声， 还说了电影里看到和她气质很像的人，后来我们有一阵子联系很频繁，说了很多琐事，互相交换了烦恼，我忘记，我们说了那么多，我有没有告诉她我很想她。再后来就没有联系了。<br>　　疏于和旧日朋友联系这大概是我今年不好的变化吧。到现在我也还没问我那位朋友 2019 年的展望词是什么。另一位朋友常打电话过来聊天，我也大部分时间都以一种不耐烦，拒绝配合的态度应付，当然一部分也有他太啰嗦的缘故，但我想按着我去年心态好的时候，大概会以一种朋友在胡闹，我除了原谅还能有什么办法的态度和他愉快的聊下去。和他有一段以最近书店里出的新书都没法看，老书才是经典的观点开始的对话，后面我说他是不是有些焦虑，对自己或者出来以后有很多怀才不遇的感慨，他犹豫着点头说是。现在回过头去看，他变得啰嗦是因为焦虑的缘故，我对人对事的不耐烦又何尝不是。<br>　　找到工作后生活就规律了很多，新公司的同事们都很友好，也在去年的基础上学了点新的东西。和公司旅游的时候惊讶的发现上司是个塞尔达粉，后来我们就交换游戏机玩，n3ds 和 ps4 让我废寝忘食。上半年的学习计划到了下半年流产也大半是因为这个原因。夏天的时候去学了游泳，从在心里说服自己克服恐惧，到在水里站起来还能游一个来回，整个过程让我感觉很有成就感。<br>　　今年看的书没有去年多，去电影院倒是比去年多多了，《江湖儿女》里有个地方让我印象深刻，斌哥还是出租车公司老总的时候，走路上被小年轻用钢管敲断了小腿，疼半天只是冲车子消失的地方喊了句，不至于吧。但后面中风偏瘫的时候却因为小弟的小弟先上主食后上菜说他没有规矩而大发雷霆把桌子翻了。境遇让人的心态变好又变坏，之前有些悲观，把自己个性签名写，心由境生。现在看起来像个黑色幽默——不由得想起我对自己其他的悲观的预见性结论了。<br>　　今年作为从去年的困境脱离的过渡期，好和不好都有一些，勉强给自己的表现打个及格分。来年的展望词是林，希望明年可以存更多的钱，多吃蔬菜，减轻体重，可以有“阵阵晚风吹动着松涛，只有青山藏在白云间”的心态，可以境由心生。
 　
@@ -422,7 +422,7 @@
     <link href="http://kaaaaai.cn/articles/objective-c-style-guide.html"/>
     <id>http://kaaaaai.cn/articles/objective-c-style-guide.html</id>
     <published>2018-12-29T12:24:52.000Z</published>
-    <updated>2019-01-22T07:06:37.896Z</updated>
+    <updated>2019-01-22T07:06:37.000Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><strong><em>规范文档翻译自 <a href="https://github.com/raywenderlich/objective-c-style-guide" target="_blank" rel="noopener">raywenderlich.com 的编码规范</a></em></strong></p>
 <h2 id="语言"><a href="#语言" class="headerlink" title="语言"></a>语言</h2><p>应该使用US英语.</p>
@@ -642,7 +642,7 @@
     <link href="http://kaaaaai.cn/articles/050.html"/>
     <id>http://kaaaaai.cn/articles/050.html</id>
     <published>2018-12-06T12:24:52.000Z</published>
-    <updated>2019-01-22T07:06:37.906Z</updated>
+    <updated>2019-01-22T07:06:37.000Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="一、权限"><a href="#一、权限" class="headerlink" title="一、权限"></a>一、权限</h1><h2 id="1-info-plist-中可以请求的权限"><a href="#1-info-plist-中可以请求的权限" class="headerlink" title="1.info.plist 中可以请求的权限"></a>1.info.plist 中可以请求的权限</h2><ul>
 <li><strong>蓝牙</strong> - <code>NSBluetoothPeripheralUsageDescription</code> / <code>Bluetooth Peripheral Usage Description</code></li>
@@ -812,7 +812,7 @@
     <link href="http://kaaaaai.cn/articles/049.html"/>
     <id>http://kaaaaai.cn/articles/049.html</id>
     <published>2018-11-29T12:00:52.000Z</published>
-    <updated>2018-11-30T08:38:38.634Z</updated>
+    <updated>2018-11-30T08:38:38.000Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　因为某天坐地铁的时候忽然想到《黑衣人3》的结尾，因为特工 J 吃饭给了小费而避免了彗星撞击地球导致世界毁灭的蝴蝶效应现象。忽然想起第二部好像没看过，就抽空看了一下。<br>　　<br>　　在还没拍成电影之前，他还是一部动画片，记得以前在 CCTV 1 套每天下午播放，每天两集，但因为每次都在放学前就开始放了，所以导致我都只能看一集半，不过即使这样也无法阻止我当时对他的热爱。虽然现在关于动画的剧情已经忘记大半了，但永远都记得里面那些光怪陆离的外星人，会说话的狗，还有感觉湿滑柔软的竹节虫样子的外星人，还有脑袋打开里面坐着操控人类身体的外星人，以及被黑衣人用枪爆出各种颜色液体的外星人们。这些都让我在还没搞清楚爱国是怎么回事的时候，就已经先爱起了宇宙，在个人、共产、世界等各种主义进入脑子之前，就已经先是个银河主义者。<br>　　<br>　　电影是零二年的，现在看画面有些粗糙，电影主要讲的是一个外星人要来地球夺取另一个星球的外星人留在地球的武器的故事。<br>　　<br>　　电影总结一句话，好看。结局的彩蛋也很有意思。另外我有注意到就是虽然电影的画面特效做的不是很好，但是比起现在的科幻片多了很多创意，以及一些古灵精怪的小点子。比如在邮局暴露出其他员工是外星人的一段口技，在餐厅找钥匙的冷幽默等等。画面的劣势很好的被其他的东西填补了，这大概是这类老派的科幻片的特点吧，画面不够脑洞来凑。<br>　　<br>　　科技除了给人带来日常生活的便利，促进各行各业的发展以外，在电影方面，尤其是科幻电影的特效越来越酷炫，酷到震撼，炫到眼花缭乱。但工业化的制作，也让现在的许多科幻电影同质化很严重，必要的铺垫之后一顿狂轰滥炸，陷入危机，反转，解决危机，最后男女主人公一起共创美好未来。当然美好未来并没有什么错，只是重复的太多，美好也显得不那么真实。我想到 C.S.路易斯谈论童话故事的结局:</p>
 <blockquote>
@@ -844,7 +844,7 @@
     <link href="http://kaaaaai.cn/articles/048.html"/>
     <id>http://kaaaaai.cn/articles/048.html</id>
     <published>2018-11-22T10:00:52.000Z</published>
-    <updated>2018-11-23T01:44:26.067Z</updated>
+    <updated>2018-11-23T01:44:26.000Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　上个礼拜去看了《神奇动物：格林德沃之罪》，和哈利波特系列比起来，精美壮观许多，如果不考虑人物关系，他更像后传，在内容上，延伸远多过补充。德普在这一部的戏份比上一部多，作为一个大反派，他的思想核心在所有的电影反派里也应该是数一数二站的住脚的了，用建立一个法师凌驾在麻瓜之上的阶级社会，来阻止预言中所看到二战的核弹爆炸，这让他的邪恶都蒙上一层睿智和远见的色彩，墓地里的会议，纯血法师整齐围成圈，恍如一个大豪门，魔法部的执行人员们从黑暗中走出来，都像在海上风雨飘摇的小舟。<br>　　<br>　　故事主线是克雷登斯的身世之谜，但直在最后解开谜底之前，我仍然对克雷登斯这一部分的人物关系感到有些混乱，可能是内容太多的缘故，让前一部看起来就像围棋开始的一步闲手，或是序章，所有的主要铺垫内容都放在这一部一口气给交待了。还在凡人和法师为什么不能恋爱的规则里疑问，克雷登斯就找到家族的女仆，就和魔法部的人起冲突，但魔法部的人怎么又是格林德沃的帮凶。才从下水道的囚禁，黑人原来是个坏人的恍然大悟出来，邓布利多和格林德沃的回忆怎么看起来 gaygay 的。又有新的华丽魔法和可爱动物让人眼花缭乱，只能有些泄气的承认，我大概可能不是 HP 宇宙的核心粉吧。<br>　　<br>　　看完缕清了所有人物关系，觉得有几处印象深刻，纽特和女巫姐姐从误会到重修旧好，火蜥蜴眼睛的比喻，笨拙可爱。女巫妹妹最后会跟随格林德沃一点也不奇怪，从讲故事上的手法来说，也是作为一个从中立阵营走向邪恶阵营的例子，举一反三的可以窥见其他法师们追随格林德沃的理由，但还是忍不住吐槽，为了爱情参加革命，因为革命而抛弃爱情这种桥段，原来魔法世界也不屡见不鲜。裘德洛演邓布利多，除了发际线比老邓布利多还要靠后，感觉像 BUG，其他没有任何毛病。克雷登斯最后落单的女随从，我觉得她在下一部的剧情应该会起到不小的作用。格林德沃预言中显示的坦克和核弹爆炸的蘑菇云，让我感觉一下子打穿了魔法世界和现实世界的壁垒，想到后面一切如预言显示的如期出现，不由得有些悲观的想，是不是魔法和想象力都不能阻止人类自我毁灭？<br>　　<br>　　最后，比起所有阴谋诡计，我还是比较喜欢作为点缀出现的神奇动物们。</p>
 ]]></content>
@@ -869,7 +869,7 @@
     <link href="http://kaaaaai.cn/articles/047.html"/>
     <id>http://kaaaaai.cn/articles/047.html</id>
     <published>2018-11-12T08:24:52.000Z</published>
-    <updated>2018-11-12T04:42:42.306Z</updated>
+    <updated>2018-11-12T04:42:42.000Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="1-功能介绍"><a href="#1-功能介绍" class="headerlink" title="1. 功能介绍"></a>1. 功能介绍</h2><h3 id="1-1-Reachability"><a href="#1-1-Reachability" class="headerlink" title="1.1 Reachability"></a>1.1 Reachability</h3><p>Reachablity 是一个 iOS 下检测,iOS 设备网络环境用的库。</p>
 <ul>
@@ -905,7 +905,7 @@
     <link href="http://kaaaaai.cn/articles/046.html"/>
     <id>http://kaaaaai.cn/articles/046.html</id>
     <published>2018-11-12T07:24:52.000Z</published>
-    <updated>2018-11-12T04:33:13.831Z</updated>
+    <updated>2018-11-12T04:33:13.000Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="1-功能介绍"><a href="#1-功能介绍" class="headerlink" title="1. 功能介绍"></a>1. 功能介绍</h3><h4 id="1-1-YTKNetwork"><a href="#1-1-YTKNetwork" class="headerlink" title="1.1 YTKNetwork"></a>1.1 <code>YTKNetwork</code></h4><p><code>YTKNetwork</code> 基于 <code>AFNetWorking</code> 封装的一个网络请求库，相比 <code>AFNetworking</code>，<code>YTKNetwork</code> 提供了以下更高级的功能:    </p>
 <ul>
@@ -1086,7 +1086,7 @@ return @{
     <link href="http://kaaaaai.cn/articles/045.html"/>
     <id>http://kaaaaai.cn/articles/045.html</id>
     <published>2018-11-12T06:24:52.000Z</published>
-    <updated>2018-11-12T04:04:11.453Z</updated>
+    <updated>2018-11-12T04:04:11.000Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="SwiftyBeaver"><a href="#SwiftyBeaver" class="headerlink" title="SwiftyBeaver"></a>SwiftyBeaver</h1><p>SwiftyBeaver 可以为 Xcode 控制台提供强大的日志记录功能，包括颜色（Xcode 9 以后都没有颜色输出了，但表情可以。）， 可自定义格式等等。</p>
 <h2 id="一、功能介绍"><a href="#一、功能介绍" class="headerlink" title="一、功能介绍"></a>一、功能介绍</h2><ol>
@@ -1219,7 +1219,7 @@ return @{
     <link href="http://kaaaaai.cn/articles/044.html"/>
     <id>http://kaaaaai.cn/articles/044.html</id>
     <published>2018-10-26T08:24:52.000Z</published>
-    <updated>2018-11-08T08:13:27.400Z</updated>
+    <updated>2018-11-08T08:13:27.000Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="一、Debug-和-Release-版本区别"><a href="#一、Debug-和-Release-版本区别" class="headerlink" title="一、Debug 和 Release 版本区别"></a>一、Debug 和 Release 版本区别</h1><p>1、Release 是发行版本,比 Debug 版本有一些优化，文件比 Debug 文件小，想要发布时，也就是说需要大众客户使用时，需要 build Release 版本，<br>2、Debug 是调试版本，Debug 和 Release 调用两个不同的底层库。我们开发者自己内部真机或模拟器调试时，使用 Debug 模式就好。<br>3、Debug 是调试版本，包括的程序信息更多 4、只有 Debug 版的程序才能设置断点、单步执行、使用 TRACE/ASSERT 等调试输出语句 5、Release 不包含任何调试信息，所以体积小、运行速度快</p>
 <p>使用时可以直接使用 Release 版本</p>
@@ -1260,7 +1260,7 @@ return @{
     <link href="http://kaaaaai.cn/articles/043.html"/>
     <id>http://kaaaaai.cn/articles/043.html</id>
     <published>2018-10-08T08:24:52.000Z</published>
-    <updated>2018-11-01T07:12:50.487Z</updated>
+    <updated>2018-11-01T07:12:50.000Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="1、运行时报错如下错："><a href="#1、运行时报错如下错：" class="headerlink" title="1、运行时报错如下错："></a>1、运行时报错如下错：</h2><figure class="highlight bash"><figcaption><span>log 打印</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Showing Recent Messages:-1:Multiple commands produce<span class="string">'/Users/edison/Library/Developer/Xcode/DerivedData/$(product name)-fxzbpoappydriwfozeeqaxxcyoho/Build/Products/Debug-iphoneos/$(product name).app'</span>:</span><br><span class="line"></span><br><span class="line">1) Target <span class="string">'$(product name)'</span> has create directory <span class="built_in">command</span> with output <span class="string">'/Users/edison/Library/Developer/Xcode/DerivedData/$(product name)-fxzbpoappydriwfozeeqaxxcyoho/Build/Products/Debug-iphoneos/$(product name).app'</span></span><br><span class="line"></span><br><span class="line">2) That <span class="built_in">command</span> depends on <span class="built_in">command</span> <span class="keyword">in</span> Target <span class="string">'$(product name)'</span>: script phase “[CP] Copy Pods Resources”</span><br></pre></td></tr></table></figure>
 <p>解决方法：选中项目 target -&gt; Build phase -&gt; Copy Pods Resources -&gt; Output Files  -&gt; 移除 <code>${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}</code> -&gt; Build</p>
@@ -1304,7 +1304,7 @@ return @{
     <link href="http://kaaaaai.cn/articles/042.html"/>
     <id>http://kaaaaai.cn/articles/042.html</id>
     <published>2018-09-20T08:24:52.000Z</published>
-    <updated>2018-11-01T07:12:50.487Z</updated>
+    <updated>2018-11-01T07:12:50.000Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>学习地址：<a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" target="_blank" rel="noopener">Python 教程</a><br>其他：<a href="https://docs.python.org/3/library/functions.html#abs" target="_blank" rel="noopener">官网-函数列表</a></p>
 <h2 id="一、基础笔记"><a href="#一、基础笔记" class="headerlink" title="一、基础笔记"></a>一、基础笔记</h2><h3 id="列表：list"><a href="#列表：list" class="headerlink" title="列表：list"></a>列表：list</h3><p>用 <code>len()</code> 函数可以获得 <code>list</code> 元素的个数：<br><figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>len(classmates)</span><br></pre></td></tr></table></figure></p>
@@ -1387,7 +1387,7 @@ return @{
     <link href="http://kaaaaai.cn/articles/041.html"/>
     <id>http://kaaaaai.cn/articles/041.html</id>
     <published>2018-09-12T08:24:52.000Z</published>
-    <updated>2018-11-01T07:12:50.486Z</updated>
+    <updated>2018-11-01T07:12:50.000Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="一、基本概念"><a href="#一、基本概念" class="headerlink" title="一、基本概念"></a>一、基本概念</h1><h2 id="1-什么是库？"><a href="#1-什么是库？" class="headerlink" title="1.什么是库？"></a>1.什么是库？</h2><p>库是共享程序代码的方式，一般分为静态库和动态库。</p>
 <h2 id="2-静态库与动态库的区别？"><a href="#2-静态库与动态库的区别？" class="headerlink" title="2.静态库与动态库的区别？"></a>2.静态库与动态库的区别？</h2><p>（1）静态库：之所以叫做静态，是因为静态库在编译的时候会被直接拷贝一份，复制到目标程序里，这段代码在目标程序里就不会再改变了。</p>
@@ -1535,7 +1535,7 @@ return @{
     <link href="http://kaaaaai.cn/articles/040.html"/>
     <id>http://kaaaaai.cn/articles/040.html</id>
     <published>2018-09-03T10:00:52.000Z</published>
-    <updated>2018-11-10T01:54:51.303Z</updated>
+    <updated>2018-11-10T01:54:51.000Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote class="blockquote-center">　　鹿同时是阿喀琉斯和乌龟，同时是弓和箭：它们奔跑着，却永远追不到自己；<br>它们停下来，有些东西却永远留在身外继续疾驰。</blockquote>
 
@@ -1562,7 +1562,7 @@ return @{
     <link href="http://kaaaaai.cn/articles/039.html"/>
     <id>http://kaaaaai.cn/articles/039.html</id>
     <published>2018-09-03T07:00:52.000Z</published>
-    <updated>2018-11-01T07:12:50.485Z</updated>
+    <updated>2018-11-01T07:12:50.000Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><em>　　偶尔在知乎、少数派或其他社区资讯网站上看文章，会发现有的文章看起来很舒服，有的感觉怪怪的，变扭。细究之下，大概就是排版的原因。那么如何学习好的排版呢，再细究，发现里面的学问也有不少，如何分段落，如何引用图片，以及句子段落本身的排版。刻意去看了下<a href="https://github.com/mzlogin/chinese-copywriting-guidelines" target="_blank" rel="noopener">中文文案排版指北</a>，这里介绍了一些中文文案，中英文排版约定俗成的标准，而且许多网站也都引入了这些标准。值得学习，那现在就一起来看看。</em></p>
 <p>　　第一部分讲空格，引言有这么一段：</p>
@@ -1599,7 +1599,7 @@ return @{
     <link href="http://kaaaaai.cn/articles/038.html"/>
     <id>http://kaaaaai.cn/articles/038.html</id>
     <published>2018-08-28T06:24:52.000Z</published>
-    <updated>2018-11-01T07:12:50.485Z</updated>
+    <updated>2018-11-01T07:12:50.000Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="CocoaLumberjack"><a href="#CocoaLumberjack" class="headerlink" title="CocoaLumberjack"></a>CocoaLumberjack</h1><p>CocoaLumberjack 是一个适用于 Mac 和 iOS 的快速、简单，而且功能强大且灵活的日志框架</p>
 <h1 id="一、功能介绍"><a href="#一、功能介绍" class="headerlink" title="一、功能介绍"></a>一、功能介绍</h1><p><span id="inline-toc">1.</span>支持日志打印到 Xcode 控制台，打印到 mac 的 console 程序、打印到文件<br><span id="inline-toc">2.</span>日志功能支持关闭和打开，支持 Error、Warning、Info、Debug、Verbose、All 日志等级<br><span id="inline-toc">3.</span> 支持基于 DDLogFormatter 协议自定义日志格式和继承 DDAbstractLogger 和协议 DDLogger 自定义 logger<br><span id="inline-toc">4.</span>可将日志打印上传到服务器<br><span id="inline-toc">5.</span>基于多线程、GCD、运行时态等</p>
@@ -1667,7 +1667,7 @@ return @{
     <link href="http://kaaaaai.cn/articles/037.html"/>
     <id>http://kaaaaai.cn/articles/037.html</id>
     <published>2018-08-23T10:00:52.000Z</published>
-    <updated>2018-11-01T07:12:50.484Z</updated>
+    <updated>2018-11-01T07:12:50.000Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　看了曹文轩的《草房子》，内容讲的是发生桑桑这个小主人公周围的事，有孩子的故事，也有大人的故事。<br>　　<br>　　叙事口吻平淡朴实，像静谧的流水，又像傍晚从远处村庄传来带着泥土气息的风，让人也不由自主的想起自己的童年时光，就好像成年后在某个瞬间想起小时候放学经过正开饭的陌生人家闻到饭菜的味道，那个瞬间中所处的情景和记忆中的画面，便重叠串在一起。这本书也有类似的力量。<br>　　<br>　　书里写了许多大概每个人童年都会发生的事情，一个让人印象深刻的漂亮女孩，一个早早退学的朋友，一个在学校里因为彼此都很优秀而暗地里较真的小伙伴，还有因为人小所以身不由己的当了大人的传声筒，卷进大人们的爱情故事里。甚至是每个人都可能生过的一场发生在童年无可避免的大病。</p>
 <p>　　在那个大人的爱情故事里出现的男主人公，是桑桑的老师，那个老师是个很特别的人，会在节日庆典组织学生排练舞蹈，会在河边吹笛子吹出悠扬的曲子，穿白衬衫，皮鞋，英俊潇洒。在那种封闭的小村庄里，那样的人似乎很少，但又似乎每个村子都会有那么一两个那样的人。<br>　　<br>　　我童年记忆里像那样代表性的人大概是我的小学语文老师，爱扎羊角辫和马尾，都很好看。有时会提着一桶衣服穿过两三条街道，到我们家旁边的那条河洗衣服，我有时候会站在家门口偷看，看她把衣服放在河里，攥着一角轻轻摆动，涤荡干净。她夏天爱穿裙子，快分开的那个夏天，她总喜欢穿的是一条淡绿色的裙子，常常在我们早读的时候站在教室外的阳台上，发呆，眺望远方，有风的时候，裙子会轻轻扬起来。以致于在我反复回忆起这段记忆的时候，有时候想不起老师的样子，但裙子的颜色却越发鲜艳起来。</p>
@@ -1695,7 +1695,7 @@ return @{
     <link href="http://kaaaaai.cn/articles/036.html"/>
     <id>http://kaaaaai.cn/articles/036.html</id>
     <published>2018-08-15T06:24:52.000Z</published>
-    <updated>2018-11-01T07:12:50.484Z</updated>
+    <updated>2018-11-01T07:12:50.000Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="一、CocoaPods"><a href="#一、CocoaPods" class="headerlink" title="一、CocoaPods"></a>一、CocoaPods</h1><h2 id="CocoaPods是什么？"><a href="#CocoaPods是什么？" class="headerlink" title="CocoaPods是什么？"></a><code>CocoaPods</code>是什么？</h2><ul>
 <li><code>CocoaPods</code> 是一个负责管理 <code>iOS</code> 项目中第三方开源库的工具。</li>

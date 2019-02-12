@@ -102,18 +102,18 @@
 
 
 
-<meta name="description" content="&amp;#160; &amp;#160; &amp;#160; &amp;#160;哈哈哈我终于解决了部署时出现的 cannot find module、local hexo not found in finder 等问题用github仓库做服务器弄好了基于Node.js的静态博客Hexo我的独立博客了不过，会不会写东西就不知道喽~~~~  		 			new APlayer({ 				element: document.">
+<meta name="description" content="&amp;#160; &amp;#160; &amp;#160; &amp;#160;哈哈哈我终于解决了部署时出现的 cannot find module、local hexo not found in finder 等问题用github仓库做服务器弄好了基于Node.js的静态博客Hexo我的独立博客了不过，会不会写东西就不知道喽~~~~  		 			var ap = new APlayer({ 				element:">
 <meta name="keywords" content="扯谈,肇始">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Here is Kai&#39;s World">
 <meta property="og:url" content="http://kaaaaai.cn/articles/Hello-Edison-s-World.html">
 <meta property="og:site_name" content="壹拾肆">
-<meta property="og:description" content="&amp;#160; &amp;#160; &amp;#160; &amp;#160;哈哈哈我终于解决了部署时出现的 cannot find module、local hexo not found in finder 等问题用github仓库做服务器弄好了基于Node.js的静态博客Hexo我的独立博客了不过，会不会写东西就不知道喽~~~~  		 			new APlayer({ 				element: document.">
+<meta property="og:description" content="&amp;#160; &amp;#160; &amp;#160; &amp;#160;哈哈哈我终于解决了部署时出现的 cannot find module、local hexo not found in finder 等问题用github仓库做服务器弄好了基于Node.js的静态博客Hexo我的独立博客了不过，会不会写东西就不知道喽~~~~  		 			var ap = new APlayer({ 				element:">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-10T07:32:08.246Z">
+<meta property="og:updated_time" content="2018-12-10T07:32:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Here is Kai&#39;s World">
-<meta name="twitter:description" content="&amp;#160; &amp;#160; &amp;#160; &amp;#160;哈哈哈我终于解决了部署时出现的 cannot find module、local hexo not found in finder 等问题用github仓库做服务器弄好了基于Node.js的静态博客Hexo我的独立博客了不过，会不会写东西就不知道喽~~~~  		 			new APlayer({ 				element: document.">
+<meta name="twitter:description" content="&amp;#160; &amp;#160; &amp;#160; &amp;#160;哈哈哈我终于解决了部署时出现的 cannot find module、local hexo not found in finder 等问题用github仓库做服务器弄好了基于Node.js的静态博客Hexo我的独立博客了不过，会不会写东西就不知道喽~~~~  		 			var ap = new APlayer({ 				element:">
 
 
 
@@ -127,7 +127,7 @@
     motion: true,
     duoshuo: {
       userId: '0',
-      author: '博主'
+      author: 'author'
     },
     algolia: {
       applicationID: '',
@@ -213,7 +213,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            首页
+            menu.home
           </a>
         </li>
       
@@ -223,7 +223,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            归档
+            menu.archives
           </a>
         </li>
       
@@ -233,7 +233,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-coffee"></i> <br />
             
-            须弥
+            menu.xumi
           </a>
         </li>
       
@@ -243,7 +243,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            关于
+            menu.about
           </a>
         </li>
       
@@ -256,7 +256,7 @@
             
               <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
-            搜索
+            menu.search
           </a>
         </li>
       
@@ -430,7 +430,7 @@
     </span>
     <div class="local-search-input-wrapper">
       <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
+             placeholder="search.placeholder" spellcheck="false"
              type="text" id="local-search-input">
     </div>
   </div>
@@ -491,9 +491,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">post.posted</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-23T21:25:54+08:00">
+              <time title="post.created" itemprop="dateCreated datePublished" datetime="2017-06-23T21:25:54+08:00">
                 2017-06-23
               </time>
             
@@ -512,7 +512,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">post.in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -560,9 +560,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计</span>
+                  <span class="post-meta-item-text">post.wordcount</span>
                 
-                <span title="字数统计">
+                <span title="post.wordcount">
                   66 字
                 </span>
               
@@ -576,9 +576,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长</span>
+                  <span class="post-meta-item-text">post.min2read</span>
                 
-                <span title="阅读时长">
+                <span title="post.min2read">
                   1 分钟
                 </span>
               
@@ -600,7 +600,7 @@
         <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>&#160; &#160; &#160; &#160;哈哈哈我终于解决了部署时出现的 cannot find module、local hexo not found in finder 等问题用<code>github</code>仓库做服务器弄好了基于<code>Node.js</code>的静态博客<code>Hexo</code>我的独立博客了不过，会不会写东西就不知道喽~~~~</p>
 <div id="aplayer0" class="aplayer" style="margin-bottom: 20px;"></div>
 		<script>
-			new APlayer({
+			var ap = new APlayer({
 				element: document.getElementById("aplayer0"),
 				narrow: false,
 				autoplay: true,
@@ -612,6 +612,8 @@
 					pic: "http://os1i62usc.bkt.clouddn.com/Let%27s%20Dance_icon.png",
 				}
 			});
+			window.aplayers || (window.aplayers = []);
+			window.aplayers.push(ap);
 		</script>
 
       
@@ -775,7 +777,7 @@
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
                 <span class="site-state-item-count">56</span>
-                <span class="site-state-item-name">日志</span>
+                <span class="site-state-item-name">state.posts</span>
               </a>
             </div>
           
@@ -786,7 +788,7 @@
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
                 <span class="site-state-item-count">3</span>
-                <span class="site-state-item-name">分类</span>
+                <span class="site-state-item-name">state.categories</span>
               </a>
             </div>
           
@@ -797,7 +799,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
                 <span class="site-state-item-count">37</span>
-                <span class="site-state-item-name">标签</span>
+                <span class="site-state-item-name">state.tags</span>
               </a>
             </div>
           
@@ -1459,18 +1461,33 @@ show_date_time();
  <!--崩溃欺骗-->
 <script type="text/javascript" src="/js/src/makeajoke.js"></script>
 
-    <script type="text/javascript" src="/live2d/script.js"></script>
-    <canvas id="live2dcanvas" width="150" height="300" class="live2d"></canvas>
-    <style>
-      #live2dcanvas {
-        position: fixed;
-        right: 0px;
-        z-index: 999;
-        pointer-events: none;
-        bottom: -20px;
-      }
-    </style>
-    <script>loadlive2d("live2dcanvas" ,"/live2d/assets/hijiki/hijiki.model.json")</script>
-  
+<div id="hexo-helper-live2d">
+  <canvas id="live2dcanvas" width="150" height="300"></canvas>
+</div>
+<style>
+  #live2dcanvas{
+    position: fixed;
+    width: 150px;
+    height: 300px;
+    opacity:0.7;
+    right: 0px;
+    z-index: 999;
+    pointer-events: none;
+    bottom: -20px;
+  }
+</style>
+<script type="text/javascript" src="/live2d/device.min.js"></script>
+<script type="text/javascript">
+const loadScript = function loadScript(c,b){var a=document.createElement("script");a.type="text/javascript";"undefined"!=typeof b&&(a.readyState?a.onreadystatechange=function(){if("loaded"==a.readyState||"complete"==a.readyState)a.onreadystatechange=null,b()}:a.onload=function(){b()});a.src=c;document.body.appendChild(a)};
+(function(){
+  if((typeof(device) != 'undefined') && (device.mobile())){
+    document.getElementById("live2dcanvas").style.width = '75px';
+    document.getElementById("live2dcanvas").style.height = '150px';
+  }else
+    if (typeof(device) === 'undefined') console.error('Cannot find current-device script.');
+  loadScript("/live2d/script.js", function(){loadlive2d("live2dcanvas", "/live2d/assets/hijiki.model.json", 0.5);});
+})();
+</script>
+
 </body>
 </html>

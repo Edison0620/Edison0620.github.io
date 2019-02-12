@@ -111,7 +111,7 @@
 <meta property="og:description" content="看了《濑户内海》。之前一直分不清电影名字是叫濑户内海，濑内户海，还是濑海内户,电影很好看，隆重的交响乐式的配乐也非常好，一个半小时完全不过瘾。主演们都不是很好看的人，对内海的第一印象甚至觉得他像个中年大叔，但十分意外，他们都给人感觉少年气十足。 　　电影百分之九十的时间都停在一个画面，都只是两个人的对话，但一点都不让人乏味，就像是看过去自己的日常，他们关心的事和谈论的问题，也都是过去学生时代">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://os1i62usc.bkt.clouddn.com/%E6%BF%91%E6%88%B7%E5%86%85%E6%B5%B7%E6%88%AA%E5%9B%BE.jpg">
-<meta property="og:updated_time" content="2018-11-01T07:12:50.490Z">
+<meta property="og:updated_time" content="2018-11-01T07:12:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="像你我的少年们">
 <meta name="twitter:description" content="看了《濑户内海》。之前一直分不清电影名字是叫濑户内海，濑内户海，还是濑海内户,电影很好看，隆重的交响乐式的配乐也非常好，一个半小时完全不过瘾。主演们都不是很好看的人，对内海的第一印象甚至觉得他像个中年大叔，但十分意外，他们都给人感觉少年气十足。 　　电影百分之九十的时间都停在一个画面，都只是两个人的对话，但一点都不让人乏味，就像是看过去自己的日常，他们关心的事和谈论的问题，也都是过去学生时代">
@@ -129,7 +129,7 @@
     motion: true,
     duoshuo: {
       userId: '0',
-      author: '博主'
+      author: 'author'
     },
     algolia: {
       applicationID: '',
@@ -215,7 +215,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            首页
+            menu.home
           </a>
         </li>
       
@@ -225,7 +225,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            归档
+            menu.archives
           </a>
         </li>
       
@@ -235,7 +235,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-coffee"></i> <br />
             
-            须弥
+            menu.xumi
           </a>
         </li>
       
@@ -245,7 +245,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            关于
+            menu.about
           </a>
         </li>
       
@@ -258,7 +258,7 @@
             
               <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
-            搜索
+            menu.search
           </a>
         </li>
       
@@ -432,7 +432,7 @@
     </span>
     <div class="local-search-input-wrapper">
       <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
+             placeholder="search.placeholder" spellcheck="false"
              type="text" id="local-search-input">
     </div>
   </div>
@@ -493,9 +493,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">post.posted</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-18T21:55:59+08:00">
+              <time title="post.created" itemprop="dateCreated datePublished" datetime="2017-09-18T21:55:59+08:00">
                 2017-09-18
               </time>
             
@@ -514,7 +514,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">post.in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -562,9 +562,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计</span>
+                  <span class="post-meta-item-text">post.wordcount</span>
                 
-                <span title="字数统计">
+                <span title="post.wordcount">
                   815 字
                 </span>
               
@@ -578,9 +578,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长</span>
+                  <span class="post-meta-item-text">post.min2read</span>
                 
-                <span title="阅读时长">
+                <span title="post.min2read">
                   3 分钟
                 </span>
               
@@ -767,7 +767,7 @@
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
                 <span class="site-state-item-count">56</span>
-                <span class="site-state-item-name">日志</span>
+                <span class="site-state-item-name">state.posts</span>
               </a>
             </div>
           
@@ -778,7 +778,7 @@
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
                 <span class="site-state-item-count">3</span>
-                <span class="site-state-item-name">分类</span>
+                <span class="site-state-item-name">state.categories</span>
               </a>
             </div>
           
@@ -789,7 +789,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
                 <span class="site-state-item-count">37</span>
-                <span class="site-state-item-name">标签</span>
+                <span class="site-state-item-name">state.tags</span>
               </a>
             </div>
           
@@ -1451,18 +1451,33 @@ show_date_time();
  <!--崩溃欺骗-->
 <script type="text/javascript" src="/js/src/makeajoke.js"></script>
 
-    <script type="text/javascript" src="/live2d/script.js"></script>
-    <canvas id="live2dcanvas" width="150" height="300" class="live2d"></canvas>
-    <style>
-      #live2dcanvas {
-        position: fixed;
-        right: 0px;
-        z-index: 999;
-        pointer-events: none;
-        bottom: -20px;
-      }
-    </style>
-    <script>loadlive2d("live2dcanvas" ,"/live2d/assets/hijiki/hijiki.model.json")</script>
-  
+<div id="hexo-helper-live2d">
+  <canvas id="live2dcanvas" width="150" height="300"></canvas>
+</div>
+<style>
+  #live2dcanvas{
+    position: fixed;
+    width: 150px;
+    height: 300px;
+    opacity:0.7;
+    right: 0px;
+    z-index: 999;
+    pointer-events: none;
+    bottom: -20px;
+  }
+</style>
+<script type="text/javascript" src="/live2d/device.min.js"></script>
+<script type="text/javascript">
+const loadScript = function loadScript(c,b){var a=document.createElement("script");a.type="text/javascript";"undefined"!=typeof b&&(a.readyState?a.onreadystatechange=function(){if("loaded"==a.readyState||"complete"==a.readyState)a.onreadystatechange=null,b()}:a.onload=function(){b()});a.src=c;document.body.appendChild(a)};
+(function(){
+  if((typeof(device) != 'undefined') && (device.mobile())){
+    document.getElementById("live2dcanvas").style.width = '75px';
+    document.getElementById("live2dcanvas").style.height = '150px';
+  }else
+    if (typeof(device) === 'undefined') console.error('Cannot find current-device script.');
+  loadScript("/live2d/script.js", function(){loadlive2d("live2dcanvas", "/live2d/assets/hijiki.model.json", 0.5);});
+})();
+</script>
+
 </body>
 </html>
