@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kaaaaai.cn/"/>
-  <updated>2019-03-15T09:14:16.868Z</updated>
+  <updated>2019-03-15T09:38:28.466Z</updated>
   <id>http://kaaaaai.cn/</id>
   
   <author>
@@ -16,11 +16,100 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>iOS 应用架构 - VIPER 开发模式</title>
+    <link href="http://kaaaaai.cn/articles/alamofire_analysis.html"/>
+    <id>http://kaaaaai.cn/articles/alamofire_analysis.html</id>
+    <published>2019-03-15T09:24:52.000Z</published>
+    <updated>2019-03-15T09:38:28.466Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><em>因为最近项目用的 swift 的网络库 alamofire，研究了一下，堪堪掌握到可以使用的地步，就记下笔记，以防忘记。</em></p>
+<h1 id="Alamofire"><a href="#Alamofire" class="headerlink" title="Alamofire"></a>Alamofire</h1><p>Alamofire 是一个用 Swift 编写的 HTTP 网络库。</p>
+<h2 id="一、功能介绍"><a href="#一、功能介绍" class="headerlink" title="一、功能介绍"></a>一、功能介绍</h2><ul>
+<li>链式请求/响应方法</li>
+<li>URL / JSON / plist参数编码</li>
+<li>上传文件/数据/流/多表单数据</li>
+<li>使用请求或者断点下载来下载文件</li>
+<li>使用URL凭据进行身份认证</li>
+<li>HTTP响应验证</li>
+<li>包含进度的上传和下载闭包</li>
+<li>cURL命令的输出</li>
+<li>动态适配和重试请求</li>
+<li>TLS证书和Public Key Pinning</li>
+<li>网络可达性</li>
+<li>全面的单元和集成测试覆盖率</li>
+</ul>
+<h3 id="组件库"><a href="#组件库" class="headerlink" title="组件库"></a>组件库</h3><p>为了让Alamofire专注于核心网络的实现，Alamofire生态系统还有另外两个库：</p>
+<ul>
+<li><a href="https://link.jianshu.com/?t=https%3A%2F%2Fgithub.com%2FAlamofire%2FAlamofireImage" target="_blank" rel="noopener">AlamofireImage</a>：一个图片库，包括图像响应序列化器、UIImage和UIImageView的扩展、自定义图像滤镜、内存中自动清除和基于优先级的图像下载系统。</li>
+<li><a href="https://link.jianshu.com/?t=https%3A%2F%2Fgithub.com%2FAlamofire%2FAlamofireNetworkActivityIndicator" target="_blank" rel="noopener">AlamofireNetworkActivityIndicator</a>:控制iOS应用的网络活动指示器。包含可配置的延迟计时器来帮助减少闪光，并且支持不受Alamofire管理的URLSession实例。</li>
+</ul>
+<p>##　二、安装</p>
+<h3 id="CocoaPods"><a href="#CocoaPods" class="headerlink" title="CocoaPods"></a>CocoaPods</h3><p>在 <code>Podfile</code> 编辑：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">source &apos;https://github.com/CocoaPods/Specs.git&apos;</span><br><span class="line">platform :ios, &apos;10.0&apos;</span><br><span class="line">use_frameworks!</span><br><span class="line"></span><br><span class="line">target &apos;&lt;Your Target Name&gt;&apos; do</span><br><span class="line">    pod &apos;Alamofire&apos;, &apos;~&gt; 4.7&apos;</span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
+<p>然后运行 <code>pod install</code> 即可。</p>
+<h3 id="Carthage"><a href="#Carthage" class="headerlink" title="Carthage"></a>Carthage</h3><p>在 <code>Cartfile</code> 中输入:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Github“Alamofire / Alamofire”〜&gt; 4.7</span><br></pre></td></tr></table></figure>
+<p>运行 <code>carthage update</code> 更新以构建框架并将构建的 Alamofire.framework 拖入 Xcode 项目。</p>
+<h2 id="三、如何使用"><a href="#三、如何使用" class="headerlink" title="三、如何使用"></a>三、如何使用</h2><h3 id="1-发请求"><a href="#1-发请求" class="headerlink" title="1.发请求"></a>1.发请求</h3><p>导入完成后，我们就可以使用 Alamofire 请求网络了，我们可以发送最基本的 GET 请求：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Alamofire</span>.request(<span class="string">"http://baidu.com/"</span>)</span><br></pre></td></tr></table></figure>
+<p>当然，我们还可以为请求添加参数，并且处理响应信息，调用方式也很简单：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Alamofire</span>.request(.<span class="type">GET</span>, <span class="string">"https://httpbin.org/get"</span>, parameters: [<span class="string">"foo"</span>: <span class="string">"bar"</span>])</span><br><span class="line">    .responseJSON &#123; response <span class="keyword">in</span></span><br><span class="line"></span><br><span class="line">        <span class="built_in">print</span>(response.request)  <span class="comment">// 请求对象</span></span><br><span class="line">        <span class="built_in">print</span>(response.response) <span class="comment">// 响应对象</span></span><br><span class="line">        <span class="built_in">print</span>(response.data)     <span class="comment">// 服务端返回的数据</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> <span class="type">JSON</span> = response.result.value &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"JSON: \(JSON)"</span>)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Alamofire 提供了多种返回数据的序列化方法，比如刚才我们用到的 <code>responseJSON</code>， 会返回服务端返回的 JSON 数据，这样就不用我们自己再去解析了。</p>
+<p>下面是 Alamofire 目前支持的数据序列化方法：</p>
+<p>response()<br>responseData()<br>responseString(encoding: NSStringEncoding)<br>responseJSON(options: NSJSONReadingOptions)<br>responsePropertyList(options: NSPropertyListReadOptions)<br>支持普通数据，字符串， JSON 和 plist 形式的返回。</p>
+<h3 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h3><p>Alamofire 提供了 upload 方法用于上传本地文件到服务器：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fileURL = <span class="type">NSBundle</span>.mainBundle().<span class="type">URLForResource</span>(<span class="string">"Default"</span>, withExtension: <span class="string">"png"</span>)</span><br><span class="line"><span class="type">Alamofire</span>.upload(.<span class="type">POST</span>, <span class="string">"https://httpbin.org/post"</span>, file: fileURL)</span><br></pre></td></tr></table></figure>
+<p>当然，我们还可以获取上传时候的进度：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Alamofire</span>.upload(.<span class="type">POST</span>, <span class="string">"https://httpbin.org/post"</span>, file: fileURL)</span><br><span class="line">         .progress &#123; bytesWritten, totalBytesWritten, totalBytesExpectedToWrite <span class="keyword">in</span></span><br><span class="line">             <span class="built_in">print</span>(totalBytesWritten)</span><br><span class="line"></span><br><span class="line">             <span class="comment">// This closure is NOT called on the main queue for performance</span></span><br><span class="line">             <span class="comment">// reasons. To update your ui, dispatch to the main queue.</span></span><br><span class="line">             dispatch_async(dispatch_get_main_queue()) &#123;</span><br><span class="line">                 <span class="built_in">print</span>(<span class="string">"Total bytes written on main queue: \(totalBytesWritten)"</span>)</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line">         .responseJSON &#123; response <span class="keyword">in</span></span><br><span class="line">             <span class="built_in">debugPrint</span>(response)</span><br><span class="line">         &#125;</span><br></pre></td></tr></table></figure>
+<p>还支持 MultipartFormData 形式的表单数据上传：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Alamofire</span>.upload(</span><br><span class="line">    .<span class="type">POST</span>,</span><br><span class="line">    <span class="string">"https://httpbin.org/post"</span>,</span><br><span class="line">    multipartFormData: &#123; multipartFormData <span class="keyword">in</span></span><br><span class="line">        multipartFormData.appendBodyPart(fileURL: unicornImageURL, name: <span class="string">"unicorn"</span>)</span><br><span class="line">        multipartFormData.appendBodyPart(fileURL: rainbowImageURL, name: <span class="string">"rainbow"</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    encodingCompletion: &#123; encodingResult <span class="keyword">in</span></span><br><span class="line">        <span class="keyword">switch</span> encodingResult &#123;</span><br><span class="line">        <span class="keyword">case</span> .<span class="type">Success</span>(<span class="keyword">let</span> upload, <span class="number">_</span>, <span class="number">_</span>):</span><br><span class="line">            upload.responseJSON &#123; response <span class="keyword">in</span></span><br><span class="line">                <span class="built_in">debugPrint</span>(response)</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">case</span> .<span class="type">Failure</span>(<span class="keyword">let</span> encodingError):</span><br><span class="line">            <span class="built_in">print</span>(encodingError)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h3 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h3><ul>
+<li>Alamofire 同样也提供了文件下载的方法：</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Alamofire</span>.download(.<span class="type">GET</span>, <span class="string">"https://httpbin.org/stream/100"</span>) &#123; temporaryURL, response <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">let</span> fileManager = <span class="type">NSFileManager</span>.defaultManager()</span><br><span class="line">    <span class="keyword">let</span> directoryURL = fileManager.<span class="type">URLsForDirectory</span>(.<span class="type">DocumentDirectory</span>, inDomains: .<span class="type">UserDomainMask</span>)[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">let</span> pathComponent = response.suggestedFilename</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> directoryURL.<span class="type">URLByAppendingPathComponent</span>(pathComponent!)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>还可以设置默认的下载存储位置：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> destination = <span class="type">Alamofire</span>.<span class="type">Request</span>.suggestedDownloadDestination(directory: .<span class="type">DocumentDirectory</span>, domain: .<span class="type">UserDomainMask</span>)</span><br><span class="line"><span class="type">Alamofire</span>.download(.<span class="type">GET</span>, <span class="string">"https://httpbin.org/stream/100"</span>, destination: destination)</span><br></pre></td></tr></table></figure>
+<p>也提供了 progress 方法检测下载的进度：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Alamofire</span>.download(.<span class="type">GET</span>, <span class="string">"https://httpbin.org/stream/100"</span>, destination: destination)</span><br><span class="line">         .progress &#123; bytesRead, totalBytesRead, totalBytesExpectedToRead <span class="keyword">in</span></span><br><span class="line">             <span class="built_in">print</span>(totalBytesRead)</span><br><span class="line"></span><br><span class="line">             dispatch_async(dispatch_get_main_queue()) &#123;</span><br><span class="line">                 <span class="built_in">print</span>(<span class="string">"Total bytes read on main queue: \(totalBytesRead)"</span>)</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line">         .response &#123; <span class="number">_</span>, <span class="number">_</span>, <span class="number">_</span>, error <span class="keyword">in</span></span><br><span class="line">             <span class="keyword">if</span> <span class="keyword">let</span> error = error &#123;</span><br><span class="line">                 <span class="built_in">print</span>(<span class="string">"Failed with error: \(error)"</span>)</span><br><span class="line">             &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                 <span class="built_in">print</span>(<span class="string">"Downloaded file successfully"</span>)</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br></pre></td></tr></table></figure>
+<p>恢复下载——如果一个 DownloadRequest 被取消或中断，底层的 URL 会话会生成一个恢复数据。恢复数据可以被重新利用并在中断的位置继续下载。恢复数据可以通过下载响应访问，然后在重新开始请求的时候被利用。</p>
+<p>重要：在iOS 10 - 10.2, macOS 10.12 - 10.12.2, tvOS 10 - 10.1, watchOS 3 - 3.1.1中，resumeData 会被后台 URL 会话配置破坏。因为在 resumeData 的生成逻辑有一个底层的 bug，不能恢复下载。具体情况可以到 <a href="https://link.jianshu.com/?t=http%3A%2F%2Fstackoverflow.com%2Fquestions%2F39346231%2Fresume-nsurlsession-on-ios10%2F39347461%2339347461" target="_blank" rel="noopener">Stack Overflow</a> 看看。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ImageRequestor</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> resumeData: <span class="type">Data</span>?</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> image: <span class="type">UIImage</span>?</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">fetchImage</span><span class="params">(completion: <span class="params">(UIImage?)</span></span></span> -&gt; <span class="type">Void</span>) &#123;</span><br><span class="line">        <span class="keyword">guard</span> image == <span class="literal">nil</span> <span class="keyword">else</span> &#123; completion(image) ; <span class="keyword">return</span> &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> destination: <span class="type">DownloadRequest</span>.<span class="type">DownloadFileDestination</span> = &#123; <span class="number">_</span>, <span class="number">_</span> <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">let</span> documentsURL = <span class="type">FileManager</span>.<span class="keyword">default</span>.urls(<span class="keyword">for</span>: .documentDirectory, <span class="keyword">in</span>: .userDomainMask)[<span class="number">0</span>]</span><br><span class="line">            <span class="keyword">let</span> fileURL = documentsURL.appendPathComponent(<span class="string">"pig.png"</span>)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> (fileURL, [.removePreviousFile, .createIntermediateDirectories])</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> request: <span class="type">DownloadRequest</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> resumeData = resumeData &#123;</span><br><span class="line">            request = <span class="type">Alamofire</span>.download(resumingWith: resumeData)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            request = <span class="type">Alamofire</span>.download(<span class="string">"https://httpbin.org/image/png"</span>)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        request.responseData &#123; response <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">switch</span> response.result &#123;</span><br><span class="line">            <span class="keyword">case</span> .success(<span class="keyword">let</span> data):</span><br><span class="line">                <span class="keyword">self</span>.image = <span class="type">UIImage</span>(data: data)</span><br><span class="line">            <span class="keyword">case</span> .failure:</span><br><span class="line">                <span class="keyword">self</span>.resumeData = response.resumeData</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="HTTP-验证"><a href="#HTTP-验证" class="headerlink" title="HTTP 验证"></a>HTTP 验证</h3><p>Alamofire 还很提供了一个非常方便的 authenticate 方法提供了 HTTP 验证：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user = <span class="string">"user"</span></span><br><span class="line"><span class="keyword">let</span> password = <span class="string">"password"</span></span><br><span class="line"></span><br><span class="line"><span class="type">Alamofire</span>.request(.<span class="type">GET</span>, <span class="string">"https://httpbin.org/basic-auth/\(user)/\(password)"</span>)</span><br><span class="line">         .authenticate(user: user, password: password)</span><br><span class="line">         .responseJSON &#123; response <span class="keyword">in</span></span><br><span class="line">             <span class="built_in">debugPrint</span>(response)</span><br><span class="line">         &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="HTTP-响应状态信息识别"><a href="#HTTP-响应状态信息识别" class="headerlink" title="HTTP 响应状态信息识别"></a>HTTP 响应状态信息识别</h3><p>Alamofire 还提供了 HTTP 响应状态的判断识别，通过 validate 方法，对于在我们期望之外的 HTTP 响应状态信息，Alamofire 会提供报错信息：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Alamofire</span>.request(.<span class="type">GET</span>, <span class="string">"https://httpbin.org/get"</span>, parameters: [<span class="string">"foo"</span>: <span class="string">"bar"</span>])</span><br><span class="line">         .validate(statusCode: <span class="number">200</span>..&lt;<span class="number">300</span>)</span><br><span class="line">         .validate(contentType: [<span class="string">"application/json"</span>])</span><br><span class="line">         .response &#123; response <span class="keyword">in</span></span><br><span class="line">             <span class="built_in">print</span>(response)</span><br><span class="line">         &#125;</span><br></pre></td></tr></table></figure>
+<p>validate 方法还提供自动识别机制，我们调用 validate 方法时不传入任何参数，则会自动认为 200…299 的状态吗为正常：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Alamofire</span>.request(.<span class="type">GET</span>, <span class="string">"https://httpbin.org/get"</span>, parameters: [<span class="string">"foo"</span>: <span class="string">"bar"</span>])</span><br><span class="line">         .validate()</span><br><span class="line">         .responseJSON &#123; response <span class="keyword">in</span></span><br><span class="line">             <span class="keyword">switch</span> response.result &#123;</span><br><span class="line">             <span class="keyword">case</span> .<span class="type">Success</span>:</span><br><span class="line">                 <span class="built_in">print</span>(<span class="string">"Validation Successful"</span>)</span><br><span class="line">             <span class="keyword">case</span> .<span class="type">Failure</span>(<span class="keyword">let</span> error):</span><br><span class="line">                 <span class="built_in">print</span>(error)</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="调试状态"><a href="#调试状态" class="headerlink" title="调试状态"></a>调试状态</h3><p>我们通过使用 debugPrint 函数，可以打印出请求的详细信息，这样对我们调试非常的方便：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> request = <span class="type">Alamofire</span>.request(.<span class="type">GET</span>, <span class="string">"https://httpbin.org/get"</span>, parameters: [<span class="string">"foo"</span>: <span class="string">"bar"</span>])</span><br><span class="line"></span><br><span class="line"><span class="built_in">debugPrint</span>(request)</span><br></pre></td></tr></table></figure>
+<p>这样就会产生如下输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ curl -i \</span><br><span class="line">    -H &quot;User-Agent: Alamofire&quot; \</span><br><span class="line">    -H &quot;Accept-Encoding: Accept-Encoding: gzip;q=1.0,compress;q=0.5&quot; \</span><br><span class="line">    -H &quot;Accept-Language: en;q=1.0,fr;q=0.9,de;q=0.8,zh-Hans;q=0.7,zh-Hant;q=0.6,ja;q=0.5&quot; \</span><br><span class="line">    &quot;https://httpbin.org/get?foo=bar&quot;</span><br></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
+    
+      <category term="Swift" scheme="http://kaaaaai.cn/tags/Swift/"/>
+    
+      <category term="codeAnalysis" scheme="http://kaaaaai.cn/tags/codeAnalysis/"/>
+    
+      <category term="IOS" scheme="http://kaaaaai.cn/tags/IOS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>在路上</title>
     <link href="http://kaaaaai.cn/articles/on-the-road.html"/>
     <id>http://kaaaaai.cn/articles/on-the-road.html</id>
     <published>2019-03-11T10:00:52.000Z</published>
-    <updated>2019-03-15T09:14:16.868Z</updated>
+    <updated>2019-03-15T09:27:00.204Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　行百里者半九十，新年过来就一头扎进工作，晕头转向直到现在，让我这才走了十里路的人看着剩下的九十里，都有了些望洋兴叹的惆怅。所以趁现在有空，休息一下，回顾一下。<br>　　过年照旧仍去上山烧香拜了佛，不同的是，今年没抽到上上签，而是中上签。不过也说不清是好是坏，表哥去年抽到中下签，我和表弟抽的是上上签和上中签，但去年反倒是他订婚成了家先。因为这个今年过年在外游荡的人就剩我和表弟两了。眼看过去吃了饭就撒手啥也不管变成一个抢着洗碗做家务事的人，我和表弟某个晚上吃了夜宵在大街上忽然感慨，以后就剩我们两相依为命啦。<br>　　凡事都说物是人非太不客观，就好像我表哥变了一些，而我们上山烧香拜佛，山也并非一成不变。上山变得更容易了，可以坐改装成游览车的金杯到山脚，再从山脚坐缆车到山顶。我们选择在坐缆车前走一小段路，路不是去年的那条，而是换成一条有些曲折，两边拨地而起了不少新建仿古建筑的坎坷小路，前两天下过雨，路上有些积水。一个拐角之后，迎面看到一个牌子，小吃街。穿过小街随便抬头看了各个店铺贴在门上墙上的菜单，个个都是 5A 级景区的价格，到了街尾，表弟拿着手机对着一个菜单拍了个照，说下次要和别人炫耀下我们这消费也是相当高的。<script src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script><script src="//cdn.bootcss.com/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script><div class="hexo-img-stream"><style type="text/css">.hexo-image-steam-lazy {display:none;}.hexo-img-stream{width:90%;max-width:1100px;margin:3% auto}div.hexo-img-stream figure{background:#fefefe;box-shadow:0 1px 2px rgba(34,25,25,0.4);margin:0 0.05% 3%;padding:3%;padding-bottom:10px;display:inline-block;max-width:25%}div.hexo-img-stream figure img{border-bottom:1px solid #ccc;padding-bottom:15px;margin-bottom:5px}div.hexo-img-stream figure figcaption{font-size:.9rem;color:#444;line-height:1.5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}div.hexo-img-stream small{font-size:1rem;float:right;text-transform:uppercase;color:#aaa}div.hexo-img-stream small a{color:#666;text-decoration:none;transition:.4s color}@media screen and (max-width:750px){.hexo-img-stream{column-gap:0}}</style><figure><img class="hexo-image-steam-lazy nofancy" src="https://ws4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif" data-original="https://s2.ax1x.com/2019/03/14/AAj9un.md.jpg"><noscript><img src="https://s2.ax1x.com/2019/03/14/AAj9un.md.jpg"></noscript><figcaption>售票大厅里的陌生人们
 </figcaption></figure></div><script type="text/javascript">$('img.hexo-image-steam-lazy').lazyload({ effect:'fadeIn' });</script>　　我们买了票就坐缆车上山了，点香抽签解签，一如故往。庙里的变化是，今年对香客们的香做了限制，没人都只能拿三支香拜，所以不会再出现点香的时候把香点着了丢掉的事，庙里也不会总是烟雾缭绕的熏人眼睛。<br>　　整座庙的前半部分由两栋相连的屋子组成，中间有一个小阶梯，下去是条小巷，巷里紧紧贴着一个小卖铺，外面卖着零食小吃，里面卖的都是宗教用品，开过光的手串护身符，问了一下价格，略显粗糙的开光手串一百五，粗糙的开光手串一百，还没确定要不要图个吉利买一串就已经先生怯意，表弟说外面也就卖个二三十，我说要不然怎么说宗教是门大生意。Jesus is a big business。我在心里补充，来了个饶舌。回去的时候因为有点晚，路程又远，就和姨姨他们去了她婆婆家吃饭，吃饭的时候姨夫说让我喝点酒，整个新年的所有饭局我对喝酒都抱着一种可喝可不喝的态度，但总是看长辈各种推辞，就开玩笑似得和姨夫说：“不喝不喝，待会还要开车。”姨夫冷不丁的懵了一会，恍然大笑，你哪开了车来。<br>　　上香的事告一段落，新年另一件事就是和以前朋友见面，往年没约上的朋友，今年照旧因为各种琐事没有约上，见上的朋友也是往年都见过面的，也算是一期一会。小插曲是，和朋友见面的时候，看见了一个很久没联系的女性朋友，当初没联系，起因是她，结果是我赌气，到现在三四年没说过几句话，也一直没见过面。许久不见，样子似乎变了一些，成熟盖过稚气，穿过人群和她对视了一眼，我看到她眼里似乎有些久别重逢的惊喜，我不知道我当时的表情是怎样的，似乎是客气又克制的点头、抿嘴示意，然后没有寒暄，就扭头走了。现在回头看，好像在她面前，我又表现得有点小家子气，一如往昔。<br>　　后来和朋友们看完电影出来，又看到了她。我想既然老天爷都想让我和她冰释前嫌，那我也就不坚持了。但她又好像是报复似的，只是和我朋友寒暄了几句，等我走进，朝我点了点头就走了。<br>　　再后来回去，想了想，用“看你有没有换号码”的蹩脚理由给她打了个电话，聊了很久，总算是奠定了中美关系走向正常化的基础。<br>　　除了这些以外，有印象的还有，叔叔表哥说要给我介绍女朋友，一个拿着对方姐姐的照片说让我先看看，另一个在 KTV 的时候直接让我和他旁边的女孩视频了，放着我在这头，不管不顾的和那人对起话来，看看我这侄子帅吧。感觉有点胖。胖啊，不会，他就这个脸型。除了觉得颇有喜感，也被我两个亲人过于耿直的方式给唬得无可奈何。叔叔今年倒是没有给我上中国传统美德普及课了，不过去外公家时，今年瘦了两大圈的姐夫在晚饭后和我们这些年轻人上心灵鸡汤课，一脸朝气逢勃的和我们说自己老了，让我们努力，说年轻人不要怕失败，年轻人最不应该害怕的就是失败。我在心里想，年轻人不怕失败固然是可以轻易做到的，不过是一头热血，不管不顾找个方向往前使劲罢了。但失败的后果，却往往需要年轻人的家人一起承担，这样的后果，一个年轻人最多可以承受几次呢？<br>　　忽然想不到说什么结尾了，觉得这段比较应景。</p>
@@ -51,7 +140,7 @@
     <link href="http://kaaaaai.cn/articles/lean-cache.html"/>
     <id>http://kaaaaai.cn/articles/lean-cache.html</id>
     <published>2019-01-22T12:24:52.000Z</published>
-    <updated>2019-01-22T08:49:34.000Z</updated>
+    <updated>2019-03-15T09:38:28.471Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="Cache"><a href="#Cache" class="headerlink" title="Cache"></a>Cache</h1><p> Cache 提供了一个良好的公共 API，具有开箱即用的实现和出色的定制可能性。 Cache 利用 Swift 4中的 Codable 来执行序列化。</p>
 <h2 id="一、功能介绍"><a href="#一、功能介绍" class="headerlink" title="一、功能介绍"></a>一、功能介绍</h2><ul>
@@ -104,6 +193,8 @@
       <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
     
       <category term="OC" scheme="http://kaaaaai.cn/tags/OC/"/>
+    
+      <category term="codeAnalysis" scheme="http://kaaaaai.cn/tags/codeAnalysis/"/>
     
   </entry>
   
@@ -900,7 +991,7 @@
     <link href="http://kaaaaai.cn/articles/047.html"/>
     <id>http://kaaaaai.cn/articles/047.html</id>
     <published>2018-11-12T08:24:52.000Z</published>
-    <updated>2018-11-12T04:42:42.000Z</updated>
+    <updated>2019-03-15T09:38:27.676Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="1-功能介绍"><a href="#1-功能介绍" class="headerlink" title="1. 功能介绍"></a>1. 功能介绍</h2><h3 id="1-1-Reachability"><a href="#1-1-Reachability" class="headerlink" title="1.1 Reachability"></a>1.1 Reachability</h3><p>Reachablity 是一个 iOS 下检测,iOS 设备网络环境用的库。</p>
 <ul>
@@ -929,6 +1020,8 @@
     
       <category term="OC" scheme="http://kaaaaai.cn/tags/OC/"/>
     
+      <category term="codeAnalysis" scheme="http://kaaaaai.cn/tags/codeAnalysis/"/>
+    
   </entry>
   
   <entry>
@@ -936,7 +1029,7 @@
     <link href="http://kaaaaai.cn/articles/046.html"/>
     <id>http://kaaaaai.cn/articles/046.html</id>
     <published>2018-11-12T07:24:52.000Z</published>
-    <updated>2018-11-12T04:33:13.000Z</updated>
+    <updated>2019-03-15T09:38:28.519Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="1-功能介绍"><a href="#1-功能介绍" class="headerlink" title="1. 功能介绍"></a>1. 功能介绍</h3><h4 id="1-1-YTKNetwork"><a href="#1-1-YTKNetwork" class="headerlink" title="1.1 YTKNetwork"></a>1.1 <code>YTKNetwork</code></h4><p><code>YTKNetwork</code> 基于 <code>AFNetWorking</code> 封装的一个网络请求库，相比 <code>AFNetworking</code>，<code>YTKNetwork</code> 提供了以下更高级的功能:    </p>
 <ul>
@@ -1110,6 +1203,8 @@ return @{
     
       <category term="OC" scheme="http://kaaaaai.cn/tags/OC/"/>
     
+      <category term="codeAnalysis" scheme="http://kaaaaai.cn/tags/codeAnalysis/"/>
+    
   </entry>
   
   <entry>
@@ -1117,7 +1212,7 @@ return @{
     <link href="http://kaaaaai.cn/articles/045.html"/>
     <id>http://kaaaaai.cn/articles/045.html</id>
     <published>2018-11-12T06:24:52.000Z</published>
-    <updated>2018-11-12T04:04:11.000Z</updated>
+    <updated>2019-03-15T09:38:28.526Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="SwiftyBeaver"><a href="#SwiftyBeaver" class="headerlink" title="SwiftyBeaver"></a>SwiftyBeaver</h1><p>SwiftyBeaver 可以为 Xcode 控制台提供强大的日志记录功能，包括颜色（Xcode 9 以后都没有颜色输出了，但表情可以。）， 可自定义格式等等。</p>
 <h2 id="一、功能介绍"><a href="#一、功能介绍" class="headerlink" title="一、功能介绍"></a>一、功能介绍</h2><ol>
@@ -1242,6 +1337,8 @@ return @{
       <category term="iOS" scheme="http://kaaaaai.cn/tags/iOS/"/>
     
       <category term="Swift" scheme="http://kaaaaai.cn/tags/Swift/"/>
+    
+      <category term="codeAnalysis" scheme="http://kaaaaai.cn/tags/codeAnalysis/"/>
     
   </entry>
   
@@ -1630,7 +1727,7 @@ return @{
     <link href="http://kaaaaai.cn/articles/038.html"/>
     <id>http://kaaaaai.cn/articles/038.html</id>
     <published>2018-08-28T06:24:52.000Z</published>
-    <updated>2018-11-01T07:12:50.000Z</updated>
+    <updated>2019-03-15T09:38:28.533Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="CocoaLumberjack"><a href="#CocoaLumberjack" class="headerlink" title="CocoaLumberjack"></a>CocoaLumberjack</h1><p>CocoaLumberjack 是一个适用于 Mac 和 iOS 的快速、简单，而且功能强大且灵活的日志框架</p>
 <h1 id="一、功能介绍"><a href="#一、功能介绍" class="headerlink" title="一、功能介绍"></a>一、功能介绍</h1><p><span id="inline-toc">1.</span>支持日志打印到 Xcode 控制台，打印到 mac 的 console 程序、打印到文件<br><span id="inline-toc">2.</span>日志功能支持关闭和打开，支持 Error、Warning、Info、Debug、Verbose、All 日志等级<br><span id="inline-toc">3.</span> 支持基于 DDLogFormatter 协议自定义日志格式和继承 DDAbstractLogger 和协议 DDLogger 自定义 logger<br><span id="inline-toc">4.</span>可将日志打印上传到服务器<br><span id="inline-toc">5.</span>基于多线程、GCD、运行时态等</p>
@@ -1691,33 +1788,7 @@ return @{
     
       <category term="OC" scheme="http://kaaaaai.cn/tags/OC/"/>
     
-  </entry>
-  
-  <entry>
-    <title>在草房子外</title>
-    <link href="http://kaaaaai.cn/articles/037.html"/>
-    <id>http://kaaaaai.cn/articles/037.html</id>
-    <published>2018-08-23T10:00:52.000Z</published>
-    <updated>2018-11-01T07:12:50.000Z</updated>
-    
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　看了曹文轩的《草房子》，内容讲的是发生桑桑这个小主人公周围的事，有孩子的故事，也有大人的故事。<br>　　<br>　　叙事口吻平淡朴实，像静谧的流水，又像傍晚从远处村庄传来带着泥土气息的风，让人也不由自主的想起自己的童年时光，就好像成年后在某个瞬间想起小时候放学经过正开饭的陌生人家闻到饭菜的味道，那个瞬间中所处的情景和记忆中的画面，便重叠串在一起。这本书也有类似的力量。<br>　　<br>　　书里写了许多大概每个人童年都会发生的事情，一个让人印象深刻的漂亮女孩，一个早早退学的朋友，一个在学校里因为彼此都很优秀而暗地里较真的小伙伴，还有因为人小所以身不由己的当了大人的传声筒，卷进大人们的爱情故事里。甚至是每个人都可能生过的一场发生在童年无可避免的大病。</p>
-<p>　　在那个大人的爱情故事里出现的男主人公，是桑桑的老师，那个老师是个很特别的人，会在节日庆典组织学生排练舞蹈，会在河边吹笛子吹出悠扬的曲子，穿白衬衫，皮鞋，英俊潇洒。在那种封闭的小村庄里，那样的人似乎很少，但又似乎每个村子都会有那么一两个那样的人。<br>　　<br>　　我童年记忆里像那样代表性的人大概是我的小学语文老师，爱扎羊角辫和马尾，都很好看。有时会提着一桶衣服穿过两三条街道，到我们家旁边的那条河洗衣服，我有时候会站在家门口偷看，看她把衣服放在河里，攥着一角轻轻摆动，涤荡干净。她夏天爱穿裙子，快分开的那个夏天，她总喜欢穿的是一条淡绿色的裙子，常常在我们早读的时候站在教室外的阳台上，发呆，眺望远方，有风的时候，裙子会轻轻扬起来。以致于在我反复回忆起这段记忆的时候，有时候想不起老师的样子，但裙子的颜色却越发鲜艳起来。</p>
-<p>　　沉浸在回忆里的抒情往往用力过度。以致于后来喜欢上的女孩子，总是因为她们举手投足和记忆里的某些印象相似，像女老师，像裙子，像河流。我被彻底击中被俘获。<br>　　<br>　　看完之后除了把故事情节和自己的童年记忆一一比对，另一方面觉得有点可惜，这本书要是早点看就好了。这种可惜，并不是因为它优秀的让人觉得相见恨晚——虽然它也很优秀，而是我觉得这类记录童年的书应该在人生的各个不同阶段都看一遍，童年的时候看，少年的时候再看，青年、壮年、老年。就好像在不同阶段留了一个标记，在之后的漫长岁月里总还可以时不时的回头，哦，那会看这本书的时候，我好像还是一个人在异地他乡为了那样那样而做着这样这样的。借助外物达到不忘初心的方式，这也算一个。</p>
-<p>　　看过的另一本和这个类似的书是《城南旧事》，幸运的是这本书很早就看过了，因为小学有篇课文叫，爸爸的花儿落了。当时就去找原著看了，英子，疯女人秀珍，兰姨娘，四眼狗德先叔，都鲜活的常驻在记忆里。每当我被生活琐事搅扰的焦头烂额的时候都会拿出来看一看。比任何开解的话语都有效。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
-    
-    </summary>
-    
-      <category term="涂鸦" scheme="http://kaaaaai.cn/categories/%E6%B6%82%E9%B8%A6/"/>
-    
-    
-      <category term="随笔" scheme="http://kaaaaai.cn/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-      <category term="读后感" scheme="http://kaaaaai.cn/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/"/>
+      <category term="codeAnalysis" scheme="http://kaaaaai.cn/tags/codeAnalysis/"/>
     
   </entry>
   

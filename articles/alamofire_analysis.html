@@ -84,7 +84,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="EXP,iOS," />
+  <meta name="keywords" content="EXP,Swift,codeAnalysis,IOS," />
 
 
 
@@ -102,18 +102,18 @@
 
 
 
-<meta name="description" content="一、CocoaPodsCocoaPods是什么？ CocoaPods 是一个负责管理 iOS 项目中第三方开源库的工具。 主页：https://github.com/CocoaPods 作者：CocoaPods 团队 版本：1.4.0 性质：CocoaPods 在引入第三方库时自动为我们完成各种配置（包括配置编译阶段、连接器选项、甚至是 ARC 环境下的 -fno-objc-arc 配置等）；C">
-<meta name="keywords" content="EXP,iOS">
+<meta name="description" content="因为最近项目用的 swift 的网络库 alamofire，研究了一下，堪堪掌握到可以使用的地步，就记下笔记，以防忘记。 AlamofireAlamofire 是一个用 Swift 编写的 HTTP 网络库。 一、功能介绍 链式请求/响应方法 URL / JSON / plist参数编码 上传文件/数据/流/多表单数据 使用请求或者断点下载来下载文件 使用URL凭据进行身份认证 HTTP响应验证">
+<meta name="keywords" content="EXP,Swift,codeAnalysis,IOS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS - CocoaPods 和 Carthage 的比较">
-<meta property="og:url" content="http://kaaaaai.cn/articles/036.html">
+<meta property="og:title" content="iOS 应用架构 - VIPER 开发模式">
+<meta property="og:url" content="http://kaaaaai.cn/articles/alamofire_analysis.html">
 <meta property="og:site_name" content="壹拾肆">
-<meta property="og:description" content="一、CocoaPodsCocoaPods是什么？ CocoaPods 是一个负责管理 iOS 项目中第三方开源库的工具。 主页：https://github.com/CocoaPods 作者：CocoaPods 团队 版本：1.4.0 性质：CocoaPods 在引入第三方库时自动为我们完成各种配置（包括配置编译阶段、连接器选项、甚至是 ARC 环境下的 -fno-objc-arc 配置等）；C">
+<meta property="og:description" content="因为最近项目用的 swift 的网络库 alamofire，研究了一下，堪堪掌握到可以使用的地步，就记下笔记，以防忘记。 AlamofireAlamofire 是一个用 Swift 编写的 HTTP 网络库。 一、功能介绍 链式请求/响应方法 URL / JSON / plist参数编码 上传文件/数据/流/多表单数据 使用请求或者断点下载来下载文件 使用URL凭据进行身份认证 HTTP响应验证">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-01T07:12:50.000Z">
+<meta property="og:updated_time" content="2019-03-15T09:38:28.466Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS - CocoaPods 和 Carthage 的比较">
-<meta name="twitter:description" content="一、CocoaPodsCocoaPods是什么？ CocoaPods 是一个负责管理 iOS 项目中第三方开源库的工具。 主页：https://github.com/CocoaPods 作者：CocoaPods 团队 版本：1.4.0 性质：CocoaPods 在引入第三方库时自动为我们完成各种配置（包括配置编译阶段、连接器选项、甚至是 ARC 环境下的 -fno-objc-arc 配置等）；C">
+<meta name="twitter:title" content="iOS 应用架构 - VIPER 开发模式">
+<meta name="twitter:description" content="因为最近项目用的 swift 的网络库 alamofire，研究了一下，堪堪掌握到可以使用的地步，就记下笔记，以防忘记。 AlamofireAlamofire 是一个用 Swift 编写的 HTTP 网络库。 一、功能介绍 链式请求/响应方法 URL / JSON / plist参数编码 上传文件/数据/流/多表单数据 使用请求或者断点下载来下载文件 使用URL凭据进行身份认证 HTTP响应验证">
 
 
 
@@ -141,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="http://kaaaaai.cn/articles/036.html"/>
+  <link rel="canonical" href="http://kaaaaai.cn/articles/alamofire_analysis.html"/>
 
 
 
 
 
-  <title>iOS - CocoaPods 和 Carthage 的比较 | 壹拾肆</title>
+  <title>iOS 应用架构 - VIPER 开发模式 | 壹拾肆</title>
   
 
 
@@ -464,7 +464,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kaaaaai.cn/articles/036.html">
+    <link itemprop="mainEntityOfPage" href="http://kaaaaai.cn/articles/alamofire_analysis.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kaaaaai">
@@ -481,7 +481,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">iOS - CocoaPods 和 Carthage 的比较</h2>
+          <h2 class="post-title" itemprop="name headline">iOS 应用架构 - VIPER 开发模式</h2>
         
 
         <div class="post-meta">
@@ -493,8 +493,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-15T14:24:52+08:00">
-                2018-08-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-15T17:24:52+08:00">
+                2019-03-15
               </time>
             
 
@@ -534,9 +534,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/articles/036.html#comments" itemprop="discussionUrl">
+                <a href="/articles/alamofire_analysis.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="articles/036.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="articles/alamofire_analysis.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -563,7 +563,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1,514 字
+                  1,584 字
                 </span>
               
 
@@ -579,7 +579,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  6 分钟
+                  7 分钟
                 </span>
               
             </div>
@@ -597,48 +597,67 @@
       
 
       
-        <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="一、CocoaPods"><a href="#一、CocoaPods" class="headerlink" title="一、CocoaPods"></a>一、CocoaPods</h1><h2 id="CocoaPods是什么？"><a href="#CocoaPods是什么？" class="headerlink" title="CocoaPods是什么？"></a><code>CocoaPods</code>是什么？</h2><ul>
-<li><code>CocoaPods</code> 是一个负责管理 <code>iOS</code> 项目中第三方开源库的工具。</li>
-<li>主页：<a href="https://github.com/CocoaPods" target="_blank" rel="noopener">https://github.com/CocoaPods</a></li>
-<li>作者：<code>CocoaPods</code> 团队</li>
-<li>版本：1.4.0</li>
-<li>性质：<code>CocoaPods</code> 在引入第三方库时自动为我们完成各种配置（包括配置编译阶段、连接器选项、甚至是 <code>ARC</code> 环境下的 <code>-fno-objc-arc</code> 配置等）；<code>CocoaPods</code> 可以很方便的查找第三方库，可以快速方便的寻找到优秀的第三方库以及它们的各种信息。</li>
-<li>原理：<code>CocoaPods</code> 的原理是将所有的依赖库都放到另一个名为Pods的项目中，然后让主项目依赖 <code>Pods</code> 项目，这样，源码管理工作都从主项目移到了 <code>Pods</code> 项目中。<code>Pods</code> 项目最终会编译成一个名为 <code>libPods.a</code> 的文件，主项目只需要依赖这个 <code>.a</code> 文件即可。</li>
-<li>限制：会破坏文件结构，因为墙的原因有时会 <code>pod install</code> 失败，换成国内的源，导入第三方很慢，特别是大工程。</li>
+        <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><em>因为最近项目用的 swift 的网络库 alamofire，研究了一下，堪堪掌握到可以使用的地步，就记下笔记，以防忘记。</em></p>
+<h1 id="Alamofire"><a href="#Alamofire" class="headerlink" title="Alamofire"></a>Alamofire</h1><p>Alamofire 是一个用 Swift 编写的 HTTP 网络库。</p>
+<h2 id="一、功能介绍"><a href="#一、功能介绍" class="headerlink" title="一、功能介绍"></a>一、功能介绍</h2><ul>
+<li>链式请求/响应方法</li>
+<li>URL / JSON / plist参数编码</li>
+<li>上传文件/数据/流/多表单数据</li>
+<li>使用请求或者断点下载来下载文件</li>
+<li>使用URL凭据进行身份认证</li>
+<li>HTTP响应验证</li>
+<li>包含进度的上传和下载闭包</li>
+<li>cURL命令的输出</li>
+<li>动态适配和重试请求</li>
+<li>TLS证书和Public Key Pinning</li>
+<li>网络可达性</li>
+<li>全面的单元和集成测试覆盖率</li>
 </ul>
-<h2 id="怎么使用-CocoaPods-导入项目"><a href="#怎么使用-CocoaPods-导入项目" class="headerlink" title="怎么使用 CocoaPods 导入项目"></a>怎么使用 <code>CocoaPods</code> 导入项目</h2><p id="div-border-left-green">1、安装 <code>CocoaPods</code><br>（1）替换 <code>ruby</code> 源<br>（2）更新 <code>Gem</code> 版本<br>（3）安装 <code>CocoaPods</code><br>（4）更新 Podspec 索引文件<br><br>2、使用 <code>CocoaPods</code><br>（1）新建 <code>Podfile</code> 文件<br>（2）编辑 <code>Podfile</code> 文件<br>（3）安装依赖开源库 或 更新第三方库<br>3、打开 <code>xxx.xcworkspace</code> 文件</p>
-
-<h2 id="让你的工程支持-CocoaPods"><a href="#让你的工程支持-CocoaPods" class="headerlink" title="让你的工程支持 CocoaPods"></a>让你的工程支持 <code>CocoaPods</code></h2><p id="div-border-left-blue">1、首先在 <code>github</code> 创建一个项目<br>2、在本地新建一个文件夹<br>3、新建一个 <code>Classes</code> 文件夹用来放我们需要支持的类<br>4、进入到有 <code>.git</code> 的文件夹内，生成 <code>{project}.podspec</code> 格式的文件<br>5、<code>podspec</code> 文件用 <code>xcode</code> 打开并配置一些需要的参数<br>6、创建 <code>Tag</code>，并推送到 <code>GitHub</code><br>7、验证 <code>podspec</code> 文件，第一次提交会收到邮件，点击链接验证，提交完成。</p>
-
-<h2 id="CocoaPods-好处？"><a href="#CocoaPods-好处？" class="headerlink" title="CocoaPods 好处？"></a>CocoaPods 好处？</h2><ul>
-<li>开发 <code>iOS</code> 项目不可避免地要使用第三方开源库，<code>CocoaPods</code> 的出现使得我们可以节省设置和更新第三方开源库的时间</li>
-<li>在引入第三方库时它可以自动为我们完成各种各样的配置，包括配置编译阶段、连接器选项、甚至是 <code>ARC</code> 环境下的 <code>-fno-objc-arc</code> 配置等</li>
+<h3 id="组件库"><a href="#组件库" class="headerlink" title="组件库"></a>组件库</h3><p>为了让Alamofire专注于核心网络的实现，Alamofire生态系统还有另外两个库：</p>
+<ul>
+<li><a href="https://link.jianshu.com/?t=https%3A%2F%2Fgithub.com%2FAlamofire%2FAlamofireImage" target="_blank" rel="noopener">AlamofireImage</a>：一个图片库，包括图像响应序列化器、UIImage和UIImageView的扩展、自定义图像滤镜、内存中自动清除和基于优先级的图像下载系统。</li>
+<li><a href="https://link.jianshu.com/?t=https%3A%2F%2Fgithub.com%2FAlamofire%2FAlamofireNetworkActivityIndicator" target="_blank" rel="noopener">AlamofireNetworkActivityIndicator</a>:控制iOS应用的网络活动指示器。包含可配置的延迟计时器来帮助减少闪光，并且支持不受Alamofire管理的URLSession实例。</li>
 </ul>
-<h1 id="二、Carthage"><a href="#二、Carthage" class="headerlink" title="二、Carthage"></a>二、Carthage</h1><h2 id="Carthage-是什么？"><a href="#Carthage-是什么？" class="headerlink" title="Carthage 是什么？"></a>Carthage 是什么？</h2><ul>
-<li>主页：<a href="https://github.com/Carthage/Carthage.git" target="_blank" rel="noopener">https://github.com/Carthage/Carthage.git</a></li>
-<li>作者：Justin Spahr-Summers 等</li>
-<li>版本：0.6.6</li>
-<li>目标：用最简单的方式来管理 <code>Cocoa</code> 第三方框架</li>
-<li>性质：使用 <code>swift</code> 编写。<code>Carthage</code> 编译你的依赖，并提供框架的二进制 <code>.framework</code> 文件，但你仍然保留对项目的结构和设置的完整控制，<code>Carthage</code> 不会自动的修改你的项目文件或编译设置。是一个去中心化的 <code>Cocoa</code> 依赖管理工具。</li>
-<li>原理：自动将第三方框架编程为 <code>Dynamic framework</code>(动态库)</li>
-<li>限制：仅支持 <code>iOS8+</code>。它只支持框架，所以不能用来针对 <code>iOS8</code> 以前的系统版本进行开发</li>
+<p>##　二、安装</p>
+<h3 id="CocoaPods"><a href="#CocoaPods" class="headerlink" title="CocoaPods"></a>CocoaPods</h3><p>在 <code>Podfile</code> 编辑：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">source &apos;https://github.com/CocoaPods/Specs.git&apos;</span><br><span class="line">platform :ios, &apos;10.0&apos;</span><br><span class="line">use_frameworks!</span><br><span class="line"></span><br><span class="line">target &apos;&lt;Your Target Name&gt;&apos; do</span><br><span class="line">    pod &apos;Alamofire&apos;, &apos;~&gt; 4.7&apos;</span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
+<p>然后运行 <code>pod install</code> 即可。</p>
+<h3 id="Carthage"><a href="#Carthage" class="headerlink" title="Carthage"></a>Carthage</h3><p>在 <code>Cartfile</code> 中输入:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Github“Alamofire / Alamofire”〜&gt; 4.7</span><br></pre></td></tr></table></figure>
+<p>运行 <code>carthage update</code> 更新以构建框架并将构建的 Alamofire.framework 拖入 Xcode 项目。</p>
+<h2 id="三、如何使用"><a href="#三、如何使用" class="headerlink" title="三、如何使用"></a>三、如何使用</h2><h3 id="1-发请求"><a href="#1-发请求" class="headerlink" title="1.发请求"></a>1.发请求</h3><p>导入完成后，我们就可以使用 Alamofire 请求网络了，我们可以发送最基本的 GET 请求：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Alamofire</span>.request(<span class="string">"http://baidu.com/"</span>)</span><br></pre></td></tr></table></figure>
+<p>当然，我们还可以为请求添加参数，并且处理响应信息，调用方式也很简单：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Alamofire</span>.request(.<span class="type">GET</span>, <span class="string">"https://httpbin.org/get"</span>, parameters: [<span class="string">"foo"</span>: <span class="string">"bar"</span>])</span><br><span class="line">    .responseJSON &#123; response <span class="keyword">in</span></span><br><span class="line"></span><br><span class="line">        <span class="built_in">print</span>(response.request)  <span class="comment">// 请求对象</span></span><br><span class="line">        <span class="built_in">print</span>(response.response) <span class="comment">// 响应对象</span></span><br><span class="line">        <span class="built_in">print</span>(response.data)     <span class="comment">// 服务端返回的数据</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> <span class="type">JSON</span> = response.result.value &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"JSON: \(JSON)"</span>)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Alamofire 提供了多种返回数据的序列化方法，比如刚才我们用到的 <code>responseJSON</code>， 会返回服务端返回的 JSON 数据，这样就不用我们自己再去解析了。</p>
+<p>下面是 Alamofire 目前支持的数据序列化方法：</p>
+<p>response()<br>responseData()<br>responseString(encoding: NSStringEncoding)<br>responseJSON(options: NSJSONReadingOptions)<br>responsePropertyList(options: NSPropertyListReadOptions)<br>支持普通数据，字符串， JSON 和 plist 形式的返回。</p>
+<h3 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h3><p>Alamofire 提供了 upload 方法用于上传本地文件到服务器：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fileURL = <span class="type">NSBundle</span>.mainBundle().<span class="type">URLForResource</span>(<span class="string">"Default"</span>, withExtension: <span class="string">"png"</span>)</span><br><span class="line"><span class="type">Alamofire</span>.upload(.<span class="type">POST</span>, <span class="string">"https://httpbin.org/post"</span>, file: fileURL)</span><br></pre></td></tr></table></figure>
+<p>当然，我们还可以获取上传时候的进度：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Alamofire</span>.upload(.<span class="type">POST</span>, <span class="string">"https://httpbin.org/post"</span>, file: fileURL)</span><br><span class="line">         .progress &#123; bytesWritten, totalBytesWritten, totalBytesExpectedToWrite <span class="keyword">in</span></span><br><span class="line">             <span class="built_in">print</span>(totalBytesWritten)</span><br><span class="line"></span><br><span class="line">             <span class="comment">// This closure is NOT called on the main queue for performance</span></span><br><span class="line">             <span class="comment">// reasons. To update your ui, dispatch to the main queue.</span></span><br><span class="line">             dispatch_async(dispatch_get_main_queue()) &#123;</span><br><span class="line">                 <span class="built_in">print</span>(<span class="string">"Total bytes written on main queue: \(totalBytesWritten)"</span>)</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line">         .responseJSON &#123; response <span class="keyword">in</span></span><br><span class="line">             <span class="built_in">debugPrint</span>(response)</span><br><span class="line">         &#125;</span><br></pre></td></tr></table></figure>
+<p>还支持 MultipartFormData 形式的表单数据上传：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Alamofire</span>.upload(</span><br><span class="line">    .<span class="type">POST</span>,</span><br><span class="line">    <span class="string">"https://httpbin.org/post"</span>,</span><br><span class="line">    multipartFormData: &#123; multipartFormData <span class="keyword">in</span></span><br><span class="line">        multipartFormData.appendBodyPart(fileURL: unicornImageURL, name: <span class="string">"unicorn"</span>)</span><br><span class="line">        multipartFormData.appendBodyPart(fileURL: rainbowImageURL, name: <span class="string">"rainbow"</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    encodingCompletion: &#123; encodingResult <span class="keyword">in</span></span><br><span class="line">        <span class="keyword">switch</span> encodingResult &#123;</span><br><span class="line">        <span class="keyword">case</span> .<span class="type">Success</span>(<span class="keyword">let</span> upload, <span class="number">_</span>, <span class="number">_</span>):</span><br><span class="line">            upload.responseJSON &#123; response <span class="keyword">in</span></span><br><span class="line">                <span class="built_in">debugPrint</span>(response)</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">case</span> .<span class="type">Failure</span>(<span class="keyword">let</span> encodingError):</span><br><span class="line">            <span class="built_in">print</span>(encodingError)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h3 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h3><ul>
+<li>Alamofire 同样也提供了文件下载的方法：</li>
 </ul>
-<h2 id="怎么使用-Carthage-导入第三方库？"><a href="#怎么使用-Carthage-导入第三方库？" class="headerlink" title="怎么使用 Carthage 导入第三方库？"></a>怎么使用 Carthage 导入第三方库？</h2><p id="div-border-left-green">1、安装 <code>Carthage</code><br>有三个方法<br>（1）直接下载安装包：地址，<code>dmg</code> 文件，直接打开安装<br>（2） 使用 <code>Homebrew</code> 安装，在终端运行:<br>    brew update<br>    brew install carthage<br>（3) 使用 <code>Xcode</code> 运行最新的开发版，clone <code>Carthage</code> 的仓库到本地，<code>make install</code><br><br>2、使用 <code>Carthage</code><br>（1）终端切换到工程目录，输入命令，创建一个 <code>Cartfile</code> 文件： <code>touch Cartfile</code><br>（2）使用任何编辑器(如 <code>Xcode</code>、文本编辑、<code>subtime line</code>)打开 <code>Cartfile</code> 文件，输入以下内容：<code>github &quot;SnapKit/SnapKit&quot;</code>，然后保存关闭。<br>（3）使用终端：<code>carthage update --platform iOS</code><br>（4）把 <code>framework</code> 加入你的项目：打开项目，选择 Targets -&gt; CarthageDemo -&gt; Build Phases -&gt;<br>Link Binary With Libraries -&gt; 点击 + 号 -&gt; Add Other -&gt; 找到 <code>framework</code> 添加<br>（5）现在点击 <code>Build Phases</code>(还是在当前选项卡) 左上角的 + 号，选择 <code>New Run Script Phase</code> ，填写内容。完成。</p>
-
-<h2 id="让你的工程支持-Carthage"><a href="#让你的工程支持-Carthage" class="headerlink" title="让你的工程支持 Carthage"></a>让你的工程支持 Carthage</h2><p id="div-border-left-blue">1、在已经写好的工程中。创建一个 <code>Framework</code><br>2、配置你的 <code>Framework</code><br>（1）选择你的工程<br>（2）选择 <code>framework</code> 所在的 <code>Target</code><br>（3.选择 <code>Build Phases</code><br>（4）点击 <code>Header</code> 左下角的+号把你要暴露的头文件添加到 <code>Public</code> 里面（默认添加到 <code>Project</code> 里面，用鼠标把它拽过去）<br>（5）在Compile source里面添加实现的.m文件<br>3、分享你的工程<br>（1）选择 <code>Manager Schemes</code>，勾上 <code>shared</code> (这样 <code>Carthage</code> 就可以编译你的工程)<br>（2）安装好 <code>Carthage</code> 的前提,我们 <code>cd</code> 到项目文件夹,运行：<code>carthage build —no-skip-current</code><br>（3）完成</p>
-
-<h2 id="Carthage-好处？"><a href="#Carthage-好处？" class="headerlink" title="Carthage 好处？"></a>Carthage 好处？</h2><ul>
-<li>通过Carthage可以将一部分不常变的库打包成framework，再引如到主工程，这样可以减少开发过程中的编译时间。</li>
-<li>可以将一些编译时间很长的库打包成framework。</li>
-<li>国内防火墙的缘故，有些库的下载慢到一定境界，这个时候，使用Carthage就是福音了。</li>
-<li>同时可以优化CI的编译、打包时间。</li>
-</ul>
-<h1 id="三、Carthage-和-CocoaPods-的不同之处："><a href="#三、Carthage-和-CocoaPods-的不同之处：" class="headerlink" title="三、Carthage 和 CocoaPods 的不同之处："></a>三、Carthage 和 CocoaPods 的不同之处：</h1><p id="div-border-top-yellow"><code>CocoaPods</code> (默认)自动建立和更新一个 <code>Xcode workspace</code>，用来管理你的项目和所有依赖。<code>Carthage</code> 使用<code>xcodebuild</code> 来编译出二进制库，剩下的集成工作完全交给开发人员。<br><code>CocoaPods</code> 使用起来方便，<code>Carthage</code> 更加灵活并且对现有项目没有太多的侵略性。<br><code>CocoaPods</code> 希望建立一个生态系统，可以更加方便的发现和集成第三方代码库。<code>Carthage</code> 希望变成一个去中心化的依赖管理系统，不提供中心化的项目列表，减少维护成本和单点失败的概率。不过这样给开发人员寻找项目带来不便。<br><code>CocoaPods</code> 的项目需要配置 <code>podspec</code> 文件，包含了项目和第三方库的信息。<code>Carthage</code> 并不使用类似的配置文件，第三方库的依赖关系是通过 <code>Xcode</code> 项目来配置的。</p>
-
-
-<h1 id="四、结论"><a href="#四、结论" class="headerlink" title="四、结论"></a>四、结论</h1><p id="div-border-top-red">选择这两个工具前，首先需要确定使用的第三库，是否支持 <code>Carthage</code> ，以这个为标准以下三种情况：<br>1、都支持 <code>Carthage</code>：使用 <code>Carthage</code>。<br>2、部分支持 <code>Carthage</code>：<code>Carthage</code> 和 <code>CocoaPods</code> 混合使用。<br>3、都不支持 <code>Carthage</code>：使用 <code>CocoaPods</code>。</p>
-
-
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Alamofire</span>.download(.<span class="type">GET</span>, <span class="string">"https://httpbin.org/stream/100"</span>) &#123; temporaryURL, response <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">let</span> fileManager = <span class="type">NSFileManager</span>.defaultManager()</span><br><span class="line">    <span class="keyword">let</span> directoryURL = fileManager.<span class="type">URLsForDirectory</span>(.<span class="type">DocumentDirectory</span>, inDomains: .<span class="type">UserDomainMask</span>)[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">let</span> pathComponent = response.suggestedFilename</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> directoryURL.<span class="type">URLByAppendingPathComponent</span>(pathComponent!)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>还可以设置默认的下载存储位置：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> destination = <span class="type">Alamofire</span>.<span class="type">Request</span>.suggestedDownloadDestination(directory: .<span class="type">DocumentDirectory</span>, domain: .<span class="type">UserDomainMask</span>)</span><br><span class="line"><span class="type">Alamofire</span>.download(.<span class="type">GET</span>, <span class="string">"https://httpbin.org/stream/100"</span>, destination: destination)</span><br></pre></td></tr></table></figure>
+<p>也提供了 progress 方法检测下载的进度：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Alamofire</span>.download(.<span class="type">GET</span>, <span class="string">"https://httpbin.org/stream/100"</span>, destination: destination)</span><br><span class="line">         .progress &#123; bytesRead, totalBytesRead, totalBytesExpectedToRead <span class="keyword">in</span></span><br><span class="line">             <span class="built_in">print</span>(totalBytesRead)</span><br><span class="line"></span><br><span class="line">             dispatch_async(dispatch_get_main_queue()) &#123;</span><br><span class="line">                 <span class="built_in">print</span>(<span class="string">"Total bytes read on main queue: \(totalBytesRead)"</span>)</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line">         .response &#123; <span class="number">_</span>, <span class="number">_</span>, <span class="number">_</span>, error <span class="keyword">in</span></span><br><span class="line">             <span class="keyword">if</span> <span class="keyword">let</span> error = error &#123;</span><br><span class="line">                 <span class="built_in">print</span>(<span class="string">"Failed with error: \(error)"</span>)</span><br><span class="line">             &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                 <span class="built_in">print</span>(<span class="string">"Downloaded file successfully"</span>)</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br></pre></td></tr></table></figure>
+<p>恢复下载——如果一个 DownloadRequest 被取消或中断，底层的 URL 会话会生成一个恢复数据。恢复数据可以被重新利用并在中断的位置继续下载。恢复数据可以通过下载响应访问，然后在重新开始请求的时候被利用。</p>
+<p>重要：在iOS 10 - 10.2, macOS 10.12 - 10.12.2, tvOS 10 - 10.1, watchOS 3 - 3.1.1中，resumeData 会被后台 URL 会话配置破坏。因为在 resumeData 的生成逻辑有一个底层的 bug，不能恢复下载。具体情况可以到 <a href="https://link.jianshu.com/?t=http%3A%2F%2Fstackoverflow.com%2Fquestions%2F39346231%2Fresume-nsurlsession-on-ios10%2F39347461%2339347461" target="_blank" rel="noopener">Stack Overflow</a> 看看。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ImageRequestor</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> resumeData: <span class="type">Data</span>?</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> image: <span class="type">UIImage</span>?</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">fetchImage</span><span class="params">(completion: <span class="params">(UIImage?)</span></span></span> -&gt; <span class="type">Void</span>) &#123;</span><br><span class="line">        <span class="keyword">guard</span> image == <span class="literal">nil</span> <span class="keyword">else</span> &#123; completion(image) ; <span class="keyword">return</span> &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> destination: <span class="type">DownloadRequest</span>.<span class="type">DownloadFileDestination</span> = &#123; <span class="number">_</span>, <span class="number">_</span> <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">let</span> documentsURL = <span class="type">FileManager</span>.<span class="keyword">default</span>.urls(<span class="keyword">for</span>: .documentDirectory, <span class="keyword">in</span>: .userDomainMask)[<span class="number">0</span>]</span><br><span class="line">            <span class="keyword">let</span> fileURL = documentsURL.appendPathComponent(<span class="string">"pig.png"</span>)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> (fileURL, [.removePreviousFile, .createIntermediateDirectories])</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> request: <span class="type">DownloadRequest</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> resumeData = resumeData &#123;</span><br><span class="line">            request = <span class="type">Alamofire</span>.download(resumingWith: resumeData)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            request = <span class="type">Alamofire</span>.download(<span class="string">"https://httpbin.org/image/png"</span>)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        request.responseData &#123; response <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">switch</span> response.result &#123;</span><br><span class="line">            <span class="keyword">case</span> .success(<span class="keyword">let</span> data):</span><br><span class="line">                <span class="keyword">self</span>.image = <span class="type">UIImage</span>(data: data)</span><br><span class="line">            <span class="keyword">case</span> .failure:</span><br><span class="line">                <span class="keyword">self</span>.resumeData = response.resumeData</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="HTTP-验证"><a href="#HTTP-验证" class="headerlink" title="HTTP 验证"></a>HTTP 验证</h3><p>Alamofire 还很提供了一个非常方便的 authenticate 方法提供了 HTTP 验证：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user = <span class="string">"user"</span></span><br><span class="line"><span class="keyword">let</span> password = <span class="string">"password"</span></span><br><span class="line"></span><br><span class="line"><span class="type">Alamofire</span>.request(.<span class="type">GET</span>, <span class="string">"https://httpbin.org/basic-auth/\(user)/\(password)"</span>)</span><br><span class="line">         .authenticate(user: user, password: password)</span><br><span class="line">         .responseJSON &#123; response <span class="keyword">in</span></span><br><span class="line">             <span class="built_in">debugPrint</span>(response)</span><br><span class="line">         &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="HTTP-响应状态信息识别"><a href="#HTTP-响应状态信息识别" class="headerlink" title="HTTP 响应状态信息识别"></a>HTTP 响应状态信息识别</h3><p>Alamofire 还提供了 HTTP 响应状态的判断识别，通过 validate 方法，对于在我们期望之外的 HTTP 响应状态信息，Alamofire 会提供报错信息：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Alamofire</span>.request(.<span class="type">GET</span>, <span class="string">"https://httpbin.org/get"</span>, parameters: [<span class="string">"foo"</span>: <span class="string">"bar"</span>])</span><br><span class="line">         .validate(statusCode: <span class="number">200</span>..&lt;<span class="number">300</span>)</span><br><span class="line">         .validate(contentType: [<span class="string">"application/json"</span>])</span><br><span class="line">         .response &#123; response <span class="keyword">in</span></span><br><span class="line">             <span class="built_in">print</span>(response)</span><br><span class="line">         &#125;</span><br></pre></td></tr></table></figure>
+<p>validate 方法还提供自动识别机制，我们调用 validate 方法时不传入任何参数，则会自动认为 200…299 的状态吗为正常：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Alamofire</span>.request(.<span class="type">GET</span>, <span class="string">"https://httpbin.org/get"</span>, parameters: [<span class="string">"foo"</span>: <span class="string">"bar"</span>])</span><br><span class="line">         .validate()</span><br><span class="line">         .responseJSON &#123; response <span class="keyword">in</span></span><br><span class="line">             <span class="keyword">switch</span> response.result &#123;</span><br><span class="line">             <span class="keyword">case</span> .<span class="type">Success</span>:</span><br><span class="line">                 <span class="built_in">print</span>(<span class="string">"Validation Successful"</span>)</span><br><span class="line">             <span class="keyword">case</span> .<span class="type">Failure</span>(<span class="keyword">let</span> error):</span><br><span class="line">                 <span class="built_in">print</span>(error)</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="调试状态"><a href="#调试状态" class="headerlink" title="调试状态"></a>调试状态</h3><p>我们通过使用 debugPrint 函数，可以打印出请求的详细信息，这样对我们调试非常的方便：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> request = <span class="type">Alamofire</span>.request(.<span class="type">GET</span>, <span class="string">"https://httpbin.org/get"</span>, parameters: [<span class="string">"foo"</span>: <span class="string">"bar"</span>])</span><br><span class="line"></span><br><span class="line"><span class="built_in">debugPrint</span>(request)</span><br></pre></td></tr></table></figure>
+<p>这样就会产生如下输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ curl -i \</span><br><span class="line">    -H &quot;User-Agent: Alamofire&quot; \</span><br><span class="line">    -H &quot;Accept-Encoding: Accept-Encoding: gzip;q=1.0,compress;q=0.5&quot; \</span><br><span class="line">    -H &quot;Accept-Language: en;q=1.0,fr;q=0.9,de;q=0.8,zh-Hans;q=0.7,zh-Hant;q=0.6,ja;q=0.5&quot; \</span><br><span class="line">    &quot;https://httpbin.org/get?foo=bar&quot;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -657,7 +676,7 @@
         <div style="text-align:center;color: #ccc;font-size:14px;">------本文结束 <i class="fa fa-thermometer-three-quarters" aria-hidden="true"></i> 感谢阅读------</div>
         <div>
 	    <p id="div-border-left-red">
-	   <b>本文地址：</b><a href="/articles/036.html" title="iOS - CocoaPods 和 Carthage 的比较">http://kaaaaai.cn/articles/036.html</a><br/>
+	   <b>本文地址：</b><a href="/articles/alamofire_analysis.html" title="iOS 应用架构 - VIPER 开发模式">http://kaaaaai.cn/articles/alamofire_analysis.html</a><br/>
 	    <span>
 	    <b>本文基于<a target="_blank" title="Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)" href="http://creativecommons.org/licenses/by-sa/4.0/"> 知识共享署名-相同方式共享 4.0 </a>国际许可协议发布</b><br/><b>转载请注明出处，谢谢！</b>
 	    </span>
@@ -704,7 +723,11 @@
           
             <a href="/tags/EXP/" rel="tag"><i class="fa fa-tag"></i> EXP</a>
           
-            <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
+            <a href="/tags/Swift/" rel="tag"><i class="fa fa-tag"></i> Swift</a>
+          
+            <a href="/tags/codeAnalysis/" rel="tag"><i class="fa fa-tag"></i> codeAnalysis</a>
+          
+            <a href="/tags/IOS/" rel="tag"><i class="fa fa-tag"></i> IOS</a>
           
         </div>
       
@@ -717,8 +740,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/articles/035.html" rel="next" title="唯“鸭嘴兽”主义哲学">
-                <i class="fa fa-chevron-left"></i> 唯“鸭嘴兽”主义哲学
+              <a href="/articles/on-the-road.html" rel="next" title="在路上">
+                <i class="fa fa-chevron-left"></i> 在路上
               </a>
             
           </div>
@@ -726,10 +749,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/articles/037.html" rel="prev" title="在草房子外">
-                在草房子外 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -928,7 +947,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、CocoaPods"><span class="nav-text">一、CocoaPods</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CocoaPods是什么？"><span class="nav-text">CocoaPods是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#怎么使用-CocoaPods-导入项目"><span class="nav-text">怎么使用 CocoaPods 导入项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#让你的工程支持-CocoaPods"><span class="nav-text">让你的工程支持 CocoaPods</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CocoaPods-好处？"><span class="nav-text">CocoaPods 好处？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、Carthage"><span class="nav-text">二、Carthage</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Carthage-是什么？"><span class="nav-text">Carthage 是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#怎么使用-Carthage-导入第三方库？"><span class="nav-text">怎么使用 Carthage 导入第三方库？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#让你的工程支持-Carthage"><span class="nav-text">让你的工程支持 Carthage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Carthage-好处？"><span class="nav-text">Carthage 好处？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、Carthage-和-CocoaPods-的不同之处："><span class="nav-text">三、Carthage 和 CocoaPods 的不同之处：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、结论"><span class="nav-text">四、结论</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Alamofire"><span class="nav-text">Alamofire</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、功能介绍"><span class="nav-text">一、功能介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#组件库"><span class="nav-text">组件库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CocoaPods"><span class="nav-text">CocoaPods</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Carthage"><span class="nav-text">Carthage</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、如何使用"><span class="nav-text">三、如何使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-发请求"><span class="nav-text">1.发请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上传文件"><span class="nav-text">上传文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载文件"><span class="nav-text">下载文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-验证"><span class="nav-text">HTTP 验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-响应状态信息识别"><span class="nav-text">HTTP 响应状态信息识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调试状态"><span class="nav-text">调试状态</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1119,9 +1138,9 @@ show_date_time();
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://kaaaaai.cn/articles/036.html';
-          this.page.identifier = 'articles/036.html';
-          this.page.title = 'iOS - CocoaPods 和 Carthage 的比较';
+          this.page.url = 'http://kaaaaai.cn/articles/alamofire_analysis.html';
+          this.page.identifier = 'articles/alamofire_analysis.html';
+          this.page.title = 'iOS 应用架构 - VIPER 开发模式';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://kaaaaai-cn.disqus.com/embed.js';
