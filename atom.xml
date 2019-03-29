@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kaaaaai.cn/"/>
-  <updated>2019-03-15T10:20:22.596Z</updated>
+  <updated>2019-03-29T05:50:00.016Z</updated>
   <id>http://kaaaaai.cn/</id>
   
   <author>
@@ -16,11 +16,38 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>开发的阶段性反思</title>
+    <link href="http://kaaaaai.cn/articles/development_stage_reflection.html"/>
+    <id>http://kaaaaai.cn/articles/development_stage_reflection.html</id>
+    <published>2019-03-29T08:24:52.000Z</published>
+    <updated>2019-03-29T05:50:00.016Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　最近感觉到开发的技术提升缓慢，意识到自己可能进入了一个不上不下的瓶颈期。虽然在公司内部也一直有技术学习小组，但切实落于自身的总好像隔靴挠痒，不能很精确发现自己的不足，和如何针对这种不足去改正。为了下一阶段的继续提升，我觉得有必要总结一下自己学习到的内容，和规划一下未来的技术提升方向。<br>　　<br>　　工作上主要使用的 Swift 和 OC，已经基本掌握的很熟练了，各种布局、控件和数据处理的基本使用都没问题，也可以根据这些知识基础按自己的想法实现一些捷径式的小操作。<br>　　但是还有一些不足，比如最近很多人用的 auto layout，用着就很别扭，还不太熟练，音频，视频传输和编码的处理，没有深入了解过，还有代码的整洁度，和代码的结构，大局观比较差。OC 一阵子没用，也有些生涩的感觉，OC 和 Swift 的混编，在数据传输上的方法上还可以进一步学习一下。<br>　　Android 方便，因为很久没使用了，水平可能还是停在给上一家开发应用，可以读懂代码，可以按产品效果图实现一个 App，但是完成度可能不太让人满意，Android 新兴的语言 Kotlin 也都一直还没接触过。<br>　　Python 的学习很早就停下了，过了那么久，模糊的只记得一些函数表达式写法，和类型属性这些流于表面的概念性的东西。不具备独立开发的能力。<br>　　<br>　　以上就是我现阶段学习和使用过的语言总结，在开发的过程中，我越来越发现一个扎实基础的重要性，一言以蔽之，对底层的理解程度基本可以决定你现在所处的高度。因为之前技术的突破都是为了需求赶鸭子上架现学现卖，在过程中就容易错过很多细节，虽然在后续的开发里，自己也会不断回推梳理，但很难得到一个系统性的结论，反而是在找工作背面试题，不断过一些概念理论的时候，和自己过往开发印证，觉得收获很多。<br>　　所以，下一阶段的第一个目标我想是重新对我所学的语言，那些基础知识复习一遍，梳理巩固一下。<br>　　还有一个就是对多线程的理解和掌握，虽然现在对 oc 的运行时态和多线程理解和使用都没有问题，但我注意到，很多大项目，对线程管理都有一定规范性的东西穿插在整个项目里，这一点是我所不足的。有同样问题的是网络请求方面，TCP、UDP、HTTP之前也都掌握的不是很好，需要重新梳理。<br>　　格外的目标是想把这两本书：《Effective Objective-C 2.0 编写高质量 iOS 与 OS X 代码的 52 个有效方法》、《Objective-C高级编程：iOS与OS X多线程和内存管理》，在最近的学习告一段落之后看完。<br>　　<br>　　除了实际的目标和计划以外，我觉得我最近对技术的态度也处在一个低谷期，可能是因为从新手期出来很久，以前敲一段代码看到效果的成就反馈对我影响很小了，也可能是技术处于一个停滞的阶段，所以对敲代码缺少以前的积极性了。所以我希望可以通过学习新的东西来重新回到之前对编程热情洋溢的阶段。<br>　　最近看《爱，死亡和机器人》，有一集《齐马的作品》，我很喜欢，开篇就讲一个大师的艺术探索，从人物肖像，到绘画出正中心带纯蓝色几何图形的浩瀚宇宙，结尾是他探索终极，发现自己的由来是一台清洁机器人，就回归自我，变成清洁机器人。所以他终极的答案是找一件简单的事做。其实举一反三来看，编程这件事，和他的艺术探索也是一回事，高屋建瓴太遥远，那就从简单的事情开始做。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
+    
+      <category term="iOS" scheme="http://kaaaaai.cn/tags/iOS/"/>
+    
+      <category term="Development" scheme="http://kaaaaai.cn/tags/Development/"/>
+    
+  </entry>
+  
+  <entry>
     <title>iOS - Alamofire 日志框架源码分析</title>
     <link href="http://kaaaaai.cn/articles/alamofire_analysis.html"/>
     <id>http://kaaaaai.cn/articles/alamofire_analysis.html</id>
     <published>2019-03-15T09:24:52.000Z</published>
-    <updated>2019-03-15T10:20:22.596Z</updated>
+    <updated>2019-03-15T10:20:32.363Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><em>因为最近项目用的 swift 的网络库 alamofire，研究了一下，堪堪掌握到可以使用的地步，就记下笔记，以防忘记。</em></p>
 <h1 id="Alamofire"><a href="#Alamofire" class="headerlink" title="Alamofire"></a>Alamofire</h1><p>Alamofire 是一个用 Swift 编写的 HTTP 网络库。</p>
@@ -1719,76 +1746,6 @@ return @{
       <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
     
       <category term="Other" scheme="http://kaaaaai.cn/tags/Other/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS - CocoaLumberjack 日志框架源码分析</title>
-    <link href="http://kaaaaai.cn/articles/038.html"/>
-    <id>http://kaaaaai.cn/articles/038.html</id>
-    <published>2018-08-28T06:24:52.000Z</published>
-    <updated>2019-03-15T09:38:28.533Z</updated>
-    
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="CocoaLumberjack"><a href="#CocoaLumberjack" class="headerlink" title="CocoaLumberjack"></a>CocoaLumberjack</h1><p>CocoaLumberjack 是一个适用于 Mac 和 iOS 的快速、简单，而且功能强大且灵活的日志框架</p>
-<h1 id="一、功能介绍"><a href="#一、功能介绍" class="headerlink" title="一、功能介绍"></a>一、功能介绍</h1><p><span id="inline-toc">1.</span>支持日志打印到 Xcode 控制台，打印到 mac 的 console 程序、打印到文件<br><span id="inline-toc">2.</span>日志功能支持关闭和打开，支持 Error、Warning、Info、Debug、Verbose、All 日志等级<br><span id="inline-toc">3.</span> 支持基于 DDLogFormatter 协议自定义日志格式和继承 DDAbstractLogger 和协议 DDLogger 自定义 logger<br><span id="inline-toc">4.</span>可将日志打印上传到服务器<br><span id="inline-toc">5.</span>基于多线程、GCD、运行时态等</p>
-<h1 id="二、架构"><a href="#二、架构" class="headerlink" title="二、架构"></a>二、架构</h1><p>由四个部分组成：DDLog, DDLogger, DDLogMessage, DDLogFormatter。</p>
-<h2 id="2-1-DDLog与DDLogger"><a href="#2-1-DDLog与DDLogger" class="headerlink" title="2.1 DDLog与DDLogger"></a>2.1 DDLog与DDLogger</h2><center><img src="http://os1i62usc.bkt.clouddn.com/038_01.png" alt=""></center>
-
-<p>如上图所示，DDLog 是整个库的入口，我们平时用的 DDLogLevel 等宏就是直接调用 DDLog 的接口。一个 DDLog 包含着一个或多个 DDLogger，比如常用的DDTTYLogger，DDASLLogger 等等。当我们调用 DDLogInfo 的时候，DDLog 会把已有的 DDLogger 全部遍历一遍，对于每个 DDLogger 都会调用其 logMessage 接口。当然细心的读者会意识到，这些操作不可能同步(SYNC)进行。而且如果要保证日志的相对顺序，必然会给 DDLogger 分配一个专属的线性队列(SERIAL_QUEUE)。</p>
-<h2 id="2-2-DDLogger，DDLogFormatter-与-DDLogMessage"><a href="#2-2-DDLogger，DDLogFormatter-与-DDLogMessage" class="headerlink" title="2.2 DDLogger，DDLogFormatter 与 DDLogMessage"></a>2.2 DDLogger，DDLogFormatter 与 DDLogMessage</h2><p>这三者之间的关系，用图像解释反而更加容易迷惑，还是用文字吧。</p>
-<p>先阐述一下整个流程。DDLog 调用 DDLogger 的时候，传入的是一个 DDLogMessage 实例。这个实例除了日志内容本身之外，还包含了关于这个日志的辅助信息，主要包括日志等级(level)，环境（context），队列（queueLabel），标签（tag），时间戳（timestamp）等等，他们的用法下面会有详细介绍。接着，DDLogger 里面如果有 DDLogFormatter 的话，会先调用 DDLogFormatter 处理日志格式，对日志进行过滤等等操作，然后把日志打到 Logger 对应的位置。</p>
-<p>这里要注意，每个 DDLogger 最多只能有一个 DDLogFormatter 实例，可以通过 setLogFormatter：设置。但是，如果有需要同时应用多个 DDLogFormatter 的话，可以使用框架内置的一个 DDMultiFormatter 把需要用的整合到一起。这样就使得用户自定义 formatter 非常的方便。这里要注意两点：<br>（1）DDMultiFormatter 应用 formatter 时，是按照其添加的顺序逐个依次线性地进行的，所以往 DDMultiFormatter 上添加 formatter 时一定要注意添加的顺序；</p>
-<p>（2）虽然 DDLogFormatter 名字上叫做 Formatter，它的功能并不局限于改变日志的格式。你还可以用它来过滤日志等等。</p>
-<h2 id="2-3-DDLogMessage-相关属性"><a href="#2-3-DDLogMessage-相关属性" class="headerlink" title="2.3 DDLogMessage 相关属性"></a>2.3 DDLogMessage 相关属性</h2><p>DDLogMessage 属性的作用是给 DDLogFormatter 足够的信息去修改日志格式以及进行过滤筛选等操作。这里贴一下 DDLogMessage 的属性列表：<br><figure class="highlight objectivec"><figcaption><span>Objective-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">DDLogMessage</span> : <span class="title">NSObject</span> &lt;<span class="title">NSCopying</span>&gt;</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// Direct accessors to be used only for performance</span></span><br><span class="line">    <span class="keyword">@public</span></span><br><span class="line">    <span class="built_in">NSString</span> *_message;</span><br><span class="line">    DDLogLevel _level;</span><br><span class="line">    DDLogFlag _flag;</span><br><span class="line">    <span class="built_in">NSInteger</span> _context;</span><br><span class="line">    <span class="built_in">NSString</span> *_file;</span><br><span class="line">    <span class="built_in">NSString</span> *_fileName;</span><br><span class="line">    <span class="built_in">NSString</span> *_function;</span><br><span class="line">    <span class="built_in">NSUInteger</span> _line;</span><br><span class="line">    <span class="keyword">id</span> _tag;</span><br><span class="line">    DDLogMessageOptions _options;</span><br><span class="line">    <span class="built_in">NSDate</span> *_timestamp;</span><br><span class="line">    <span class="built_in">NSString</span> *_threadID;</span><br><span class="line">    <span class="built_in">NSString</span> *_threadName;</span><br><span class="line">    <span class="built_in">NSString</span> *_queueLabel;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>大部分属性都相对比较容易理解，这里想着重梳理一下 context 和 level。截止至写作日期，Github 上的文档还没有更新，所以如果你去读文档的话，会感到非常混乱。CocoaLumberjack 自从 v2.x.x 以来，社区大幅度地改变了对这两个属性的定义。</p>
-<p>按照<a href="https://github.com/CocoaLumberjack/CocoaLumberjack/blob/master/Documentation/CustomLogLevels.md" target="_blank" rel="noopener">文档</a>所说，用户可以通过在自己的头文件里#define自定义日志等级。但是如果你去试试就会发现根本行不通。原因是自从2.x版本以后，日志等级的定义方式由原来的宏改成了枚举(NS_ENUM)。这几乎杜绝了用户自定义日志等级。</p>
-<h1 id="三、安装"><a href="#三、安装" class="headerlink" title="三、安装"></a>三、安装</h1><p>第一种方法：使用 <code>cocoapods</code>，<code>Podfile</code> 看起来是这样的：</p>
-<figure class="highlight objectivec"><figcaption><span>Objective-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">platform:ios, '7.0'</span><br><span class="line">target 'CocoaLumberjackDemo' do</span><br><span class="line">pod 'CocoaLumberjack'</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-<p>第二种方法：使用 <a href="https://github.com/Carthage/Carthage" target="_blank" rel="noopener">Carthage</a>，在工程内的 <code>Cartfile</code> 文件中添加：</p>
-<figure class="highlight objectivec"><figcaption><span>Objective-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">github <span class="string">"CocoaLumberjack/CocoaLumberjack"</span></span><br></pre></td></tr></table></figure>
-<p>第三种方法：手工导入，具体可以看<a href="https://github.com/CocoaLumberjack/CocoaLumberjack/blob/master/Documentation/GettingStarted.md#manual-installation" target="_blank" rel="noopener">他的文档</a></p>
-<h1 id="四、使用"><a href="#四、使用" class="headerlink" title="四、使用"></a>四、使用</h1><p><strong>CocoaLumberjack 自带了几种 Log 方式：</strong></p>
-<p><span id="inline-toc">1.</span>DDLog（整个框架的基础）<br><span id="inline-toc">2.</span>DDASLLogger（发送日志语句到苹果的日志系统，以便它们显示在 Console.app上）<br><span id="inline-toc">3.</span>DDTTYLoyger（发送日志语句到Xcode控制台）<br><span id="inline-toc">4.</span>DDFIleLoger（把日志写入本地文件</p>
-<p>你可以同时记录文件和控制台，还可以创建自己的 logger，将日志语句发送到网络或者数据库中。</p>
-<p>使用的时候需要引入头文件：#import <cocoalumberjack cocoalumberjack.h="">，你还需要全局设置下 log 级别：static const DDLogLevel ddLogLevel = DDLogLevelDebug;，关于 Log 级别，下面会细讲。</cocoalumberjack></p>
-<p>所以你的.pch 里面可能有段这样的代码：</p>
-<center><img src="http://os1i62usc.bkt.clouddn.com/038_02.png" alt=""></center>
-
-<p>然后加入代码：</p>
-<figure class="highlight objectivec"><figcaption><span>Objective-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 添加DDASLLogger，你的日志语句将被发送到Xcode控制台</span></span><br><span class="line">    [DDLog addLogger:[DDTTYLogger sharedInstance]];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 添加DDTTYLogger，你的日志语句将被发送到Console.app</span></span><br><span class="line">    [DDLog addLogger:[DDASLLogger sharedInstance]];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 添加DDFileLogger，你的日志语句将写入到一个文件中，默认路径在沙盒的Library/Caches/Logs/目录下，文件名为bundleid+空格+日期.log。</span></span><br><span class="line">    DDFileLogger *fileLogger = [[DDFileLogger alloc] init];</span><br><span class="line">    fileLogger.rollingFrequency = <span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span>;</span><br><span class="line">    fileLogger.logFileManager.maximumNumberOfLogFiles = <span class="number">7</span>;</span><br><span class="line">    [DDLog addLogger:fileLogger];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//产生Log</span></span><br><span class="line">    DDLogVerbose(<span class="string">@"Verbose"</span>);</span><br><span class="line">    DDLogDebug(<span class="string">@"Debug"</span>);</span><br><span class="line">    DDLogInfo(<span class="string">@"Info"</span>);</span><br><span class="line">    DDLogWarn(<span class="string">@"Warn"</span>);</span><br><span class="line">    DDLogError(<span class="string">@"Error"</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>DDLog 和 NSLog 的语法是一样的。</p>
-<p>运行程序，可以在 Xocde 控制台看到：</p>
-<center><img src="http://os1i62usc.bkt.clouddn.com/038_03.png" alt=""></center>
-
-<p>产生的 Log 文件打开是这样的：</p>
-<center><img src="http://os1i62usc.bkt.clouddn.com/038_04.png" alt=""></center>
-
-<p><strong>Log 级别</strong></p>
-<p>接下来，你就要考虑用哪种级别了，CocoaLumberjack 有5种：<br><figure class="highlight objectivec"><figcaption><span>Objective-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="built_in">NS_OPTIONS</span>(<span class="built_in">NSUInteger</span>, DDLogFlag)&#123;</span><br><span class="line">    DDLogFlagError      = (<span class="number">1</span> &lt;&lt; <span class="number">0</span>),</span><br><span class="line">    DDLogFlagWarning    = (<span class="number">1</span> &lt;&lt; <span class="number">1</span>),</span><br><span class="line">    DDLogFlagInfo       = (<span class="number">1</span> &lt;&lt; <span class="number">2</span>),</span><br><span class="line">    DDLogFlagDebug      = (<span class="number">1</span> &lt;&lt; <span class="number">3</span>),</span><br><span class="line">    DDLogFlagVerbose    = (<span class="number">1</span> &lt;&lt; <span class="number">4</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>例如，如果您将日志级别设置为 LOG_LEVEL_INFO，那么你会看到error、Warn和Info语句。</p>
-<p>你也可以<a href="https://github.com/CocoaLumberjack/CocoaLumberjack/blob/master/Documentation/CustomLogLevels.md" target="_blank" rel="noopener">自定义Log级别及每个级别的名字</a>或者<a href="https://github.com/CocoaLumberjack/CocoaLumberjack/blob/master/Documentation/FineGrainedLogging.md" target="_blank" rel="noopener">在单纯的级别上增加一些高级用法</a></p>
-<p>我们也可以为 Debug 和 Release 模式设置不同的 Log 级别：<br><figure class="highlight objectivec"><figcaption><span>Objective-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#ifdef DEBUG </span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">const</span> DDLogLevel ddLogLevel = DDLogLevelVerbose;</span><br><span class="line"><span class="meta">#else </span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">const</span> DDLogLevel ddLogLevel = DDLogLevelWarning;</span><br><span class="line"><span class="meta">#endif</span></span><br></pre></td></tr></table></figure></p>
-<p>我们还可以为每种 loger 设置不同的级别：</p>
-<figure class="highlight objectivec"><figcaption><span>Objective-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[DDLog addLogger:[DDASLLogger sharedInstance] withLevel:DDLogLevelInfo];</span><br><span class="line">[DDLog addLogger:[DDTTYLogger sharedInstance] withLevel:DDLogLevelDebug];</span><br></pre></td></tr></table></figure>
-<p>我们还可以<a href="https://github.com/CocoaLumberjack/CocoaLumberjack/blob/master/Documentation/CustomFormatters.md" target="_blank" rel="noopener">自定义日志的 formatter 格式</a>：<br>首先自定义一个 LogFormatter, 遵从 DDLogFormatter 协议，我们需要重写 - (NSString <em>)formatLogMessage:(DDLogMessage </em>)logMessage 这个方法，这个方法的输入参数是由 logger 发的一个 DDLogMessage 对象，包含了一些必要的信息，返回值就是最终 log 的消息体字符串。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
-    
-    </summary>
-    
-      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
-    
-      <category term="iOS" scheme="http://kaaaaai.cn/tags/iOS/"/>
-    
-      <category term="OC" scheme="http://kaaaaai.cn/tags/OC/"/>
-    
-      <category term="codeAnalysis" scheme="http://kaaaaai.cn/tags/codeAnalysis/"/>
     
   </entry>
   
