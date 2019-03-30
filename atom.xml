@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kaaaaai.cn/"/>
-  <updated>2019-03-29T07:10:48.902Z</updated>
+  <updated>2019-03-30T02:55:42.277Z</updated>
   <id>http://kaaaaai.cn/</id>
   
   <author>
@@ -16,11 +16,65 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>iOS - Reachability.swift 源码分析</title>
+    <link href="http://kaaaaai.cn/articles/reachability-swift-analysis.html"/>
+    <id>http://kaaaaai.cn/articles/reachability-swift-analysis.html</id>
+    <published>2019-03-30T09:24:52.000Z</published>
+    <updated>2019-03-30T02:55:42.277Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="1-Reachability-swift-介绍"><a href="#1-Reachability-swift-介绍" class="headerlink" title="1. Reachability.swift 介绍"></a>1. Reachability.swift 介绍</h2><h3 id="1-1-Reachability-swift"><a href="#1-1-Reachability-swift" class="headerlink" title="1.1 Reachability.swift"></a>1.1 Reachability.swift</h3><p>Reachability.swift 是 Apple 的 Reachability 的替代品，用Swift重写了闭包。</p>
+<p>它兼容 iOS（8.0 - 11.0），OSX（10.9 - 10.13）和 tvOS（9.0 - 11.0）</p>
+<ul>
+<li>监视目标网络是否可用</li>
+<li>监视当前网络的连接方式</li>
+<li>监测连接方式的变更</li>
+</ul>
+<h2 id="2-Reachability-swift-安装"><a href="#2-Reachability-swift-安装" class="headerlink" title="2  Reachability.swift 安装"></a>2  Reachability.swift 安装</h2><h3 id="2-1-手动"><a href="#2-1-手动" class="headerlink" title="2.1 手动"></a>2.1 手动</h3><p>将 Reachability.swift 文件夹放入项目即可。</p>
+<h3 id="2-2-CocoaPods"><a href="#2-2-CocoaPods" class="headerlink" title="2.2 CocoaPods"></a>2.2 CocoaPods</h3><p> （1）确认 CocoaPods 已安装<br> （2）添加一下代码到工程内的 Podfile 文件中<br> <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">use_frameworks!</span><br><span class="line">pod 'ReachabilitySwift'</span><br></pre></td></tr></table></figure></p>
+<p> （3）运行 <code>pod install</code></p>
+<h3 id="2-2-Carthage"><a href="#2-2-Carthage" class="headerlink" title="2.2 Carthage"></a>2.2 Carthage</h3><p>（1）通过 <a href="https://brew.sh/" target="_blank" rel="noopener">Homebrew</a> 安装 Carthage<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ brew update</span><br><span class="line">$ brew install carthage</span><br></pre></td></tr></table></figure></p>
+<p>（2）添加 <code>github &quot;ashleymills/Reachability.swift&quot;</code> 到你的 Cartfile<br>（3）运行 <code>carthage update</code><br>（4）将 <code>Reachability.framework</code> 从 <code>Carthage/Build/iOS/</code> 目录拖到 Xcode 项目的 <code>General</code> 设置的 <code>Linked Frameworks and Libraries</code> 中。<br>（5）将 <code>$(SRCROOT)/Carthage/Build/iOS/Reachability.framework</code> 添加到 Carthage 的运行脚本阶段的输入文件中。<br>(6)在您的代码中导入 Reachability，如下所示：<code>import Reachability</code></p>
+<h2 id="2-使用"><a href="#2-使用" class="headerlink" title="2. 使用"></a>2. 使用</h2><h3 id="2-1-closures-的使用"><a href="#2-1-closures-的使用" class="headerlink" title="2.1 closures 的使用"></a>2.1 closures 的使用</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化</span></span><br><span class="line"><span class="keyword">let</span> reachability = <span class="type">Reachability</span>()!</span><br><span class="line"></span><br><span class="line">reachability.whenReachable = &#123; reachability <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">if</span> reachability.connection == .wifi &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Reachable via WiFi"</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Reachable via Cellular"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">reachability.whenUnreachable = &#123; <span class="number">_</span> <span class="keyword">in</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Not reachable"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> reachability.startNotifier()</span><br><span class="line">&#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Unable to start notifier"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>停止通知：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reachability.stopNotifier()</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-notifications-的使用"><a href="#2-2-notifications-的使用" class="headerlink" title="2.2 notifications 的使用"></a>2.2 notifications 的使用</h3><p>所有通知都在主线程中发送。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化</span></span><br><span class="line"><span class="keyword">let</span> reachability = <span class="type">Reachability</span>()!</span><br><span class="line"></span><br><span class="line"><span class="comment">//需要在 viewWillAppear 声明这个</span></span><br><span class="line"></span><br><span class="line">     <span class="type">NotificationCenter</span>.<span class="keyword">default</span>.addObserver(<span class="keyword">self</span>, selector: #selector(reachabilityChanged(note:)), name: .reachabilityChanged, object: reachability)</span><br><span class="line">    <span class="keyword">do</span>&#123;</span><br><span class="line">      <span class="keyword">try</span> reachability.startNotifier()</span><br><span class="line">    &#125;<span class="keyword">catch</span>&#123;</span><br><span class="line">      <span class="built_in">print</span>(<span class="string">"could not start reachability notifier"</span>)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>也可以这样使用</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@objc</span> <span class="function"><span class="keyword">func</span> <span class="title">reachabilityChanged</span><span class="params">(note: Notification)</span></span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> reachability = note.object <span class="keyword">as</span>! <span class="type">Reachability</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">switch</span> reachability.connection &#123;</span><br><span class="line">  <span class="keyword">case</span> .wifi:</span><br><span class="line">      <span class="built_in">print</span>(<span class="string">"Reachable via WiFi"</span>)</span><br><span class="line">  <span class="keyword">case</span> .cellular:</span><br><span class="line">      <span class="built_in">print</span>(<span class="string">"Reachable via Cellular"</span>)</span><br><span class="line">  <span class="keyword">case</span> .<span class="keyword">none</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Network not reachable"</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>停止通知：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">reachability.stopNotifier()</span><br><span class="line"><span class="type">NotificationCenter</span>.<span class="keyword">default</span>.removeObserver(<span class="keyword">self</span>, name: .reachabilityChanged, object: reachability)</span><br></pre></td></tr></table></figure>
+<h3 id="2-3-使用示例"><a href="#2-3-使用示例" class="headerlink" title="2.3 使用示例"></a>2.3 使用示例</h3><p>（1）使用前记得导入ReachabilitySwift类，下面代码放在viewDidLoad()方法中即可。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reachability: <span class="type">Reachability</span>!</span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    reachability = <span class="keyword">try</span> <span class="type">Reachability</span>.reachabilityForInternetConnection()</span><br><span class="line">&#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Unable to create Reachability"</span>)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 检测网络连接状态</span></span><br><span class="line"><span class="keyword">if</span> reachability.isReachable() &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"网络连接：可用"</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"网络连接：不可用"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 检测网络类型</span></span><br><span class="line"><span class="keyword">if</span> reachability.isReachableViaWiFi() &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"网络类型：Wifi"</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> reachability.isReachableViaWWAN() &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"网络类型：移动网络"</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"网络类型：无网络连接"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>（2）监听网络变化</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 网络可用或切换网络类型时执行</span></span><br><span class="line">reachability.whenReachable = &#123; reachability <span class="keyword">in</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 判断网络状态及类型</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 网络不可用时执行</span></span><br><span class="line">reachability.whenUnreachable = &#123; reachability <span class="keyword">in</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 判断网络状态及类型</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    <span class="comment">// 开始监听</span></span><br><span class="line">    <span class="keyword">try</span> reachability.startNotifier()</span><br><span class="line">&#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Unable to start notifier"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>停止监听调用 <code>reachability.stopNotifier()</code> 即可。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
+    
+      <category term="Swift" scheme="http://kaaaaai.cn/tags/Swift/"/>
+    
+      <category term="codeAnalysis" scheme="http://kaaaaai.cn/tags/codeAnalysis/"/>
+    
+      <category term="IOS" scheme="http://kaaaaai.cn/tags/IOS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>开发的阶段性反思</title>
     <link href="http://kaaaaai.cn/articles/development_stage_reflection.html"/>
     <id>http://kaaaaai.cn/articles/development_stage_reflection.html</id>
     <published>2019-03-29T08:24:52.000Z</published>
-    <updated>2019-03-29T07:10:48.902Z</updated>
+    <updated>2019-03-29T07:11:16.774Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　最近感觉到开发的技术提升缓慢，意识到自己可能进入了一个不上不下的瓶颈期。虽然在公司内部也一直有技术学习小组，但切实落于自身的总好像隔靴挠痒，不能很精确发现自己的不足，和如何针对这种不足去改正。为了下一阶段的继续提升，我觉得有必要总结一下自己学习到的内容，和规划一下未来的技术提升方向。<br>　　<br>　　工作上主要使用的 Swift 和 OC，已经基本掌握的很熟练了，各种布局、控件和数据处理的基本使用都没问题，也可以根据这些知识基础按自己的想法实现一些捷径式的小操作。<br>　　但是还有一些不足，比如最近很多人用的 auto layout，用着就很别扭，还不太熟练，音频，视频传输和编码的处理，没有深入了解过，还有代码的整洁度，和代码的结构，大局观比较差。OC 一阵子没用，也有些生涩的感觉，OC 和 Swift 的混编，在数据传输上的方法上还可以进一步学习一下。<br>　　Android 方便，因为很久没使用了，水平可能还是停在给上一家开发应用，可以读懂代码，可以按产品效果图实现一个 App，但是完成度可能不太让人满意，Android 新兴的语言 Kotlin 也都一直还没接触过。<br>　　Python 的学习很早就停下了，过了那么久，模糊的只记得一些函数表达式写法，和类型属性这些流于表面的概念性的东西。不具备独立开发的能力。<br>　　<br>　　以上就是我现阶段学习和使用过的语言总结，在开发的过程中，我越来越发现一个扎实基础的重要性，一言以蔽之，对底层的理解程度基本可以决定你现在所处的高度。因为之前技术的突破都是为了需求赶鸭子上架现学现卖，在过程中就容易错过很多细节，虽然在后续的开发里，自己也会不断回推梳理，但很难得到一个系统性的结论，反而是在找工作背面试题，不断过一些概念理论的时候，和自己过往开发印证，觉得收获很多。<br>　　所以，下一阶段的第一个目标我想是重新对我所学的语言，那些基础知识复习一遍，梳理巩固一下。<br>　　还有一个就是对 OC/Swift 多线程的理解和掌握，虽然现在对 OC 的运行时态和多线程理解和使用都没有问题，但我注意到，很多大项目，对线程管理都有一定规范性的东西穿插在整个项目里，这一点是我所不足的。有同样问题的是网络请求方面，TCP、UDP、HTTP之前也都掌握的不是很好，需要重新梳理。<br>　　格外的目标是想把这两本书：《Effective Objective-C 2.0 编写高质量 iOS 与 OS X 代码的 52 个有效方法》、《Objective-C高级编程：iOS与OS X多线程和内存管理》，在最近的学习告一段落之后看完。<br>　　<br>　　除了实际的目标和计划以外，我觉得我最近对技术的态度也处在一个低谷期，可能是因为从新手期出来很久，以前敲一段代码看到效果的成就反馈对我影响很小了，也可能是技术处于一个停滞的阶段，所以对敲代码缺少以前的积极性了。所以我希望可以通过学习新的东西来重新回到之前对编程热情洋溢的阶段。<br>　　最近看《爱，死亡和机器人》，有一集《齐马的作品》，我很喜欢，开篇就讲一个大师的艺术探索，从人物肖像，到绘画出正中心带纯蓝色几何图形的浩瀚宇宙，结尾是他探索终极，发现自己的由来是一台清洁机器人，就回归自我，变成清洁机器人。所以他终极的答案是找一件简单的事做。其实举一反三来看，编程这件事，和他的艺术探索也是一回事，高屋建瓴太遥远，那就从简单的事情开始做。</p>
 ]]></content>
@@ -136,10 +190,10 @@
     <link href="http://kaaaaai.cn/articles/on-the-road.html"/>
     <id>http://kaaaaai.cn/articles/on-the-road.html</id>
     <published>2019-03-11T10:00:52.000Z</published>
-    <updated>2019-03-15T09:27:00.204Z</updated>
+    <updated>2019-03-29T13:10:10.605Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　行百里者半九十，新年过来就一头扎进工作，晕头转向直到现在，让我这才走了十里路的人看着剩下的九十里，都有了些望洋兴叹的惆怅。所以趁现在有空，休息一下，回顾一下。<br>　　过年照旧仍去上山烧香拜了佛，不同的是，今年没抽到上上签，而是中上签。不过也说不清是好是坏，表哥去年抽到中下签，我和表弟抽的是上上签和上中签，但去年反倒是他订婚成了家先。因为这个今年过年在外游荡的人就剩我和表弟两了。眼看过去吃了饭就撒手啥也不管变成一个抢着洗碗做家务事的人，我和表弟某个晚上吃了夜宵在大街上忽然感慨，以后就剩我们两相依为命啦。<br>　　凡事都说物是人非太不客观，就好像我表哥变了一些，而我们上山烧香拜佛，山也并非一成不变。上山变得更容易了，可以坐改装成游览车的金杯到山脚，再从山脚坐缆车到山顶。我们选择在坐缆车前走一小段路，路不是去年的那条，而是换成一条有些曲折，两边拨地而起了不少新建仿古建筑的坎坷小路，前两天下过雨，路上有些积水。一个拐角之后，迎面看到一个牌子，小吃街。穿过小街随便抬头看了各个店铺贴在门上墙上的菜单，个个都是 5A 级景区的价格，到了街尾，表弟拿着手机对着一个菜单拍了个照，说下次要和别人炫耀下我们这消费也是相当高的。<script src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script><script src="//cdn.bootcss.com/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script><div class="hexo-img-stream"><style type="text/css">.hexo-image-steam-lazy {display:none;}.hexo-img-stream{width:90%;max-width:1100px;margin:3% auto}div.hexo-img-stream figure{background:#fefefe;box-shadow:0 1px 2px rgba(34,25,25,0.4);margin:0 0.05% 3%;padding:3%;padding-bottom:10px;display:inline-block;max-width:25%}div.hexo-img-stream figure img{border-bottom:1px solid #ccc;padding-bottom:15px;margin-bottom:5px}div.hexo-img-stream figure figcaption{font-size:.9rem;color:#444;line-height:1.5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}div.hexo-img-stream small{font-size:1rem;float:right;text-transform:uppercase;color:#aaa}div.hexo-img-stream small a{color:#666;text-decoration:none;transition:.4s color}@media screen and (max-width:750px){.hexo-img-stream{column-gap:0}}</style><figure><img class="hexo-image-steam-lazy nofancy" src="https://ws4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif" data-original="https://s2.ax1x.com/2019/03/14/AAj9un.md.jpg"><noscript><img src="https://s2.ax1x.com/2019/03/14/AAj9un.md.jpg"></noscript><figcaption>售票大厅里的陌生人们
-</figcaption></figure></div><script type="text/javascript">$('img.hexo-image-steam-lazy').lazyload({ effect:'fadeIn' });</script>　　我们买了票就坐缆车上山了，点香抽签解签，一如故往。庙里的变化是，今年对香客们的香做了限制，没人都只能拿三支香拜，所以不会再出现点香的时候把香点着了丢掉的事，庙里也不会总是烟雾缭绕的熏人眼睛。<br>　　整座庙的前半部分由两栋相连的屋子组成，中间有一个小阶梯，下去是条小巷，巷里紧紧贴着一个小卖铺，外面卖着零食小吃，里面卖的都是宗教用品，开过光的手串护身符，问了一下价格，略显粗糙的开光手串一百五，粗糙的开光手串一百，还没确定要不要图个吉利买一串就已经先生怯意，表弟说外面也就卖个二三十，我说要不然怎么说宗教是门大生意。Jesus is a big business。我在心里补充，来了个饶舌。回去的时候因为有点晚，路程又远，就和姨姨他们去了她婆婆家吃饭，吃饭的时候姨夫说让我喝点酒，整个新年的所有饭局我对喝酒都抱着一种可喝可不喝的态度，但总是看长辈各种推辞，就开玩笑似得和姨夫说：“不喝不喝，待会还要开车。”姨夫冷不丁的懵了一会，恍然大笑，你哪开了车来。<br>　　上香的事告一段落，新年另一件事就是和以前朋友见面，往年没约上的朋友，今年照旧因为各种琐事没有约上，见上的朋友也是往年都见过面的，也算是一期一会。小插曲是，和朋友见面的时候，看见了一个很久没联系的女性朋友，当初没联系，起因是她，结果是我赌气，到现在三四年没说过几句话，也一直没见过面。许久不见，样子似乎变了一些，成熟盖过稚气，穿过人群和她对视了一眼，我看到她眼里似乎有些久别重逢的惊喜，我不知道我当时的表情是怎样的，似乎是客气又克制的点头、抿嘴示意，然后没有寒暄，就扭头走了。现在回头看，好像在她面前，我又表现得有点小家子气，一如往昔。<br>　　后来和朋友们看完电影出来，又看到了她。我想既然老天爷都想让我和她冰释前嫌，那我也就不坚持了。但她又好像是报复似的，只是和我朋友寒暄了几句，等我走进，朝我点了点头就走了。<br>　　再后来回去，想了想，用“看你有没有换号码”的蹩脚理由给她打了个电话，聊了很久，总算是奠定了中美关系走向正常化的基础。<br>　　除了这些以外，有印象的还有，叔叔表哥说要给我介绍女朋友，一个拿着对方姐姐的照片说让我先看看，另一个在 KTV 的时候直接让我和他旁边的女孩视频了，放着我在这头，不管不顾的和那人对起话来，看看我这侄子帅吧。感觉有点胖。胖啊，不会，他就这个脸型。除了觉得颇有喜感，也被我两个亲人过于耿直的方式给唬得无可奈何。叔叔今年倒是没有给我上中国传统美德普及课了，不过去外公家时，今年瘦了两大圈的姐夫在晚饭后和我们这些年轻人上心灵鸡汤课，一脸朝气逢勃的和我们说自己老了，让我们努力，说年轻人不要怕失败，年轻人最不应该害怕的就是失败。我在心里想，年轻人不怕失败固然是可以轻易做到的，不过是一头热血，不管不顾找个方向往前使劲罢了。但失败的后果，却往往需要年轻人的家人一起承担，这样的后果，一个年轻人最多可以承受几次呢？<br>　　忽然想不到说什么结尾了，觉得这段比较应景。</p>
+</figcaption></figure></div><script type="text/javascript">$('img.hexo-image-steam-lazy').lazyload({ effect:'fadeIn' });</script>　　我们买了票就坐缆车上山了，点香抽签解签，一如故往。庙里的变化是，今年对香客们的香做了限制，没人都只能拿三支香拜，所以不会再出现点香的时候把香点着了丢掉的事，庙里也不会总是烟雾缭绕的熏人眼睛。<br>　　整座庙的前半部分由两栋相连的屋子组成，中间有一个小阶梯，下去是条小巷，巷里紧紧贴着一个小卖铺，外面卖着零食小吃，里面卖的都是宗教用品，开过光的手串护身符，问了一下价格，略显粗糙的开光手串一百五，粗糙的开光手串一百，还没确定要不要图个吉利买一串就已经先生怯意，表弟说外面也就卖个二三十，我说要不然怎么说宗教是门大生意。Jesus is a big business。我在心里补充，来了个饶舌。回去的时候因为有点晚，路程又远，就和姨姨他们去了她婆婆家吃饭，吃饭的时候姨夫说让我喝点酒，整个新年的所有饭局我对喝酒都抱着一种可喝可不喝的态度，但总是看长辈各种推辞，觉得即社会又好笑。就学着印象里的神情，一半严肃一半玩笑的向姨夫摆手，摆手：“不喝不喝，待会还要开车。”姨夫冷不丁的懵了一会，随后恍然大笑，你哪开了车啊。<br>　　上香的事告一段落，新年另一件事就是和以前朋友见面，往年没约上的朋友，今年照旧因为各种琐事没有约上，见上的朋友也都是往年见过面的，也算是一期一会。小插曲是，和朋友见面的时候，看见了一个很久没联系的女性朋友，当初没联系，起因是她，结果是我赌气，到现在三四年没说过几句话，也一直没见过面。许久不见，样子似乎变了一些，成熟盖过稚气，穿过人群和她对视了一眼，我看到她眼里似乎有些久别重逢的惊喜，我不知道我当时的表情是怎样的，似乎是客气又克制的点头、抿嘴示意，然后没有寒暄，就扭头走了。现在回头看，好像在她面前，我又表现得有点小家子气，一如往昔。<br>　　后来和朋友们看完电影出来，又看到了她。我想既然老天爷都想让我和她冰释前嫌，那我也就不坚持了。但她又好像是报复似的，只是和我朋友寒暄了几句，等我走进，朝我点了点头就走了。<br>　　再后来回去，想了想，用“看你有没有换号码”的蹩脚理由给她打了个电话，聊了很久，总算是奠定了中美关系走向正常化的基础。<br>　　除了这些以外，有印象的还有，叔叔表哥说要给我介绍女朋友，一个拿着对方姐姐的照片说让我先看看，另一个在 KTV 的时候直接让我和他旁边的女孩视频了，放着我在这头，不管不顾的和那人对起话来，看看我这侄子帅吧。感觉有点胖。胖啊，不会，他就这个脸型。除了觉得颇有喜感，也被我两个亲人过于耿直的方式给唬得无可奈何。叔叔今年倒是没有给我上中国传统美德普及课了，不过去外公家时，今年瘦了两大圈的姐夫在晚饭后和我们这些年轻人上心灵鸡汤课，一脸朝气逢勃的和我们说自己老了，让我们努力，说年轻人不要怕失败，年轻人最不应该害怕的就是失败。我在心里想，年轻人不怕失败固然是可以轻易做到的，不过是一头热血，不管不顾找个方向往前使劲罢了。但失败的后果，却往往需要年轻人的家人一起承担，这样的后果，一个年轻人最多可以承受几次呢？<br>　　忽然想不到说什么结尾了，觉得这段比较应景。</p>
 <blockquote>
 <p>　　那一天我二十一岁，在我一生的黄金时代。我有好多奢望。我想爱，想吃，还想在一瞬间变成天上半明半暗的云。后来我才知道，生活就是个缓慢受锤的过程，人一天天老下去，奢望也一天天消失，最后变得像挨了锤的牛一样。可是我过二十一岁生日时没有预见到这一点。我觉得自己会永远生猛下去，什么也锤不了我。</p>
 </blockquote>
@@ -989,11 +1043,11 @@
   </entry>
   
   <entry>
-    <title>一位白头法师的革命开端</title>
-    <link href="http://kaaaaai.cn/articles/048.html"/>
-    <id>http://kaaaaai.cn/articles/048.html</id>
+    <title>巫师世界革命</title>
+    <link href="http://kaaaaai.cn/articles/wizard-world-revolution.html"/>
+    <id>http://kaaaaai.cn/articles/wizard-world-revolution.html</id>
     <published>2018-11-22T10:00:52.000Z</published>
-    <updated>2018-11-23T01:44:26.000Z</updated>
+    <updated>2019-03-29T12:44:32.545Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　上个礼拜去看了《神奇动物：格林德沃之罪》，和哈利波特系列比起来，精美壮观许多，如果不考虑人物关系，他更像后传，在内容上，延伸远多过补充。德普在这一部的戏份比上一部多，作为一个大反派，他的思想核心在所有的电影反派里也应该是数一数二站的住脚的了，用建立一个法师凌驾在麻瓜之上的阶级社会，来阻止预言中所看到二战的核弹爆炸，这让他的邪恶都蒙上一层睿智和远见的色彩，墓地里的会议，纯血法师整齐围成圈，恍如一个大豪门，魔法部的执行人员们从黑暗中走出来，都像在海上风雨飘摇的小舟。<br>　　<br>　　故事主线是克雷登斯的身世之谜，但直在最后解开谜底之前，我仍然对克雷登斯这一部分的人物关系感到有些混乱，可能是内容太多的缘故，让前一部看起来就像围棋开始的一步闲手，或是序章，所有的主要铺垫内容都放在这一部一口气给交待了。还在凡人和法师为什么不能恋爱的规则里疑问，克雷登斯就找到家族的女仆，就和魔法部的人起冲突，但魔法部的人怎么又是格林德沃的帮凶。才从下水道的囚禁，黑人原来是个坏人的恍然大悟出来，邓布利多和格林德沃的回忆怎么看起来 gaygay 的。又有新的华丽魔法和可爱动物让人眼花缭乱，只能有些泄气的承认，我大概可能不是 HP 宇宙的核心粉吧。<br>　　<br>　　看完缕清了所有人物关系，觉得有几处印象深刻，纽特和女巫姐姐从误会到重修旧好，火蜥蜴眼睛的比喻，笨拙可爱。女巫妹妹最后会跟随格林德沃一点也不奇怪，从讲故事上的手法来说，也是作为一个从中立阵营走向邪恶阵营的例子，举一反三的可以窥见其他法师们追随格林德沃的理由，但还是忍不住吐槽，为了爱情参加革命，因为革命而抛弃爱情这种桥段，原来魔法世界也不屡见不鲜。裘德洛演邓布利多，除了发际线比老邓布利多还要靠后，感觉像 BUG，其他没有任何毛病。克雷登斯最后落单的女随从，我觉得她在下一部的剧情应该会起到不小的作用。格林德沃预言中显示的坦克和核弹爆炸的蘑菇云，让我感觉一下子打穿了魔法世界和现实世界的壁垒，想到后面一切如预言显示的如期出现，不由得有些悲观的想，是不是魔法和想象力都不能阻止人类自我毁灭？<br>　　<br>　　最后，比起所有阴谋诡计，我还是比较喜欢作为点缀出现的神奇动物们。</p>
 ]]></content>
@@ -1709,43 +1763,6 @@ return @{
       <category term="随笔" scheme="http://kaaaaai.cn/tags/%E9%9A%8F%E7%AC%94/"/>
     
       <category term="读后感" scheme="http://kaaaaai.cn/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>中文文案排版学习</title>
-    <link href="http://kaaaaai.cn/articles/039.html"/>
-    <id>http://kaaaaai.cn/articles/039.html</id>
-    <published>2018-09-03T07:00:52.000Z</published>
-    <updated>2018-11-01T07:12:50.000Z</updated>
-    
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><em>　　偶尔在知乎、少数派或其他社区资讯网站上看文章，会发现有的文章看起来很舒服，有的感觉怪怪的，变扭。细究之下，大概就是排版的原因。那么如何学习好的排版呢，再细究，发现里面的学问也有不少，如何分段落，如何引用图片，以及句子段落本身的排版。刻意去看了下<a href="https://github.com/mzlogin/chinese-copywriting-guidelines" target="_blank" rel="noopener">中文文案排版指北</a>，这里介绍了一些中文文案，中英文排版约定俗成的标准，而且许多网站也都引入了这些标准。值得学习，那现在就一起来看看。</em></p>
-<p>　　第一部分讲空格，引言有这么一段：</p>
-<blockquote>
-<p>「有研究显示，打字的时候不喜欢在中文和英文之间加空格的人，感情路都走得很辛苦，有七成的比例会在 34 岁的时候跟自己不爱的人结婚，而其余三成的人最后只能把遗产留给自己的猫。毕竟爱情跟书写都需要适时地留白。</p>
-<p>与大家共勉之。」——<a href="https://github.com/vinta/pangu.js" target="_blank" rel="noopener">vinta/paranoid-auto-spacing</a></p>
-</blockquote>
-<p>　　我刻意去搜索了这句话是出自哪个研究，但发现这段话除了出现在所有介绍排版的文章里以外，再没有第二个地方引用他，他的真实性值得商榷。另外也忍不住让人较真，我不加空格就爱情不行了吗，不加空格就运气不好了吗，大字不识白首偕老的人比比皆是，哼。<br>　　考虑到他的初衷是给人警醒作用，虽然仍旧觉得从中文和英文之间是否加空格延伸到爱情幸福有点小题大做，但还是可以勉强接受到的。不过也难免会想：第一个把两者混为一谈的可能还有些俏皮似的聪明，后面跟风的只能是泛泛了。<br>　　OK，回归正题，第一部分讲的是中文和英文，中文和数字需要加空格，数字与单位之间，全角标点与其他字符之间不加空格。只记个标题基本就可以掌握，平常我为了加强记忆，在用社交软件和人聊天的时候也会强迫自己遵循这个标准。和以前背英语单词，在周遭事物都贴上英文名，潜移默化一个道理。<br>　　第二部分是讲标点符号的使用，有时在聊天中我们为了加强语气，会重复使用某个感叹号或者问号，也有碰见重复使用逗号的朋友，这个部分就说到这种情况：</p>
-<blockquote>
-<p><strong>不重复使用标点符号</strong></p>
-<p>正确：<br>　　德国队竟然战胜了巴西队！<br>　　她竟然对你说「喵」？！</p>
-<p>错误：<br>　　德国队竟然战胜了巴西队！！<br>　　德国队竟然战胜了巴西队！！！！！！！！<br>　　她竟然对你说「喵」？？！！<br>　　她竟然对你说「喵」？！？！？？！！</p>
-</blockquote>
-<p>　　但我仍然有个疑问，就是这里是正常的文本处理，那如果遇到双引号以内，人物对话时呢，该怎么处理。打算之后在其他使用这些规范的网站多注意这点。<br>　　第三部分全角和半角，这个在实际使用上会有点别扭，应为总是要在全角和半角来回切换，先前的文章中我唯一用到全角的就是文章段落头部两个空格，全角的空格会大一点，排版会好看，但每次使用完总得切回来，不然涉及到英文、数字就会自动的在首尾加上空格。<br>　　第四部分是容易错误的点，是讲关于名词正确的大小写和地道的缩写的，我也总在这上面犯一些错误。这种错误是低级的，犯这种错误也是低级的。在这点上我反而更相信：在书写上会犯低级错误的人，感情路都走得很辛苦，有七成的比例会在 34 岁的时候跟自己不爱的人结婚，而其余三成的人最后只能把遗产留给自己的猫。毕竟爱情跟书写都需要避免犯低级错误。<br>　　最后一部分就是按个人喜好选择，在链接之前是否增加空格，简体中文是或否使用直接引号。<br>　　中英文排版的学习就基本告一段落，但还有许多需要注意的，比如在简书上，我发现他们的文章习惯性的每个自然段都会追加空行，而微信公众号则发现极少出现一个自然段有很长的文字，而且图文并茂也是非常重要的一点，甚至是在知乎和微信都关注了的，我觉得很有古代文人气质的张佳玮，也无能免俗的会给自己的文章配上图，靠纯文字来说服人似乎已经是一件很困难的事，看图说话仿佛大势所趋。孰好孰坏先放在一遍，尝试一下先。<br>　　以上。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
-    
-    </summary>
-    
-      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
-    
-      <category term="Other" scheme="http://kaaaaai.cn/tags/Other/"/>
     
   </entry>
   
