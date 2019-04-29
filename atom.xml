@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kaaaaai.cn/"/>
-  <updated>2019-04-18T09:05:11.917Z</updated>
+  <updated>2019-04-29T03:56:02.614Z</updated>
   <id>http://kaaaaai.cn/</id>
   
   <author>
@@ -14,6 +14,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>每周总结 - 0427</title>
+    <link href="http://kaaaaai.cn/articles/weekly-summary-0428.html"/>
+    <id>http://kaaaaai.cn/articles/weekly-summary-0428.html</id>
+    <published>2019-04-28T08:24:52.000Z</published>
+    <updated>2019-04-29T03:56:02.614Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　本周工作方面的基本告一段落，但是随之而来的也是比较棘手的一个项目，需要用到蓝牙 ota 技术，由于对接公司人手的缺失，对方只提供了安卓的 SDK，iOS 这方面需要我们对照着安卓的代码转译成 OC，幸运的是之前也有学习安卓，大体的逻辑都能看的明白，但涉及到一行一行的翻译过来，就比较吃力。所以这个礼拜所做的努力简单来说，就是用水磨功夫反复看细节处的代码，等待灵机一动的时刻。好吧，我得承认这个方法，耗时费力又没有效率，但用 Stack Overflow 里提问者经常回应的一句话说：it’s worked！<br>　　不过在反复解读的过程中也稍微掌握了一些提高效率的方法，整理如下：<br>　　第一、遇到不懂的代码，直接谷歌。善用搜索这虽然是老生常谈的事，但是对我来说有必要强调一下，因为学习过安卓的缘故，所以让我有些思维盲区，平时解决问题的时候都会直接用搜索引擎，但这次在解读安卓源码的前期阶段我都一直没想到用搜索引擎来解读代码。所以强调善用搜索，另一方面也是提醒自己不要因为接触不擅长的事的压力而导致总是钻入某个牛角尖。<br>　　第二、不能举一反三，就举三推一。这个方法是我通过从某个牛角尖刚钻出时的经验教训总结出来的。但我得到 ota 升级前发送第一次握手校验命令返回的消息时，我试图弄明白这些这个消息代表了什么含义，而且这个消息，和之后每次 ota 包分段发送后的返回消息有什么区别，打印之后发现第一次的长度和之后的长度都不一致，这让我很迷惑。又有兄弟公司的安卓工程师帮忙解读的文档里提到另一个透传通道，前缀说明里写很重要，影响到 ota 是否成功，然后我就思考这个通道和返回的验证消息是否有联系，在源码中搜索发现也确实用到了这个通道——这个后来发现到虽然这个通道进行了赋值和调用一次，除此之外再没有用到。但当时这些信息有点把我搞糊涂了，所以就在重复打印和对比安卓和iOS ota 的返回消息，以及希望在源码中解读出透传通道究竟起了什么作用。因为长时间没取得较好的进展，就颇有些自暴自弃的想把其他简单但不是很重要的命令先转成 oc，然后发现他 ota 线程中循环判断里的条件参数，和回调读取的值是有一定联系的，只是像 oc 把数据处理写成了一个单例形式，又用一层东西封装了一下，导致写入和读取不太像一个来源，造成了视觉盲点，但点进去就比较一目了然，虽然还有底层的东西需要用谷歌解读，但是关于处理返回验证消息就可以按着这个方法来校验了。以上就是我整个问题的思考过程，其实很多时候真正的问题也不是知识量的积累不够，而是主观上受情绪影响，思考的不太全面，所以以后这方面的问题需要多多注意。<br>　　说点轻松的，本周《妇联4》上映，没赶首映，周日放假时去看的，看的过程中几度红眼，因为剧情本身，也因为剧情以外 22 部漫威电影所累积下的情感积淀。也是我第一次在电影院等到片尾所有字幕放完，影院的清洁人员拿着扫把畚斗进来打扫。片尾曲放在最后出现的是钢铁侠，首尾呼应，而且，又是一个情绪的爆发点。我想我平抒直叙的方式实难写出我心里所感受的十分之一，所以就此打住。<br>　　英语这个礼拜开始复习，每天五十个，目标不是很大，早上坐车的时候就可以轻松完成。抽了一天看了下书，《信息资源管理》，最进新开课因为有事还没来得及去上。另外还有一些琐碎的思绪因为发散琐碎没来得及去记，就像云一样飘走了。<br>　　以上。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
+    
+      <category term="Live" scheme="http://kaaaaai.cn/tags/Live/"/>
+    
+      <category term="Study" scheme="http://kaaaaai.cn/tags/Study/"/>
+    
+      <category term="Work" scheme="http://kaaaaai.cn/tags/Work/"/>
+    
+  </entry>
   
   <entry>
     <title>每周工作学习总结 - 0418</title>
@@ -1617,154 +1646,6 @@ return @{
       <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
     
       <category term="Python" scheme="http://kaaaaai.cn/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS - 静态库.a 和 framework 详解</title>
-    <link href="http://kaaaaai.cn/articles/041.html"/>
-    <id>http://kaaaaai.cn/articles/041.html</id>
-    <published>2018-09-12T08:24:52.000Z</published>
-    <updated>2018-11-01T07:12:50.000Z</updated>
-    
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="一、基本概念"><a href="#一、基本概念" class="headerlink" title="一、基本概念"></a>一、基本概念</h1><h2 id="1-什么是库？"><a href="#1-什么是库？" class="headerlink" title="1.什么是库？"></a>1.什么是库？</h2><p>库是共享程序代码的方式，一般分为静态库和动态库。</p>
-<h2 id="2-静态库与动态库的区别？"><a href="#2-静态库与动态库的区别？" class="headerlink" title="2.静态库与动态库的区别？"></a>2.静态库与动态库的区别？</h2><p>（1）静态库：之所以叫做静态，是因为静态库在编译的时候会被直接拷贝一份，复制到目标程序里，这段代码在目标程序里就不会再改变了。</p>
-<p>静态库的好处很明显，编译完成之后，库文件实际上就没有作用了。目标程序没有外部依赖，直接就可以运行。当然其缺点也很明显，就是会使用目标程序的体积增大。被多次使用就有多份冗余拷贝。</p>
-<p>（2）动态库：链接时不复制，程序运行时由系统动态加载到内存，供程序调用，系统只加载一次，多个程序共用，节省内存。</p>
-<p>动态库的优点是，不需要拷贝到目标程序中，不会影响目标程序的体积，而且同一份库可以被多个程序使用（因为这个原因，动态库也被称作共享库）。同时，编译时才载入的特性，也可以让我们随时对库进行替换，而不需要重新编译代码。动态库带来的问题主要是，动态载入会带来一部分性能损失，使用动态库也会使得程序依赖于外部环境。如果环境缺少动态库或者库的版本不正确，就会导致程序无法运行（Linux 下常见 lib not found 错误）。</p>
-<p>在 iOS8 之后，苹果开始支持开发自己的 <code>framework</code>。</p>
-<p>此时自己构建的 <code>framework</code> 和系统的 <code>framework</code> 还是有区别的，系统的 framework 并不需要复制到目标程序。<br>自己开发的 <code>framework</code> 无论是动态还是静态的，都要复制到目标程序，所以苹果又把这个叫做 <code>embeded framework</code>。</p>
-<h2 id="3-iOS-里静态库形式？"><a href="#3-iOS-里静态库形式？" class="headerlink" title="3.iOS 里静态库形式？"></a>3.iOS 里静态库形式？</h2><p><code>.a</code> 和<code>.framework</code></p>
-<h2 id="4-iOS-里动态库形式？"><a href="#4-iOS-里动态库形式？" class="headerlink" title="4.iOS 里动态库形式？"></a>4.iOS 里动态库形式？</h2><p><code>.dylib</code> 和<code>.framework</code></p>
-<h2 id="5-framework-为什么既是静态库又是动态库？"><a href="#5-framework-为什么既是静态库又是动态库？" class="headerlink" title="5.framework 为什么既是静态库又是动态库？"></a>5.framework 为什么既是静态库又是动态库？</h2><p>系统的<code>.framework</code> 是动态库，我们自己建立的<code>.framework</code> 是静态库。</p>
-<h2 id="6-a与-framework-有什么区别？"><a href="#6-a与-framework-有什么区别？" class="headerlink" title="6.a与.framework 有什么区别？"></a>6.a与.framework 有什么区别？</h2><p><code>.a</code> 是一个纯二进制文件，<code>.framework</code> 中除了有二进制文件之外还有资源文件。</p>
-<p><code>.a</code> 文件不能直接使用，至少要有<code>.h</code>文件配合，<code>.framework</code> 文件可以直接使用。</p>
-<p><code>.a</code> + <code>.h</code> + <code>sourceFile</code> = <code>.framework</code>。</p>
-<p>建议用<code>.framework</code>。</p>
-<h2 id="7-为什么要使用静态库？"><a href="#7-为什么要使用静态库？" class="headerlink" title="7.为什么要使用静态库？"></a>7.为什么要使用静态库？</h2><p>方便共享代码，便于合理使用。</p>
-<p>实现 iOS 程序的模块化。可以把固定的业务模块化成静态库。</p>
-<p>和别人分享你的代码库，但不想让别人看到你代码的实现。</p>
-<p>开发第三方 <code>sdk</code> 的需要。</p>
-<h2 id="8-制作静态库时的几点注意："><a href="#8-制作静态库时的几点注意：" class="headerlink" title="8.制作静态库时的几点注意："></a>8.制作静态库时的几点注意：</h2><p>1 注意理解：无论是<code>.a</code> 静态库还<code>.framework</code> 静态库，我们需要的都是二进制文件+<code>.h</code>+其它资源文件的形式，不同的是，<code>.a</code> 本身就是二进制文件，需要我们自己配上<code>.h</code> 和其它文件才能使用，而<code>.framework</code> 本身已经包含了<code>.h</code> 和其它文件，可以直接使用。</p>
-<p>2 图片资源的处理：两种静态库，一般都是把图片文件单独的放在一个<code>.bundle</code> 文件中，一般<code>.bundle</code> 的名字和<code>.a</code> 或<code>.framework</code> 的名字相同。<code>.bundle</code> 文件很好弄，新建一个文件夹，把它改名为<code>.bundle</code> 就可以了，右键，显示包内容可以向其中添加图片资源。</p>
-<p>3 <code>category</code> 是我们实际开发项目中经常用到的，把 <code>category</code> 打成静态库是没有问题的，但是在用这个静态库的工程中，调用 <code>category</code> 中的方法时会有找不到该方法的运行时错误（selector not recognized），解决办法是：在使用静态库的工程中配置 <code>other linker flags</code> 的值为<code>-ObjC</code>。</p>
-<p>4 如果一个静态库很复杂，需要暴露的<code>.h</code> 比较多的话，就可以在静态库的内部创建一个<code>.h</code> 文件（一般这个<code>.h</code> 文件的名字和静态库的名字相同），然后把所有需要暴露出来的.h 文件都集中放在这个.h 文件中，而那些原本需要暴露的<code>.h</code> 都不需要再暴露了，只需要把<code>.h</code> 暴露出来就可以了。</p>
-<h1 id="二、制作-a-静态库"><a href="#二、制作-a-静态库" class="headerlink" title="二、制作.a 静态库"></a>二、制作.a 静态库</h1><h2 id="1-新建工程，选择-Cocoa-Touch-Static-Library，创建-a-静态库"><a href="#1-新建工程，选择-Cocoa-Touch-Static-Library，创建-a-静态库" class="headerlink" title="1.新建工程，选择 Cocoa Touch Static Library，创建.a 静态库"></a>1.新建工程，选择 Cocoa Touch Static Library，创建.a 静态库</h2><center><img src="http://os1i62usc.bkt.clouddn.com/041_01.jpg" alt="041_01"></center>
-
-<center><img src="http://os1i62usc.bkt.clouddn.com/042_02.jpg" alt="042_02"></center>
-
-<h2 id="2-配置工程环境"><a href="#2-配置工程环境" class="headerlink" title="2.配置工程环境"></a>2.配置工程环境</h2><h3 id="2-1-配置最低支持版本"><a href="#2-1-配置最低支持版本" class="headerlink" title="2.1 配置最低支持版本"></a>2.1 配置最低支持版本</h3><center><img src="http://os1i62usc.bkt.clouddn.com/041_03.jpg" alt="041_03"></center>
-
-<h3 id="2-2-设置适配所有模拟器架构重要"><a href="#2-2-设置适配所有模拟器架构重要" class="headerlink" title="2.2 设置适配所有模拟器架构重要"></a>2.2 设置适配所有模拟器架构重要</h3><p>project -&gt; buildSeting -&gt; Build Active Architecture Only 设为NO</p>
-<center><img src="http://os1i62usc.bkt.clouddn.com/041_04.jpg" alt="041_04"></center>
-
-<p><em>Build Active Architecture Only：指定是否只对当前连接设备所支持的指令集编译<br>设置为 YES，是为了 Debug 的时候编译速度更快，它只编译当前的 Architecture 版本，而设置为 NO 时，会编译所有的版本。 所以，一般默认 Debug 设置为 YES，Release 时为 NO，以适应不同设备。但是我们是在 Debug 模式下创建所有机型都可执行的静态库，所以我们要把 Bebug 下设置 NO。若为 YES，那么编译出来的.a 静态库就只包含当前设备的指令集。</em></p>
-<h2 id="3-添加自己要封装的文件"><a href="#3-添加自己要封装的文件" class="headerlink" title="3.添加自己要封装的文件"></a>3.添加自己要封装的文件</h2><p>头文件最好一起放在一个.h 文件中，方便使用时只导入一个h 文件，这里放在 TestStaticHeader 里； </p>
-<p>如果需要用到图片，可以添加 Bundle 文件： </p>
-<center><img src="http://os1i62usc.bkt.clouddn.com/041_05.gif" alt="041_05"></center>
-
-
-<h2 id="4-修改项目配置，把要暴露的-h-文件，添加到-Target-gt-Build-Phases-gt-Copy-Files"><a href="#4-修改项目配置，把要暴露的-h-文件，添加到-Target-gt-Build-Phases-gt-Copy-Files" class="headerlink" title="4.修改项目配置，把要暴露的 .h 文件，添加到 Target-&gt; Build Phases -&gt; Copy Files"></a>4.修改项目配置，把要暴露的 .h 文件，添加到 Target-&gt; Build Phases -&gt; Copy Files</h2><center><img src="http://os1i62usc.bkt.clouddn.com/041_06.gif" alt="041_06"></center>
-
-
-<p><strong>添加暴露的头文件的另一种方式，是添加 Headers 里的 Public 中：</strong></p>
-<center><img src="http://os1i62usc.bkt.clouddn.com/041_07.jpg" alt="041_07"></center>
-
-<center><img src="http://os1i62usc.bkt.clouddn.com/041_08.jpg" alt="041_08"></center>
-
-<h2 id="5-生成-a-文件"><a href="#5-生成-a-文件" class="headerlink" title="5.生成.a 文件"></a>5.生成.a 文件</h2><p><strong>此处注意需要生成 4 个</strong></p>
-<h3 id="5-1修改环境"><a href="#5-1修改环境" class="headerlink" title="5.1修改环境"></a>5.1修改环境</h3><center><img src="http://os1i62usc.bkt.clouddn.com/041_09.jpg" alt="041_09"></center>
-
-<center><img src="http://os1i62usc.bkt.clouddn.com/041_10.jpg" alt="041_10"></center>
-
-<h3 id="5-2-选择模拟器-Debug-环境-“cmd-R”生成-a"><a href="#5-2-选择模拟器-Debug-环境-“cmd-R”生成-a" class="headerlink" title="5.2 选择模拟器+Debug 环境+“cmd+R”生成.a"></a>5.2 选择模拟器+Debug 环境+“cmd+R”生成.a</h3><center><img src="http://os1i62usc.bkt.clouddn.com/041_11.jpg" alt="041_11"></center>
-
-<p>此处注意需要生成4个<br>如此类推打出四种.a</p>
-<ul>
-<li>真机-Debug版本</li>
-<li>真机-Release版本</li>
-<li>模拟器-Debug版本</li>
-<li>模拟器-Release版本 </li>
-</ul>
-<p>最终生成结果：</p>
-<center><img src="http://os1i62usc.bkt.clouddn.com/041_12.jpg" alt="041_12"></center>
-
-<h3 id="5-3-合并-debug-两个包和-release-两个包"><a href="#5-3-合并-debug-两个包和-release-两个包" class="headerlink" title="5.3 合并 debug 两个包和 release 两个包"></a>5.3 合并 debug 两个包和 release 两个包</h3><p>注意：这里的合并指的是 1.debug 下真机+模拟器合并 2.release 下真机+模拟器合并</p>
-<p>（1）将4个.a文件拷贝到单独文件夹</p>
-<center><img src="http://os1i62usc.bkt.clouddn.com/041_13.jpg" alt="041_13"></center>
-
-<p>（2）合并</p>
-<p>打开终端，切到上述文件夹目录，执行以下语句</p>
-<figure class="highlight bash"><figcaption><span>终端</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lipo -create+空格+模拟器Debug路径+空格+模拟器Release路径+空格-output+空格+输出路径+输出名字（可自定义）</span><br></pre></td></tr></table></figure>
-<center><img src="http://os1i62usc.bkt.clouddn.com/041_14.jpg" alt="041_14"></center>
-
-<p>同理 release 也是如此,最后生成两个文件</p>
-<center><img src="http://os1i62usc.bkt.clouddn.com/041_15.jpg" alt="041_15"></center>
-
-<p>好了，这样就创建完.a 静态库了，使用的时候，只需在工程中导入.a 文件和暴露的.h 文件，配置 Header search path 路径就可以了。</p>
-<p><em>注意：如果静态库中有 category 类，则在使用静态库的项目配置中【Other Linker Flags】需要添加参数【-ObjC]或者【-all_load】。<br>为了开发方便，我们可以使用生成的通用静态库，但是最终上线的使用我们可以只导入真机的，这样工程的体积也会小一些。</em></p>
-<h1 id="三、制作-framework-静态库"><a href="#三、制作-framework-静态库" class="headerlink" title="三、制作 framework 静态库"></a>三、制作 framework 静态库</h1><h2 id="1-新建-framework-工程"><a href="#1-新建-framework-工程" class="headerlink" title="1.新建 framework 工程"></a>1.新建 framework 工程</h2><center><img src="http://os1i62usc.bkt.clouddn.com/041_16.jpg" alt="041_16"></center>
-
-<h2 id="2-新建文件类"><a href="#2-新建文件类" class="headerlink" title="2.新建文件类"></a>2.新建文件类</h2><center><img src="http://os1i62usc.bkt.clouddn.com/041_17.jpg" alt="041_17"></center>
-
-<h2 id="3-修改工程文件配置"><a href="#3-修改工程文件配置" class="headerlink" title="3.修改工程文件配置"></a>3.修改工程文件配置</h2><p>build setting -&gt;搜索 mach -&gt; 修改 mach -O Type -&gt;static Library</p>
-<center><img src="http://os1i62usc.bkt.clouddn.com/041_18.jpg" alt="041_18"></center>
-
-<center><img src="http://os1i62usc.bkt.clouddn.com/041_19.jpg" alt="041_19"></center>
-
-<p>⚠️注意：如果需要导入第三方静态库，在拖入工程添加的时候，不要勾选添加到target中。</p>
-<h2 id="4-暴露头文件"><a href="#4-暴露头文件" class="headerlink" title="4.暴露头文件"></a>4.暴露头文件</h2><center><img src="http://os1i62usc.bkt.clouddn.com/041_20.jpg" alt="041_20"></center>
-
-<h2 id="5-生成-framework"><a href="#5-生成-framework" class="headerlink" title="5.生成 .framework"></a>5.生成 .framework</h2><h3 id="5-1-修改环境"><a href="#5-1-修改环境" class="headerlink" title="5.1 修改环境"></a>5.1 修改环境</h3><center><img src="http://os1i62usc.bkt.clouddn.com/041_21.jpg" alt="041_21"></center>
-
-<p>这里可以选择 Debug 和 Release 环境</p>
-<center><img src="http://os1i62usc.bkt.clouddn.com/041_22.jpg" alt="041_22"></center>
-
-<h3 id="5-2-选择模拟器-Debug-环境-“cmd-R”生成-a-1"><a href="#5-2-选择模拟器-Debug-环境-“cmd-R”生成-a-1" class="headerlink" title="5.2 选择模拟器+Debug 环境+“cmd+R”生成.a"></a>5.2 选择模拟器+Debug 环境+“cmd+R”生成.a</h3><center><img src="http://os1i62usc.bkt.clouddn.com/041_23.jpg" alt="041_23"></center>
-
-<p><em>此处注意需要生成4个<br>如此类推打出四种.framework</em></p>
-<ul>
-<li>真机-Debug版本</li>
-<li>真机-Release版本</li>
-<li>模拟器-Debug版本</li>
-<li>模拟器-Release版本 </li>
-</ul>
-<p>最终生成结果</p>
-<center><img src="http://os1i62usc.bkt.clouddn.com/041_24.jpg" alt="041_24"></center>
-
-<h2 id="6-合并-debug-两个包和-release-两个包"><a href="#6-合并-debug-两个包和-release-两个包" class="headerlink" title="6.合并 debug 两个包和 release 两个包"></a>6.合并 debug 两个包和 release 两个包</h2><p><em>注意：这里的合并指的是 1.debug 下真机+模拟器合并</em><br><em>2.release 下真机+模拟器合并</em></p>
-<h3 id="6-1-将-4-个-framework-文件拷贝到单独文件夹"><a href="#6-1-将-4-个-framework-文件拷贝到单独文件夹" class="headerlink" title="6.1 将 4 个 .framework 文件拷贝到单独文件夹"></a>6.1 将 4 个 .framework 文件拷贝到单独文件夹</h3><center><img src="http://os1i62usc.bkt.clouddn.com/041_25.jpg" alt="041_25"></center>
-
-<h3 id="6-2-合并"><a href="#6-2-合并" class="headerlink" title="6.2 合并"></a>6.2 合并</h3><p>打开终端，输入命令规则</p>
-<figure class="highlight bash"><figcaption><span>终端</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">lipo -create+空格+模拟器Debug路径+空格+模拟器Release路径+空格-output+空格+输出路径+输出名字（可自定义）</span><br><span class="line"></span><br><span class="line">//For example：</span><br><span class="line">lipo -create /Users/Kaaaaai/Desktop/frameworkProduct/TestStatic_framework-Debug-iphoneos /Users/Kaaaaai/Desktop/frameworkProduct/TestStatic_framework-Debug-iphonesimulator -output /Users/Kaaaaai/Desktop/frameworkProduct/TestStatic_framework-Debug</span><br></pre></td></tr></table></figure>
-<p>同理 release 也是如此，最后生成两个文件。</p>
-<center><img src="http://os1i62usc.bkt.clouddn.com/041_26.jpg" alt="041_26"></center>
-
-<h3 id="6-3替换文件"><a href="#6-3替换文件" class="headerlink" title="6.3替换文件"></a>6.3替换文件</h3><p>（1）寻找之前生成的 任意framework<br>（2）替换二进制文件</p>
-<p>替换前：</p>
-<center><img src="http://os1i62usc.bkt.clouddn.com/041_27.jpg" alt="041_27"></center>
-
-<p>替换后:</p>
-<center><img src="http://os1i62usc.bkt.clouddn.com/041_28.jpg" alt="041_28"></center>
-
-
-<p>大功告成。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
-    
-    </summary>
-    
-      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
-    
-      <category term="iOS" scheme="http://kaaaaai.cn/tags/iOS/"/>
-    
-      <category term="OC" scheme="http://kaaaaai.cn/tags/OC/"/>
     
   </entry>
   
