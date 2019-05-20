@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kaaaaai.cn/"/>
-  <updated>2019-05-13T07:12:03.609Z</updated>
+  <updated>2019-05-20T03:42:45.614Z</updated>
   <id>http://kaaaaai.cn/</id>
   
   <author>
@@ -16,17 +16,46 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>每周总结 - 0518</title>
+    <link href="http://kaaaaai.cn/articles/weekly-summary-0518.html"/>
+    <id>http://kaaaaai.cn/articles/weekly-summary-0518.html</id>
+    <published>2019-05-11T02:13:52.000Z</published>
+    <updated>2019-05-20T03:42:45.614Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　本周买了画板，画纸和一大堆铅笔，打算就着 B 站的素描入门视频学习画画，练习了一两天线条，小臂和胳膊的肌肉持续酸痛，一个现在已经不联系的朋友之前回答我如何不费劲的练肌肉，说学画画。之前以为他是开玩笑，现在看果然如此。<br>　　周一花了半天结束交接了上个项目，本周主要工作是封装兄弟公司的语音 SDK 到原来我们集成了腾讯，百度，讯飞，阿里语音的 SDK 中，新的语音 SDK 从逻辑可以看到封装者的思路，基本上是想把我们需要做的都做了，只暴露出实现功能需要调用的接口，虽然使用时清晰直观，但对于我需要二次分装不算友好，比如各个阶段的状态返回，开始录音结束录音，开始识别语音，和语音回馈，我只好作比较粗糙的处理，比如在调用开始录音方法时，主动调开始录音状态的回调，因为监听不到停止，但在他返回的一个枚举方法里有开始识别的状态，我就在这里放了停止录音的回调。<br>　　虽然这个方法可以让我二次封装正常进行，但是在实际体验上，仍可以预估到可能发生的问题，比如本地音乐在播放的时候，启用录音，语音助手在播报时，播放本地音乐等等，一些场景交错下的体验问题。这让我反过来想封装一个框架，我们真正应该思考的是什么？简单便捷，还是复杂详细但面面俱到，参考官方暴露出来的框架和回想过往开发，我想这个问题应该是没有标准答案的，不同的产品有不同的需求，因为哪怕官方的框架，我也遇到过需要用 oc 运行时态的特点来替换系统方法来实现需求的问题。所以没有十全十美的框架，好的框架需要的是与时俱进，不断迭代和维护。另一方面也可以从这点上看出开源的优势。<br>　　另外还有关于这方面的内容就是发现了一个这个仓库：<a href="https://github.com/SunshineBrother/JHBlog" target="_blank" rel="noopener">iOS开发：我的初级到中级的晋级之路</a>。里面介绍底层的相关知识很详细，还有完整的工程源码，我打算每天看一篇有关底层的文章。在掘金上看了一篇关于大佬面试的文章，里面针对三年经验的一些技术问题，有些我知其然而不知其所以然，算下看我做 iOS 开发也接近三年，但前期没太注意技术累积——虽然也有一部分是中间分心去弄安卓开发，导致现在每次提升一个方向的知识，总要从底层一步一步看上来，很麻烦，而且也因为这点导致在工作岗位上的处境也有些尴尬。<br>　　以上。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
+    
+      <category term="Live" scheme="http://kaaaaai.cn/tags/Live/"/>
+    
+      <category term="Study" scheme="http://kaaaaai.cn/tags/Study/"/>
+    
+      <category term="Work" scheme="http://kaaaaai.cn/tags/Work/"/>
+    
+  </entry>
+  
+  <entry>
     <title>每周总结 - 0511</title>
     <link href="http://kaaaaai.cn/articles/weekly-summary-0511.html"/>
     <id>http://kaaaaai.cn/articles/weekly-summary-0511.html</id>
     <published>2019-05-11T02:13:52.000Z</published>
-    <updated>2019-05-13T07:12:03.609Z</updated>
+    <updated>2019-05-17T06:33:15.670Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p> 　　项目最后的交接工作，我被派到了中移动总部进行封闭开发，暂时作为 iOS 方面的项目管理和推进，就之前来说，这个礼拜我负责的内容多了一些，除了我本身的代码维护以外，对外要处理项目的交接工作，对内要分配测试人员测试出的 bug，和一些缺失内容，优化内容的推进。一个礼拜下来，有一些收获。<br> 　　之前看知乎上一个问题，是有什么是当上管理层才会想的事？虽然我还没有到那个地步，但是管理项目给我的一些体验让我觉得似乎可以把握到一些管理层的想法，比如很多时候我们觉得领导只看结果不问过程有点不可理喻，但是从另一方面来看这其实只是因为需要对接的内容太多，不问过程只看结果，可以最大程度的排除其他因素的干扰。另一个是就是个人的主观动能性，这阵子做项目管理的时候，我总是会因为分配下去的任务而收到关于很多任务的疑问，比如新增一项需求的时候，开发人员会询问关于这个功能在不同场景下需要表现成怎样，在一些无法实现的地方又应该怎样规避。在管理角度看，这些当然是合理的，但提问的时机太零碎了，容易被分散注意力，另一个是有些场景虽然没有给出标准，但其实可以横向参考其他类似的功能来实现需求，这时候提问并不是必要的，所缺乏的只是一点主动去思考，或者说是虽然想到了第一步，即会产生这个问题，但可能是某种局限导致开发人员没有往下一步怎么解决这个问题，我之前也存在过类似问题。切成开发人员角度，规避这些问题，一个是整理问题，统一解决，另一个是解决问题的方法，虽然可以思考怎么解决，但是如果解决方法最终没有通过产品的审核，那之前针对问题的解决也都白费劲，所以最好的应对方法是，发现问题，可以附上一条或两条解决方案，一并提交。我想这些经验对于以后我做个人开发或者管理都会有帮助。<br> 　　这个礼拜接触到的新技术是使用 OC/Swift 自动生成文档的轮子：</p>
 <blockquote>
 <p> 　　OC 自动生成代码文档：<a href="https://blog.csdn.net/u011374880/article/details/82143782" target="_blank" rel="noopener">appledoc</a><br> 　　swift 自动生成代码文档：<a href="https://www.jianshu.com/p/b0d77877bafe" target="_blank" rel="noopener">jazzy</a></p>
 </blockquote>
-<p> 　　虽然轮子里的描述一致，只要做了注释就可以生成文档，但仍然有些局限性，比如 appledoc 不支持 swift 工程，jazay 不支持 oc、swift 混编工程，生成的文档虽然有按着注释来的规范，但是也非常呆板，比如设定 public 的权限，就只会读取一些公开的类，但如果把读取的权限范围扩大，又会有不加筛选统统记录进文档，这个情况还不如读取源码来的快。<br> 　　手上的《邻人之妻》，看了一个月没看完，现在看到的部分是讲一个色情读物出版商在美国最高法院出了对“淫秽”的新定义以后，他出版了这个新定义的插图版，插图都是限制级图片，并解释说这些插图的目的在于让人们知道越界的图片具体是怎样的。不出意料，这看起来就很像挑衅的行为，出版商被捕了，他上述后又败诉，最后上诉到了最高法院，这次的上述结果不止是意味着对他的罚款和监禁判决是否还能成立，另一方面也是依据此次判决中最高法院的态度，来决定美国色情出版物未来的存活方向。<br> 　　新闻纪实体的叙述让人有一口气读到底的舒服，每次一个新人物切入的点也都有承前启后的关系，故事走向像走直行道，但一路看下来也隐隐能看到整个美国性解放时期的社会面貌，从社会关系，文化，政治方方面面，当前进度有一句格申·莱格曼对当时美国伦理做的评论，我觉得很有意思：“谋杀是罪。描写谋杀不是。性不是罪。但是描写它是。”</p>
+<p> 　　虽然轮子里的描述一致，只要做了注释就可以生成文档，但仍然有些局限性，比如 appledoc 不支持 swift 工程，jazay 不支持 oc、swift 混编工程，生成的文档虽然有按着注释来的规范，但是也非常呆板，比如设定 public 的权限，就只会读取一些公开的类，但如果把读取的权限范围扩大，又会有不加筛选统统记录进文档，这个情况还不如读取源码来的快。<br> 　　手上的《邻人之妻》，看了一个月没看完，现在看到的部分是讲一个色情读物出版商在美国最高法院出了对“淫秽”的新定义以后，他出版了这个新定义的插图版，插图都是限制级图片，并解释说这些插图的目的在于让人们知道越界的图片具体是怎样的。不出意料，这看起来就很像挑衅的行为，出版商被捕了，他上述后又败诉，最后上诉到了最高法院，这次的上述结果不止是意味着对他的罚款和监禁判决是否还能成立，另一方面也是依据此次判决中最高法院的态度，来决定美国色情出版物未来的存活方向。<br> 　　新闻纪实体的叙述让人有一口气读到底的舒服，每次一个新人物切入的点也都有承前启后的关系，故事走向像走直行道，但一路看下来也隐隐能看到整个美国性解放时期的社会面貌，从社会关系，文化，政治方方面面，当前进度有一句格申·莱格曼对当时美国伦理做的评论，我觉得很有意思：“谋杀是罪。描写谋杀不是。性不是罪。但是描写它是。”<br> 　　虽然这本书是围绕性解放展开写的，但在体制和人们的对抗里，隐隐可以看出人们对自由的捍卫，这也让我思考，比如上述我发现在工作中实行某种规范可以让工作效率提高，但另一方面我是否该警惕沉浸在这些弯弯绕绕的规则中，对我自由散漫本性的扼杀？</p>
 ]]></content>
     
     <summary type="html">
@@ -1441,141 +1470,6 @@ return @{
       <category term="iOS" scheme="http://kaaaaai.cn/tags/iOS/"/>
     
       <category term="OC" scheme="http://kaaaaai.cn/tags/OC/"/>
-    
-      <category term="codeAnalysis" scheme="http://kaaaaai.cn/tags/codeAnalysis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS - SwiftyBeaver 日志框架源码分析</title>
-    <link href="http://kaaaaai.cn/articles/045.html"/>
-    <id>http://kaaaaai.cn/articles/045.html</id>
-    <published>2018-11-12T06:24:52.000Z</published>
-    <updated>2019-03-15T09:38:28.526Z</updated>
-    
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="SwiftyBeaver"><a href="#SwiftyBeaver" class="headerlink" title="SwiftyBeaver"></a>SwiftyBeaver</h1><p>SwiftyBeaver 可以为 Xcode 控制台提供强大的日志记录功能，包括颜色（Xcode 9 以后都没有颜色输出了，但表情可以。）， 可自定义格式等等。</p>
-<h2 id="一、功能介绍"><a href="#一、功能介绍" class="headerlink" title="一、功能介绍"></a>一、功能介绍</h2><ol>
-<li>登录 Xcode控制台 或者 登录到文件</li>
-<li>添加 自定义日志目标 处理程序以登录 Loggly，Redis 等。</li>
-<li>将带有端到端 AES256 加密的日志发送到 SwiftyBeaver Mac App</li>
-<li>彩色输出 到日志文件等</li>
-<li>使用 自己的串行后台队列/线程 以获得出色的性能</li>
-<li>低于设定的最小值的日志级别不会执行，以获得更好的发布性能</li>
-<li>“Needle in the Haystack”模式提高了工作效率，节省了大量时间</li>
-<li>配置简单方便</li>
-<li>使用多个日志记录目标和设置，即使是相同类型</li>
-<li>已经有很好的默认值</li>
-<li>完全可定制的 日志格式</li>
-<li>强大的过滤器</li>
-<li>使用 log.debug(“foo”) 语法</li>
-<li>开始使用2行代码</li>
-<li>通过Carthage，CocoaPods，Swift Package Manager进行简单安装或下载</li>
-<li>非常详细的日志记录（可选）：<ul>
-<li>时间（精确到微秒）</li>
-<li>水平（颜色输出）</li>
-<li>线程名称  （如果不是主线程）</li>
-<li>文件名，功能和行</li>
-<li>消息（可以是字符串或任何类型的变量）</li>
-</ul>
-</li>
-<li>对领先的 Xcode 开发插件的原生支持 </li>
-</ol>
-<p>##　二、安装</p>
-<blockquote>
-<p>对于  Swift 3，  请安装最新的SwiftyBeaver版本</p>
-<p>对于  Swift 2，  安装SwiftyBeaver 0.7.0</p>
-</blockquote>
-<h3 id="支持的平台和安装工具"><a href="#支持的平台和安装工具" class="headerlink" title="支持的平台和安装工具"></a>支持的平台和安装工具</h3><table>
-<thead>
-<tr>
-<th style="text-align:center"></th>
-<th style="text-align:center"><strong>OSX 10.9+</strong></th>
-<th style="text-align:center"><strong>watchOS 2+</strong></th>
-<th style="text-align:center"><strong>tvOS9+</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Swift Package Manager</td>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-</tr>
-<tr>
-<td style="text-align:center">Carthage</td>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-</tr>
-<tr>
-<td style="text-align:center">CocoaPods</td>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-</tr>
-<tr>
-<td style="text-align:center">Download</td>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-</tr>
-</tbody>
-</table>
-<h3 id="通过-Swift-Package-Manager-安装"><a href="#通过-Swift-Package-Manager-安装" class="headerlink" title="通过 Swift Package Manager 安装"></a>通过 Swift Package Manager 安装</h3><p>对于 <a href="https://swift.org/package-manager/" target="_blank" rel="noopener">Swift Package Manager</a> 和 Swift 3，将以下包添加到 Package.swift 文件中：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.<span class="type">Package</span>(url: <span class="string">"https://github.com/SwiftyBeaver/SwiftyBeaver.git"</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="通过-Carthage-安装"><a href="#通过-Carthage-安装" class="headerlink" title="通过 Carthage 安装"></a>通过 Carthage 安装</h3><p>您可以使用 <a href="https://github.com/Carthage/Carthage" target="_blank" rel="noopener">Carthage</a> 在 Swift 3 下安装 SwiftyBeaver，方法是将其添加到您的Cartfile中：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">github &quot;SwiftyBeaver/SwiftyBeaver&quot;</span><br></pre></td></tr></table></figure>
-<p>对于Swift 2：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">github “SwiftyBeaver / SwiftyBeaver” 〜&gt; 0.7</span><br></pre></td></tr></table></figure>
-<h3 id="通过-CocoaPods-安装"><a href="#通过-CocoaPods-安装" class="headerlink" title="通过 CocoaPods 安装"></a>通过 CocoaPods 安装</h3><p>要将 <a href="https://cocoapods.org/" target="_blank" rel="noopener">CocoaPods</a> 与 Swift 3 一起使用，请将其添加到您的 Podfile 中：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod &apos;SwiftyBeaver&apos;</span><br></pre></td></tr></table></figure>
-<p>对于Swift 2：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">target &apos;MyProject&apos; do</span><br><span class="line">  use_frameworks!</span><br><span class="line"></span><br><span class="line">  # Pods for MyProject</span><br><span class="line">  pod &apos;SwiftyBeaver&apos;, &apos;~&gt; 0.7&apos;</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">post_install do |installer|</span><br><span class="line">  installer.pods_project.build_configurations.each do |config|</span><br><span class="line">    # Configure Pod targets for Xcode 8 with Swift 2.3</span><br><span class="line">    config.build_settings[&apos;SWIFT_VERSION&apos;] = &apos;2.3&apos;</span><br><span class="line">  end</span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
-<h3 id="通过下载安装"><a href="#通过下载安装" class="headerlink" title="通过下载安装"></a>通过下载安装</h3><p>您可以使用以下3个简单步骤在项目中下载和嵌入SwiftyBeaver Framework：</p>
-<p>从<a href="https://github.com/SwiftyBeaver/SwiftyBeaver/releases" target="_blank" rel="noopener">这里</a>下载最新的发布 zip<br>将<code>/sources</code>文件夹拖放  到项目中（确保选中“如果需要，复制项目”）<br>如果您愿意，可以将“sources”组重命名为“SwiftyBeaver”<br>注意：如果以 <code>import SwiftyBeaver</code> 这种方式安装，则不必  。</p>
-<h2 id="三、使用"><a href="#三、使用" class="headerlink" title="三、使用"></a>三、使用</h2><h3 id="3-1-项目中使用-SwiftyBeaver，在AppDelegate-swift-文件中，添加如下代码。"><a href="#3-1-项目中使用-SwiftyBeaver，在AppDelegate-swift-文件中，添加如下代码。" class="headerlink" title="3.1 项目中使用 SwiftyBeaver，在AppDelegate.swift 文件中，添加如下代码。"></a>3.1 项目中使用 SwiftyBeaver，在AppDelegate.swift 文件中，添加如下代码。</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> SwiftyBeaver</span><br><span class="line"><span class="keyword">let</span> log = <span class="type">SwiftyBeaver</span>.<span class="keyword">self</span></span><br></pre></td></tr></table></figure>
-<h3 id="3-2-在AppDelegate-didFinishLaunchingWithOptions-方法中添加SwiftyBeaver-日志目的（控制台、文件、等等），可以选择调整日志格式，完成后可以全局调用以下log级别输出日志。"><a href="#3-2-在AppDelegate-didFinishLaunchingWithOptions-方法中添加SwiftyBeaver-日志目的（控制台、文件、等等），可以选择调整日志格式，完成后可以全局调用以下log级别输出日志。" class="headerlink" title="3.2 在AppDelegate:didFinishLaunchingWithOptions()方法中添加SwiftyBeaver 日志目的（控制台、文件、等等），可以选择调整日志格式，完成后可以全局调用以下log级别输出日志。"></a>3.2 在AppDelegate:didFinishLaunchingWithOptions()方法中添加SwiftyBeaver 日志目的（控制台、文件、等等），可以选择调整日志格式，完成后可以全局调用以下log级别输出日志。</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//添加log目的,最少一项</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Xcode控制台日志</span></span><br><span class="line"><span class="keyword">let</span> console = <span class="type">ConsoleDestination</span>() </span><br><span class="line"><span class="comment">// 默认swiftybeaver.log文件日志</span></span><br><span class="line"><span class="keyword">let</span> file = <span class="type">FileDestination</span>()</span><br><span class="line"><span class="comment">// cloud平台配置</span></span><br><span class="line"><span class="keyword">let</span> cloud = <span class="type">SBPlatformDestination</span>(appID: <span class="string">"foo"</span>, appSecret: <span class="string">"bar"</span>, encryptionKey: <span class="string">"123"</span>)</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"><span class="comment">// 使用自定义格式输出短时间、日志级别、信息</span></span><br><span class="line"><span class="comment">// console.format = "$DHH:mm:ss$d $L $M"</span></span><br><span class="line"><span class="comment">// 或者使用 console.format = "$J" 输出JSON格式</span></span><br><span class="line">        </span><br><span class="line"><span class="comment">//添加配置到SwiftyBeaver</span></span><br><span class="line">log.addDestination(console)</span><br><span class="line">log.addDestination(file)</span><br><span class="line">log.addDestination(cloud)</span><br><span class="line">        </span><br><span class="line"><span class="comment">//日志具有不同重要性</span></span><br><span class="line">log.verbose(<span class="string">"not so important"</span>)                 <span class="comment">// 优先级 1, VERBOSE   紫色</span></span><br><span class="line">log.debug(<span class="string">"something to debug"</span>)                 <span class="comment">// 优先级 2, DEBUG     绿色</span></span><br><span class="line">log.info(<span class="string">"a nice information"</span>)                  <span class="comment">// 优先级 3, INFO      蓝色</span></span><br><span class="line">log.warning(<span class="string">"oh no, that won’t be good"</span>)        <span class="comment">// 优先级 4, WARNING   黄色</span></span><br><span class="line">log.error(<span class="string">"ouch, an error did occur!"</span>)          <span class="comment">// 优先级 5, ERROR     红色</span></span><br><span class="line">        </span><br><span class="line"><span class="comment">//支持类型: 字符串,数字,日期,等等</span></span><br><span class="line">log.verbose(<span class="number">123</span>)</span><br><span class="line">log.info(-<span class="number">123.45678</span>)</span><br><span class="line">log.warning(<span class="type">Date</span>())</span><br><span class="line">log.error([<span class="string">"I"</span>, <span class="string">"like"</span>, <span class="string">"logs!"</span>])</span><br><span class="line">log.error([<span class="string">"name"</span>: <span class="string">"Mr Beaver"</span>, <span class="string">"address"</span>: <span class="string">"7 Beaver Lodge"</span>])</span><br></pre></td></tr></table></figure>
-<h3 id="3-3-效果"><a href="#3-3-效果" class="headerlink" title="3.3 效果"></a>3.3 效果</h3><p><img src="https://s1.ax1x.com/2018/11/12/iLniJx.png" alt=""></p>
-<h2 id="四、输出到不同的打印窗口"><a href="#四、输出到不同的打印窗口" class="headerlink" title="四、输出到不同的打印窗口"></a>四、输出到不同的打印窗口</h2><h3 id="4-1-输出到文件"><a href="#4-1-输出到文件" class="headerlink" title="4.1 输出到文件"></a>4.1 输出到文件</h3><p>输出到文件非常适合开发。您可以在 <code>Terminal.app</code> 的帮助下跟踪您的日志文件，在发布时您可以将日志文件附加到电子邮件或发送到您的服务器。文件位置是可调整的，默认情况下，文件存储在应用程序的 <code>Document</code> 目录中。</p>
-<p>SwiftyBeaver Framework 自动为每条日志消息添加颜色，而无需第三方插件。 </p>
-<p><img src="https://s1.ax1x.com/2018/11/12/iLnASK.png" alt=""><br><strong>初始化</strong></p>
-<p>要输出到文件，您只需要实例化 <code>FileDestination()</code>，可选择调整属性，然后将实例添加到 <code>SwiftyBeaver</code> 本身。如果创建并添加了多个文件目标实例，则可以以不同的格式登录到多个文件（示例请参见下面的内容）。将自动创建一个不存在的文件。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> file = <span class="type">FileDestination</span>()</span><br><span class="line">log.addDestination(file)</span><br></pre></td></tr></table></figure>
-<p><strong>示例</strong><br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> file = <span class="type">FileDestination</span>() <span class="comment">// get new file destination instance</span></span><br><span class="line"><span class="comment">// uses standard logging to swiftybeaver.log in the application cache directory</span></span><br><span class="line">console.format = <span class="string">"$DHH:mm:ss$d $C$L$c: $M"</span>  <span class="comment">// hour, minute, second, colored log level and message</span></span><br><span class="line">file.minLevel = <span class="type">Level</span>.verbose</span><br><span class="line">log.addDestination(file) <span class="comment">// add to SwiftyBeaver to use destination</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// the second file with different properties and custom filename</span></span><br><span class="line"><span class="keyword">let</span> file2 = <span class="type">FileDestination</span>()</span><br><span class="line">file2.format = <span class="string">"$Dyyyy-MM-dd HH:mm:ss.SSS$d $C$L$c: $M"</span>  <span class="comment">// full datetime, colored log level and message</span></span><br><span class="line">file2.minLevel = <span class="type">Level</span>.info</span><br><span class="line">file2.levelString.error = <span class="string">"Beaver Love!"</span></span><br><span class="line">file2.logFileURL = <span class="type">URL</span>(fileURLWithPath: <span class="string">"/tmp/app_info.log"</span>)  <span class="comment">// tmp is just possible for a macOS app</span></span><br><span class="line">log.addDestination(file2)</span><br></pre></td></tr></table></figure></p>
-<h3 id="4-2-输出到-Xcode-控制到"><a href="#4-2-输出到-Xcode-控制到" class="headerlink" title="4.2 输出到 Xcode 控制到"></a>4.2 输出到 Xcode 控制到</h3><p>来自Apple的Xcode是我们用来为Apple平台构建应用程序的唯一开发工具。不幸的是，Xcode除了NSLog（）之外没有内置的日志记录，甚至需要一个繁琐的DIY解决方案。 </p>
-<p>使用SwiftyBeaver Framework， Xcode最终可以为其控制台提供强大的日志记录功能，包括颜色， 可自定义格式等等。</p>
-<p><img src="https://s1.ax1x.com/2018/11/12/iLnFW6.png" alt=""><br><em>带有彩色电平指示器的Xcode控制台的屏幕截图（Xcode 8）</em></p>
-<p><strong>初始化</strong></p>
-<p>要输出到 Xcode Console，您只需要实例化 <code>ConsoleDestination()</code>，可选择调整属性，然后将实例添加到 SwiftyBeaver 本身：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> console = <span class="type">ConsoleDestination</span>()</span><br><span class="line">log.addDestination(console)</span><br></pre></td></tr></table></figure>
-<p><strong>示例</strong></p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> console = <span class="type">ConsoleDestination</span>()</span><br><span class="line">console.format = <span class="string">"$DHH:mm:ss$d $L: $M"</span>  <span class="comment">// hour, minute, second, loglevel and message</span></span><br><span class="line">console.minLevel = .info <span class="comment">// just log .info, .warning &amp; .error</span></span><br><span class="line">log.addDestination(console) <span class="comment">// add to SwiftyBeaver</span></span><br></pre></td></tr></table></figure>
-<h3 id="4-3-输出到-SwiftyBeaver-平台"><a href="#4-3-输出到-SwiftyBeaver-平台" class="headerlink" title="4.3 输出到 SwiftyBeaver 平台"></a>4.3 输出到 SwiftyBeaver 平台</h3><p>SwiftyBeaver平台是世界上第一个Swift的日志记录平台。它可以非常方便地自动，高度安全地接收和分析应用程序在发布时创建的日志，分析用户和设备数据  。 </p>
-<p><a href="https://swiftybeaver.com/" target="_blank" rel="noopener">该平台</a>包含以下组件：</p>
-<blockquote>
-<p><strong>SwiftyBeaver Framework</strong>  在开发和发布期间在您的应用程序中创建日志</p>
-<p><strong>SwiftyBeaver Crypto Cloud</strong> 用于存储和同步加密日志</p>
-<p><strong>SwiftyBeaver Mac App</strong>  下载，搜索和分析从您的app发送的日志</p>
-</blockquote>
-<p><img src="https://s1.ax1x.com/2018/11/12/iLnPF1.jpg" alt=""></p>
-<p><strong>初始化</strong></p>
-<p>要输出到平台，您只需要 <code>SBPlatformDestination()</code> 使用凭据进行实例化，可以选择调整属性，然后将实例添加到 SwiftyBeaver 本身。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> platform = <span class="type">SBPlatformDestination</span>(appID: <span class="string">"YourAppID"</span>, appSecret: <span class="string">"YourAppSecret"</span>, encryptionKey: <span class="string">"Your32CharKey"</span>)</span><br><span class="line">log.addDestination(platform)</span><br></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
-    
-    </summary>
-    
-      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
-    
-      <category term="iOS" scheme="http://kaaaaai.cn/tags/iOS/"/>
-    
-      <category term="Swift" scheme="http://kaaaaai.cn/tags/Swift/"/>
     
       <category term="codeAnalysis" scheme="http://kaaaaai.cn/tags/codeAnalysis/"/>
     
