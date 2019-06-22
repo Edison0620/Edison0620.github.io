@@ -84,7 +84,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="EXP,iOS," />
+  <meta name="keywords" content="EXP,Live,Study,Work," />
 
 
 
@@ -102,18 +102,27 @@
 
 
 
-<meta name="description" content="一、CocoaPodsCocoaPods是什么？ CocoaPods 是一个负责管理 iOS 项目中第三方开源库的工具。 主页：https://github.com/CocoaPods 作者：CocoaPods 团队 版本：1.4.0 性质：CocoaPods 在引入第三方库时自动为我们完成各种配置（包括配置编译阶段、连接器选项、甚至是 ARC 环境下的 -fno-objc-arc 配置等）；C">
-<meta name="keywords" content="EXP,iOS">
+<meta name="description" content="上周博客落了一篇，说起来其实上周还没有本周忙，上周主要是测试兄弟公司开发的语音库，和针对新项目给出一个开发周期的预估，虽然一周都不是很忙，但是最后一天因为很久之前的老项目出了问题，需要维护，所以就没有抽出时间来写博客了。　　本周主要在弄一个儿童绘本读物的 App，因为主要的几个页面，需求里都是用现成的内容 SDK 和 h5 实现，所以我的工作还是比较轻松的，因为这个原因也让我有空对自己的知识">
+<meta name="keywords" content="EXP,Live,Study,Work">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS - CocoaPods 和 Carthage 的比较">
-<meta property="og:url" content="http://kaaaaai.cn/articles/036.html">
+<meta property="og:title" content="每周总结 - 0622">
+<meta property="og:url" content="http://kaaaaai.cn/articles/weekly-summary-0622.html">
 <meta property="og:site_name" content="壹拾肆">
-<meta property="og:description" content="一、CocoaPodsCocoaPods是什么？ CocoaPods 是一个负责管理 iOS 项目中第三方开源库的工具。 主页：https://github.com/CocoaPods 作者：CocoaPods 团队 版本：1.4.0 性质：CocoaPods 在引入第三方库时自动为我们完成各种配置（包括配置编译阶段、连接器选项、甚至是 ARC 环境下的 -fno-objc-arc 配置等）；C">
+<meta property="og:description" content="上周博客落了一篇，说起来其实上周还没有本周忙，上周主要是测试兄弟公司开发的语音库，和针对新项目给出一个开发周期的预估，虽然一周都不是很忙，但是最后一天因为很久之前的老项目出了问题，需要维护，所以就没有抽出时间来写博客了。　　本周主要在弄一个儿童绘本读物的 App，因为主要的几个页面，需求里都是用现成的内容 SDK 和 h5 实现，所以我的工作还是比较轻松的，因为这个原因也让我有空对自己的知识">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-01T07:12:50.000Z">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="https://imgchr.com/i/Zpg42t">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="https://s2.ax1x.com/2019/06/22/ZpRQXV.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="https://s2.ax1x.com/2019/06/22/ZpRM60.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="https://s2.ax1x.com/2019/06/22/ZpWAjx.png">
+<meta property="og:updated_time" content="2019-06-22T04:03:51.564Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS - CocoaPods 和 Carthage 的比较">
-<meta name="twitter:description" content="一、CocoaPodsCocoaPods是什么？ CocoaPods 是一个负责管理 iOS 项目中第三方开源库的工具。 主页：https://github.com/CocoaPods 作者：CocoaPods 团队 版本：1.4.0 性质：CocoaPods 在引入第三方库时自动为我们完成各种配置（包括配置编译阶段、连接器选项、甚至是 ARC 环境下的 -fno-objc-arc 配置等）；C">
+<meta name="twitter:title" content="每周总结 - 0622">
+<meta name="twitter:description" content="上周博客落了一篇，说起来其实上周还没有本周忙，上周主要是测试兄弟公司开发的语音库，和针对新项目给出一个开发周期的预估，虽然一周都不是很忙，但是最后一天因为很久之前的老项目出了问题，需要维护，所以就没有抽出时间来写博客了。　　本周主要在弄一个儿童绘本读物的 App，因为主要的几个页面，需求里都是用现成的内容 SDK 和 h5 实现，所以我的工作还是比较轻松的，因为这个原因也让我有空对自己的知识">
+<meta name="twitter:image" content="https://ws4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
 
 
 
@@ -141,13 +150,13 @@
 
 
 
-  <link rel="canonical" href="http://kaaaaai.cn/articles/036.html"/>
+  <link rel="canonical" href="http://kaaaaai.cn/articles/weekly-summary-0622.html"/>
 
 
 
 
 
-  <title>iOS - CocoaPods 和 Carthage 的比较 | 壹拾肆</title>
+  <title>每周总结 - 0622 | 壹拾肆</title>
   
 
 
@@ -464,7 +473,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kaaaaai.cn/articles/036.html">
+    <link itemprop="mainEntityOfPage" href="http://kaaaaai.cn/articles/weekly-summary-0622.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kaaaaai">
@@ -481,7 +490,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">iOS - CocoaPods 和 Carthage 的比较</h2>
+          <h2 class="post-title" itemprop="name headline">每周总结 - 0622</h2>
         
 
         <div class="post-meta">
@@ -493,8 +502,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-15T14:24:52+08:00">
-                2018-08-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-22T10:13:52+08:00">
+                2019-06-22
               </time>
             
 
@@ -534,9 +543,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/articles/036.html#comments" itemprop="discussionUrl">
+                <a href="/articles/weekly-summary-0622.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="articles/036.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="articles/weekly-summary-0622.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -563,7 +572,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1,514 字
+                  1,481 字
                 </span>
               
 
@@ -579,7 +588,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  6 分钟
+                  5 分钟
                 </span>
               
             </div>
@@ -597,48 +606,11 @@
       
 
       
-        <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="一、CocoaPods"><a href="#一、CocoaPods" class="headerlink" title="一、CocoaPods"></a>一、CocoaPods</h1><h2 id="CocoaPods是什么？"><a href="#CocoaPods是什么？" class="headerlink" title="CocoaPods是什么？"></a><code>CocoaPods</code>是什么？</h2><ul>
-<li><code>CocoaPods</code> 是一个负责管理 <code>iOS</code> 项目中第三方开源库的工具。</li>
-<li>主页：<a href="https://github.com/CocoaPods" target="_blank" rel="noopener">https://github.com/CocoaPods</a></li>
-<li>作者：<code>CocoaPods</code> 团队</li>
-<li>版本：1.4.0</li>
-<li>性质：<code>CocoaPods</code> 在引入第三方库时自动为我们完成各种配置（包括配置编译阶段、连接器选项、甚至是 <code>ARC</code> 环境下的 <code>-fno-objc-arc</code> 配置等）；<code>CocoaPods</code> 可以很方便的查找第三方库，可以快速方便的寻找到优秀的第三方库以及它们的各种信息。</li>
-<li>原理：<code>CocoaPods</code> 的原理是将所有的依赖库都放到另一个名为Pods的项目中，然后让主项目依赖 <code>Pods</code> 项目，这样，源码管理工作都从主项目移到了 <code>Pods</code> 项目中。<code>Pods</code> 项目最终会编译成一个名为 <code>libPods.a</code> 的文件，主项目只需要依赖这个 <code>.a</code> 文件即可。</li>
-<li>限制：会破坏文件结构，因为墙的原因有时会 <code>pod install</code> 失败，换成国内的源，导入第三方很慢，特别是大工程。</li>
-</ul>
-<h2 id="怎么使用-CocoaPods-导入项目"><a href="#怎么使用-CocoaPods-导入项目" class="headerlink" title="怎么使用 CocoaPods 导入项目"></a>怎么使用 <code>CocoaPods</code> 导入项目</h2><p id="div-border-left-green">1、安装 <code>CocoaPods</code><br>（1）替换 <code>ruby</code> 源<br>（2）更新 <code>Gem</code> 版本<br>（3）安装 <code>CocoaPods</code><br>（4）更新 Podspec 索引文件<br><br>2、使用 <code>CocoaPods</code><br>（1）新建 <code>Podfile</code> 文件<br>（2）编辑 <code>Podfile</code> 文件<br>（3）安装依赖开源库 或 更新第三方库<br>3、打开 <code>xxx.xcworkspace</code> 文件</p>
-
-<h2 id="让你的工程支持-CocoaPods"><a href="#让你的工程支持-CocoaPods" class="headerlink" title="让你的工程支持 CocoaPods"></a>让你的工程支持 <code>CocoaPods</code></h2><p id="div-border-left-blue">1、首先在 <code>github</code> 创建一个项目<br>2、在本地新建一个文件夹<br>3、新建一个 <code>Classes</code> 文件夹用来放我们需要支持的类<br>4、进入到有 <code>.git</code> 的文件夹内，生成 <code>{project}.podspec</code> 格式的文件<br>5、<code>podspec</code> 文件用 <code>xcode</code> 打开并配置一些需要的参数<br>6、创建 <code>Tag</code>，并推送到 <code>GitHub</code><br>7、验证 <code>podspec</code> 文件，第一次提交会收到邮件，点击链接验证，提交完成。</p>
-
-<h2 id="CocoaPods-好处？"><a href="#CocoaPods-好处？" class="headerlink" title="CocoaPods 好处？"></a>CocoaPods 好处？</h2><ul>
-<li>开发 <code>iOS</code> 项目不可避免地要使用第三方开源库，<code>CocoaPods</code> 的出现使得我们可以节省设置和更新第三方开源库的时间</li>
-<li>在引入第三方库时它可以自动为我们完成各种各样的配置，包括配置编译阶段、连接器选项、甚至是 <code>ARC</code> 环境下的 <code>-fno-objc-arc</code> 配置等</li>
-</ul>
-<h1 id="二、Carthage"><a href="#二、Carthage" class="headerlink" title="二、Carthage"></a>二、Carthage</h1><h2 id="Carthage-是什么？"><a href="#Carthage-是什么？" class="headerlink" title="Carthage 是什么？"></a>Carthage 是什么？</h2><ul>
-<li>主页：<a href="https://github.com/Carthage/Carthage.git" target="_blank" rel="noopener">https://github.com/Carthage/Carthage.git</a></li>
-<li>作者：Justin Spahr-Summers 等</li>
-<li>版本：0.6.6</li>
-<li>目标：用最简单的方式来管理 <code>Cocoa</code> 第三方框架</li>
-<li>性质：使用 <code>swift</code> 编写。<code>Carthage</code> 编译你的依赖，并提供框架的二进制 <code>.framework</code> 文件，但你仍然保留对项目的结构和设置的完整控制，<code>Carthage</code> 不会自动的修改你的项目文件或编译设置。是一个去中心化的 <code>Cocoa</code> 依赖管理工具。</li>
-<li>原理：自动将第三方框架编程为 <code>Dynamic framework</code>(动态库)</li>
-<li>限制：仅支持 <code>iOS8+</code>。它只支持框架，所以不能用来针对 <code>iOS8</code> 以前的系统版本进行开发</li>
-</ul>
-<h2 id="怎么使用-Carthage-导入第三方库？"><a href="#怎么使用-Carthage-导入第三方库？" class="headerlink" title="怎么使用 Carthage 导入第三方库？"></a>怎么使用 Carthage 导入第三方库？</h2><p id="div-border-left-green">1、安装 <code>Carthage</code><br>有三个方法<br>（1）直接下载安装包：地址，<code>dmg</code> 文件，直接打开安装<br>（2） 使用 <code>Homebrew</code> 安装，在终端运行:<br>    brew update<br>    brew install carthage<br>（3) 使用 <code>Xcode</code> 运行最新的开发版，clone <code>Carthage</code> 的仓库到本地，<code>make install</code><br><br>2、使用 <code>Carthage</code><br>（1）终端切换到工程目录，输入命令，创建一个 <code>Cartfile</code> 文件： <code>touch Cartfile</code><br>（2）使用任何编辑器(如 <code>Xcode</code>、文本编辑、<code>subtime line</code>)打开 <code>Cartfile</code> 文件，输入以下内容：<code>github &quot;SnapKit/SnapKit&quot;</code>，然后保存关闭。<br>（3）使用终端：<code>carthage update --platform iOS</code><br>（4）把 <code>framework</code> 加入你的项目：打开项目，选择 Targets -&gt; CarthageDemo -&gt; Build Phases -&gt;<br>Link Binary With Libraries -&gt; 点击 + 号 -&gt; Add Other -&gt; 找到 <code>framework</code> 添加<br>（5）现在点击 <code>Build Phases</code>(还是在当前选项卡) 左上角的 + 号，选择 <code>New Run Script Phase</code> ，填写内容。完成。</p>
-
-<h2 id="让你的工程支持-Carthage"><a href="#让你的工程支持-Carthage" class="headerlink" title="让你的工程支持 Carthage"></a>让你的工程支持 Carthage</h2><p id="div-border-left-blue">1、在已经写好的工程中。创建一个 <code>Framework</code><br>2、配置你的 <code>Framework</code><br>（1）选择你的工程<br>（2）选择 <code>framework</code> 所在的 <code>Target</code><br>（3.选择 <code>Build Phases</code><br>（4）点击 <code>Header</code> 左下角的+号把你要暴露的头文件添加到 <code>Public</code> 里面（默认添加到 <code>Project</code> 里面，用鼠标把它拽过去）<br>（5）在Compile source里面添加实现的.m文件<br>3、分享你的工程<br>（1）选择 <code>Manager Schemes</code>，勾上 <code>shared</code> (这样 <code>Carthage</code> 就可以编译你的工程)<br>（2）安装好 <code>Carthage</code> 的前提,我们 <code>cd</code> 到项目文件夹,运行：<code>carthage build —no-skip-current</code><br>（3）完成</p>
-
-<h2 id="Carthage-好处？"><a href="#Carthage-好处？" class="headerlink" title="Carthage 好处？"></a>Carthage 好处？</h2><ul>
-<li>通过Carthage可以将一部分不常变的库打包成framework，再引如到主工程，这样可以减少开发过程中的编译时间。</li>
-<li>可以将一些编译时间很长的库打包成framework。</li>
-<li>国内防火墙的缘故，有些库的下载慢到一定境界，这个时候，使用Carthage就是福音了。</li>
-<li>同时可以优化CI的编译、打包时间。</li>
-</ul>
-<h1 id="三、Carthage-和-CocoaPods-的不同之处："><a href="#三、Carthage-和-CocoaPods-的不同之处：" class="headerlink" title="三、Carthage 和 CocoaPods 的不同之处："></a>三、Carthage 和 CocoaPods 的不同之处：</h1><p id="div-border-top-yellow"><code>CocoaPods</code> (默认)自动建立和更新一个 <code>Xcode workspace</code>，用来管理你的项目和所有依赖。<code>Carthage</code> 使用<code>xcodebuild</code> 来编译出二进制库，剩下的集成工作完全交给开发人员。<br><code>CocoaPods</code> 使用起来方便，<code>Carthage</code> 更加灵活并且对现有项目没有太多的侵略性。<br><code>CocoaPods</code> 希望建立一个生态系统，可以更加方便的发现和集成第三方代码库。<code>Carthage</code> 希望变成一个去中心化的依赖管理系统，不提供中心化的项目列表，减少维护成本和单点失败的概率。不过这样给开发人员寻找项目带来不便。<br><code>CocoaPods</code> 的项目需要配置 <code>podspec</code> 文件，包含了项目和第三方库的信息。<code>Carthage</code> 并不使用类似的配置文件，第三方库的依赖关系是通过 <code>Xcode</code> 项目来配置的。</p>
-
-
-<h1 id="四、结论"><a href="#四、结论" class="headerlink" title="四、结论"></a>四、结论</h1><p id="div-border-top-red">选择这两个工具前，首先需要确定使用的第三库，是否支持 <code>Carthage</code> ，以这个为标准以下三种情况：<br>1、都支持 <code>Carthage</code>：使用 <code>Carthage</code>。<br>2、部分支持 <code>Carthage</code>：<code>Carthage</code> 和 <code>CocoaPods</code> 混合使用。<br>3、都不支持 <code>Carthage</code>：使用 <code>CocoaPods</code>。</p>
-
-
+        <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　上周博客落了一篇，说起来其实上周还没有本周忙，上周主要是测试兄弟公司开发的语音库，和针对新项目给出一个开发周期的预估，虽然一周都不是很忙，但是最后一天因为很久之前的老项目出了问题，需要维护，所以就没有抽出时间来写博客了。<br>　　本周主要在弄一个儿童绘本读物的 App，因为主要的几个页面，需求里都是用现成的内容 <code>SDK</code> 和 <code>h5</code> 实现，所以我的工作还是比较轻松的，因为这个原因也让我有空对自己的知识进行一个归纳整理，包括对一些模棱两可的知识点的提炼。<br>　　比如在新项目里的内容 <code>SDK</code> 的调用，他初始化之后，可以获取到一个控制器，在我的项目中使用，我是直接封装进 <code>tabbar</code> 中，类似于这样使用：<br><figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> v1 = <span class="type">XYSDK</span>.obtainRootNavigationRootViewController() <span class="comment">//SDK 获取到的控制器</span></span><br><span class="line">v2.tabBarItem = <span class="type">ESTabBarItem</span>.<span class="keyword">init</span>(<span class="type">XYBasicContentView</span>(),title: <span class="string">"听听"</span>, image: <span class="type">UIImage</span>(named: <span class="string">"icon_gang"</span>), selectedImage: <span class="type">UIImage</span>(named: <span class="string">""</span>)) <span class="comment">//定义 tabbarItem 显示文字和图片</span></span><br><span class="line"><span class="keyword">let</span> n1 = <span class="type">UINavigationController</span>.<span class="keyword">init</span>(rootViewController: v1)</span><br><span class="line"><span class="keyword">let</span> v2 = <span class="type">UIViewController</span>()</span><br><span class="line"><span class="keyword">let</span> n2 = <span class="type">UINavigationController</span>.<span class="keyword">init</span>(rootViewController: v2)</span><br><span class="line">.....</span><br><span class="line"><span class="keyword">let</span> n5 = <span class="type">UINavigationController</span>.<span class="keyword">init</span>(rootViewController: v4)</span><br><span class="line">tabBarController.viewControllers = [n1, n2, n3, n4]</span><br></pre></td></tr></table></figure></p>
+<p>　　但是有个问题就是 <code>tabbar</code> 的文字不显示为我设置的“看看”，而是显示为 SDK 内部自定义 “推荐”，放在之前我可能会抓耳挠腮的在 <code>tabbar</code> 的显示问题是不断尝试，但是基于对控制器的层级理解，我创建了一个集成于 <code>UIViewController</code> 的控制器界面，并在 <code>viewDidLoad</code> 中写入一下代码：<br><figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> musicVC = <span class="type">XYDMSDK</span>.obtainRootNavigationRootViewController()</span><br><span class="line"><span class="keyword">self</span>.addChild(musicVC!)</span><br><span class="line"><span class="keyword">self</span>.view.addSubview(musicVC!.view)</span><br></pre></td></tr></table></figure></p>
+<p>　　这段代码的含义也就是把一个控制器包装到另一个控制器内部，然后 <code>SDK</code> 获取到的控制器就不会对 <code>tabbar</code> 造成什么影响了。<br>　　除了对问题有了更灵活的解决以外，在新的项目中也尝试使用新的技术，和之前没用到的东西，比如 <code>autolayout</code> 布局，和 <code>UIStackView</code>，<code>Swift</code>中 <code>autolayout</code> 布局我是用现成的框架 <code>Snap</code> 实现的，简单易上手。上下左右的约束设置也很好理解，按 X 轴 Y 轴，从左到右，从上到下，为正，当使用 <code>make.right.equalToSuperview()</code> 时，如果想设置，离父视图的右边距为 27，那么按照刚才的理解也就是，父视图的边缘位置往回（左）走 27 个小格，也就是：<code>make.right.equalToSuperview().offset(-27)</code>，如果写成 <code>.offset(27)</code>，那此时 <code>make</code> 的这个视图右边缘是处在父视图再往右 27 个小格的位置。这是基本使用。有一点值得注意的是，当使用 <code>autolayout</code> 布局时，你要获取到视图的 <code>frame</code>，需要在获取之前调用<code>self.view.layoutIfNeeded()</code>去强制更新下布局才可以获取到不为空的布局参数。<br>　　关于 <code>stackView</code> 的使用，这几天使用的感受是他就像一个内部封装了 autolayout 布局的视图，只要我们给好约束，内部视图就会按照比例显示，这种特性可以应用在当页面有很多重复性的布局，但用 <code>UIcollectionview</code> 或 <code>UItableview</code> 解决的效果又不是很理想的情况下使用。<br>　　关于技术的学习，还有就是在看业内大佬戴铭老师在极客时间上的课了。除了引导语，本周就看了两篇，第一篇讲整体框架，提到一个 iOS 开发的知识体系，并给出了思维导图：<br>　　<script src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script><script src="//cdn.bootcss.com/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script><div class="hexo-img-stream"><style type="text/css">.hexo-image-steam-lazy {display:none;}.hexo-img-stream{width:90%;max-width:1100px;margin:3% auto}div.hexo-img-stream figure{background:#fefefe;box-shadow:0 1px 2px rgba(34,25,25,0.4);margin:0 0.05% 3%;padding:3%;padding-bottom:10px;display:inline-block;max-width:25%}div.hexo-img-stream figure img{border-bottom:1px solid #ccc;padding-bottom:15px;margin-bottom:5px}div.hexo-img-stream figure figcaption{font-size:.9rem;color:#444;line-height:1.5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}div.hexo-img-stream small{font-size:1rem;float:right;text-transform:uppercase;color:#aaa}div.hexo-img-stream small a{color:#666;text-decoration:none;transition:.4s color}@media screen and (max-width:750px){.hexo-img-stream{column-gap:0}}</style><figure><img class="hexo-image-steam-lazy nofancy" src="https://ws4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif" data-original="https://imgchr.com/i/Zpg42t"><noscript><img src="https://imgchr.com/i/Zpg42t"></noscript><figcaption></figcaption></figure></div><script type="text/javascript">$('img.hexo-image-steam-lazy').lazyload({ effect:'fadeIn' });</script><br>　　对于我来说大概可以起到一个查缺补漏的作用，因为之前都是面向工作内容开发，不明白哪里补哪里，杂食性的学习习惯导致知识体系臃肿但并不健壮。这个导图很直观的列出了各个部分需要了解的内容，也在这个基础上给出了深入学习的分支。虽说尽信书不如无书，但在这个阶段的我还是需要多信信书的。而且戴铭老师在文章里的有个观点我觉得很好，大概是说现在互联网时代，新技术层出不穷的冒出来，但其实技术的本质都是殊途同归的，就像从天津去北京，选择坐车还是坐飞机，目的都是一致的。只要能在一门技术上深耕，学的明白透彻，那再去学其他的技术，就很容易触类旁通，举一反三的拿下了。<br>　　另外一篇是讲怎么优化 app 启动时间的。概不累述<br>　　接下来可以解释本周为什么很忙了，除了业内的学习，业外时间我报的专升本课程上个礼拜去上课，发现落了几节课之后老师都快把书讲完了，数据库老师布置课堂习题做的时候，我心里不断被黑人问号脸刷左心室左心房右心室右心房。所以这个礼拜就把重点稍稍往自己的学习上倾斜了一点，早上背单词，中午午休前刷题，晚上回去除了一两天的健身跑步以外，继续我之前的素描课程，618 剁手买了个 iPad，也就顺便再加了一个手绘教程。最近也小有成果~<br>　　<script src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script><script src="//cdn.bootcss.com/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script><div class="hexo-img-stream"><style type="text/css">.hexo-image-steam-lazy {display:none;}.hexo-img-stream{width:90%;max-width:1100px;margin:3% auto}div.hexo-img-stream figure{background:#fefefe;box-shadow:0 1px 2px rgba(34,25,25,0.4);margin:0 0.05% 3%;padding:3%;padding-bottom:10px;display:inline-block;max-width:25%}div.hexo-img-stream figure img{border-bottom:1px solid #ccc;padding-bottom:15px;margin-bottom:5px}div.hexo-img-stream figure figcaption{font-size:.9rem;color:#444;line-height:1.5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}div.hexo-img-stream small{font-size:1rem;float:right;text-transform:uppercase;color:#aaa}div.hexo-img-stream small a{color:#666;text-decoration:none;transition:.4s color}@media screen and (max-width:750px){.hexo-img-stream{column-gap:0}}</style><figure><img class="hexo-image-steam-lazy nofancy" src="https://ws4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif" data-original="https://s2.ax1x.com/2019/06/22/ZpRQXV.jpg"><noscript><img src="https://s2.ax1x.com/2019/06/22/ZpRQXV.jpg"></noscript><figcaption></figcaption></figure><figure><img class="hexo-image-steam-lazy nofancy" src="https://ws4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif" data-original="https://s2.ax1x.com/2019/06/22/ZpRM60.jpg"><noscript><img src="https://s2.ax1x.com/2019/06/22/ZpRM60.jpg"></noscript><figcaption></figcaption></figure><figure><img class="hexo-image-steam-lazy nofancy" src="https://ws4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif" data-original="https://s2.ax1x.com/2019/06/22/ZpWAjx.png"><noscript><img src="https://s2.ax1x.com/2019/06/22/ZpWAjx.png"></noscript><figcaption></figcaption></figure></div><script type="text/javascript">$('img.hexo-image-steam-lazy').lazyload({ effect:'fadeIn' });</script><br>　　算起来工作以后我似乎比在学校里勤勉很多，但这种改变的本质并不是那种以前我没得选，现在我想做个好人的洗心革面，而是更多的是出来工作后的焦虑所导致我不得不去做一点什么来抵抗这种焦虑，或者说让自己忙起来而不去焦虑。或许我下一个学习内容可以尝试看心理学领域~　　
+　　
+　　</p>
 
       
     </div>
@@ -657,7 +629,7 @@
         <div style="text-align:center;color: #ccc;font-size:14px;">------本文结束 <i class="fa fa-thermometer-three-quarters" aria-hidden="true"></i> 感谢阅读------</div>
         <div>
 	    <p id="div-border-left-red">
-	   <b>本文地址：</b><a href="/articles/036.html" title="iOS - CocoaPods 和 Carthage 的比较">http://kaaaaai.cn/articles/036.html</a><br/>
+	   <b>本文地址：</b><a href="/articles/weekly-summary-0622.html" title="每周总结 - 0622">http://kaaaaai.cn/articles/weekly-summary-0622.html</a><br/>
 	    <span>
 	    <b>本文基于<a target="_blank" title="Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)" href="http://creativecommons.org/licenses/by-sa/4.0/"> 知识共享署名-相同方式共享 4.0 </a>国际许可协议发布</b><br/><b>转载请注明出处，谢谢！</b>
 	    </span>
@@ -704,7 +676,11 @@
           
             <a href="/tags/EXP/" rel="tag"><i class="fa fa-tag"></i> EXP</a>
           
-            <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
+            <a href="/tags/Live/" rel="tag"><i class="fa fa-tag"></i> Live</a>
+          
+            <a href="/tags/Study/" rel="tag"><i class="fa fa-tag"></i> Study</a>
+          
+            <a href="/tags/Work/" rel="tag"><i class="fa fa-tag"></i> Work</a>
           
         </div>
       
@@ -717,8 +693,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/articles/035.html" rel="next" title="唯“鸭嘴兽”主义哲学">
-                <i class="fa fa-chevron-left"></i> 唯“鸭嘴兽”主义哲学
+              <a href="/articles/weekly-summary-0601.html" rel="next" title="每周总结 - 0601">
+                <i class="fa fa-chevron-left"></i> 每周总结 - 0601
               </a>
             
           </div>
@@ -726,10 +702,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/articles/037.html" rel="prev" title="在草房子外">
-                在草房子外 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -783,17 +755,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://s2.ax1x.com/2019/03/14/AESiM4.jpg"
@@ -918,22 +881,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、CocoaPods"><span class="nav-text">一、CocoaPods</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CocoaPods是什么？"><span class="nav-text">CocoaPods是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#怎么使用-CocoaPods-导入项目"><span class="nav-text">怎么使用 CocoaPods 导入项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#让你的工程支持-CocoaPods"><span class="nav-text">让你的工程支持 CocoaPods</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CocoaPods-好处？"><span class="nav-text">CocoaPods 好处？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、Carthage"><span class="nav-text">二、Carthage</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Carthage-是什么？"><span class="nav-text">Carthage 是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#怎么使用-Carthage-导入第三方库？"><span class="nav-text">怎么使用 Carthage 导入第三方库？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#让你的工程支持-Carthage"><span class="nav-text">让你的工程支持 Carthage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Carthage-好处？"><span class="nav-text">Carthage 好处？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、Carthage-和-CocoaPods-的不同之处："><span class="nav-text">三、Carthage 和 CocoaPods 的不同之处：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、结论"><span class="nav-text">四、结论</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -1119,9 +1066,9 @@ show_date_time();
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://kaaaaai.cn/articles/036.html';
-          this.page.identifier = 'articles/036.html';
-          this.page.title = 'iOS - CocoaPods 和 Carthage 的比较';
+          this.page.url = 'http://kaaaaai.cn/articles/weekly-summary-0622.html';
+          this.page.identifier = 'articles/weekly-summary-0622.html';
+          this.page.title = '每周总结 - 0622';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://kaaaaai-cn.disqus.com/embed.js';
