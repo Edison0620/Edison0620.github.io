@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kaaaaai.cn/"/>
-  <updated>2019-07-03T06:38:09.194Z</updated>
+  <updated>2019-07-10T07:05:26.836Z</updated>
   <id>http://kaaaaai.cn/</id>
   
   <author>
@@ -14,6 +14,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>每周总结 - 0706</title>
+    <link href="http://kaaaaai.cn/articles/weekly-summary-0706.html"/>
+    <id>http://kaaaaai.cn/articles/weekly-summary-0706.html</id>
+    <published>2019-07-06T02:13:52.000Z</published>
+    <updated>2019-07-10T07:05:26.836Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　每次有一些模棱两可想法的时候，都会在互联网上看到别人已经成体系的理论。这让我觉得虽然沙雕网友遍地走，睿智网友也不少。<br>　　本周依旧，忙碌的部分集中在头部，后半段的时候主要的都是一些琐碎的事，不过周四的时候针对当前项目的一个 bug，重写了部分逻辑。让我对加载 h5 页面的控件多了一些认识，还有手势响应链的理解，比如当前页面如果同时有侧滑返回手势和页面右滑手势时，两者在响应的优先级上，侧滑手势作为更底层的方法会先响应，当返回 <code>false</code> 时，页面右滑手势才会开始响应。虽然是个小知识点，但对于我理解系统继承类和系统代理实现有了更直观的认识，虽然一直有系统的类，和我们自己生成的类其实没什么差别，只不过系统是封装起来，然后有很多父类方法，可以用在某些场景中解决问题。但是开发的时候有时也会有盲点，对于一些顽固，或者需要捆绑修改才能生效的地方总有黔驴技穷的心塞。<br>　　极客时间停在了项目开发的任务划分，也似乎因为停留太久，每次从头看都很难有一鼓作气看完的气力，也许也和我的拖延症有一些关系，因为画画认识一个网友，约好说互相鼓励，学习画画。最近几个礼拜互相交流进度，他佩服我自制力强，作息规律。但如人饮水，冷暖自知，我制止力强吗？不强，刚出新手村吧。这个礼拜线条练了两天，新的手绘课程算正式开始了，第一节课老师教人物描形，画草图，看着简单，但实际联系的时候也有些问题，用四边形概括人物轮廓，问题不到，但是画草图时，虽然老师也说不用太在意画的想不想，只要大致样子就行，但是在我刻意的临摹人物五官，想复原神态的时候总是画虎不成反类犬，而且画完总觉得整体看上去不够大气。<br>　　抽空看了一下最近很火的《长安十二时辰》，有马伯庸老师作品改编垫底，加上制作讲究，人物也都智商在线，确实不错。不过就是优酷的广告太过恶劣，每次看都要先看两分钟广告，中间还要穿插剧中人物的广告，而且发现现在网贷和网络理财的广告出现频率很高，想着一边是二十多岁花龄少女欠下巨额网贷无法偿还自杀身亡额新网，另一边这种网贷公司仍然没有管制的野蛮生长，越演越烈。不过除了心里嗤笑，也于事无补。还看了一部电影《恶人传》，警匪合作缉拿连环凶手的创意不错，但原本预期以为看《恶人传》的名字，以为故事里有价值观的分歧是会产生在黑帮老大和连环杀手身上，一种是因其为实现目的而表现成恶，另一种纯粹的恶，觉得应该会很有看头，所以剧情后面的发展虽然好看但是心里觉得有点不尽人意。而且连环凶手除了家庭合照在他的住处一闪而逝以外——也只是为了推进剧情确认身份，觉得他这个人物不是很饱满，甚至作为一个变态杀手，都有些脸谱化，被抓被打被判罪，都保持一种邪恶的狞笑，符合人们对变态杀手的直观印象，但没有跳出来。就像一个从其他地方摘录过来的人物剪贴。<br>　　周末照旧去上了课，信息资源管理已经上完了，然后发现有一门课，因为周六上午都没上课的原因，我自己才看了十几页书，嗯，下周要把重心放在学习上了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
+    
+      <category term="Live" scheme="http://kaaaaai.cn/tags/Live/"/>
+    
+      <category term="Study" scheme="http://kaaaaai.cn/tags/Study/"/>
+    
+      <category term="Work" scheme="http://kaaaaai.cn/tags/Work/"/>
+    
+  </entry>
   
   <entry>
     <title>iOS - 常用的动画库调研</title>
@@ -72,15 +101,13 @@
   </entry>
   
   <entry>
-    <title>每周总结 - 0622</title>
-    <link href="http://kaaaaai.cn/articles/weekly-summary-0622.html"/>
-    <id>http://kaaaaai.cn/articles/weekly-summary-0622.html</id>
-    <published>2019-06-22T02:13:52.000Z</published>
-    <updated>2019-06-29T03:42:01.852Z</updated>
+    <title>每周总结 - 0629</title>
+    <link href="http://kaaaaai.cn/articles/weekly-summary-0629.html"/>
+    <id>http://kaaaaai.cn/articles/weekly-summary-0629.html</id>
+    <published>2019-06-29T02:13:52.000Z</published>
+    <updated>2019-07-06T02:05:19.218Z</updated>
     
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　上周博客落了一篇，说起来其实上周还没有本周忙，上周主要是测试兄弟公司开发的语音库，和针对新项目给出一个开发周期的预估，虽然一周都不是很忙，但是最后一天因为很久之前的老项目出了问题，需要维护，所以就没有抽出时间来写博客了。<br>　　本周主要在弄一个儿童绘本读物的 App，因为主要的几个页面，需求里都是用现成的内容 <code>SDK</code> 和 <code>h5</code> 实现，所以我的工作还是比较轻松的，因为这个原因也让我有空对自己的知识进行一个归纳整理，包括对一些模棱两可的知识点的提炼。<br>　　比如在新项目里的内容 <code>SDK</code> 的调用，他初始化之后，可以获取到一个控制器，在我的项目中使用，我是直接封装进 <code>tabbar</code> 中，类似于这样使用：<br><figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> v1 = <span class="type">XYSDK</span>.obtainRootNavigationRootViewController() <span class="comment">//SDK 获取到的控制器</span></span><br><span class="line">v2.tabBarItem = <span class="type">ESTabBarItem</span>.<span class="keyword">init</span>(<span class="type">XYBasicContentView</span>(),title: <span class="string">"听听"</span>, image: <span class="type">UIImage</span>(named: <span class="string">"icon_gang"</span>), selectedImage: <span class="type">UIImage</span>(named: <span class="string">""</span>)) <span class="comment">//定义 tabbarItem 显示文字和图片</span></span><br><span class="line"><span class="keyword">let</span> n1 = <span class="type">UINavigationController</span>.<span class="keyword">init</span>(rootViewController: v1)</span><br><span class="line"><span class="keyword">let</span> v2 = <span class="type">UIViewController</span>()</span><br><span class="line"><span class="keyword">let</span> n2 = <span class="type">UINavigationController</span>.<span class="keyword">init</span>(rootViewController: v2)</span><br><span class="line">.....</span><br><span class="line"><span class="keyword">let</span> n5 = <span class="type">UINavigationController</span>.<span class="keyword">init</span>(rootViewController: v4)</span><br><span class="line">tabBarController.viewControllers = [n1, n2, n3, n4]</span><br></pre></td></tr></table></figure></p>
-<p>　　但是有个问题就是 <code>tabbar</code> 的文字不显示为我设置的“看看”，而是显示为 SDK 内部自定义 “推荐”，放在之前我可能会抓耳挠腮的在 <code>tabbar</code> 的显示问题是不断尝试，但是基于对控制器的层级理解，我创建了一个集成于 <code>UIViewController</code> 的控制器界面，并在 <code>viewDidLoad</code> 中写入一下代码：<br><figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> musicVC = <span class="type">XYDMSDK</span>.obtainRootNavigationRootViewController()</span><br><span class="line"><span class="keyword">self</span>.addChild(musicVC!)</span><br><span class="line"><span class="keyword">self</span>.view.addSubview(musicVC!.view)</span><br></pre></td></tr></table></figure></p>
-<p>　　这段代码的含义也就是把一个控制器包装到另一个控制器内部，然后 <code>SDK</code> 获取到的控制器就不会对 <code>tabbar</code> 造成什么影响了。<br>　　除了对问题有了更灵活的解决以外，在新的项目中也尝试使用新的技术，和之前没用到的东西，比如 <code>autolayout</code> 布局，和 <code>UIStackView</code>，<code>Swift</code>中 <code>autolayout</code> 布局我是用现成的框架 <code>Snap</code> 实现的，简单易上手。上下左右的约束设置也很好理解，按 X 轴 Y 轴，从左到右，从上到下，为正，当使用 <code>make.right.equalToSuperview()</code> 时，如果想设置，离父视图的右边距为 27，那么按照刚才的理解也就是，父视图的边缘位置往回（左）走 27 个小格，也就是：<code>make.right.equalToSuperview().offset(-27)</code>，如果写成 <code>.offset(27)</code>，那此时 <code>make</code> 的这个视图右边缘是处在父视图再往右 27 个小格的位置。这是基本使用。有一点值得注意的是，当使用 <code>autolayout</code> 布局时，你要获取到视图的 <code>frame</code>，需要在获取之前调用<code>self.view.layoutIfNeeded()</code>去强制更新下布局才可以获取到不为空的布局参数。<br>　　关于 <code>stackView</code> 的使用，这几天使用的感受是他就像一个内部封装了 autolayout 布局的视图，只要我们给好约束，内部视图就会按照比例显示，这种特性可以应用在当页面有很多重复性的布局，但用 <code>UIcollectionview</code> 或 <code>UItableview</code> 解决的效果又不是很理想的情况下使用。<br>　　关于技术的学习，还有就是在看业内大佬戴铭老师在极客时间上的课了。除了引导语，本周就看了两篇，第一篇讲整体框架，提到一个 iOS 开发的知识体系，并给出了思维导图：<br>　　<script src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script><script src="//cdn.bootcss.com/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script><div class="hexo-img-stream"><style type="text/css">.hexo-image-steam-lazy {display:none;}.hexo-img-stream{width:90%;max-width:1100px;margin:3% auto}div.hexo-img-stream figure{background:#fefefe;box-shadow:0 1px 2px rgba(34,25,25,0.4);margin:0 0.05% 3%;padding:3%;padding-bottom:10px;display:inline-block;max-width:25%}div.hexo-img-stream figure img{border-bottom:1px solid #ccc;padding-bottom:15px;margin-bottom:5px}div.hexo-img-stream figure figcaption{font-size:.9rem;color:#444;line-height:1.5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}div.hexo-img-stream small{font-size:1rem;float:right;text-transform:uppercase;color:#aaa}div.hexo-img-stream small a{color:#666;text-decoration:none;transition:.4s color}@media screen and (max-width:750px){.hexo-img-stream{column-gap:0}}</style><figure><img class="hexo-image-steam-lazy nofancy" src="https://ws4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif" data-original="https://s2.ax1x.com/2019/06/22/Zpg42t.jpg"><noscript><img src="https://s2.ax1x.com/2019/06/22/Zpg42t.jpg"></noscript><figcaption></figcaption></figure></div><script type="text/javascript">$('img.hexo-image-steam-lazy').lazyload({ effect:'fadeIn' });</script><br>　　对于我来说大概可以起到一个查缺补漏的作用，因为之前都是面向工作内容开发，不明白哪里补哪里，杂食性的学习习惯导致知识体系臃肿但并不健壮。这个导图很直观的列出了各个部分需要了解的内容，也在这个基础上给出了深入学习的分支。虽说尽信书不如无书，但在这个阶段的我还是需要多信信书的。而且戴铭老师在文章里的有个观点我觉得很好，大概是说现在互联网时代，新技术层出不穷的冒出来，但其实技术的本质都是殊途同归的，就像从天津去北京，选择坐车还是坐飞机，目的都是一致的。只要能在一门技术上深耕，学的明白透彻，那再去学其他的技术，就很容易触类旁通，举一反三的拿下了。<br>　　另外一篇是讲怎么优化 app 启动时间的。概不累述<br>　　接下来可以解释本周为什么很忙了，除了业内的学习，业外时间我报的专升本课程上个礼拜去上课，发现落了几节课之后老师都快把书讲完了，数据库老师布置课堂习题做的时候，我心里不断被黑人问号脸刷左心室左心房右心室右心房。所以这个礼拜就把重点稍稍往自己的学习上倾斜了一点，早上背单词，中午午休前刷题，晚上回去除了一两天的健身跑步以外，继续我之前的素描课程，618 剁手买了个 iPad，也就顺便再加了一个手绘教程。最近也小有成果~<br>　　<script src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script><script src="//cdn.bootcss.com/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script><div class="hexo-img-stream"><style type="text/css">.hexo-image-steam-lazy {display:none;}.hexo-img-stream{width:90%;max-width:1100px;margin:3% auto}div.hexo-img-stream figure{background:#fefefe;box-shadow:0 1px 2px rgba(34,25,25,0.4);margin:0 0.05% 3%;padding:3%;padding-bottom:10px;display:inline-block;max-width:25%}div.hexo-img-stream figure img{border-bottom:1px solid #ccc;padding-bottom:15px;margin-bottom:5px}div.hexo-img-stream figure figcaption{font-size:.9rem;color:#444;line-height:1.5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}div.hexo-img-stream small{font-size:1rem;float:right;text-transform:uppercase;color:#aaa}div.hexo-img-stream small a{color:#666;text-decoration:none;transition:.4s color}@media screen and (max-width:750px){.hexo-img-stream{column-gap:0}}</style><figure><img class="hexo-image-steam-lazy nofancy" src="https://ws4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif" data-original="https://s2.ax1x.com/2019/06/22/ZpRQXV.jpg"><noscript><img src="https://s2.ax1x.com/2019/06/22/ZpRQXV.jpg"></noscript><figcaption></figcaption></figure><figure><img class="hexo-image-steam-lazy nofancy" src="https://ws4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif" data-original="https://s2.ax1x.com/2019/06/22/ZpRM60.jpg"><noscript><img src="https://s2.ax1x.com/2019/06/22/ZpRM60.jpg"></noscript><figcaption></figcaption></figure><figure><img class="hexo-image-steam-lazy nofancy" src="https://ws4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif" data-original="https://s2.ax1x.com/2019/06/22/ZpWAjx.png"><noscript><img src="https://s2.ax1x.com/2019/06/22/ZpWAjx.png"></noscript><figcaption></figcaption></figure></div><script type="text/javascript">$('img.hexo-image-steam-lazy').lazyload({ effect:'fadeIn' });</script><br>　　算起来工作以后我似乎比在学校里勤勉很多，但这种改变的本质并不是那种以前我没得选，现在我想做个好人的洗心革面，而是更多的是出来工作后的焦虑所导致我不得不去做一点什么来抵抗这种焦虑，或者说让自己忙起来而不去焦虑。或许我下一个学习内容可以尝试看心理学领域~　　
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　忽然觉得当咸鱼既容易又困难，只要找到某种自洽，并能说服自己。和朋友聊天问近况，他说頽了，放弃了。原因是看见未来无望，贫富阶级固定，咸鱼再难翻身。我想起另外一个朋友当咸鱼的理由是得过且过，活在当下，当前的快乐最重要。他们立足于现在和未来都给自己当咸鱼找到了理论支撑，这样没有心理压力的做咸鱼是容易的，但这些理由一点也都说服不了我，而在尝试做咸鱼失败之后我甚至可以立马找到理由开导自己，不一定每个人都有天赋做咸鱼，找到适合自己的方式生活就好。所以事情陷入僵局，但回到起点看，问题倒不是要不要做咸鱼，又或者是怎么才能做咸鱼的问题。而是如何心无旁骛的在自己选择的路上走，不再三心二意的左右顾盼，不再对自己没得到的东西报有念念不忘的遗憾。之前在微博上看到一句，大概意思是人要是没有回忆，就可以像一台完美的机器一样一直合理运作。总是在空闲的时候，在脑子里猝尔闪烁，仔细想想，或许可以。但如果真是那样，彼时的我可能也不会有此时这种想法。<br>　　新开了一本书《迁徙的间隙》，作者只比我大一岁，文字很有灵气，对事物的描写所选择切入的视角也很有意思，前卫，故事的内核有点晦涩，有些地方也有一些流于雕琢的痕迹，但即便这样，也让我很羡慕，书里的那种文字，是我一直在尝试但却一直没写出来的东西。不过我也不是很气馁，因为想写的东西还有很多很多，作者也让我看到了一个可能性，就是坚持写，不断耕耘，总会有开花结果的一天。<br>　　素描课已经学到三棱体的画法了，透视打调子越来越熟练，但是图形线条好像越画越不直了，所以接下来的重心是回过头继续练基本功。英语单词的第一轮复习大概这周末可以结束，极客时间上的课有些懈怠，本周只看了一两节，中午本来预计拿来刷题的时间也被我用来看小说，所以下周要加油了~<br>　　工作上重头内容都在星期一一口气解决了，其他几天做的事除了修改 bug，都是一些重复性很强的事，所以本周比较清闲，值得记录的是，我用 UITextField 写登录界面的输入框，设置 right view 分别是下拉的箭头和隐藏显示密码的按钮，有个问题就是他们的位置都显示在 textfield 的边缘，显得很怪异。然后我试了 UITextField 的拓展，试把 right view 的 UIButton 改用 UIiamgeview，试了改变 left view，content view，right view 的边距来改变 right view 的位置，都没有起作用。最后起作用的是，改变 right view 的大小，使设置 right view 的 button 内部图片居中，起到位置移动的效果。<br>　　另外一个问题是用 swiftScan 现成的轮子生成二维码图片，用他自带的方法在中心位置添加 logo，会导致 logo 图片模糊，然后我就手动修改了添加 logo 的方法，解决。
 　　
 　　</p>
 ]]></content>
@@ -105,13 +132,15 @@
   </entry>
   
   <entry>
-    <title>每周总结 - 0629</title>
-    <link href="http://kaaaaai.cn/articles/weekly-summary-0629.html"/>
-    <id>http://kaaaaai.cn/articles/weekly-summary-0629.html</id>
+    <title>每周总结 - 0622</title>
+    <link href="http://kaaaaai.cn/articles/weekly-summary-0622.html"/>
+    <id>http://kaaaaai.cn/articles/weekly-summary-0622.html</id>
     <published>2019-06-22T02:13:52.000Z</published>
-    <updated>2019-07-01T02:51:30.914Z</updated>
+    <updated>2019-06-29T03:42:01.852Z</updated>
     
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　忽然觉得当咸鱼既容易又困难，只要找到某种自洽，并能说服自己。和朋友聊天问近况，他说頽了，放弃了。原因是看见未来无望，贫富阶级固定，咸鱼再难翻身。我想起另外一个朋友当咸鱼的理由是得过且过，活在当下，当前的快乐最重要。他们立足于现在和未来都给自己当咸鱼找到了理论支撑，这样没有心理压力的做咸鱼是容易的，但是对于我来说，这些理由一点也都说服不了我，而在尝试失败之后甚至立马能找到理由开导自己，不一定每个人都有天赋做咸鱼，找到适合自己的路走就好。<br>　　新开了一本书《迁徙的间隙》，作者只比我大一岁，文字很有灵气，对事物的描写所选择切入的视角也很有意思，前卫，故事的内核有点晦涩，有些地方也有一些流于雕琢的痕迹，但即便这样，也让我很羡慕，书里的那种文字，是我一直在尝试但却一直没写出来的东西。不过我也不是很气馁，因为想写的东西还有很多很多，作者也让我看到了一个可能性，就是坚持写，不断耕耘，总会有开花结果的一天。<br>　　素描课已经学到三棱体的画法了，透视打调子越来越熟练，但是图形线条好像越画越不直了，所以接下来的重心是回过头继续练基本功。英语单词的第一轮复习大概这周末可以结束，极客时间上的课有些懈怠，本周只看了一两节，中午本来预计拿来刷题的时间也被我用来看小说，所以下周要加油了~<br>　　工作上重头内容都在星期一一口气解决了，其他几天做的事除了修改 bug，都是一些重复性很强的事，所以本周比较清闲，值得记录的是，我用 UITextField 写登录界面的输入框，设置 right view 分别是下拉的箭头和隐藏显示密码的按钮，有个问题就是他们的位置都显示在 textfield 的边缘，显得很怪异。然后我试了 UITextField 的拓展，试把 right view 的 UIButton 改用 UIiamgeview，试了改变 left view，content view，right view 的边距来改变 right view 的位置，都没有起作用。最后起作用的是，改变 right view 的大小，使设置 right view 的 button 内部图片居中，起到位置移动的效果。另外一个问题是用 swiftScan 现成的轮子生成二维码图片，用他自带的方法在中心位置添加 logo，会导致 logo 图片模糊，然后我就手动修改了添加 logo 的方法，解决。
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　上周博客落了一篇，说起来其实上周还没有本周忙，上周主要是测试兄弟公司开发的语音库，和针对新项目给出一个开发周期的预估，虽然一周都不是很忙，但是最后一天因为很久之前的老项目出了问题，需要维护，所以就没有抽出时间来写博客了。<br>　　本周主要在弄一个儿童绘本读物的 App，因为主要的几个页面，需求里都是用现成的内容 <code>SDK</code> 和 <code>h5</code> 实现，所以我的工作还是比较轻松的，因为这个原因也让我有空对自己的知识进行一个归纳整理，包括对一些模棱两可的知识点的提炼。<br>　　比如在新项目里的内容 <code>SDK</code> 的调用，他初始化之后，可以获取到一个控制器，在我的项目中使用，我是直接封装进 <code>tabbar</code> 中，类似于这样使用：<br><figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> v1 = <span class="type">XYSDK</span>.obtainRootNavigationRootViewController() <span class="comment">//SDK 获取到的控制器</span></span><br><span class="line">v2.tabBarItem = <span class="type">ESTabBarItem</span>.<span class="keyword">init</span>(<span class="type">XYBasicContentView</span>(),title: <span class="string">"听听"</span>, image: <span class="type">UIImage</span>(named: <span class="string">"icon_gang"</span>), selectedImage: <span class="type">UIImage</span>(named: <span class="string">""</span>)) <span class="comment">//定义 tabbarItem 显示文字和图片</span></span><br><span class="line"><span class="keyword">let</span> n1 = <span class="type">UINavigationController</span>.<span class="keyword">init</span>(rootViewController: v1)</span><br><span class="line"><span class="keyword">let</span> v2 = <span class="type">UIViewController</span>()</span><br><span class="line"><span class="keyword">let</span> n2 = <span class="type">UINavigationController</span>.<span class="keyword">init</span>(rootViewController: v2)</span><br><span class="line">.....</span><br><span class="line"><span class="keyword">let</span> n5 = <span class="type">UINavigationController</span>.<span class="keyword">init</span>(rootViewController: v4)</span><br><span class="line">tabBarController.viewControllers = [n1, n2, n3, n4]</span><br></pre></td></tr></table></figure></p>
+<p>　　但是有个问题就是 <code>tabbar</code> 的文字不显示为我设置的“看看”，而是显示为 SDK 内部自定义 “推荐”，放在之前我可能会抓耳挠腮的在 <code>tabbar</code> 的显示问题是不断尝试，但是基于对控制器的层级理解，我创建了一个集成于 <code>UIViewController</code> 的控制器界面，并在 <code>viewDidLoad</code> 中写入一下代码：<br><figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> musicVC = <span class="type">XYDMSDK</span>.obtainRootNavigationRootViewController()</span><br><span class="line"><span class="keyword">self</span>.addChild(musicVC!)</span><br><span class="line"><span class="keyword">self</span>.view.addSubview(musicVC!.view)</span><br></pre></td></tr></table></figure></p>
+<p>　　这段代码的含义也就是把一个控制器包装到另一个控制器内部，然后 <code>SDK</code> 获取到的控制器就不会对 <code>tabbar</code> 造成什么影响了。<br>　　除了对问题有了更灵活的解决以外，在新的项目中也尝试使用新的技术，和之前没用到的东西，比如 <code>autolayout</code> 布局，和 <code>UIStackView</code>，<code>Swift</code>中 <code>autolayout</code> 布局我是用现成的框架 <code>Snap</code> 实现的，简单易上手。上下左右的约束设置也很好理解，按 X 轴 Y 轴，从左到右，从上到下，为正，当使用 <code>make.right.equalToSuperview()</code> 时，如果想设置，离父视图的右边距为 27，那么按照刚才的理解也就是，父视图的边缘位置往回（左）走 27 个小格，也就是：<code>make.right.equalToSuperview().offset(-27)</code>，如果写成 <code>.offset(27)</code>，那此时 <code>make</code> 的这个视图右边缘是处在父视图再往右 27 个小格的位置。这是基本使用。有一点值得注意的是，当使用 <code>autolayout</code> 布局时，你要获取到视图的 <code>frame</code>，需要在获取之前调用<code>self.view.layoutIfNeeded()</code>去强制更新下布局才可以获取到不为空的布局参数。<br>　　关于 <code>stackView</code> 的使用，这几天使用的感受是他就像一个内部封装了 autolayout 布局的视图，只要我们给好约束，内部视图就会按照比例显示，这种特性可以应用在当页面有很多重复性的布局，但用 <code>UIcollectionview</code> 或 <code>UItableview</code> 解决的效果又不是很理想的情况下使用。<br>　　关于技术的学习，还有就是在看业内大佬戴铭老师在极客时间上的课了。除了引导语，本周就看了两篇，第一篇讲整体框架，提到一个 iOS 开发的知识体系，并给出了思维导图：<br>　　<script src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script><script src="//cdn.bootcss.com/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script><div class="hexo-img-stream"><style type="text/css">.hexo-image-steam-lazy {display:none;}.hexo-img-stream{width:90%;max-width:1100px;margin:3% auto}div.hexo-img-stream figure{background:#fefefe;box-shadow:0 1px 2px rgba(34,25,25,0.4);margin:0 0.05% 3%;padding:3%;padding-bottom:10px;display:inline-block;max-width:25%}div.hexo-img-stream figure img{border-bottom:1px solid #ccc;padding-bottom:15px;margin-bottom:5px}div.hexo-img-stream figure figcaption{font-size:.9rem;color:#444;line-height:1.5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}div.hexo-img-stream small{font-size:1rem;float:right;text-transform:uppercase;color:#aaa}div.hexo-img-stream small a{color:#666;text-decoration:none;transition:.4s color}@media screen and (max-width:750px){.hexo-img-stream{column-gap:0}}</style><figure><img class="hexo-image-steam-lazy nofancy" src="https://ws4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif" data-original="https://s2.ax1x.com/2019/06/22/Zpg42t.jpg"><noscript><img src="https://s2.ax1x.com/2019/06/22/Zpg42t.jpg"></noscript><figcaption></figcaption></figure></div><script type="text/javascript">$('img.hexo-image-steam-lazy').lazyload({ effect:'fadeIn' });</script><br>　　对于我来说大概可以起到一个查缺补漏的作用，因为之前都是面向工作内容开发，不明白哪里补哪里，杂食性的学习习惯导致知识体系臃肿但并不健壮。这个导图很直观的列出了各个部分需要了解的内容，也在这个基础上给出了深入学习的分支。虽说尽信书不如无书，但在这个阶段的我还是需要多信信书的。而且戴铭老师在文章里的有个观点我觉得很好，大概是说现在互联网时代，新技术层出不穷的冒出来，但其实技术的本质都是殊途同归的，就像从天津去北京，选择坐车还是坐飞机，目的都是一致的。只要能在一门技术上深耕，学的明白透彻，那再去学其他的技术，就很容易触类旁通，举一反三的拿下了。<br>　　另外一篇是讲怎么优化 app 启动时间的。概不累述<br>　　接下来可以解释本周为什么很忙了，除了业内的学习，业外时间我报的专升本课程上个礼拜去上课，发现落了几节课之后老师都快把书讲完了，数据库老师布置课堂习题做的时候，我心里不断被黑人问号脸刷左心室左心房右心室右心房。所以这个礼拜就把重点稍稍往自己的学习上倾斜了一点，早上背单词，中午午休前刷题，晚上回去除了一两天的健身跑步以外，继续我之前的素描课程，618 剁手买了个 iPad，也就顺便再加了一个手绘教程。最近也小有成果~<br>　　<script src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script><script src="//cdn.bootcss.com/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script><div class="hexo-img-stream"><style type="text/css">.hexo-image-steam-lazy {display:none;}.hexo-img-stream{width:90%;max-width:1100px;margin:3% auto}div.hexo-img-stream figure{background:#fefefe;box-shadow:0 1px 2px rgba(34,25,25,0.4);margin:0 0.05% 3%;padding:3%;padding-bottom:10px;display:inline-block;max-width:25%}div.hexo-img-stream figure img{border-bottom:1px solid #ccc;padding-bottom:15px;margin-bottom:5px}div.hexo-img-stream figure figcaption{font-size:.9rem;color:#444;line-height:1.5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}div.hexo-img-stream small{font-size:1rem;float:right;text-transform:uppercase;color:#aaa}div.hexo-img-stream small a{color:#666;text-decoration:none;transition:.4s color}@media screen and (max-width:750px){.hexo-img-stream{column-gap:0}}</style><figure><img class="hexo-image-steam-lazy nofancy" src="https://ws4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif" data-original="https://s2.ax1x.com/2019/06/22/ZpRQXV.jpg"><noscript><img src="https://s2.ax1x.com/2019/06/22/ZpRQXV.jpg"></noscript><figcaption></figcaption></figure><figure><img class="hexo-image-steam-lazy nofancy" src="https://ws4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif" data-original="https://s2.ax1x.com/2019/06/22/ZpRM60.jpg"><noscript><img src="https://s2.ax1x.com/2019/06/22/ZpRM60.jpg"></noscript><figcaption></figcaption></figure><figure><img class="hexo-image-steam-lazy nofancy" src="https://ws4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif" data-original="https://s2.ax1x.com/2019/06/22/ZpWAjx.png"><noscript><img src="https://s2.ax1x.com/2019/06/22/ZpWAjx.png"></noscript><figcaption></figcaption></figure></div><script type="text/javascript">$('img.hexo-image-steam-lazy').lazyload({ effect:'fadeIn' });</script><br>　　算起来工作以后我似乎比在学校里勤勉很多，但这种改变的本质并不是那种以前我没得选，现在我想做个好人的洗心革面，而是更多的是出来工作后的焦虑所导致我不得不去做一点什么来抵抗这种焦虑，或者说让自己忙起来而不去焦虑。或许我下一个学习内容可以尝试看心理学领域~　　
 　　
 　　</p>
 ]]></content>
@@ -1174,176 +1203,6 @@
       <category term="读后感" scheme="http://kaaaaai.cn/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/"/>
     
       <category term="王朔" scheme="http://kaaaaai.cn/tags/%E7%8E%8B%E6%9C%94/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS - 权限、二维码、crash、热更新的技术调研</title>
-    <link href="http://kaaaaai.cn/articles/050.html"/>
-    <id>http://kaaaaai.cn/articles/050.html</id>
-    <published>2018-12-06T12:24:52.000Z</published>
-    <updated>2019-01-22T07:06:37.000Z</updated>
-    
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="一、权限"><a href="#一、权限" class="headerlink" title="一、权限"></a>一、权限</h1><h2 id="1-info-plist-中可以请求的权限"><a href="#1-info-plist-中可以请求的权限" class="headerlink" title="1.info.plist 中可以请求的权限"></a>1.info.plist 中可以请求的权限</h2><ul>
-<li><strong>蓝牙</strong> - <code>NSBluetoothPeripheralUsageDescription</code> / <code>Bluetooth Peripheral Usage Description</code></li>
-<li><strong>麦克风</strong> - <code>NSMicrophoneUsageDescription</code> / <code>Microphone Usage Description</code></li>
-<li><strong>媒体资料库</strong> - <code>NSAppleMusicUsageDescription</code> / <code>Media Library Usage Description</code></li>
-<li><strong>定位</strong> - <code>NSLocationUsageDescription</code> / <code>Location Usage Description</code>（iOS 6~iOS 7 使用，iOS 8 以后废弃）</li>
-<li><strong>使用时请求定位</strong> - <code>NSLocationWhenInUseUsageDescription</code> / <code>Location When In Use Usage Description</code>（iOS 8 以后使用）</li>
-<li><strong>一直获取定位</strong> - <code>NSLocationAlwaysUsageDescription</code> / <code>Location Always Usage Description</code>（iOS 8 ~ iOS 10 使用）</li>
-<li><strong>一直获取定位</strong> - <code>NSLocationAlwaysAndWhenInUseUsageDescription</code> / <code>Location Always and When In Usage Description</code>（iOS 11 使用）</li>
-<li><strong>相机</strong> - <code>NSCameraUsageDescription</code> / <code>Camera Usage Description</code></li>
-<li><strong>访问相册</strong> - <code>NSPhotoLibraryUsageDescription</code> / <code>Photo Library Usage Description</code></li>
-<li><strong>添加相册照片</strong> - <code>NSPhotoLibraryAddUsageDescription</code> / <code>Photo Libarary Additions Usage Description</code></li>
-<li><strong>通讯录</strong> - <code>NSContactsUsageDescription</code> / <code>Contacts Usage Description</code></li>
-<li><strong>日历</strong> - <code>NSCalendarsUsageDescription</code> / <code>Calendars Usage Description</code></li>
-<li><strong>提醒事项</strong> - <code>NSRemindersUsageDescription</code> / <code>Remiders Usage Description</code></li>
-<li><strong>音乐</strong> - <code>kTCCServiceMediaLibrary</code> / <code>Music Usage Description</code></li>
-<li><strong>Face ID</strong> - <code>NSFaceIDUsageDescription</code> / <code>Face ID Usage Description</code></li>
-<li><strong>语音识别</strong> - <code>NSSpeechRecognitionUsageDescription</code> / <code>Speech Recognition Usage Description</code></li>
-<li><strong>Siri</strong> - <code>NSSiriUsageDescription</code> / <code>Siri Usage Description</code></li>
-<li><strong>NFC</strong> - <code>NFCReaderUsageDescription</code> / <code>NFC Scan Usage Description</code></li>
-<li><strong>HomeKit</strong> - <code>NSHomeKitUsageDescription</code> / <code>HomeKit Usage Description</code></li>
-<li><strong>运动与健康</strong> - <code>NSMotionUsageDescription</code> / <code>Motion Usage Description</code></li>
-<li><strong>健康更新</strong> - <code>NSHealthUpdateUsageDescription</code> / <code>Health Update Usage Description</code></li>
-<li><strong>健康分享</strong> - <code>Health Share Usage Description</code> / <code>NSHealthShareUsageDescription</code></li>
-<li><strong>电视供应商使用权限</strong> - <code>NSVideoSubscriberAccountUsageDescription</code> / <code>TV Provider Usage Description</code></li>
-</ul>
-<h2 id="2-其他"><a href="#2-其他" class="headerlink" title="2.其他"></a>2.其他</h2><ul>
-<li>联网</li>
-</ul>
-<p>导入<code>#import &lt;CoreTelephony/CTCellularData.h&gt;</code>//网络权限<br>说明:只能获取首次进入APP是否允许蜂窝网络权限,其实也可以不判断</p>
-<figure class="highlight objectivec"><figcaption><span>Objective-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)getNetworkPermissions:(<span class="keyword">void</span> (^)(<span class="built_in">BOOL</span>))completion &#123;</span><br><span class="line">    <span class="built_in">CTCellularData</span> *cellularData = [[<span class="built_in">CTCellularData</span> alloc] init];</span><br><span class="line">    <span class="built_in">CTCellularDataRestrictedState</span> authState = cellularData.restrictedState;</span><br><span class="line">    <span class="keyword">if</span> (authState == kCTCellularDataRestrictedStateUnknown) &#123;</span><br><span class="line">        cellularData.cellularDataRestrictionDidUpdateNotifier = ^(<span class="built_in">CTCellularDataRestrictedState</span> state)&#123;</span><br><span class="line">            <span class="keyword">if</span> (state == kCTCellularDataNotRestricted) &#123;</span><br><span class="line">                <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">                    <span class="keyword">if</span> (completion) &#123;</span><br><span class="line">                        completion(<span class="literal">YES</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">                    [<span class="keyword">self</span> createAlertWithMessage:<span class="string">@"无线数据"</span>];</span><br><span class="line">                    <span class="keyword">if</span> (completion) &#123;</span><br><span class="line">                        completion(<span class="literal">NO</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (authState == kCTCellularDataNotRestricted)&#123;</span><br><span class="line">        <span class="keyword">if</span> (completion) &#123;</span><br><span class="line">            completion(<span class="literal">YES</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        [<span class="keyword">self</span> createAlertWithMessage:<span class="string">@"无线数据"</span>];</span><br><span class="line">        <span class="keyword">if</span> (completion) &#123;</span><br><span class="line">            completion(<span class="literal">NO</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>推送通知</li>
-</ul>
-<p>本地通知(UILocalNotification) 、远程通知(APNs)</p>
-<figure class="highlight objectivec"><figcaption><span>Objective-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIUserNotificationSettings</span> *notificationSettings = [<span class="built_in">UIUserNotificationSettings</span> settingsForTypes:<span class="built_in">UIUserNotificationTypeAlert</span>|<span class="built_in">UIUserNotificationTypeBadge</span>|<span class="built_in">UIUserNotificationTypeSound</span>  categories:<span class="literal">nil</span>];</span><br><span class="line">[[<span class="built_in">UIApplication</span> sharedApplication] registerUserNotificationSettings:notificationSettings];</span><br></pre></td></tr></table></figure>
-<h2 id="3-提高-APP-获取系统权限的通过率。"><a href="#3-提高-APP-获取系统权限的通过率。" class="headerlink" title="3.提高 APP 获取系统权限的通过率。"></a>3.提高 APP 获取系统权限的通过率。</h2><ul>
-<li>在绝对必要的情况下才向用户请求权限，例如：用户访问照片库时请求访问系统相册权限;</li>
-<li>在展示系统权限的对话框前，先向用户显示自定义的对话框，若用户选择不允许，默认无操作，若用户选择允许，再展示系统对话框。</li>
-<li>在用户打开APP时就向用户请求权限;</li>
-<li>告知用户授权权限后能够获得好处之后，再向用户请求权限;</li>
-</ul>
-<h1 id="二、二维码第三方库调研"><a href="#二、二维码第三方库调研" class="headerlink" title="二、二维码第三方库调研"></a>二、二维码第三方库调研</h1><h2 id="1-ZXingObjC-OC"><a href="#1-ZXingObjC-OC" class="headerlink" title="1.ZXingObjC(OC)"></a>1.<a href="https://github.com/TheLevelUp/ZXingObjC" target="_blank" rel="noopener">ZXingObjC</a>(OC)</h2><p>Star 数：2,752<br>最近一次更新时间：3 天以前<br>谷歌搜索词条结果：9,820<br>百度搜索词条结果：1,560,000<br>是否也支持 Swift：是<br>是否有中文文档：否</p>
-<p>简介：ZXingObjC 是 ZXing（“Zebra Crossing”）的 Objective-C 版本，ZXing 是一个 Java 条形码图像处理库。它主要用于 iOS 设备和 Mac 应用程序实现二维码功能。 </p>
-<p>编码和解码目前支持以下条形码： </p>
-<ul>
-<li>UPC-A and UPC-E</li>
-<li>EAN-8 and EAN-13</li>
-<li>Code 39</li>
-<li>Code 93</li>
-<li>Code 128</li>
-<li>ITF</li>
-<li>Codabar</li>
-<li>RSS-14 (all variants)</li>
-<li>QR Code</li>
-<li>Data Matrix</li>
-<li>Maxicode</li>
-<li>Aztec (‘beta’ quality)</li>
-<li>PDF 417 (‘beta’ quality)<br>ZXingObjC 目前具有与 ZXing 版本 3.3.3 相同的功能。</li>
-</ul>
-<h2 id="2-LBXScan"><a href="#2-LBXScan" class="headerlink" title="2.LBXScan"></a>2.<a href="https://github.com/MxABC/LBXScan" target="_blank" rel="noopener">LBXScan</a></h2><p>Star 数：2,565<br>最近一次更新时间：3 月以前<br>谷歌搜索词条结果：7,550<br>百度搜索词条结果：23,500<br>是否也支持 Swift：是<br>是否有中文文档：是</p>
-<p>简介：<br>（1）iOS扫码封装</p>
-<ul>
-<li>扫码识别封装: 系统API(AVFoundation)、ZXing、ZBar</li>
-<li>扫码界面效果封装</li>
-<li>二维码、条形码</li>
-<li>相册获取图片后识别</li>
-</ul>
-<p>（2）设置参数自定义效果</p>
-<ul>
-<li>扫码框周围区域背景色可设置</li>
-<li>扫码框颜色可也设置</li>
-<li>扫码框4个角的颜色可设置、大小可设置</li>
-<li>可设置只识别扫码框内的图像区域</li>
-<li>可设置扫码成功后，获取当前图片</li>
-<li>动画效果选择: 线条上下移动、网格形式移动、中间线条不移动(一般扫码条形码的效果)</li>
-</ul>
-<p>（3）模仿其他app(通过设置参数即可完成)</p>
-<ul>
-<li>模仿QQ扫码界面</li>
-<li>支付宝扫码框效果</li>
-<li>微信扫码框效果</li>
-</ul>
-<h2 id="3-SGQRCode"><a href="#3-SGQRCode" class="headerlink" title="3.SGQRCode"></a>3.<a href="https://github.com/kingsic/SGQRCode" target="_blank" rel="noopener">SGQRCode</a></h2><p>Star 数：1,101<br>最近一次更新时间：6 天以前<br>谷歌搜索词条结果：1,860<br>百度搜索词条结果：86<br>是否也支持 Swift：是<br>是否有中文文档：是</p>
-<p>简介：<br>生成二维码<br>扫描二维码<br>从相册中读取二维码<br>根据光线强弱开启手电筒<br>扫描成功之后界面之间逻辑跳转处理<br>扫描界面可自定义（线扫描条样式以及网格样式）<br>扫描界面仿微信（请根据项目需求，自行布局或调整）</p>
-<p>4.<a href="https://github.com/MxABC/swiftScan" target="_blank" rel="noopener">swiftScan</a><br>Star 数：1,000<br>最近一次更新时间：2 月以前<br>谷歌搜索词条结果：4,560<br>百度搜索词条结果：70,000<br>是否有中文文档：是</p>
-<p>简介：<br>(1)swift封装系统自带扫码及识别图片功能</p>
-<ul>
-<li>扫码界面效果封装</li>
-<li>二维码和条形码识别及生成</li>
-<li>相册获取图片后识别（测试效果不好…）</li>
-</ul>
-<p>(2) 模仿其他app</p>
-<ul>
-<li>模仿QQ扫码界面</li>
-<li>支付宝扫码框效果</li>
-<li>微信扫码框效果</li>
-</ul>
-<p>(3)其他设置参数自定义效果</p>
-<ul>
-<li>扫码框周围区域背景色可设置</li>
-<li>扫码框颜色可也设置</li>
-<li>扫码框4个角的颜色可设置、大小可设置</li>
-<li>可设置只识别扫码框内的图像区域</li>
-<li>可设置扫码成功后，获取当前图片</li>
-<li>根据扫码结果，截取码的部分图像(在模仿qq扫码界面，扫码成功后可看到)</li>
-<li>动画效果选择: 线条上下移动、网格形式移动、中间线条不移动(一般扫码条形码的效果).</li>
-</ul>
-<p><strong>总结：OC 二维码框架的框架，GitHub 靠前的只有这三个，其中 LBXScan 是封装了有 系统扫描，ZBar，ZXingObjC 等扫描库的第三方库，在使用上也可以避免臃肿的选择封装了其中一项的库引用，在界面上和 SGQRCode，主打高度模仿微信扫描界面的不相上下，可以支持微信、支付宝等、QQ 扫描界面的设置。所以推荐使用 LBXScan。而 swift 版的二维码框架，GitHub 上 Star 数量合格的只有一个，而且又是 LBXScan 同一个作者。所以 Swift 也推荐使用swiftScan</strong></p>
-<h1 id="三、crash"><a href="#三、crash" class="headerlink" title="三、crash"></a>三、crash</h1><p>为什么不使用官方的崩溃信息监控？</p>
-<p>官方提供的崩溃信息并不是实时的，只能查看两天之前的崩溃信息。且需要用户设置，设置-&gt;隐私-&gt;诊断与用量-&gt;与应用开发者共享，为自动发送。才可有收到 Crash 信息。</p>
-<h2 id="1-Bugly"><a href="#1-Bugly" class="headerlink" title="1.Bugly"></a>1.Bugly</h2><p>地址：<a href="http://www.umeng.com/analytics" target="_blank" rel="noopener">http://bugly.qq.com/</a></p>
-<p>提供：专业的Crash(崩溃)、Android ANR(application not response)、iOS卡顿监控和解决方案。发现用户在使用过程中出现的Crash(崩溃)、Android ANR和iOS卡顿，并根据上报的信息快速定位和解决问题。</p>
-<p>费用：免费、且可以提供精确定位到某个用户的异常</p>
-<h2 id="2-友盟"><a href="#2-友盟" class="headerlink" title="2.友盟"></a>2.友盟</h2><p>地址：<a href="http://www.umeng.com/analytics" target="_blank" rel="noopener">http://www.umeng.com/analytics</a></p>
-<p>提供：友盟sdk（一个统计分析sdk）友盟统计分析工具，可以捕捉用户在使用应用程序过程中出现的异常退出(FC), 并在应用程序下次启动时将错误报告发送给服务器。<br>错误报告包含应用程序版本，操作系统版本和设备型号以及程序出现异常时的Stacktrace。</p>
-<p>费用：免费。</p>
-<h2 id="3-Fabric（Crashlytics）"><a href="#3-Fabric（Crashlytics）" class="headerlink" title="3.Fabric（Crashlytics）"></a>3.Fabric（Crashlytics）</h2><p>地址：<a href="https://get.fabric.io/" target="_blank" rel="noopener">https://get.fabric.io/</a><br>提供：<br>1、Crashlytics 不会漏掉任何应用崩溃信息。在发生崩溃后，用户再次进入 APP 并联网情况下，日志自动上传。<br>2、Crashlytics 可以象 Bug 管理工具那样，管理这些崩溃日志。例如：Crashlytics 会根据每种类型的 Crash 的出现频率以及影响的用户量来自动设置优先级。对于每种类型的 Crash，Crashlytics 除了会像一般的工具提供 Call Stack 外，还会显示更多相关的有助于诊断的信息，例如：设备是否越狱，当时的内存量，当时的 iOS 版本等。对于修复掉的 Crash 日志，可以在 Crashlytics 的后台将其关掉。<br>3、Crashlytics 可以每天和每周将崩溃信息汇总发到你的邮箱。<br>4、提供在线的报告，解释崩溃原因，甚至能给出是哪一行代码导致的崩溃。<br>费用：免费</p>
-<p>其他还有一些 crash 服务： Testin（部分收费）、极光推送、TalkingData 的  crash 等</p>
-<p>还有关于 crash 其他的技术：网易大白 App 运行时 Crash 自动防护</p>
-<h1 id="四、热更新"><a href="#四、热更新" class="headerlink" title="四、热更新"></a>四、热更新</h1><h2 id="1-react-native"><a href="#1-react-native" class="headerlink" title="1.react-native"></a>1.<a href="https://github.com/facebook/react-native" target="_blank" rel="noopener">react-native</a></h2><p>Star 数：71,567<br>最近一次更新时间：2 小时以前<br>谷歌搜索词条结果：148,000,000<br>百度搜索词条结果：10,600,000<br>是否也支持 Swift：是<br>是否有中文文档：否</p>
-<p>简介：<br>facebook 出品。<br>适配 iOS 和 android 需要自己分别做修改。<br>React Native 和 Weex 都可以进行热更新，但都不能修改原生 OC 代码。<br>JSPatch、lua 配合 React Native 可以让一个原生 APP 时刻处于可扩展可修改的状态。</p>
-<h2 id="2-JSPatch"><a href="#2-JSPatch" class="headerlink" title="2.JSPatch"></a>2.<a href="https://github.com/bang590/JSPatch" target="_blank" rel="noopener">JSPatch</a></h2><p>Star 数：10,692<br>最近一次更新时间：8 月以前<br>谷歌搜索词条结果：62,300<br>百度搜索词条结果：2,090,000<br>是否也支持 Swift：是<br>是否有中文文档：是</p>
-<p>简介：<br>bugly 所包含的热更新核心也是采用 JSPatch 技术。<br>JSPatch 是一个开源项目(Github链接)，只需要在项目里引入极小的引擎文件，就可以使用 JavaScript 调用任何 Objective-C 的原生接口，替换任意 Objective-C 原生方法。目前主要用于下发 JS 脚本替换原生 Objective-C 代码，实时修复线上 bug。<br>理论上可以修改和新建所有的模块，但是不建议这样做。<br>建议用来做紧急的小需求和修复严重的线上 bug。</p>
-<p>使用时需要接入 JSPatch 平台，官方给出以下解释：</p>
-<p>若从苹果的审核规则来看，JSPatch 和 React Native 是一样的，但苹果接受 React Native，拒绝 JSPatch，主要是因为JSPatch 可以调用任意原生 API，出于安全和滥用方面的顾虑而拒绝，之前大量 APP 自行接入 JSPatch，导致有几个风险点：</p>
-<ol>
-<li>无法保证每个 APP 接入方式都是安全的，容易传输过程被替换，被黑客中间人攻击，成为 iOS 上的一个漏洞。</li>
-<li>一些像地图/推送类 SDK 接入 JSPatch 后覆盖大量 APP，若这些 SDK 后台被攻破，可以对这些 APP 下发恶意脚本，造成大面积危害。</li>
-<li>开发者可以方便地不经过苹果审查使用 JSPatch 调用私有 API。</li>
-<li>若大家还是通过一些混淆手段骗过苹果继续各自接入 JSPatch，出于上述三点考虑，苹果不可能再允许，但若接入 JSPatch 平台，上述三个问题可以帮苹果解决，不再有这类隐患，详见这里，苹果才会考虑允许继续使用。</li>
-</ol>
-<h2 id="3-DynamicCocoa"><a href="#3-DynamicCocoa" class="headerlink" title="3.DynamicCocoa"></a>3.<a href="https://github.com/DynamicCocoa/DynamicCocoa" target="_blank" rel="noopener">DynamicCocoa</a></h2><p>Star 数：1,204<br>最近一次更新时间：2 年以前<br>谷歌搜索词条结果：4,870<br>百度搜索词条结果：19,400<br>是否也支持 Swift：是<br>是否有中文文档：否</p>
-<p>简介：<br>滴滴打车出品。</p>
-<ul>
-<li>使用原生技术栈：使用者完全不用接触到JS或任何中间代码，保持原生的 Objective-C 开发、调试方式不变；</li>
-<li>无需重写已有代码：已有 native 模块能很方便的变成动态化插件；</li>
-<li>语法支持完备性高：支持绝大多数日常开发中用到的语法，不用担心这不支持那不支持；</li>
-<li>支持 HotPatch：改完 bug 后直接从源码打出 patch，一站式解决动态化和热修复需求。</li>
-</ul>
-<h2 id="4-lua脚本"><a href="#4-lua脚本" class="headerlink" title="4.lua脚本"></a>4.lua脚本</h2><p>比如： wax。热更新时，从服务器拉去 lua 脚本。游戏开发经常用到。</p>
-<h2 id="5-Weex"><a href="#5-Weex" class="headerlink" title="5.Weex"></a>5.Weex</h2><p>跨平台，一套代码，iOS、Android 都可以运行。<br>weex 基于 vue.js，ReactNative 使用 React。<br>react 模板 JSX 有一定的学习成本，vue 和常用的 web 开发类似，模板是普通的 html，数据绑定用 mustache 风格，样式直接使用 css。<br>weex 是阿里开源的技术。</p>
-<h2 id="6-Hybrid"><a href="#6-Hybrid" class="headerlink" title="6.Hybrid"></a>6.Hybrid</h2><p>像 PhoneGap 之类的框架, 基本概念和 web 差不多, 通过更新 js/html 来实现动态化，没有原生的效果流畅。</p>
-<h2 id="7-动态库"><a href="#7-动态库" class="headerlink" title="7.动态库"></a>7.动态库</h2><p>可以做 demo 用，真实使用的时候会被苹果禁止。<br>因为 打包发到 AppStor e的 ipa 安装包 里的每个动态库 都有唯一的编码，iOS 系统会进行验证，所以动态通过网络获取 新的动态库 也用不了。</p>
-<h2 id="8-rollout-io"><a href="#8-rollout-io" class="headerlink" title="8.rollout.io"></a>8.rollout.io</h2><p>Rollout 紧急修复线上 bug。后端有相关的管理页面。因为是国外的网站，然后呢，要 FQ 才能使用。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
-    
-    </summary>
-    
-      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
-    
-      <category term="Swift" scheme="http://kaaaaai.cn/tags/Swift/"/>
-    
-      <category term="OC" scheme="http://kaaaaai.cn/tags/OC/"/>
     
   </entry>
   
