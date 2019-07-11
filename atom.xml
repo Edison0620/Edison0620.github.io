@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kaaaaai.cn/"/>
-  <updated>2019-07-10T07:05:26.836Z</updated>
+  <updated>2019-07-11T07:31:23.777Z</updated>
   <id>http://kaaaaai.cn/</id>
   
   <author>
@@ -16,13 +16,93 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>iOS - 推送技术调研</title>
+    <link href="http://kaaaaai.cn/articles/iOS-push-technology-research.html"/>
+    <id>http://kaaaaai.cn/articles/iOS-push-technology-research.html</id>
+    <published>2019-07-11T09:24:52.000Z</published>
+    <updated>2019-07-11T07:31:23.777Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><p>消息通知可以在程序处于后台或者关闭状态，向使用者推送信息，例如接收到消息，或者有新的推送等。<br>当接收到消息通知时，一般会有以下几种表现：</p>
+<ul>
+<li>在屏幕顶部显示横幅</li>
+<li>在屏幕显示UIAlertView提示信息</li>
+<li>在锁屏界面显示横幅</li>
+<li>APP的角标显示数字</li>
+<li>提示音</li>
+</ul>
+<p>iOS中提供了2中推送通知：</p>
+<ul>
+<li>本地消息通知</li>
+<li>远程推送通知</li>
+</ul>
+<h2 id="二、本地通知"><a href="#二、本地通知" class="headerlink" title="二、本地通知"></a>二、本地通知</h2><p>本地通知的特点就是不需要联网。</p>
+<p>实现场景打开软件后，软件在后台时，闹钟功能，简单的提醒功能等。</p>
+<h3 id="1、本地推送例子："><a href="#1、本地推送例子：" class="headerlink" title="1、本地推送例子："></a>1、本地推送例子：</h3><p>首先需要在使用本地通知之前，需要先获得用户的授权。<br><figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">super</span>.viewDidLoad()  </span><br><span class="line">    <span class="type">UNUserNotificationCenter</span>.current().requestAuthorization(options: [.alert]) &#123; (success, error) <span class="keyword">in</span></span><br><span class="line">        <span class="keyword">if</span> success &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"success"</span>)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"error"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>实现通知方法：<br><figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">registerLocalNotification</span><span class="params">(alertTime: NSInteger, alertBody:String,userDict: NSDictionary)</span></span>&#123;</span><br><span class="line">        <span class="keyword">let</span> localNoti = <span class="type">UILocalNotification</span>()</span><br><span class="line">        <span class="comment">// 设置触发通知的时间</span></span><br><span class="line">        <span class="keyword">let</span> fireDate = <span class="type">NSDate</span>().addingTimeInterval(<span class="type">TimeInterval</span>(alertTime))</span><br><span class="line">        localNoti.fireDate = fireDate <span class="keyword">as</span> <span class="type">Date</span></span><br><span class="line">        <span class="comment">// 设置时区</span></span><br><span class="line">        localNoti.timeZone = <span class="type">NSTimeZone</span>.<span class="keyword">default</span></span><br><span class="line">        <span class="comment">//通知上显示的主题内容</span></span><br><span class="line">        localNoti.alertBody = alertBody</span><br><span class="line">        <span class="comment">//收到通知时播放的声音，默认消息声音</span></span><br><span class="line">        localNoti.soundName = <span class="type">UILocalNotificationDefaultSoundName</span></span><br><span class="line">        <span class="comment">//待机界面的滑动动作提示</span></span><br><span class="line">        localNoti.alertAction = <span class="string">"打开应用"</span></span><br><span class="line">        <span class="comment">//应用程序图标右上角显示的消息书</span></span><br><span class="line">        localNoti.applicationIconBadgeNumber = <span class="number">0</span></span><br><span class="line">        <span class="comment">//通知上绑定的其他信息</span></span><br><span class="line">        localNoti.userInfo = (userDict <span class="keyword">as</span>! [<span class="type">AnyHashable</span> : <span class="type">Any</span>])</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//添加通知到系统队列，系统会在指定的时间触发</span></span><br><span class="line">        <span class="type">UIApplication</span>.shared.scheduleLocalNotification(localNoti)     </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>以上方法已经初步实现触发本地通知的功能了。但需要完整实现，还需要在 <code>Appdelegate.swift</code>（OC 中为 <code>AppDelegate.m</code>）实现当应用程序进入前台或处于前台时对本地推送的处理。后问的远程推送也有类似操作。<br><figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//应用程序在进入前台,或者在前台的时候都会执行该方法</span></span><br><span class="line">   <span class="function"><span class="keyword">func</span> <span class="title">application</span><span class="params">(<span class="number">_</span> application: UIApplication, didReceive notification: UILocalNotification)</span></span> &#123;</span><br><span class="line">       <span class="comment">//必须要监听 -- 应用程序在后台的时候进行的跳转</span></span><br><span class="line">       <span class="keyword">if</span> application.applicationState == .inactive &#123;</span><br><span class="line">           <span class="comment">// 获取通知上绑定的信息</span></span><br><span class="line">           <span class="keyword">guard</span> <span class="keyword">let</span> dict = notification.userInfo <span class="keyword">else</span> &#123;</span><br><span class="line">               <span class="keyword">return</span></span><br><span class="line">           &#125;</span><br><span class="line">           </span><br><span class="line">           <span class="comment">// 后面作相应处理...</span></span><br><span class="line">       &#125;<span class="keyword">else</span> <span class="keyword">if</span> application.applicationState == .active&#123;</span><br><span class="line">           </span><br><span class="line">       &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">           </span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="二、远程推送"><a href="#二、远程推送" class="headerlink" title="二、远程推送"></a>二、远程推送</h2><p>远程推送的服务的实现依据的是服务器和客户端的长连接，信息通过服务器主动推送（push）给客户端（我们的手机）。</p>
+<p>但 Apple 对设备的控制非常严格，消息推送的流程必须要经过 <code>APNs(Apple Push Notification service)</code>，所以具体推送流程概括如下：<br><img src="https://s2.ax1x.com/2019/07/11/Z24mK1.jpg" alt=""></p>
+<h3 id="1、远程推送例子："><a href="#1、远程推送例子：" class="headerlink" title="1、远程推送例子："></a>1、远程推送例子：</h3><p>（1）首先需要在开发者账号里配置应用推送证书。过程略。<br>（2）打开应用工程，勾选Backgroud Modes -&gt; Remote notifications，主要是iOS7之后，苹果支持后台运行，如果这里打开后，当接收到远程推送后，程序在后台也可以做一些处理，如下图所示：<br><img src="https://s2.ax1x.com/2019/07/11/Z24E8J.jpg" alt="-w1001"></p>
+<p>（3）远程推送的注册<br><figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UserNotifications</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">application</span><span class="params">(<span class="number">_</span> application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">UNUserNotificationCenter</span>.current().getNotificationSettings &#123; (settings) <span class="keyword">in</span></span><br><span class="line">        <span class="keyword">switch</span> settings.authorizationStatus &#123;</span><br><span class="line">        <span class="keyword">case</span> .authorized:</span><br><span class="line">            <span class="type">DispatchQueue</span>.main.async &#123;</span><br><span class="line">                <span class="type">UIApplication</span>.shared.registerForRemoteNotifications()</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">case</span> .notDetermined:</span><br><span class="line">            <span class="type">UNUserNotificationCenter</span>.current().requestAuthorization(options: [.badge, .alert, .sound]) &#123; (granted, error) <span class="keyword">in</span></span><br><span class="line">                <span class="keyword">if</span> granted &#123;</span><br><span class="line">                    <span class="type">DispatchQueue</span>.main.async &#123;</span><br><span class="line">                        <span class="type">UIApplication</span>.shared.registerForRemoteNotifications()</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 这个函数存在的意义在于：当用户在设置中关闭了通知时，程序启动时会调用此函数，我们可以获取用户的设置</span></span><br><span class="line">- (void)application:(<span class="type">UIApplication</span> *)application didRegisterUserNotificationSettings:(<span class="type">UIUserNotificationSettings</span> *)notificationSettings &#123;</span><br><span class="line">    [application registerForRemoteNotifications];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果注册失败，比如没有证书等等，会调用：<br><figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">application</span><span class="params">(<span class="number">_</span> application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error)</span></span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"远程通知注册失败：\(error)"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>（4）获取 deviceToken<br>如果用户同意，苹果会根据应用的 bundleID 和 手机UDID 生成 deviceToken,然后调用 application 的 didregister 方法返回 devicetoken,程序应该把 devicetoken 发给应用的服务器,服务器有义务将其存储(如果允许多点登录,可能存多个 devicetoken)。deviceToken也是会变的： ”If the user restores backup data to a new device or computer, or reinstalls the operating system, the device token changes“，因此应每次都发给服务器(provider)<br><figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 用户同意后，会调用此程序，获取系统的deviceToken，应把deviceToken传给服务器保存，此函数会在程序每次启动时调用(前提是用户允许通知)</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">application</span><span class="params">(<span class="number">_</span> application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data)</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"deviceToken = \(deviceToken)"</span>)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>（5）用户点击了通知<br>当应用是被通知打开的时候，你可以通过 <code>application:didFinishLaunchingWithOptions:</code>方法的 <code>launchOptions</code> 参数所使用的 <code>dictionary</code> 访问到数据：<br><figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">unc application(<span class="number">_</span> application: <span class="type">UIApplication</span>, didFinishLaunchingWithOptions launchOptions: [<span class="type">UIApplication</span>.<span class="type">LaunchOptionsKey</span>: <span class="type">Any</span>]?) -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">let</span> notification = launchOptions?[.remoteNotification] <span class="keyword">as</span>? [<span class="type">AnyHashable</span>: <span class="type">Any</span>] &#123;</span><br><span class="line">        <span class="built_in">print</span>(notification)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果当通知到达的时候，你的应用已经在运行，对于 iOS10 以下，你可以通过 <code>application:didReceiveRemoteNotification:fetchCompletionHandler:</code> 方法的 <code>userInfo</code> 参数所使用 <code>dictionary</code> 访问到数据：<br><figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">application</span><span class="params">(<span class="number">_</span> application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping <span class="params">(UIBackgroundFetchResult)</span></span></span> -&gt; <span class="type">Void</span>) &#123;</span><br><span class="line">    <span class="comment">// handle notification</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>iOS10 以上需要使用下面代理方法来获得 userInfo ：<br><figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">userNotificationCenter</span><span class="params">(<span class="number">_</span> center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping <span class="params">(UNNotificationPresentationOptions)</span></span></span> -&gt; <span class="type">Void</span>) &#123;</span><br><span class="line">    <span class="comment">// handle notification</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">userNotificationCenter</span><span class="params">(<span class="number">_</span> center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping <span class="params">()</span></span></span> -&gt; <span class="type">Void</span>) &#123;</span><br><span class="line">    <span class="comment">// handle notification</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2、远程推送平台比较"><a href="#2、远程推送平台比较" class="headerlink" title="2、远程推送平台比较"></a>2、远程推送平台比较</h3><p>（1）<a href="https://www.getui.com/cn/" target="_blank" rel="noopener">个推</a><br><img src="https://s2.ax1x.com/2019/07/11/Z24ZvR.jpg" alt=""><br>国内目前关注量最多的一个推送平台，客户端SDK支持Android和iOS两大平台，云端支持丰富的网页端推送管理功能和多种语言版本的API开放接口，个推提供针对单个用户推送、针对一组用户批量推送、以及根据特定省市、特定用户标签进行精准推送等多种推送方式。<br>集成方式：支持手动集成和 cocoapod 集成。两种方式都很方便。支持 OC 和 swift 集成。SDK 包有 demo。但同一时间支持一种证书测试。用最新版本的 SDK 上架时需要勾选广告标识符（IDFA），如果不想勾选，只能使用旧版本 SDK。对开发者不太友好。而且两种方式导入都需要导入一个 GTExtensionSDK 的依赖包，但这个依赖包只支持 10.0 以上的版本。</p>
+<ul>
+<li>开发文档：比较规范。比较详细，针对各个 iOS 版本（最低有 10.0）的推送方法都有注明。比较精确，头文件的引用和注释，方法的使用和可拓展的方法预留及注释。但和 极光 对比缺少一些失败回调方法的说明。</li>
+<li>实际集成：按照文档尝试使用 无 IDFA 的 SDK，用 cocoapod 集成。pod install 后工程报错。后续没再尝试。</li>
+<li>功能：支持通知推送，静默推送，消息透传。支持按标签、国家地区推送。</li>
+<li>收费情况：免费，但有 免费 和 vip 的区别。推送数免费的没有次数限制，但有用户数限制。和极光推送一样，推送速度，20万条每秒（共享），vip 为独享。</li>
+</ul>
+<p>（二）、百度云推送<br><img src="https://s2.ax1x.com/2019/07/11/Z24AC4.jpg" alt=""><br>百度云推送（Push）是百度云平台向开发者提供的消息推送服务；通过云端与客户端之间建立稳定、可靠的长连接来为开发者提供向用户端实时推送消息的服务。支持Android/iOS平台、支持更多自定义功能（如自定义内容、后续行为、样式模板等）、支持地理位置的推送（或”LBS推送”）。</p>
+<ul>
+<li>无法直接创建应用，需要向百度工作人员发送申请邮件。尝试发送邮件，没得到回应，就放弃体验了。</li>
+</ul>
+<p>（3）极光推送<br><img src="https://s2.ax1x.com/2019/07/11/Z24F5F.jpg" alt=""><br>极光推送，英文简称JPush，是一个面向普通开发者开放的，免费的第三方消息推送服务。 轻量级的客户端SDK：开发者只需在客户端集成极光推送SDK，即可轻松地添加Push功能到他的App中。极光推送支持Android、iOS、windows phone。 云推送服务：开发者可以在管理Portal上快捷地向用户推送消息，也可以定制推送的时间、用户群、位置等，还提供远程推送API。 推送效果分析图表：开发者可以在管理Portal上查看推送统计信息，直观地评估推送效果。<br>集成方式：支持手动集成和 cocoapod 集成。手动集成相对繁琐，需要导入很多依赖库。支持双证书。SDK 包有 demo。</p>
+<ul>
+<li>开发文档：比较规范。详细，针对各个 iOS 版本（最低有 6.0）的推送方法都有注明。精确，包括极光平台获取 devicetoken 需要开始开始 http 支持，有写如何根据域名配置只支持 极光 http。头文件的引用和注释，方法的使用和可拓展的方法预留及注释。</li>
+<li>实际集成：按照文档集成进 SDK，实现方法，运行未报错。但后台有新的设备上线，测试推送消息可以接收到。</li>
+<li>功能：支持通知推送，和自定义消息（只有在前端运行的时候才能收到自定义消息的推送。从 JPush 服务器获取用户推送的自定义消息内容和标题以及附加字段等。可实现静默推送的需求）。支持标签、国家地区，系统版本，活跃用户，</li>
+<li>收费情况：免费，但有 免费 和 VIP 的区别。但区别影响不是很大，推送次数没有限制，推送速度可能比 VIP 慢。</li>
+</ul>
+<p>（4）友盟<br><img src="https://s2.ax1x.com/2019/07/11/Z24V29.jpg" alt="-w1292"></p>
+<ul>
+<li>集成方式：支持手动集成和 cocoapod 集成。两种方式都很方便。支持双证书。SDK 包无 demo。</li>
+<li>开发文档：比较杂乱。不是很详细，针对各个 iOS 版本的推送方法没有都注明。不是很精确，对于某些方法提供了调用例子，但是没有说明具体在哪里调用。</li>
+<li>实际集成：按照文档集成进 SDK，实现方法，运行未报错。但后台也没有新的设备上线，测试推送消息也无法接收到。</li>
+<li>功能：支持通知推送，静默推送，应用内消息（开屏消息（开屏消息就是当app启动，或者从其他页面跳转到app时，调用的一个启动页面），插屏消息），富文本推送。支持按应用版本，系统语言，国家地区，机型，用户活跃度推送。</li>
+<li>收费情况：免费，但有 免费 和 Pro 的区别。推送速度、推送次数有不同。</li>
+</ul>
+<p><strong>总结：通过以上老牌和新出的推送服务对比，结合实际集成体验，推荐使用 极光推送。如果需要更深度的定制需求，推荐使用 友盟。</strong></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
+    
+      <category term="Swift" scheme="http://kaaaaai.cn/tags/Swift/"/>
+    
+      <category term="IOS" scheme="http://kaaaaai.cn/tags/IOS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>每周总结 - 0706</title>
     <link href="http://kaaaaai.cn/articles/weekly-summary-0706.html"/>
     <id>http://kaaaaai.cn/articles/weekly-summary-0706.html</id>
     <published>2019-07-06T02:13:52.000Z</published>
-    <updated>2019-07-10T07:05:26.836Z</updated>
+    <updated>2019-07-11T07:31:23.775Z</updated>
     
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　每次有一些模棱两可想法的时候，都会在互联网上看到别人已经成体系的理论。这让我觉得虽然沙雕网友遍地走，睿智网友也不少。<br>　　本周依旧，忙碌的部分集中在头部，后半段的时候主要的都是一些琐碎的事，不过周四的时候针对当前项目的一个 bug，重写了部分逻辑。让我对加载 h5 页面的控件多了一些认识，还有手势响应链的理解，比如当前页面如果同时有侧滑返回手势和页面右滑手势时，两者在响应的优先级上，侧滑手势作为更底层的方法会先响应，当返回 <code>false</code> 时，页面右滑手势才会开始响应。虽然是个小知识点，但对于我理解系统继承类和系统代理实现有了更直观的认识，虽然一直有系统的类，和我们自己生成的类其实没什么差别，只不过系统是封装起来，然后有很多父类方法，可以用在某些场景中解决问题。但是开发的时候有时也会有盲点，对于一些顽固，或者需要捆绑修改才能生效的地方总有黔驴技穷的心塞。<br>　　极客时间停在了项目开发的任务划分，也似乎因为停留太久，每次从头看都很难有一鼓作气看完的气力，也许也和我的拖延症有一些关系，因为画画认识一个网友，约好说互相鼓励，学习画画。最近几个礼拜互相交流进度，他佩服我自制力强，作息规律。但如人饮水，冷暖自知，我制止力强吗？不强，刚出新手村吧。这个礼拜线条练了两天，新的手绘课程算正式开始了，第一节课老师教人物描形，画草图，看着简单，但实际联系的时候也有些问题，用四边形概括人物轮廓，问题不到，但是画草图时，虽然老师也说不用太在意画的想不想，只要大致样子就行，但是在我刻意的临摹人物五官，想复原神态的时候总是画虎不成反类犬，而且画完总觉得整体看上去不够大气。<br>　　抽空看了一下最近很火的《长安十二时辰》，有马伯庸老师作品改编垫底，加上制作讲究，人物也都智商在线，确实不错。不过就是优酷的广告太过恶劣，每次看都要先看两分钟广告，中间还要穿插剧中人物的广告，而且发现现在网贷和网络理财的广告出现频率很高，想着一边是二十多岁花龄少女欠下巨额网贷无法偿还自杀身亡额新网，另一边这种网贷公司仍然没有管制的野蛮生长，越演越烈。不过除了心里嗤笑，也于事无补。还看了一部电影《恶人传》，警匪合作缉拿连环凶手的创意不错，但原本预期以为看《恶人传》的名字，以为故事里有价值观的分歧是会产生在黑帮老大和连环杀手身上，一种是因其为实现目的而表现成恶，另一种纯粹的恶，觉得应该会很有看头，所以剧情后面的发展虽然好看但是心里觉得有点不尽人意。而且连环凶手除了家庭合照在他的住处一闪而逝以外——也只是为了推进剧情确认身份，觉得他这个人物不是很饱满，甚至作为一个变态杀手，都有些脸谱化，被抓被打被判罪，都保持一种邪恶的狞笑，符合人们对变态杀手的直观印象，但没有跳出来。就像一个从其他地方摘录过来的人物剪贴。<br>　　周末照旧去上了课，信息资源管理已经上完了，然后发现有一门课，因为周六上午都没上课的原因，我自己才看了十几页书，嗯，下周要把重心放在学习上了。</p>
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　每次有一些模棱两可想法的时候，都会在互联网上看到别人已经成体系的理论。这让我觉得虽然沙雕网友遍地走，睿智网友也不少。<br>　　本周依旧，忙碌的部分集中在头部，后半段的时候主要的都是一些琐碎的事，不过周四的时候针对当前项目的一个 bug，重写了部分逻辑。让我对加载 h5 页面的控件多了一些认识，还有手势响应链的理解，比如当前页面如果同时有侧滑返回手势和页面右滑手势时，两者在响应的优先级上，侧滑手势作为更底层的方法会先响应，当返回 <code>false</code> 时，页面右滑手势才会开始响应。虽然是个小知识点，但对于我理解系统继承类和系统代理实现有了更直观的认识，虽然一直有系统的类，和我们自己生成的类其实没什么差别的概念，只不过系统是封装起来，然后有很多父类方法，可以用在某些场景中解决问题。但是开发的时候有时也会有盲点，对于一些顽固，或者需要捆绑修改才能生效的地方总有黔驴技穷的心塞。<br>　　极客时间停在了项目开发的任务划分，也似乎因为停留太久，每次从头看都很难有一鼓作气看完的气力，也许也和我的拖延症有一些关系，因为画画认识一个网友，约好说互相鼓励，学习画画。最近几个礼拜互相交流进度，他佩服我自制力强，作息规律。但如人饮水，冷暖自知，我自制力强吗？不强，刚出新手村吧。这个礼拜线条练了两天，新的手绘课程算正式开始了，第一节课老师教人物描形，画草图，看着简单，但实际联系的时候也有些问题，用四边形概括人物轮廓，问题不到，但是画草图时，虽然老师也说不用太在意画的想不想，只要大致样子就行，但是在我刻意的临摹人物五官，想复原神态的时候总是画虎不成反类犬，而且画完总觉得整体看上去不够大气。<br>　　抽空看了一下最近很火的《长安十二时辰》，有马伯庸老师作品改编垫底，加上制作讲究，人物也都智商在线，确实不错。不过就是优酷的广告太过恶劣，每次看都要先看两分钟广告，中间还要穿插剧中人物的广告，而且发现现在网贷和网络理财的广告出现频率很高，想着一边是二十多岁花龄少女欠下巨额网贷无法偿还自杀身亡额新网，另一边这种网贷公司仍然没有管制的野蛮生长，越演越烈。不过除了心里嗤笑，也于事无补。还看了一部电影《恶人传》，警匪合作缉拿连环凶手的创意不错，但原本预期以为看《恶人传》的名字，以为故事里有价值观的分歧是会产生在黑帮老大和连环杀手身上，一种是因其为实现目的而表现成恶，另一种纯粹的恶，觉得应该会很有看头，所以剧情后面的发展虽然好看但是心里觉得有点不尽人意。而且连环凶手除了家庭合照在他的住处一闪而逝以外——也只是为了推进剧情确认身份，觉得他这个人物不是很饱满，甚至作为一个变态杀手，都有些脸谱化，被抓被打被判罪，都保持一种邪恶的狞笑，符合人们对变态杀手的直观印象，但没有跳出来。就像一个从其他地方摘录过来的人物剪贴。<br>　　周末照旧去上了课，信息资源管理已经上完了，然后发现有一门课，因为周六上午都没上课的原因，我自己才看了十几页书，嗯，下周要把重心放在学习上了。</p>
 ]]></content>
     
     <summary type="html">
@@ -1164,45 +1244,6 @@
       <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
     
       <category term="OC" scheme="http://kaaaaai.cn/tags/OC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>半把瘾</title>
-    <link href="http://kaaaaai.cn/articles/after-reading-wangsuo.html"/>
-    <id>http://kaaaaai.cn/articles/after-reading-wangsuo.html</id>
-    <published>2018-12-14T10:00:52.000Z</published>
-    <updated>2019-06-29T03:41:15.637Z</updated>
-    
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　前阵子在看王朔的全集，94 年出版的，当时大概还是王朔人正当红，全集有四本——《纯情卷》、《谐虐卷》、《矫情卷》、《挚情卷》，四本书的封面上都印着王朔年轻的脸。看了两本半，后来就放下去看其他的书了，原本是想看完全集，得到一个完整印象才写读后感，但想到放下就不知道什么时候会重新拿起来，索性就按看过的部分写一篇感想。<br>　　以纯情小说出道的王朔，爱情主题在他的作品里占有很大的比重，不过作者的自觉性又让他没有一条道走到黑，也正是因为这种自觉让他在千篇一律的名家作品中有自己的位置，提到王朔，人们常会说他的语言风格，文笔， 反传统。从高处去看，褒和贬都各有各自的拥趸。我无意做非黑即白的定论，所以只说看到的几个有趣的小细节。<br>　　先前说到王朔的自觉，写作的自觉是一部分，对自己认识的自觉又是另一部分，当然因为写出来成文的原因大概也免不了多少粉饰自己，比如这段：</p>
-<blockquote>
-<p>　　那些一本正经的道德君子和实开家们就一定比用放荡的方式逃避两旁的人生活得更有意义。我只是想说，我是个世俗观念很强的人。我很在乎面子、名利以及在别人眼中的价值。和不想从年轻时就鬼混一生。我不是亿万富翁颓废的继承者，我的野心和自尊使我不甘沦落，我要有我的那一席之地。我没有可供挥霍的资本，我必须像个初到一大城市的究光蛋在新社会里一点点积聚起自己的财富。所以你可以得出结论：我决意告别放荡的生活不是出于顿悟、悔过，仅是一贯的自私个性必定使然。</p>
-</blockquote>
-<p>　　虽然有看的见的诚恳，但以王朔的聪明也定然可以料到把自己放低诚恳交待自己，这种混不吝磊落的做法容易博得人好感，这是一种讨巧式的坦白。在王朔的故事里，许多以“我”第一人称为视角的故事里，多多少少有这样的自述，所以在看书的时候很多时候我总是能感受到都溢出来的王朔的自我。如果说一个好的作家是在作品把自我消去，那王朔在这点上恰好走了相反的路。<br>　　陈述自己如果解释成是王朔对自己的态度，那书里穿插的大量对话，大概可以解读成对外，对世界的态度，对精英主义的消解，对父权的反抗等等，王朔很会写对话，除了那些刻意隐射的对话，也有许多有趣的：</p>
-<blockquote>
-<p>　　“你们的女的就这点叫我瞧不上，见个人就把心掏出来一份换一份农贸市场卖菜的似的，人家要不换或挑挑你们就不干了。” “什么叫我们女的是农贸市场小贩？”夏青嗓门也拨高了，”你们男的才是呢，人家来转转，你们就吆喝着非拉着人家买，人家真买了就缺斤短两坑人家。”<br>　　李江云笑着对懵了头的新娘说：“还没明白，他们胡扯呢。”“你结婚了么？”吴胖子一本正经地问李江云。 “没有。”李江云笑着看看他，又看看我们，撇了下嘴。 “该结了。”吴胖子语重心长。“挺大年细了，就说有几分姿色吧，也没几天了。”“谢谢，我已经了，不用你操心。”李江云笑。 “那就更好了。”吴胖子说，“那就该考虑找个性了。婚已经结了，该尽的义务已经尽了，该排除其它顾虑找个光自己喜欢的人了。”“你倒什么话都有的接。”</p>
-</blockquote>
-<p>　　侧面看得出王朔本人能侃的结论，又看圆桌派，马未都说王朔称赞阿城是全北京最会侃的人。似乎在他们的圈子里，有一种侃者为王的氛围。马未都说的另一件事也让我印象深刻，他说王朔有种能把过去的场景用文字复现的能力，有的时候你看他写的再回头想发生的事，可能当时都没注意到还有这样的细节。这我是信的，就像陈丹青说他看到一个人就会在心里进行侧写，这作为一种职业本能存在是合理的。但他又说王朔小说里所有的事都是真实发生的，这点我就有些疑问，除了对话里老扯名人名言，觉得正常人哪能这么讲话，还有的就是有些故事委实太过离奇，比如《浮出海面》中的“我”向警察自首交待自己臆想出来的杀死初恋的犯罪，还有其他故事里伪装死亡的朋友们，把妻子送给别人然后永远离开的“我”——这里有段精彩的对白：</p>
-<blockquote>
-<p>　　“你开了一个无可挑剔的头，发展的也很顺畅，但你不能适可而止。你过分沉湎于诗意之中，过于重视所谓完美感受，这种诗意和完美感受被张到极限，你便失去了弹性和向纵深发展的势头而陷于滞。同时，过于浓郁的诗意必导致纯洁意识的增强。就是说你为自己设置了屏障，把你的意图和关系的范围限制的在了精神追求的圈子里。这样，当你试图冲破她时便会引起她极大的震惊、失望和反感，继而是愤怒的拒绝对坚决的抵抗——是你把她推到了超凡脱俗的境界与尘世欢乐绝了缘。”<br>“我懂了。”关山平沮丧地说，“我给自己铺了条通向天国的路，走在这种路上想上床当然是亵渎。你为我现在还是希望过渡回来吗？”<br>“智取已经失败只有强攻了。”</p>
-</blockquote>
-<p>　　虽然种种离奇，不过因为无证可考的原因，也只能叹服，可能奇人必有奇事。<br>　　最后回来说下标题，标题源自《过把瘾就死》，看王朔的小说是会上瘾的，因为没看完，所以只算半把瘾。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
-    
-    </summary>
-    
-      <category term="旁白" scheme="http://kaaaaai.cn/categories/%E6%97%81%E7%99%BD/"/>
-    
-    
-      <category term="随笔" scheme="http://kaaaaai.cn/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-      <category term="读后感" scheme="http://kaaaaai.cn/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/"/>
-    
-      <category term="王朔" scheme="http://kaaaaai.cn/tags/%E7%8E%8B%E6%9C%94/"/>
     
   </entry>
   
