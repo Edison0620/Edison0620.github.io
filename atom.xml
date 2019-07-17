@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kaaaaai.cn/"/>
-  <updated>2019-07-15T07:27:20.698Z</updated>
+  <updated>2019-07-17T06:10:25.785Z</updated>
   <id>http://kaaaaai.cn/</id>
   
   <author>
@@ -16,11 +16,60 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>iOS - Xcode Plugin 调研和使用</title>
+    <link href="http://kaaaaai.cn/articles/Xcode-plugin-research.html"/>
+    <id>http://kaaaaai.cn/articles/Xcode-plugin-research.html</id>
+    <published>2019-07-17T09:24:52.000Z</published>
+    <updated>2019-07-17T06:10:25.785Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　Xcode 升级到 8.x 以上版本后为了提升安全性, 防止 <code>XcodeGhost</code> 事件的发生, 添加了代码签名机制, 所以以往我们那些用的很顺手的 Xcode 插件一下子统统都被打入冷宫。这种情况下，我们想要重新使用插件，我们应该怎么做呢？<br>　　首先我们要使用插件第一步是给 Xcode 重新签名, 在签名前建议备份一个纯净 Xcode 做 App 打包发布用(应用程序目录下复制一个即可)。</p>
+<h3 id="一、Xcode-重签名以使用插件"><a href="#一、Xcode-重签名以使用插件" class="headerlink" title="一、Xcode 重签名以使用插件"></a>一、Xcode 重签名以使用插件</h3><p>　　打开 Keychain Access 之后如图操作，选中 钥匙串访问-&gt;证书助理-&gt;创建证书:<br><img src="https://s2.ax1x.com/2019/07/17/Zqz7RI.jpg" alt=""><br><img src="https://s2.ax1x.com/2019/07/17/Zqz5IH.jpg" alt=""></p>
+<p>　　之后打开 终端/Terminal，输入：<br><figure class="highlight bash"><figcaption><span>Terminal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo codesigner -f -s XcodeSigner /Applications/Xcode.app</span><br></pre></td></tr></table></figure></p>
+<p>　　其中 <code>codesigner</code> 是上一步创建证书的名称，随后是要重签名使用插件的 Xcode 目录。</p>
+<p>　　经过一段漫长等待后, 重启 Xcode, 选择 LoadBundle。Xcode 已经可以使用插件啦。</p>
+<h3 id="二、插件使用总结"><a href="#二、插件使用总结" class="headerlink" title="二、插件使用总结"></a>二、插件使用总结</h3><p>　　随着 Xcode 的迭代，一部分插件实现的功能已经被 集成进 Xcode 里面了，比如很有名的注释插件 VVDocumenter，和一些代码补全插件等等。另一部分由于缺少维护和 Xcode 本身的机制，而导致插件使用不太方便，造成使用插件的投入成本大大增加。之前在为了给一个马甲包增加垃圾代码，我用上一段的方法成功安装使用过插件 <code>Alcatraz</code>，作为一个插件管理工具，它内部指向的其他插件已经很多不太兼容新版的 Xcode 了，而他本身最新的更新节点也停留在两年前的状态。而在重启 Xcode 后，安装的 <code>Alcatraz</code>，也消失不见了。而在最新的 Xcode10 上用上面那个方法尝试安装代码格式化插件 —— <a href="https://github.com/V5zhou/ZZXcodeFormat" target="_blank" rel="noopener">ZZXcodeFormat</a>，虽然重启应用后，也跳出了 <code>Load Bundle</code> 的提示框，也点击确定加载，但打开 Xcode 后却没在相应的位置找到插件使用项目。不确定是不是新版 Xcode 所影响导致的。但可以看到，在官方不支持的情况下，使用插件是一个耗时又耗力的事。<br>　　而在调研的过程中，我发现了一个使用苹果官方提供的插件机制（Xcode Source Editor Extension）编写的插件——<a href="https://github.com/SSBun/FlyCoding" target="_blank" rel="noopener">FlyCoding</a>，这个插件的主要功能是，通过特殊语法来快速的生成你想要的 Swfit / Objective-C 代码，比如这句代码：<br><figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pv.<span class="type">UIImageView</span></span><br></pre></td></tr></table></figure></p>
+<p>通过插件功能会变成这样的代码：<br><figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">var</span> &lt;#name#&gt;: <span class="type">UIImageView</span></span><br></pre></td></tr></table></figure></p>
+<p>　　实际体验了一下，觉得有点鸡肋，虽然他可以提供一种便捷的方式解决需要重复编写大量 UI 空间和约束的代码的问题，但是使用它却需要记住另一种语法，而且这种语法只能对照 GitHub 仓库来实现，插件本身并不提供自动补全功能。<br>　　虽然这个插件不怎么实用，但通过这个插件让我了解到了苹果官方插件机制（Xcode Source Editor Extension）所能提供的功能，具体有以下：</p>
+<ul>
+<li>获取 Xcode 正在编辑的文本</li>
+<li>获取所有的选中区域</li>
+<li>替换 Xcode 正在编辑的文本</li>
+<li>选中 Xcode 正在编辑的文本</li>
+<li>在 Xcode 的 Editor 菜单里面给你的插件生成一个子菜单，用于调用插件</li>
+<li>可以在 Xcode 的 Key Binding 里面给插件分配一个快捷键</li>
+</ul>
+<h3 id="三、使用苹果官方所允许的插件"><a href="#三、使用苹果官方所允许的插件" class="headerlink" title="三、使用苹果官方所允许的插件"></a>三、使用苹果官方所允许的插件</h3><p>　　使用苹果官方所允许的插件主要有两种方式，一种是在苹果应用商店下载，Xcode 里有快捷入口<br><img src="https://s2.ax1x.com/2019/07/17/ZqzTJA.jpg" alt=""><br>　　点击可以直接进入。</p>
+<p>　　另一种方式是下载 GitHub 上别人分享的插件，举个例子，比如我现在安装一个代码格式化插件：<a href="https://github.com/mapbox/XcodeClangFormat" target="_blank" rel="noopener">XcodeClangFormat</a>。</p>
+<p>1、下载源码运行，或 dmg 安装包。<br>2、到 系统设置-&gt;插件 中打开。<br><img src="https://s2.ax1x.com/2019/07/17/Zqzoid.jpg" alt=""><br><img src="https://s2.ax1x.com/2019/07/17/Zqz4de.jpg" alt=""><br>3、然后进入 Xcode，你就可以看到插件了。<br><img src="https://s2.ax1x.com/2019/07/17/ZqzHzt.jpg" alt=""></p>
+<p><strong>推荐两个插件：</strong></p>
+<p><a href="https://github.com/qfish/XAlign" target="_blank" rel="noopener">XAlign</a>：代码对齐插件，主要用于宏定义、属性群、代码内等号对齐三种代码对齐。<br><a href="https://github.com/mapbox/XcodeClangFormat" target="_blank" rel="noopener">XcodeClangFormat</a>：代码格式化插件，支持定义代码格式。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
+    
+      <category term="Swift" scheme="http://kaaaaai.cn/tags/Swift/"/>
+    
+      <category term="IOS" scheme="http://kaaaaai.cn/tags/IOS/"/>
+    
+      <category term="Xcode" scheme="http://kaaaaai.cn/tags/Xcode/"/>
+    
+  </entry>
+  
+  <entry>
     <title>每周总结 - 0713</title>
     <link href="http://kaaaaai.cn/articles/weekly-summary-0713.html"/>
     <id>http://kaaaaai.cn/articles/weekly-summary-0713.html</id>
     <published>2019-07-13T02:13:52.000Z</published>
-    <updated>2019-07-15T07:27:20.698Z</updated>
+    <updated>2019-07-15T07:27:46.345Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　周记这个 flag 立了已有三个月了，体验一般，虽然每个礼拜确实有回顾和反思，但实际起到的作用大概还是走马观花多一些，而且营养也不是很大，不过孰好孰坏现在也说不清，就像之前写了几年的日记，后来骤然放下，对我的影响也微乎其微。但当时留下来的日记在时间过去许久以后的现在发挥的作用其实远大于在当时所发挥的作用。所以我想周记在我还没颓废还可以写的时候，能写一些就写一些吧。<br>　　上周有一点点懈怠，预计好的学习计划都 GG 了，整理了一下所有课程还没看到部分总共还有三百多页，上个礼拜本来想至少也要看完三分之一的，但发现注意力很容易被分散，周末上课也是，老师讲着讲着，忽然我就想到其他事情去，然后思绪转回来想我不应该这样，有没有什么软件可以帮人集中注意力，记得有一个叫 forest，然后就拿出手机搜索，一点一点开起小差来。我想大概是学习步入正轨已经很长一段时间了，刚开始的热情有点消退，学习又是一个很难在短期内能收到回馈的一件苦差，所以难免心生懈怠。想到这，不由恨从心起，学习真是个王八蛋。不过即使这样他再王八蛋，也是个可以提升我的好王八蛋。所以下个礼拜目标继续把教材啃完。<br>　　本周看了一部电影《摇摆狂潮》，恶，很烂不讲。周三的时候忽然心血来潮看起了陈丹青的《笑谈大先生：七讲鲁迅》，还不错，如果看做是一本鲁迅研究的书，切入点很别树一格，然后发现陈丹青的叙事语气和木心的叙事语气很像，不过对一点不意外因为之前知道他们的师徒关系，但看到更多的是，陈丹青好像真的很推崇他的老师。<br>　　工作上的事本周都比较平，都是一些难度不是很高的任务，还有一些要和人沟通推进的事，但对我来说也不在话下，之前可能会因为对方不配合或敷衍的态度可能会心里不通畅，但现在已经好多了，大都以公事公办的态度切入对话。不过也在心里叹一口气，诶，我也慢慢变成了一个不动声色的大人了。否则按照归来仍是少年的逻辑，这会我应该跨马横刀，头昂昂气扬扬送他一句去你妈的。<br>　　公司给我提薪的事总要有了阶段性的结果，不过具体还要下个礼拜确定，过程有些一波三折，甚至让我觉得是不是某种形式的敲打，甚至不抱很大希望了，不过就当好事多磨吧，中间琐碎就跳过不讲好了。
 　　</p>
@@ -305,13 +354,17 @@
   </entry>
   
   <entry>
-    <title>每周总结 - 0518</title>
-    <link href="http://kaaaaai.cn/articles/weekly-summary-0518.html"/>
-    <id>http://kaaaaai.cn/articles/weekly-summary-0518.html</id>
+    <title>每周总结 - 0511</title>
+    <link href="http://kaaaaai.cn/articles/weekly-summary-0511.html"/>
+    <id>http://kaaaaai.cn/articles/weekly-summary-0511.html</id>
     <published>2019-05-11T02:13:52.000Z</published>
-    <updated>2019-05-20T03:43:09.871Z</updated>
+    <updated>2019-05-17T06:33:15.670Z</updated>
     
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　本周买了画板，画纸和一大堆铅笔，打算就着 B 站的素描入门视频学习画画，练习了一两天线条，小臂和胳膊的肌肉持续酸痛，一个现在已经不联系的朋友之前回答我如何不费劲的练肌肉，说学画画。之前以为他是开玩笑，现在看果然如此。<br>　　周一花了半天结束交接了上个项目，本周主要工作是封装兄弟公司的语音 SDK 到原来我们集成了腾讯，百度，讯飞，阿里语音的 SDK 中，新的语音 SDK 从逻辑可以看到封装者的思路，基本上是想把我们需要做的都做了，只暴露出实现功能需要调用的接口，虽然使用时清晰直观，但对于我需要二次分装不算友好，比如各个阶段的状态返回，开始录音结束录音，开始识别语音，和语音回馈，我只好作比较粗糙的处理，比如在调用开始录音方法时，主动调开始录音状态的回调，因为监听不到停止，但在他返回的一个枚举方法里有开始识别的状态，我就在这里放了停止录音的回调。<br>　　虽然这个方法可以让我二次封装正常进行，但是在实际体验上，仍可以预估到可能发生的问题，比如本地音乐在播放的时候，启用录音，语音助手在播报时，播放本地音乐等等，一些场景交错下的体验问题。这让我反过来想封装一个框架，我们真正应该思考的是什么？简单便捷，还是复杂详细但面面俱到，参考官方暴露出来的框架和回想过往开发，我想这个问题应该是没有标准答案的，不同的产品有不同的需求，因为哪怕官方的框架，我也遇到过需要用 oc 运行时态的特点来替换系统方法来实现需求的问题。所以没有十全十美的框架，好的框架需要的是与时俱进，不断迭代和维护。另一方面也可以从这点上看出开源的优势。<br>　　另外还有关于这方面的内容就是发现了一个这个仓库：<a href="https://github.com/SunshineBrother/JHBlog" target="_blank" rel="noopener">iOS开发：我的初级到中级的晋级之路</a>。里面介绍底层的相关知识很详细，还有完整的工程源码，我打算每天看一篇有关底层的文章。在掘金上看了一篇关于大佬面试的文章，里面针对三年经验的一些技术问题，有些我知其然而不知其所以然，算下看我做 iOS 开发也接近三年，但前期没太注意技术累积——虽然也有一部分是中间分心去弄安卓开发，导致现在每次提升一个方向的知识，总要从底层一步一步看上来，很麻烦，而且也因为这点导致在工作岗位上的处境也有些尴尬。<br>　　以上。</p>
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p> 　　项目最后的交接工作，我被派到了中移动总部进行封闭开发，暂时作为 iOS 方面的项目管理和推进，就之前来说，这个礼拜我负责的内容多了一些，除了我本身的代码维护以外，对外要处理项目的交接工作，对内要分配测试人员测试出的 bug，和一些缺失内容，优化内容的推进。一个礼拜下来，有一些收获。<br> 　　之前看知乎上一个问题，是有什么是当上管理层才会想的事？虽然我还没有到那个地步，但是管理项目给我的一些体验让我觉得似乎可以把握到一些管理层的想法，比如很多时候我们觉得领导只看结果不问过程有点不可理喻，但是从另一方面来看这其实只是因为需要对接的内容太多，不问过程只看结果，可以最大程度的排除其他因素的干扰。另一个是就是个人的主观动能性，这阵子做项目管理的时候，我总是会因为分配下去的任务而收到关于很多任务的疑问，比如新增一项需求的时候，开发人员会询问关于这个功能在不同场景下需要表现成怎样，在一些无法实现的地方又应该怎样规避。在管理角度看，这些当然是合理的，但提问的时机太零碎了，容易被分散注意力，另一个是有些场景虽然没有给出标准，但其实可以横向参考其他类似的功能来实现需求，这时候提问并不是必要的，所缺乏的只是一点主动去思考，或者说是虽然想到了第一步，即会产生这个问题，但可能是某种局限导致开发人员没有往下一步怎么解决这个问题，我之前也存在过类似问题。切成开发人员角度，规避这些问题，一个是整理问题，统一解决，另一个是解决问题的方法，虽然可以思考怎么解决，但是如果解决方法最终没有通过产品的审核，那之前针对问题的解决也都白费劲，所以最好的应对方法是，发现问题，可以附上一条或两条解决方案，一并提交。我想这些经验对于以后我做个人开发或者管理都会有帮助。<br> 　　这个礼拜接触到的新技术是使用 OC/Swift 自动生成文档的轮子：</p>
+<blockquote>
+<p> 　　OC 自动生成代码文档：<a href="https://blog.csdn.net/u011374880/article/details/82143782" target="_blank" rel="noopener">appledoc</a><br> 　　swift 自动生成代码文档：<a href="https://www.jianshu.com/p/b0d77877bafe" target="_blank" rel="noopener">jazzy</a></p>
+</blockquote>
+<p> 　　虽然轮子里的描述一致，只要做了注释就可以生成文档，但仍然有些局限性，比如 appledoc 不支持 swift 工程，jazay 不支持 oc、swift 混编工程，生成的文档虽然有按着注释来的规范，但是也非常呆板，比如设定 public 的权限，就只会读取一些公开的类，但如果把读取的权限范围扩大，又会有不加筛选统统记录进文档，这个情况还不如读取源码来的快。<br> 　　手上的《邻人之妻》，看了一个月没看完，现在看到的部分是讲一个色情读物出版商在美国最高法院出了对“淫秽”的新定义以后，他出版了这个新定义的插图版，插图都是限制级图片，并解释说这些插图的目的在于让人们知道越界的图片具体是怎样的。不出意料，这看起来就很像挑衅的行为，出版商被捕了，他上述后又败诉，最后上诉到了最高法院，这次的上述结果不止是意味着对他的罚款和监禁判决是否还能成立，另一方面也是依据此次判决中最高法院的态度，来决定美国色情出版物未来的存活方向。<br> 　　新闻纪实体的叙述让人有一口气读到底的舒服，每次一个新人物切入的点也都有承前启后的关系，故事走向像走直行道，但一路看下来也隐隐能看到整个美国性解放时期的社会面貌，从社会关系，文化，政治方方面面，当前进度有一句格申·莱格曼对当时美国伦理做的评论，我觉得很有意思：“谋杀是罪。描写谋杀不是。性不是罪。但是描写它是。”<br> 　　虽然这本书是围绕性解放展开写的，但在体制和人们的对抗里，隐隐可以看出人们对自由的捍卫，这也让我思考，比如上述我发现在工作中实行某种规范可以让工作效率提高，但另一方面我是否该警惕沉浸在这些弯弯绕绕的规则中，对我自由散漫本性的扼杀？</p>
 ]]></content>
     
     <summary type="html">
@@ -334,17 +387,13 @@
   </entry>
   
   <entry>
-    <title>每周总结 - 0511</title>
-    <link href="http://kaaaaai.cn/articles/weekly-summary-0511.html"/>
-    <id>http://kaaaaai.cn/articles/weekly-summary-0511.html</id>
+    <title>每周总结 - 0518</title>
+    <link href="http://kaaaaai.cn/articles/weekly-summary-0518.html"/>
+    <id>http://kaaaaai.cn/articles/weekly-summary-0518.html</id>
     <published>2019-05-11T02:13:52.000Z</published>
-    <updated>2019-05-17T06:33:15.670Z</updated>
+    <updated>2019-05-20T03:43:09.871Z</updated>
     
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p> 　　项目最后的交接工作，我被派到了中移动总部进行封闭开发，暂时作为 iOS 方面的项目管理和推进，就之前来说，这个礼拜我负责的内容多了一些，除了我本身的代码维护以外，对外要处理项目的交接工作，对内要分配测试人员测试出的 bug，和一些缺失内容，优化内容的推进。一个礼拜下来，有一些收获。<br> 　　之前看知乎上一个问题，是有什么是当上管理层才会想的事？虽然我还没有到那个地步，但是管理项目给我的一些体验让我觉得似乎可以把握到一些管理层的想法，比如很多时候我们觉得领导只看结果不问过程有点不可理喻，但是从另一方面来看这其实只是因为需要对接的内容太多，不问过程只看结果，可以最大程度的排除其他因素的干扰。另一个是就是个人的主观动能性，这阵子做项目管理的时候，我总是会因为分配下去的任务而收到关于很多任务的疑问，比如新增一项需求的时候，开发人员会询问关于这个功能在不同场景下需要表现成怎样，在一些无法实现的地方又应该怎样规避。在管理角度看，这些当然是合理的，但提问的时机太零碎了，容易被分散注意力，另一个是有些场景虽然没有给出标准，但其实可以横向参考其他类似的功能来实现需求，这时候提问并不是必要的，所缺乏的只是一点主动去思考，或者说是虽然想到了第一步，即会产生这个问题，但可能是某种局限导致开发人员没有往下一步怎么解决这个问题，我之前也存在过类似问题。切成开发人员角度，规避这些问题，一个是整理问题，统一解决，另一个是解决问题的方法，虽然可以思考怎么解决，但是如果解决方法最终没有通过产品的审核，那之前针对问题的解决也都白费劲，所以最好的应对方法是，发现问题，可以附上一条或两条解决方案，一并提交。我想这些经验对于以后我做个人开发或者管理都会有帮助。<br> 　　这个礼拜接触到的新技术是使用 OC/Swift 自动生成文档的轮子：</p>
-<blockquote>
-<p> 　　OC 自动生成代码文档：<a href="https://blog.csdn.net/u011374880/article/details/82143782" target="_blank" rel="noopener">appledoc</a><br> 　　swift 自动生成代码文档：<a href="https://www.jianshu.com/p/b0d77877bafe" target="_blank" rel="noopener">jazzy</a></p>
-</blockquote>
-<p> 　　虽然轮子里的描述一致，只要做了注释就可以生成文档，但仍然有些局限性，比如 appledoc 不支持 swift 工程，jazay 不支持 oc、swift 混编工程，生成的文档虽然有按着注释来的规范，但是也非常呆板，比如设定 public 的权限，就只会读取一些公开的类，但如果把读取的权限范围扩大，又会有不加筛选统统记录进文档，这个情况还不如读取源码来的快。<br> 　　手上的《邻人之妻》，看了一个月没看完，现在看到的部分是讲一个色情读物出版商在美国最高法院出了对“淫秽”的新定义以后，他出版了这个新定义的插图版，插图都是限制级图片，并解释说这些插图的目的在于让人们知道越界的图片具体是怎样的。不出意料，这看起来就很像挑衅的行为，出版商被捕了，他上述后又败诉，最后上诉到了最高法院，这次的上述结果不止是意味着对他的罚款和监禁判决是否还能成立，另一方面也是依据此次判决中最高法院的态度，来决定美国色情出版物未来的存活方向。<br> 　　新闻纪实体的叙述让人有一口气读到底的舒服，每次一个新人物切入的点也都有承前启后的关系，故事走向像走直行道，但一路看下来也隐隐能看到整个美国性解放时期的社会面貌，从社会关系，文化，政治方方面面，当前进度有一句格申·莱格曼对当时美国伦理做的评论，我觉得很有意思：“谋杀是罪。描写谋杀不是。性不是罪。但是描写它是。”<br> 　　虽然这本书是围绕性解放展开写的，但在体制和人们的对抗里，隐隐可以看出人们对自由的捍卫，这也让我思考，比如上述我发现在工作中实行某种规范可以让工作效率提高，但另一方面我是否该警惕沉浸在这些弯弯绕绕的规则中，对我自由散漫本性的扼杀？</p>
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　本周买了画板，画纸和一大堆铅笔，打算就着 B 站的素描入门视频学习画画，练习了一两天线条，小臂和胳膊的肌肉持续酸痛，一个现在已经不联系的朋友之前回答我如何不费劲的练肌肉，说学画画。之前以为他是开玩笑，现在看果然如此。<br>　　周一花了半天结束交接了上个项目，本周主要工作是封装兄弟公司的语音 SDK 到原来我们集成了腾讯，百度，讯飞，阿里语音的 SDK 中，新的语音 SDK 从逻辑可以看到封装者的思路，基本上是想把我们需要做的都做了，只暴露出实现功能需要调用的接口，虽然使用时清晰直观，但对于我需要二次分装不算友好，比如各个阶段的状态返回，开始录音结束录音，开始识别语音，和语音回馈，我只好作比较粗糙的处理，比如在调用开始录音方法时，主动调开始录音状态的回调，因为监听不到停止，但在他返回的一个枚举方法里有开始识别的状态，我就在这里放了停止录音的回调。<br>　　虽然这个方法可以让我二次封装正常进行，但是在实际体验上，仍可以预估到可能发生的问题，比如本地音乐在播放的时候，启用录音，语音助手在播报时，播放本地音乐等等，一些场景交错下的体验问题。这让我反过来想封装一个框架，我们真正应该思考的是什么？简单便捷，还是复杂详细但面面俱到，参考官方暴露出来的框架和回想过往开发，我想这个问题应该是没有标准答案的，不同的产品有不同的需求，因为哪怕官方的框架，我也遇到过需要用 oc 运行时态的特点来替换系统方法来实现需求的问题。所以没有十全十美的框架，好的框架需要的是与时俱进，不断迭代和维护。另一方面也可以从这点上看出开源的优势。<br>　　另外还有关于这方面的内容就是发现了一个这个仓库：<a href="https://github.com/SunshineBrother/JHBlog" target="_blank" rel="noopener">iOS开发：我的初级到中级的晋级之路</a>。里面介绍底层的相关知识很详细，还有完整的工程源码，我打算每天看一篇有关底层的文章。在掘金上看了一篇关于大佬面试的文章，里面针对三年经验的一些技术问题，有些我知其然而不知其所以然，算下看我做 iOS 开发也接近三年，但前期没太注意技术累积——虽然也有一部分是中间分心去弄安卓开发，导致现在每次提升一个方向的知识，总要从底层一步一步看上来，很麻烦，而且也因为这点导致在工作岗位上的处境也有些尴尬。<br>　　以上。</p>
 ]]></content>
     
     <summary type="html">
@@ -684,9 +733,9 @@
       <category term="涂鸦" scheme="http://kaaaaai.cn/categories/%E6%B6%82%E9%B8%A6/"/>
     
     
-      <category term="随笔" scheme="http://kaaaaai.cn/tags/%E9%9A%8F%E7%AC%94/"/>
-    
       <category term="扯谈" scheme="http://kaaaaai.cn/tags/%E6%89%AF%E8%B0%88/"/>
+    
+      <category term="随笔" scheme="http://kaaaaai.cn/tags/%E9%9A%8F%E7%AC%94/"/>
     
       <category term="季度总结" scheme="http://kaaaaai.cn/tags/%E5%AD%A3%E5%BA%A6%E6%80%BB%E7%BB%93/"/>
     
@@ -1063,36 +1112,6 @@
       <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
     
       <category term="Swift" scheme="http://kaaaaai.cn/tags/Swift/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>喘口气上来</title>
-    <link href="http://kaaaaai.cn/articles/happy-new-year-2019.html"/>
-    <id>http://kaaaaai.cn/articles/happy-new-year-2019.html</id>
-    <published>2018-12-31T10:00:52.000Z</published>
-    <updated>2019-01-16T01:46:43.000Z</updated>
-    
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　问朋友今年用什么字总结，他说，一。意思大概是一年都在原地踏步，年头年尾的状态没什么区别。我没有回他。<br>　　今年换了一份新的工作，状况比去年的好上很多，去年没来得及和朋友说的展望词，今年恰好可以作为总结——“木”：总算是从原来的处境脱身出来，另外也存了一些小钱。比起工作和休息，我反倒喜欢找工作，坐着公交地铁在城市里穿来穿去的感觉，固然傍晚回家会有点风尘仆仆的疲惫，甚至某天面试很糟糕的时候，看着车水马龙的城市，想到万家灯火，何处有我那盏，会有点泄气。但那时候觉得很自由，而且目的是为了找工作，并不是漫无目的的奔波，自由，且自由得很踏实。<br>　　和一个女性朋友说起我找工作就当观光的事，她说我很乐观。我收下了她的称赞，也很乐意把我好的一面给她看，她离我很远，那会找工作的时候，蓦然间看到一个很像她的人，便和她说了一声， 还说了电影里看到和她气质很像的人，后来我们有一阵子联系很频繁，说了很多琐事，互相交换了烦恼，我忘记，我们说了那么多，我有没有告诉她我很想她。再后来就没有联系了。<br>　　疏于和旧日朋友联系这大概是我今年不好的变化吧。到现在我也还没问我那位朋友 2019 年的展望词是什么。另一位朋友常打电话过来聊天，我也大部分时间都以一种不耐烦，拒绝配合的态度应付，当然一部分也有他太啰嗦的缘故，但我想按着我去年心态好的时候，大概会以一种朋友在胡闹，我除了原谅还能有什么办法的态度和他愉快的聊下去。和他有一段以最近书店里出的新书都没法看，老书才是经典的观点开始的对话，后面我说他是不是有些焦虑，对自己或者出来以后有很多怀才不遇的感慨，他犹豫着点头说是。现在回过头去看，他变得啰嗦是因为焦虑的缘故，我对人对事的不耐烦又何尝不是。<br>　　找到工作后生活就规律了很多，新公司的同事们都很友好，也在去年的基础上学了点新的东西。和公司旅游的时候惊讶的发现上司是个塞尔达粉，后来我们就交换游戏机玩，n3ds 和 ps4 让我废寝忘食。上半年的学习计划到了下半年流产也大半是因为这个原因。夏天的时候去学了游泳，从在心里说服自己克服恐惧，到在水里站起来还能游一个来回，整个过程让我感觉很有成就感。<br>　　今年看的书没有去年多，去电影院倒是比去年多多了，《江湖儿女》里有个地方让我印象深刻，斌哥还是出租车公司老总的时候，走路上被小年轻用钢管敲断了小腿，疼半天只是冲车子消失的地方喊了句，不至于吧。但后面中风偏瘫的时候却因为小弟的小弟先上主食后上菜说他没有规矩而大发雷霆把桌子翻了。境遇让人的心态变好又变坏，之前有些悲观，把自己个性签名写，心由境生。现在看起来像个黑色幽默——不由得想起我对自己其他的悲观的预见性结论了。<br>　　今年作为从去年的困境脱离的过渡期，好和不好都有一些，勉强给自己的表现打个及格分。来年的展望词是林，希望明年可以存更多的钱，多吃蔬菜，减轻体重，可以有“阵阵晚风吹动着松涛，只有青山藏在白云间”的心态，可以境由心生。
-　
-　　
-　</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
-    
-    </summary>
-    
-      <category term="涂鸦" scheme="http://kaaaaai.cn/categories/%E6%B6%82%E9%B8%A6/"/>
-    
-    
-      <category term="随笔" scheme="http://kaaaaai.cn/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-      <category term="年度总结" scheme="http://kaaaaai.cn/tags/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/"/>
-    
-      <category term="江湖体验报告" scheme="http://kaaaaai.cn/tags/%E6%B1%9F%E6%B9%96%E4%BD%93%E9%AA%8C%E6%8A%A5%E5%91%8A/"/>
     
   </entry>
   
