@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kaaaaai.cn/"/>
-  <updated>2019-08-06T09:35:01.900Z</updated>
+  <updated>2019-08-07T02:33:28.825Z</updated>
   <id>http://kaaaaai.cn/</id>
   
   <author>
@@ -14,6 +14,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS - 如何把 Xcode 打印出来的 UTF-8 格式字符变成汉字？</title>
+    <link href="http://kaaaaai.cn/articles/iOS-utf8-To-Chinese.html"/>
+    <id>http://kaaaaai.cn/articles/iOS-utf8-To-Chinese.html</id>
+    <published>2019-08-07T02:24:52.000Z</published>
+    <updated>2019-08-07T02:33:28.825Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　下午在测试一个语音 SDK 的时候，发现打印出来字典里的中文汉字都显示为 UTF-8 的字符，百度了一下解决办法，发现大都是用给 <code>NSArray</code> 和 <code>NSDictionary</code> 创建分类的方法解决的，但是很多文章可能是写的匆忙，或者是复制粘贴的，不够美观和一目了然。而且创建分类的方式，对比我以前用小码哥的一个类来说，多了一个 <code>.h</code> 文件，不够精简。所以就做个笔记，留作备用。<br>　　首先新建一个 OC 的 <code>.m</code> 文件，不知道怎么新建也可以直接，创建普通的 <code>UIVIew</code> 的类，把 <code>.h</code> 删除，把 <code>.m</code> 所有除注释以外代码删除，修改成如下文所示一致就好。<br>　　<br><figure class="highlight objectivec"><figcaption><span>Objective-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSDictionary</span> (<span class="title">Log</span>)</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)descriptionWithLocale:(<span class="keyword">id</span>)locale</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSMutableString</span> *string = [<span class="built_in">NSMutableString</span> string];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 开头有个&#123;</span></span><br><span class="line">    [string appendString:<span class="string">@"&#123;\n"</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 遍历所有的键值对</span></span><br><span class="line">    [<span class="keyword">self</span> enumerateKeysAndObjectsUsingBlock:^(<span class="keyword">id</span> key, <span class="keyword">id</span> obj, <span class="built_in">BOOL</span> *stop) &#123;</span><br><span class="line">        [string appendFormat:<span class="string">@"\t%@"</span>, key];</span><br><span class="line">        [string appendString:<span class="string">@" : "</span>];</span><br><span class="line">        [string appendFormat:<span class="string">@"%@,\n"</span>, obj];</span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 结尾有个&#125;</span></span><br><span class="line">    [string appendString:<span class="string">@"&#125;"</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 查找最后一个逗号</span></span><br><span class="line">    <span class="built_in">NSRange</span> range = [string rangeOfString:<span class="string">@","</span> options:<span class="built_in">NSBackwardsSearch</span>];</span><br><span class="line">    <span class="keyword">if</span> (range.location != <span class="built_in">NSNotFound</span>)</span><br><span class="line">    [string deleteCharactersInRange:range];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> string;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSArray</span> (<span class="title">Log</span>)</span></span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSString</span> *)descriptionWithLocale:(<span class="keyword">id</span>)locale</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSMutableString</span> *string = [<span class="built_in">NSMutableString</span> string];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 开头有个[</span></span><br><span class="line">    [string appendString:<span class="string">@"[\n"</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 遍历所有的元素</span></span><br><span class="line">    [<span class="keyword">self</span> enumerateObjectsUsingBlock:^(<span class="keyword">id</span> obj, <span class="built_in">NSUInteger</span> idx, <span class="built_in">BOOL</span> *stop) &#123;</span><br><span class="line">        [string appendFormat:<span class="string">@"\t%@,\n"</span>, obj];</span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 结尾有个]</span></span><br><span class="line">    [string appendString:<span class="string">@"]"</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 查找最后一个逗号</span></span><br><span class="line">    <span class="built_in">NSRange</span> range = [string rangeOfString:<span class="string">@","</span> options:<span class="built_in">NSBackwardsSearch</span>];</span><br><span class="line">    <span class="keyword">if</span> (range.location != <span class="built_in">NSNotFound</span>)</span><br><span class="line">    [string deleteCharactersInRange:range];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> string;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure></p>
+<p>GitHub 地址：<a href="https://github.com/kaaaaai/Code-Fragmentation/blob/master/CodeFragmentation/CodeFragmentation/Other/Foundation%2BLog.m" target="_blank" rel="noopener">NSDictionary+Log.m</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
+    
+      <category term="OC" scheme="http://kaaaaai.cn/tags/OC/"/>
+    
+      <category term="Xcode" scheme="http://kaaaaai.cn/tags/Xcode/"/>
+    
+  </entry>
   
   <entry>
     <title>每周总结 - 0803</title>
@@ -88,9 +116,9 @@
     
       <category term="Swift" scheme="http://kaaaaai.cn/tags/Swift/"/>
     
-      <category term="IOS" scheme="http://kaaaaai.cn/tags/IOS/"/>
-    
       <category term="Xcode" scheme="http://kaaaaai.cn/tags/Xcode/"/>
+    
+      <category term="IOS" scheme="http://kaaaaai.cn/tags/IOS/"/>
     
   </entry>
   
@@ -198,9 +226,9 @@
     
       <category term="Swift" scheme="http://kaaaaai.cn/tags/Swift/"/>
     
-      <category term="IOS" scheme="http://kaaaaai.cn/tags/IOS/"/>
-    
       <category term="Xcode" scheme="http://kaaaaai.cn/tags/Xcode/"/>
+    
+      <category term="IOS" scheme="http://kaaaaai.cn/tags/IOS/"/>
     
   </entry>
   
@@ -277,9 +305,9 @@
     
       <category term="Swift" scheme="http://kaaaaai.cn/tags/Swift/"/>
     
-      <category term="IOS" scheme="http://kaaaaai.cn/tags/IOS/"/>
-    
       <category term="Xcode" scheme="http://kaaaaai.cn/tags/Xcode/"/>
+    
+      <category term="IOS" scheme="http://kaaaaai.cn/tags/IOS/"/>
     
   </entry>
   
@@ -573,13 +601,17 @@
   </entry>
   
   <entry>
-    <title>每周总结 - 0518</title>
-    <link href="http://kaaaaai.cn/articles/weekly-summary-0518.html"/>
-    <id>http://kaaaaai.cn/articles/weekly-summary-0518.html</id>
+    <title>每周总结 - 0511</title>
+    <link href="http://kaaaaai.cn/articles/weekly-summary-0511.html"/>
+    <id>http://kaaaaai.cn/articles/weekly-summary-0511.html</id>
     <published>2019-05-11T02:13:52.000Z</published>
-    <updated>2019-05-20T03:43:09.871Z</updated>
+    <updated>2019-05-17T06:33:15.670Z</updated>
     
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　本周买了画板，画纸和一大堆铅笔，打算就着 B 站的素描入门视频学习画画，练习了一两天线条，小臂和胳膊的肌肉持续酸痛，一个现在已经不联系的朋友之前回答我如何不费劲的练肌肉，说学画画。之前以为他是开玩笑，现在看果然如此。<br>　　周一花了半天结束交接了上个项目，本周主要工作是封装兄弟公司的语音 SDK 到原来我们集成了腾讯，百度，讯飞，阿里语音的 SDK 中，新的语音 SDK 从逻辑可以看到封装者的思路，基本上是想把我们需要做的都做了，只暴露出实现功能需要调用的接口，虽然使用时清晰直观，但对于我需要二次分装不算友好，比如各个阶段的状态返回，开始录音结束录音，开始识别语音，和语音回馈，我只好作比较粗糙的处理，比如在调用开始录音方法时，主动调开始录音状态的回调，因为监听不到停止，但在他返回的一个枚举方法里有开始识别的状态，我就在这里放了停止录音的回调。<br>　　虽然这个方法可以让我二次封装正常进行，但是在实际体验上，仍可以预估到可能发生的问题，比如本地音乐在播放的时候，启用录音，语音助手在播报时，播放本地音乐等等，一些场景交错下的体验问题。这让我反过来想封装一个框架，我们真正应该思考的是什么？简单便捷，还是复杂详细但面面俱到，参考官方暴露出来的框架和回想过往开发，我想这个问题应该是没有标准答案的，不同的产品有不同的需求，因为哪怕官方的框架，我也遇到过需要用 oc 运行时态的特点来替换系统方法来实现需求的问题。所以没有十全十美的框架，好的框架需要的是与时俱进，不断迭代和维护。另一方面也可以从这点上看出开源的优势。<br>　　另外还有关于这方面的内容就是发现了一个这个仓库：<a href="https://github.com/SunshineBrother/JHBlog" target="_blank" rel="noopener">iOS开发：我的初级到中级的晋级之路</a>。里面介绍底层的相关知识很详细，还有完整的工程源码，我打算每天看一篇有关底层的文章。在掘金上看了一篇关于大佬面试的文章，里面针对三年经验的一些技术问题，有些我知其然而不知其所以然，算下看我做 iOS 开发也接近三年，但前期没太注意技术累积——虽然也有一部分是中间分心去弄安卓开发，导致现在每次提升一个方向的知识，总要从底层一步一步看上来，很麻烦，而且也因为这点导致在工作岗位上的处境也有些尴尬。<br>　　以上。</p>
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p> 　　项目最后的交接工作，我被派到了中移动总部进行封闭开发，暂时作为 iOS 方面的项目管理和推进，就之前来说，这个礼拜我负责的内容多了一些，除了我本身的代码维护以外，对外要处理项目的交接工作，对内要分配测试人员测试出的 bug，和一些缺失内容，优化内容的推进。一个礼拜下来，有一些收获。<br> 　　之前看知乎上一个问题，是有什么是当上管理层才会想的事？虽然我还没有到那个地步，但是管理项目给我的一些体验让我觉得似乎可以把握到一些管理层的想法，比如很多时候我们觉得领导只看结果不问过程有点不可理喻，但是从另一方面来看这其实只是因为需要对接的内容太多，不问过程只看结果，可以最大程度的排除其他因素的干扰。另一个是就是个人的主观动能性，这阵子做项目管理的时候，我总是会因为分配下去的任务而收到关于很多任务的疑问，比如新增一项需求的时候，开发人员会询问关于这个功能在不同场景下需要表现成怎样，在一些无法实现的地方又应该怎样规避。在管理角度看，这些当然是合理的，但提问的时机太零碎了，容易被分散注意力，另一个是有些场景虽然没有给出标准，但其实可以横向参考其他类似的功能来实现需求，这时候提问并不是必要的，所缺乏的只是一点主动去思考，或者说是虽然想到了第一步，即会产生这个问题，但可能是某种局限导致开发人员没有往下一步怎么解决这个问题，我之前也存在过类似问题。切成开发人员角度，规避这些问题，一个是整理问题，统一解决，另一个是解决问题的方法，虽然可以思考怎么解决，但是如果解决方法最终没有通过产品的审核，那之前针对问题的解决也都白费劲，所以最好的应对方法是，发现问题，可以附上一条或两条解决方案，一并提交。我想这些经验对于以后我做个人开发或者管理都会有帮助。<br> 　　这个礼拜接触到的新技术是使用 OC/Swift 自动生成文档的轮子：</p>
+<blockquote>
+<p> 　　OC 自动生成代码文档：<a href="https://blog.csdn.net/u011374880/article/details/82143782" target="_blank" rel="noopener">appledoc</a><br> 　　swift 自动生成代码文档：<a href="https://www.jianshu.com/p/b0d77877bafe" target="_blank" rel="noopener">jazzy</a></p>
+</blockquote>
+<p> 　　虽然轮子里的描述一致，只要做了注释就可以生成文档，但仍然有些局限性，比如 appledoc 不支持 swift 工程，jazay 不支持 oc、swift 混编工程，生成的文档虽然有按着注释来的规范，但是也非常呆板，比如设定 public 的权限，就只会读取一些公开的类，但如果把读取的权限范围扩大，又会有不加筛选统统记录进文档，这个情况还不如读取源码来的快。<br> 　　手上的《邻人之妻》，看了一个月没看完，现在看到的部分是讲一个色情读物出版商在美国最高法院出了对“淫秽”的新定义以后，他出版了这个新定义的插图版，插图都是限制级图片，并解释说这些插图的目的在于让人们知道越界的图片具体是怎样的。不出意料，这看起来就很像挑衅的行为，出版商被捕了，他上述后又败诉，最后上诉到了最高法院，这次的上述结果不止是意味着对他的罚款和监禁判决是否还能成立，另一方面也是依据此次判决中最高法院的态度，来决定美国色情出版物未来的存活方向。<br> 　　新闻纪实体的叙述让人有一口气读到底的舒服，每次一个新人物切入的点也都有承前启后的关系，故事走向像走直行道，但一路看下来也隐隐能看到整个美国性解放时期的社会面貌，从社会关系，文化，政治方方面面，当前进度有一句格申·莱格曼对当时美国伦理做的评论，我觉得很有意思：“谋杀是罪。描写谋杀不是。性不是罪。但是描写它是。”<br> 　　虽然这本书是围绕性解放展开写的，但在体制和人们的对抗里，隐隐可以看出人们对自由的捍卫，这也让我思考，比如上述我发现在工作中实行某种规范可以让工作效率提高，但另一方面我是否该警惕沉浸在这些弯弯绕绕的规则中，对我自由散漫本性的扼杀？</p>
 ]]></content>
     
     <summary type="html">
@@ -602,17 +634,13 @@
   </entry>
   
   <entry>
-    <title>每周总结 - 0511</title>
-    <link href="http://kaaaaai.cn/articles/weekly-summary-0511.html"/>
-    <id>http://kaaaaai.cn/articles/weekly-summary-0511.html</id>
+    <title>每周总结 - 0518</title>
+    <link href="http://kaaaaai.cn/articles/weekly-summary-0518.html"/>
+    <id>http://kaaaaai.cn/articles/weekly-summary-0518.html</id>
     <published>2019-05-11T02:13:52.000Z</published>
-    <updated>2019-05-17T06:33:15.670Z</updated>
+    <updated>2019-05-20T03:43:09.871Z</updated>
     
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p> 　　项目最后的交接工作，我被派到了中移动总部进行封闭开发，暂时作为 iOS 方面的项目管理和推进，就之前来说，这个礼拜我负责的内容多了一些，除了我本身的代码维护以外，对外要处理项目的交接工作，对内要分配测试人员测试出的 bug，和一些缺失内容，优化内容的推进。一个礼拜下来，有一些收获。<br> 　　之前看知乎上一个问题，是有什么是当上管理层才会想的事？虽然我还没有到那个地步，但是管理项目给我的一些体验让我觉得似乎可以把握到一些管理层的想法，比如很多时候我们觉得领导只看结果不问过程有点不可理喻，但是从另一方面来看这其实只是因为需要对接的内容太多，不问过程只看结果，可以最大程度的排除其他因素的干扰。另一个是就是个人的主观动能性，这阵子做项目管理的时候，我总是会因为分配下去的任务而收到关于很多任务的疑问，比如新增一项需求的时候，开发人员会询问关于这个功能在不同场景下需要表现成怎样，在一些无法实现的地方又应该怎样规避。在管理角度看，这些当然是合理的，但提问的时机太零碎了，容易被分散注意力，另一个是有些场景虽然没有给出标准，但其实可以横向参考其他类似的功能来实现需求，这时候提问并不是必要的，所缺乏的只是一点主动去思考，或者说是虽然想到了第一步，即会产生这个问题，但可能是某种局限导致开发人员没有往下一步怎么解决这个问题，我之前也存在过类似问题。切成开发人员角度，规避这些问题，一个是整理问题，统一解决，另一个是解决问题的方法，虽然可以思考怎么解决，但是如果解决方法最终没有通过产品的审核，那之前针对问题的解决也都白费劲，所以最好的应对方法是，发现问题，可以附上一条或两条解决方案，一并提交。我想这些经验对于以后我做个人开发或者管理都会有帮助。<br> 　　这个礼拜接触到的新技术是使用 OC/Swift 自动生成文档的轮子：</p>
-<blockquote>
-<p> 　　OC 自动生成代码文档：<a href="https://blog.csdn.net/u011374880/article/details/82143782" target="_blank" rel="noopener">appledoc</a><br> 　　swift 自动生成代码文档：<a href="https://www.jianshu.com/p/b0d77877bafe" target="_blank" rel="noopener">jazzy</a></p>
-</blockquote>
-<p> 　　虽然轮子里的描述一致，只要做了注释就可以生成文档，但仍然有些局限性，比如 appledoc 不支持 swift 工程，jazay 不支持 oc、swift 混编工程，生成的文档虽然有按着注释来的规范，但是也非常呆板，比如设定 public 的权限，就只会读取一些公开的类，但如果把读取的权限范围扩大，又会有不加筛选统统记录进文档，这个情况还不如读取源码来的快。<br> 　　手上的《邻人之妻》，看了一个月没看完，现在看到的部分是讲一个色情读物出版商在美国最高法院出了对“淫秽”的新定义以后，他出版了这个新定义的插图版，插图都是限制级图片，并解释说这些插图的目的在于让人们知道越界的图片具体是怎样的。不出意料，这看起来就很像挑衅的行为，出版商被捕了，他上述后又败诉，最后上诉到了最高法院，这次的上述结果不止是意味着对他的罚款和监禁判决是否还能成立，另一方面也是依据此次判决中最高法院的态度，来决定美国色情出版物未来的存活方向。<br> 　　新闻纪实体的叙述让人有一口气读到底的舒服，每次一个新人物切入的点也都有承前启后的关系，故事走向像走直行道，但一路看下来也隐隐能看到整个美国性解放时期的社会面貌，从社会关系，文化，政治方方面面，当前进度有一句格申·莱格曼对当时美国伦理做的评论，我觉得很有意思：“谋杀是罪。描写谋杀不是。性不是罪。但是描写它是。”<br> 　　虽然这本书是围绕性解放展开写的，但在体制和人们的对抗里，隐隐可以看出人们对自由的捍卫，这也让我思考，比如上述我发现在工作中实行某种规范可以让工作效率提高，但另一方面我是否该警惕沉浸在这些弯弯绕绕的规则中，对我自由散漫本性的扼杀？</p>
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　本周买了画板，画纸和一大堆铅笔，打算就着 B 站的素描入门视频学习画画，练习了一两天线条，小臂和胳膊的肌肉持续酸痛，一个现在已经不联系的朋友之前回答我如何不费劲的练肌肉，说学画画。之前以为他是开玩笑，现在看果然如此。<br>　　周一花了半天结束交接了上个项目，本周主要工作是封装兄弟公司的语音 SDK 到原来我们集成了腾讯，百度，讯飞，阿里语音的 SDK 中，新的语音 SDK 从逻辑可以看到封装者的思路，基本上是想把我们需要做的都做了，只暴露出实现功能需要调用的接口，虽然使用时清晰直观，但对于我需要二次分装不算友好，比如各个阶段的状态返回，开始录音结束录音，开始识别语音，和语音回馈，我只好作比较粗糙的处理，比如在调用开始录音方法时，主动调开始录音状态的回调，因为监听不到停止，但在他返回的一个枚举方法里有开始识别的状态，我就在这里放了停止录音的回调。<br>　　虽然这个方法可以让我二次封装正常进行，但是在实际体验上，仍可以预估到可能发生的问题，比如本地音乐在播放的时候，启用录音，语音助手在播报时，播放本地音乐等等，一些场景交错下的体验问题。这让我反过来想封装一个框架，我们真正应该思考的是什么？简单便捷，还是复杂详细但面面俱到，参考官方暴露出来的框架和回想过往开发，我想这个问题应该是没有标准答案的，不同的产品有不同的需求，因为哪怕官方的框架，我也遇到过需要用 oc 运行时态的特点来替换系统方法来实现需求的问题。所以没有十全十美的框架，好的框架需要的是与时俱进，不断迭代和维护。另一方面也可以从这点上看出开源的优势。<br>　　另外还有关于这方面的内容就是发现了一个这个仓库：<a href="https://github.com/SunshineBrother/JHBlog" target="_blank" rel="noopener">iOS开发：我的初级到中级的晋级之路</a>。里面介绍底层的相关知识很详细，还有完整的工程源码，我打算每天看一篇有关底层的文章。在掘金上看了一篇关于大佬面试的文章，里面针对三年经验的一些技术问题，有些我知其然而不知其所以然，算下看我做 iOS 开发也接近三年，但前期没太注意技术累积——虽然也有一部分是中间分心去弄安卓开发，导致现在每次提升一个方向的知识，总要从底层一步一步看上来，很麻烦，而且也因为这点导致在工作岗位上的处境也有些尴尬。<br>　　以上。</p>
 ]]></content>
     
     <summary type="html">
@@ -756,60 +784,6 @@
       <category term="Study" scheme="http://kaaaaai.cn/tags/Study/"/>
     
       <category term="Work" scheme="http://kaaaaai.cn/tags/Work/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS - Reachability.swift 源码分析</title>
-    <link href="http://kaaaaai.cn/articles/reachability-swift-analysis.html"/>
-    <id>http://kaaaaai.cn/articles/reachability-swift-analysis.html</id>
-    <published>2019-03-30T09:24:52.000Z</published>
-    <updated>2019-03-30T02:55:56.229Z</updated>
-    
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="1-Reachability-swift-介绍"><a href="#1-Reachability-swift-介绍" class="headerlink" title="1. Reachability.swift 介绍"></a>1. Reachability.swift 介绍</h2><h3 id="1-1-Reachability-swift"><a href="#1-1-Reachability-swift" class="headerlink" title="1.1 Reachability.swift"></a>1.1 Reachability.swift</h3><p>Reachability.swift 是 Apple 的 Reachability 的替代品，用Swift重写了闭包。</p>
-<p>它兼容 iOS（8.0 - 11.0），OSX（10.9 - 10.13）和 tvOS（9.0 - 11.0）</p>
-<ul>
-<li>监视目标网络是否可用</li>
-<li>监视当前网络的连接方式</li>
-<li>监测连接方式的变更</li>
-</ul>
-<h2 id="2-Reachability-swift-安装"><a href="#2-Reachability-swift-安装" class="headerlink" title="2  Reachability.swift 安装"></a>2  Reachability.swift 安装</h2><h3 id="2-1-手动"><a href="#2-1-手动" class="headerlink" title="2.1 手动"></a>2.1 手动</h3><p>将 Reachability.swift 文件夹放入项目即可。</p>
-<h3 id="2-2-CocoaPods"><a href="#2-2-CocoaPods" class="headerlink" title="2.2 CocoaPods"></a>2.2 CocoaPods</h3><p> （1）确认 CocoaPods 已安装<br> （2）添加一下代码到工程内的 Podfile 文件中<br> <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">use_frameworks!</span><br><span class="line">pod 'ReachabilitySwift'</span><br></pre></td></tr></table></figure></p>
-<p> （3）运行 <code>pod install</code></p>
-<h3 id="2-2-Carthage"><a href="#2-2-Carthage" class="headerlink" title="2.2 Carthage"></a>2.2 Carthage</h3><p>（1）通过 <a href="https://brew.sh/" target="_blank" rel="noopener">Homebrew</a> 安装 Carthage<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ brew update</span><br><span class="line">$ brew install carthage</span><br></pre></td></tr></table></figure></p>
-<p>（2）添加 <code>github &quot;ashleymills/Reachability.swift&quot;</code> 到你的 Cartfile<br>（3）运行 <code>carthage update</code><br>（4）将 <code>Reachability.framework</code> 从 <code>Carthage/Build/iOS/</code> 目录拖到 Xcode 项目的 <code>General</code> 设置的 <code>Linked Frameworks and Libraries</code> 中。<br>（5）将 <code>$(SRCROOT)/Carthage/Build/iOS/Reachability.framework</code> 添加到 Carthage 的运行脚本阶段的输入文件中。<br>(6)在您的代码中导入 Reachability，如下所示：<code>import Reachability</code></p>
-<h2 id="2-使用"><a href="#2-使用" class="headerlink" title="2. 使用"></a>2. 使用</h2><h3 id="2-1-closures-的使用"><a href="#2-1-closures-的使用" class="headerlink" title="2.1 closures 的使用"></a>2.1 closures 的使用</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化</span></span><br><span class="line"><span class="keyword">let</span> reachability = <span class="type">Reachability</span>()!</span><br><span class="line"></span><br><span class="line">reachability.whenReachable = &#123; reachability <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">if</span> reachability.connection == .wifi &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Reachable via WiFi"</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Reachable via Cellular"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">reachability.whenUnreachable = &#123; <span class="number">_</span> <span class="keyword">in</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Not reachable"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> reachability.startNotifier()</span><br><span class="line">&#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Unable to start notifier"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>停止通知：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reachability.stopNotifier()</span><br></pre></td></tr></table></figure>
-<h3 id="2-2-notifications-的使用"><a href="#2-2-notifications-的使用" class="headerlink" title="2.2 notifications 的使用"></a>2.2 notifications 的使用</h3><p>所有通知都在主线程中发送。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化</span></span><br><span class="line"><span class="keyword">let</span> reachability = <span class="type">Reachability</span>()!</span><br><span class="line"></span><br><span class="line"><span class="comment">//需要在 viewWillAppear 声明这个</span></span><br><span class="line"></span><br><span class="line">     <span class="type">NotificationCenter</span>.<span class="keyword">default</span>.addObserver(<span class="keyword">self</span>, selector: #selector(reachabilityChanged(note:)), name: .reachabilityChanged, object: reachability)</span><br><span class="line">    <span class="keyword">do</span>&#123;</span><br><span class="line">      <span class="keyword">try</span> reachability.startNotifier()</span><br><span class="line">    &#125;<span class="keyword">catch</span>&#123;</span><br><span class="line">      <span class="built_in">print</span>(<span class="string">"could not start reachability notifier"</span>)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>也可以这样使用</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@objc</span> <span class="function"><span class="keyword">func</span> <span class="title">reachabilityChanged</span><span class="params">(note: Notification)</span></span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> reachability = note.object <span class="keyword">as</span>! <span class="type">Reachability</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">switch</span> reachability.connection &#123;</span><br><span class="line">  <span class="keyword">case</span> .wifi:</span><br><span class="line">      <span class="built_in">print</span>(<span class="string">"Reachable via WiFi"</span>)</span><br><span class="line">  <span class="keyword">case</span> .cellular:</span><br><span class="line">      <span class="built_in">print</span>(<span class="string">"Reachable via Cellular"</span>)</span><br><span class="line">  <span class="keyword">case</span> .<span class="keyword">none</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Network not reachable"</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>停止通知：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">reachability.stopNotifier()</span><br><span class="line"><span class="type">NotificationCenter</span>.<span class="keyword">default</span>.removeObserver(<span class="keyword">self</span>, name: .reachabilityChanged, object: reachability)</span><br></pre></td></tr></table></figure>
-<h3 id="2-3-使用示例"><a href="#2-3-使用示例" class="headerlink" title="2.3 使用示例"></a>2.3 使用示例</h3><p>（1）使用前记得导入ReachabilitySwift类，下面代码放在viewDidLoad()方法中即可。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reachability: <span class="type">Reachability</span>!</span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    reachability = <span class="keyword">try</span> <span class="type">Reachability</span>.reachabilityForInternetConnection()</span><br><span class="line">&#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Unable to create Reachability"</span>)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 检测网络连接状态</span></span><br><span class="line"><span class="keyword">if</span> reachability.isReachable() &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"网络连接：可用"</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"网络连接：不可用"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 检测网络类型</span></span><br><span class="line"><span class="keyword">if</span> reachability.isReachableViaWiFi() &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"网络类型：Wifi"</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> reachability.isReachableViaWWAN() &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"网络类型：移动网络"</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"网络类型：无网络连接"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>（2）监听网络变化</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 网络可用或切换网络类型时执行</span></span><br><span class="line">reachability.whenReachable = &#123; reachability <span class="keyword">in</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 判断网络状态及类型</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 网络不可用时执行</span></span><br><span class="line">reachability.whenUnreachable = &#123; reachability <span class="keyword">in</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 判断网络状态及类型</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    <span class="comment">// 开始监听</span></span><br><span class="line">    <span class="keyword">try</span> reachability.startNotifier()</span><br><span class="line">&#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Unable to start notifier"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>停止监听调用 <code>reachability.stopNotifier()</code> 即可。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
-    
-    </summary>
-    
-      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
-    
-      <category term="Swift" scheme="http://kaaaaai.cn/tags/Swift/"/>
-    
-      <category term="codeAnalysis" scheme="http://kaaaaai.cn/tags/codeAnalysis/"/>
-    
-      <category term="IOS" scheme="http://kaaaaai.cn/tags/IOS/"/>
     
   </entry>
   
