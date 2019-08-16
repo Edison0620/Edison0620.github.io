@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kaaaaai.cn/"/>
-  <updated>2019-08-16T09:15:29.450Z</updated>
+  <updated>2019-08-16T09:22:42.629Z</updated>
   <id>http://kaaaaai.cn/</id>
   
   <author>
@@ -16,21 +16,13 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>iOS - Runtime 学习</title>
     <link href="http://kaaaaai.cn/articles/iOS-runtime-study.html"/>
     <id>http://kaaaaai.cn/articles/iOS-runtime-study.html</id>
-    <published>2019-08-16T09:15:21.848Z</published>
-    <updated>2019-08-16T09:15:29.450Z</updated>
+    <published>2019-08-16T02:24:52.000Z</published>
+    <updated>2019-08-16T09:22:42.629Z</updated>
     
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><hr>
-<p>title: iOS - Runtime 学习<br>tags:</p>
-<ul>
-<li>EXP</li>
-<li>Xcode</li>
-<li>OC<br>categories: 笔记<br>date: 2019-08-16 10:24:52</li>
-</ul>
-<hr>
-<h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>　　在维护一个项目时碰见一个问题，调用了一个方法后不起作用，这种问题一般有两个解决思路，一个是看方法有没有起作用，另一个是看是不是其他的方法打断了这个方法，比如设置 UIButton 的隐藏，但在另一个地方，又把它设置成显示了。这种问题在工程里通过调试代码一般都很好解决。<br>　　但是当它发生在我调用了一个 SDK 方法不起作用时，按照上文的思路，一查看是否是 SDK 方法的问题，这个除了向 SDK 提供人员反应没有其他更好的解决方法了，二是查看是否其他地方也调用了这个方法，使用了不同的参数导致本次的调用失效了。如果这个方法调用的少，可以全局搜索，然后注释掉方法，但是如果之前项目不是你开发的，你只是后期切入进来，同时代码结构一时半会还不能很好把握到，总之想快速利落的排除问题，这时你可以考虑用 Runtime 的特性，把 SDK 里的方法用自己写的替换掉。<br>　　先老调重弹一遍，什么是 Runtime？
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>　　在维护一个项目时碰见一个问题，调用了一个方法后不起作用，这种问题一般有两个解决思路，一个是看方法有没有起作用，另一个是看是不是其他的方法打断了这个方法，比如设置 UIButton 的隐藏，但在另一个地方，又把它设置成显示了。这种问题在工程里通过调试代码一般都很好解决。<br>　　但是当它发生在我调用了一个 SDK 方法不起作用时，按照上文的思路，一查看是否是 SDK 方法的问题，这个除了向 SDK 提供人员反应没有其他更好的解决方法了，二是查看是否其他地方也调用了这个方法，使用了不同的参数导致本次的调用失效了。如果这个方法调用的少，可以全局搜索，然后注释掉方法，但是如果之前项目不是你开发的，你只是后期切入进来，同时代码结构一时半会还不能很好把握到，总之想快速利落的排除问题，这时你可以考虑用 Runtime 的特性，把 SDK 里的方法用自己写的替换掉。<br>　　先老调重弹一遍，什么是 Runtime？
 　　</p>
 <h2 id="二、概念"><a href="#二、概念" class="headerlink" title="二、概念"></a>二、概念</h2><p>　　Objective-C是动态语言，它将很多静态语言在编译和链接时做的事放到了运行时，这个运行时系统就是 Runtime。<br>Runtime 其实就是一个库，它基本上是用 C 和汇编写的一套 API，这个库使C语言有了面向对象的能力。<br>静态语言：在编译的时候会决定调用哪个函数。<br>动态语言（OC）：在运行的时候根据函数的名称找到对应的函数来调用。</p>
 <p>　　然后还有一些需要了解的基本概念：</p>
@@ -45,7 +37,7 @@
 <h2 id="三、应用场景"><a href="#三、应用场景" class="headerlink" title="三、应用场景"></a>三、应用场景</h2><ul>
 <li>关联对象(Objective-C Associated Objects)给分类增加属性</li>
 <li>方法交换 / 黑魔法(Method Swizzling)</li>
-<li>实现NSCoding的自动归档和自动解档</li>
+<li>实现 NSCoding 的自动归档和自动解档</li>
 <li>实现字典和模型的自动转换(MJExtension)</li>
 </ul>
 <p>　　这里介绍前两种。<br>　　<br>　　1》关联对象(Objective-C Associated Objects)给分类增加属性</p>
@@ -72,6 +64,14 @@
     
     </summary>
     
+      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
+    
+      <category term="OC" scheme="http://kaaaaai.cn/tags/OC/"/>
+    
+      <category term="Xcode" scheme="http://kaaaaai.cn/tags/Xcode/"/>
     
   </entry>
   
