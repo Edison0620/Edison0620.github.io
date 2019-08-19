@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kaaaaai.cn/"/>
-  <updated>2019-08-16T09:26:02.340Z</updated>
+  <updated>2019-08-19T04:34:56.413Z</updated>
   <id>http://kaaaaai.cn/</id>
   
   <author>
@@ -16,11 +16,44 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>每周总结 - 0819</title>
+    <link href="http://kaaaaai.cn/articles/weekly-summary-0819.html"/>
+    <id>http://kaaaaai.cn/articles/weekly-summary-0819.html</id>
+    <published>2019-08-19T02:13:52.000Z</published>
+    <updated>2019-08-19T04:34:56.413Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　Yooo~今天终于挤出时间写周记了，上个礼拜落了一篇，就合在这里一块说了。<br>　　上上个礼拜看了徐浩峰的《刀背藏身》短篇集，很有古韵，他在后记里写：</p>
+<blockquote>
+<p>　　古人以减省来营造意境，说满、说显了，便无意境。营造意境是为了让人有更多体会，可惜今人拒绝体会，只求告知。</p>
+</blockquote>
+<p>　　回过头看，这又好像是对他这本书自己写作脉络的总结。之前看徐浩峰的电影《师傅》，里面廖凡对宋佳表白说：“自十五岁起，每日挥刀五百下，这个数字约束住了我，不会胡思乱想。从今日起，我以你为约束。”一板一眼，真切实在。在书里也有给我同样印象的话，就是一个八岁小孩收养了一个女婴，小孩和女婴都长大了，爷爷装糊涂，想成就他们的好事，当人点明事实时，当时的对话是：“沈飞雪默然，片刻找回话：‘鬼都知道你喜欢她。’孔鼎义：‘喜欢跟喜欢不一样。这辈子第一眼见她，她四岁。善举，要善始善终。’”<br>　　我想这又是另一种和同类武侠小说区别开来的特点，不止减省，还有坚持。<br>　　上个礼拜追了一部番，《月色真美》，很单纯的初中生恋爱番，有很多感同身受的片段，想起以前念书时的恋爱，唉那真是~算了，人生已是风雨，往事还是不用再提了。<br>　　上周一的时候和部门测试发生了一个正面冲突，虽然事前事后我都明白，我本可以不如此，但有时候被零零碎碎的小动作膈应的真让人火大，虽然我一直努力克制自己不发火，因为觉得发火面目可憎，另外是因为觉得自己不应该被这些事情分散注意力，目标是星辰大海，脚底下的几个石子是在不需要去计较，但又想想菩萨慈悲，也有金刚怒目。关系又不是什么很好，凭什么总是要我让步，争锋相对是小孩气脾气，我偏要意气用事一回。<br>　　不过事后除了原本就觉得没必要，还觉得真的很没劲，争锋相对最后浪费的其实是我的时间。本来不去理她，多余的时间，说不定我的周记就不用拖到这个礼拜写了。唉~keep down and carry on 啊。<br>　　周末都去图书馆学习功课了，数据关于 SQL 这一章可以说是我最近看的最认真的内容了。游泳好像到了瓶颈期，怎么游都是那几下，打算看一下游泳视频学习一下。<br>　　其他的想不到了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
+    
+      <category term="Live" scheme="http://kaaaaai.cn/tags/Live/"/>
+    
+      <category term="Study" scheme="http://kaaaaai.cn/tags/Study/"/>
+    
+      <category term="Work" scheme="http://kaaaaai.cn/tags/Work/"/>
+    
+  </entry>
+  
+  <entry>
     <title>iOS - Runtime 学习</title>
     <link href="http://kaaaaai.cn/articles/iOS-runtime-study.html"/>
     <id>http://kaaaaai.cn/articles/iOS-runtime-study.html</id>
     <published>2019-08-16T02:24:52.000Z</published>
-    <updated>2019-08-16T09:26:02.340Z</updated>
+    <updated>2019-08-16T09:26:29.801Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>　　在维护一个项目时碰见一个问题，调用了一个方法后不起作用，这种问题一般有两个解决思路，一个是看方法有没有起作用，另一个是看是不是其他的方法打断了这个方法，比如设置 UIButton 的隐藏，但在另一个地方，又把它设置成显示了。这种问题在工程里通过调试代码一般都很好解决。<br>　　但是当它发生在我调用了一个 SDK 方法不起作用时，按照上文的思路，一查看是否是 SDK 方法的问题，这个除了向 SDK 提供人员反应没有其他更好的解决方法了，二是查看是否其他地方也调用了这个方法，使用了不同的参数导致本次的调用失效了。如果这个方法调用的少，可以全局搜索，然后注释掉方法，但是如果之前项目不是你开发的，你只是后期切入进来，同时代码结构一时半会还不能很好把握到，总之想快速利落的排除问题，这时你可以考虑用 Runtime 的特性，把 SDK 里的方法用自己写的替换掉。<br>　　先老调重弹一遍，什么是 Runtime？
 　　</p>
@@ -786,35 +819,6 @@
       <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
     
       <category term="Xcode" scheme="http://kaaaaai.cn/tags/Xcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>每周总结 - 0428</title>
-    <link href="http://kaaaaai.cn/articles/weekly-summary-0428.html"/>
-    <id>http://kaaaaai.cn/articles/weekly-summary-0428.html</id>
-    <published>2019-04-28T08:24:52.000Z</published>
-    <updated>2019-04-29T05:37:49.885Z</updated>
-    
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　本周工作方面的基本告一段落，但是随之而来的也是比较棘手的一个项目，需要用到蓝牙 ota 技术，由于对接公司人手的缺失，对方只提供了安卓的 SDK，iOS 这方面需要我们对照着安卓的代码转译成 OC，幸运的是之前也有学习安卓，大体的逻辑都能看的明白，但涉及到一行一行的翻译过来，就比较吃力。所以这个礼拜所做的努力简单来说，就是用水磨功夫反复看细节处的代码，等待灵机一动的时刻。好吧，我得承认这个方法，耗时费力又没有效率，但用 Stack Overflow 里提问者经常回应的一句话说：it’s worked！<br>　　不过在反复解读的过程中也稍微掌握了一些提高效率的方法，整理如下：<br>　　第一、遇到不懂的代码，直接谷歌。善用搜索这虽然是老生常谈的事，但是对我来说有必要强调一下，因为学习过安卓的缘故，所以让我有些思维盲区，平时解决问题的时候都会直接用搜索引擎，但这次在解读安卓源码的前期阶段我都一直没想到用搜索引擎来解读代码。所以强调善用搜索，另一方面也是提醒自己不要因为接触不擅长的事的压力而导致总是钻入某个牛角尖。<br>　　第二、不能举一反三，就举三推一。这个方法是我通过从某个牛角尖刚钻出时的经验教训总结出来的。但我得到 ota 升级前发送第一次握手校验命令返回的消息时，我试图弄明白这些这个消息代表了什么含义，而且这个消息，和之后每次 ota 包分段发送后的返回消息有什么区别，打印之后发现第一次的长度和之后的长度都不一致，这让我很迷惑。又有兄弟公司的安卓工程师帮忙解读的文档里提到另一个透传通道，前缀说明里写很重要，影响到 ota 是否成功，然后我就思考这个通道和返回的验证消息是否有联系，在源码中搜索发现也确实用到了这个通道——这个后来发现到虽然这个通道进行了赋值和调用一次，除此之外再没有用到。但当时这些信息有点把我搞糊涂了，所以就在重复打印和对比安卓和iOS ota 的返回消息，以及希望在源码中解读出透传通道究竟起了什么作用。因为长时间没取得较好的进展，就颇有些自暴自弃的想把其他简单但不是很重要的命令先转成 oc，然后发现他 ota 线程中循环判断里的条件参数，和回调读取的值是有一定联系的，只是像 oc 把数据处理写成了一个单例形式，又用一层东西封装了一下，导致写入和读取不太像一个来源，造成了视觉盲点，但点进去就比较一目了然，虽然还有底层的东西需要用谷歌解读，但是关于处理返回验证消息就可以按着这个方法来校验了。以上就是我整个问题的思考过程，其实很多时候真正的问题也不是知识量的积累不够，而是主观上受情绪影响，思考的不太全面，所以以后这方面的问题需要多多注意。<br>　　说点轻松的，本周《妇联4》上映，没赶首映，周日放假时去看的，看的过程中几度红眼，因为剧情本身，也因为剧情以外 22 部漫威电影所累积下的情感积淀。也是我第一次在电影院等到片尾所有字幕放完，影院的清洁人员拿着扫把畚斗进来打扫。片尾曲放在最后出现的是钢铁侠，首尾呼应，而且，又是一个情绪的爆发点。我想我平抒直叙的方式实难写出我心里所感受的十分之一，所以就此打住。<br>　　英语这个礼拜开始复习，每天五十个，目标不是很大，早上坐车的时候就可以轻松完成。抽了一天看了下书，《信息资源管理》，最进新开课因为有事还没来得及去上。另外还有一些琐碎的思绪因为发散琐碎没来得及去记，就像云一样飘走了。<br>　　以上。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
-    
-    </summary>
-    
-      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
-    
-      <category term="Live" scheme="http://kaaaaai.cn/tags/Live/"/>
-    
-      <category term="Study" scheme="http://kaaaaai.cn/tags/Study/"/>
-    
-      <category term="Work" scheme="http://kaaaaai.cn/tags/Work/"/>
     
   </entry>
   
