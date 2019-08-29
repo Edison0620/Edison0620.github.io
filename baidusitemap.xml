@@ -4,21 +4,23 @@
 
     
   <url>
-    <loc>http://kaaaaai.cn/articles/about-what-do-you-like.html</loc>
-    <lastmod>2019-08-24T04:38:38.664Z</lastmod>
+    <loc>http://kaaaaai.cn/articles/iOS-javaScript-research.html</loc>
+    <lastmod>2019-08-29T10:40:43.765Z</lastmod>
     <data>
         <display>
-        <title>关于“猜你喜欢”的思考</title>
-        <pubTime>2019-08-22T02:24:52.000Z</pubTime>
+        <title>iOS - JavaScript 第三方库调研</title>
+        <pubTime>2019-08-29T02:24:52.000Z</pubTime>
         
-        <tag>产品思考</tag>
+        <tag>EXP</tag>
          
-        <tag>用户需求</tag>
+        <tag>OC</tag>
+         
+        <tag>IOS</tag>
          
          
            
              
-              <breadCrumb title="杂论" url="http://kaaaaai.cn/categories/%E6%9D%82%E8%AE%BA/"/>
+              <breadCrumb title="笔记" url="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>
@@ -27,7 +29,7 @@
     
   <url>
     <loc>http://kaaaaai.cn/articles/weekly-summary-0819.html</loc>
-    <lastmod>2019-08-22T01:26:49.357Z</lastmod>
+    <lastmod>2019-08-29T07:46:06.407Z</lastmod>
     <data>
         <display>
         <title>每周总结 - 0819</title>
@@ -45,6 +47,28 @@
            
              
               <breadCrumb title="笔记" url="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://kaaaaai.cn/articles/about-what-do-you-like.html</loc>
+    <lastmod>2019-08-24T04:39:00.030Z</lastmod>
+    <data>
+        <display>
+        <title>关于“猜你喜欢”的思考</title>
+        <pubTime>2019-08-22T02:24:52.000Z</pubTime>
+        
+        <tag>产品思考</tag>
+         
+        <tag>用户需求</tag>
+         
+         
+           
+             
+              <breadCrumb title="杂论" url="http://kaaaaai.cn/categories/%E6%9D%82%E8%AE%BA/"/>
           
         </display>
     </data>
@@ -1367,28 +1391,6 @@
 
     
   <url>
-    <loc>http://kaaaaai.cn/articles/Sixthart.html</loc>
-    <lastmod>2018-11-01T07:12:50.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android 笔记 - 调用系统发短信功能，自定义号码和短信内容</title>
-        <pubTime>2017-07-07T12:31:05.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>Android</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://kaaaaai.cn/articles/seventeenthart.html</loc>
     <lastmod>2018-11-01T07:12:50.000Z</lastmod>
     <data>
@@ -1404,6 +1406,28 @@
            
              
               <breadCrumb title="涂鸦" url="http://kaaaaai.cn/categories/%E6%B6%82%E9%B8%A6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://kaaaaai.cn/articles/Sixthart.html</loc>
+    <lastmod>2018-11-01T07:12:50.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android 笔记 - 调用系统发短信功能，自定义号码和短信内容</title>
+        <pubTime>2017-07-07T12:31:05.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>
@@ -1433,28 +1457,6 @@
 
     
   <url>
-    <loc>http://kaaaaai.cn/articles/unreasonable-guess.html</loc>
-    <lastmod>2018-11-01T07:12:50.000Z</lastmod>
-    <data>
-        <display>
-        <title>无理猜想</title>
-        <pubTime>2017-07-24T13:59:19.000Z</pubTime>
-        
-        <tag>扯谈</tag>
-         
-        <tag>梦</tag>
-         
-         
-           
-             
-              <breadCrumb title="涂鸦" url="http://kaaaaai.cn/categories/%E6%B6%82%E9%B8%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://kaaaaai.cn/articles/043.html</loc>
     <lastmod>2018-11-01T07:12:50.000Z</lastmod>
     <data>
@@ -1472,6 +1474,28 @@
            
              
               <breadCrumb title="笔记" url="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://kaaaaai.cn/articles/unreasonable-guess.html</loc>
+    <lastmod>2018-11-01T07:12:50.000Z</lastmod>
+    <data>
+        <display>
+        <title>无理猜想</title>
+        <pubTime>2017-07-24T13:59:19.000Z</pubTime>
+        
+        <tag>扯谈</tag>
+         
+        <tag>梦</tag>
+         
+         
+           
+             
+              <breadCrumb title="涂鸦" url="http://kaaaaai.cn/categories/%E6%B6%82%E9%B8%A6/"/>
           
         </display>
     </data>

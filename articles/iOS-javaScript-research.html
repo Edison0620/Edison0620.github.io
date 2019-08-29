@@ -84,7 +84,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="EXP,Live,Study,Work," />
+  <meta name="keywords" content="EXP,OC,IOS," />
 
 
 
@@ -102,18 +102,18 @@
 
 
 
-<meta name="description" content="上周六因为一个项目的迭代，所以写周记的时间就被冲到这个礼拜周一写了。其实项目本身更新的功能很容易解决，但是更多的时间是在解决之前开发人员所产生的 bug，解决 bug 的过程比较麻烦和消耗时间，但是当一个 bug 解决以后，往往能获得一点新的知识。比如通过侧滑手势的增加，在手势结束后时间 layerAnimation 的缩放动画，可以让整个侧滑过程看上去更生动。还有手势操作在继承关系中的响应">
-<meta name="keywords" content="EXP,Live,Study,Work">
+<meta name="description" content="通过网上调研发现用于实现 JS 和 OC 交互的第三方库比较少，比较知名的有且只有一个：WebViewJavascriptBridge，但通过查看网上资料，我发现实现 JS 和 OC 交互的功能不一定需要使用第三方库，总结了一下大概有以下六种方式：  1.在 JS 中做一次 URL 跳转，然后在 OC 中拦截跳转。（这里分为 UIWebView 和 WKWebView 两种，WKWebVie">
+<meta name="keywords" content="EXP,OC,IOS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="每周总结 - 0722">
-<meta property="og:url" content="http://kaaaaai.cn/articles/weekly-summary-0722.html">
+<meta property="og:title" content="iOS - JavaScript 第三方库调研">
+<meta property="og:url" content="http://kaaaaai.cn/articles/iOS-javaScript-research.html">
 <meta property="og:site_name" content="壹拾肆">
-<meta property="og:description" content="上周六因为一个项目的迭代，所以写周记的时间就被冲到这个礼拜周一写了。其实项目本身更新的功能很容易解决，但是更多的时间是在解决之前开发人员所产生的 bug，解决 bug 的过程比较麻烦和消耗时间，但是当一个 bug 解决以后，往往能获得一点新的知识。比如通过侧滑手势的增加，在手势结束后时间 layerAnimation 的缩放动画，可以让整个侧滑过程看上去更生动。还有手势操作在继承关系中的响应">
+<meta property="og:description" content="通过网上调研发现用于实现 JS 和 OC 交互的第三方库比较少，比较知名的有且只有一个：WebViewJavascriptBridge，但通过查看网上资料，我发现实现 JS 和 OC 交互的功能不一定需要使用第三方库，总结了一下大概有以下六种方式：  1.在 JS 中做一次 URL 跳转，然后在 OC 中拦截跳转。（这里分为 UIWebView 和 WKWebView 两种，WKWebVie">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-22T12:54:49.927Z">
+<meta property="og:updated_time" content="2019-08-29T10:40:43.765Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="每周总结 - 0722">
-<meta name="twitter:description" content="上周六因为一个项目的迭代，所以写周记的时间就被冲到这个礼拜周一写了。其实项目本身更新的功能很容易解决，但是更多的时间是在解决之前开发人员所产生的 bug，解决 bug 的过程比较麻烦和消耗时间，但是当一个 bug 解决以后，往往能获得一点新的知识。比如通过侧滑手势的增加，在手势结束后时间 layerAnimation 的缩放动画，可以让整个侧滑过程看上去更生动。还有手势操作在继承关系中的响应">
+<meta name="twitter:title" content="iOS - JavaScript 第三方库调研">
+<meta name="twitter:description" content="通过网上调研发现用于实现 JS 和 OC 交互的第三方库比较少，比较知名的有且只有一个：WebViewJavascriptBridge，但通过查看网上资料，我发现实现 JS 和 OC 交互的功能不一定需要使用第三方库，总结了一下大概有以下六种方式：  1.在 JS 中做一次 URL 跳转，然后在 OC 中拦截跳转。（这里分为 UIWebView 和 WKWebView 两种，WKWebVie">
 
 
 
@@ -141,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="http://kaaaaai.cn/articles/weekly-summary-0722.html"/>
+  <link rel="canonical" href="http://kaaaaai.cn/articles/iOS-javaScript-research.html"/>
 
 
 
 
 
-  <title>每周总结 - 0722 | 壹拾肆</title>
+  <title>iOS - JavaScript 第三方库调研 | 壹拾肆</title>
   
 
 
@@ -464,7 +464,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kaaaaai.cn/articles/weekly-summary-0722.html">
+    <link itemprop="mainEntityOfPage" href="http://kaaaaai.cn/articles/iOS-javaScript-research.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kaaaaai">
@@ -481,7 +481,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">每周总结 - 0722</h2>
+          <h2 class="post-title" itemprop="name headline">iOS - JavaScript 第三方库调研</h2>
         
 
         <div class="post-meta">
@@ -493,8 +493,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-22T10:13:52+08:00">
-                2019-07-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-29T10:24:52+08:00">
+                2019-08-29
               </time>
             
 
@@ -534,9 +534,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/articles/weekly-summary-0722.html#comments" itemprop="discussionUrl">
+                <a href="/articles/iOS-javaScript-research.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="articles/weekly-summary-0722.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="articles/iOS-javaScript-research.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -563,7 +563,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  563 字
+                  1,620 字
                 </span>
               
 
@@ -579,7 +579,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  2 分钟
+                  6 分钟
                 </span>
               
             </div>
@@ -597,8 +597,97 @@
       
 
       
-        <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　上周六因为一个项目的迭代，所以写周记的时间就被冲到这个礼拜周一写了。其实项目本身更新的功能很容易解决，但是更多的时间是在解决之前开发人员所产生的 bug，解决 bug 的过程比较麻烦和消耗时间，但是当一个 bug 解决以后，往往能获得一点新的知识。比如通过侧滑手势的增加，在手势结束后时间 layerAnimation 的缩放动画，可以让整个侧滑过程看上去更生动。还有手势操作在继承关系中的响应问题，其他的问题不太具有普遍性，只会在单个项目中出现，所以略过不提。<br>　　周二的时候换了办公场所，是之前提到的兄弟公司，据说之后我们部门也可能整体搬迁过来，只不过现在算是临时支援。兄弟公司，离住的地方近了一些，人也多了一下，周围的环境也比较悠闲，早上傍晚都有老头老太或者妈妈带小朋友在遛弯，虽然他们在遛弯的时候，我在上班，但我觉得他们背着手优哉游哉的样子，在一定程度上缓解了我紧绷的情绪。<br>　　周六和同事去游泳，算上这次，是我第二次正经去泳池学习游泳了，进度不谦虚的讲，可以说是一日千里。第一次下水，克服了在水里的恐惧，可以在泳池中直立起来，第二次下水，虽然还不会换气，但是已经可以一口气用蛙泳的姿势游十来米了。按照这个速度，再来几次，不日将可以参加国家队~哈哈。<br>　　继续看陈丹青的《笑谈大先生》，看陈从鲁迅的朋友，鲁迅的死亡各个角度写，写的很好，我没什么想说的。<br>　　一个礼拜都没怎么学习，没怎么画画，周末去图书馆看了两章数据库的内容，觉得很充实，我想我已经从上个礼拜的懈怠情绪出来了。下个礼拜希望可以表现得更好。
-　　</p>
+        <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p> 　通过网上调研发现用于实现 <code>JS</code> 和 <code>OC</code> 交互的第三方库比较少，比较知名的有且只有一个：<a href="https://github.com/marcuswestin/WebViewJavascriptBridge" target="_blank" rel="noopener">WebViewJavascriptBridge</a>，但通过查看网上资料，我发现实现 <code>JS</code> 和 <code>OC</code> 交互的功能不一定需要使用第三方库，总结了一下大概有以下六种方式：</p>
+<ul>
+<li>1.在 <code>JS</code> 中做一次 <code>URL</code> 跳转，然后在 <code>OC</code> 中拦截跳转。（这里分为 <code>UIWebView</code> 和 <code>WKWebView</code> 两种，<code>WKWebView</code> 是苹果在 iOS 8 中推出的框架，如果需要兼容更低的版本，可以使用 <code>UIWebView</code> 来做。）</li>
+<li>2.利用 <code>WKWebView</code> 的 <code>MessageHandler</code>。</li>
+<li>3.利用系统库 <code>JavaScriptCore</code>，来做相互调用。（iOS 7 推出的）</li>
+<li>4.利用第三方库 <code>WebViewJavascriptBridge</code>。</li>
+<li>5.利用第三方 <code>cordova</code> 库，以前叫 <code>PhoneGap</code>。（这是一个库平台的库，类似于 <code>React Native</code>）</li>
+<li>6.当下盛行的 <code>React Native</code>。</li>
+</ul>
+<p>因为以上都可以实现 <code>JS</code> 和 <code>OC</code> 的交互，如果用一个一个实现代码测试来对比优劣的话，效率太慢，所以我采用的方式是通过网上资料，把以上实现方式的底层技术两两对比，来选择出适合自己开发的方式。</p>
+<h2 id="一、UIWebView-和-WKWebView-的比较"><a href="#一、UIWebView-和-WKWebView-的比较" class="headerlink" title="一、UIWebView 和 WKWebView 的比较"></a>一、UIWebView 和 WKWebView 的比较</h2><p>在 iOS 8 以后，iOS 中自带实现加载 <code>web</code> 页面的控件由过去的一种变成了两种：<code>UIWebView</code> 和 <code>WKWebview</code>。<code>WKWebView</code> 作为新加入的组件，目的是提供一个现代的支持最新 <code>Webkit</code> 功能的网页浏览控件，摆脱过去 <code>UIWebView</code> 的老、旧、笨，特别是内存占用量巨大的问题。它使用与 Safari 中一样的 <code>Nitro JavaScript</code> 引擎，大大提高页面 js 执行速度。相对于 <code>UIWebView</code> 的优势：</p>
+<ul>
+<li>1.内存占用是 <code>UIWebView</code> 的1/4~1/3（有一篇文章里测试用模拟器加载百度与开源中国网站时，WKWebView占用23M，而UIWebView占用85M）。</li>
+<li>2.页面加载速度有提升，有的文章说它的加载速度比 <code>UIWebView</code> 提升了一倍左右。 </li>
+<li>3.更为细致地拆分了 <code>UIWebViewDelegate</code> 中的方法。</li>
+<li>4.自带进度条。不需要像 <code>UIWebView</code> 一样自己做假进度条（通过 <code>NJKWebViewProgress</code> 和双层代理技术实现），技术复杂度和代码量，根贴近实际加载进度优化好的多。 </li>
+<li>5.支持了更多的 <code>HTML5</code> 特性，允许 <code>JavaScript</code> 的 <code>Nitro</code> 库加载并使用（<code>UIWebView</code> 中限制）。</li>
+<li>6.可以和 <code>js</code> 直接互调函数，不像 <code>UIWebView</code> 需要第三方库 <code>WebViewJavascriptBridge</code> 来协助处理和 <code>js</code> 的交互。</li>
+<li>7.高达60fps的滚动刷新率以及内置手势。</li>
+</ul>
+<p><strong>但也存在一些缺点：</strong></p>
+<ul>
+<li>1.不支持页面缓存，需要自己注入 <code>cookie</code>,而 <code>UIWebView</code> 是自动注入 <code>cookie</code>。 </li>
+<li>2.无法发送 <code>POST</code> 参数问题</li>
+</ul>
+<h2 id="二、JavaScriptCore-和-WebViewJavascriptBridge"><a href="#二、JavaScriptCore-和-WebViewJavascriptBridge" class="headerlink" title="二、JavaScriptCore 和 WebViewJavascriptBridge"></a>二、JavaScriptCore 和 WebViewJavascriptBridge</h2><p><strong>技术介绍</strong></p>
+<ul>
+<li><code>JavaScriptCore</code> 框架 是一个苹果在 iOS 7 引入的框架，该框架让 <code>Objective-C</code>(或 <code>Swift</code>) 和 <code>JavaScript</code> 代码直接的交互变得更加的简单方便。<code>JavaScriptCore</code>使用 JavaScriptCore 框架可以实现 OC 和 JS 的互相调用，而不需要依赖 <code>WebViewJavascriptBridge</code> 类似于「桥梁」的机制来实现。</li>
+<li><p><code>WebViewJavascriptBridge</code> 主要作用用于： <code>Objective-C</code> 和 <code>javascript</code> 相互通信，即 <code>oc</code> 和 <code>js</code> 方法的互相调用。<code>WebViewJavascriptBridge</code> 的原理是通过自定义 <code>scheme</code>，在加载一个特定标识的 <code>URL</code>（ wvjbscheme://BRIDGE_LOADED）时在 <code>UIWebView</code> 的代理方法 <code>webView:shouldStartLoadWithRequest:navigationType:</code> 中拦截 <code>URL</code> 并通过 <code>UIWebView</code> 的 <code>stringByEvaluatingJavaScriptFromString:</code>方法执行一段 <code>JS</code>，这个 <code>JS</code> 文件中声明了一些变量和方法，在通讯中作为一个桥梁。</p>
+<p><code>JavaScriptCore</code> 和 <code>WebViewJavascriptBridge</code> 都可以看成在 <code>UIWebview</code> 和 <code>WKWebview</code> 的自带方法上更深度的实现 <code>js</code> 和 <code>oc</code> 的交互。虽然实现机制有些差别，但总体来说都是 <code>oc</code> 往 <code>h5</code> 页面注入 <code>js</code> 代码和截获 <code>js</code> 页面让 <code>js</code> 可以调用 <code>oc</code> 代码，实际性能没有具体测试过。不过值得一提的是，虽然 <code>WebViewJavascriptBridge</code> 知名度很高，而且很多应用都用了这个框架，比如 Facebook Messenger、FacebookPaper 等，但它本身的仓库已经两年没更新了，而 <code>JavaScriptCore</code> 是苹果官方框架，可以说是随着 Xcode 和 iOS 本身一起迭代的框架，所以在考虑选择哪个来实现 <code>js</code> 和 <code>oc</code> 的交互时，可以把这点纳入参考。</p>
+</li>
+</ul>
+<h2 id="三、cordova-和-React-Native-的比较"><a href="#三、cordova-和-React-Native-的比较" class="headerlink" title="三、cordova 和 React Native 的比较"></a>三、cordova 和 React Native 的比较</h2><p><strong>技术介绍</strong></p>
+<ul>
+<li><code>Cordova</code> 是一个开源的移动开发框架。允许用户使用标准的 <code>web</code> 技术 <code>HTML5</code>，<code>CSS</code> 和 <code>JavaScript</code> 做开发平台，应用在每个平台的具体执行被封装了起来，并依靠符合标准的API绑定去访问每个设备的功能，比如说；传感器、数据、网络状态等。（摘自 <code>Cordova</code> 官方中文文档）。</li>
+<li><code>React Native</code> 是由 Facebook 研发的一套跨平台开发技术，是在 <code>JavaScript</code> 和 <code>React</code> 的基础上获得一致的开发体验构建原生 APP。宗旨是 Learn once， write anywhere。（摘自 <code>React Native</code> 官方中文文档）</li>
+</ul>
+<p>他们的最大区别在于，可以把 <code>Cordova</code> 理解成内嵌一个移动端的 web 页面，需要依托于原生平台上实现页面展示，业务逻辑处理等功能。<br>而 <code>React Native</code> 则相当与一个区别于原生的一个独立拥有自己体系的一个平台。其特点是使用 <code>JavaScript</code> 编写出的代码会转为原生平台的 <code>API</code>。</p>
+<p>通过网上资料 <a href="https://blog.csdn.net/shisanshuno1/article/details/80644959" target="_blank" rel="noopener">iOS原生，React Native，Cordova技术选型对比</a>，得到结果。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">开发模式 /对比项</th>
+<th style="text-align:center">Cordova</th>
+<th style="text-align:center">React Native</th>
+<th style="text-align:center">原生</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">内存</td>
+<td style="text-align:center">差</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">优</td>
+</tr>
+<tr>
+<td style="text-align:left">运行效率</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">优</td>
+<td style="text-align:center">优</td>
+</tr>
+<tr>
+<td style="text-align:left">帧率</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+</tbody>
+</table>
+<p>其他对比，<strong>跨平台特性：</strong></p>
+<ul>
+<li>Cordova: write once, run anywhere ( 一次开发，随处运行)</li>
+<li>React-Native: Learn once, write anywhere ( 一次学习，随处开发)</li>
+</ul>
+<p><strong>功能支持：</strong></p>
+<ul>
+<li>Cordova: 基本功能完全具备，对于底层，如摄像头之类的，需要插件。</li>
+<li>React-Native: 完全支持。 Android 端不是很完善。</li>
+</ul>
+<p><strong>风险程度：</strong><br>Native 比 cordova 高。</p>
+<p><strong>开发成本：</strong></p>
+<ul>
+<li>Cordova: 完全基于 html，css，js 。写一次代码，两个平台都适用。</li>
+<li>React-Native: 具有相同语法体系，但需要根据不同平台编写不同代码。</li>
+</ul>
+<p><strong>运行速度：</strong></p>
+<ul>
+<li>Cordova: 相对较慢</li>
+<li>React-Native: 跟 Native 基本相当</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>　　通过以上对比,我们暂时可以得出一个初步结论,当你应用的 h5 交互较少的情况下可以使用原生的控件。当你的 h5 较多时可以在 <code>WebViewJavascriptBridge</code> 和 <code>JavaScriptCore</code> 中选择使用，至于上面提到的第三种方式，其实本质上已经是另一种类型的应用了，这里就不展开谈论了。</p>
 
       
     </div>
@@ -617,7 +706,7 @@
         <div style="text-align:center;color: #ccc;font-size:14px;">------本文结束 <i class="fa fa-thermometer-three-quarters" aria-hidden="true"></i> 感谢阅读------</div>
         <div>
 	    <p id="div-border-left-red">
-	   <b>本文地址：</b><a href="/articles/weekly-summary-0722.html" title="每周总结 - 0722">http://kaaaaai.cn/articles/weekly-summary-0722.html</a><br/>
+	   <b>本文地址：</b><a href="/articles/iOS-javaScript-research.html" title="iOS - JavaScript 第三方库调研">http://kaaaaai.cn/articles/iOS-javaScript-research.html</a><br/>
 	    <span>
 	    <b>本文基于<a target="_blank" title="Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)" href="http://creativecommons.org/licenses/by-sa/4.0/"> 知识共享署名-相同方式共享 4.0 </a>国际许可协议发布</b><br/><b>转载请注明出处，谢谢！</b>
 	    </span>
@@ -664,11 +753,9 @@
           
             <a href="/tags/EXP/" rel="tag"><i class="fa fa-tag"></i> EXP</a>
           
-            <a href="/tags/Live/" rel="tag"><i class="fa fa-tag"></i> Live</a>
+            <a href="/tags/OC/" rel="tag"><i class="fa fa-tag"></i> OC</a>
           
-            <a href="/tags/Study/" rel="tag"><i class="fa fa-tag"></i> Study</a>
-          
-            <a href="/tags/Work/" rel="tag"><i class="fa fa-tag"></i> Work</a>
+            <a href="/tags/IOS/" rel="tag"><i class="fa fa-tag"></i> IOS</a>
           
         </div>
       
@@ -681,8 +768,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/articles/Xcode-plugin-research.html" rel="next" title="iOS - Xcode Plugin 调研和使用">
-                <i class="fa fa-chevron-left"></i> iOS - Xcode Plugin 调研和使用
+              <a href="/articles/about-what-do-you-like.html" rel="next" title="关于“猜你喜欢”的思考">
+                <i class="fa fa-chevron-left"></i> 关于“猜你喜欢”的思考
               </a>
             
           </div>
@@ -690,10 +777,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/articles/automatically-generates-annotation-documents.html" rel="prev" title="iOS - Xcode 自动生成注释文档">
-                iOS - Xcode 自动生成注释文档 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -747,8 +830,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://s2.ax1x.com/2019/03/14/AESiM4.jpg"
@@ -873,6 +965,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、UIWebView-和-WKWebView-的比较"><span class="nav-text">一、UIWebView 和 WKWebView 的比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、JavaScriptCore-和-WebViewJavascriptBridge"><span class="nav-text">二、JavaScriptCore 和 WebViewJavascriptBridge</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、cordova-和-React-Native-的比较"><span class="nav-text">三、cordova 和 React Native 的比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1058,9 +1166,9 @@ show_date_time();
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://kaaaaai.cn/articles/weekly-summary-0722.html';
-          this.page.identifier = 'articles/weekly-summary-0722.html';
-          this.page.title = '每周总结 - 0722';
+          this.page.url = 'http://kaaaaai.cn/articles/iOS-javaScript-research.html';
+          this.page.identifier = 'articles/iOS-javaScript-research.html';
+          this.page.title = 'iOS - JavaScript 第三方库调研';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://kaaaaai-cn.disqus.com/embed.js';
