@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[iOS - 使用 fastlane snapshot 自动化截图]]></title>
+    <url>%2Farticles%2FiOS-fastlane-snapshot.html</url>
+    <content type="text"><![CDATA[First at all 首先先介绍一下 fastlane 是干嘛用的： Fastlane 是一套使用 Ruby 写的自动化工具集，旨在简化 Android 和 iOS 的部署过程，自动化你的工作流。它可以简化一些乏味、单调、重复的工作，像截图、代码签名以及发布 App。 然后这篇文章主要介绍的是 fastlane 里面其中一个工具——snapshot，我们可以用它来给应用进行自动化截图。 附上官方文档地址：https://docs.fastlane.tools/getting-started/ios/screenshots/ Just to try 好了，接下来进入手把手教学阶段。这里的教学前提是你已经安装好了 fastlane 或者 snapshot。没安装好也没关系，打开终端输入以下代码进行安装：Terminal1 sudo gem install snapshot 如果遇到这个问题：You don’t have write permissions for the /usr/bin directory. 可以尝试加上安装路径Terminal1gem install -n /usr/local/bin fastlane 成功安装完以后。以一个新工程为例子，首先我们需要给他增加一个 UI Testing Target 1、增加 UI Testing Target选择 Xcode 顶部菜单栏中的 File –&gt; New –&gt; Target…，在弹出框中选择 iOS UI Testing Target名字随意，其他默认。然后点击工程，添加一个新的 scheme在弹出框中选择你新添加的 Target 2、编辑 UI Testing Target注意勾选你的 UI Testing Target，然后点击 Edit Scheme然后在弹出框中，勾选 Build 中的 Run和 Shard 3、给工程加入 snapshot打开终端，切到工程目录底下，输入一下命令：Terminal1fastlane snapshot init 成功后工程目录会多出两个文件SnapshotHelper.swift 文件需要我们添加到项目中使用，注意选中的Target 是前面创建的 UITest Target。如果是 OC 项目，文件拖入时会自动提醒是否创建桥接文件，选择“YES”就行了。 Snapfile 是截图配置文件，可以在里面设置需要截图的设备和语言。 4、在工程中使用 snapshot当确认了 UI Testing Target 的设置没问题，snapshot 的引用文件在工程中，配置文件也没问题后，我们下一步就可以开始在工程中初始化 snapshot 和调用他的截图方法了。 首先，我们需要在 setUp 方法中初始化，值得一提的是官方文档和网上搜索到的技术博客中 OC 的初始化方法：[Snapshot setupSnapshot:app];，在 snapshot 中的源码好像已经找不到了，现在的初始化方法如下Object-C123XCUIApplication *app = [[XCUIApplication alloc]init];[Snapshot setupSnapshot:app waitForAnimations:YES];[app launch]; 然后在 testExample 方法中实现截图方法Object-C123456789 XCUIApplication *app = [[XCUIApplication alloc] init];//截图 - 首頁[Snapshot snapshot:@"0main" timeWaitingForIdle:10];//截图 - 点击方法XCUIElement *openButton = app.buttons[@"Open"];[openButton tap];[Snapshot snapshot:@"1filter" timeWaitingForIdle:10]; 这里需要强调的一点是 XCUIElement *openButton = app.buttons[@&quot;Open&quot;]; 这句里的 “Open”，是怎么来的，他是根据我们创建控件时所设置的 accessibilityIdentifier 的值来的。Object-c1234UIButton *btnOne = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width / 2, self.view.frame.size.width / 2)];[btnOne addTarget:self action:@selector(jumpToAlibabba) forControlEvents:UIControlEventTouchUpInside];[btnOne setAccessibilityIdentifier:@"Open"];[self.view addSubview:btnOne]; 完成这一步，剩下需要做的就不多了。 5、获取自动化截图结果同样打开终端，切到项目路径，运行Terminal1fastlane snapshot 然后会出现一连串的打印运行结束以后，成功的话会生成了一个 html 文件和一组截图，html 页面会自己打开。不过显示的效果有点不太友好~以上。]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>EXP</tag>
+        <tag>OC</tag>
+        <tag>IOS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[iOS - SDWebImage 源码分析]]></title>
     <url>%2Farticles%2FiOS-sdwebimage-analysis.html</url>
     <content type="text"><![CDATA[一个异步下载图片并且支持缓存的 UIImageView 分类。 一、功能介绍 提供了一个 UIImageView 的 category 用来加载网络图片并且对网络图片的缓存进行管理 采用异步方式来下载网络图片 采用异步方式，使用 memory＋disk 来缓存网络图片，自动管理缓存。 支持 GIF 动画 支持 WebP 格式 同一个 URL 的网络图片不会被重复下载 失效的 URL 不会被无限重试 耗时操作都在子线程，确保不会阻塞主线程 使用 GCD 和 ARC 支持 Arm64 二、安装CocoaPods在工程内 Podfile 文件中添加：1platform :ios, &apos;7.0&apos; pod &apos;SDWebImage&apos;, &apos;~&gt; 4.0&apos; 如果您使用的是Swift，请务必添加use_frameworks! 并将目标设置为iOS 8+：1platform :ios, &apos;8.0&apos; use_frameworks! Carthage在工程内 Cartfile 文件中添加：1github &quot;rs/SDWebImage&quot; 三、使用1.使用 ImageView+WebCache category 来加载 UITableView 中 cell 的图片1[cell.imageView sd_setImageWithURL:[NSURL URLWithString:@"http://www.domain.com/path/to/image.jpg"] placeholderImage:[UIImage imageNamed:@"placeholder.png"]]; 2.使用 block,采用这个方案可以在网络图片加载过程中得知图片的下载进度和图片加载成功与否123[cell.imageView sd_setImageWithURL:[NSURL URLWithString:@"http://www.domain.com/path/to/image.jpg"] placeholderImage:[UIImage imageNamed:@"placeholder.png"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) &#123; //... completion code here ... &#125;]; 3.使用 SDWebImageManager，SDWebImageManager 为UIImageView+WebCache category 的实现提供接口。12345678SDWebImageManager *manager = [SDWebImageManager sharedManager] ;[manager downloadImageWithURL:imageURL options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) &#123; // progression tracking code &#125; completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) &#123; if (image) &#123; // do something with image &#125; &#125;]; 4.加载图片还有使用 SDWebImageDownloader 和 SDImageCache 方式，但那个并不是我们经常用到的。基本上面所讲的3个方法都能满足需求。三、SDWebImage 流程 四、SDWebImage 接口SDWebImage 是一个成熟而且比较庞大的框架，但是在使用过程中并不需要太多的接口,这算是一种代码封装程度的体现。这里就介绍比较常用的几个接口。 1.给 UIImageView 设置图片的接口，SDWebImage 有提供多个给UIImageView 设置图片的接口，最终所有的接口都会调用下图的这个接口，这是大多数框架的做法。 2.获取 SDWebImage 的磁盘缓存大小,在项目中有时候会需要统计应用的磁盘缓存内容大小，那么获取图片的缓存大小就是使用这个接口来实现 1[SDImageCache sharedImageCache] getSize]; 3.清理内存缓存，清理内存中缓存的图片资源，释放内存资源。 1[[SDImageCache sharedImageCache] clearMemory]; 4.有了清理内存缓存，自然也有清理磁盘缓存的接口 1[[SDImageCache sharedImageCache] clearDisk]; 五、SDWebImage 库的内部类 通过对 UIImageView 的类别扩展来实现异步加载替换图片的工作。 主要用到的对象：1.UIImageView (WebCache)：入口封装，实现读取图片完成后的回调。2.SDWebImageManager：对图片进行管理的中转站，记录那些图片正在读取。向下层读取Cache（调用SDImageCache），或者向网络读取对象（调用SDWebImageDownloader)。实现 SDImageCache 和 SDWebImageDownloader 的回调。3.SDImageCache：根据 URL 的 MD5 摘要对图片进行存储和读取（实现存在内存中或者存在硬盘上两种实现）实现图片和内存清理工作。4.SDWebImageDownloader，根据 URL 向网络读取数据（实现部分读取和全部读取后再通知回调两种方式）其他类：SDWebImageDecoder：异步对图像进行了一次解压。]]></content>
@@ -116,8 +129,8 @@
       <tags>
         <tag>EXP</tag>
         <tag>Swift</tag>
-        <tag>IOS</tag>
         <tag>Xcode</tag>
+        <tag>IOS</tag>
       </tags>
   </entry>
   <entry>
@@ -144,8 +157,8 @@
       <tags>
         <tag>EXP</tag>
         <tag>Swift</tag>
-        <tag>IOS</tag>
         <tag>Xcode</tag>
+        <tag>IOS</tag>
       </tags>
   </entry>
   <entry>
@@ -172,8 +185,8 @@
       <tags>
         <tag>EXP</tag>
         <tag>Swift</tag>
-        <tag>IOS</tag>
         <tag>Xcode</tag>
+        <tag>IOS</tag>
       </tags>
   </entry>
   <entry>
