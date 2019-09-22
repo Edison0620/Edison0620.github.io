@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[iOS - Kingfisher 源码解读]]></title>
+    <url>%2Farticles%2FiOS-kingfisher-analysis.html</url>
+    <content type="text"><![CDATA[Kingfisher 是一个轻量的下载和缓存网络图片库。下载和缓存是异步进行操作，已经下载好的图片会缓存在内存和本地，极大得提高 app 的体验。值得一提的是，他是我们国内大神王巍开发的一个框架。 一、功能介绍 异步图像下载和缓存。 基于 URLSession 的网络。 提供基本图像处理器和过滤器。 内存和磁盘的多层缓存。 可取消下载和处理任务以提高性能。 独立组件。 根据需要单独使用下载程序或缓存系统。 预览图像并在必要时稍后从缓存中显示它们。 UIImageView ， NSImage 和 UIButton 扩展可直接从 URL 设置图像。 设置图像时内置过渡动画。 加载图像时可自定义占位符。 可扩展的图像处理和图像格式支持。 二、安装CocoaPods在工程内 Podfile 文件中添加：123456789 source &apos;https://github.com/CocoaPods/Specs.git&apos;platform :ios, &apos;8.0&apos;use_frameworks!target &apos;MyApp&apos; do # your other pod # ... pod &apos;Kingfisher&apos;, &apos;~&gt; 4.0&apos;end 然后在终端工程目录下执行 pod install 即可。 Carthage在工程内 Cartfile 文件中添加： 1github &quot;onevcat/Kingfisher&quot; ~&gt; 4.0 然后执行 carthage update 即可。 三、使用1.直接设置一张 url 图片12let url = URL(string: "url_of_your_image")imageView.kf.setImage(with: url) 使用直接设置的方法，Kingfisher首先会尝试从缓存中去取，如果没有，则直接下载图片并且缓存下来以备后用。此外，Kingfisher默认使用absoluteString of url(即绝对url）作为cacheKey以方便再次加载该图片的时候去缓存中根据cacheKey(也就是图片url）查找，通俗来说就是把图片的整个链接作为cacheKey来缓存在本地。 2.指定一个 cacheKey 缓存图片12let imageResource = ImageResource(downloadURL: url, cacheKey: "Custom_cache_key")imageView.kf.setImage(with: imageResource) 3.设置占位符图片在 Kingfisher 中，为了防止加载网络图片失败，提供了一个设置占位符图片功能，也就是说，当网络加载过程中或者图片加载失败时，就使用自定义的默认图片来代替显示。 123if let url = URL(string: "http://mvimg2.meitudata.com/55fe3d94efbc12843.jpg") &#123; imageView.kf.setImage(with: url, placeholder: placeholder_image, options: nil, progressBlock: nil, completionHandler: nil)&#125; 4.下载完成回调12345678910111213141516if let url = URL(string: "http://mvimg2.meitudata.com/55fe3d94efbc12843.jpg") &#123; imageView.kf.setImage(with: url, placeholder: nil, options: nil, progressBlock: nil, completionHandler: &#123; (image, error, cacheType, imageUrl) in image // 为 nil 时，表示下载失败 error // 为 nil 时，表示下载成功， 非 nil 时，就是下载失败的错误信息 cacheType // 缓存类型，是个枚举，分以下三种： // .none 图片还没缓存（也就是第一次加载图片的时候） // .memory 从内存中获取到的缓存图片（第二次及以上加载） // .disk 从磁盘中获取到的缓存图片（第二次及以上加载） imageUrl // 所要下载的图片的url &#125;)&#125; 三、Kingfisher 结构]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>EXP</tag>
+        <tag>iOS</tag>
+        <tag>Swift</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[iOS - 使用 fastlane snapshot 自动化截图]]></title>
     <url>%2Farticles%2FiOS-fastlane-snapshot.html</url>
     <content type="text"><![CDATA[First at all 首先先介绍一下 fastlane 是干嘛用的： Fastlane 是一套使用 Ruby 写的自动化工具集，旨在简化 Android 和 iOS 的部署过程，自动化你的工作流。它可以简化一些乏味、单调、重复的工作，像截图、代码签名以及发布 App。 然后这篇文章主要介绍的是 fastlane 里面其中一个工具——snapshot，我们可以用它来给应用进行自动化截图。 附上官方文档地址：https://docs.fastlane.tools/getting-started/ios/screenshots/ Just to try 好了，接下来进入手把手教学阶段。这里的教学前提是你已经安装好了 fastlane 或者 snapshot。没安装好也没关系，打开终端输入以下代码进行安装：Terminal1 sudo gem install snapshot 如果遇到这个问题：You don’t have write permissions for the /usr/bin directory. 可以尝试加上安装路径Terminal1gem install -n /usr/local/bin fastlane 成功安装完以后。以一个新工程为例子，首先我们需要给他增加一个 UI Testing Target 1、增加 UI Testing Target选择 Xcode 顶部菜单栏中的 File –&gt; New –&gt; Target…，在弹出框中选择 iOS UI Testing Target名字随意，其他默认。然后点击工程，添加一个新的 scheme在弹出框中选择你新添加的 Target 2、编辑 UI Testing Target注意勾选你的 UI Testing Target，然后点击 Edit Scheme然后在弹出框中，勾选 Build 中的 Run和 Shard 3、给工程加入 snapshot打开终端，切到工程目录底下，输入一下命令：Terminal1fastlane snapshot init 成功后工程目录会多出两个文件SnapshotHelper.swift 文件需要我们添加到项目中使用，注意选中的Target 是前面创建的 UITest Target。如果是 OC 项目，文件拖入时会自动提醒是否创建桥接文件，选择“YES”就行了。 Snapfile 是截图配置文件，可以在里面设置需要截图的设备和语言。 4、在工程中使用 snapshot当确认了 UI Testing Target 的设置没问题，snapshot 的引用文件在工程中，配置文件也没问题后，我们下一步就可以开始在工程中初始化 snapshot 和调用他的截图方法了。 首先，我们需要在 setUp 方法中初始化，值得一提的是官方文档和网上搜索到的技术博客中 OC 的初始化方法：[Snapshot setupSnapshot:app];，在 snapshot 中的源码好像已经找不到了，现在的初始化方法如下Object-C123XCUIApplication *app = [[XCUIApplication alloc]init];[Snapshot setupSnapshot:app waitForAnimations:YES];[app launch]; 然后在 testExample 方法中实现截图方法Object-C123456789 XCUIApplication *app = [[XCUIApplication alloc] init];//截图 - 首頁[Snapshot snapshot:@"0main" timeWaitingForIdle:10];//截图 - 点击方法XCUIElement *openButton = app.buttons[@"Open"];[openButton tap];[Snapshot snapshot:@"1filter" timeWaitingForIdle:10]; 这里需要强调的一点是 XCUIElement *openButton = app.buttons[@&quot;Open&quot;]; 这句里的 “Open”，是怎么来的，他是根据我们创建控件时所设置的 accessibilityIdentifier 的值来的。Object-c1234UIButton *btnOne = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width / 2, self.view.frame.size.width / 2)];[btnOne addTarget:self action:@selector(jumpToAlibabba) forControlEvents:UIControlEventTouchUpInside];[btnOne setAccessibilityIdentifier:@"Open"];[self.view addSubview:btnOne]; 完成这一步，剩下需要做的就不多了。 5、获取自动化截图结果同样打开终端，切到项目路径，运行Terminal1fastlane snapshot 然后会出现一连串的打印运行结束以后，成功的话会生成了一个 html 文件和一组截图，html 页面会自己打开。不过显示的效果有点不太友好~以上。]]></content>
@@ -129,8 +142,8 @@
       <tags>
         <tag>EXP</tag>
         <tag>Swift</tag>
-        <tag>Xcode</tag>
         <tag>IOS</tag>
+        <tag>Xcode</tag>
       </tags>
   </entry>
   <entry>
@@ -157,8 +170,8 @@
       <tags>
         <tag>EXP</tag>
         <tag>Swift</tag>
-        <tag>Xcode</tag>
         <tag>IOS</tag>
+        <tag>Xcode</tag>
       </tags>
   </entry>
   <entry>
@@ -185,8 +198,8 @@
       <tags>
         <tag>EXP</tag>
         <tag>Swift</tag>
-        <tag>Xcode</tag>
         <tag>IOS</tag>
+        <tag>Xcode</tag>
       </tags>
   </entry>
   <entry>

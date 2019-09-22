@@ -84,7 +84,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="随笔,年度总结,江湖体验报告," />
+  <meta name="keywords" content="EXP,iOS,Swift," />
 
 
 
@@ -102,18 +102,21 @@
 
 
 
-<meta name="description" content="问朋友今年用什么字总结，他说，一。意思大概是一年都在原地踏步，年头年尾的状态没什么区别。我没有回他。　　今年换了一份新的工作，状况比去年的好上很多，去年没来得及和朋友说的展望词，今年恰好可以作为总结——“木”：总算是从原来的处境脱身出来，另外也存了一些小钱。比起工作和休息，我反倒喜欢找工作，坐着公交地铁在城市里穿来穿去的感觉，固然傍晚回家会有点风尘仆仆的疲惫，甚至某天面试很糟糕的时候，看着车">
-<meta name="keywords" content="随笔,年度总结,江湖体验报告">
+<meta name="description" content="Kingfisher 是一个轻量的下载和缓存网络图片库。下载和缓存是异步进行操作，已经下载好的图片会缓存在内存和本地，极大得提高 app 的体验。值得一提的是，他是我们国内大神王巍开发的一个框架。 一、功能介绍 异步图像下载和缓存。 基于 URLSession 的网络。 提供基本图像处理器和过滤器。 内存和磁盘的多层缓存。 可取消下载和处理任务以提高性能。 独立组件。 根据需要单独使用下载程序或">
+<meta name="keywords" content="EXP,iOS,Swift">
 <meta property="og:type" content="article">
-<meta property="og:title" content="喘口气上来">
-<meta property="og:url" content="http://kaaaaai.cn/articles/happy-new-year-2019.html">
+<meta property="og:title" content="iOS - Kingfisher 源码解读">
+<meta property="og:url" content="http://kaaaaai.cn/articles/iOS-kingfisher-analysis.html">
 <meta property="og:site_name" content="壹拾肆">
-<meta property="og:description" content="问朋友今年用什么字总结，他说，一。意思大概是一年都在原地踏步，年头年尾的状态没什么区别。我没有回他。　　今年换了一份新的工作，状况比去年的好上很多，去年没来得及和朋友说的展望词，今年恰好可以作为总结——“木”：总算是从原来的处境脱身出来，另外也存了一些小钱。比起工作和休息，我反倒喜欢找工作，坐着公交地铁在城市里穿来穿去的感觉，固然傍晚回家会有点风尘仆仆的疲惫，甚至某天面试很糟糕的时候，看着车">
+<meta property="og:description" content="Kingfisher 是一个轻量的下载和缓存网络图片库。下载和缓存是异步进行操作，已经下载好的图片会缓存在内存和本地，极大得提高 app 的体验。值得一提的是，他是我们国内大神王巍开发的一个框架。 一、功能介绍 异步图像下载和缓存。 基于 URLSession 的网络。 提供基本图像处理器和过滤器。 内存和磁盘的多层缓存。 可取消下载和处理任务以提高性能。 独立组件。 根据需要单独使用下载程序或">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-16T01:46:43.000Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/22/u9YO81.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/22/u9YXgx.jpg">
+<meta property="og:updated_time" content="2019-09-22T10:56:33.046Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="喘口气上来">
-<meta name="twitter:description" content="问朋友今年用什么字总结，他说，一。意思大概是一年都在原地踏步，年头年尾的状态没什么区别。我没有回他。　　今年换了一份新的工作，状况比去年的好上很多，去年没来得及和朋友说的展望词，今年恰好可以作为总结——“木”：总算是从原来的处境脱身出来，另外也存了一些小钱。比起工作和休息，我反倒喜欢找工作，坐着公交地铁在城市里穿来穿去的感觉，固然傍晚回家会有点风尘仆仆的疲惫，甚至某天面试很糟糕的时候，看着车">
+<meta name="twitter:title" content="iOS - Kingfisher 源码解读">
+<meta name="twitter:description" content="Kingfisher 是一个轻量的下载和缓存网络图片库。下载和缓存是异步进行操作，已经下载好的图片会缓存在内存和本地，极大得提高 app 的体验。值得一提的是，他是我们国内大神王巍开发的一个框架。 一、功能介绍 异步图像下载和缓存。 基于 URLSession 的网络。 提供基本图像处理器和过滤器。 内存和磁盘的多层缓存。 可取消下载和处理任务以提高性能。 独立组件。 根据需要单独使用下载程序或">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/09/22/u9YO81.png">
 
 
 
@@ -141,13 +144,13 @@
 
 
 
-  <link rel="canonical" href="http://kaaaaai.cn/articles/happy-new-year-2019.html"/>
+  <link rel="canonical" href="http://kaaaaai.cn/articles/iOS-kingfisher-analysis.html"/>
 
 
 
 
 
-  <title>喘口气上来 | 壹拾肆</title>
+  <title>iOS - Kingfisher 源码解读 | 壹拾肆</title>
   
 
 
@@ -464,7 +467,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kaaaaai.cn/articles/happy-new-year-2019.html">
+    <link itemprop="mainEntityOfPage" href="http://kaaaaai.cn/articles/iOS-kingfisher-analysis.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kaaaaai">
@@ -481,7 +484,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">喘口气上来</h2>
+          <h2 class="post-title" itemprop="name headline">iOS - Kingfisher 源码解读</h2>
         
 
         <div class="post-meta">
@@ -493,8 +496,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-31T18:00:52+08:00">
-                2018-12-31
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-22T16:24:52+08:00">
+                2019-09-22
               </time>
             
 
@@ -516,8 +519,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/涂鸦/" itemprop="url" rel="index">
-                    <span itemprop="name">涂鸦</span>
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
                   </a>
                 </span>
 
@@ -534,9 +537,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/articles/happy-new-year-2019.html#comments" itemprop="discussionUrl">
+                <a href="/articles/iOS-kingfisher-analysis.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="articles/happy-new-year-2019.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="articles/iOS-kingfisher-analysis.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -563,7 +566,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1,070 字
+                  749 字
                 </span>
               
 
@@ -579,7 +582,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  4 分钟
+                  3 分钟
                 </span>
               
             </div>
@@ -597,10 +600,31 @@
       
 
       
-        <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　问朋友今年用什么字总结，他说，一。意思大概是一年都在原地踏步，年头年尾的状态没什么区别。我没有回他。<br>　　今年换了一份新的工作，状况比去年的好上很多，去年没来得及和朋友说的展望词，今年恰好可以作为总结——“木”：总算是从原来的处境脱身出来，另外也存了一些小钱。比起工作和休息，我反倒喜欢找工作，坐着公交地铁在城市里穿来穿去的感觉，固然傍晚回家会有点风尘仆仆的疲惫，甚至某天面试很糟糕的时候，看着车水马龙的城市，想到万家灯火，何处有我那盏，会有点泄气。但那时候觉得很自由，而且目的是为了找工作，并不是漫无目的的奔波，自由，且自由得很踏实。<br>　　和一个女性朋友说起我找工作就当观光的事，她说我很乐观。我收下了她的称赞，也很乐意把我好的一面给她看，她离我很远，那会找工作的时候，蓦然间看到一个很像她的人，便和她说了一声， 还说了电影里看到和她气质很像的人，后来我们有一阵子联系很频繁，说了很多琐事，互相交换了烦恼，我忘记，我们说了那么多，我有没有告诉她我很想她。再后来就没有联系了。<br>　　疏于和旧日朋友联系这大概是我今年不好的变化吧。到现在我也还没问我那位朋友 2019 年的展望词是什么。另一位朋友常打电话过来聊天，我也大部分时间都以一种不耐烦，拒绝配合的态度应付，当然一部分也有他太啰嗦的缘故，但我想按着我去年心态好的时候，大概会以一种朋友在胡闹，我除了原谅还能有什么办法的态度和他愉快的聊下去。和他有一段以最近书店里出的新书都没法看，老书才是经典的观点开始的对话，后面我说他是不是有些焦虑，对自己或者出来以后有很多怀才不遇的感慨，他犹豫着点头说是。现在回过头去看，他变得啰嗦是因为焦虑的缘故，我对人对事的不耐烦又何尝不是。<br>　　找到工作后生活就规律了很多，新公司的同事们都很友好，也在去年的基础上学了点新的东西。和公司旅游的时候惊讶的发现上司是个塞尔达粉，后来我们就交换游戏机玩，n3ds 和 ps4 让我废寝忘食。上半年的学习计划到了下半年流产也大半是因为这个原因。夏天的时候去学了游泳，从在心里说服自己克服恐惧，到在水里站起来还能游一个来回，整个过程让我感觉很有成就感。<br>　　今年看的书没有去年多，去电影院倒是比去年多多了，《江湖儿女》里有个地方让我印象深刻，斌哥还是出租车公司老总的时候，走路上被小年轻用钢管敲断了小腿，疼半天只是冲车子消失的地方喊了句，不至于吧。但后面中风偏瘫的时候却因为小弟的小弟先上主食后上菜说他没有规矩而大发雷霆把桌子翻了。境遇让人的心态变好又变坏，之前有些悲观，把自己个性签名写，心由境生。现在看起来像个黑色幽默——不由得想起我对自己其他的悲观的预见性结论了。<br>　　今年作为从去年的困境脱离的过渡期，好和不好都有一些，勉强给自己的表现打个及格分。来年的展望词是林，希望明年可以存更多的钱，多吃蔬菜，减轻体重，可以有“阵阵晚风吹动着松涛，只有青山藏在白云间”的心态，可以境由心生。
-　
-　　
-　</p>
+        <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://s2.ax1x.com/2019/09/22/u9YO81.png" alt=""><br>Kingfisher 是一个轻量的下载和缓存网络图片库。下载和缓存是异步进行操作，已经下载好的图片会缓存在内存和本地，极大得提高 app 的体验。值得一提的是，他是我们国内大神王巍开发的一个框架。</p>
+<h2 id="一、功能介绍"><a href="#一、功能介绍" class="headerlink" title="一、功能介绍"></a>一、功能介绍</h2><ul>
+<li>异步图像下载和缓存。</li>
+<li>基于 URLSession 的网络。 提供基本图像处理器和过滤器。</li>
+<li>内存和磁盘的多层缓存。</li>
+<li>可取消下载和处理任务以提高性能。</li>
+<li>独立组件。 根据需要单独使用下载程序或缓存系统。</li>
+<li>预览图像并在必要时稍后从缓存中显示它们。</li>
+<li>UIImageView ， NSImage 和 UIButton 扩展可直接从 URL 设置图像。</li>
+<li>设置图像时内置过渡动画。</li>
+<li>加载图像时可自定义占位符。</li>
+<li>可扩展的图像处理和图像格式支持。</li>
+</ul>
+<h2 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h2><h3 id="CocoaPods"><a href="#CocoaPods" class="headerlink" title="CocoaPods"></a>CocoaPods</h3><p>在工程内 Podfile 文件中添加：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">   source &apos;https://github.com/CocoaPods/Specs.git&apos;</span><br><span class="line">platform :ios, &apos;8.0&apos;</span><br><span class="line">use_frameworks!</span><br><span class="line"></span><br><span class="line">target &apos;MyApp&apos; do</span><br><span class="line">  # your other pod</span><br><span class="line">  # ...</span><br><span class="line">  pod &apos;Kingfisher&apos;, &apos;~&gt; 4.0&apos;</span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
+<p>然后在终端工程目录下执行 <code>pod install</code> 即可。</p>
+<h3 id="Carthage"><a href="#Carthage" class="headerlink" title="Carthage"></a>Carthage</h3><p>在工程内 Cartfile 文件中添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">github &quot;onevcat/Kingfisher&quot; ~&gt; 4.0</span><br></pre></td></tr></table></figure>
+<p>然后执行 <code>carthage update</code> 即可。</p>
+<h2 id="三、使用"><a href="#三、使用" class="headerlink" title="三、使用"></a>三、使用</h2><h3 id="1-直接设置一张-url-图片"><a href="#1-直接设置一张-url-图片" class="headerlink" title="1.直接设置一张 url 图片"></a>1.直接设置一张 url 图片</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> url = <span class="type">URL</span>(string: <span class="string">"url_of_your_image"</span>)</span><br><span class="line">imageView.kf.setImage(with: url)</span><br></pre></td></tr></table></figure>
+<p>使用直接设置的方法，Kingfisher首先会尝试从缓存中去取，如果没有，则直接下载图片并且缓存下来以备后用。此外，Kingfisher默认使用absoluteString of url(即绝对url）作为cacheKey以方便再次加载该图片的时候去缓存中根据cacheKey(也就是图片url）查找，通俗来说就是把图片的整个链接作为cacheKey来缓存在本地。</p>
+<h3 id="2-指定一个-cacheKey-缓存图片"><a href="#2-指定一个-cacheKey-缓存图片" class="headerlink" title="2.指定一个 cacheKey 缓存图片"></a>2.指定一个 cacheKey 缓存图片</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> imageResource = <span class="type">ImageResource</span>(downloadURL: url, cacheKey: <span class="string">"Custom_cache_key"</span>)</span><br><span class="line">imageView.kf.setImage(with: imageResource)</span><br></pre></td></tr></table></figure>
+<h3 id="3-设置占位符图片"><a href="#3-设置占位符图片" class="headerlink" title="3.设置占位符图片"></a>3.设置占位符图片</h3><p>在 Kingfisher 中，为了防止加载网络图片失败，提供了一个设置占位符图片功能，也就是说，当网络加载过程中或者图片加载失败时，就使用自定义的默认图片来代替显示。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> url = <span class="type">URL</span>(string: <span class="string">"http://mvimg2.meitudata.com/55fe3d94efbc12843.jpg"</span>) &#123;</span><br><span class="line">    imageView.kf.setImage(with: url, placeholder: placeholder_image, options: <span class="literal">nil</span>, progressBlock: <span class="literal">nil</span>, completionHandler: <span class="literal">nil</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-下载完成回调"><a href="#4-下载完成回调" class="headerlink" title="4.下载完成回调"></a>4.下载完成回调</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> url = <span class="type">URL</span>(string: <span class="string">"http://mvimg2.meitudata.com/55fe3d94efbc12843.jpg"</span>) &#123;</span><br><span class="line">    imageView.kf.setImage(with: url, placeholder: <span class="literal">nil</span>, options: <span class="literal">nil</span>, progressBlock: <span class="literal">nil</span>, completionHandler: &#123; (image, error, cacheType, imageUrl) <span class="keyword">in</span></span><br><span class="line">        </span><br><span class="line">        image       <span class="comment">// 为 nil 时，表示下载失败</span></span><br><span class="line">        </span><br><span class="line">        error       <span class="comment">// 为 nil 时，表示下载成功， 非 nil 时，就是下载失败的错误信息</span></span><br><span class="line">        </span><br><span class="line">        cacheType   <span class="comment">// 缓存类型，是个枚举，分以下三种：</span></span><br><span class="line">                    <span class="comment">// .none    图片还没缓存（也就是第一次加载图片的时候）</span></span><br><span class="line">                    <span class="comment">// .memory  从内存中获取到的缓存图片（第二次及以上加载）</span></span><br><span class="line">                    <span class="comment">// .disk    从磁盘中获取到的缓存图片（第二次及以上加载）</span></span><br><span class="line">        </span><br><span class="line">        imageUrl    <span class="comment">// 所要下载的图片的url</span></span><br><span class="line">        </span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="三、Kingfisher-结构"><a href="#三、Kingfisher-结构" class="headerlink" title="三、Kingfisher 结构"></a>三、Kingfisher 结构</h2><p><img src="https://s2.ax1x.com/2019/09/22/u9YXgx.jpg" alt=""></p>
 
       
     </div>
@@ -619,7 +643,7 @@
         <div style="text-align:center;color: #ccc;font-size:14px;">------本文结束 <i class="fa fa-thermometer-three-quarters" aria-hidden="true"></i> 感谢阅读------</div>
         <div>
 	    <p id="div-border-left-red">
-	   <b>本文地址：</b><a href="/articles/happy-new-year-2019.html" title="喘口气上来">http://kaaaaai.cn/articles/happy-new-year-2019.html</a><br/>
+	   <b>本文地址：</b><a href="/articles/iOS-kingfisher-analysis.html" title="iOS - Kingfisher 源码解读">http://kaaaaai.cn/articles/iOS-kingfisher-analysis.html</a><br/>
 	    <span>
 	    <b>本文基于<a target="_blank" title="Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)" href="http://creativecommons.org/licenses/by-sa/4.0/"> 知识共享署名-相同方式共享 4.0 </a>国际许可协议发布</b><br/><b>转载请注明出处，谢谢！</b>
 	    </span>
@@ -664,11 +688,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/随笔/" rel="tag"><i class="fa fa-tag"></i> 随笔</a>
+            <a href="/tags/EXP/" rel="tag"><i class="fa fa-tag"></i> EXP</a>
           
-            <a href="/tags/年度总结/" rel="tag"><i class="fa fa-tag"></i> 年度总结</a>
+            <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
           
-            <a href="/tags/江湖体验报告/" rel="tag"><i class="fa fa-tag"></i> 江湖体验报告</a>
+            <a href="/tags/Swift/" rel="tag"><i class="fa fa-tag"></i> Swift</a>
           
         </div>
       
@@ -681,8 +705,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/articles/objective-c-style-guide.html" rel="next" title="iOS - Objective-C 开发规范">
-                <i class="fa fa-chevron-left"></i> iOS - Objective-C 开发规范
+              <a href="/articles/iOS-fastlane-snapshot.html" rel="next" title="iOS - 使用 fastlane snapshot 自动化截图">
+                <i class="fa fa-chevron-left"></i> iOS - 使用 fastlane snapshot 自动化截图
               </a>
             
           </div>
@@ -690,10 +714,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/articles/swift-style-guide.html" rel="prev" title="iOS - Swift 开发规范">
-                iOS - Swift 开发规范 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -747,8 +767,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://s2.ax1x.com/2019/03/14/AESiM4.jpg"
@@ -873,6 +902,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、功能介绍"><span class="nav-text">一、功能介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、安装"><span class="nav-text">二、安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CocoaPods"><span class="nav-text">CocoaPods</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Carthage"><span class="nav-text">Carthage</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、使用"><span class="nav-text">三、使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-直接设置一张-url-图片"><span class="nav-text">1.直接设置一张 url 图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-指定一个-cacheKey-缓存图片"><span class="nav-text">2.指定一个 cacheKey 缓存图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-设置占位符图片"><span class="nav-text">3.设置占位符图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-下载完成回调"><span class="nav-text">4.下载完成回调</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、Kingfisher-结构"><span class="nav-text">三、Kingfisher 结构</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1058,9 +1103,9 @@ show_date_time();
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://kaaaaai.cn/articles/happy-new-year-2019.html';
-          this.page.identifier = 'articles/happy-new-year-2019.html';
-          this.page.title = '喘口气上来';
+          this.page.url = 'http://kaaaaai.cn/articles/iOS-kingfisher-analysis.html';
+          this.page.identifier = 'articles/iOS-kingfisher-analysis.html';
+          this.page.title = 'iOS - Kingfisher 源码解读';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://kaaaaai-cn.disqus.com/embed.js';
