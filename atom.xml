@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kaaaaai.cn/"/>
-  <updated>2019-09-22T10:56:33.046Z</updated>
+  <updated>2019-09-27T08:19:08.292Z</updated>
   <id>http://kaaaaai.cn/</id>
   
   <author>
@@ -16,11 +16,63 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>iOS - Xcode 设置代码片段</title>
+    <link href="http://kaaaaai.cn/articles/iOS-Xcode-setup-code-snippet.html"/>
+    <id>http://kaaaaai.cn/articles/iOS-Xcode-setup-code-snippet.html</id>
+    <published>2019-09-27T08:24:52.000Z</published>
+    <updated>2019-09-27T08:19:08.292Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><em>为了提高编程的效率，有时候也要用上一些捷径。代码片段就是我们可以用上的捷径之一。</em></p>
+<h2 id="一、创建代码片段"><a href="#一、创建代码片段" class="headerlink" title="一、创建代码片段"></a>一、创建代码片段</h2><p>以 <code>Strong</code> 为例：<br>1、在书写 <code>@property</code> 属性的地方写下如下语句：<br><figure class="highlight objc"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) &lt;<span class="meta">#Class#&gt; *<span class="meta-string">&lt;#object#&gt;</span>;</span></span><br></pre></td></tr></table></figure></p>
+<p>2、选中上述语句，右键点击弹窗中的“Create Code Snippet”<br><img src="https://s2.ax1x.com/2019/09/27/uKdXrt.jpg" alt=""><br>3、弹出代码片段编辑窗口，如下图所示：<br><img src="https://s2.ax1x.com/2019/09/27/uKdOKI.jpg" alt=""><br>图中从上到下的含义依次是：</p>
+<ol>
+<li>Title：标题</li>
+<li>Summary：描述文字</li>
+<li>代码块区域</li>
+<li>Language：可以在哪些语言中使用该代码片段</li>
+<li>Platform：可以使用代码片段的平台，有 All/iOS/macOS/tvOS/watchOS 五个选项</li>
+<li>Completion：敲出代码片段的快捷方式，例：@ps</li>
+<li>Availbability：可以在哪些文件中使用当前代码片段，比如全部位置，头文件中，.m文件中，声明位置，实现位置等，当然可以添加多个支持的位置。</li>
+</ol>
+<p>一切设置完成以后，点击该菜单右下角的Done按钮，新建工作结束。</p>
+<h2 id="二、常用代码块"><a href="#二、常用代码块" class="headerlink" title="二、常用代码块"></a>二、常用代码块</h2><p>1、strong：<br><figure class="highlight objc"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) &lt;<span class="meta">#Class#&gt; *<span class="meta-string">&lt;#object#&gt;</span>;</span></span><br></pre></td></tr></table></figure></p>
+<p>2、weak：<br><figure class="highlight objc"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">weak</span>) &lt;<span class="meta">#Class#&gt; *<span class="meta-string">&lt;#object#&gt;</span>;</span></span><br></pre></td></tr></table></figure></p>
+<p>3、copy：<br><figure class="highlight objc"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *&lt;<span class="meta">#string#&gt;;</span></span><br></pre></td></tr></table></figure></p>
+<p>4、assign：<br><figure class="highlight objc"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) &lt;<span class="meta">#Class#&gt; <span class="meta-string">&lt;#property#&gt;</span>;</span></span><br></pre></td></tr></table></figure></p>
+<p>5、delegate：<br><figure class="highlight objc"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">weak</span>) <span class="keyword">id</span>&lt;&lt;<span class="meta">#protocol#&gt;&gt; <span class="meta-string">&lt;#delegate#&gt;</span>;</span></span><br></pre></td></tr></table></figure></p>
+<p>6、block：<br><figure class="highlight objc"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) &lt;<span class="meta">#Block#&gt; <span class="meta-string">&lt;#block#&gt;</span>;</span></span><br></pre></td></tr></table></figure></p>
+<p>7、mark：<br><figure class="highlight objc"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#pragma mark - <span class="meta-string">&lt;#mark#&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<p>8、ReUseCell：<br><figure class="highlight objc"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="built_in">NSString</span> **cellID = &lt;<span class="meta">#cellID#&gt;;</span></span><br><span class="line">&lt;<span class="meta">#Class#&gt; *cell = [tableView dequeueReusableCellWithIdentifier:cellID];</span></span><br><span class="line"><span class="keyword">if</span>(cell == <span class="literal">nil</span>) &#123;</span><br><span class="line">cell = [[&lt;<span class="meta">#Class#&gt; alloc] initWithStyle:UITableViewCellStyleDefault      reuseIdentifier:cellID];</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> cell;</span><br></pre></td></tr></table></figure></p>
+<p>9、button:<br><figure class="highlight objc"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIButton</span> *btn = [<span class="built_in">UIButton</span> buttonWithType:<span class="built_in">UIButtonTypeCustom</span>];</span><br><span class="line">btn.frame = <span class="built_in">CGRectMake</span>(&lt;<span class="meta">##&gt;, <span class="meta-string">&lt;##&gt;</span>, <span class="meta-string">&lt;##&gt;</span>, <span class="meta-string">&lt;##&gt;</span>);</span></span><br><span class="line">btn.backgroundColor = [<span class="built_in">UIColor</span> clearColor];</span><br><span class="line">[btn addTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(clicked:) forControlEvents:<span class="built_in">UIControlEventTouchUpInside</span>];</span><br><span class="line">[<span class="keyword">self</span>.view addSubview:btn];</span><br></pre></td></tr></table></figure></p>
+<p>10、MainGCD：<br><figure class="highlight objc"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">&lt;<span class="meta">#code#&gt;</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>11、AfterGCD：<br><figure class="highlight objc"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(&lt;<span class="meta">#delayInSeconds#&gt; * NSEC_PER_SEC)), dispatch_get_main_queue(), ^&#123;</span></span><br><span class="line">&lt;<span class="meta">#code to be executed after a specified delay#&gt;</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>12、OnceGCD：<br><figure class="highlight objc"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken;</span><br><span class="line"><span class="built_in">dispatch_once</span>(&amp;onceToken, ^&#123;</span><br><span class="line">&lt;<span class="meta">#code to be executed once#&gt;</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>13、Screen Size<br><figure class="highlight objc"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#define SCREEN_WIDTH        ([UIScreen mainScreen].bounds.size.width)</span></span><br><span class="line"><span class="meta">#define SCREEN_HEIGHT       ([UIScreen mainScreen].bounds.size.height)</span></span><br></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
+    
+      <category term="iOS" scheme="http://kaaaaai.cn/tags/iOS/"/>
+    
+      <category term="Xcode" scheme="http://kaaaaai.cn/tags/Xcode/"/>
+    
+  </entry>
+  
+  <entry>
     <title>iOS - Kingfisher 源码解读</title>
     <link href="http://kaaaaai.cn/articles/iOS-kingfisher-analysis.html"/>
     <id>http://kaaaaai.cn/articles/iOS-kingfisher-analysis.html</id>
     <published>2019-09-22T08:24:52.000Z</published>
-    <updated>2019-09-22T10:56:33.046Z</updated>
+    <updated>2019-09-22T10:57:02.428Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://s2.ax1x.com/2019/09/22/u9YO81.png" alt=""><br>Kingfisher 是一个轻量的下载和缓存网络图片库。下载和缓存是异步进行操作，已经下载好的图片会缓存在内存和本地，极大得提高 app 的体验。值得一提的是，他是我们国内大神王巍开发的一个框架。</p>
 <h2 id="一、功能介绍"><a href="#一、功能介绍" class="headerlink" title="一、功能介绍"></a>一、功能介绍</h2><ul>
@@ -923,37 +975,6 @@
       <category term="Swift" scheme="http://kaaaaai.cn/tags/Swift/"/>
     
       <category term="IOS" scheme="http://kaaaaai.cn/tags/IOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>每周总结 - 0629</title>
-    <link href="http://kaaaaai.cn/articles/weekly-summary-0629.html"/>
-    <id>http://kaaaaai.cn/articles/weekly-summary-0629.html</id>
-    <published>2019-06-29T02:13:52.000Z</published>
-    <updated>2019-07-06T02:05:19.218Z</updated>
-    
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　忽然觉得当咸鱼既容易又困难，只要找到某种自洽，并能说服自己。和朋友聊天问近况，他说頽了，放弃了。原因是看见未来无望，贫富阶级固定，咸鱼再难翻身。我想起另外一个朋友当咸鱼的理由是得过且过，活在当下，当前的快乐最重要。他们立足于现在和未来都给自己当咸鱼找到了理论支撑，这样没有心理压力的做咸鱼是容易的，但这些理由一点也都说服不了我，而在尝试做咸鱼失败之后我甚至可以立马找到理由开导自己，不一定每个人都有天赋做咸鱼，找到适合自己的方式生活就好。所以事情陷入僵局，但回到起点看，问题倒不是要不要做咸鱼，又或者是怎么才能做咸鱼的问题。而是如何心无旁骛的在自己选择的路上走，不再三心二意的左右顾盼，不再对自己没得到的东西报有念念不忘的遗憾。之前在微博上看到一句，大概意思是人要是没有回忆，就可以像一台完美的机器一样一直合理运作。总是在空闲的时候，在脑子里猝尔闪烁，仔细想想，或许可以。但如果真是那样，彼时的我可能也不会有此时这种想法。<br>　　新开了一本书《迁徙的间隙》，作者只比我大一岁，文字很有灵气，对事物的描写所选择切入的视角也很有意思，前卫，故事的内核有点晦涩，有些地方也有一些流于雕琢的痕迹，但即便这样，也让我很羡慕，书里的那种文字，是我一直在尝试但却一直没写出来的东西。不过我也不是很气馁，因为想写的东西还有很多很多，作者也让我看到了一个可能性，就是坚持写，不断耕耘，总会有开花结果的一天。<br>　　素描课已经学到三棱体的画法了，透视打调子越来越熟练，但是图形线条好像越画越不直了，所以接下来的重心是回过头继续练基本功。英语单词的第一轮复习大概这周末可以结束，极客时间上的课有些懈怠，本周只看了一两节，中午本来预计拿来刷题的时间也被我用来看小说，所以下周要加油了~<br>　　工作上重头内容都在星期一一口气解决了，其他几天做的事除了修改 bug，都是一些重复性很强的事，所以本周比较清闲，值得记录的是，我用 UITextField 写登录界面的输入框，设置 right view 分别是下拉的箭头和隐藏显示密码的按钮，有个问题就是他们的位置都显示在 textfield 的边缘，显得很怪异。然后我试了 UITextField 的拓展，试把 right view 的 UIButton 改用 UIiamgeview，试了改变 left view，content view，right view 的边距来改变 right view 的位置，都没有起作用。最后起作用的是，改变 right view 的大小，使设置 right view 的 button 内部图片居中，起到位置移动的效果。<br>　　另外一个问题是用 swiftScan 现成的轮子生成二维码图片，用他自带的方法在中心位置添加 logo，会导致 logo 图片模糊，然后我就手动修改了添加 logo 的方法，解决。
-　　
-　　</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
-    
-    </summary>
-    
-      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
-    
-      <category term="Live" scheme="http://kaaaaai.cn/tags/Live/"/>
-    
-      <category term="Study" scheme="http://kaaaaai.cn/tags/Study/"/>
-    
-      <category term="Work" scheme="http://kaaaaai.cn/tags/Work/"/>
     
   </entry>
   
