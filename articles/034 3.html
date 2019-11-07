@@ -1,0 +1,1658 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="EXP,IOS," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="壹拾肆" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="由于公司需要，对，仍然是由于公司需要，最近调研了一遍常用的第三方库，按功能分类，综合 GitHub 上 Star 的数量，最近更新的时间，百度、谷歌搜索（把这个列入参考的目的是考虑到开发过程中可能遇到种种问题，需要面向搜索编程，检索出的条目越多就越容易解决问题，另一方面也证明有很多人使用。）的条目数量，和实际使用体验得出比较适合稳定持续开发使用的框架。 一、Log 输出打印调研1.Cocoa">
+<meta name="keywords" content="EXP,IOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS 关于第三方库的选择">
+<meta property="og:url" content="http://kaaaaai.cn/articles/034.html">
+<meta property="og:site_name" content="壹拾肆">
+<meta property="og:description" content="由于公司需要，对，仍然是由于公司需要，最近调研了一遍常用的第三方库，按功能分类，综合 GitHub 上 Star 的数量，最近更新的时间，百度、谷歌搜索（把这个列入参考的目的是考虑到开发过程中可能遇到种种问题，需要面向搜索编程，检索出的条目越多就越容易解决问题，另一方面也证明有很多人使用。）的条目数量，和实际使用体验得出比较适合稳定持续开发使用的框架。 一、Log 输出打印调研1.Cocoa">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-01T07:12:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS 关于第三方库的选择">
+<meta name="twitter:description" content="由于公司需要，对，仍然是由于公司需要，最近调研了一遍常用的第三方库，按功能分类，综合 GitHub 上 Star 的数量，最近更新的时间，百度、谷歌搜索（把这个列入参考的目的是考虑到开发过程中可能遇到种种问题，需要面向搜索编程，检索出的条目越多就越容易解决问题，另一方面也证明有很多人使用。）的条目数量，和实际使用体验得出比较适合稳定持续开发使用的框架。 一、Log 输出打印调研1.Cocoa">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://kaaaaai.cn/articles/034.html"/>
+
+
+
+
+
+  <title>iOS 关于第三方库的选择 | 壹拾肆</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">壹拾肆</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">闲言和碎语</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-xumi">
+          <a href="/xumi" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-coffee"></i> <br />
+            
+            须弥
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+<!-- 参考Never_yu的High一下功能 
+     网站位置：https://neveryu.github.io/2016/09/30/hexo-next-two,
+               https://neveryu.github.io/2016/11/11/hexo-next-three/-->
+    <li class="menu-item"> <a title="把这个链接拖到你的Chrome收藏夹工具栏中" href='javascript:(function() {
+    function c() {
+        var e = document.createElement("link");
+        e.setAttribute("type", "text/css");
+        e.setAttribute("rel", "stylesheet");
+        e.setAttribute("href", f);
+        e.setAttribute("class", l);
+        document.body.appendChild(e)
+    }
+
+    function h() {
+        var e = document.getElementsByClassName(l);
+        for (var t = 0; t < e.length; t++) {
+            document.body.removeChild(e[t])
+        }
+    }
+
+    function p() {
+        var e = document.createElement("div");
+        e.setAttribute("class", a);
+        document.body.appendChild(e);
+        setTimeout(function() {
+            document.body.removeChild(e)
+        }, 100)
+    }
+
+    function d(e) {
+        return {
+            height : e.offsetHeight,
+            width : e.offsetWidth
+        }
+    }
+
+    function v(i) {
+        var s = d(i);
+        return s.height > e && s.height < n && s.width > t && s.width < r
+    }
+
+    function m(e) {
+        var t = e;
+        var n = 0;
+        while (!!t) {
+            n += t.offsetTop;
+            t = t.offsetParent
+        }
+        return n
+    }
+
+    function g() {
+        var e = document.documentElement;
+        if (!!window.innerWidth) {
+            return window.innerHeight
+        } else if (e && !isNaN(e.clientHeight)) {
+            return e.clientHeight
+        }
+        return 0
+    }
+
+    function y() {
+        if (window.pageYOffset) {
+            return window.pageYOffset
+        }
+        return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+    }
+
+    function E(e) {
+        var t = m(e);
+        return t >= w && t <= b + w
+    }
+
+    function S() {
+        var e = document.createElement("audio");
+        e.setAttribute("class", l);
+        e.src = i;
+        e.loop = false;
+        e.addEventListener("canplay", function() {
+            setTimeout(function() {
+                x(k)
+            }, 500);
+            setTimeout(function() {
+                N();
+                p();
+                for (var e = 0; e < O.length; e++) {
+                    T(O[e])
+                }
+            }, 15500)
+        }, true);
+        e.addEventListener("ended", function() {
+            N();
+            h()
+        }, true);
+        e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+        document.body.appendChild(e);
+        e.play()
+    }
+
+    function x(e) {
+        e.className += " " + s + " " + o
+    }
+
+    function T(e) {
+        e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+    }
+
+    function N() {
+        var e = document.getElementsByClassName(s);
+        var t = new RegExp("\\b" + s + "\\b");
+        for (var n = 0; n < e.length; ) {
+            e[n].className = e[n].className.replace(t, "")
+        }
+    }
+
+    var e = 1;
+    var t = 1;
+    var n = 1000;
+    var r = 1200;
+    var i = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake.mp3";
+    var s = "mw-harlem_shake_me";
+    var o = "im_first";
+    var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+    var a = "mw-strobe_light";
+    var f = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";
+    var l = "mw_added_css";
+    var b = g();
+    var w = y();
+    var C = document.getElementsByTagName("*");
+    var k = null;
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            if (E(A)) {
+                k = A;
+                break
+            }
+        }
+    }
+    if (A === null) {
+        console.warn("Could not find a node of the right size. Please try a different page.");
+        return
+    }
+    c();
+    S();
+    var O = [];
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            O.push(A)
+        }
+    }
+})()    '><font color="#FF0000"><i class="menu-item-icon fa fa-music fa-fw"></i>High一下</a></font></li>
+<!-- end High一下 -->
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kaaaaai.cn/articles/034.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaaaaai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://s2.ax1x.com/2019/03/14/AESiM4.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="壹拾肆">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">iOS 关于第三方库的选择</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-02T14:24:52+08:00">
+                2018-08-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/articles/034.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="articles/034.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">热度
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>℃ |
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  3,520 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  13 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><em>　　由于公司需要，对，仍然是由于公司需要，最近调研了一遍常用的第三方库，按功能分类，综合 GitHub 上 Star 的数量，最近更新的时间，百度、谷歌搜索（把这个列入参考的目的是考虑到开发过程中可能遇到种种问题，需要面向搜索编程，检索出的条目越多就越容易解决问题，另一方面也证明有很多人使用。）的条目数量，和实际使用体验得出比较适合稳定持续开发使用的框架。</em></p>
+<h1 id="一、Log-输出打印调研"><a href="#一、Log-输出打印调研" class="headerlink" title="一、Log 输出打印调研"></a>一、Log 输出打印调研</h1><h2 id="1-CocoaLumberjack（OC）"><a href="#1-CocoaLumberjack（OC）" class="headerlink" title="1.CocoaLumberjack（OC）"></a>1.<a href="https://github.com/CocoaLumberjack/CocoaLumberjack" target="_blank" rel="noopener">CocoaLumberjack</a>（OC）</h2><div class="note default no-icon"><p><i class="fa fa-star" aria-hidden="true"></i> Star 数：10,467<br><i class="fa fa-calendar" aria-hidden="true"></i> 最近一次更新时间：29 天以前<br><i class="fa fa-google"></i> 谷歌搜索词条结果：32,000<br><i class="fa fa-search-plus" aria-hidden="true"></i> 百度搜索词条结果：5,000<br><i class="fa fa-toggle-on"></i> 是否也支持 Swift：是<br><i class="fa fa-font"></i>是否有中文文档：否 </p>
+</div>
+<div class="note primary no-icon"><p> <em>详细功能：</em></p>
+<ol>
+<li>支持日志打印到Xcode控制台，打印到mac的console程序、打印到文件</li>
+<li>日志功能支持关闭和打开，支持Error、Warning、Info、Debug、Verbose、All日志等级</li>
+<li>支持基于DDLogFormatter协议自定义日志格式和继承DDAbstractLogger和协议DDLogger自定义logger</li>
+<li>可将日志打印上传到服务器</li>
+<li>基于多线程、GCD、运行时态等 </li>
+</ol>
+</div>
+<p><strong>使用体验：非常容易上手。导入需要使用的类，pod install 就可直接运行。demo 可直接运行，自建工程导入框架也都流畅运行。</strong></p>
+<h2 id="2-NSLogger（OC）"><a href="#2-NSLogger（OC）" class="headerlink" title="2.NSLogger（OC）"></a>2.<a href="https://github.com/fpillet/NSLogger" target="_blank" rel="noopener">NSLogger</a>（OC）</h2><div class="note default no-icon"><p><i class="fa fa-star" aria-hidden="true"></i> Star 数：4,313<br><i class="fa fa-calendar" aria-hidden="true"></i> 最近一次更新时间：三个月前<br><i class="fa fa-google"></i> 谷歌搜索词条结果：7,490<br><i class="fa fa-search-plus" aria-hidden="true"></i> 百度搜索词条结果：7,880<br><i class="fa fa-toggle-on"></i> 是否也支持 Swift：是<br><i class="fa fa-font"></i> 是否有中文文档：否</p>
+</div> 
+<div class="note primary no-icon"><p><em>详细功能：</em></p>
+<ol>
+<li>使用桌面应用程序查看日志</li>
+<li>可以从设备或模拟器发送日志</li>
+<li>接受来自本地网络客户端（使用Bonjour）或直接通过Internet连接的远程客户端的连接</li>
+<li>在线（运行并连接到NSLogger的应用程序）和脱机（保存的日志）日志查看</li>
+<li>缓冲内存或文件中的所有跟踪，在获取连接时将其发送给查看器</li>
+<li>定义日志域（应用程序，视图，模型，控制器，网络……）和重要性级别（错误，警告，调试，噪音…）</li>
+<li>使用regexp为日志消息着色</li>
+<li>记录图像或原始二进制数据</li>
+<li>安全日志记录（默认情况下连接使用SSL）</li>
+<li>高级日志过滤选项</li>
+<li>保存查看器日志以便共享和/或稍后查看它们</li>
+<li>将日志导出到文本文件</li>
+<li>打开从未直接连接到日志查看器的客户端应用程序返回的原始缓冲跟踪文件 </li>
+</ol>
+</div>
+<p><strong>使用体验：demo 无法正常运行，文档描写不清晰。自建工程导入框架按照文档实现方法，报错。</strong></p>
+<h2 id="3-SwiftyBeaver-Swift"><a href="#3-SwiftyBeaver-Swift" class="headerlink" title="3.SwiftyBeaver (Swift)"></a>3.<a href="https://github.com/SwiftyBeaver/SwiftyBeaver" target="_blank" rel="noopener">SwiftyBeaver</a> (Swift)</h2><div class="note default no-icon"><p><i class="fa fa-star" aria-hidden="true"></i> Star 数：3,711<br><i class="fa fa-calendar" aria-hidden="true"></i> 最近一次更新时间：两个月以前<br><i class="fa fa-google"></i> 谷歌搜索词条结果：13,300<br><i class="fa fa-search-plus" aria-hidden="true"></i> 百度搜索词条结果：62,800<br><i class="fa fa-font"></i>是否有中文文档：否 </p>
+</div> 
+<div class="note primary no-icon"><p><em>详细功能：</em></p>
+<ol>
+<li>log 输出到Xcode控制台 或  输出到文件</li>
+<li>添加  自定义日志目标  处理程序以登录Loggly，Redis等。</li>
+<li>将带有端到端AES256加密的日志发送到SwiftyBeaver Mac App</li>
+<li>彩色输出  到日志文件等</li>
+<li>使用  自己的串行后台队列/线程  以获得出色的性能</li>
+<li>低于设定的最小值的日志级别不会执行，以获得更好的发布性能</li>
+<li>使用多个日志记录目标和设置，即使是相同类型</li>
+<li>完全可定制的  日志格式</li>
+<li>强大的过滤器</li>
+<li>使用  log.debug(“foo”) 语法</li>
+<li>非常详细的日志记录（可选）：<ul>
+<li>时间（精确到微秒）</li>
+<li>水平（颜色输出）</li>
+<li>线程名称  （如果不是主线程）</li>
+<li>文件名，功能和行</li>
+<li>消息（可以是字符串或任何类型的变量） </li>
+</ul>
+</li>
+</ol>
+</div>
+<p><strong>使用体验：有一定门槛，但上手后操作非常简单。swift 上测试成功，oc 有报错问题。有配套软件，可接收来自 App 端打印的数据，配置 App id 和 App key，免费版可保存数据云端一小时，收费版七天起。demo 无法直接运行，自建工程导入框架可流畅运行。 </strong> </p>
+<h2 id="4-GodEye-（Swift）"><a href="#4-GodEye-（Swift）" class="headerlink" title="4.GodEye （Swift）"></a>4.<a href="https://github.com/zixun/GodEye" target="_blank" rel="noopener">GodEye</a> （Swift）</h2><div class="note default no-icon"><p><i class="fa fa-star" aria-hidden="true"></i> Star 数：3,102<br><i class="fa fa-calendar" aria-hidden="true"></i> 最近一次更新时间：三个月前（readme.md）,一年前（其他）<br><i class="fa fa-google"></i> 谷歌搜索词条结果：59,800<br><i class="fa fa-search-plus" aria-hidden="true"></i> 百度搜索词条结果：81,900<br><i class="fa fa-font"></i>是否有中文文档：是 </p>
+</div>
+<div class="note primary no-icon"><p><em>详细功能：</em></p>
+<ol>
+<li>监控日志并区分日志类型.</li>
+<li>监控崩溃, 包括Uncatched Exception和Signal崩溃.</li>
+<li>监控网络, 包括请求和响应的所有信息.</li>
+<li>监控卡顿, 并告诉你卡顿时候的所有线程的堆栈.</li>
+<li>监控内存泄露, 告诉你泄露的对象的类名.</li>
+<li>提供一个可以自定义指令和输出的控制台.</li>
+<li>监控系统和应用自身的CPU使用率.</li>
+<li>监控系统与应用自身的内存使用率.</li>
+<li>监控帧率FPS.</li>
+<li>监控系统和应用自身的网络流量.</li>
+<li>提供一个文件浏览器可用于查看沙盒，.app 以及系统根目录的文件.</li>
+<li>运行时自定义设置 </li>
+</ol>
+</div>
+<p><strong>使用体验：demo 无法正常运行，导入后需要配置参数很多，尝试两次后仍旧无法运行后放弃。这个库的作者出了一本书，这个库大概为了宣传书籍而附带出的。</strong></p>
+<h2 id="5-结论：推荐使用-CocoaLumberjack。"><a href="#5-结论：推荐使用-CocoaLumberjack。" class="headerlink" title="5.结论：推荐使用 CocoaLumberjack。"></a>5.结论：推荐使用 CocoaLumberjack。</h2><h1 id="二、网络请求调研（包含缓存数据的存储）"><a href="#二、网络请求调研（包含缓存数据的存储）" class="headerlink" title="二、网络请求调研（包含缓存数据的存储）"></a>二、网络请求调研（包含缓存数据的存储）</h1><h2 id="1-AFNetworking"><a href="#1-AFNetworking" class="headerlink" title="1.AFNetworking"></a>1.<a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="noopener">AFNetworking</a></h2><div class="note default no-icon"><p><i class="fa fa-star" aria-hidden="true"></i> Star 数：31,362<br><i class="fa fa-calendar" aria-hidden="true"></i> 最近一次更新时间：17 天以前<br><i class="fa fa-google"></i> 谷歌搜索词条结果：622,000<br><i class="fa fa-search-plus" aria-hidden="true"></i> 百度搜索词条结果：3,510,000<br><i class="fa fa-toggle-on"></i> 是否也支持 Swift：是<br><i class="fa fa-font"></i>是否有中文文档：否 </p>
+</div>
+<div class="note primary no-icon"><p><em>详细功能：</em></p>
+<ol>
+<li>原有基础urlsesson上封装了一层，在传参方面更灵活，</li>
+<li>回调更友好，</li>
+<li>支持返回数据序列化</li>
+<li>支持文件上传，断点下载，</li>
+<li>自带多线程，防死锁</li>
+<li>处理了Https证书流程，节省移动端开发</li>
+<li>支持网络状态判断 </li>
+</ol>
+</div>
+<p><strong>使用体验：简单易用，流畅。因为过往项目使用到过这个第三方库，所以就没有使用 Demo 测试框架。</strong></p>
+<h2 id="2-YTKNetwork（基于-AFNetworking）"><a href="#2-YTKNetwork（基于-AFNetworking）" class="headerlink" title="2.YTKNetwork（基于 AFNetworking）"></a>2.<a href="https://github.com/yuantiku/YTKNetwork" target="_blank" rel="noopener">YTKNetwork</a>（基于 AFNetworking）</h2><div class="note default no-icon"><p><i class="fa fa-star" aria-hidden="true"></i> Star 数：5,439<br><i class="fa fa-calendar" aria-hidden="true"></i> 最近一次更新时间：11 个月以前<br><i class="fa fa-google"></i> 谷歌搜索词条结果：11,000<br><i class="fa fa-search-plus" aria-hidden="true"></i> 百度搜索词条结果：343,000<br><i class="fa fa-toggle-on"></i> 是否也支持 Swift：是<br><i class="fa fa-font"></i>是否有中文文档：是 </p>
+</div>
+<div class="note primary no-icon"><p><em>详细功能：</em></p>
+<ol>
+<li>支持按时间缓存网络请求内容</li>
+<li>支持按版本号缓存网络请求内容</li>
+<li>支持统一设置服务器和 CDN 的地址</li>
+<li>支持检查返回 JSON 内容的合法性</li>
+<li>支持文件的断点续传</li>
+<li>支持 block 和 delegate 两种模式的回调方式</li>
+<li>支持批量的网络请求发送，并统一设置它们的回调（实现在 YTKBatchRequest 类中）</li>
+<li>支持方便地设置有相互依赖的网络请求的发送，例如：发送请求 A，根据请求 A 的结果，选择性的发送请求 B 和 C，再根据 B 和 C 的结果，选择性的发送请求 D。（实现在 YTKChainRequest 类中）</li>
+<li>支持网络请求 URL 的 filter，可以统一为网络请求加上一些参数，或者修改一些路径。</li>
+<li>定义了一套插件机制，可以很方便地为 YTKNetwork 增加功能。猿题库官方现在提供了一个插件，可以在某些网络请求发起时，在界面上显示“正在加载”的 HUD。 </li>
+</ol>
+</div>
+<p><strong>使用体验：因为公司项目使用到过这个第三方库，所以就没有使用 Demo 测试框架。</strong></p>
+<h2 id="3-Alamofire（AFNetworking-同作者）-swift"><a href="#3-Alamofire（AFNetworking-同作者）-swift" class="headerlink" title="3.Alamofire（AFNetworking 同作者）(swift)"></a>3.<a href="https://github.com/Alamofire/Alamofire" target="_blank" rel="noopener">Alamofire</a>（AFNetworking 同作者）(swift)</h2><div class="note default no-icon"><p><i class="fa fa-star" aria-hidden="true"></i> Star 数：28,574<br><i class="fa fa-calendar" aria-hidden="true"></i> 最近一次更新时间：22 天以前<br><i class="fa fa-google"></i> 谷歌搜索词条结果：304,000<br><i class="fa fa-search-plus" aria-hidden="true"></i> 百度搜索词条结果：390,000<br><i class="fa fa-font"></i>是否有中文文档：否 </p>
+</div>
+<div class="note primary no-icon"><p><em>详细功能：</em></p>
+<ol>
+<li>链式请求/响应方法</li>
+<li>URL / JSON / plist参数编码</li>
+<li>上传文件/数据/流/多表单数据</li>
+<li>使用请求或者断点下载来下载文件</li>
+<li>使用URL凭据进行身份认证</li>
+<li>HTTP响应验证</li>
+<li>包含进度的上传和下载闭包</li>
+<li>cURL命令的输出</li>
+<li>动态适配和重试请求</li>
+<li>TLS证书和Public Key Pinning</li>
+<li>网络可达性</li>
+<li>全面的单元和集成测试覆盖率 </li>
+</ol>
+</div>
+<p><strong>使用体验：导入框架后尝试 get 和 post 请求，成功。操作简单，和 AFNetworing 使用体验相似，值得一提的是，服务器返回数据不用再次转换，可直接根据服务器数据设置响应 handler。其他没有深入测试。数据缓存方面，Alamofire 是通过 NSURLCache 这个类来实现的。</strong></p>
+<h2 id="4-Moya（基于-Alamofire）"><a href="#4-Moya（基于-Alamofire）" class="headerlink" title="4.Moya（基于 Alamofire）"></a>4.<a href="https://github.com/Moya/Moya" target="_blank" rel="noopener">Moya</a>（基于 Alamofire）</h2><div class="note default no-icon"><p><i class="fa fa-star" aria-hidden="true"></i> Star 数：9,179<br><i class="fa fa-calendar" aria-hidden="true"></i> 最近一次更新时间：3 天以前<br><i class="fa fa-google"></i> 谷歌搜索词条结果：869,000<br><i class="fa fa-search-plus" aria-hidden="true"></i> 百度搜索词条结果：92,900<br><i class="fa fa-font"></i>是否有中文文档：是 </p>
+</div>
+<div class="note primary no-icon"><p><em>详细功能：</em></p>
+<ol>
+<li>基于 Alamofire 的 Networking library，并且添加了对于 ReactiveCocoa 和 RxSwift 的接口支持，简化了开发过程</li>
+<li>编译的时候会检查 API endpoint</li>
+<li>可以用枚举值清楚地定义很多 endpoint</li>
+<li>增加了 stubResponse 类型，大大方便了</li>
+</ol>
+</div>
+<p><strong>使用体验：导入框架后尝试 get 和 post 请求，成功。比起 Alamofire 的优点是，我们实际使用 Alamofire 时，会根据我们的需求对 Alamofire 进行再次封装一个类以便区分和直接操作命令请求或者数据请求。Moya 相当于替我们完成了这一步，允许我们高度自定义他，根据具体的需求进行接口的设置。其他没有深入测试。使用有一定门槛。</strong></p>
+<h2 id="5-结论：推荐主要使用-AFNetworking，猿题库的网络请求框架固然好用，但最近更新是一年前。因为作者相同，以及是对相同作者的库进行封装的两个库，对-Swift-的这两个框架可以保持关注。"><a href="#5-结论：推荐主要使用-AFNetworking，猿题库的网络请求框架固然好用，但最近更新是一年前。因为作者相同，以及是对相同作者的库进行封装的两个库，对-Swift-的这两个框架可以保持关注。" class="headerlink" title="5.结论：推荐主要使用 AFNetworking，猿题库的网络请求框架固然好用，但最近更新是一年前。因为作者相同，以及是对相同作者的库进行封装的两个库，对 Swift 的这两个框架可以保持关注。"></a>5.结论：推荐主要使用 AFNetworking，猿题库的网络请求框架固然好用，但最近更新是一年前。因为作者相同，以及是对相同作者的库进行封装的两个库，对 Swift 的这两个框架可以保持关注。</h2><h1 id="三、iOS-数据库框架调研"><a href="#三、iOS-数据库框架调研" class="headerlink" title="三、iOS 数据库框架调研"></a>三、iOS 数据库框架调研</h1><h2 id="1-fmdb"><a href="#1-fmdb" class="headerlink" title="1.fmdb"></a>1.<a href="https://github.com/ccgus/fmdb" target="_blank" rel="noopener">fmdb</a></h2><div class="note default no-icon"><p><i class="fa fa-star" aria-hidden="true"></i> Star 数：12,587<br><i class="fa fa-calendar" aria-hidden="true"></i> 最近一次更新时间：17 天以前<br><i class="fa fa-google"></i> 谷歌搜索词条结果：358,000<br><i class="fa fa-search-plus" aria-hidden="true"></i> 百度搜索词条结果：1,230,000<br><i class="fa fa-toggle-on"></i> 是否也支持 Swift：是<br><i class="fa fa-font"></i>是否有中文文档：否 </p>
+</div>
+<div class="note primary no-icon"><p>使用 Objective-C 封装的 SQLite API 的数据库框架，SQLite是一个开源的轻型数据库，本身API是C语言实现的，在IOS上使用不便，FMDB对其进行封装，使得方便使用之外也增加了线程安全的处理。<br>特点：<br>1、学习成本一般<br>2、完全开源<br>3、需要使用sql语句<br>4、扩展性好<br>5、多线程处理得很好</p>
+</div>
+<h2 id="2-realm-cocoa-（同时有OC、Swift-库以及-Java-库）"><a href="#2-realm-cocoa-（同时有OC、Swift-库以及-Java-库）" class="headerlink" title="2.realm-cocoa （同时有OC、Swift 库以及 Java 库）"></a>2.<a href="https://github.com/realm/realm-cocoa" target="_blank" rel="noopener">realm-cocoa</a> （同时有OC、Swift 库以及 Java 库）</h2><div class="note default no-icon"><p><i class="fa fa-star" aria-hidden="true"></i> Star 数：12,360<br><i class="fa fa-calendar" aria-hidden="true"></i> 最近一次更新时间：17 天以前<br><i class="fa fa-google"></i> 谷歌搜索词条结果：16,100,000<br><i class="fa fa-search-plus" aria-hidden="true"></i> 百度搜索词条结果：269,000<br><i class="fa fa-font"></i>是否有中文文档：否 </p>
+</div>
+<div class="note primary no-icon"><p>由YCombinator孵化的创业团队打造，是第一个专门针对移动平台设计的数据库，Realm并不是基于Core Data，也不是基于 SQLite 所构建 ORM 的，它拥有自己的数据库存储引擎，可以高效且快速地完成数据库的构建操作。核心引擎不开源（但其承诺以后会开源）。<br>特点：<br>1、学习成本非常低<br>2、不需要使用sql语句<br>3、扩展性一般<br>4、还不够完全成熟（还在发展中）</p>
+</div>
+<h2 id="3-MagicalRecord"><a href="#3-MagicalRecord" class="headerlink" title="3.MagicalRecord"></a>3.<a href="https://github.com/magicalpanda/MagicalRecord" target="_blank" rel="noopener">MagicalRecord</a></h2><div class="note default no-icon"><p><i class="fa fa-star" aria-hidden="true"></i> Star 数：10,716<br><i class="fa fa-calendar" aria-hidden="true"></i> 最近一次更新时间：17 天以前<br><i class="fa fa-google"></i> 谷歌搜索词条结果：254,000<br><i class="fa fa-search-plus" aria-hidden="true"></i> 百度搜索词条结果：403,000<br><i class="fa fa-toggle-on"></i> 是否也支持 Swift：是<br><i class="fa fa-font"></i>是否有中文文档：否 </p>
+</div>
+<div class="note primary no-icon"><p>Magical Record是用来操作Core Data的一个第三方工具，而Core Data则是iOS的内置框架，一个模型层的技术. Core Data 本身既不是数据库也不是数据库访问框架.相反,Core Data是一个完整的数据模型解决方案。可以理解为对持久层的封装，使得我们可以通过可视化建立数据模型,简化数据存取. Core Data不是一个 O/RM, 也不像 FMDB 是一个 SQL wrapper。<br>特点：<br>1、学习成本非常高（即使Magical Record做了简化）<br>2、可视化和Xcode结合程度高<br>3、可以不使用sql语句<br>4、扩展性好<br>5、多线程处理不好（大部分操作需要主线程完成，会导致UI卡顿）</p>
+</div>
+<div class="note success"><p>经过 单条多次插入数据性能对比、批量插入数据性能对比、数据查询性能对比、数据更新性能对比</p>
+<ol>
+<li>MagicalRecord数据库主要在主线完成，无论是插入、查询还是更新都有卡顿现象，暂时未找到多线程操作的方案，即使使用多线程也非常容。</li>
+<li>跟两个表的操作性能对比来说，节省字段来提升性能并没有显的作用。</li>
+<li>从插入数据的性能来说MagicalRecord最好，但CPU占用高，Realm表现最差接近是FMDB的三倍。而数据查询的话，还是Realm 有明显的优势是速度是其他2者的6、7倍，FMDB也和MagicalRecord相当。数据更新则是Realm表现最好，MagicalRecord略差。总体而言，FMDB的各方面表现比较均衡，Realm强在于查询性能好，但插入数据有明显性能问题。MagicalRecord总体来说数据插入性能最好的，coredata是做了内存缓存的优化，带来的问题就是在插入的数据在其他线程查询不到，面表现一般。</li>
+<li>MagicalRecord学习曲线陡峭，不适合使用多线程，容易出错，出错后不好排查。FMDB需要写sql语句，实现的代码量较大，优势在于各方面性能均衡。Realm简单易学，代码简洁，主要的缺点还是数据插入的性能不好。</li>
+</ol>
+</div>
+<h2 id="4-结论：推荐使用-FMDB，对-Realm-保持关注。"><a href="#4-结论：推荐使用-FMDB，对-Realm-保持关注。" class="headerlink" title="4.结论：推荐使用 FMDB，对 Realm 保持关注。"></a>4.结论：推荐使用 FMDB，对 Realm 保持关注。</h2>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------本文结束 <i class="fa fa-thermometer-three-quarters" aria-hidden="true"></i> 感谢阅读------</div>
+        <div>
+	    <p id="div-border-left-red">
+	   <b>本文地址：</b><a href="/articles/034.html" title="iOS 关于第三方库的选择">http://kaaaaai.cn/articles/034.html</a><br/>
+	    <span>
+	    <b>本文基于<a target="_blank" title="Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)" href="http://creativecommons.org/licenses/by-sa/4.0/"> 知识共享署名-相同方式共享 4.0 </a>国际许可协议发布</b><br/><b>转载请注明出处，谢谢！</b>
+	    </span>
+	    </p>
+</div>
+    
+</div>
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>众筹项目：拯救世界！</br></div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://os1i62usc.bkt.clouddn.com/wechatpay.gif" alt="Kaaaaai WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+    
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/EXP/" rel="tag"><i class="fa fa-tag"></i> EXP</a>
+          
+            <a href="/tags/IOS/" rel="tag"><i class="fa fa-tag"></i> IOS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/articles/033.html" rel="next" title="iOS 应用架构 - VIPER 开发模式">
+                <i class="fa fa-chevron-left"></i> iOS 应用架构 - VIPER 开发模式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/articles/035.html" rel="prev" title="唯“鸭嘴兽”主义哲学">
+                唯“鸭嘴兽”主义哲学 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://s2.ax1x.com/2019/03/14/AESiM4.jpg"
+               alt="Kaaaaai" />
+          <p class="site-author-name" itemprop="name">Kaaaaai</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-description motion-element" itemprop="description">我独自一人/照顾着/历代的星辰</p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">93</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Edison0620" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/lvkaimeiyouhenshuai" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Funny Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://htwins.net/scale2/" title="刻度" target="_blank">刻度</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://siida.me" title="Eric" target="_blank">Eric</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.rabbittu.com" title="某兔子の御用花园" target="_blank">某兔子の御用花园</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+
+        <script type="text/javascript" charset="utf-8" src="/js/src/tagcloud.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/js/src/tagcanvas.js"></script>
+        <div class="widget-wrap">
+            <h4 class="widget-title">Tag Cloud</h4>
+            <div id="myCanvasContainer" class="widget tagcloud">
+                <canvas width="250" height="250" id="resCanvas" style="width=100%">
+                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-Studio/">Android Studio</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Development/">Development</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EXP/">EXP</a><span class="tag-list-count">56</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Format/">Format</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOS/">IOS</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Live/">Live</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OC/">OC</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Other/">Other</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Poem/">Poem</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study/">Study</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Work/">Work</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xcode/">Xcode</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/adb/">adb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/codeAnalysis/">codeAnalysis</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中国当代/">中国当代</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中国当代小说/">中国当代小说</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中国当代文学/">中国当代文学</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书籍/">书籍</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/产品思考/">产品思考</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/写作计划/">写作计划</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/外国现当代文学/">外国现当代文学</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/季度总结/">季度总结</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/年度总结/">年度总结</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/幻想/">幻想</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/扯淡/">扯淡</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/扯谈/">扯谈</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日常/">日常</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/梦/">梦</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/武侠小说/">武侠小说</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/江湖体验报告/">江湖体验报告</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/灵感碎片/">灵感碎片</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/王朔/">王朔</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/生活/">生活</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/用户需求/">用户需求</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/电影/">电影</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/短篇故事/">短篇故事</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科幻/">科幻</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/肇始/">肇始</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/观后感/">观后感</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/观影/">观影</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/诗歌/">诗歌</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书笔记/">读书笔记</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读后感/">读后感</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随感/">随感</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/青春文学/">青春文学</a><span class="tag-list-count">1</span></li></ul>
+                </canvas>
+            </div>
+        </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、Log-输出打印调研"><span class="nav-text">一、Log 输出打印调研</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-CocoaLumberjack（OC）"><span class="nav-text">1.CocoaLumberjack（OC）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-NSLogger（OC）"><span class="nav-text">2.NSLogger（OC）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-SwiftyBeaver-Swift"><span class="nav-text">3.SwiftyBeaver (Swift)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-GodEye-（Swift）"><span class="nav-text">4.GodEye （Swift）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-结论：推荐使用-CocoaLumberjack。"><span class="nav-text">5.结论：推荐使用 CocoaLumberjack。</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、网络请求调研（包含缓存数据的存储）"><span class="nav-text">二、网络请求调研（包含缓存数据的存储）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-AFNetworking"><span class="nav-text">1.AFNetworking</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-YTKNetwork（基于-AFNetworking）"><span class="nav-text">2.YTKNetwork（基于 AFNetworking）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Alamofire（AFNetworking-同作者）-swift"><span class="nav-text">3.Alamofire（AFNetworking 同作者）(swift)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Moya（基于-Alamofire）"><span class="nav-text">4.Moya（基于 Alamofire）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-结论：推荐主要使用-AFNetworking，猿题库的网络请求框架固然好用，但最近更新是一年前。因为作者相同，以及是对相同作者的库进行封装的两个库，对-Swift-的这两个框架可以保持关注。"><span class="nav-text">5.结论：推荐主要使用 AFNetworking，猿题库的网络请求框架固然好用，但最近更新是一年前。因为作者相同，以及是对相同作者的库进行封装的两个库，对 Swift 的这两个框架可以保持关注。</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、iOS-数据库框架调研"><span class="nav-text">三、iOS 数据库框架调研</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-fmdb"><span class="nav-text">1.fmdb</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-realm-cocoa-（同时有OC、Swift-库以及-Java-库）"><span class="nav-text">2.realm-cocoa （同时有OC、Swift 库以及 Java 库）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-MagicalRecord"><span class="nav-text">3.MagicalRecord</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-结论：推荐使用-FMDB，对-Realm-保持关注。"><span class="nav-text">4.结论：推荐使用 FMDB，对 Realm 保持关注。</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kaaaaai</span>
+</div>
+
+
+<!-- time -->
+  <div id="show-time">
+    <span id="span_dt_dt"></span>
+  </div>
+  <script>
+      function show_date_time() {
+        window.setTimeout("show_date_time()", 1000);
+        BirthDay = new Date("6/23/2017 19:37:01");
+        today = new Date();
+        //总时间
+        timeold = (today.getTime() - BirthDay.getTime());
+        sectimeold = timeold / 1000
+        secondsold = Math.floor(sectimeold);
+        msPerDay = 24 * 60 * 60 * 1000
+        e_daysold = timeold / msPerDay
+        daysold = Math.floor(e_daysold);
+        e_hrsold = (e_daysold - daysold) * 24;
+        hrsold = Math.floor(e_hrsold);
+        e_minsold = (e_hrsold - hrsold) * 60;
+        minsold = Math.floor((e_hrsold - hrsold) * 60);
+        seconds = Math.floor((e_minsold - minsold) * 60);
+        span_dt_dt.innerHTML = "已存活 " + daysold + " 天 " + hrsold + " 小时 " + minsold + " 分 " + seconds + " 秒";
+    }
+show_date_time();
+  </script>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+
+  <div class="powered-by"></div>
+     <span class="post-count">博客全站共 131.4k 字</span>
+  
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://kaaaaai-cn.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://kaaaaai.cn/articles/034.html';
+          this.page.identifier = 'articles/034.html';
+          this.page.title = 'iOS 关于第三方库的选择';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://kaaaaai-cn.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+ 
+ <!--崩溃欺骗-->
+<script type="text/javascript" src="/js/src/makeajoke.js"></script>
+
+<div id="hexo-helper-live2d">
+  <canvas id="live2dcanvas" width="150" height="300"></canvas>
+</div>
+<style>
+  #live2dcanvas{
+    position: fixed;
+    width: 150px;
+    height: 300px;
+    opacity:0.7;
+    right: 0px;
+    z-index: 999;
+    pointer-events: none;
+    bottom: -20px;
+  }
+</style>
+<script type="text/javascript" src="/live2d/device.min.js"></script>
+<script type="text/javascript">
+const loadScript = function loadScript(c,b){var a=document.createElement("script");a.type="text/javascript";"undefined"!=typeof b&&(a.readyState?a.onreadystatechange=function(){if("loaded"==a.readyState||"complete"==a.readyState)a.onreadystatechange=null,b()}:a.onload=function(){b()});a.src=c;document.body.appendChild(a)};
+(function(){
+  if((typeof(device) != 'undefined') && (device.mobile())){
+    document.getElementById("live2dcanvas").style.width = '75px';
+    document.getElementById("live2dcanvas").style.height = '150px';
+  }else
+    if (typeof(device) === 'undefined') console.error('Cannot find current-device script.');
+  loadScript("/live2d/script.js", function(){loadlive2d("live2dcanvas", "/live2d/assets/hijiki.model.json", 0.5);});
+})();
+</script>
+
+</body>
+</html>
