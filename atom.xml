@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kaaaaai.cn/"/>
-  <updated>2019-10-31T10:28:12.043Z</updated>
+  <updated>2019-11-07T10:50:17.751Z</updated>
   <id>http://kaaaaai.cn/</id>
   
   <author>
@@ -16,11 +16,38 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title></title>
+    <link href="http://kaaaaai.cn/articles/how-to-fix-warnings-about-unsafe-sites.html"/>
+    <id>http://kaaaaai.cn/articles/how-to-fix-warnings-about-unsafe-sites.html</id>
+    <published>2019-11-07T10:48:18.776Z</published>
+    <updated>2019-11-07T10:50:17.751Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><hr>
+<p>title: 如何解决网站访问时弹出“您要访问的网站包含恶意软件”的页面<br>tags:</p>
+<ul>
+<li>EXP</li>
+<li>domain name</li>
+<li>Google Search Console<br>categories: 笔记<br>date: 2019-11-07 15:00:52</li>
+</ul>
+<hr>
+<p>　　前一阵子公司网站的访问出了一点问题，每次访问的时候都会弹出一个警告页面，类似于这种<img src="https://s2.ax1x.com/2019/11/07/MACQ0A.png" alt=""><br>　　由于之前也没碰过这种问题，只能简单粗暴的归纳出两个方向：<br>　　１.可能是域名原因<br>　　２.可能是服务器原因<br>　　后来问题已经解决的时候看网上分享的资料知道还有一种可能就是，网站本身没问题，之所以出现这个警告页面是因为被运营商 HTTP 或 DNS 劫持了。<br>　　这里刷一条给我们提供域名服务的服务商——<a href="http://now.cn/" target="_blank" rel="noopener">时代互联</a>的差评，在解决这个问题的过程中，联系我们账号底下的客服和电话客服，大概联系了不下十次，都没能解决问题，其中有几次，不仅没能帮我解决问题，还用一种推卸责任和不耐烦的态度把我怼的差点憋不住气的跳脚。<br>　　不仅态度有问题，而且他们的工作人员对自己那块的业务好像也不太熟练。因为怀疑网站网站报警告问题，可能和域名服务商的服务可能存在某些问题，所以预期的解决方案中也有一项是迁移域名，迁移域名的话需要通过手机或者邮箱验证，而手机和邮箱这些信息，由于公司人员变动，需要修改。基于这点我问他们工作人员，在修改信息页面中的一个需要勾选的选项，“修改信息之后的 <strong>720</strong> 内不能迁移域名”，和接我电话的工作人员再三确认，是不是必须勾选，不勾选会不会有问题，告知我可以不用勾选，并且确认不勾选不会造成什么问题。结果最后我确认修改信息的时候，发现那个选项不勾选竟然不能到下一步。。。<br>　　回归正题，当域名问题不能再域名服务商那边解决时，我开始尝试定位到底是域名还是服务器的问题，具体方式：<br>　　1.把我们的域名指向到另一个服务器，如果仍然报警告，那就是域名问题<br>　　2.用其他的域名指向当前服务器，如果仍然报警告，那就是服务器问题<br>　　测试结果出来后，基本可以定位是域名服务器，然后让后台的同事帮了一下忙，安装了一个在腾讯云申请的免费 SSL 证书（这个好像也能解决上述所说的未发现的被劫持问题），但仍然无效，打电话给域名服务商，他说肯定是 SSL 证书不起作用或者是根本就没用，没办法，我只好追着皮球到了腾讯云客服人员那，幸运的是，大厂不愧为大厂，服务完全没有可比性，只是提交了怀疑 SSL 证书可能没生效的工单，对方就帮我检测了我的网站是否有异常，以及用不同浏览器测试，得出 QQ 浏览器访问正常，可能需要向谷歌站长平台提供申述。不过因为在此之前，我就在一个网站申述平台提了一个申述：<a href="https://www.stopbadware.org/" target="_blank" rel="noopener">StopBadware</a>，因为申述通过但网站访问仍然异常。所以带着将信将疑的态度，又重新激活工单，然后过了一个上午就接到腾讯云平台技术人员的电话，非常耐心的给我解释了他们所做的所有尝试，最后得出结果，只能去<a href="https://www.google.com/webmasters/tools/home?hl=zh-CN" target="_blank" rel="noopener">谷歌站长平台</a>注册，申述试试看了。<br>　　在谷歌站长平台添加了网站之后，立马有个警告消息提醒我，我们公司的网站存在一些问题，不加思索，我反手就是一个申述，第二天收到邮件，有点出乎意料，竟然没有通过，仔细看邮件描述，推测问题可能出在我们的网站因为提供了很多安卓 apk 的下载，而有一部分 apk 之前在 Google 应用市场因为添加了<strong>有风险的广告 SDK 被下架了</strong>，然后谷歌站长平台也默认这些 apk 存在一定风险。再次提交申述之前，让安卓的同事提供了去除广告 SDK 的 apk 替换掉服务器里的文件，果然，第二天收到邮件，审核通过了。<br>　　<img src="https://s2.ax1x.com/2019/11/07/MAClTI.jpg" alt=""><br>　　这次网站申述的经历给我有两个体会，一个是，只要死磕到底，就一定能让周润发翻译出什么他妈的叫他妈的惊喜。另一个是互联网服务一定要选大厂，盘靓活好态度也呱呱叫。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>iOS - 类、属性、方法、枚举等命名规则和注释规范</title>
     <link href="http://kaaaaai.cn/articles/iOS-naming-rules-and-annotation-specifications.html"/>
     <id>http://kaaaaai.cn/articles/iOS-naming-rules-and-annotation-specifications.html</id>
     <published>2019-10-31T07:00:52.000Z</published>
-    <updated>2019-10-31T10:28:12.043Z</updated>
+    <updated>2019-10-31T10:28:22.202Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>iOS开发者规范:以苹果开发者中心规范(<a href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingBasics.html#//apple_ref/doc/uid/20001281-BBCHBFAH" target="_blank" rel="noopener">Coding Guidelines for Cocoa</a>)为标准，添加部分规范。</p>
 <blockquote>
@@ -968,36 +995,6 @@
       <category term="IOS" scheme="http://kaaaaai.cn/tags/IOS/"/>
     
       <category term="Xcode" scheme="http://kaaaaai.cn/tags/Xcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>每周总结 - 0713</title>
-    <link href="http://kaaaaai.cn/articles/weekly-summary-0713.html"/>
-    <id>http://kaaaaai.cn/articles/weekly-summary-0713.html</id>
-    <published>2019-07-13T02:13:52.000Z</published>
-    <updated>2019-07-15T07:27:46.345Z</updated>
-    
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　周记这个 flag 立了已有三个月了，体验一般，虽然每个礼拜确实有回顾和反思，但实际起到的作用大概还是走马观花多一些，而且营养也不是很大，不过孰好孰坏现在也说不清，就像之前写了几年的日记，后来骤然放下，对我的影响也微乎其微。但当时留下来的日记在时间过去许久以后的现在发挥的作用其实远大于在当时所发挥的作用。所以我想周记在我还没颓废还可以写的时候，能写一些就写一些吧。<br>　　上周有一点点懈怠，预计好的学习计划都 GG 了，整理了一下所有课程还没看到部分总共还有三百多页，上个礼拜本来想至少也要看完三分之一的，但发现注意力很容易被分散，周末上课也是，老师讲着讲着，忽然我就想到其他事情去，然后思绪转回来想我不应该这样，有没有什么软件可以帮人集中注意力，记得有一个叫 forest，然后就拿出手机搜索，一点一点开起小差来。我想大概是学习步入正轨已经很长一段时间了，刚开始的热情有点消退，学习又是一个很难在短期内能收到回馈的一件苦差，所以难免心生懈怠。想到这，不由恨从心起，学习真是个王八蛋。不过即使这样他再王八蛋，也是个可以提升我的好王八蛋。所以下个礼拜目标继续把教材啃完。<br>　　本周看了一部电影《摇摆狂潮》，恶，很烂不讲。周三的时候忽然心血来潮看起了陈丹青的《笑谈大先生：七讲鲁迅》，还不错，如果看做是一本鲁迅研究的书，切入点很别树一格，然后发现陈丹青的叙事语气和木心的叙事语气很像，不过对一点不意外因为之前知道他们的师徒关系，但看到更多的是，陈丹青好像真的很推崇他的老师。<br>　　工作上的事本周都比较平，都是一些难度不是很高的任务，还有一些要和人沟通推进的事，但对我来说也不在话下，之前可能会因为对方不配合或敷衍的态度可能会心里不通畅，但现在已经好多了，大都以公事公办的态度切入对话。不过也在心里叹一口气，诶，我也慢慢变成了一个不动声色的大人了。否则按照归来仍是少年的逻辑，这会我应该跨马横刀，头昂昂气扬扬送他一句去你妈的。<br>　　公司给我提薪的事总要有了阶段性的结果，不过具体还要下个礼拜确定，过程有些一波三折，甚至让我觉得是不是某种形式的敲打，甚至不抱很大希望了，不过就当好事多磨吧，中间琐碎就跳过不讲好了。
-　　</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
-    
-    </summary>
-    
-      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
-    
-      <category term="Live" scheme="http://kaaaaai.cn/tags/Live/"/>
-    
-      <category term="Study" scheme="http://kaaaaai.cn/tags/Study/"/>
-    
-      <category term="Work" scheme="http://kaaaaai.cn/tags/Work/"/>
     
   </entry>
   
