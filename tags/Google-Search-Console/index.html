@@ -84,7 +84,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="EXP,Swift,codeAnalysis,IOS," />
+  <meta name="keywords" content="kaaaaai, NexT,自我修炼,ios，android,书单，电影" />
 
 
 
@@ -102,18 +102,16 @@
 
 
 
-<meta name="description" content="1. Reachability.swift 介绍1.1 Reachability.swiftReachability.swift 是 Apple 的 Reachability 的替代品，用Swift重写了闭包。 它兼容 iOS（8.0 - 11.0），OSX（10.9 - 10.13）和 tvOS（9.0 - 11.0）  监视目标网络是否可用 监视当前网络的连接方式 监测连接方式的变更  2">
-<meta name="keywords" content="EXP,Swift,codeAnalysis,IOS">
-<meta property="og:type" content="article">
-<meta property="og:title" content="iOS - Reachability.swift 源码分析">
-<meta property="og:url" content="http://kaaaaai.cn/articles/reachability-swift-analysis.html">
+<meta name="description" content="我独自一人/照顾着/历代的星辰">
+<meta property="og:type" content="website">
+<meta property="og:title" content="壹拾肆">
+<meta property="og:url" content="http://kaaaaai.cn/tags/Google-Search-Console/index.html">
 <meta property="og:site_name" content="壹拾肆">
-<meta property="og:description" content="1. Reachability.swift 介绍1.1 Reachability.swiftReachability.swift 是 Apple 的 Reachability 的替代品，用Swift重写了闭包。 它兼容 iOS（8.0 - 11.0），OSX（10.9 - 10.13）和 tvOS（9.0 - 11.0）  监视目标网络是否可用 监视当前网络的连接方式 监测连接方式的变更  2">
+<meta property="og:description" content="我独自一人/照顾着/历代的星辰">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-30T02:55:56.229Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS - Reachability.swift 源码分析">
-<meta name="twitter:description" content="1. Reachability.swift 介绍1.1 Reachability.swiftReachability.swift 是 Apple 的 Reachability 的替代品，用Swift重写了闭包。 它兼容 iOS（8.0 - 11.0），OSX（10.9 - 10.13）和 tvOS（9.0 - 11.0）  监视目标网络是否可用 监视当前网络的连接方式 监测连接方式的变更  2">
+<meta name="twitter:title" content="壹拾肆">
+<meta name="twitter:description" content="我独自一人/照顾着/历代的星辰">
 
 
 
@@ -141,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="http://kaaaaai.cn/articles/reachability-swift-analysis.html"/>
+  <link rel="canonical" href="http://kaaaaai.cn/tags/Google-Search-Console/"/>
 
 
 
 
 
-  <title>iOS - Reachability.swift 源码分析 | 壹拾肆</title>
+  <title>标签: Google Search Console | 壹拾肆</title>
   
 
 
@@ -172,7 +170,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -454,286 +452,44 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kaaaaai.cn/articles/reachability-swift-analysis.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kaaaaai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://s2.ax1x.com/2019/03/14/AESiM4.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="壹拾肆">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">iOS - Reachability.swift 源码分析</h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-30T17:24:52+08:00">
-                2019-03-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/articles/reachability-swift-analysis.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="articles/reachability-swift-analysis.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv">热度
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>℃ |
-            </span>
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                <span title="字数统计">
-                  670 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长</span>
-                
-                <span title="阅读时长">
-                  3 分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="1-Reachability-swift-介绍"><a href="#1-Reachability-swift-介绍" class="headerlink" title="1. Reachability.swift 介绍"></a>1. Reachability.swift 介绍</h2><h3 id="1-1-Reachability-swift"><a href="#1-1-Reachability-swift" class="headerlink" title="1.1 Reachability.swift"></a>1.1 Reachability.swift</h3><p>Reachability.swift 是 Apple 的 Reachability 的替代品，用Swift重写了闭包。</p>
-<p>它兼容 iOS（8.0 - 11.0），OSX（10.9 - 10.13）和 tvOS（9.0 - 11.0）</p>
-<ul>
-<li>监视目标网络是否可用</li>
-<li>监视当前网络的连接方式</li>
-<li>监测连接方式的变更</li>
-</ul>
-<h2 id="2-Reachability-swift-安装"><a href="#2-Reachability-swift-安装" class="headerlink" title="2  Reachability.swift 安装"></a>2  Reachability.swift 安装</h2><h3 id="2-1-手动"><a href="#2-1-手动" class="headerlink" title="2.1 手动"></a>2.1 手动</h3><p>将 Reachability.swift 文件夹放入项目即可。</p>
-<h3 id="2-2-CocoaPods"><a href="#2-2-CocoaPods" class="headerlink" title="2.2 CocoaPods"></a>2.2 CocoaPods</h3><p> （1）确认 CocoaPods 已安装<br> （2）添加一下代码到工程内的 Podfile 文件中<br> <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">use_frameworks!</span><br><span class="line">pod 'ReachabilitySwift'</span><br></pre></td></tr></table></figure></p>
-<p> （3）运行 <code>pod install</code></p>
-<h3 id="2-2-Carthage"><a href="#2-2-Carthage" class="headerlink" title="2.2 Carthage"></a>2.2 Carthage</h3><p>（1）通过 <a href="https://brew.sh/" target="_blank" rel="noopener">Homebrew</a> 安装 Carthage<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ brew update</span><br><span class="line">$ brew install carthage</span><br></pre></td></tr></table></figure></p>
-<p>（2）添加 <code>github &quot;ashleymills/Reachability.swift&quot;</code> 到你的 Cartfile<br>（3）运行 <code>carthage update</code><br>（4）将 <code>Reachability.framework</code> 从 <code>Carthage/Build/iOS/</code> 目录拖到 Xcode 项目的 <code>General</code> 设置的 <code>Linked Frameworks and Libraries</code> 中。<br>（5）将 <code>$(SRCROOT)/Carthage/Build/iOS/Reachability.framework</code> 添加到 Carthage 的运行脚本阶段的输入文件中。<br>(6)在您的代码中导入 Reachability，如下所示：<code>import Reachability</code></p>
-<h2 id="2-使用"><a href="#2-使用" class="headerlink" title="2. 使用"></a>2. 使用</h2><h3 id="2-1-closures-的使用"><a href="#2-1-closures-的使用" class="headerlink" title="2.1 closures 的使用"></a>2.1 closures 的使用</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化</span></span><br><span class="line"><span class="keyword">let</span> reachability = <span class="type">Reachability</span>()!</span><br><span class="line"></span><br><span class="line">reachability.whenReachable = &#123; reachability <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">if</span> reachability.connection == .wifi &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Reachable via WiFi"</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Reachable via Cellular"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">reachability.whenUnreachable = &#123; <span class="number">_</span> <span class="keyword">in</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Not reachable"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> reachability.startNotifier()</span><br><span class="line">&#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Unable to start notifier"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>停止通知：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reachability.stopNotifier()</span><br></pre></td></tr></table></figure>
-<h3 id="2-2-notifications-的使用"><a href="#2-2-notifications-的使用" class="headerlink" title="2.2 notifications 的使用"></a>2.2 notifications 的使用</h3><p>所有通知都在主线程中发送。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化</span></span><br><span class="line"><span class="keyword">let</span> reachability = <span class="type">Reachability</span>()!</span><br><span class="line"></span><br><span class="line"><span class="comment">//需要在 viewWillAppear 声明这个</span></span><br><span class="line"></span><br><span class="line">     <span class="type">NotificationCenter</span>.<span class="keyword">default</span>.addObserver(<span class="keyword">self</span>, selector: #selector(reachabilityChanged(note:)), name: .reachabilityChanged, object: reachability)</span><br><span class="line">    <span class="keyword">do</span>&#123;</span><br><span class="line">      <span class="keyword">try</span> reachability.startNotifier()</span><br><span class="line">    &#125;<span class="keyword">catch</span>&#123;</span><br><span class="line">      <span class="built_in">print</span>(<span class="string">"could not start reachability notifier"</span>)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>也可以这样使用</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@objc</span> <span class="function"><span class="keyword">func</span> <span class="title">reachabilityChanged</span><span class="params">(note: Notification)</span></span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> reachability = note.object <span class="keyword">as</span>! <span class="type">Reachability</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">switch</span> reachability.connection &#123;</span><br><span class="line">  <span class="keyword">case</span> .wifi:</span><br><span class="line">      <span class="built_in">print</span>(<span class="string">"Reachable via WiFi"</span>)</span><br><span class="line">  <span class="keyword">case</span> .cellular:</span><br><span class="line">      <span class="built_in">print</span>(<span class="string">"Reachable via Cellular"</span>)</span><br><span class="line">  <span class="keyword">case</span> .<span class="keyword">none</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Network not reachable"</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>停止通知：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">reachability.stopNotifier()</span><br><span class="line"><span class="type">NotificationCenter</span>.<span class="keyword">default</span>.removeObserver(<span class="keyword">self</span>, name: .reachabilityChanged, object: reachability)</span><br></pre></td></tr></table></figure>
-<h3 id="2-3-使用示例"><a href="#2-3-使用示例" class="headerlink" title="2.3 使用示例"></a>2.3 使用示例</h3><p>（1）使用前记得导入ReachabilitySwift类，下面代码放在viewDidLoad()方法中即可。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reachability: <span class="type">Reachability</span>!</span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    reachability = <span class="keyword">try</span> <span class="type">Reachability</span>.reachabilityForInternetConnection()</span><br><span class="line">&#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Unable to create Reachability"</span>)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 检测网络连接状态</span></span><br><span class="line"><span class="keyword">if</span> reachability.isReachable() &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"网络连接：可用"</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"网络连接：不可用"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 检测网络类型</span></span><br><span class="line"><span class="keyword">if</span> reachability.isReachableViaWiFi() &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"网络类型：Wifi"</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> reachability.isReachableViaWWAN() &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"网络类型：移动网络"</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"网络类型：无网络连接"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>（2）监听网络变化</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 网络可用或切换网络类型时执行</span></span><br><span class="line">reachability.whenReachable = &#123; reachability <span class="keyword">in</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 判断网络状态及类型</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 网络不可用时执行</span></span><br><span class="line">reachability.whenUnreachable = &#123; reachability <span class="keyword">in</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 判断网络状态及类型</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    <span class="comment">// 开始监听</span></span><br><span class="line">    <span class="keyword">try</span> reachability.startNotifier()</span><br><span class="line">&#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Unable to start notifier"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>停止监听调用 <code>reachability.stopNotifier()</code> 即可。</p>
-
-      
+  <div id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h2>Google Search Console<small>标签</small>
+      </h2>
     </div>
 
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        <div>
     
-        <div style="text-align:center;color: #ccc;font-size:14px;">------本文结束 <i class="fa fa-thermometer-three-quarters" aria-hidden="true"></i> 感谢阅读------</div>
-        <div>
-	    <p id="div-border-left-red">
-	   <b>本文地址：</b><a href="/articles/reachability-swift-analysis.html" title="iOS - Reachability.swift 源码分析">http://kaaaaai.cn/articles/reachability-swift-analysis.html</a><br/>
-	    <span>
-	    <b>本文基于<a target="_blank" title="Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)" href="http://creativecommons.org/licenses/by-sa/4.0/"> 知识共享署名-相同方式共享 4.0 </a>国际许可协议发布</b><br/><b>转载请注明出处，谢谢！</b>
-	    </span>
-	    </p>
-</div>
-    
-</div>
       
-    </div>
 
-    <div>
-      
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h3 class="post-title">
         
-  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-    <div>众筹项目：拯救世界！</br></div>
-    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-      <span>赏</span>
-    </button>
-    <div id="QR" style="display: none;">
-      
-        <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="http://os1i62usc.bkt.clouddn.com/wechatpay.gif" alt="Kaaaaai WeChat Pay"/>
-          <p>微信打赏</p>
-        </div>
-      
-      
-    </div>
-  </div>
-
-
-      
-    </div>
-    
-    <div>
-      
+            <a class="post-title-link" href="/articles/how-to-fix-warnings-about-unsafe-sites.html" itemprop="url">
+              
+                <span itemprop="name">如何解决网站访问时弹出“您要访问的网站包含恶意软件”的页面</span>
+              
+            </a>
         
+      </h3>
 
-      
-    </div>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2019-11-07T15:00:52+08:00"
+              content="2019-11-07" >
+          11-07
+        </time>
+      </div>
 
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/EXP/" rel="tag"><i class="fa fa-tag"></i> EXP</a>
-          
-            <a href="/tags/Swift/" rel="tag"><i class="fa fa-tag"></i> Swift</a>
-          
-            <a href="/tags/codeAnalysis/" rel="tag"><i class="fa fa-tag"></i> codeAnalysis</a>
-          
-            <a href="/tags/IOS/" rel="tag"><i class="fa fa-tag"></i> IOS</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/articles/development_stage_reflection.html" rel="next" title="开发的阶段性反思">
-                <i class="fa fa-chevron-left"></i> 开发的阶段性反思
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/articles/weekly-summary-0418.html" rel="prev" title="每周工作学习总结 - 0418">
-                每周工作学习总结 - 0418 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+    </header>
   </article>
 
 
-
-    <div class="post-spread">
-      
-    </div>
+    
   </div>
+
+  
 
 
           </div>
@@ -741,17 +497,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    
-  </div>
-
 
         </div>
         
@@ -771,17 +516,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://s2.ax1x.com/2019/03/14/AESiM4.jpg"
@@ -906,22 +642,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Reachability-swift-介绍"><span class="nav-text">1. Reachability.swift 介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-Reachability-swift"><span class="nav-text">1.1 Reachability.swift</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Reachability-swift-安装"><span class="nav-text">2  Reachability.swift 安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-手动"><span class="nav-text">2.1 手动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-CocoaPods"><span class="nav-text">2.2 CocoaPods</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-Carthage"><span class="nav-text">2.2 Carthage</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-使用"><span class="nav-text">2. 使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-closures-的使用"><span class="nav-text">2.1 closures 的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-notifications-的使用"><span class="nav-text">2.2 notifications 的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-使用示例"><span class="nav-text">2.3 使用示例</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -1083,10 +803,10 @@ show_date_time();
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-
+  
 
   
 
@@ -1104,18 +824,6 @@ show_date_time();
       <script id="dsq-count-scr" src="https://kaaaaai-cn.disqus.com/count.js" async></script>
     
 
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'http://kaaaaai.cn/articles/reachability-swift-analysis.html';
-          this.page.identifier = 'articles/reachability-swift-analysis.html';
-          this.page.title = 'iOS - Reachability.swift 源码分析';
-        };
-        var d = document, s = d.createElement('script');
-        s.src = 'https://kaaaaai-cn.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      </script>
     
 
   
