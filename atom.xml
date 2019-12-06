@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kaaaaai.cn/"/>
-  <updated>2019-12-06T07:41:27.277Z</updated>
+  <updated>2019-12-06T10:23:39.773Z</updated>
   <id>http://kaaaaai.cn/</id>
   
   <author>
@@ -14,6 +14,50 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS - 让你的工程支持 WebP 格式图片</title>
+    <link href="http://kaaaaai.cn/articles/iOS-Make-your-project-support-WebP.html"/>
+    <id>http://kaaaaai.cn/articles/iOS-Make-your-project-support-WebP.html</id>
+    <published>2019-12-06T10:24:52.000Z</published>
+    <updated>2019-12-06T10:23:39.773Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="一、通过-SDWebImage-三方图片加载库实现"><a href="#一、通过-SDWebImage-三方图片加载库实现" class="headerlink" title="一、通过 SDWebImage 三方图片加载库实现"></a>一、通过 SDWebImage 三方图片加载库实现</h2><h3 id="1、通过-CocoaPods-方式"><a href="#1、通过-CocoaPods-方式" class="headerlink" title="1、通过 CocoaPods 方式"></a>1、通过 CocoaPods 方式</h3><p>在工程的 <code>podfile</code> 中添加<br><figure class="highlight"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pod 'SDWebImage'</span><br><span class="line">pod 'SDWebImage/WebP'</span><br></pre></td></tr></table></figure></p>
+<p>注意：<br>因为 <code>libwebp(0.5.1)</code>是谷歌的库，下载需要翻墙。通常会报以下错误，如果确实下不下来，只能通过手动方式导入相关库了：<br><img src="https://s2.ax1x.com/2019/12/06/QYZbPs.jpg" alt=""></p>
+<h3 id="2、手动导入方式"><a href="#2、手动导入方式" class="headerlink" title="2、手动导入方式"></a>2、手动导入方式</h3><p>1、将 <code>SDWebImage(4.1.0)</code>拖入到工程，如下图：<br><img src="https://s2.ax1x.com/2019/12/06/QYZqGn.jpg" alt=""></p>
+<p>2、下载 <code>libwebp</code> 库（需要翻墙）<br>我下的版本是 <code>0.5.1</code> 没有打包成 <code>framework</code>，所以我把自己也尝试将库文件打包成静态 <code>framework</code>，打包出来目录如下：<br><img src="https://s2.ax1x.com/2019/12/06/QYZL2q.jpg" alt=""></p>
+<p>3、 设置 <code>target－&gt;build setting－&gt;搜索preprocessor</code> 添加 <code>SD_WEBP=1</code>,如下图：<br><img src="https://s2.ax1x.com/2019/12/06/QYZ75j.jpg" alt=""></p>
+<p>好了，配置已经完成，现在工程已经支持WebP显示了，我的项目里都是加载的网络 <code>WebP</code> 格式图片，我写了一个 <code>WebPDemo_Method1</code> 能够显示本地 <code>WebP</code> 图片。在我的电脑能翻墙的时候也把其他版本的 <code>libwebp</code> 库(libwebp_V0.5.1、ibwebp_V0.5.2、libwebp_V0.6.0)下了下来,0.5.1是我自己打的包，另外两个版本是官方打好的包，有需要的可以自行下载相应的版本。<br><strong>注意</strong><br>1、导入工程的 <code>libwebp</code> 库，不一定非要 <code>framework</code>,也可以就把相应的库文件导入到工程，只需要注意头文件导入名称就可以了。<br>2、<code>demo</code> 中，我并没有用 <code>SDWebImage(4.1.0)</code>的原 <code>UIImage+WebP.h</code> 和 <code>UIImage+WebP.m</code> 文件，而是对头文件做了一定修改，如果工程用最新的 <code>SDWebImage</code> 报错，可以用我 <code>demo</code> 中 <code>UIImage+WebP</code> 文件下的两个文件。</p>
+<h3 id="报错解决"><a href="#报错解决" class="headerlink" title="报错解决"></a>报错解决</h3><p>1、我自己打的静态库 <code>framework</code> 在工程运行时报错，因为 <code>framework</code> 用到了系统的库。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">－－include of non-modular header inside XXXX</span><br></pre></td></tr></table></figure></p>
+<p>解决办法是：<code>Allow Non-modular includes in Framework Modules</code> 设置为 YES，如下图：<br><img src="https://s2.ax1x.com/2019/12/06/QYZTaQ.jpg" alt=""></p>
+<p>重新运行工程，没有报错，可以正常显示WebP格式图片了。</p>
+<h2 id="二、通过YYWebImage"><a href="#二、通过YYWebImage" class="headerlink" title="二、通过YYWebImage"></a>二、通过YYWebImage</h2><p>最近在看 <code>YYKit</code> 组件的时候，发现 <code>YYWebImage</code> 也支持 <code>webp</code> 格式片，集成使用也相当方便。</p>
+<h3 id="1、CocoaPods导入"><a href="#1、CocoaPods导入" class="headerlink" title="1、CocoaPods导入"></a>1、CocoaPods导入</h3><figure class="highlight"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pod 'YYWebImage'</span><br><span class="line">pod 'YYImage/WebP`</span><br></pre></td></tr></table></figure>
+<h3 id="2、手动导入"><a href="#2、手动导入" class="headerlink" title="2、手动导入"></a>2、手动导入</h3><p>将YYWebImage和vendor文件夹拖入到工程。</p>
+<h3 id="具体使用"><a href="#具体使用" class="headerlink" title="具体使用"></a>具体使用</h3><p>导入头文件</p>
+<figure class="highlight objectivec"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"YYWebImage.h"</span></span></span><br><span class="line">或</span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;YYWebImage.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>设置图片地址</p>
+<figure class="highlight objectivec"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">/** &lt;&lt; 1、本地加载 &gt; */</span></span><br><span class="line"><span class="comment">//    NSString *path = [[NSBundle mainBundle] pathForAuxiliaryExecutable:@"test.webp"];</span></span><br><span class="line"><span class="comment">//    _imageView.yy_imageURL = [NSURL fileURLWithPath:path];</span></span><br><span class="line">    <span class="comment">/** &lt;&lt; 2、网络加载 &gt; */</span></span><br><span class="line">    _imageView.yy_imageURL = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"https://user-gold-cdn.xitu.io/2017/12/28/1609d17b5af17a56?w=534&amp;h=300&amp;f=webp&amp;s=39334"</span>];</span><br></pre></td></tr></table></figure>
+<p>好了，通过 YYWebImage 也实现了 webp 格式图片的显示，要查看更多 YYWebImage 的用法，可以到 GitHub 上查看使用文档。顺便也贴出测试 <a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fwenmobo%2FWebP%2Ftree%2Fmaster%2FWebPDemo_Method2" target="_blank" rel="noopener">WebPDemo_Method2</a>。</p>
+<p>总结:<br>当然，支持WebP显示的方法也不止通过三方库的方式，也可以通过webView方式，还可以通过NSURLProtocol方式，如果需要用到以上两种方式，可以自行研究一下。如果大家有更好的方法或者建议，欢迎大家一起讨论。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
+    
+      <category term="OC" scheme="http://kaaaaai.cn/tags/OC/"/>
+    
+      <category term="IOS" scheme="http://kaaaaai.cn/tags/IOS/"/>
+    
+  </entry>
   
   <entry>
     <title>Android - 音频焦点学习</title>
@@ -114,9 +158,9 @@
     <link href="http://kaaaaai.cn/articles/Xiangzi-and-his-misfortune.html"/>
     <id>http://kaaaaai.cn/articles/Xiangzi-and-his-misfortune.html</id>
     <published>2019-11-16T02:13:52.000Z</published>
-    <updated>2019-11-18T02:12:05.000Z</updated>
+    <updated>2019-12-06T09:39:17.591Z</updated>
     
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　上上个礼拜把读了十几年的《骆驼祥子》读完了，说读十几年的原因是因为第一次看《骆驼祥子》大概是我初中，老师让买了一套书，课外看，目的是为了提高阅读理解能力和作文水平。但当时我觉得不喜欢看文学名著，喜欢看小说，觉得文学名著太过严肃，有一张拒人于千里之外的旧学堂老先生凶巴巴的脸，整套书一共十二本，看完的好像只有鲁迅先生的《朝花夕拾》和一两本收录短篇故事的书，而祥子，总是看到祥子朝气逢勃拉着车子在北平窜来窜去的光景，我就抽身走人了，抽身的原因也很简单，对于北京的想象和里面人们生活方式，当时我有我一套自己的想象，书里写的和我想象相差很远，所以就走了。<br>　　而重新捡起来看的原因，也很简单，起初是个巧合，因为好久没看书，翻开 kindle 看，前几本分别是《傻瓜式投资》、《软技能》、《退步集》、《骆驼祥子》，里面有故事情节又适合打发时间的好像只有《骆驼祥子》。<br>　　《骆驼祥子》的故事很简单，概述起来大概是讲还是军阀混战年代的北平，一个初入社会，叫祥子的年轻车夫，在攒出属于自己车的过程中，遇到了种种不幸，梦想破灭，人格也随之破产，最后活成浑浑噩噩苟且生活的行尸走肉的故事。<br>　　故事虽然一直都是这个故事，但现在看和以前看的心境完全不一样，在社会上打了几个滚的我，再去看祥子在刚入社会时，给自己打的算盘和不算远大的抱负，对我来说不再有雾里看花的隔阂，更多的是觉得，如果抛开因为时代和环境而产生的，具体到像攒一辆自己的车的这种事，祥子的所思所感，放在所有时代，对比所有时代的年轻人，包括二十一世纪现在的我的所思所想，其实一般无二，初出茅庐不怕虎，被雨打风吹后犹疑怨怼愤懑，最后因为个人际遇不同，有人跳出来后被当做励志的榜样，有人没跳出来被当做“二十岁就死了，但八十岁才被埋葬”，茶余饭后被提起，供人唏嘘的段子。祥子，祥子可能不到八十岁就会被埋葬掉吧。<br>　　和朋友聊天提起看完了这本书，他说了一句人人都是祥子。他大概是想说每个人在经历社会上的摸爬滚打之后，都会变成一种模样，即浑浑噩噩的样子。祥子的结局，有一部分是时代的必然性，所以是普遍如此，还是特定事件，值得商榷。在那之后我们又提到了电影《小丑》。<script src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script><script src="//cdn.bootcss.com/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script><div class="hexo-img-stream"><style type="text/css">.hexo-image-steam-lazy {display:none;}.hexo-img-stream{width:90%;max-width:1100px;margin:3% auto}div.hexo-img-stream figure{background:#fefefe;box-shadow:0 1px 2px rgba(34,25,25,0.4);margin:0 0.05% 3%;padding:3%;padding-bottom:10px;display:inline-block;max-width:25%}div.hexo-img-stream figure img{border-bottom:1px solid #ccc;padding-bottom:15px;margin-bottom:5px}div.hexo-img-stream figure figcaption{font-size:.9rem;color:#444;line-height:1.5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}div.hexo-img-stream small{font-size:1rem;float:right;text-transform:uppercase;color:#aaa}div.hexo-img-stream small a{color:#666;text-decoration:none;transition:.4s color}@media screen and (max-width:750px){.hexo-img-stream{column-gap:0}}</style><figure><img class="hexo-image-steam-lazy nofancy" src="https://ws4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif" data-original="https://s2.ax1x.com/2019/11/17/MsYf8x.jpg"><noscript><img src="https://s2.ax1x.com/2019/11/17/MsYf8x.jpg"></noscript><figcaption></figcaption></figure></div><script type="text/javascript">$('img.hexo-image-steam-lazy').lazyload({ effect:'fadeIn' });</script><br>　　《小丑》的剧情就不展开讲了，总之还不错，推荐没看过的朋友可以去看看。<br>　　想想电影里的亚瑟和祥子是否存在一定相似性？祥子心心念念的车，是亚瑟扮成小丑，给人们带来笑声的梦想，亚瑟和祥子都被他们所面临的处境所伤害，受伤之后，亚瑟选择向伤害自己的人开枪，而祥子，因为很难说有某个清晰的、可以用来复仇的目标，最后他只好用钝刀挥向自己内心。<br>　　深究祥子或者亚瑟，何以成为他们本身，我尝试思考了以下两个问题：在同时代的人中，我想拥有他们同样遭遇的人肯定很多，但为什么只要祥子和亚瑟被选中，可以拥有他们的名字？祥子和亚瑟的结局是否拥有某种必然性？<br>　　为什么只要祥子和亚瑟拥有名字，其他遭受不幸的人们都在历史里模糊成一个群体，是祥子或者小丑存在某种值得书写的闪光点吗？关于祥子的答案，我想是否定的，作为《骆驼祥子》这个故事的男主角，他不存在，或者说不可能存在某种特别，相反，正因为他和当时普通的底层劳苦群众一般无二，所以才可以被当做一个例子，与其说他和劳苦群众不同，不如说他是劳苦群众的一个代表。而亚瑟，亚瑟不是被选中的，他是自己跳出了的，之所以这样说是因为，如果去掉小丑这个辨识度极强的符号，亚瑟可能在每个时代都很多见，受压迫到歇斯底里后陷入疯狂的变态杀人狂，或是因为本身存粹的恶导致的无差别杀人。如果只是因为带着小丑面具杀人而被人记住，这种说法不免有点牵强，而事实上，亚瑟也不仅仅只是因为带着小丑的脸杀人而被人记住，他之所以得以被高举，是因为他杀人在群体围观之下被赋予某种意义，第一次在地铁开枪杀人，是失手和恐惧的混合，事后在厕所的舞蹈虽然可以解释成，他潜意识里本身就想杀人。但无论如何，都和被公众解释成是城市底层边缘人对精英阶层的一次控诉相去甚远，而亚瑟完成自己的蜕变，成为小丑在电视台的演讲，或许有那种意思，但在亚瑟这边，这个演讲，可能是对小丑自我的建立，一段初初登场的自我介绍，是一个开始的标志。而在群众眼里，因为经过舆论酝酿发酵，意义可能远不止于此，在地铁凶案的小丑，在众说纷纭的情况下，登台枪杀了主持人，洋洋洒洒发布了一段正中他们下怀的演讲，这对小丑自发组成的信徒们来说，这是一个集结号，一段对近期发生的所有事的结束陈词，一种思想成熟的标志。<br>　　祥子和亚瑟的结局是否拥有某种必然性？正如前文所述，祥子作为一个代表，他是存在一种必然性的，不在城外被军阀抢走车，也可能因为其他原因失去自己的车，没有被虎妞欺骗被迫结婚，也会因为其他的事情受到类似委屈等等，而亚瑟呢，如果他妈妈小时候没有虐待他导致他得精神病，如果他的同事没有两面三刀，如果那个主持人没有看轻他的梦想，是不是事情就会不一样？但除了他妈虐待他导致他得精神病这点，其他事其实在社会上也都很普遍，而得精神病的妈妈虐待自己孩子导致她孩子也患上精神病的这种事，如果把范围扩大，不止哥谭，我想偶然性也不是很小。那是不是有结论，哪怕没有名叫亚瑟这个小丑出现，也可能会有名叫杰克，或者露西的小丑。不过无论是祥子和亚瑟，预设条件，推导事情结果本身存在一定的不靠谱，所以我们只能通过结果本身去下定义，因为祥子有很多个，而小丑亚瑟只有一个，所以祥子的结局是存在必然性的，而小丑的产生是偶然性更多一点。<br>　　和朋友争论调侃小丑的主持人到底有没有错的时候，因为觉得其实主持人只是把嘲讽当做一个工作，甚至可能不存在任何恶意，虽然嘲笑别人可能不对，但因为嘲笑而收到子弹就太过分了吧。但另一边站在小丑的立场上，遭受如此多的不公平，选择复仇也是一种不得已的理所当然。所以我当时的回答是，只能说大家都运气不好吧。这个回答多少有点含糊其辞的成分，想想最近很多事，因为每次转换立场都觉得可以理解对方，而选择一个模棱两可的态度，这种态度多少有一点犬儒，所以我又深刻的想了想，决定给祥子和亚瑟一个坚定但坚决不是为了表明态度而煲鸡汤的态度：<br>　　祥子和亚瑟不仅是因为不幸，更多的是不公平，因为自己的付出没有得到预期的回报，勤勤恳恳拉车的祥子没有攒到自己梦想的新车，希望带给别人欢乐的亚瑟发现从头到尾自己都没得到过善待。面对不幸，我们仍然可以在种种不幸中保持着早期祥子热忱的心态，和亚瑟在公交车上逗小孩子笑的善良的脸。但面对不公呢，祥子和亚瑟大概是两个错误示范，就此沉沦和过激报复。因为不公的表现有很多，也没有万金油的解决方式，这里只能给一些我的建议，面对小事的不公平，豁达点用“就当是一种修行”的心态一笑了之，不豁达就一句“*他妈”了之，面对大事的不公平，如果不能依靠现有的社会机构解决，也绝不要采取会被现有社会机构解决的方式解决。</p>
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　上上个礼拜把读了十几年的《骆驼祥子》读完了，说读十几年的原因是因为第一次看《骆驼祥子》大概是我初中，老师让买了一套书，课外看，目的是为了提高阅读理解能力和作文水平。但当时我觉得不喜欢看文学名著，喜欢看小说，觉得文学名著太过严肃，有一张拒人于千里之外的旧学堂老先生凶巴巴的脸，整套书一共十二本，看完的好像只有鲁迅先生的《朝花夕拾》和一两本收录短篇故事的书，而祥子，总是看到祥子朝气逢勃拉着车子在北平窜来窜去的光景，我就抽身走人了，抽身的原因很简单，对于北京的想象和里面人们生活方式，当时我有我一套自己的想象，书里写的和我想象相差很远，所以就走了。<br>　　而重新捡起来看的原因，也很简单，起初是个巧合，因为好久没看书，翻开 kindle 看，前几本分别是《傻瓜式投资》、《软技能》、《退步集》、《骆驼祥子》，里面有故事情节又适合打发时间的好像只有《骆驼祥子》。<br>　　《骆驼祥子》的故事很简单，概述起来大概是讲还是军阀混战年代的北平，一个初入社会，叫祥子的年轻车夫，在攒出属于自己车的过程中，遇到了种种不幸，梦想破灭，人格也随之破产，最后活成浑浑噩噩苟且生活的行尸走肉的故事。<br>　　故事虽然一直都是这个故事，但现在看和以前看的心境完全不一样，在社会上打了几个滚的我，再去看祥子在刚入社会时，给自己打的算盘和不算远大的抱负，对我来说不再有雾里看花的隔阂，更多的是觉得，如果抛开因为时代和环境而产生的，具体到像攒一辆自己的车的这种事，祥子的所思所感，放在所有时代，对比所有时代的年轻人，包括二十一世纪现在的我的所思所想，其实一般无二，初出茅庐不怕虎，被雨打风吹后犹疑怨怼愤懑，最后因为个人际遇不同，有人跳出来后被当做励志的榜样，有人没跳出来被当做“二十岁就死了，但八十岁才被埋葬”，茶余饭后被提起，供人唏嘘的段子。祥子，祥子可能不到八十岁就会被埋葬掉吧。<br>　　和朋友聊天提起看完了这本书，他说了一句人人都是祥子。他大概是想说每个人在经历社会上的摸爬滚打之后，都会变成一种模样，即浑浑噩噩的样子。祥子的结局，有一部分是时代的必然性，所以是普遍如此，还是特定事件，值得商榷。在那之后我们又提到了电影《小丑》。<script src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script><script src="//cdn.bootcss.com/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script><div class="hexo-img-stream"><style type="text/css">.hexo-image-steam-lazy {display:none;}.hexo-img-stream{width:90%;max-width:1100px;margin:3% auto}div.hexo-img-stream figure{background:#fefefe;box-shadow:0 1px 2px rgba(34,25,25,0.4);margin:0 0.05% 3%;padding:3%;padding-bottom:10px;display:inline-block;max-width:25%}div.hexo-img-stream figure img{border-bottom:1px solid #ccc;padding-bottom:15px;margin-bottom:5px}div.hexo-img-stream figure figcaption{font-size:.9rem;color:#444;line-height:1.5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}div.hexo-img-stream small{font-size:1rem;float:right;text-transform:uppercase;color:#aaa}div.hexo-img-stream small a{color:#666;text-decoration:none;transition:.4s color}@media screen and (max-width:750px){.hexo-img-stream{column-gap:0}}</style><figure><img class="hexo-image-steam-lazy nofancy" src="https://ws4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif" data-original="https://s2.ax1x.com/2019/11/17/MsYf8x.jpg"><noscript><img src="https://s2.ax1x.com/2019/11/17/MsYf8x.jpg"></noscript><figcaption></figcaption></figure></div><script type="text/javascript">$('img.hexo-image-steam-lazy').lazyload({ effect:'fadeIn' });</script><br>　　《小丑》的剧情就不展开讲了，总之还不错，推荐没看过的朋友可以去看看。<br>　　想想电影里的亚瑟和祥子是否存在一定相似性？祥子心心念念的车，是亚瑟扮成小丑，给人们带来笑声的梦想，亚瑟和祥子都被他们所面临的处境所伤害，受伤之后，亚瑟选择向伤害自己的人开枪，而祥子，因为很难说有某个清晰的、可以用来复仇的目标，最后他只好用钝刀挥向自己内心。<br>　　深究祥子或者亚瑟，何以成为他们本身，我尝试思考了以下两个问题：在同时代的人中，我想拥有他们同样遭遇的人肯定很多，但为什么只要祥子和亚瑟被选中，可以拥有他们的名字？祥子和亚瑟的结局是否拥有某种必然性？<br>　　为什么只要祥子和亚瑟拥有名字，其他遭受不幸的人们都在历史里模糊成一个群体，是祥子或者小丑存在某种值得书写的闪光点吗？关于祥子的答案，我想是否定的，作为《骆驼祥子》这个故事的男主角，他不存在，或者说不可能存在某种特别，相反，正因为他和当时普通的底层劳苦群众一般无二，所以才可以被当做一个例子，与其说他和劳苦群众不同，不如说他是劳苦群众的一个代表。而亚瑟，亚瑟不是被选中的，他是自己跳出了的，之所以这样说是因为，如果去掉小丑这个辨识度极强的符号，亚瑟可能在每个时代都很多见，受压迫到歇斯底里后陷入疯狂的变态杀人狂，或是因为本身存粹的恶导致的无差别杀人。如果只是因为带着小丑面具杀人而被人记住，这种说法不免有点牵强，而事实上，亚瑟也不仅仅只是因为带着小丑的脸杀人而被人记住，他之所以得以被高举，是因为他杀人在群体围观之下被赋予某种意义，第一次在地铁开枪杀人，是失手和恐惧的混合，事后在厕所的舞蹈虽然可以解释成，他潜意识里本身就想杀人。但无论如何，都和被公众解释成是城市底层边缘人对精英阶层的一次控诉相去甚远，而亚瑟完成自己的蜕变，成为小丑在电视台的演讲，或许有那种意思，但在亚瑟这边，这个演讲，可能是对小丑自我的建立，一段初初登场的自我介绍，是一个开始的标志。而在群众眼里，因为经过舆论酝酿发酵，意义可能远不止于此，在地铁凶案的小丑，在众说纷纭的情况下，登台枪杀了主持人，洋洋洒洒发布了一段正中他们下怀的演讲，这对小丑自发组成的信徒们来说，这是一个集结号，一段对近期发生的所有事的结束陈词，一种思想成熟的标志。<br>　　祥子和亚瑟的结局是否拥有某种必然性？正如前文所述，祥子作为一个代表，他是存在一种必然性的，不在城外被军阀抢走车，也可能因为其他原因失去自己的车，没有被虎妞欺骗被迫结婚，也会因为其他的事情受到类似委屈等等，而亚瑟呢，如果他妈妈小时候没有虐待他导致他得精神病，如果他的同事没有两面三刀，如果那个主持人没有看轻他的梦想，是不是事情就会不一样？但除了他妈虐待他导致他得精神病这点，其他事其实在社会上也都很普遍，而得精神病的妈妈虐待自己孩子导致她孩子也患上精神病的这种事，如果把范围扩大，不止哥谭，我想偶然性也不是很小。那是不是有结论，哪怕没有名叫亚瑟这个小丑出现，也可能会有名叫杰克，或者露西的小丑。不过无论是祥子和亚瑟，预设条件，推导事情结果本身存在一定的不靠谱，所以我们只能通过结果本身去下定义，因为祥子有很多个，而小丑亚瑟只有一个，所以祥子的结局是存在必然性的，而小丑的产生是偶然性更多一点。<br>　　和朋友争论调侃小丑的主持人到底有没有错的时候，因为觉得其实主持人只是把嘲讽当做一个工作，甚至可能不存在任何恶意，虽然嘲笑别人可能不对，但因为嘲笑而收到子弹就太过分了吧。但另一边站在小丑的立场上，遭受如此多的不公平，选择复仇也是一种不得已的理所当然。所以我当时的回答是，只能说大家都运气不好吧。这个回答多少有点含糊其辞的成分，想想最近很多事，因为每次转换立场都觉得可以理解对方，而选择一个模棱两可的态度，这种态度多少有一点犬儒，所以我又深刻的想了想，决定给祥子和亚瑟一个坚定但坚决不是为了表明态度而煲鸡汤的态度：<br>　　祥子和亚瑟不仅是因为不幸，更多的是不公平，因为自己的付出没有得到预期的回报，勤勤恳恳拉车的祥子没有攒到自己梦想的新车，希望带给别人欢乐的亚瑟发现从头到尾自己都没得到过善待。面对不幸，我们仍然可以在种种不幸中保持着早期祥子热忱的心态，和亚瑟在公交车上逗小孩子笑的善良的脸。但面对不公呢，祥子和亚瑟大概是两个错误示范，就此沉沦和过激报复。因为不公的表现有很多，也没有万金油的解决方式，这里只能给一些我的建议，面对小事的不公平，豁达点用“就当是一种修行”的心态一笑了之，不豁达就一句“*他妈”了之，面对大事的不公平，如果不能依靠现有的社会机构解决，也绝不要采取会被现有社会机构解决的方式解决。</p>
 ]]></content>
     
     <summary type="html">
@@ -925,35 +969,6 @@
       <category term="IOS" scheme="http://kaaaaai.cn/tags/IOS/"/>
     
       <category term="Xcode" scheme="http://kaaaaai.cn/tags/Xcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>每周总结 - 0729</title>
-    <link href="http://kaaaaai.cn/articles/weekly-summary-0729.html"/>
-    <id>http://kaaaaai.cn/articles/weekly-summary-0729.html</id>
-    <published>2019-07-29T12:13:52.000Z</published>
-    <updated>2019-07-31T09:57:46.000Z</updated>
-    
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　小时候在酒桌上喝酒，总在大人们的撺掇向一些长辈敬酒，熟面孔多的时候也会童言无忌说上几句叔叔伯伯生意兴隆万事大吉，但生面孔多的时候心里也会有点害羞的不情愿，到了后来念书走上社会，面对学校老师职场前辈，起初也会有一些真心实意的感谢祝酒词。但是后来觥筹交错多了，渐渐习惯了这种场面，说不走心的祝福，妥协于气氛，绞尽脑汁，生编硬造一些词来祝酒，偶尔心里也会回忆起小时候被长辈逼迫下情不由衷的别扭。但时间长了，这种感觉也慢慢淡了。<br>　　我想走上社会以后的变化，可能就是由这些劝服自己开口讲话、劝服自己相信自己说的话的一个又一个瞬间所构成的，向外界的诱惑，向自己的欲望低头的那些瞬间，就好像温水煮青蛙，但一点一点把温度加高的人却是自己。坚持做自己真的是一件很难的事，就像一个学轮滑的新手，要在不断的摇摆中稳定自己，视线所及，还要注意前方是否有危险。总是想起那句：世界上只有一种真正的英雄主义，就是认清了生活的真相后还依然热爱它。做自己很难，认清做自己很难之后还可以继续坚持做自己更是难上加难。可能这是当代年轻人的通病吧，能清除精确的把握到自己的局限，但又不知道往哪里使劲可以跳出这个局限。在脑袋上绑头带给自己加油鼓劲，买几斤心灵鸡汤的书给自己喘口气，但如果这些是治标又治本的方法，也就不至于再发出这些疑问了。<br>　　跳过这个问题。本周工作上接手了一个新的项目，里面有用到跨平台技术，native，不过没空仔细研究，我负责的部分仍然是传统的 <code>OC</code> 代码，但可能是因为用到了 native 技术，所以项目的结构也和以往有些不同，有一点挑战性，但深入看了整个项目的代码以后，发现其实也万变不离其宗，虽然他重写了 <code>Appdelegate</code> 类，导致我在前期不知道根控制器被设置成了哪个，但是搜索 <code>applicationDidEnterBackground</code> 方法就立马找到了这个重写的类，但是对于这个重写以后的类没有 <code>.h</code> 文件，还是有点迷惑，可能是和他这个项目机制有关系。<br>　　另外有个体会就是，可能是经手的项目多了，经验上来了，以前遇到比较麻烦，看不懂的代码，第一反应是焦灼烦闷，但现在平静多了，可以保持正常水平去看问题，有时也能超水平发挥，举一反三的看，把其他项目都放在眼底下对比各自不同和相同部分，用为什么在 A 项目不出现问题，但在 B 项目会出现问题的思路去解决问题。<br>　　周末部门团建去山庄玩了，心情和风景都很不错。不过团建虽说是缓和工作压力，缓解部门同事平常工作时的紧张气氛，增进感情。但效果不是很好，之前讨厌的人还是一样惹人讨厌，而且其他的同事似乎也有同样的感觉，甚至比我有过之而无不及，而在这种情况下我就更加心安理得保持我的讨厌，不会再试图反思是不是自己太小家子气。<script src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script><script src="//cdn.bootcss.com/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script><div class="hexo-img-stream"><style type="text/css">.hexo-image-steam-lazy {display:none;}.hexo-img-stream{width:90%;max-width:1100px;margin:3% auto}div.hexo-img-stream figure{background:#fefefe;box-shadow:0 1px 2px rgba(34,25,25,0.4);margin:0 0.05% 3%;padding:3%;padding-bottom:10px;display:inline-block;max-width:25%}div.hexo-img-stream figure img{border-bottom:1px solid #ccc;padding-bottom:15px;margin-bottom:5px}div.hexo-img-stream figure figcaption{font-size:.9rem;color:#444;line-height:1.5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}div.hexo-img-stream small{font-size:1rem;float:right;text-transform:uppercase;color:#aaa}div.hexo-img-stream small a{color:#666;text-decoration:none;transition:.4s color}@media screen and (max-width:750px){.hexo-img-stream{column-gap:0}}</style><figure><img class="hexo-image-steam-lazy nofancy" src="https://ws4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif" data-original="https://s2.ax1x.com/2019/07/31/eY3kmn.jpg"><noscript><img src="https://s2.ax1x.com/2019/07/31/eY3kmn.jpg"></noscript><figcaption></figcaption></figure><figure><img class="hexo-image-steam-lazy nofancy" src="https://ws4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif" data-original="https://s2.ax1x.com/2019/07/31/eY3iOs.jpg"><noscript><img src="https://s2.ax1x.com/2019/07/31/eY3iOs.jpg"></noscript><figcaption></figcaption></figure><figure><img class="hexo-image-steam-lazy nofancy" src="https://ws4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif" data-original="https://s2.ax1x.com/2019/07/31/eY3Pyj.jpg"><noscript><img src="https://s2.ax1x.com/2019/07/31/eY3Pyj.jpg"></noscript><figcaption></figcaption></figure><figure><img class="hexo-image-steam-lazy nofancy" src="https://ws4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif" data-original="https://s2.ax1x.com/2019/07/31/eY3ClQ.jpg"><noscript><img src="https://s2.ax1x.com/2019/07/31/eY3ClQ.jpg"></noscript><figcaption></figcaption></figure></div><script type="text/javascript">$('img.hexo-image-steam-lazy').lazyload({ effect:'fadeIn' });</script><br>　　这周还去看了哪吒，非常不错，虽然剧情人物刻画的较其他剧情片都很脸谱化，但对于哪吒闹海本身的故事来说，算是跳出了自己的框架，取消了自刎情节，父子之间变得温情脉脉，取消了屠龙情节，敖丙哪吒之间变得温情脉脉。似乎唯一真正的大反派就只有一个申公豹，申公豹太惨了，同情申公豹。<br>　　以上。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
-    
-    </summary>
-    
-      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
-    
-      <category term="Live" scheme="http://kaaaaai.cn/tags/Live/"/>
-    
-      <category term="Study" scheme="http://kaaaaai.cn/tags/Study/"/>
-    
-      <category term="Work" scheme="http://kaaaaai.cn/tags/Work/"/>
     
   </entry>
   
