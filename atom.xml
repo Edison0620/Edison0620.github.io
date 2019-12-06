@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kaaaaai.cn/"/>
-  <updated>2019-11-23T03:07:48.384Z</updated>
+  <updated>2019-12-06T07:41:27.277Z</updated>
   <id>http://kaaaaai.cn/</id>
   
   <author>
@@ -16,11 +16,70 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Android - 音频焦点学习</title>
+    <link href="http://kaaaaai.cn/articles/Android-learning-Audio-ocus.html"/>
+    <id>http://kaaaaai.cn/articles/Android-learning-Audio-ocus.html</id>
+    <published>2019-12-06T00:00:52.000Z</published>
+    <updated>2019-12-06T07:41:27.277Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在做蓝牙带屏音箱项目的时候，碰到一个问题，具体是在连接蓝牙音箱回连的时候，播放音乐会在手机端点击播放过一会就回被暂停。</p>
+<p>调试了一下问题后，大概问题是这样的，一般情况下，我们在播放音乐时会请求系统音频焦点，然后在不播放的时候释放焦点。</p>
+<p>我也是按照这种逻辑处理的，但和一般情况不同的是，我应用所在的底层系统是经过定制的，而在音频焦点的处理上，除了我上层应用会在蓝牙播放变化的时候请求焦点，底层的系统也会做同样的操作，这就造成了在两者来回请求的过程中，焦点丢失了。</p>
+<p>这种问题还是比较少见的，所以记录一下，而最终的解决办法是让提供定制系统的硬件方解决。不过这里也记录一下对于音频焦点请求和监听的学习。</p>
+<p>完整的代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MusicService</span> <span class="keyword">extends</span> <span class="title">Service</span> </span>&#123;</span><br><span class="line">   <span class="keyword">private</span> AudioManager mAm;</span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">boolean</span> isPlaymusic;</span><br><span class="line">   <span class="keyword">private</span> String url;</span><br><span class="line">   <span class="keyword">private</span> MediaPlayer mediaPlayer;</span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="keyword">super</span>.onCreate();</span><br><span class="line">       mAm = (AudioManager) getSystemService(AUDIO_SERVICE);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onStart</span><span class="params">(Intent intent, <span class="keyword">int</span> startId)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (intent != <span class="keyword">null</span>) &#123;</span><br><span class="line">           Bundle bundle = intent.getExtras();</span><br><span class="line">           <span class="keyword">if</span> (bundle != <span class="keyword">null</span>) &#123;</span><br><span class="line">               isPlaymusic = bundle.getBoolean(<span class="string">"isPlay"</span>, <span class="keyword">true</span>);</span><br><span class="line">               url = bundle.getString(<span class="string">"url"</span>);</span><br><span class="line">               <span class="keyword">if</span> (isPlaymusic)</span><br><span class="line">                   play();</span><br><span class="line">               <span class="keyword">else</span></span><br><span class="line">                   stop();</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   OnAudioFocusChangeListener afChangeListener = <span class="keyword">new</span> OnAudioFocusChangeListener() &#123;</span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAudioFocusChange</span><span class="params">(<span class="keyword">int</span> focusChange)</span> </span>&#123;</span><br><span class="line">           <span class="keyword">if</span> (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT) &#123;</span><br><span class="line">               <span class="comment">// Pause playback</span></span><br><span class="line">               pause();</span><br><span class="line">           &#125; <span class="keyword">else</span> <span class="keyword">if</span> (focusChange == AudioManager.AUDIOFOCUS_GAIN) &#123;</span><br><span class="line">               <span class="comment">// Resume playback</span></span><br><span class="line">               resume();</span><br><span class="line">           &#125; <span class="keyword">else</span> <span class="keyword">if</span> (focusChange == AudioManager.AUDIOFOCUS_LOSS) &#123;</span><br><span class="line">               <span class="comment">// mAm.unregisterMediaButtonEventReceiver(RemoteControlReceiver);</span></span><br><span class="line">               mAm.abandonAudioFocus(afChangeListener);</span><br><span class="line">               <span class="comment">// Stop playback</span></span><br><span class="line">               stop();</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;;</span><br><span class="line">   <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">requestFocus</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="comment">// Request audio focus for playback</span></span><br><span class="line">       <span class="keyword">int</span> result = mAm.requestAudioFocus(afChangeListener,</span><br><span class="line">       <span class="comment">// Use the music stream.</span></span><br><span class="line">               AudioManager.STREAM_MUSIC,</span><br><span class="line">               <span class="comment">// Request permanent focus.</span></span><br><span class="line">               AudioManager.AUDIOFOCUS_GAIN);</span><br><span class="line">       <span class="keyword">return</span> result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">resume</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (mediaPlayer != <span class="keyword">null</span>) &#123;</span><br><span class="line">           mediaPlayer.start();</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">pause</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (mediaPlayer != <span class="keyword">null</span> &amp;&amp; mediaPlayer.isPlaying()) &#123;</span><br><span class="line">           mediaPlayer.pause();</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   OnCompletionListener completionListener = <span class="keyword">new</span> OnCompletionListener() &#123;</span><br><span class="line">       <span class="meta">@Override</span></span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCompletion</span><span class="params">(MediaPlayer player)</span> </span>&#123;</span><br><span class="line">           <span class="keyword">if</span>(!player.isLooping())&#123;</span><br><span class="line">               mAm.abandonAudioFocus(afChangeListener);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;;</span><br><span class="line">   <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (requestFocus()) &#123;</span><br><span class="line">           <span class="keyword">if</span> (mediaPlayer == <span class="keyword">null</span>) &#123;</span><br><span class="line">               <span class="keyword">try</span> &#123;</span><br><span class="line">                   mediaPlayer = <span class="keyword">new</span> MediaPlayer();</span><br><span class="line">                   mediaPlayer.setDataSource(url);</span><br><span class="line">                   mediaPlayer.prepare();</span><br><span class="line">                   mediaPlayer.setOnCompletionListener(completionListener);</span><br><span class="line">               &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                   e.printStackTrace();</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">if</span> (!mediaPlayer.isPlaying()) &#123;</span><br><span class="line">               mediaPlayer.start();</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="keyword">super</span>.onDestroy();</span><br><span class="line">       <span class="keyword">if</span> (mediaPlayer != <span class="keyword">null</span>)</span><br><span class="line">           mediaPlayer.release();</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (mediaPlayer != <span class="keyword">null</span>) &#123;</span><br><span class="line">           mediaPlayer.stop();</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> IBinder <span class="title">onBind</span><span class="params">(Intent arg0)</span> </span>&#123;</span><br><span class="line">       <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>需要解释一下的是，在 <code>onAudioFocusChange</code> 方法里的返回值代表了当前焦点变化的状态</p>
+<table>
+<thead>
+<tr>
+<th>常量</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AUDIOFOCUS_GAIN</td>
+<td>持有焦点</td>
+</tr>
+<tr>
+<td>AUDIOFOCUS_LOSS</td>
+<td>失去焦点</td>
+</tr>
+<tr>
+<td>AUDIOFOCUS_LOSS_TRANSIENT</td>
+<td>临时失去焦点</td>
+</tr>
+<tr>
+<td>AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK</td>
+<td>临时失去焦点，允许小声播放</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
+    
+      <category term="Android" scheme="http://kaaaaai.cn/tags/Android/"/>
+    
+      <category term="Audio Focus" scheme="http://kaaaaai.cn/tags/Audio-Focus/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Android - 动态改变 seekbar 滑块大小和其他</title>
     <link href="http://kaaaaai.cn/articles/Android-More-than-Seekbar-slider-dynamic-change.html"/>
     <id>http://kaaaaai.cn/articles/Android-More-than-Seekbar-slider-dynamic-change.html</id>
     <published>2019-11-23T00:00:52.000Z</published>
-    <updated>2019-11-23T03:07:48.384Z</updated>
+    <updated>2019-11-23T03:07:48.000Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>　　在做项目下拉栏音量条拖动的时候，产品提了一个新需求，想拖动的时候让滑块选中时变大，未选中时就正常大小，这个需求如果在 iOS 项目，我会选择监听手势方法，监听按下和松开的时机，改变滑块的大小。在 Android 中我想应该也有类似的方法，但实际在网上搜索资料，发现问题简单，但找解决问题的方式非常困难，具体困难点在于，无法找到精确到“动态改变 seekbar 滑块大小”这个需求具体实现的文章，除了一方面很多文章来源自复制粘贴，另一部分在讲述 seekbar 的使用顺便提了一下选中和普通状态的样式改变，但这个方法的效果在新的版本里，不知道是不是从来就如此，还是接口变化导致不适用了。到最后我解决这个方法的姿势是：我想类似需求的实现出现最多的地方应该是在音乐播放器之类的项目，然后就在 GitHub 上搜索类似的工程，最后在 <a href="https://github.com/magic5650/Recoderapp" target="_blank" rel="noopener">Recoderapp</a> 这个项目最新更新的节点中看到有关 seekbar 的描述，抱着试一试的心态，下了，看了，解决了。具体方法会和上面那个不适用的方法一起放在后文。<br>　　我想大部分开发者在搜索问题解决的时候都会倾向于直接看代码，所以我这里的长篇累牍显得有点不太必要，但是还是想提一下的就是，由查找不到问题解决方式引发的一些思考，类似于，大家应该多多少少有动态改变滑块大小的需求，但是网上为什么没有这么精确的回答，如果是因为简单，但哪怕再简单的问题，也会有处于新手期的开发者会觉得这是一个难题——比如我，这边文章也是基于这个思考才写的，而另一个原因是想到最近大火的电商——拼多多，他之所以能在淘宝京东的围杀中杀出重围，主要做的一件事就是渠道下沉。而渠道下沉的变体其实就是集中解决一部分人的需求。最近下的两三个 App 也给我这种感觉，一个是播放白噪音的软件，一个是类似于番茄钟的软件，但区别在于后者的记录是主要针对你在做某一项技能的学习时的记录，最后会统计单一技能所花费的时间。不知道这个例子能不能解释清楚，总的来说，另一个原因可以总结成，是一个开发者在做技术分享的渠道下沉的一个尝试。
 　　</p>
@@ -55,7 +114,7 @@
     <link href="http://kaaaaai.cn/articles/Xiangzi-and-his-misfortune.html"/>
     <id>http://kaaaaai.cn/articles/Xiangzi-and-his-misfortune.html</id>
     <published>2019-11-16T02:13:52.000Z</published>
-    <updated>2019-11-18T02:12:05.590Z</updated>
+    <updated>2019-11-18T02:12:05.000Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　上上个礼拜把读了十几年的《骆驼祥子》读完了，说读十几年的原因是因为第一次看《骆驼祥子》大概是我初中，老师让买了一套书，课外看，目的是为了提高阅读理解能力和作文水平。但当时我觉得不喜欢看文学名著，喜欢看小说，觉得文学名著太过严肃，有一张拒人于千里之外的旧学堂老先生凶巴巴的脸，整套书一共十二本，看完的好像只有鲁迅先生的《朝花夕拾》和一两本收录短篇故事的书，而祥子，总是看到祥子朝气逢勃拉着车子在北平窜来窜去的光景，我就抽身走人了，抽身的原因也很简单，对于北京的想象和里面人们生活方式，当时我有我一套自己的想象，书里写的和我想象相差很远，所以就走了。<br>　　而重新捡起来看的原因，也很简单，起初是个巧合，因为好久没看书，翻开 kindle 看，前几本分别是《傻瓜式投资》、《软技能》、《退步集》、《骆驼祥子》，里面有故事情节又适合打发时间的好像只有《骆驼祥子》。<br>　　《骆驼祥子》的故事很简单，概述起来大概是讲还是军阀混战年代的北平，一个初入社会，叫祥子的年轻车夫，在攒出属于自己车的过程中，遇到了种种不幸，梦想破灭，人格也随之破产，最后活成浑浑噩噩苟且生活的行尸走肉的故事。<br>　　故事虽然一直都是这个故事，但现在看和以前看的心境完全不一样，在社会上打了几个滚的我，再去看祥子在刚入社会时，给自己打的算盘和不算远大的抱负，对我来说不再有雾里看花的隔阂，更多的是觉得，如果抛开因为时代和环境而产生的，具体到像攒一辆自己的车的这种事，祥子的所思所感，放在所有时代，对比所有时代的年轻人，包括二十一世纪现在的我的所思所想，其实一般无二，初出茅庐不怕虎，被雨打风吹后犹疑怨怼愤懑，最后因为个人际遇不同，有人跳出来后被当做励志的榜样，有人没跳出来被当做“二十岁就死了，但八十岁才被埋葬”，茶余饭后被提起，供人唏嘘的段子。祥子，祥子可能不到八十岁就会被埋葬掉吧。<br>　　和朋友聊天提起看完了这本书，他说了一句人人都是祥子。他大概是想说每个人在经历社会上的摸爬滚打之后，都会变成一种模样，即浑浑噩噩的样子。祥子的结局，有一部分是时代的必然性，所以是普遍如此，还是特定事件，值得商榷。在那之后我们又提到了电影《小丑》。<script src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script><script src="//cdn.bootcss.com/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script><div class="hexo-img-stream"><style type="text/css">.hexo-image-steam-lazy {display:none;}.hexo-img-stream{width:90%;max-width:1100px;margin:3% auto}div.hexo-img-stream figure{background:#fefefe;box-shadow:0 1px 2px rgba(34,25,25,0.4);margin:0 0.05% 3%;padding:3%;padding-bottom:10px;display:inline-block;max-width:25%}div.hexo-img-stream figure img{border-bottom:1px solid #ccc;padding-bottom:15px;margin-bottom:5px}div.hexo-img-stream figure figcaption{font-size:.9rem;color:#444;line-height:1.5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}div.hexo-img-stream small{font-size:1rem;float:right;text-transform:uppercase;color:#aaa}div.hexo-img-stream small a{color:#666;text-decoration:none;transition:.4s color}@media screen and (max-width:750px){.hexo-img-stream{column-gap:0}}</style><figure><img class="hexo-image-steam-lazy nofancy" src="https://ws4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif" data-original="https://s2.ax1x.com/2019/11/17/MsYf8x.jpg"><noscript><img src="https://s2.ax1x.com/2019/11/17/MsYf8x.jpg"></noscript><figcaption></figcaption></figure></div><script type="text/javascript">$('img.hexo-image-steam-lazy').lazyload({ effect:'fadeIn' });</script><br>　　《小丑》的剧情就不展开讲了，总之还不错，推荐没看过的朋友可以去看看。<br>　　想想电影里的亚瑟和祥子是否存在一定相似性？祥子心心念念的车，是亚瑟扮成小丑，给人们带来笑声的梦想，亚瑟和祥子都被他们所面临的处境所伤害，受伤之后，亚瑟选择向伤害自己的人开枪，而祥子，因为很难说有某个清晰的、可以用来复仇的目标，最后他只好用钝刀挥向自己内心。<br>　　深究祥子或者亚瑟，何以成为他们本身，我尝试思考了以下两个问题：在同时代的人中，我想拥有他们同样遭遇的人肯定很多，但为什么只要祥子和亚瑟被选中，可以拥有他们的名字？祥子和亚瑟的结局是否拥有某种必然性？<br>　　为什么只要祥子和亚瑟拥有名字，其他遭受不幸的人们都在历史里模糊成一个群体，是祥子或者小丑存在某种值得书写的闪光点吗？关于祥子的答案，我想是否定的，作为《骆驼祥子》这个故事的男主角，他不存在，或者说不可能存在某种特别，相反，正因为他和当时普通的底层劳苦群众一般无二，所以才可以被当做一个例子，与其说他和劳苦群众不同，不如说他是劳苦群众的一个代表。而亚瑟，亚瑟不是被选中的，他是自己跳出了的，之所以这样说是因为，如果去掉小丑这个辨识度极强的符号，亚瑟可能在每个时代都很多见，受压迫到歇斯底里后陷入疯狂的变态杀人狂，或是因为本身存粹的恶导致的无差别杀人。如果只是因为带着小丑面具杀人而被人记住，这种说法不免有点牵强，而事实上，亚瑟也不仅仅只是因为带着小丑的脸杀人而被人记住，他之所以得以被高举，是因为他杀人在群体围观之下被赋予某种意义，第一次在地铁开枪杀人，是失手和恐惧的混合，事后在厕所的舞蹈虽然可以解释成，他潜意识里本身就想杀人。但无论如何，都和被公众解释成是城市底层边缘人对精英阶层的一次控诉相去甚远，而亚瑟完成自己的蜕变，成为小丑在电视台的演讲，或许有那种意思，但在亚瑟这边，这个演讲，可能是对小丑自我的建立，一段初初登场的自我介绍，是一个开始的标志。而在群众眼里，因为经过舆论酝酿发酵，意义可能远不止于此，在地铁凶案的小丑，在众说纷纭的情况下，登台枪杀了主持人，洋洋洒洒发布了一段正中他们下怀的演讲，这对小丑自发组成的信徒们来说，这是一个集结号，一段对近期发生的所有事的结束陈词，一种思想成熟的标志。<br>　　祥子和亚瑟的结局是否拥有某种必然性？正如前文所述，祥子作为一个代表，他是存在一种必然性的，不在城外被军阀抢走车，也可能因为其他原因失去自己的车，没有被虎妞欺骗被迫结婚，也会因为其他的事情受到类似委屈等等，而亚瑟呢，如果他妈妈小时候没有虐待他导致他得精神病，如果他的同事没有两面三刀，如果那个主持人没有看轻他的梦想，是不是事情就会不一样？但除了他妈虐待他导致他得精神病这点，其他事其实在社会上也都很普遍，而得精神病的妈妈虐待自己孩子导致她孩子也患上精神病的这种事，如果把范围扩大，不止哥谭，我想偶然性也不是很小。那是不是有结论，哪怕没有名叫亚瑟这个小丑出现，也可能会有名叫杰克，或者露西的小丑。不过无论是祥子和亚瑟，预设条件，推导事情结果本身存在一定的不靠谱，所以我们只能通过结果本身去下定义，因为祥子有很多个，而小丑亚瑟只有一个，所以祥子的结局是存在必然性的，而小丑的产生是偶然性更多一点。<br>　　和朋友争论调侃小丑的主持人到底有没有错的时候，因为觉得其实主持人只是把嘲讽当做一个工作，甚至可能不存在任何恶意，虽然嘲笑别人可能不对，但因为嘲笑而收到子弹就太过分了吧。但另一边站在小丑的立场上，遭受如此多的不公平，选择复仇也是一种不得已的理所当然。所以我当时的回答是，只能说大家都运气不好吧。这个回答多少有点含糊其辞的成分，想想最近很多事，因为每次转换立场都觉得可以理解对方，而选择一个模棱两可的态度，这种态度多少有一点犬儒，所以我又深刻的想了想，决定给祥子和亚瑟一个坚定但坚决不是为了表明态度而煲鸡汤的态度：<br>　　祥子和亚瑟不仅是因为不幸，更多的是不公平，因为自己的付出没有得到预期的回报，勤勤恳恳拉车的祥子没有攒到自己梦想的新车，希望带给别人欢乐的亚瑟发现从头到尾自己都没得到过善待。面对不幸，我们仍然可以在种种不幸中保持着早期祥子热忱的心态，和亚瑟在公交车上逗小孩子笑的善良的脸。但面对不公呢，祥子和亚瑟大概是两个错误示范，就此沉沦和过激报复。因为不公的表现有很多，也没有万金油的解决方式，这里只能给一些我的建议，面对小事的不公平，豁达点用“就当是一种修行”的心态一笑了之，不豁达就一句“*他妈”了之，面对大事的不公平，如果不能依靠现有的社会机构解决，也绝不要采取会被现有社会机构解决的方式解决。</p>
 ]]></content>
@@ -80,7 +139,7 @@
     <link href="http://kaaaaai.cn/articles/how-to-fix-warnings-about-unsafe-sites.html"/>
     <id>http://kaaaaai.cn/articles/how-to-fix-warnings-about-unsafe-sites.html</id>
     <published>2019-11-07T07:00:52.000Z</published>
-    <updated>2019-11-14T03:39:56.844Z</updated>
+    <updated>2019-11-14T03:39:56.000Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　前一阵子公司网站的访问出了一点问题，每次访问的时候都会弹出一个警告页面，类似于这种<img src="https://s2.ax1x.com/2019/11/07/MACQ0A.png" alt=""><br>　　由于之前也没碰过这种问题，只能简单粗暴的归纳出两个方向：<br>　　１.可能是域名原因<br>　　２.可能是服务器原因<br>　　后来问题已经解决的时候看网上分享的资料知道还有一种可能就是，网站本身没问题，之所以出现这个警告页面是因为被运营商 HTTP 或 DNS 劫持了。<br>　　这里刷一条给我们提供域名服务的服务商——<a href="http://now.cn/" target="_blank" rel="noopener">时代互联</a>的差评，在解决这个问题的过程中，联系我们账号底下的客服和电话客服，大概联系了不下十次，都没能解决问题，其中有几次，不仅没能帮我解决问题，还用一种推卸责任和不耐烦的态度把我怼的差点憋不住气的跳脚。<br>　　不仅态度有问题，而且他们的工作人员对自己那块的业务好像也不太熟练。因为怀疑网站网站报警告问题，可能和域名服务商的服务可能存在某些问题，所以预期的解决方案中也有一项是迁移域名，迁移域名的话需要通过手机或者邮箱验证，而手机和邮箱这些信息，由于公司人员变动，需要修改。基于这点我问他们工作人员，在修改信息页面中的一个需要勾选的选项，“修改信息之后的 <strong>720</strong> 天内不能迁移域名”，和接我电话的工作人员再三确认，是不是必须勾选，不勾选会不会有问题，告知我可以不用勾选，并且确认不勾选不会造成什么问题。结果最后我确认修改信息的时候，发现那个选项不勾选竟然不能到下一步。。。<br>　　回归正题，当域名问题不能再域名服务商那边解决时，我开始尝试定位到底是域名还是服务器的问题，具体方式：<br>　　1.把我们的域名指向到另一个服务器，如果仍然报警告，那就是域名问题<br>　　2.用其他的域名指向当前服务器，如果仍然报警告，那就是服务器问题<br>　　测试结果出来后，基本可以定位是域名问题，然后让后台的同事帮了一下忙，安装了一个在腾讯云申请的免费 SSL 证书（这个好像也能解决上述所说的未发现的被劫持问题），但仍然无效，打电话给域名服务商，他说肯定是 SSL 证书不起作用或者是根本就没用，没办法，我只好追着皮球到了腾讯云客服人员那，幸运的是，大厂不愧为大厂，服务完全没有可比性，只是提交了怀疑 SSL 证书可能没生效的工单，对方就帮我检测了我的网站是否有异常，以及用不同浏览器测试，得出 QQ 浏览器访问正常，可能需要向谷歌站长平台提供申述。不过因为在此之前，我就在一个网站申述平台提了一个申述：<a href="https://www.stopbadware.org/" target="_blank" rel="noopener">StopBadware</a>，因为申述通过但网站访问仍然异常。所以带着将信将疑的态度，又重新激活腾讯问题的工单，然后过了一个上午就接到腾讯云平台技术人员的电话，非常耐心的给我解释了他们所做的所有尝试，最后得出结果，只能去<a href="https://www.google.com/webmasters/tools/home?hl=zh-CN" target="_blank" rel="noopener">谷歌站长平台</a>注册，申述试试看了。<br>　　在谷歌站长平台添加了网站之后，立马有个警告消息提醒我，我们公司的网站存在一些问题，不加思索，我反手就是一个申述，第二天收到邮件，有点出乎意料，竟然没有通过，仔细看邮件描述，推测问题可能出在我们的网站因为提供了很多安卓 apk 的下载，而有一部分 apk 之前在 Google 应用市场因为添加了<strong>有风险的广告 SDK 被下架了</strong>，然后谷歌站长平台也默认这些 apk 存在一定风险。再次提交申述之前，让安卓的同事提供了去除广告 SDK 的 apk 替换掉服务器里的文件，果然，第二天收到邮件，审核通过了。<br>　　<img src="https://s2.ax1x.com/2019/11/07/MAClTI.jpg" alt=""><br>　　这次网站申述的经历给我有两个体会，一个是，只要死磕到底，就一定能让周润发翻译出什么他妈的叫他妈的惊喜。另一个是互联网服务一定要选大厂，盘靓活好态度也呱呱叫。</p>
 ]]></content>
@@ -107,7 +166,7 @@
     <link href="http://kaaaaai.cn/articles/iOS-naming-rules-and-annotation-specifications.html"/>
     <id>http://kaaaaai.cn/articles/iOS-naming-rules-and-annotation-specifications.html</id>
     <published>2019-10-31T07:00:52.000Z</published>
-    <updated>2019-10-31T10:28:22.202Z</updated>
+    <updated>2019-10-31T10:28:22.000Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>iOS开发者规范:以苹果开发者中心规范(<a href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingBasics.html#//apple_ref/doc/uid/20001281-BBCHBFAH" target="_blank" rel="noopener">Coding Guidelines for Cocoa</a>)为标准，添加部分规范。</p>
 <blockquote>
@@ -194,7 +253,7 @@
     <link href="http://kaaaaai.cn/articles/Android-More-than-Adb-commands.html"/>
     <id>http://kaaaaai.cn/articles/Android-More-than-Adb-commands.html</id>
     <published>2019-10-24T07:00:52.000Z</published>
-    <updated>2019-10-25T02:04:25.078Z</updated>
+    <updated>2019-10-25T02:04:25.000Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
 <p>ADB，即 <a href="https://developer.android.com/studio/command-line/adb.html" target="_blank" rel="noopener">Android Debug Bridge</a>，它是 Android 开发/测试人员不可替代的强大工具，也是 Android 设备玩家的好玩具。</p>
@@ -247,7 +306,7 @@
     <link href="http://kaaaaai.cn/articles/Android-buildGradle-detailed.html"/>
     <id>http://kaaaaai.cn/articles/Android-buildGradle-detailed.html</id>
     <published>2019-10-23T07:24:52.000Z</published>
-    <updated>2019-10-23T07:43:43.253Z</updated>
+    <updated>2019-10-23T07:43:43.000Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>最近重新捡起了 Android 开发，发现很多以前的知识点很多都忘了，也有当时追求项目进度而在过程中只是稍作了解并没有深入，所以项目完成后就忘了的原因。所以近期可能会更新很多我在 Android 开发中碰到的问题和收获的知识，由大部分来自网络上的资料，和我自己在实际开发中发现的和网络上的博客教程存在差异的地方。<br>另外推荐大家最好的可以在开发的过程中比照官方文档来使用 api，在最近公司的一个技术分享会上有位同事提到关于一个 WiFi 服务底下的 <code>api</code>，在 API 27 中已经弃用，虽然你在工程里仍可以调用那部分方法，但很可能会碰上不起作用或者产生其他问题的可能。安卓的官网现在国内也可以直接访问：<a href="https://developer.android.google.cn" target="_blank" rel="noopener">Android Developers</a>，外网地址：<a href="https://developer.android.com" target="_blank" rel="noopener">Android Developer</a></p>
 <h2 id="关于-build-gradle-的前置知识"><a href="#关于-build-gradle-的前置知识" class="headerlink" title="关于 build.gradle 的前置知识"></a>关于 build.gradle 的前置知识</h2><ol>
@@ -295,7 +354,7 @@
     <link href="http://kaaaaai.cn/articles/iOS-Xcode-setup-code-snippet.html"/>
     <id>http://kaaaaai.cn/articles/iOS-Xcode-setup-code-snippet.html</id>
     <published>2019-09-27T08:24:52.000Z</published>
-    <updated>2019-09-27T08:23:24.160Z</updated>
+    <updated>2019-09-27T08:23:24.000Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><em>为了提高编程的效率，有时候也要用上一些捷径。代码片段就是我们可以用上的捷径之一。</em></p>
 <h2 id="一、创建代码片段"><a href="#一、创建代码片段" class="headerlink" title="一、创建代码片段"></a>一、创建代码片段</h2><p>以 <code>Strong</code> 为例：<br>1、在书写 <code>@property</code> 属性的地方写下如下语句：<br><figure class="highlight objc"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) &lt;<span class="meta">#Class#&gt; *<span class="meta-string">&lt;#object#&gt;</span>;</span></span><br></pre></td></tr></table></figure></p>
@@ -347,7 +406,7 @@
     <link href="http://kaaaaai.cn/articles/iOS-kingfisher-analysis.html"/>
     <id>http://kaaaaai.cn/articles/iOS-kingfisher-analysis.html</id>
     <published>2019-09-22T08:24:52.000Z</published>
-    <updated>2019-09-22T10:57:02.428Z</updated>
+    <updated>2019-09-22T10:57:02.000Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://s2.ax1x.com/2019/09/22/u9YO81.png" alt=""><br>Kingfisher 是一个轻量的下载和缓存网络图片库。下载和缓存是异步进行操作，已经下载好的图片会缓存在内存和本地，极大得提高 app 的体验。值得一提的是，他是我们国内大神王巍开发的一个框架。</p>
 <h2 id="一、功能介绍"><a href="#一、功能介绍" class="headerlink" title="一、功能介绍"></a>一、功能介绍</h2><ul>
@@ -398,7 +457,7 @@
     <link href="http://kaaaaai.cn/articles/iOS-fastlane-snapshot.html"/>
     <id>http://kaaaaai.cn/articles/iOS-fastlane-snapshot.html</id>
     <published>2019-09-16T03:24:52.000Z</published>
-    <updated>2019-09-16T12:03:17.322Z</updated>
+    <updated>2019-09-16T12:03:17.000Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="First-at-all"><a href="#First-at-all" class="headerlink" title="First at all"></a>First at all</h2><p>　　首先先介绍一下 fastlane 是干嘛用的：</p>
 <blockquote>
@@ -446,7 +505,7 @@
     <link href="http://kaaaaai.cn/articles/iOS-sdwebimage-analysis.html"/>
     <id>http://kaaaaai.cn/articles/iOS-sdwebimage-analysis.html</id>
     <published>2019-09-06T03:24:52.000Z</published>
-    <updated>2019-09-06T03:50:53.568Z</updated>
+    <updated>2019-09-06T03:50:53.000Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>一个异步下载图片并且支持缓存的 <code>UIImageView</code> 分类。</p>
 <h2 id="一、功能介绍"><a href="#一、功能介绍" class="headerlink" title="一、功能介绍"></a>一、功能介绍</h2><ul>
@@ -503,7 +562,7 @@
     <link href="http://kaaaaai.cn/articles/weekly-summary-0831.html"/>
     <id>http://kaaaaai.cn/articles/weekly-summary-0831.html</id>
     <published>2019-08-31T14:13:52.000Z</published>
-    <updated>2019-09-02T02:30:15.538Z</updated>
+    <updated>2019-09-02T02:30:15.000Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　上个礼拜又没抽出空写周记，一转眼本周就过去了一半，这篇周记我是星期三开始写的，不知道结束会在星期几，写一篇周记时间周期横跨大半个礼拜，虽然感觉很惫懒，但从时间跨度上看，又是名副其实的“周记”了。<br>　　这个礼拜买了个键盘——罗技 k380，尝试在几个设备之间切换，连接，都很迅速，但按键的手感不是很清脆，有点粘滞， 就像吃东西梗着喉咙的感觉，但离噎着又很远。可能是没习惯吧。不过对于平常在 iPad 上码字勉强够用了。<br>　　新开了两本书《超新星纪元》和《只是为了好玩》，一本科幻小说，一本 Linux 之父的自传。前者主要内容是讲由于行星运动导致地球上的成年人都死亡，只剩下十三岁以下的小孩，而在这群小孩的手上开启了地球上的新纪元。后者只看了个序，不过第一章开头着重讲了他本人的长相，说自己长的如何如何奇怪等等，让我不禁觉得是不是有点刻意，想拐弯抹角的往“奇人必有异相”里靠，不过也可以理解，但凡伟人都多少有些自恋，哪怕平凡如我，早起照镜子也照到出门时手忙脚乱。虽然两本书一个是靠想象力，一个是记叙，但他们里面都有提到一个共通的东西，《超新星纪元》里面说的是孩子社会发展的原动力是玩，《只是为了好玩》里林纳斯解释生活的意思提出了三个层级的诉求，生存，秩序，娱乐。似乎关于这方面的思考，发展进步，生物进化，最后的结果都是为了更好的玩。一边觉得他们的想法有趣，一边有些感概，优秀的人总是能想到一块去。我作为一个后生晚辈，也情不自禁的想举手发言，前辈们，我。。我也觉得玩是人类的最终极的最伟大的诉求。<br>　　工作内容日益增多，有的内容对我有积极影响，有的则不然。周六开会听闻产品助理离职的事，心里没起太多波澜，部门 leader 顺势而为的借这件事敲打包括我在内的几名开发人员，虽然有些话我觉得有失偏颇，但如果不计较这个，对于可以增进改善我的建议，我觉得还是比较客观的。所以心里也没起太多波澜。倒是因为之前和产品助理的针锋相对，让我想到了一些影视小说作品里会出现的桥段，一直针锋相对的两个敌人在最后永别——现实中我们应该也不会再见了的关键时候，忽然相逢一笑泯恩仇，并为之前所有的恩怨争论由其冲突产生的毛刺最终消融为理解，而在关系上以另一种方式达成非常规的相知相识。戏剧化演绎到这，我就打住，没继续在脑子里演绎下去，回过头来又觉得自己颇有些可笑，可笑的原因模糊以蔽之，大概是人间不值得吧。<br>　　每天早上通勤路上背英语单词，虽然现在错误率在下降，但是感觉效果还是不太明显，想下一个阶段配合英文原著阅读学习，但不知道自己能够控制时间，专升本的课进入复习阶段，数据库老师给了一份试卷让周一到周五内完成，结果一直没抽出空。包括这篇博客，写到这里的时候已经星期天晚上了，明天又要开始新的一轮忙碌了。<br>　　刷微博看到一句诗，“人生天地间，忽如远行客。”，有朦胧的孤独感从诗的意境里透出来，百度搜全文看到下一句，“斗酒相娱乐，聊厚不为薄。”好吧，不为薄就不为薄，及时行乐就好。</p>
 ]]></content>
@@ -532,7 +591,7 @@
     <link href="http://kaaaaai.cn/articles/iOS-javaScript-research.html"/>
     <id>http://kaaaaai.cn/articles/iOS-javaScript-research.html</id>
     <published>2019-08-29T02:24:52.000Z</published>
-    <updated>2019-08-29T10:40:43.765Z</updated>
+    <updated>2019-08-29T10:40:43.000Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p> 　通过网上调研发现用于实现 <code>JS</code> 和 <code>OC</code> 交互的第三方库比较少，比较知名的有且只有一个：<a href="https://github.com/marcuswestin/WebViewJavascriptBridge" target="_blank" rel="noopener">WebViewJavascriptBridge</a>，但通过查看网上资料，我发现实现 <code>JS</code> 和 <code>OC</code> 交互的功能不一定需要使用第三方库，总结了一下大概有以下六种方式：</p>
 <ul>
@@ -674,7 +733,7 @@
     <link href="http://kaaaaai.cn/articles/weekly-summary-0819.html"/>
     <id>http://kaaaaai.cn/articles/weekly-summary-0819.html</id>
     <published>2019-08-19T02:13:52.000Z</published>
-    <updated>2019-08-30T03:56:21.223Z</updated>
+    <updated>2019-08-30T03:56:21.000Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　Yooo~今天终于挤出时间写周记了，上个礼拜落了一篇，就合在这里一块说了。<br>　　上上个礼拜看了徐浩峰的《刀背藏身》短篇集，很有古韵，他在后记里写：</p>
 <blockquote>
@@ -707,7 +766,7 @@
     <link href="http://kaaaaai.cn/articles/iOS-runtime-study.html"/>
     <id>http://kaaaaai.cn/articles/iOS-runtime-study.html</id>
     <published>2019-08-16T02:24:52.000Z</published>
-    <updated>2019-08-16T09:26:29.801Z</updated>
+    <updated>2019-08-16T09:26:29.000Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>　　在维护一个项目时碰见一个问题，调用了一个方法后不起作用，这种问题一般有两个解决思路，一个是看方法有没有起作用，另一个是看是不是其他的方法打断了这个方法，比如设置 UIButton 的隐藏，但在另一个地方，又把它设置成显示了。这种问题在工程里通过调试代码一般都很好解决。<br>　　但是当它发生在我调用了一个 SDK 方法不起作用时，按照上文的思路，一查看是否是 SDK 方法的问题，这个除了向 SDK 提供人员反应没有其他更好的解决方法了，二是查看是否其他地方也调用了这个方法，使用了不同的参数导致本次的调用失效了。如果这个方法调用的少，可以全局搜索，然后注释掉方法，但是如果之前项目不是你开发的，你只是后期切入进来，同时代码结构一时半会还不能很好把握到，总之想快速利落的排除问题，这时你可以考虑用 Runtime 的特性，把 SDK 里的方法用自己写的替换掉。<br>　　先老调重弹一遍，什么是 Runtime？
 　　</p>
@@ -767,7 +826,7 @@
     <link href="http://kaaaaai.cn/articles/iOS-utf8-To-Chinese.html"/>
     <id>http://kaaaaai.cn/articles/iOS-utf8-To-Chinese.html</id>
     <published>2019-08-07T02:24:52.000Z</published>
-    <updated>2019-08-07T02:33:28.825Z</updated>
+    <updated>2019-08-07T02:33:28.000Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　下午在测试一个语音 SDK 的时候，发现打印出来字典里的中文汉字都显示为 UTF-8 的字符，百度了一下解决办法，发现大都是用给 <code>NSArray</code> 和 <code>NSDictionary</code> 创建分类的方法解决的，但是很多文章可能是写的匆忙，或者是复制粘贴的，不够美观和一目了然。而且创建分类的方式，对比我以前用小码哥的一个类来说，多了一个 <code>.h</code> 文件，不够精简。所以就做个笔记，留作备用。<br>　　首先新建一个 OC 的 <code>.m</code> 文件，不知道怎么新建也可以直接，创建普通的 <code>UIVIew</code> 的类，把 <code>.h</code> 删除，把 <code>.m</code> 所有除注释以外代码删除，修改成如下文所示一致就好。<br>　　<br><figure class="highlight objectivec"><figcaption><span>Objective-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSDictionary</span> (<span class="title">Log</span>)</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)descriptionWithLocale:(<span class="keyword">id</span>)locale</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSMutableString</span> *string = [<span class="built_in">NSMutableString</span> string];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 开头有个&#123;</span></span><br><span class="line">    [string appendString:<span class="string">@"&#123;\n"</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 遍历所有的键值对</span></span><br><span class="line">    [<span class="keyword">self</span> enumerateKeysAndObjectsUsingBlock:^(<span class="keyword">id</span> key, <span class="keyword">id</span> obj, <span class="built_in">BOOL</span> *stop) &#123;</span><br><span class="line">        [string appendFormat:<span class="string">@"\t%@"</span>, key];</span><br><span class="line">        [string appendString:<span class="string">@" : "</span>];</span><br><span class="line">        [string appendFormat:<span class="string">@"%@,\n"</span>, obj];</span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 结尾有个&#125;</span></span><br><span class="line">    [string appendString:<span class="string">@"&#125;"</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 查找最后一个逗号</span></span><br><span class="line">    <span class="built_in">NSRange</span> range = [string rangeOfString:<span class="string">@","</span> options:<span class="built_in">NSBackwardsSearch</span>];</span><br><span class="line">    <span class="keyword">if</span> (range.location != <span class="built_in">NSNotFound</span>)</span><br><span class="line">    [string deleteCharactersInRange:range];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> string;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSArray</span> (<span class="title">Log</span>)</span></span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSString</span> *)descriptionWithLocale:(<span class="keyword">id</span>)locale</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSMutableString</span> *string = [<span class="built_in">NSMutableString</span> string];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 开头有个[</span></span><br><span class="line">    [string appendString:<span class="string">@"[\n"</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 遍历所有的元素</span></span><br><span class="line">    [<span class="keyword">self</span> enumerateObjectsUsingBlock:^(<span class="keyword">id</span> obj, <span class="built_in">NSUInteger</span> idx, <span class="built_in">BOOL</span> *stop) &#123;</span><br><span class="line">        [string appendFormat:<span class="string">@"\t%@,\n"</span>, obj];</span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 结尾有个]</span></span><br><span class="line">    [string appendString:<span class="string">@"]"</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 查找最后一个逗号</span></span><br><span class="line">    <span class="built_in">NSRange</span> range = [string rangeOfString:<span class="string">@","</span> options:<span class="built_in">NSBackwardsSearch</span>];</span><br><span class="line">    <span class="keyword">if</span> (range.location != <span class="built_in">NSNotFound</span>)</span><br><span class="line">    [string deleteCharactersInRange:range];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> string;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure></p>
 <p>GitHub 地址：<a href="https://github.com/kaaaaai/Code-Fragmentation/blob/master/CodeFragmentation/CodeFragmentation/Other/Foundation%2BLog.m" target="_blank" rel="noopener">NSDictionary+Log.m</a></p>
@@ -795,7 +854,7 @@
     <link href="http://kaaaaai.cn/articles/weekly-summary-0803.html"/>
     <id>http://kaaaaai.cn/articles/weekly-summary-0803.html</id>
     <published>2019-08-03T02:13:52.000Z</published>
-    <updated>2019-08-06T09:35:01.900Z</updated>
+    <updated>2019-08-06T09:35:01.000Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　匆匆一周过去，回想起来，值得一提的也没有什么，有些做一天和尚撞一天钟的碌碌，但平静心情总结一下，虽然碌碌倒也不是无为。<br>　　先聊聊天气，本周阴天占比较多，可能是到了月末月初交接，股市大盘这几日也不断波动，阴晴不定。心情也时好时坏，说话的欲望被沉默吞并，鞋子在几场大雨里被反复浸成船，某天晚上下班，看见飞机穿过乌云，开着大灯，像吸尘器把乌云吸走，留下一块一块白色的光道，看起来就像 UFO 飞过。想起星空、宇宙和不明飞行物，心情似乎就好了一点。<br>　　上周工作量增多初见端倪，本周的端倪又多了一些，部门的项目慢慢多了起来，虽然总结工作内容也就是为了需求搭建功能和解决 bug，但量一多了，难免有些焦头烂额。想打个鸡蛋在额头上做荷包蛋——哈。<br>　　我有没有说过有时候想到一些东西，但最后总是发现别人早就已经有现成的理论学说在很早就已经出来了。如果没有，那我再说一遍，有时候我心血来潮想到一些我自以为特别的想法，比如成功学是用来淘汰社会上平庸但又野心勃勃的年轻人的。然后一翻书——忘记谁谁谁了，就说过差不多的话。除此以外，最近还发现，总是在一件事发生很久以后才想起来最好的应对方式——包括话语，态度，行为之类的应对。不过想想这可能是人类的通病，也可能是人们产生后悔的根源。也就释怀了一点点了。
 　　
@@ -826,7 +885,7 @@
     <link href="http://kaaaaai.cn/articles/iOS-hot-fix.html"/>
     <id>http://kaaaaai.cn/articles/iOS-hot-fix.html</id>
     <published>2019-08-01T09:24:52.000Z</published>
-    <updated>2019-08-03T02:12:06.320Z</updated>
+    <updated>2019-08-03T02:12:06.000Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　<code>Hot-Fix</code> 热修复技术，就是指不需要重新上架 <code>ipa</code> 包就修复线上 <code>bug</code> 的相关机制。由于 <code>App Store</code> 的审核机制，以及苹果不允许 <code>App</code> 加载动态库等原因，<code>iOS</code> 的热修复技术一直比较欠缺。<br>　　但是 <code>bug</code> 是难以避免的，除了通过严格测试来修复上线前的 <code>bug</code>，用热修复技术来解决线上 <code>bug</code>，对于一款 <code>App</code> 来说，是相当必须的。</p>
 <h3 id="1-JSPatch"><a href="#1-JSPatch" class="headerlink" title="1.JSPatch"></a>1.<a href="https://github.com/bang590/JSPatch" target="_blank" rel="noopener">JSPatch</a></h3><p>Star 数：10,909<br>最近一次更新时间：去年<br>谷歌搜索词条结果：49,200<br>百度搜索词条结果：2,930,000<br>是否也支持 Swift：是<br>是否有中文文档：是</p>
@@ -874,7 +933,7 @@
     <link href="http://kaaaaai.cn/articles/weekly-summary-0729.html"/>
     <id>http://kaaaaai.cn/articles/weekly-summary-0729.html</id>
     <published>2019-07-29T12:13:52.000Z</published>
-    <updated>2019-07-31T09:57:46.197Z</updated>
+    <updated>2019-07-31T09:57:46.000Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　小时候在酒桌上喝酒，总在大人们的撺掇向一些长辈敬酒，熟面孔多的时候也会童言无忌说上几句叔叔伯伯生意兴隆万事大吉，但生面孔多的时候心里也会有点害羞的不情愿，到了后来念书走上社会，面对学校老师职场前辈，起初也会有一些真心实意的感谢祝酒词。但是后来觥筹交错多了，渐渐习惯了这种场面，说不走心的祝福，妥协于气氛，绞尽脑汁，生编硬造一些词来祝酒，偶尔心里也会回忆起小时候被长辈逼迫下情不由衷的别扭。但时间长了，这种感觉也慢慢淡了。<br>　　我想走上社会以后的变化，可能就是由这些劝服自己开口讲话、劝服自己相信自己说的话的一个又一个瞬间所构成的，向外界的诱惑，向自己的欲望低头的那些瞬间，就好像温水煮青蛙，但一点一点把温度加高的人却是自己。坚持做自己真的是一件很难的事，就像一个学轮滑的新手，要在不断的摇摆中稳定自己，视线所及，还要注意前方是否有危险。总是想起那句：世界上只有一种真正的英雄主义，就是认清了生活的真相后还依然热爱它。做自己很难，认清做自己很难之后还可以继续坚持做自己更是难上加难。可能这是当代年轻人的通病吧，能清除精确的把握到自己的局限，但又不知道往哪里使劲可以跳出这个局限。在脑袋上绑头带给自己加油鼓劲，买几斤心灵鸡汤的书给自己喘口气，但如果这些是治标又治本的方法，也就不至于再发出这些疑问了。<br>　　跳过这个问题。本周工作上接手了一个新的项目，里面有用到跨平台技术，native，不过没空仔细研究，我负责的部分仍然是传统的 <code>OC</code> 代码，但可能是因为用到了 native 技术，所以项目的结构也和以往有些不同，有一点挑战性，但深入看了整个项目的代码以后，发现其实也万变不离其宗，虽然他重写了 <code>Appdelegate</code> 类，导致我在前期不知道根控制器被设置成了哪个，但是搜索 <code>applicationDidEnterBackground</code> 方法就立马找到了这个重写的类，但是对于这个重写以后的类没有 <code>.h</code> 文件，还是有点迷惑，可能是和他这个项目机制有关系。<br>　　另外有个体会就是，可能是经手的项目多了，经验上来了，以前遇到比较麻烦，看不懂的代码，第一反应是焦灼烦闷，但现在平静多了，可以保持正常水平去看问题，有时也能超水平发挥，举一反三的看，把其他项目都放在眼底下对比各自不同和相同部分，用为什么在 A 项目不出现问题，但在 B 项目会出现问题的思路去解决问题。<br>　　周末部门团建去山庄玩了，心情和风景都很不错。不过团建虽说是缓和工作压力，缓解部门同事平常工作时的紧张气氛，增进感情。但效果不是很好，之前讨厌的人还是一样惹人讨厌，而且其他的同事似乎也有同样的感觉，甚至比我有过之而无不及，而在这种情况下我就更加心安理得保持我的讨厌，不会再试图反思是不是自己太小家子气。<script src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script><script src="//cdn.bootcss.com/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script><div class="hexo-img-stream"><style type="text/css">.hexo-image-steam-lazy {display:none;}.hexo-img-stream{width:90%;max-width:1100px;margin:3% auto}div.hexo-img-stream figure{background:#fefefe;box-shadow:0 1px 2px rgba(34,25,25,0.4);margin:0 0.05% 3%;padding:3%;padding-bottom:10px;display:inline-block;max-width:25%}div.hexo-img-stream figure img{border-bottom:1px solid #ccc;padding-bottom:15px;margin-bottom:5px}div.hexo-img-stream figure figcaption{font-size:.9rem;color:#444;line-height:1.5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}div.hexo-img-stream small{font-size:1rem;float:right;text-transform:uppercase;color:#aaa}div.hexo-img-stream small a{color:#666;text-decoration:none;transition:.4s color}@media screen and (max-width:750px){.hexo-img-stream{column-gap:0}}</style><figure><img class="hexo-image-steam-lazy nofancy" src="https://ws4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif" data-original="https://s2.ax1x.com/2019/07/31/eY3kmn.jpg"><noscript><img src="https://s2.ax1x.com/2019/07/31/eY3kmn.jpg"></noscript><figcaption></figcaption></figure><figure><img class="hexo-image-steam-lazy nofancy" src="https://ws4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif" data-original="https://s2.ax1x.com/2019/07/31/eY3iOs.jpg"><noscript><img src="https://s2.ax1x.com/2019/07/31/eY3iOs.jpg"></noscript><figcaption></figcaption></figure><figure><img class="hexo-image-steam-lazy nofancy" src="https://ws4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif" data-original="https://s2.ax1x.com/2019/07/31/eY3Pyj.jpg"><noscript><img src="https://s2.ax1x.com/2019/07/31/eY3Pyj.jpg"></noscript><figcaption></figcaption></figure><figure><img class="hexo-image-steam-lazy nofancy" src="https://ws4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif" data-original="https://s2.ax1x.com/2019/07/31/eY3ClQ.jpg"><noscript><img src="https://s2.ax1x.com/2019/07/31/eY3ClQ.jpg"></noscript><figcaption></figcaption></figure></div><script type="text/javascript">$('img.hexo-image-steam-lazy').lazyload({ effect:'fadeIn' });</script><br>　　这周还去看了哪吒，非常不错，虽然剧情人物刻画的较其他剧情片都很脸谱化，但对于哪吒闹海本身的故事来说，算是跳出了自己的框架，取消了自刎情节，父子之间变得温情脉脉，取消了屠龙情节，敖丙哪吒之间变得温情脉脉。似乎唯一真正的大反派就只有一个申公豹，申公豹太惨了，同情申公豹。<br>　　以上。</p>
 ]]></content>
@@ -895,87 +954,6 @@
       <category term="Study" scheme="http://kaaaaai.cn/tags/Study/"/>
     
       <category term="Work" scheme="http://kaaaaai.cn/tags/Work/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS - Xcode 自动生成注释文档</title>
-    <link href="http://kaaaaai.cn/articles/automatically-generates-annotation-documents.html"/>
-    <id>http://kaaaaai.cn/articles/automatically-generates-annotation-documents.html</id>
-    <published>2019-07-26T09:24:52.000Z</published>
-    <updated>2019-07-26T05:54:37.480Z</updated>
-    
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>自动生成注释文档有三种方式:</p>
-<ul>
-<li><a href="http://www.stack.nl/~dimitri/doxygen/index.html" target="_blank" rel="noopener">docxygen</a></li>
-<li><a href="http://developer.apple.com/opensource/tools/headerdoc.html" target="_blank" rel="noopener">headdoc</a></li>
-<li><a href="http://gentlebytes.com/appledoc/" target="_blank" rel="noopener">appledoc</a></li>
-</ul>
-<p><strong>docxygen</strong><br>docxygen 感觉是这 3 个工具中支持语言最多的，可以配置的地方也比较多。我大概看了一下文档，觉得还是比较复杂，而且默认生成的风格与苹果的风格不一致。就去看后面 2 个工具的介绍了。另外，它虽然是开源软件，但是没有将源码放到 github 上让我感觉这个工具的开发活跃度是不是不够。</p>
-<p><strong>headerdoc</strong><br>headerdoc 是 xcode 自带的文档生成工具。在安装完 xcode 后，就可以用命令行：headdoc2html + 源文件名 来生成对应的文档。我个人试用了一下，还是比较方便的，不过headerdoc的注释生成规则比较特别，只生成以 /<em>! </em>/ 的格式的注释。还有一个缺点是每个类文件对应一个注释文件，没有汇总的文件，这点感觉有点不爽。</p>
-<p><strong>appledoc</strong><br>appledoc 是在 stackoverflow 上被大家推荐的一个注释工具。比起以上两个工具，他的优点有：<br>它默认生成的文档风格和苹果的官方文档是一致的，而 doxygen 需要另外配置。<br>appledoc 就是用 objective-c 生成的，必要的时候调试和改动也比较方便。<br>可以生成 docset，并且集成到 xcode 中。这一点是很赞的，相当于在源码中按住 option 再单击就可以调出相应方法的帮助。<br>appledoc 源码在 github 上，而 doxygen 在 svn 上。我个人比较偏激地认为比较活跃的开源项目都应该在 github 上。<br>相对于 headerdoc，它没有特殊的注释要求，可以用/<em>* </em>/ 的格式，也可以兼容/<em>! </em>/的格式的注释，并且生成的注释有汇总页面。</p>
-<h2 id="appledoc-的安装"><a href="#appledoc-的安装" class="headerlink" title="appledoc 的安装"></a>appledoc 的安装</h2><p>那么简单介绍一下如何安装 appledoc，安装非常简单，只需要 2 步：<br><figure class="highlight bash"><figcaption><span>Terminal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git://github.com/tomaz/appledoc.git</span><br><span class="line"><span class="built_in">cd</span> appledoc</span><br><span class="line">sudo sh install-appledoc.sh</span><br></pre></td></tr></table></figure></p>
-<p>当出现 INSTALL SUCCEEDED 时说明成功了，你也可以用 appledoc –version 查看验证下。如果可以正常执行下面指令则证明安装成功，否则需要查看报错说明。<br><figure class="highlight bash"><figcaption><span>Terminal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看版本号</span></span><br><span class="line">$ appledoc --version</span><br><span class="line"><span class="comment"># 查看更多文档信息</span></span><br><span class="line">$ appledoc --<span class="built_in">help</span></span><br></pre></td></tr></table></figure></p>
-<p><img src="https://s2.ax1x.com/2019/07/26/enQnXj.jpg" alt=""></p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>1、使用终端进入代码目录<br>直接拖拽我们的工程文件夹到终端，然后按回车键<br>或者使用 cd+”项目名字目录”，然后按回车键<br>以上两种方法都可以进入到我们的工程根目录<br>2、指令用法及参数说明<br><figure class="highlight bash"><figcaption><span>Terminal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 参考指令写法1(不生成docset文件)</span></span><br><span class="line">$ appledoc --no-create-docset --output ./doc --project-name <span class="string">"QQ"</span> --company-id <span class="string">"com.tencent.QQ"</span> --project-company <span class="string">"Tencent Inc."</span> /Users/superdanny/Desktop/QQ-Project/QQ/Views</span><br><span class="line"><span class="comment"># 参考指令写法2(不生成docset文件，参数使用“=”等号写法)</span></span><br><span class="line">$ appledoc --no-create-docset --output=<span class="string">"./doc"</span> --project-name=<span class="string">"QQ"</span> --company-id=<span class="string">"com.tencent.QQ"</span> --project-company=<span class="string">"Tencent Inc."</span> /Users/superdanny/Desktop/QQ-Project/QQ/Views</span><br><span class="line"><span class="comment"># 参考指令写法3(生成docset文件并指定生成路径)</span></span><br><span class="line">$ appledoc --output ./doc --project-name <span class="string">"QQ"</span> --company-id <span class="string">"com.tencent.QQ"</span> --project-company <span class="string">"Tencent Inc."</span> /Users/superdanny/Desktop/QQ-Project/QQ/Views --docset-install-path ./doc</span><br><span class="line"><span class="comment"># 以上都是扫描指定目录下的文件，如果想扫描当前目录所有文件，只需要将指定目录换成"."即可</span></span><br><span class="line">$ appledoc --no-create-docset --output=<span class="string">"./doc"</span> --project-name=<span class="string">"QQ"</span> --company-id=<span class="string">"com.tencent.QQ"</span> --project-company=<span class="string">"Tencent Inc."</span> .</span><br></pre></td></tr></table></figure></p>
-<p><strong>参数说明</strong></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">参数</th>
-<th style="text-align:center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">–no-create-docset</td>
-<td style="text-align:center">(选填参数)只生成html，不生成docset文件。如果需要生成，则去掉该参数即可</td>
-</tr>
-<tr>
-<td style="text-align:center">–output</td>
-<td style="text-align:center">(必填参数)生成结果输出路径，如“./doc”，会在工程目录下创建一个doc文件夹存放生成的文档。当然你可以指定一个完整的目录路径存放生成的文档</td>
-</tr>
-<tr>
-<td style="text-align:center">–project-name</td>
-<td style="text-align:center">(必填参数)工程名字，如“QQ”</td>
-</tr>
-<tr>
-<td style="text-align:center">–project-company</td>
-<td style="text-align:center">(必填参数)公司名字，如“Tencent Inc.”</td>
-</tr>
-<tr>
-<td style="text-align:center">–company-id</td>
-<td style="text-align:center">(选填参数)公司ID，如“com.tencent.QQ”，会生成文件名为companyID.projectName.docset的docset文件。如果不设置，则文件名为com.companyname.projectname.projectName.docset</td>
-</tr>
-<tr>
-<td style="text-align:center">–docset-install-path</td>
-<td style="text-align:center">(选填参数)生成docset文件的目录。如果此目录不设置，默认会在~/Library/Developer/Shared/Documentation/DocSets/目录生成</td>
-</tr>
-<tr>
-<td style="text-align:center">/Users/superdanny/Desktop/QQ-Project/QQ/Views</td>
-<td style="text-align:center">扫描对应路径下的类，如果想扫描当前目录所有文件，则将此路径换成.即可</td>
-</tr>
-</tbody>
-</table>
-<p>如果是生成 docset 文件，则 <code>--output</code> 参数对应的目录会生成一个 docset-installed.txt 文件，里面记录 docset 存放的目录。<br>如果是不生成 docset 文件，则 <code>--output</code> 参数对应的目录会生成html文件。直接打开 index.html 文件即可查看。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
-    
-    </summary>
-    
-      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
-    
-      <category term="Swift" scheme="http://kaaaaai.cn/tags/Swift/"/>
-    
-      <category term="IOS" scheme="http://kaaaaai.cn/tags/IOS/"/>
-    
-      <category term="Xcode" scheme="http://kaaaaai.cn/tags/Xcode/"/>
     
   </entry>
   
