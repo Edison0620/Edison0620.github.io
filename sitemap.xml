@@ -2,16 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://kaaaaai.cn/articles/iOS-Make-your-project-support-WebP.html</loc>
+    <loc>http://kaaaaai.cn/articles/iOS-Private-Repository-Introduces-Engineering-Through-CocoaPods.html</loc>
     
-    <lastmod>2019-12-06T10:23:39.773Z</lastmod>
+    <lastmod>2020-02-15T04:08:21.365Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kaaaaai.cn/articles/Sun-sleeping-in-the-forest.html</loc>
+    
+    <lastmod>2020-02-15T03:55:09.915Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kaaaaai.cn/articles/happy-new-year-2019.html</loc>
+    
+    <lastmod>2020-02-11T10:13:37.753Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kaaaaai.cn/articles/Chicken-soup-from-inference-writer.html</loc>
+    
+    <lastmod>2020-01-17T02:14:50.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://kaaaaai.cn/articles/Xiangzi-and-his-misfortune.html</loc>
     
-    <lastmod>2019-12-06T09:39:17.591Z</lastmod>
+    <lastmod>2020-01-06T06:29:52.788Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kaaaaai.cn/articles/Android-More-than-Seekbar-slider-dynamic-change.html</loc>
+    
+    <lastmod>2019-12-13T16:43:52.221Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kaaaaai.cn/articles/iOS-Make-your-project-support-WebP.html</loc>
+    
+    <lastmod>2019-12-06T10:24:01.674Z</lastmod>
     
   </url>
   
@@ -19,13 +54,6 @@
     <loc>http://kaaaaai.cn/articles/Android-learning-Audio-ocus.html</loc>
     
     <lastmod>2019-12-06T07:41:27.277Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://kaaaaai.cn/articles/Android-More-than-Seekbar-slider-dynamic-change.html</loc>
-    
-    <lastmod>2019-11-23T03:07:48.000Z</lastmod>
     
   </url>
   
@@ -478,13 +506,6 @@
   </url>
   
   <url>
-    <loc>http://kaaaaai.cn/articles/happy-new-year-2019.html</loc>
-    
-    <lastmod>2019-01-16T01:46:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://kaaaaai.cn/articles/Hello-Edison-s-World.html</loc>
     
     <lastmod>2018-12-10T07:32:08.000Z</lastmod>
@@ -499,13 +520,6 @@
   </url>
   
   <url>
-    <loc>http://kaaaaai.cn/articles/021.html</loc>
-    
-    <lastmod>2018-11-01T07:12:50.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://kaaaaai.cn/articles/020.html</loc>
     
     <lastmod>2018-11-01T07:12:50.000Z</lastmod>
@@ -514,6 +528,13 @@
   
   <url>
     <loc>http://kaaaaai.cn/articles/023.html</loc>
+    
+    <lastmod>2018-11-01T07:12:50.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kaaaaai.cn/articles/021.html</loc>
     
     <lastmod>2018-11-01T07:12:50.000Z</lastmod>
     
@@ -548,14 +569,14 @@
   </url>
   
   <url>
-    <loc>http://kaaaaai.cn/articles/031.html</loc>
+    <loc>http://kaaaaai.cn/articles/033.html</loc>
     
     <lastmod>2018-11-01T07:12:50.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://kaaaaai.cn/articles/033.html</loc>
+    <loc>http://kaaaaai.cn/articles/031.html</loc>
     
     <lastmod>2018-11-01T07:12:50.000Z</lastmod>
     
@@ -583,14 +604,14 @@
   </url>
   
   <url>
-    <loc>http://kaaaaai.cn/articles/041.html</loc>
+    <loc>http://kaaaaai.cn/articles/042.html</loc>
     
     <lastmod>2018-11-01T07:12:50.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://kaaaaai.cn/articles/042.html</loc>
+    <loc>http://kaaaaai.cn/articles/041.html</loc>
     
     <lastmod>2018-11-01T07:12:50.000Z</lastmod>
     
@@ -618,13 +639,6 @@
   </url>
   
   <url>
-    <loc>http://kaaaaai.cn/articles/end-of-july.html</loc>
-    
-    <lastmod>2018-11-01T07:12:50.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://kaaaaai.cn/articles/eleventh.html</loc>
     
     <lastmod>2018-11-01T07:12:50.000Z</lastmod>
@@ -633,6 +647,13 @@
   
   <url>
     <loc>http://kaaaaai.cn/articles/evolution.html</loc>
+    
+    <lastmod>2018-11-01T07:12:50.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kaaaaai.cn/articles/end-of-july.html</loc>
     
     <lastmod>2018-11-01T07:12:50.000Z</lastmod>
     
@@ -667,13 +688,6 @@
   </url>
   
   <url>
-    <loc>http://kaaaaai.cn/articles/secondart.html</loc>
-    
-    <lastmod>2018-11-01T07:12:50.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://kaaaaai.cn/articles/seventeenthart.html</loc>
     
     <lastmod>2018-11-01T07:12:50.000Z</lastmod>
@@ -688,6 +702,13 @@
   </url>
   
   <url>
+    <loc>http://kaaaaai.cn/articles/secondart.html</loc>
+    
+    <lastmod>2018-11-01T07:12:50.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://kaaaaai.cn/about/index.html</loc>
     
     <lastmod>2018-11-01T07:12:50.000Z</lastmod>
@@ -695,14 +716,14 @@
   </url>
   
   <url>
-    <loc>http://kaaaaai.cn/categories/index.html</loc>
+    <loc>http://kaaaaai.cn/tags/index.html</loc>
     
     <lastmod>2018-11-01T07:12:50.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://kaaaaai.cn/tags/index.html</loc>
+    <loc>http://kaaaaai.cn/categories/index.html</loc>
     
     <lastmod>2018-11-01T07:12:50.000Z</lastmod>
     
