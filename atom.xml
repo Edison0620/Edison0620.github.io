@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kaaaaai.cn/"/>
-  <updated>2020-02-29T03:54:59.100Z</updated>
+  <updated>2020-02-29T03:55:09.508Z</updated>
   <id>http://kaaaaai.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://kaaaaai.cn/articles/iOS-Preliminary-Study-of-Symbolic-Breakpoints.html"/>
     <id>http://kaaaaai.cn/articles/iOS-Preliminary-Study-of-Symbolic-Breakpoints.html</id>
     <published>2020-02-29T03:24:52.000Z</published>
-    <updated>2020-02-29T03:54:59.100Z</updated>
+    <updated>2020-02-29T03:55:09.508Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><em>在调试一个项目中包含库工程的工程时发现，平常在代码视图左侧点击添加断点调试，忽然发现不起作用了，然后尝试使用了一些不同的方法去解决，虽然最后仍然是通过开关机，重启 Xcode 的方式解决问题的，但那些尝试也在过程中期起到了排除问题的作用，记录一下其中用到的符号断点的用法。</em></p><h2 id="一、介绍"><a href="#一、介绍" class="headerlink" title="一、介绍"></a>一、介绍</h2><p>Symbolic Breakpoint 为符号断点，可以针对某一个方法(函数)设置断点并暂停执行；有时候，我们并不清楚会在什么情况下调用某一个函数，那我们可以通过符号断点来跟踪获取调用该函数的程序堆栈。</p><h2 id="二、使用方法"><a href="#二、使用方法" class="headerlink" title="二、使用方法"></a>二、使用方法</h2><p>例：跟踪应用程序的启动函数。<br>第一步：左侧导航视图切换到“Breakpoint Navigator”<br><img src="https://s2.ax1x.com/2020/02/29/3s1QNF.jpg" alt></p><p>第二步：点击左侧导航栏左下角的“+”<br><img src="https://s2.ax1x.com/2020/02/29/3s139J.jpg" alt></p><p>第三步：在弹出的菜单中选择“Add Symbolic Breakpoint”<br><img src="https://s2.ax1x.com/2020/02/29/3s1MAU.jpg" alt></p><p>第四步：在“Symbol”右侧的输入框中输入要设置断点的函数(方法)<br><img src="https://s2.ax1x.com/2020/02/29/3s1lh4.jpg" alt></p><p>第五步：本例中设置断点在 App 应用的启动函数<br><img src="https://s2.ax1x.com/2020/02/29/3s1nBV.jpg" alt></p><p>第六步：模拟器运行 APP，断点停留在了启动函数“- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions”<br><img src="https://s2.ax1x.com/2020/02/29/3s1839.jpg" alt></p><p>3、符号断点输入框中各字段说明<br><strong>Symbol</strong>：填入你想设置断点的方法<br>（例如：-[NSException raise]，-号是实例方法，+号是类方法）。<br>你也可以输入：</p><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">objc_exception_throw malloc_error_break <span class="comment">//跟踪调试释放了2次的对象</span></span><br><span class="line">-[<span class="built_in">NSObject</span> doesNotRecognizeSelector:] <span class="comment">//向某个object发送没有的方法</span></span><br></pre></td></tr></table></figure><p><strong>Module</strong>：填入要设置断点的方法或函数是否在位于dylib中，默认不填。</p><p><strong>Conditon</strong>：填入条件，例如：(BOOL)[item isEqualToString:@“test”]前面的（BOOL）是必须的。否则 console 会提示类型不符号，导致条件不能生效。意思是 <code>item（NSString）</code> 是 <code>test</code> 时停下。<br>同样可以写一下判断的方法比如用来确定类类型的 <code>isKindOfClass</code>:，确定对象在继承体系中的位置的 <code>isMemberOfClass</code>:，判断一个对象是否能接收某个特定消息的 <code>respondsToSelector:，判断一个对象是否遵循某个协议的</code>conformsToProtocol<code>:，以及提供方法实现地址的</code>methodForSelector`:。</p><p><strong>Ignore</strong>：忽略几次。</p><p><strong>Action</strong>：可在程序断点执行后增加额外动作（Applescript，捕捉动画帧速，调试器命令（lldb），输入 log 记录，终端命令（shell）,播放声音）<br>例如：Debugger Commond 中可填入<br>po item 输出 item 变量的值<br>bt 表示输出方法调用堆栈信息</p><p>4、示例<br>查找项目中哪些地方对 <code>UICollectionView</code> 的背景色进行了设置。<br>注 <code>UICollectionView</code> 的设置背景色方法继续了 <code>UIView</code> 的 <code>setBackgroundColor</code>，故使用以下设置：<br><img src="https://s2.ax1x.com/2020/02/29/3s1GcR.jpg" alt></p><p>设置成功后断点下方显示了要跟踪的方法：<br><img src="https://s2.ax1x.com/2020/02/29/3s1Jj1.jpg" alt></p><p>运行调试，断点停留在方法的调用位置：<br><img src="https://s2.ax1x.com/2020/02/29/3s1cut.jpg" alt></p>]]></content>
     
@@ -368,9 +368,9 @@
     
       <category term="Android" scheme="http://kaaaaai.cn/tags/Android/"/>
     
-      <category term="Android Studio" scheme="http://kaaaaai.cn/tags/Android-Studio/"/>
-    
       <category term="adb" scheme="http://kaaaaai.cn/tags/adb/"/>
+    
+      <category term="Android Studio" scheme="http://kaaaaai.cn/tags/Android-Studio/"/>
     
   </entry>
   
