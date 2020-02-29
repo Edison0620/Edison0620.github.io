@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kaaaaai.cn/"/>
-  <updated>2020-02-28T10:04:07.146Z</updated>
+  <updated>2020-02-29T03:54:59.100Z</updated>
   <id>http://kaaaaai.cn/</id>
   
   <author>
@@ -17,11 +17,43 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>iOS - 初探符号断点调试</title>
+    <link href="http://kaaaaai.cn/articles/iOS-Preliminary-Study-of-Symbolic-Breakpoints.html"/>
+    <id>http://kaaaaai.cn/articles/iOS-Preliminary-Study-of-Symbolic-Breakpoints.html</id>
+    <published>2020-02-29T03:24:52.000Z</published>
+    <updated>2020-02-29T03:54:59.100Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><em>在调试一个项目中包含库工程的工程时发现，平常在代码视图左侧点击添加断点调试，忽然发现不起作用了，然后尝试使用了一些不同的方法去解决，虽然最后仍然是通过开关机，重启 Xcode 的方式解决问题的，但那些尝试也在过程中期起到了排除问题的作用，记录一下其中用到的符号断点的用法。</em></p><h2 id="一、介绍"><a href="#一、介绍" class="headerlink" title="一、介绍"></a>一、介绍</h2><p>Symbolic Breakpoint 为符号断点，可以针对某一个方法(函数)设置断点并暂停执行；有时候，我们并不清楚会在什么情况下调用某一个函数，那我们可以通过符号断点来跟踪获取调用该函数的程序堆栈。</p><h2 id="二、使用方法"><a href="#二、使用方法" class="headerlink" title="二、使用方法"></a>二、使用方法</h2><p>例：跟踪应用程序的启动函数。<br>第一步：左侧导航视图切换到“Breakpoint Navigator”<br><img src="https://s2.ax1x.com/2020/02/29/3s1QNF.jpg" alt></p><p>第二步：点击左侧导航栏左下角的“+”<br><img src="https://s2.ax1x.com/2020/02/29/3s139J.jpg" alt></p><p>第三步：在弹出的菜单中选择“Add Symbolic Breakpoint”<br><img src="https://s2.ax1x.com/2020/02/29/3s1MAU.jpg" alt></p><p>第四步：在“Symbol”右侧的输入框中输入要设置断点的函数(方法)<br><img src="https://s2.ax1x.com/2020/02/29/3s1lh4.jpg" alt></p><p>第五步：本例中设置断点在 App 应用的启动函数<br><img src="https://s2.ax1x.com/2020/02/29/3s1nBV.jpg" alt></p><p>第六步：模拟器运行 APP，断点停留在了启动函数“- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions”<br><img src="https://s2.ax1x.com/2020/02/29/3s1839.jpg" alt></p><p>3、符号断点输入框中各字段说明<br><strong>Symbol</strong>：填入你想设置断点的方法<br>（例如：-[NSException raise]，-号是实例方法，+号是类方法）。<br>你也可以输入：</p><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">objc_exception_throw malloc_error_break <span class="comment">//跟踪调试释放了2次的对象</span></span><br><span class="line">-[<span class="built_in">NSObject</span> doesNotRecognizeSelector:] <span class="comment">//向某个object发送没有的方法</span></span><br></pre></td></tr></table></figure><p><strong>Module</strong>：填入要设置断点的方法或函数是否在位于dylib中，默认不填。</p><p><strong>Conditon</strong>：填入条件，例如：(BOOL)[item isEqualToString:@“test”]前面的（BOOL）是必须的。否则 console 会提示类型不符号，导致条件不能生效。意思是 <code>item（NSString）</code> 是 <code>test</code> 时停下。<br>同样可以写一下判断的方法比如用来确定类类型的 <code>isKindOfClass</code>:，确定对象在继承体系中的位置的 <code>isMemberOfClass</code>:，判断一个对象是否能接收某个特定消息的 <code>respondsToSelector:，判断一个对象是否遵循某个协议的</code>conformsToProtocol<code>:，以及提供方法实现地址的</code>methodForSelector`:。</p><p><strong>Ignore</strong>：忽略几次。</p><p><strong>Action</strong>：可在程序断点执行后增加额外动作（Applescript，捕捉动画帧速，调试器命令（lldb），输入 log 记录，终端命令（shell）,播放声音）<br>例如：Debugger Commond 中可填入<br>po item 输出 item 变量的值<br>bt 表示输出方法调用堆栈信息</p><p>4、示例<br>查找项目中哪些地方对 <code>UICollectionView</code> 的背景色进行了设置。<br>注 <code>UICollectionView</code> 的设置背景色方法继续了 <code>UIView</code> 的 <code>setBackgroundColor</code>，故使用以下设置：<br><img src="https://s2.ax1x.com/2020/02/29/3s1GcR.jpg" alt></p><p>设置成功后断点下方显示了要跟踪的方法：<br><img src="https://s2.ax1x.com/2020/02/29/3s1Jj1.jpg" alt></p><p>运行调试，断点停留在方法的调用位置：<br><img src="https://s2.ax1x.com/2020/02/29/3s1cut.jpg" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
+      
+    
+    </summary>
+    
+    
+      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
+    
+      <category term="OC" scheme="http://kaaaaai.cn/tags/OC/"/>
+    
+      <category term="IOS" scheme="http://kaaaaai.cn/tags/IOS/"/>
+    
+      <category term="Xcode" scheme="http://kaaaaai.cn/tags/Xcode/"/>
+    
+  </entry>
+  
+  <entry>
     <title>黑帮老大和荔枝</title>
     <link href="http://kaaaaai.cn/articles/Gangster-and-Litchi.html"/>
     <id>http://kaaaaai.cn/articles/Gangster-and-Litchi.html</id>
     <published>2020-02-22T02:13:52.000Z</published>
-    <updated>2020-02-28T10:04:07.146Z</updated>
+    <updated>2020-02-29T02:33:23.301Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　疫情蔓延的春天，待在家看了几本书，有一本是马家辉先生写的《龙头凤尾》，讲的是一个在动荡年代里一个香港黑帮龙头“南爷”的故事，和传统的江湖故事，历史演义不同，这本书没有在争斗和时局多费笔墨，只是把这些当做推动人物活动的一个必要的背景，更多的是关注南爷和他同性恋人的纠缠和他本身的心理活动。<br>　　起初这本书吸引我，是因为开头便知故事主角陆北才会当上后面的“南爷”，所以对南爷何以成为南爷，故事后续发展可能藏着的风波诡谲，存着微微雀跃的期待，有着像《新世界》的电影剧情的想象。<br>　　看到一半，故事虽然没像我想象的一样发展，但江湖毕竟是江湖，波涛翻滚前零星半点的浪花——陆北才当兵无意窥知兄弟的秘密差点被开瓤送命；投奔弟弟入了洪门做马仔；在凌晨雾气弥漫的时候将替死鬼沉湖；开创黄赌毒代金券玩法，便足以满足乏味时期的我的猎奇心情。而到后半部，看到南爷对鬼佬张迪臣也不只是因为贪昧肉体欢娱，而是把他放在自己心里反复想念，到张迪臣入狱，陆北才为他奔走操心，得知张迪臣可能死亡的消息，他接近崩溃，又引发了我对他们所发生的一切所持态度的思考。<br>　　我对同性恋群体没有什么偏见，觉得就像有人喜欢下象棋，有人喜欢打篮球，都是兴趣爱好，只是表现不同，而无分高低。但陆北才的性向偏好并非来自先天，而是源于幼年他叔父对他的侵犯，所以在后来的故事中，在结婚后的逃避，离开家乡去当兵，然后去了香港爱上鬼佬等等这一切的事情，在心理上，我都把他当做一个病人。爱上鬼佬男人，只是旧病复发，可以原谅，但让我理解却很难。哪怕书里有很多内心独白都表现出他对自身状态早就早早接受，我也偏偏不替主人公接受，这种顽固的来源，一部分可能来自于身为直男的体面，对这种强暴式人生走向坚决 say no，另一部分大概因为看见了前因后果，所以对每个雄性个体存在着这部分的可能性，感到抗拒，甚至是害怕。另一方面也忽然理解那些旧式社会里一些男同性恋，长大成人后反而会表现的比普通男人更有男子气概，比普通人更加敌视同性恋者，我想这也是因为恐惧，所不同的是，我恐惧的是这事在我身上发生，而他们的恐惧是这事被人发现。<br>　　想通这些，书最后一部分反而能用更客观的态度去看了。除了主体故事，有几个配角也很出彩，比如女同妓女仙蒂，她大概是乱世中唯一一个可以理解南爷的人了，比如南爷手下，得知南爷性向，回家大哭，和老婆大打一架。但除此以外，许多人物脸孔过于扁平，故事结局安排的也显得有些刻意。<br>　　看完在豆瓣看到一个评论：</p><blockquote><p>　　心疼南爷，像一颗荔枝，剥开外表的一层硬壳，里头竟是一汪水，水里头包裹着的核儿，却是死心塌地的苦和涩。</p></blockquote><p>　　我想写这句话的人一定很温柔。</p>]]></content>
     
@@ -336,9 +368,9 @@
     
       <category term="Android" scheme="http://kaaaaai.cn/tags/Android/"/>
     
-      <category term="adb" scheme="http://kaaaaai.cn/tags/adb/"/>
-    
       <category term="Android Studio" scheme="http://kaaaaai.cn/tags/Android-Studio/"/>
+    
+      <category term="adb" scheme="http://kaaaaai.cn/tags/adb/"/>
     
   </entry>
   
@@ -579,38 +611,6 @@
       <category term="产品思考" scheme="http://kaaaaai.cn/tags/%E4%BA%A7%E5%93%81%E6%80%9D%E8%80%83/"/>
     
       <category term="用户需求" scheme="http://kaaaaai.cn/tags/%E7%94%A8%E6%88%B7%E9%9C%80%E6%B1%82/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>每周总结 - 0819</title>
-    <link href="http://kaaaaai.cn/articles/weekly-summary-0819.html"/>
-    <id>http://kaaaaai.cn/articles/weekly-summary-0819.html</id>
-    <published>2019-08-19T02:13:52.000Z</published>
-    <updated>2019-08-30T03:56:21.000Z</updated>
-    
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　Yooo~今天终于挤出时间写周记了，上个礼拜落了一篇，就合在这里一块说了。<br>　　上上个礼拜看了徐浩峰的《刀背藏身》短篇集，很有古韵，他在后记里写：</p><blockquote><p>　　古人以减省来营造意境，说满、说显了，便无意境。营造意境是为了让人有更多体会，可惜今人拒绝体会，只求告知。</p></blockquote><p>　　回过头看，这又好像是对他这本书自己写作脉络的总结。之前看徐浩峰的电影《师傅》，里面廖凡对宋佳表白说：“自十五岁起，每日挥刀五百下，这个数字约束住了我，不会胡思乱想。从今日起，我以你为约束。”一板一眼，真切实在。在书里也有给我同样印象的话，就是一个八岁小孩收养了一个女婴，小孩和女婴都长大了，爷爷装糊涂，想成就他们的好事，当人点明事实时，当时的对话是：“沈飞雪默然，片刻找回话：‘鬼都知道你喜欢她。’孔鼎义：‘喜欢跟喜欢不一样。这辈子第一眼见她，她四岁。善举，要善始善终。’”<br>　　我想这又是另一种和同类武侠小说区别开来的特点，不止有减省，还有坚持。<br>　　上个礼拜追了一部番，《月色真美》，很单纯的初中生恋爱番，有很多感同身受的片段，想起以前念书时的恋爱，唉那真是<del>算了，人生已是风雨，往事还是不用再提了。<br>　　上周一的时候和部门测试发生了一个正面冲突，虽然事前事后我都明白，我本可以不如此，但有时候被零零碎碎的小动作膈应的真让人火大，虽然我一直努力克制自己不发火，因为觉得发火面目可憎，另外是因为觉得自己不应该被这些事情分散注意力，目标是星辰大海，脚底下的几个石子是在不需要去计较，但又想想菩萨慈悲，也有金刚怒目，我怼她，和我要做个好人并不冲突。再者关系又不是什么很好，凭什么总是要我让步，争锋相对虽说是小孩气脾气，我偏要意气用事一回。<br>　　不过事后除了原本就觉得没必要，还觉得真的很没劲，争锋相对最后浪费的其实是我的时间。本来不去理她，多余的时间，说不定我的周记就不用拖到这个礼拜写了。唉</del>keep down and carry on 啊。<br>　　周末都去图书馆学习功课了，数据关于 SQL 这一章可以说是我最近看的最认真的内容了。游泳好像到了瓶颈期，怎么游都是那几下，打算看一下游泳视频学习一下。<br>　　其他的想不到了。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
-      
-    
-    </summary>
-    
-    
-      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
-    
-      <category term="Live" scheme="http://kaaaaai.cn/tags/Live/"/>
-    
-      <category term="Study" scheme="http://kaaaaai.cn/tags/Study/"/>
-    
-      <category term="Work" scheme="http://kaaaaai.cn/tags/Work/"/>
     
   </entry>
   
