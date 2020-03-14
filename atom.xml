@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kaaaaai.cn/"/>
-  <updated>2020-03-09T04:20:33.612Z</updated>
+  <updated>2020-03-14T04:17:28.831Z</updated>
   <id>http://kaaaaai.cn/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Git - Submodule 使用简单教程</title>
+    <link href="http://kaaaaai.cn/articles/Git-submodule.html"/>
+    <id>http://kaaaaai.cn/articles/Git-submodule.html</id>
+    <published>2020-03-14T03:24:52.000Z</published>
+    <updated>2020-03-14T04:17:28.831Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　最近在项目中使用了 <code>Git Submodule</code> 的功能，好处是如果是自己开发的封装库，比较方便调试，push 时可以同时上传项目和库的修改，别人通过主仓库地址下载工程的时候速度也会快上一些。<br>　　<code>Git Submodule</code> 的使用可以通过终端命令来操作（<a href="https://tnie.github.io/2018/04/02/git_submodule/" target="_blank" rel="noopener">Git Submoudle 使用完整教程</a>），或者通过 <code>Git</code> 第三方可视化客户端直接操作。本文展示的是通过 <code>Git</code> 第三方客户端 Sourcetree 来实现这个功能的。　　</p><h3 id="一、首先下载一个你想要添加-Submodule-功能的主仓库。"><a href="#一、首先下载一个你想要添加-Submodule-功能的主仓库。" class="headerlink" title="一、首先下载一个你想要添加 Submodule 功能的主仓库。"></a>一、首先下载一个你想要添加 Submodule 功能的主仓库。</h3><p>这里以我用来学习的仓库为例子<br><img src="https://s1.ax1x.com/2020/03/14/8MjX4S.jpg" alt>　　</p><h3 id="二、在下载好的仓库左侧菜单栏，右键点击-SUMODULES，在弹出的菜单中选中“Add-Sumodelues”"><a href="#二、在下载好的仓库左侧菜单栏，右键点击-SUMODULES，在弹出的菜单中选中“Add-Sumodelues”" class="headerlink" title="二、在下载好的仓库左侧菜单栏，右键点击 SUMODULES，在弹出的菜单中选中“Add Sumodelues”"></a>二、在下载好的仓库左侧菜单栏，右键点击 SUMODULES，在弹出的菜单中选中“Add Sumodelues”</h3><p><img src="https://s1.ax1x.com/2020/03/14/8MjON8.jpg" alt></p><h3 id="三、在弹出的菜单中填写远程仓库地址，和本地仓库地址"><a href="#三、在弹出的菜单中填写远程仓库地址，和本地仓库地址" class="headerlink" title="三、在弹出的菜单中填写远程仓库地址，和本地仓库地址"></a>三、在弹出的菜单中填写远程仓库地址，和本地仓库地址</h3><p>这里我填的远程仓库地址是一个第三方库<code>AFNetworking</code>，大家可以根据自己的实际需求填写自己私有仓库地址或者其他仓库地址。<br><strong>需要注意的是</strong>，本地仓库地址的路劲最好是在主工程文件路径的子目录底下，比如：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">master path：~/User/xxx/主工程文件夹</span><br><span class="line">Submodule path：~/User/xxx/主工程文件夹/Submodule 文件夹</span><br></pre></td></tr></table></figure><p><img src="https://s1.ax1x.com/2020/03/14/8MjLAf.jpg" alt="-w702"></p><p>点击 OK 就可以随意使用了。</p><p>后面如果需要 push/pull Submodule 仓库，更新方式也和在 sourcetree 中正常使用其他工程的流程是一样的。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
+      
+    
+    </summary>
+    
+    
+      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
+    
+      <category term="Git" scheme="http://kaaaaai.cn/tags/Git/"/>
+    
+      <category term="Sourcetree" scheme="http://kaaaaai.cn/tags/Sourcetree/"/>
+    
+  </entry>
   
   <entry>
     <title>我不能留在这里爱你</title>
@@ -583,36 +613,6 @@
       <category term="Study" scheme="http://kaaaaai.cn/tags/Study/"/>
     
       <category term="Work" scheme="http://kaaaaai.cn/tags/Work/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS - JavaScript 第三方库调研</title>
-    <link href="http://kaaaaai.cn/articles/iOS-javaScript-research.html"/>
-    <id>http://kaaaaai.cn/articles/iOS-javaScript-research.html</id>
-    <published>2019-08-29T02:24:52.000Z</published>
-    <updated>2019-08-29T10:40:43.000Z</updated>
-    
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p> 　通过网上调研发现用于实现 <code>JS</code> 和 <code>OC</code> 交互的第三方库比较少，比较知名的有且只有一个：<a href="https://github.com/marcuswestin/WebViewJavascriptBridge" target="_blank" rel="noopener">WebViewJavascriptBridge</a>，但通过查看网上资料，我发现实现 <code>JS</code> 和 <code>OC</code> 交互的功能不一定需要使用第三方库，总结了一下大概有以下六种方式：</p><ul><li>1.在 <code>JS</code> 中做一次 <code>URL</code> 跳转，然后在 <code>OC</code> 中拦截跳转。（这里分为 <code>UIWebView</code> 和 <code>WKWebView</code> 两种，<code>WKWebView</code> 是苹果在 iOS 8 中推出的框架，如果需要兼容更低的版本，可以使用 <code>UIWebView</code> 来做。）</li><li>2.利用 <code>WKWebView</code> 的 <code>MessageHandler</code>。</li><li>3.利用系统库 <code>JavaScriptCore</code>，来做相互调用。（iOS 7 推出的）</li><li>4.利用第三方库 <code>WebViewJavascriptBridge</code>。</li><li>5.利用第三方 <code>cordova</code> 库，以前叫 <code>PhoneGap</code>。（这是一个库平台的库，类似于 <code>React Native</code>）</li><li>6.当下盛行的 <code>React Native</code>。</li></ul><p>因为以上都可以实现 <code>JS</code> 和 <code>OC</code> 的交互，如果用一个一个实现代码测试来对比优劣的话，效率太慢，所以我采用的方式是通过网上资料，把以上实现方式的底层技术两两对比，来选择出适合自己开发的方式。</p><h2 id="一、UIWebView-和-WKWebView-的比较"><a href="#一、UIWebView-和-WKWebView-的比较" class="headerlink" title="一、UIWebView 和 WKWebView 的比较"></a>一、UIWebView 和 WKWebView 的比较</h2><p>在 iOS 8 以后，iOS 中自带实现加载 <code>web</code> 页面的控件由过去的一种变成了两种：<code>UIWebView</code> 和 <code>WKWebview</code>。<code>WKWebView</code> 作为新加入的组件，目的是提供一个现代的支持最新 <code>Webkit</code> 功能的网页浏览控件，摆脱过去 <code>UIWebView</code> 的老、旧、笨，特别是内存占用量巨大的问题。它使用与 Safari 中一样的 <code>Nitro JavaScript</code> 引擎，大大提高页面 js 执行速度。相对于 <code>UIWebView</code> 的优势：</p><ul><li>1.内存占用是 <code>UIWebView</code> 的1/4~1/3（有一篇文章里测试用模拟器加载百度与开源中国网站时，WKWebView占用23M，而UIWebView占用85M）。</li><li>2.页面加载速度有提升，有的文章说它的加载速度比 <code>UIWebView</code> 提升了一倍左右。 </li><li>3.更为细致地拆分了 <code>UIWebViewDelegate</code> 中的方法。</li><li>4.自带进度条。不需要像 <code>UIWebView</code> 一样自己做假进度条（通过 <code>NJKWebViewProgress</code> 和双层代理技术实现），技术复杂度和代码量，根贴近实际加载进度优化好的多。 </li><li>5.支持了更多的 <code>HTML5</code> 特性，允许 <code>JavaScript</code> 的 <code>Nitro</code> 库加载并使用（<code>UIWebView</code> 中限制）。</li><li>6.可以和 <code>js</code> 直接互调函数，不像 <code>UIWebView</code> 需要第三方库 <code>WebViewJavascriptBridge</code> 来协助处理和 <code>js</code> 的交互。</li><li>7.高达60fps的滚动刷新率以及内置手势。</li></ul><p><strong>但也存在一些缺点：</strong></p><ul><li>1.不支持页面缓存，需要自己注入 <code>cookie</code>,而 <code>UIWebView</code> 是自动注入 <code>cookie</code>。 </li><li>2.无法发送 <code>POST</code> 参数问题</li></ul><h2 id="二、JavaScriptCore-和-WebViewJavascriptBridge"><a href="#二、JavaScriptCore-和-WebViewJavascriptBridge" class="headerlink" title="二、JavaScriptCore 和 WebViewJavascriptBridge"></a>二、JavaScriptCore 和 WebViewJavascriptBridge</h2><p><strong>技术介绍</strong></p><ul><li><p><code>JavaScriptCore</code> 框架 是一个苹果在 iOS 7 引入的框架，该框架让 <code>Objective-C</code>(或 <code>Swift</code>) 和 <code>JavaScript</code> 代码直接的交互变得更加的简单方便。<code>JavaScriptCore</code>使用 JavaScriptCore 框架可以实现 OC 和 JS 的互相调用，而不需要依赖 <code>WebViewJavascriptBridge</code> 类似于「桥梁」的机制来实现。</p></li><li><p><code>WebViewJavascriptBridge</code> 主要作用用于： <code>Objective-C</code> 和 <code>javascript</code> 相互通信，即 <code>oc</code> 和 <code>js</code> 方法的互相调用。<code>WebViewJavascriptBridge</code> 的原理是通过自定义 <code>scheme</code>，在加载一个特定标识的 <code>URL</code>（ wvjbscheme://BRIDGE_LOADED）时在 <code>UIWebView</code> 的代理方法 <code>webView:shouldStartLoadWithRequest:navigationType:</code> 中拦截 <code>URL</code> 并通过 <code>UIWebView</code> 的 <code>stringByEvaluatingJavaScriptFromString:</code>方法执行一段 <code>JS</code>，这个 <code>JS</code> 文件中声明了一些变量和方法，在通讯中作为一个桥梁。</p><p><code>JavaScriptCore</code> 和 <code>WebViewJavascriptBridge</code> 都可以看成在 <code>UIWebview</code> 和 <code>WKWebview</code> 的自带方法上更深度的实现 <code>js</code> 和 <code>oc</code> 的交互。虽然实现机制有些差别，但总体来说都是 <code>oc</code> 往 <code>h5</code> 页面注入 <code>js</code> 代码和截获 <code>js</code> 页面让 <code>js</code> 可以调用 <code>oc</code> 代码，实际性能没有具体测试过。不过值得一提的是，虽然 <code>WebViewJavascriptBridge</code> 知名度很高，而且很多应用都用了这个框架，比如 Facebook Messenger、FacebookPaper 等，但它本身的仓库已经两年没更新了，而 <code>JavaScriptCore</code> 是苹果官方框架，可以说是随着 Xcode 和 iOS 本身一起迭代的框架，所以在考虑选择哪个来实现 <code>js</code> 和 <code>oc</code> 的交互时，可以把这点纳入参考。</p></li></ul><h2 id="三、cordova-和-React-Native-的比较"><a href="#三、cordova-和-React-Native-的比较" class="headerlink" title="三、cordova 和 React Native 的比较"></a>三、cordova 和 React Native 的比较</h2><p><strong>技术介绍</strong></p><ul><li><code>Cordova</code> 是一个开源的移动开发框架。允许用户使用标准的 <code>web</code> 技术 <code>HTML5</code>，<code>CSS</code> 和 <code>JavaScript</code> 做开发平台，应用在每个平台的具体执行被封装了起来，并依靠符合标准的API绑定去访问每个设备的功能，比如说；传感器、数据、网络状态等。（摘自 <code>Cordova</code> 官方中文文档）。</li><li><code>React Native</code> 是由 Facebook 研发的一套跨平台开发技术，是在 <code>JavaScript</code> 和 <code>React</code> 的基础上获得一致的开发体验构建原生 APP。宗旨是 Learn once， write anywhere。（摘自 <code>React Native</code> 官方中文文档）</li></ul><p>他们的最大区别在于，可以把 <code>Cordova</code> 理解成内嵌一个移动端的 web 页面，需要依托于原生平台上实现页面展示，业务逻辑处理等功能。<br>而 <code>React Native</code> 则相当与一个区别于原生的一个独立拥有自己体系的一个平台。其特点是使用 <code>JavaScript</code> 编写出的代码会转为原生平台的 <code>API</code>。</p><p>通过网上资料 <a href="https://blog.csdn.net/shisanshuno1/article/details/80644959" target="_blank" rel="noopener">iOS原生，React Native，Cordova技术选型对比</a>，得到结果。</p><table><thead><tr><th align="left">开发模式 /对比项</th><th align="center">Cordova</th><th align="center">React Native</th><th align="center">原生</th></tr></thead><tbody><tr><td align="left">内存</td><td align="center">差</td><td align="center">一般</td><td align="center">优</td></tr><tr><td align="left">运行效率</td><td align="center">一般</td><td align="center">优</td><td align="center">优</td></tr><tr><td align="left">帧率</td><td align="center">-</td><td align="center">-</td><td align="center">-</td></tr></tbody></table><p>其他对比，<strong>跨平台特性：</strong></p><ul><li>Cordova: write once, run anywhere ( 一次开发，随处运行)</li><li>React-Native: Learn once, write anywhere ( 一次学习，随处开发)</li></ul><p><strong>功能支持：</strong></p><ul><li>Cordova: 基本功能完全具备，对于底层，如摄像头之类的，需要插件。</li><li>React-Native: 完全支持。 Android 端不是很完善。</li></ul><p><strong>风险程度：</strong><br>Native 比 cordova 高。</p><p><strong>开发成本：</strong></p><ul><li>Cordova: 完全基于 html，css，js 。写一次代码，两个平台都适用。</li><li>React-Native: 具有相同语法体系，但需要根据不同平台编写不同代码。</li></ul><p><strong>运行速度：</strong></p><ul><li>Cordova: 相对较慢</li><li>React-Native: 跟 Native 基本相当</li></ul><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>　　通过以上对比,我们暂时可以得出一个初步结论,当你应用的 h5 交互较少的情况下可以使用原生的控件。当你的 h5 较多时可以在 <code>WebViewJavascriptBridge</code> 和 <code>JavaScriptCore</code> 中选择使用，至于上面提到的第三种方式，其实本质上已经是另一种类型的应用了，这里就不展开谈论了。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
-      
-    
-    </summary>
-    
-    
-      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
-    
-      <category term="OC" scheme="http://kaaaaai.cn/tags/OC/"/>
-    
-      <category term="IOS" scheme="http://kaaaaai.cn/tags/IOS/"/>
     
   </entry>
   
