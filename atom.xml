@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kaaaaai.cn/"/>
-  <updated>2020-03-14T04:17:28.831Z</updated>
+  <updated>2020-03-21T10:41:25.816Z</updated>
   <id>http://kaaaaai.cn/</id>
   
   <author>
@@ -17,11 +17,33 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title></title>
+    <link href="http://kaaaaai.cn/articles/Everyone-love-GTD.html"/>
+    <id>http://kaaaaai.cn/articles/Everyone-love-GTD.html</id>
+    <published>2020-03-21T10:41:04.842Z</published>
+    <updated>2020-03-21T10:41:25.816Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="社畜都爱-GTD"><a href="#社畜都爱-GTD" class="headerlink" title="社畜都爱 GTD"></a>社畜都爱 GTD</h1><script src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script><script src="//cdn.bootcss.com/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script><div class="hexo-img-stream"><style type="text/css">.hexo-image-steam-lazy {display:none;}.hexo-img-stream{width:90%;max-width:1100px;margin:3% auto}div.hexo-img-stream figure{background:#fefefe;box-shadow:0 1px 2px rgba(34,25,25,0.4);margin:0 0.05% 3%;padding:3%;padding-bottom:10px;display:inline-block;max-width:25%}div.hexo-img-stream figure img{border-bottom:1px solid #ccc;padding-bottom:15px;margin-bottom:5px}div.hexo-img-stream figure figcaption{font-size:.9rem;color:#444;line-height:1.5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}div.hexo-img-stream small{font-size:1rem;float:right;text-transform:uppercase;color:#aaa}div.hexo-img-stream small a{color:#666;text-decoration:none;transition:.4s color}@media screen and (max-width:750px){.hexo-img-stream{column-gap:0}}</style><figure><img class="hexo-image-steam-lazy nofancy" src="https://ws4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif" data-original="https://s1.ax1x.com/2020/03/21/8hSBZR.jpg"><noscript><img src="https://s1.ax1x.com/2020/03/21/8hSBZR.jpg"></noscript><figcaption></figcaption></figure></div><script type="text/javascript">$('img.hexo-image-steam-lazy').lazyload({ effect:'fadeIn' });</script><p>　　用了很久 GTD 工具，才知道它的全拼是 Getting Things done（把事情做好），而不是 Get to do（快去做）。虽然意思差不多，但是情绪上好像一个是在昂首挺胸向前迈进，另一个是无可奈何负重前行。看过关于很多关于时间管理的文章，每个作者侧重点和方向不同，都给我带来一定的收获。虽然在用心程度，耕耘深度都不如写文章的大佬们，但还是想写一下自己从接触到使用那么久以来的心得。<br>　　看到题目“社畜都爱 GTD”，可能有朋友就会跳出来这样反驳：我承认我是个社畜，但我不爱 GTD，我甚至不知道 GTD。或是这样反驳：我每天从八百平方米的卧室起来，在高大的落地窗前喝咖啡欣赏清晨的阳光，我不是个社畜，但我也爱 GTD 啊。虽然后面的杠法难度有点高，但这两个争议对于我的题目来说也确实存在，不过不去钻牛角尖，通过这两个争议我们可以延伸出两个问题：</p><blockquote><p>1.我是一名普通的工作者，不知道 GTD，也不知道 GTD 对我有何意义？<br>2.我并不是一个传统型的工作者，我甚至不用工作，但我也在使用 GTD，所以 GTD 到底适合哪些人群？</p></blockquote><h2 id="为什么需要-GTD"><a href="#为什么需要-GTD" class="headerlink" title="为什么需要 GTD"></a>为什么需要 GTD</h2><p>　　GTD 虽然只是一种时间管理的方法，但透过方法我们可以看到他的本质，即有条不紊的安排自己的事情，以避免手上事情堆积给自己造成压力和更好地完成手上的事情。就这点来说，我觉得每个人可能都有主动地去做 GTD 这件事或做了 GTD 而不自知。比如一个远离现代都市的农民，春种秋收，虽说是按着时节变化，按部就班，但不可否认，具体到哪天播种，哪天收割，田地上的每个人都有自己的打算。这算不算一种 GTD？<br>　　比如一个小孩，虽然小孩子的行为总是天马行空，想到做啥就去做啥，但像我小时候也偶尔会计划，哪一天要和朋友爬山，爬山那天要干嘛，哪一天和朋友去骑自行车，骑自行车那天要干什么。这又算不算一种 GTD？<br>　　我觉得 GTD 其实并不是一板一眼把计划写出来：很重要不紧急——补作业，很重要很紧急——看迪迦奥特曼。GTD 只是一种方法，一种化整为零，把我们需要做的事情按阶段，按层次划分的一种思想。人人都在 GTD。<br>　　当然也有人会说，这只是一种诡辩，把 GTD 和时间管理划等号的一种概念偷换。那换个方向，直面问题，GTD 对于一名普通工作者，意义到底在哪里？我想如果自己的位置不是在当前权利阶级的塔尖位置，所有人都会面临一个问题，就是自己的时间被自己的直属领导安排，当然这都是理所应当的。而这时候如果你在设定好的时间内完成好自己所需要做的事情，那么是不是可以获得一定的时间自由？而 GTD 的意义在于这里，可以更好的帮助你在设定好的边界内，获取到尽可能的时间自由。通俗一点说就是，你不进行时间管理，你就被时间管理。当然也可以比较浪漫的想，GTD 是每天三点一线的社畜为捍卫自己时间自由进行的最后一点负隅顽抗，几乎是一种戴着镣铐的舞蹈了。　　</p><h2 id="GTD-到底适合哪些人群"><a href="#GTD-到底适合哪些人群" class="headerlink" title="GTD 到底适合哪些人群"></a>GTD 到底适合哪些人群</h2><p>　　另一个问题，GTD 到底适合哪些人群，在上文中，我说人人都在 GTD，所以每个人都适合 GTD，这就是我的结论。但我想在这个结论的基础上延伸一下，为什么每个人都适合 GTD？<br>　　回到原点，GTD 是什么，GTD 是一种时间管理的方法，那为什么我们需要时间管理，因为我们时间不够，拿最近的疫情来说，医生呼吁大家不用每个疑似患者都去医院检查，这样容易照成医疗资源挤兑，每个人都检查，导致真正重症病人被遗漏，乃至悲剧发生。换成我们的日常来说，就是每件事都挤到这一分钟想被完成，造成了一种时间挤兑，导致真正重要的事情被我们遗忘。<br>　　也就是说我们需要时间管理，本质是因为我们时间不够用，因为时间不够用我们去寻求一种解决方式。从某种意义上来看，这是一件让人伤感的事。所以结论虽然是每个人都适合 GTD，但我希望每个人都用不上 GTD。　　</p><h2 id="选择一个-GTD-工具"><a href="#选择一个-GTD-工具" class="headerlink" title="选择一个 GTD 工具"></a>选择一个 GTD 工具</h2><p>　　长篇累牍铺垫了那么久，发现我说废话能力又上升了一个档次，几乎可以收拾收拾去官场里打滚了。haha，进入正题，选择一个 GTD 工具，市面上的 GTD 工具有很多，考虑到在苹果不同的设备端上都能使用，我尝试了三种主流的工具：Microsoft To Do/Things/滴答清单　　</p><h3 id="Microsoft-To-Do"><a href="#Microsoft-To-Do" class="headerlink" title="Microsoft To Do"></a>Microsoft To Do</h3><script src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script><script src="//cdn.bootcss.com/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script><div class="hexo-img-stream"><style type="text/css">.hexo-image-steam-lazy {display:none;}.hexo-img-stream{width:90%;max-width:1100px;margin:3% auto}div.hexo-img-stream figure{background:#fefefe;box-shadow:0 1px 2px rgba(34,25,25,0.4);margin:0 0.05% 3%;padding:3%;padding-bottom:10px;display:inline-block;max-width:25%}div.hexo-img-stream figure img{border-bottom:1px solid #ccc;padding-bottom:15px;margin-bottom:5px}div.hexo-img-stream figure figcaption{font-size:.9rem;color:#444;line-height:1.5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}div.hexo-img-stream small{font-size:1rem;float:right;text-transform:uppercase;color:#aaa}div.hexo-img-stream small a{color:#666;text-decoration:none;transition:.4s color}@media screen and (max-width:750px){.hexo-img-stream{column-gap:0}}</style><figure><img class="hexo-image-steam-lazy nofancy" src="https://ws4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif" data-original="https://s1.ax1x.com/2020/03/21/8hS4eA.jpg"><noscript><img src="https://s1.ax1x.com/2020/03/21/8hS4eA.jpg"></noscript><figcaption></figcaption></figure></div><script type="text/javascript">$('img.hexo-image-steam-lazy').lazyload({ effect:'fadeIn' });</script><h3 id="Things"><a href="#Things" class="headerlink" title="Things"></a>Things</h3><script src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script><script src="//cdn.bootcss.com/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script><div class="hexo-img-stream"><style type="text/css">.hexo-image-steam-lazy {display:none;}.hexo-img-stream{width:90%;max-width:1100px;margin:3% auto}div.hexo-img-stream figure{background:#fefefe;box-shadow:0 1px 2px rgba(34,25,25,0.4);margin:0 0.05% 3%;padding:3%;padding-bottom:10px;display:inline-block;max-width:25%}div.hexo-img-stream figure img{border-bottom:1px solid #ccc;padding-bottom:15px;margin-bottom:5px}div.hexo-img-stream figure figcaption{font-size:.9rem;color:#444;line-height:1.5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}div.hexo-img-stream small{font-size:1rem;float:right;text-transform:uppercase;color:#aaa}div.hexo-img-stream small a{color:#666;text-decoration:none;transition:.4s color}@media screen and (max-width:750px){.hexo-img-stream{column-gap:0}}</style><figure><img class="hexo-image-steam-lazy nofancy" src="https://ws4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif" data-original="https://s1.ax1x.com/2020/03/21/8hScRO.jpg"><noscript><img src="https://s1.ax1x.com/2020/03/21/8hScRO.jpg"></noscript><figcaption></figcaption></figure></div><script type="text/javascript">$('img.hexo-image-steam-lazy').lazyload({ effect:'fadeIn' });</script><h3 id="滴答清单"><a href="#滴答清单" class="headerlink" title="滴答清单"></a>滴答清单</h3><script src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script><script src="//cdn.bootcss.com/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script><div class="hexo-img-stream"><style type="text/css">.hexo-image-steam-lazy {display:none;}.hexo-img-stream{width:90%;max-width:1100px;margin:3% auto}div.hexo-img-stream figure{background:#fefefe;box-shadow:0 1px 2px rgba(34,25,25,0.4);margin:0 0.05% 3%;padding:3%;padding-bottom:10px;display:inline-block;max-width:25%}div.hexo-img-stream figure img{border-bottom:1px solid #ccc;padding-bottom:15px;margin-bottom:5px}div.hexo-img-stream figure figcaption{font-size:.9rem;color:#444;line-height:1.5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}div.hexo-img-stream small{font-size:1rem;float:right;text-transform:uppercase;color:#aaa}div.hexo-img-stream small a{color:#666;text-decoration:none;transition:.4s color}@media screen and (max-width:750px){.hexo-img-stream{column-gap:0}}</style><figure><img class="hexo-image-steam-lazy nofancy" src="https://ws4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif" data-original="https://s1.ax1x.com/2020/03/21/8hSyi6.jpg"><noscript><img src="https://s1.ax1x.com/2020/03/21/8hSyi6.jpg"></noscript><figcaption></figcaption></figure></div><script type="text/javascript">$('img.hexo-image-steam-lazy').lazyload({ effect:'fadeIn' });</script><h2 id="平常心对待-GTD-这件事"><a href="#平常心对待-GTD-这件事" class="headerlink" title="平常心对待 GTD 这件事"></a>平常心对待 GTD 这件事</h2><h2 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h2><p>　　</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>Git - Submodule 使用简单教程</title>
     <link href="http://kaaaaai.cn/articles/Git-submodule.html"/>
     <id>http://kaaaaai.cn/articles/Git-submodule.html</id>
     <published>2020-03-14T03:24:52.000Z</published>
-    <updated>2020-03-14T04:17:28.831Z</updated>
+    <updated>2020-03-14T04:18:23.188Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　最近在项目中使用了 <code>Git Submodule</code> 的功能，好处是如果是自己开发的封装库，比较方便调试，push 时可以同时上传项目和库的修改，别人通过主仓库地址下载工程的时候速度也会快上一些。<br>　　<code>Git Submodule</code> 的使用可以通过终端命令来操作（<a href="https://tnie.github.io/2018/04/02/git_submodule/" target="_blank" rel="noopener">Git Submoudle 使用完整教程</a>），或者通过 <code>Git</code> 第三方可视化客户端直接操作。本文展示的是通过 <code>Git</code> 第三方客户端 Sourcetree 来实现这个功能的。　　</p><h3 id="一、首先下载一个你想要添加-Submodule-功能的主仓库。"><a href="#一、首先下载一个你想要添加-Submodule-功能的主仓库。" class="headerlink" title="一、首先下载一个你想要添加 Submodule 功能的主仓库。"></a>一、首先下载一个你想要添加 Submodule 功能的主仓库。</h3><p>这里以我用来学习的仓库为例子<br><img src="https://s1.ax1x.com/2020/03/14/8MjX4S.jpg" alt>　　</p><h3 id="二、在下载好的仓库左侧菜单栏，右键点击-SUMODULES，在弹出的菜单中选中“Add-Sumodelues”"><a href="#二、在下载好的仓库左侧菜单栏，右键点击-SUMODULES，在弹出的菜单中选中“Add-Sumodelues”" class="headerlink" title="二、在下载好的仓库左侧菜单栏，右键点击 SUMODULES，在弹出的菜单中选中“Add Sumodelues”"></a>二、在下载好的仓库左侧菜单栏，右键点击 SUMODULES，在弹出的菜单中选中“Add Sumodelues”</h3><p><img src="https://s1.ax1x.com/2020/03/14/8MjON8.jpg" alt></p><h3 id="三、在弹出的菜单中填写远程仓库地址，和本地仓库地址"><a href="#三、在弹出的菜单中填写远程仓库地址，和本地仓库地址" class="headerlink" title="三、在弹出的菜单中填写远程仓库地址，和本地仓库地址"></a>三、在弹出的菜单中填写远程仓库地址，和本地仓库地址</h3><p>这里我填的远程仓库地址是一个第三方库<code>AFNetworking</code>，大家可以根据自己的实际需求填写自己私有仓库地址或者其他仓库地址。<br><strong>需要注意的是</strong>，本地仓库地址的路劲最好是在主工程文件路径的子目录底下，比如：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">master path：~/User/xxx/主工程文件夹</span><br><span class="line">Submodule path：~/User/xxx/主工程文件夹/Submodule 文件夹</span><br></pre></td></tr></table></figure><p><img src="https://s1.ax1x.com/2020/03/14/8MjLAf.jpg" alt="-w702"></p><p>点击 OK 就可以随意使用了。</p><p>后面如果需要 push/pull Submodule 仓库，更新方式也和在 sourcetree 中正常使用其他工程的流程是一样的。</p>]]></content>
     
@@ -173,9 +195,9 @@
     <link href="http://kaaaaai.cn/articles/Sun-sleeping-in-the-forest.html"/>
     <id>http://kaaaaai.cn/articles/Sun-sleeping-in-the-forest.html</id>
     <published>2020-02-02T08:13:52.000Z</published>
-    <updated>2020-02-15T03:55:09.915Z</updated>
+    <updated>2020-03-14T04:19:07.998Z</updated>
     
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>-<br>梦见一剑劈开了太阳，蛋黄浸透大半个银河系。我从岸上落下，在蛋液里浮沉，你在高处梨花带雨，你快上来，我不吃辣椒炒蛋了，快上来。太阳已经无可救药了，我想把剩下的星球都送给你。 </p><p>-<br>梦见和北野武决斗，各有一名帮手在旁边掠阵。我和北野武持剑相对，一剑未出，我在北野武强大的气势下，不断后退，后退。另一边，他的帮手迟钝，只做防御，我的帮手灵活，在进攻的间隙，还能在北野武身上留下伤口。眼见我在稳定的后退中，即将取胜。北野武忽然大喝，我扑通一声掉入河面。原来我早已被逼退至岸边。</p><p>-<br>梦见住在一个位于大厦顶层的陌生公寓，公寓往外望有很多奇形怪状的建筑，有照相机形的，有裸体女人形的。<br>每天都有很多人从我房间经过，借道下楼，一开始还有点生气，但看到其他楼层也一样情况，就释然了。<br>后来大厦发生了杀人事件，一位漂亮的女士在她家里被杀，警察们以房间每日人流量太多，不予立案。<br>画面一转，看见我一身侦探打扮和凶手坐在他家的床上谈话，床下躺着那具漂亮女尸。后来不知道说到了什么，房间的气氛变得有点忧郁。我们四个都很难过。</p><p>我在这种难过中提前醒来。</p><p>-<br>梦见坐飞船到了外太空，发现一段在陨石碎片生长的走廊，日式风格，玄关处飘落很多纸片，捏中一张，立马看见远山炊烟，贞子伽椰子恐怖片里的各种子林立在田野。村里喜欢抱着猫上树的老太太说纸片上有字，我没看见。旁边窜出一个身患白化病的和尚，大声喝咒太上老君急急如律令，在我们两手上各划拉一刀，贴一块。上面写，九州怪谈，今日奇人奇事。</p><p>-<br>梦见去了德云社看李小龙讲相声，梳朝天辫，包袱听不太真切，台下一阵突兀响亮的喝彩，李小龙歪着头露出唐山大兄里得意的笑。</p><p>-<br>梦见脑袋里有个录音机，循环播放着四首记不起名字的老歌，最近播到第三首总是卡带引起的头疼，去看医生，开处方药，两盒周杰伦的专辑，早晚服食 ​​​​</p><p>-<br>梦见去了喜欢的女孩的卧室，天花板倒挂着两把打开的纸伞，伞面上龙飞凤舞的挂着几行毛笔字，一把伞上是，天生我材必有用，千金散去还复来。另一把伞上是，不许欺负小女孩。 ​​​​</p><p>-<br>梦见策划了一个展，展出有开发到一半但已然荒废的大厦，一只袖子没织的毛衣，加载着没通关游戏的游戏机，没寄出的信，树和他上面的风筝，被黄色警戒条围起来的女士讲述着一位先生追她追到一半忽然了无音讯的故事，会生产人们谈话回声的空旷房间，展会还没到尽头的位置挂着一块指示牌：由于本次展会的多个展品，在正式展出之前失去了适合展出的状态，请大家原路返回，由我们工作人员退还部分票价。</p><p>-<br>我老远就看见她了。<br>她松开挎着的男人手臂，朝我走来。<br>打完招呼，我插着裤兜，踢马路上的石子，头也不抬问她：“怎么和他在一块了？”<br>“其实他是个很有意思的人。”她笑了笑，“我原来也挺瞧不上他的，也是后来相处了一阵才发现的。”<br>我抬头看了看不远处的那个男人，察觉到我在看他，朝我憨厚的笑笑，脸上依稀还有些我记忆中的少年时代的样子，我点了点头，脑子里想起来的全是以前瞧不起他的印象。<br>“这几年都在干嘛啊，一直都不联系，还以为你消失了。要不要待会一起吃个饭，反正都是认识的，就在附近，刚好我知道有个馆子还不错，是你喜欢的口味……”<br>她一直滔滔不绝，我闷着头只顾踢路上的石子，没说话。最后她又问了一遍要不要一起吃饭，没办法，我抬头和她说，不了，待会还有点事，最近都好忙，而且这几年我的口味也都变了。<br>后来，我就醒了。</p>]]></content>
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>-</p><p>-<br>梦见一剑劈开了太阳，蛋黄浸透大半个银河系。我从岸上落下，在蛋液里浮沉，你在高处梨花带雨，你快上来，我不吃辣椒炒蛋了，快上来。太阳已经无可救药了，我想把剩下的星球都送给你。 </p><p>-<br>梦见和北野武决斗，各有一名帮手在旁边掠阵。我和北野武持剑相对，一剑未出，我在北野武强大的气势下，不断后退，后退。另一边，他的帮手迟钝，只做防御，我的帮手灵活，在进攻的间隙，还能在北野武身上留下伤口。眼见我在稳定的后退中，即将取胜。北野武忽然大喝，我扑通一声掉入河面。原来我早已被逼退至岸边。</p><p>-<br>梦见住在一个位于大厦顶层的陌生公寓，公寓往外望有很多奇形怪状的建筑，有照相机形的，有裸体女人形的。<br>每天都有很多人从我房间经过，借道下楼，一开始还有点生气，但看到其他楼层也一样情况，就释然了。<br>后来大厦发生了杀人事件，一位漂亮的女士在她家里被杀，警察们以房间每日人流量太多，不予立案。<br>画面一转，看见我一身侦探打扮和凶手坐在他家的床上谈话，床下躺着那具漂亮女尸。后来不知道说到了什么，房间的气氛变得有点忧郁。我们四个都很难过。</p><p>我在这种难过中提前醒来。</p><p>-<br>梦见坐飞船到了外太空，发现一段在陨石碎片生长的走廊，日式风格，玄关处飘落很多纸片，捏中一张，立马看见远山炊烟，贞子伽椰子恐怖片里的各种子林立在田野。村里喜欢抱着猫上树的老太太说纸片上有字，我没看见。旁边窜出一个身患白化病的和尚，大声喝咒太上老君急急如律令，在我们两手上各划拉一刀，贴一块。上面写，九州怪谈，今日奇人奇事。</p><p>-<br>梦见去了德云社看李小龙讲相声，梳朝天辫，包袱听不太真切，台下一阵突兀响亮的喝彩，李小龙歪着头露出唐山大兄里得意的笑。</p><p>-<br>梦见脑袋里有个录音机，循环播放着四首记不起名字的老歌，最近播到第三首总是卡带引起的头疼，去看医生，开处方药，两盒周杰伦的专辑，早晚服食 ​​​​</p><p>-<br>梦见去了喜欢的女孩的卧室，天花板倒挂着两把打开的纸伞，伞面上龙飞凤舞的挂着几行毛笔字，一把伞上是，天生我材必有用，千金散去还复来。另一把伞上是，不许欺负小女孩。 ​​​​</p><p>-<br>梦见策划了一个展，展出有开发到一半但已然荒废的大厦，一只袖子没织的毛衣，加载着没通关游戏的游戏机，没寄出的信，树和他上面的风筝，被黄色警戒条围起来的女士讲述着一位先生追她追到一半忽然了无音讯的故事，会生产人们谈话回声的空旷房间，展会还没到尽头的位置挂着一块指示牌：由于本次展会的多个展品，在正式展出之前失去了适合展出的状态，请大家原路返回，由我们工作人员退还部分票价。</p><p>-<br>我老远就看见她了。<br>她松开挎着的男人手臂，朝我走来。<br>打完招呼，我插着裤兜，踢马路上的石子，头也不抬问她：“怎么和他在一块了？”<br>“其实他是个很有意思的人。”她笑了笑，“我原来也挺瞧不上他的，也是后来相处了一阵才发现的。”<br>我抬头看了看不远处的那个男人，察觉到我在看他，朝我憨厚的笑笑，脸上依稀还有些我记忆中的少年时代的样子，我点了点头，脑子里想起来的全是以前瞧不起他的印象。<br>“这几年都在干嘛啊，一直都不联系，还以为你消失了。要不要待会一起吃个饭，反正都是认识的，就在附近，刚好我知道有个馆子还不错，是你喜欢的口味……”<br>她一直滔滔不绝，我闷着头只顾踢路上的石子，没说话。最后她又问了一遍要不要一起吃饭，没办法，我抬头和她说，不了，待会还有点事，最近都好忙，而且这几年我的口味也都变了。<br>后来，我就醒了。</p>]]></content>
     
     <summary type="html">
     
@@ -581,38 +603,6 @@
       <category term="OC" scheme="http://kaaaaai.cn/tags/OC/"/>
     
       <category term="IOS" scheme="http://kaaaaai.cn/tags/IOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>每周总结 - 0831</title>
-    <link href="http://kaaaaai.cn/articles/weekly-summary-0831.html"/>
-    <id>http://kaaaaai.cn/articles/weekly-summary-0831.html</id>
-    <published>2019-08-31T14:13:52.000Z</published>
-    <updated>2019-09-02T02:30:15.000Z</updated>
-    
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　上个礼拜又没抽出空写周记，一转眼本周就过去了一半，这篇周记我是星期三开始写的，不知道结束会在星期几，写一篇周记时间周期横跨大半个礼拜，虽然感觉很惫懒，但从时间跨度上看，又是名副其实的“周记”了。<br>　　这个礼拜买了个键盘——罗技 k380，尝试在几个设备之间切换，连接，都很迅速，但按键的手感不是很清脆，有点粘滞， 就像吃东西梗着喉咙的感觉，但离噎着又很远。可能是没习惯吧。不过对于平常在 iPad 上码字勉强够用了。<br>　　新开了两本书《超新星纪元》和《只是为了好玩》，一本科幻小说，一本 Linux 之父的自传。前者主要内容是讲由于行星运动导致地球上的成年人都死亡，只剩下十三岁以下的小孩，而在这群小孩的手上开启了地球上的新纪元。后者只看了个序，不过第一章开头着重讲了他本人的长相，说自己长的如何如何奇怪等等，让我不禁觉得是不是有点刻意，想拐弯抹角的往“奇人必有异相”里靠，不过也可以理解，但凡伟人都多少有些自恋，哪怕平凡如我，早起照镜子也照到出门时手忙脚乱。虽然两本书一个是靠想象力，一个是记叙，但他们里面都有提到一个共通的东西，《超新星纪元》里面说的是孩子社会发展的原动力是玩，《只是为了好玩》里林纳斯解释生活的意思提出了三个层级的诉求，生存，秩序，娱乐。似乎关于这方面的思考，发展进步，生物进化，最后的结果都是为了更好的玩。一边觉得他们的想法有趣，一边有些感概，优秀的人总是能想到一块去。我作为一个后生晚辈，也情不自禁的想举手发言，前辈们，我。。我也觉得玩是人类的最终极的最伟大的诉求。<br>　　工作内容日益增多，有的内容对我有积极影响，有的则不然。周六开会听闻产品助理离职的事，心里没起太多波澜，部门 leader 顺势而为的借这件事敲打包括我在内的几名开发人员，虽然有些话我觉得有失偏颇，但如果不计较这个，对于可以增进改善我的建议，我觉得还是比较客观的。所以心里也没起太多波澜。倒是因为之前和产品助理的针锋相对，让我想到了一些影视小说作品里会出现的桥段，一直针锋相对的两个敌人在最后永别——现实中我们应该也不会再见了的关键时候，忽然相逢一笑泯恩仇，并为之前所有的恩怨争论由其冲突产生的毛刺最终消融为理解，而在关系上以另一种方式达成非常规的相知相识。戏剧化演绎到这，我就打住，没继续在脑子里演绎下去，回过头来又觉得自己颇有些可笑，可笑的原因模糊以蔽之，大概是人间不值得吧。<br>　　每天早上通勤路上背英语单词，虽然现在错误率在下降，但是感觉效果还是不太明显，想下一个阶段配合英文原著阅读学习，但不知道自己能够控制时间，专升本的课进入复习阶段，数据库老师给了一份试卷让周一到周五内完成，结果一直没抽出空。包括这篇博客，写到这里的时候已经星期天晚上了，明天又要开始新的一轮忙碌了。<br>　　刷微博看到一句诗，“人生天地间，忽如远行客。”，有朦胧的孤独感从诗的意境里透出来，百度搜全文看到下一句，“斗酒相娱乐，聊厚不为薄。”好吧，不为薄就不为薄，及时行乐就好。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
-      
-    
-    </summary>
-    
-    
-      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
-    
-      <category term="Live" scheme="http://kaaaaai.cn/tags/Live/"/>
-    
-      <category term="Study" scheme="http://kaaaaai.cn/tags/Study/"/>
-    
-      <category term="Work" scheme="http://kaaaaai.cn/tags/Work/"/>
     
   </entry>
   
