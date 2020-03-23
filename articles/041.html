@@ -425,7 +425,7 @@
       
 
       
-        <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="一、基本概念"><a href="#一、基本概念" class="headerlink" title="一、基本概念"></a>一、基本概念</h1><h2 id="1-什么是库？"><a href="#1-什么是库？" class="headerlink" title="1.什么是库？"></a>1.什么是库？</h2><p>库是共享程序代码的方式，一般分为静态库和动态库。</p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><script src="/assets/js/APlayer.min.js"> </script><h1 id="一、基本概念"><a href="#一、基本概念" class="headerlink" title="一、基本概念"></a>一、基本概念</h1><h2 id="1-什么是库？"><a href="#1-什么是库？" class="headerlink" title="1.什么是库？"></a>1.什么是库？</h2><p>库是共享程序代码的方式，一般分为静态库和动态库。</p>
 <h2 id="2-静态库与动态库的区别？"><a href="#2-静态库与动态库的区别？" class="headerlink" title="2.静态库与动态库的区别？"></a>2.静态库与动态库的区别？</h2><p>（1）静态库：之所以叫做静态，是因为静态库在编译的时候会被直接拷贝一份，复制到目标程序里，这段代码在目标程序里就不会再改变了。</p>
 <p>静态库的好处很明显，编译完成之后，库文件实际上就没有作用了。目标程序没有外部依赖，直接就可以运行。当然其缺点也很明显，就是会使用目标程序的体积增大。被多次使用就有多份冗余拷贝。</p>
 <p>（2）动态库：链接时不复制，程序运行时由系统动态加载到内存，供程序调用，系统只加载一次，多个程序共用，节省内存。</p>

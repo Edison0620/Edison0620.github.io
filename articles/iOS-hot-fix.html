@@ -425,7 +425,7 @@
       
 
       
-        <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　<code>Hot-Fix</code> 热修复技术，就是指不需要重新上架 <code>ipa</code> 包就修复线上 <code>bug</code> 的相关机制。由于 <code>App Store</code> 的审核机制，以及苹果不允许 <code>App</code> 加载动态库等原因，<code>iOS</code> 的热修复技术一直比较欠缺。<br>　　但是 <code>bug</code> 是难以避免的，除了通过严格测试来修复上线前的 <code>bug</code>，用热修复技术来解决线上 <code>bug</code>，对于一款 <code>App</code> 来说，是相当必须的。</p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><script src="/assets/js/APlayer.min.js"> </script><p>　　<code>Hot-Fix</code> 热修复技术，就是指不需要重新上架 <code>ipa</code> 包就修复线上 <code>bug</code> 的相关机制。由于 <code>App Store</code> 的审核机制，以及苹果不允许 <code>App</code> 加载动态库等原因，<code>iOS</code> 的热修复技术一直比较欠缺。<br>　　但是 <code>bug</code> 是难以避免的，除了通过严格测试来修复上线前的 <code>bug</code>，用热修复技术来解决线上 <code>bug</code>，对于一款 <code>App</code> 来说，是相当必须的。</p>
 <h3 id="1-JSPatch"><a href="#1-JSPatch" class="headerlink" title="1.JSPatch"></a>1.<a href="https://github.com/bang590/JSPatch" target="_blank" rel="noopener">JSPatch</a></h3><p>Star 数：10,909<br>最近一次更新时间：去年<br>谷歌搜索词条结果：49,200<br>百度搜索词条结果：2,930,000<br>是否也支持 Swift：是<br>是否有中文文档：是</p>
 <p>简介：<br>bugly 所包含的热更新核心也是采用 JSPatch 技术。<br>JSPatch 是一个开源项目(Github链接)，只需要在项目里引入极小的引擎文件，就可以使用 JavaScript 调用任何 Objective-C 的原生接口，替换任意 Objective-C 原生方法。目前主要用于下发 JS 脚本替换原生 Objective-C 代码，实时修复线上 bug。<br>理论上可以修改和新建所有的模块，但是不建议这样做。<br>建议用来做紧急的小需求和修复严重的线上 bug。</p>
 <p>使用时需要接入 JSPatch 平台，官方给出以下解释：<br>若从苹果的审核规则来看，JSPatch 和 React Native 是一样的，但苹果接受 React Native，拒绝 JSPatch，主要是因为JSPatch 可以调用任意原生 API，出于安全和滥用方面的顾虑而拒绝，之前大量 APP 自行接入 JSPatch，导致有几个风险点：</p>

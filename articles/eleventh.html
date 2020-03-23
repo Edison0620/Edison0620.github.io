@@ -425,7 +425,7 @@
       
 
       
-        <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="解决低版本Xcode不支持高版本iOS真机调试问题"><a href="#解决低版本Xcode不支持高版本iOS真机调试问题" class="headerlink" title="解决低版本Xcode不支持高版本iOS真机调试问题"></a>解决低版本Xcode不支持高版本iOS真机调试问题</h2><p>在真机运行程序后输出如下错误</p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><script src="/assets/js/APlayer.min.js"> </script><h2 id="解决低版本Xcode不支持高版本iOS真机调试问题"><a href="#解决低版本Xcode不支持高版本iOS真机调试问题" class="headerlink" title="解决低版本Xcode不支持高版本iOS真机调试问题"></a>解决低版本Xcode不支持高版本iOS真机调试问题</h2><p>在真机运行程序后输出如下错误</p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">The version of iOS on “xxx xxx” does not match any of the versions of iOS supported <span class="keyword">for</span> development with <span class="keyword">this</span> installation of the iOS SDK. Please restore the device to a version of the iOS listed below, or update to the latest version of the iOS.</span><br></pre></td></tr></table></figure>
 
 <p>主要原因是在调试前我将iOS SDK升级到了9.3版本，而我的Xcode是7.3版本的，只支持到9.2的SDK。<br>其实每次iOS SDK版本升级都会遇到相同的问题，之前有在网上找过，除了重新安装Xcode外就是下载新的Xcode将里面的SDK复制到旧的Xcode中。<br>由于之前我是黑苹果，不能升级系统以更新<code>Xcode</code>到最新版，所以只能谷歌一下自己DIY了。</p>

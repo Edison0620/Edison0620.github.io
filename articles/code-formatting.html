@@ -428,7 +428,7 @@
       
 
       
-        <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><em>项目快结束了。这个阶段需要把原来的代码规范一下，删除测试代码，增加注释，和格式化代码。过程中为了方便，我也找了一下增加效率的方法，整理记录一下。</em></p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><script src="/assets/js/APlayer.min.js"> </script><p><em>项目快结束了。这个阶段需要把原来的代码规范一下，删除测试代码，增加注释，和格式化代码。过程中为了方便，我也找了一下增加效率的方法，整理记录一下。</em></p>
 <h2 id="一、注释"><a href="#一、注释" class="headerlink" title="一、注释"></a>一、注释</h2><p>通常我们在 xcode 中需要注释掉代码，单行或者多行时，会选中一行或者多行，直接快捷键 Command + / 键来完成。</p>
 <p>而当我们需要对某个方法注释说明，简单的情况是两条斜杠加我们所需要添加的内容，但这种方式的缺陷在于，我们调用这个方法的时候并不能直接看到注释，需要按 command 点击方法跳转到目标方法才可以看到注释。</p>
 <p>更好的方法是添加注释块。在 xcode 10 以前需要我们手动编辑格式在拖入 xcode 的代码片段库，但在新的版本里，他已经被添加到快捷方法上了。<strong>我们只需要选中方法，使用快捷键 command + alt + /:</strong><br><img src="https://s2.ax1x.com/2019/05/04/EdC2a4.png" alt><br>当我们把内容都填充完毕，调用这个方法时就会显示：<br><img src="https://s2.ax1x.com/2019/05/04/EdC4R1.png" alt><br>注释方法可以让后续的开发人员更轻松的读代码，但如果一个类里存在着同一类别的方法，比如 tableview 的代理方法，对同一个对象的操作方法等等，这时我们就可以用到：</p>

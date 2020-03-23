@@ -425,7 +425,7 @@
       
 
       
-        <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>*　　因为公司一个蓝牙项目的需求，需要拿到通过 ble 传送过来的音频文件，然后转成可播放的音频文件。查了一下，发现可以直接用 Audio Queue 的服务直接转，但有一个限制是你传过来的音频文件必须是 pcm 格式的。如果是其他格式的就需要配合 AudioFileStream 或者 AudioFile 解析后播放。*</p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><script src="/assets/js/APlayer.min.js"> </script><p>*　　因为公司一个蓝牙项目的需求，需要拿到通过 ble 传送过来的音频文件，然后转成可播放的音频文件。查了一下，发现可以直接用 Audio Queue 的服务直接转，但有一个限制是你传过来的音频文件必须是 pcm 格式的。如果是其他格式的就需要配合 AudioFileStream 或者 AudioFile 解析后播放。*</p>
 <p>　　因为比较着急的原因，所以也没展开去好好了解 Audio Queue，就着急上马的用上了里面的东西。不过这里给大家推荐一个写的比较详细的博客系列：<a href="http://msching.github.io/blog/categories/audio/" target="_blank" rel="noopener">iOS音频播放</a></p>
 <p>使用逻辑：</p>
 <p id="div-border-left-green">1. Audio Queue Service 的播放模式是先配置好播放的参数，然后开几个播放队列，相当于缓冲队列，初始化队列会要求填写缓冲队列的大小，后面填充的时候不要超过这个大小，不然会导致内存溢出。
