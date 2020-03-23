@@ -430,7 +430,7 @@
       
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><script src="/assets/js/APlayer.min.js"> </script><h2 id="Spec-Repo-配置仓库-的概念"><a href="#Spec-Repo-配置仓库-的概念" class="headerlink" title="Spec Repo(配置仓库)的概念"></a>Spec Repo(配置仓库)的概念</h2><p>　　<code>CocoaPods</code> 对于一名 <code>iOS</code> 开发来说再熟悉不过了，它的工作原理就是在 <code>GitHub</code> 上面有个 <code>Spec Repo</code>，它里面包括成千上万的后缀名为 <code>.podspec</code> 的文件。我们在项目中集成第三方库(如 <code>SDWebImage</code> )的时候其实就是通过 <code>CocoaPods</code>的 <code>Spec Repo</code> 去找到我们需要的开源项目的 <code>.podspec</code> 文件，然后在 <code>.podspec</code> 文件中有具体的源码地址(放具体代码的地方)，根据这个地址去下载代码。</p>
+        <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Spec-Repo-配置仓库-的概念"><a href="#Spec-Repo-配置仓库-的概念" class="headerlink" title="Spec Repo(配置仓库)的概念"></a>Spec Repo(配置仓库)的概念</h2><p>　　<code>CocoaPods</code> 对于一名 <code>iOS</code> 开发来说再熟悉不过了，它的工作原理就是在 <code>GitHub</code> 上面有个 <code>Spec Repo</code>，它里面包括成千上万的后缀名为 <code>.podspec</code> 的文件。我们在项目中集成第三方库(如 <code>SDWebImage</code> )的时候其实就是通过 <code>CocoaPods</code>的 <code>Spec Repo</code> 去找到我们需要的开源项目的 <code>.podspec</code> 文件，然后在 <code>.podspec</code> 文件中有具体的源码地址(放具体代码的地方)，根据这个地址去下载代码。</p>
 <p>　　按照上面 <code>Spec Repo</code> 的理解，我们如果能自己创建一个类似 <code>CocoaPods</code> 的 <code>Spec Repo</code>，然后把我们私有的公共组件的 <code>.podspec</code> 文件放在里面，然后集成的时候让 <code>CocoaPods</code> 帮我们集成那我们就能达到目的，就可以建立私有pod库了。</p>
 <p>　　一般项目经理都会把代码仓库和配置仓库都建好，这时候我们只需要把 <code>Spec Repo</code> 加到本地就行了。(注意：需要管理员将你的账号加到里边，有访问权限并且有修改权限)。</p>
 <h2 id="一、添加’本地的私有仓库’-Spec-Repo-文件"><a href="#一、添加’本地的私有仓库’-Spec-Repo-文件" class="headerlink" title="一、添加’本地的私有仓库’(Spec Repo)文件　"></a>一、添加’本地的私有仓库’(Spec Repo)文件　</h2><p>1、使用下面的命令就可以在本地生成配置文件的仓库,建议这个本地的名字也和远程的一致,这样便于区分和后期的维护.<br>“baseSpecs”是你们团队远端创建的配置文件仓库的名字,后面是配置文件仓库远端的地址 .<br>注意此时不需要 <code>cd</code> 进入任何目录,从默认位置输入这个命令,即在点击终端快捷方式打开的状态下直接输入下面的命令即可</p>
@@ -844,7 +844,7 @@ show_date_time();
     </span>
 
   <div class="powered-by"></div>
-     <span class="post-count">博客全站共 146.9k 字</span>
+     <span class="post-count">博客全站共 147.1k 字</span>
   
   
 </div>

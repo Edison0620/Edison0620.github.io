@@ -425,7 +425,7 @@
       
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><script src="/assets/js/APlayer.min.js"> </script><p>*　　在 iOS 开发里，如果保存一些软件通用设置包括用户名密码等，我们一般会用 <code>NSUserDefaults</code> 这个类来记录进和访问应用包里的 <code>plist</code> 文件。那么类似的逻辑在 Android 中实现则是需要用到 <code>SharedPreferences</code> 这个类 *</p>
+        <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>*　　在 iOS 开发里，如果保存一些软件通用设置包括用户名密码等，我们一般会用 <code>NSUserDefaults</code> 这个类来记录进和访问应用包里的 <code>plist</code> 文件。那么类似的逻辑在 Android 中实现则是需要用到 <code>SharedPreferences</code> 这个类 *</p>
 <h1 id="一、关于-SharedPreferences"><a href="#一、关于-SharedPreferences" class="headerlink" title="一、关于 SharedPreferences"></a>一、关于 SharedPreferences</h1><p>　　<code>SharedPreferences</code> 的使用非常简单，能够轻松的存放数据和读取数据。<code>SharedPreferences</code> 只能保存简单类型的数据，例如，<code>String</code>、<code>int</code> 等。一般会将复杂类型的数据转换成 <code>Base64</code> 编码，然后将转换后的数据以字符串的形式保存在 <code>XML</code> 文件中，再用 <code>SharedPreferences</code> 保存。</p>
 <p>　　使用 <code>SharedPreferences</code> 保存 <code>key-value</code> 对的步骤如下：</p>
 <p>　　（1）使用 <code>Activity</code> 类的 <code>getSharedPreferences</code> 方法获得 <code>SharedPreferences</code> 对象，其中存储 <code>key-value</code> 的文件的名称由 <code>getSharedPreferences</code> 方法的第一个参数指定。<br>　　（2）使用 <code>SharedPreferences</code> 接口的 <code>edit</code> 获得 <code>SharedPreferences.Editor</code> 对象。<br>　　（3）通过 <code>SharedPreferences.Editor</code> 接口的 <code>putXxx</code> 方法保存 <code>key-value</code> 对。其中 <code>Xxx</code> 表示不同的数据类型。例如：字符串类型的 <code>value</code> 需要用 <code>putString</code> 方法。<br>　　（4）通过 <code>SharedPreferences.Editor</code> 接口的 <code>commit</code> 方法保存 <code>key-value</code> 对。<code>commit</code> 方法相当于数据库事务中的提交（<code>commit</code>）操作。
@@ -832,7 +832,7 @@ show_date_time();
     </span>
 
   <div class="powered-by"></div>
-     <span class="post-count">博客全站共 146.9k 字</span>
+     <span class="post-count">博客全站共 147.1k 字</span>
   
   
 </div>

@@ -425,7 +425,7 @@
       
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><script src="/assets/js/APlayer.min.js"> </script><p>*　　一直有把 iOS 开发里用到的一些边边角角的小技巧写成一个集合的想法，但一直没有付诸实践。刚好备忘录里的零零碎碎记的东西够凑成一篇东西来，就把之前的一篇 <a href="http://kaaaaai.cn/articles/eleventh">OC 笔记 - 一些小技巧和问题处理的集合</a> 给改了名，加上现在的第二篇，打算以后写成一个系列。长路漫漫，与诸君共勉。*</p>
+        <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>*　　一直有把 iOS 开发里用到的一些边边角角的小技巧写成一个集合的想法，但一直没有付诸实践。刚好备忘录里的零零碎碎记的东西够凑成一篇东西来，就把之前的一篇 <a href="http://kaaaaai.cn/articles/eleventh">OC 笔记 - 一些小技巧和问题处理的集合</a> 给改了名，加上现在的第二篇，打算以后写成一个系列。长路漫漫，与诸君共勉。*</p>
 <h2 id="一、打印bool值"><a href="#一、打印bool值" class="headerlink" title="一、打印bool值"></a>一、打印bool值</h2><figure class="highlight objectivec"><figcaption><span>Objective-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Bool _YESorNO = <span class="literal">YES</span>;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"BOOL--YESorNO--&gt;%@"</span>,_YESorNO?<span class="string">@"YES"</span>:<span class="string">@"NO"</span>);</span><br></pre></td></tr></table></figure>
 
 <h2 id="二、判断系统语言"><a href="#二、判断系统语言" class="headerlink" title="二、判断系统语言"></a>二、判断系统语言</h2><figure class="highlight objectivec"><figcaption><span>Objective-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSUserDefaults</span> * defaults = [<span class="built_in">NSUserDefaults</span> standardUserDefaults];</span><br><span class="line"><span class="built_in">NSArray</span> * allLanguages = [defaults objectForKey:<span class="string">@"AppleLanguages"</span>];</span><br><span class="line"><span class="built_in">NSString</span> * preferredLang = [allLanguages objectAtIndex:<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"当前语言:%@"</span>, allLanguages); </span><br><span class="line">       </span><br><span class="line"><span class="keyword">if</span> ([preferredLang rangeOfString:<span class="string">@"en"</span>].location != <span class="built_in">NSNotFound</span>) &#123;</span><br><span class="line"><span class="comment">//如果是英文，做相关处理</span></span><br><span class="line">   ...</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>([preferredLang rangeOfString:<span class="string">@"zh-Hans"</span>].location != <span class="built_in">NSNotFound</span>)&#123;</span><br><span class="line"><span class="comment">//如果是中文，做相关处理</span></span><br><span class="line">   ...         </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -823,7 +823,7 @@ show_date_time();
     </span>
 
   <div class="powered-by"></div>
-     <span class="post-count">博客全站共 146.9k 字</span>
+     <span class="post-count">博客全站共 147.1k 字</span>
   
   
 </div>

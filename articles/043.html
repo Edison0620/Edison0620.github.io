@@ -84,7 +84,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="EXP,OC,Swift,">
+  <meta name="keywords" content="EXP,Swift,OC,">
 
 
 
@@ -103,7 +103,7 @@
 
 
 <meta name="description" content="1、运行时报错如下错：log 打印12345Showing Recent Messages:-1:Multiple commands produce&apos;/Users/edison/Library/Developer/Xcode/DerivedData/$(product name)-fxzbpoappydriwfozeeqaxxcyoho/Build/Products/Debug-iphoneos">
-<meta name="keywords" content="EXP,OC,Swift">
+<meta name="keywords" content="EXP,Swift,OC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS - Xcode 10 和 iOS 12 问题集合">
 <meta property="og:url" content="http://kaaaaai.cn/articles/043.html">
@@ -431,7 +431,7 @@
       
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><script src="/assets/js/APlayer.min.js"> </script><h2 id="1、运行时报错如下错："><a href="#1、运行时报错如下错：" class="headerlink" title="1、运行时报错如下错："></a>1、运行时报错如下错：</h2><figure class="highlight bash"><figcaption><span>log 打印</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Showing Recent Messages:-1:Multiple commands produce<span class="string">'/Users/edison/Library/Developer/Xcode/DerivedData/$(product name)-fxzbpoappydriwfozeeqaxxcyoho/Build/Products/Debug-iphoneos/$(product name).app'</span>:</span><br><span class="line"></span><br><span class="line">1) Target <span class="string">'$(product name)'</span> has create directory <span class="built_in">command</span> with output <span class="string">'/Users/edison/Library/Developer/Xcode/DerivedData/$(product name)-fxzbpoappydriwfozeeqaxxcyoho/Build/Products/Debug-iphoneos/$(product name).app'</span></span><br><span class="line"></span><br><span class="line">2) That <span class="built_in">command</span> depends on <span class="built_in">command</span> <span class="keyword">in</span> Target <span class="string">'$(product name)'</span>: script phase “[CP] Copy Pods Resources”</span><br></pre></td></tr></table></figure>
+        <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="1、运行时报错如下错："><a href="#1、运行时报错如下错：" class="headerlink" title="1、运行时报错如下错："></a>1、运行时报错如下错：</h2><figure class="highlight bash"><figcaption><span>log 打印</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Showing Recent Messages:-1:Multiple commands produce<span class="string">'/Users/edison/Library/Developer/Xcode/DerivedData/$(product name)-fxzbpoappydriwfozeeqaxxcyoho/Build/Products/Debug-iphoneos/$(product name).app'</span>:</span><br><span class="line"></span><br><span class="line">1) Target <span class="string">'$(product name)'</span> has create directory <span class="built_in">command</span> with output <span class="string">'/Users/edison/Library/Developer/Xcode/DerivedData/$(product name)-fxzbpoappydriwfozeeqaxxcyoho/Build/Products/Debug-iphoneos/$(product name).app'</span></span><br><span class="line"></span><br><span class="line">2) That <span class="built_in">command</span> depends on <span class="built_in">command</span> <span class="keyword">in</span> Target <span class="string">'$(product name)'</span>: script phase “[CP] Copy Pods Resources”</span><br></pre></td></tr></table></figure>
 
 <p>解决方法：选中项目 target -&gt; Build phase -&gt; Copy Pods Resources -&gt; Output Files  -&gt; 移除 <code>${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}</code> -&gt; Build</p>
 <h2 id="2、README-文件重复问题"><a href="#2、README-文件重复问题" class="headerlink" title="2、README 文件重复问题"></a>2、README 文件重复问题</h2><figure class="highlight bash"><figcaption><span>log 打印</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Showing Recent Messages:-1: Multiple commands produce <span class="string">'/Users/edison/Library/Developer/Xcode/DerivedData/$(product name)-fxzbpoappydriwfozeeqaxxcyoho/Build/Products/Debug-iphoneos/$(product name).app/README.md'</span>:</span><br><span class="line">1) Target <span class="string">'$(product name)'</span> (project <span class="string">'$(product name)'</span>) has copy <span class="built_in">command</span> from <span class="string">'/工程路径/.../README.md'</span> to <span class="string">'/工程路径/.../README.md'</span></span><br><span class="line"></span><br><span class="line">2) Target <span class="string">'$(product name)'</span> (project <span class="string">'$(product name)'</span>) has copy <span class="built_in">command</span> from <span class="string">'工程路径/.../README.md'</span> to <span class="string">'工程路径/.../README.md'</span></span><br><span class="line"></span><br><span class="line">3) Target <span class="string">'$(product name)'</span> (project <span class="string">'$(product name)'</span>) has copy <span class="built_in">command</span> from <span class="string">'工程路径/.../README.md'</span> to <span class="string">'工程路径/.../README.md'</span></span><br><span class="line"></span><br><span class="line">4) Target <span class="string">'$(product name)'</span> (project <span class="string">'$(product name)'</span>) has copy <span class="built_in">command</span> from <span class="string">'工程路径/.../README.md'</span> to <span class="string">'工程路径/.../README.md'</span></span><br></pre></td></tr></table></figure>
@@ -517,9 +517,9 @@
           
             <a href="/tags/EXP/" rel="tag"><i class="fa fa-tag"></i> EXP</a>
           
-            <a href="/tags/OC/" rel="tag"><i class="fa fa-tag"></i> OC</a>
-          
             <a href="/tags/Swift/" rel="tag"><i class="fa fa-tag"></i> Swift</a>
+          
+            <a href="/tags/OC/" rel="tag"><i class="fa fa-tag"></i> OC</a>
           
         </div>
       
@@ -821,7 +821,7 @@ show_date_time();
     </span>
 
   <div class="powered-by"></div>
-     <span class="post-count">博客全站共 146.9k 字</span>
+     <span class="post-count">博客全站共 147.1k 字</span>
   
   
 </div>
