@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kaaaaai.cn/"/>
-  <updated>2020-04-03T11:25:04.196Z</updated>
+  <updated>2020-04-04T09:50:38.999Z</updated>
   <id>http://kaaaaai.cn/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>上帝会掷几次骰子</title>
+    <link href="http://kaaaaai.cn/articles/God-will-rolls-the-dice-several-times.html"/>
+    <id>http://kaaaaai.cn/articles/God-will-rolls-the-dice-several-times.html</id>
+    <published>2020-04-04T02:13:52.000Z</published>
+    <updated>2020-04-04T09:50:38.999Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　看了一本图说量子物理学史的书，《上帝的骰子》，书名来自于爱因斯坦的一句话：上帝不会掷骰子。去年也有一本书很火叫《量子物理史話：上帝掷骰子嗎？》，不说大家为什么都一窝蜂的抓着骰子不放，从这些现象我们可以看出，量子物理的不确定性确实存在着吸引人的迷人魅力。<br>　　《上帝的骰子》从量子物理的诞生引发争端开始，到贝尔不等式宣告近代量子物理的确立结束，中间穿插着近代物理学家的轶事和量子力学的知识点，基于人物引出理论，由时间线描述整个量子力学的演化过程，结构上还算井井有条，错落有致。但由于是一本入门书，不能讲的太深，这点就先天不足，然后所采取的叙述方式是用漫画这种形式，虽然生动形象，但总觉得有注水的嫌疑。前面讲量子物理学发展时还好，因为有干货，以物理学家对话的小剧场形式注水，勉强可以接受。但最后用了一整个大章用图解的形式来讲量子物理的应用，在我看来虽然不是画蛇添足，但也是一种可以让人一眼看穿的、并不高明的小聪明。<br>　　常言与人交往，切忌交浅言深。我补充一句，写读书评论，切忌学浅言深。回到内容本身，关于量子力学和量子力学史，可以让我评论的其实不多，限于认识，脱口而出的只有——牛逼，当贝尔不等式终结一切，我囫囵吃进几个认识：量子是纠缠的，宇宙是由无数个连续的不确定性所组成的。除此之外还有什么呢？在微观上，当代的技已尽于此，在宏观上，人类逃离地心引力仍然很费劲。对宇宙的认识除了依靠物理学家们的研究，作为时代里微不足道注脚的普通人，似乎只能依靠想象来填充关于宇宙的其他细枝末节，如此，宇宙、量子等等的一切对于我们普通人的意义在哪？<br>　　我想每个人都有自己的答案，虽然我也可以像之前一样，一字一句把我心里的答案通过推导的方式，摆出来给人看。但对于宇宙的答案，我想不给比给要好的多，不是因为害怕浅薄，浅薄没什么好怕的。可以当做是我出于对宇宙的热爱，这种热爱认为一个开放的问题只有开发的回答才能与之相对。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
+      
+    
+    </summary>
+    
+    
+      <category term="旁白" scheme="http://kaaaaai.cn/categories/%E6%97%81%E7%99%BD/"/>
+    
+    
+      <category term="随笔" scheme="http://kaaaaai.cn/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+      <category term="读后感" scheme="http://kaaaaai.cn/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Git - .gitignore 相关</title>
-    <link href="http://kaaaaai.cn/articles/git-about-git-ignore.html"/>
-    <id>http://kaaaaai.cn/articles/git-about-git-ignore.html</id>
+    <link href="http://kaaaaai.cn/articles/Git-about-git-ignore.html"/>
+    <id>http://kaaaaai.cn/articles/Git-about-git-ignore.html</id>
     <published>2020-04-03T03:24:52.000Z</published>
-    <updated>2020-04-03T11:25:04.196Z</updated>
+    <updated>2020-04-03T11:25:13.174Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在使用 Git 的过程中，我们喜欢有的文件比如日志，临时文件，编译的中间文件等不要提交到代码仓库，这时就要设置相应的忽略规则，来忽略这些文件的提交。</p><p>规则作用：</p><blockquote><p>/mtk 过滤整个文件夹<br>*.zip 过滤所有.zip文件<br>/mtk/do.c 过滤某个具体文件<br>!/mtk/one.txt 追踪（不过滤）某个具体文件</p></blockquote><p><strong>注意：</strong>如果你创建.gitignore 文件之前就 push 了某一文件，那么即使你在.gitignore 文件中写入过滤该文件的规则，该规则也不会起作用，git 仍然会对该文件进行版本管理。</p><p>配置语法：</p><blockquote><p>以斜杠“/”开头表示目录<br>以星号“*”通配多个字符<br>以问号“?”通配单个字符<br>以方括号“[]”包含单个字符的匹配列表<br>以叹号“!”表示不忽略(跟踪)匹配到的文件或目录</p></blockquote><p><strong>注意：</strong>git 对于 .gitignore 配置文件是按行从上到下进行规则匹配的。</p><p>Git 忽略文件提交的方法<br>有三种方法可以实现忽略 Git 中不想提交的文件。</p><h2 id="在Git项目中定义-gitignore-文件"><a href="#在Git项目中定义-gitignore-文件" class="headerlink" title="在Git项目中定义 .gitignore 文件"></a>在Git项目中定义 .gitignore 文件</h2><p>这种方式通过在项目的某个文件夹下定义 .gitignore 文件，在该文件中定义相应的忽略规则，来管理当前文件夹下的文件的 Git 提交行为。</p><p>.gitignore 文件是可以提交到共有仓库中，这就为该项目下的所有开发者都共享一套定义好的忽略规则。</p><p>在 .gitingore 文件中，遵循相应的语法，在每一行指定一个忽略规则。如：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">*.log</span><br><span class="line">*.temp</span><br><span class="line">/vendor</span><br></pre></td></tr></table></figure><h2 id="在Git项目的设置中指定排除文件"><a href="#在Git项目的设置中指定排除文件" class="headerlink" title="在Git项目的设置中指定排除文件"></a>在Git项目的设置中指定排除文件</h2><p>这种方式只是临时指定该项目的行为，需要编辑当前项目下的 .git/info/exclude 文件，然后将需要忽略提交的文件写入其中。</p><p>需要注意的是，这种方式指定的忽略文件的根目录是项目根目录。</p><h2 id="定义Git全局的-gitignore-文件"><a href="#定义Git全局的-gitignore-文件" class="headerlink" title="定义Git全局的 .gitignore 文件"></a>定义Git全局的 .gitignore 文件</h2><p>除了可以在项目中定义 .gitignore 文件外，还可以设置全局的 git .gitignore 文件来管理所有Git项目的行为。这种方式在不同的项目开发者之间是不共享的，是属于项目之上 Git 应用级别的行为。</p><p>这种方式也需要创建相应的.gitignore 文件，可以放在任意位置。然后在使用以下命令配置Git：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global core.excludesfile ~/.gitignore</span><br></pre></td></tr></table></figure><h2 id="Git-忽略规则"><a href="#Git-忽略规则" class="headerlink" title="Git 忽略规则"></a>Git 忽略规则</h2><p>详细的忽略规则可以参考<a href="https://git-scm.com/docs/gitignore" target="_blank" rel="noopener">官方英文文档</a></p><h2 id="Git-忽略规则优先级"><a href="#Git-忽略规则优先级" class="headerlink" title="Git 忽略规则优先级"></a>Git 忽略规则优先级</h2><p>在 <code>.gitingore</code> 文件中，每一行指定一个忽略规则，Git 检查忽略规则的时候有多个来源，它的优先级如下（由高到低）：</p><ul><li>从命令行中读取可用的忽略规则</li><li>当前目录定义的规则</li><li>父级目录定义的规则，依次地推</li><li>$GIT_DIR/info/exclude 文件中定义的规则</li><li>core.excludesfile 中定义的全局规则</li></ul><h2 id="Git-忽略规则匹配语法"><a href="#Git-忽略规则匹配语法" class="headerlink" title="Git 忽略规则匹配语法"></a>Git 忽略规则匹配语法</h2><p>在 .gitignore 文件中，每一行的忽略规则的语法如下：</p><ul><li><em>空格</em>不匹配任意文件，可作为分隔符，可用反斜杠转义</li><li><em>#开头</em>的模式标识注释，可以使用反斜杠进行转义</li><li><em>! 开头</em>的模式标识否定，该文件将会再次被包含，如果排除了该文件的父级目录，则使用 ! 也不会再次被包含。可以使用反斜杠进行转义</li><li><em>/ 结束</em>的模式只匹配文件夹以及在该文件夹路径下的内容，但是不匹配该文件</li><li><em>/ 开始</em>的模式匹配项目跟目录</li><li>如果一个模式不包含斜杠，则它匹配相对于当前 .gitignore 文件路径的内容，如果该模式不在 .gitignore 文件中，则相对于项目根目录</li><li><em>\</em>**匹配多级目录，可在开始，中间，结束</li><li><em>?</em>通用匹配单个字符</li><li>*[]*通用匹配单个字符列表</li></ul><h2 id="常用匹配示例"><a href="#常用匹配示例" class="headerlink" title="常用匹配示例"></a>常用匹配示例</h2><ul><li>bin/: 忽略当前路径下的bin文件夹，该文件夹下的所有内容都会被忽略，不忽略 bin 文件</li><li>/bin: 忽略根目录下的bin文件</li><li>/*.c: 忽略 cat.c，不忽略 build/cat.c</li><li>debug/*.obj: 忽略 debug/io.obj，不忽略 debug/common/io.obj 和 tools/debug/io.obj</li><li>**/foo: 忽略/foo, a/foo, a/b/foo等</li><li>a/**/b: 忽略a/b, a/x/b, a/x/y/b等</li><li>!/bin/run.sh: 不忽略 bin 目录下的 run.sh 文件</li><li>*.log: 忽略所有 .log 文件</li><li>config.php: 忽略当前路径的 config.php 文件</li><li><h2 id="gitignore规则不生效"><a href="#gitignore规则不生效" class="headerlink" title=".gitignore规则不生效"></a>.gitignore规则不生效</h2><code>.gitignore</code> 只能忽略那些原来没有被 track 的文件，如果某些文件已经被纳入了版本管理中，则修改 <code>.gitignore</code> 是无效的。</li></ul><p>解决方法就是先把本地缓存删除（改变成未 track 状态），然后再提交:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git rm -r --cached .</span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">'update .gitignore'</span></span><br></pre></td></tr></table></figure>]]></content>
     
@@ -577,36 +605,6 @@
       <category term="iOS" scheme="http://kaaaaai.cn/tags/iOS/"/>
     
       <category term="Swift" scheme="http://kaaaaai.cn/tags/Swift/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS - 使用 fastlane snapshot 自动化截图</title>
-    <link href="http://kaaaaai.cn/articles/iOS-fastlane-snapshot.html"/>
-    <id>http://kaaaaai.cn/articles/iOS-fastlane-snapshot.html</id>
-    <published>2019-09-16T03:24:52.000Z</published>
-    <updated>2019-09-16T12:03:17.000Z</updated>
-    
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="First-at-all"><a href="#First-at-all" class="headerlink" title="First at all"></a>First at all</h2><p>　　首先先介绍一下 fastlane 是干嘛用的：</p><blockquote><p>Fastlane 是一套使用 Ruby 写的自动化工具集，旨在简化 Android 和 iOS 的部署过程，自动化你的工作流。它可以简化一些乏味、单调、重复的工作，像截图、代码签名以及发布 App。</p></blockquote><p>　　然后这篇文章主要介绍的是 fastlane 里面其中一个工具——snapshot，我们可以用它来给应用进行自动化截图。</p><p>附上官方文档地址：<a href="https://docs.fastlane.tools/getting-started/ios/screenshots/" target="_blank" rel="noopener">https://docs.fastlane.tools/getting-started/ios/screenshots/</a></p><h2 id="Just-to-try"><a href="#Just-to-try" class="headerlink" title="Just to try"></a>Just to try</h2><p>　　好了，接下来进入手把手教学阶段。这里的教学前提是你已经安装好了 fastlane 或者 snapshot。没安装好也没关系，打开终端输入以下代码进行安装：</p><figure class="highlight bash"><figcaption><span>Terminal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　sudo gem install snapshot</span><br></pre></td></tr></table></figure><p>如果遇到这个问题：</p><div class="note danger"><p>You don’t have write permissions for the /usr/bin directory.</p></div><p>可以尝试加上安装路径</p><figure class="highlight bash"><figcaption><span>Terminal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install -n /usr/<span class="built_in">local</span>/bin fastlane</span><br></pre></td></tr></table></figure><p>成功安装完以后。以一个新工程为例子，首先我们需要给他增加一个 UI Testing Target</p><h3 id="1、增加-UI-Testing-Target"><a href="#1、增加-UI-Testing-Target" class="headerlink" title="1、增加 UI Testing Target"></a>1、增加 UI Testing Target</h3><p>选择 <strong>Xcode</strong> 顶部菜单栏中的 <strong>File</strong> –&gt; <strong>New</strong> –&gt; <strong>Target…</strong>，在弹出框中选择 <code>iOS UI Testing Target</code><br><img src="https://s2.ax1x.com/2019/09/16/nfAyWT.jpg" alt><br>名字随意，其他默认。然后点击工程，添加一个新的 <code>scheme</code><br><img src="https://s2.ax1x.com/2019/09/16/nfAROJ.jpg" alt><br>在弹出框中选择你新添加的 <code>Target</code><br><img src="https://s2.ax1x.com/2019/09/16/nfAcSU.jpg" alt></p><h3 id="2、编辑-UI-Testing-Target"><a href="#2、编辑-UI-Testing-Target" class="headerlink" title="2、编辑 UI Testing Target"></a>2、编辑 UI Testing Target</h3><p>注意勾选你的 <code>UI Testing Target</code>，然后点击 <code>Edit Scheme</code><br><img src="https://s2.ax1x.com/2019/09/16/nfA2y4.jpg" alt><br><strong>然后在弹出框中，勾选 <code>Build</code> 中的 <code>Run</code>和 <code>Shard</code></strong><br><img src="https://s2.ax1x.com/2019/09/16/nfAfm9.jpg" alt></p><h3 id="3、给工程加入-snapshot"><a href="#3、给工程加入-snapshot" class="headerlink" title="3、给工程加入 snapshot"></a>3、给工程加入 snapshot</h3><p>打开终端，切到工程目录底下，输入一下命令：</p><figure class="highlight bash"><figcaption><span>Terminal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastlane snapshot init</span><br></pre></td></tr></table></figure><p>成功后工程目录会多出两个文件<br><img src="https://s2.ax1x.com/2019/09/16/nfA4T1.jpg" alt><br><code>SnapshotHelper.swift</code> 文件需要我们添加到项目中使用，注意选中的<code>Target</code> 是前面创建的 UITest Target。如果是 <code>OC</code> 项目，文件拖入时会自动提醒是否创建桥接文件，选择“YES”就行了。</p><p><code>Snapfile</code> 是截图配置文件，可以在里面设置需要截图的设备和语言。 </p><h3 id="4、在工程中使用-snapshot"><a href="#4、在工程中使用-snapshot" class="headerlink" title="4、在工程中使用 snapshot"></a>4、在工程中使用 snapshot</h3><p>当确认了 <code>UI Testing Target</code> 的设置没问题，<code>snapshot</code> 的引用文件在工程中，配置文件也没问题后，我们下一步就可以开始在工程中初始化 <code>snapshot</code> 和调用他的截图方法了。</p><p>首先，我们需要在 <code>setUp</code> 方法中初始化，值得一提的是官方文档和网上搜索到的技术博客中 OC 的初始化方法：<code>[Snapshot setupSnapshot:app];</code>，在 <code>snapshot</code> 中的源码好像已经找不到了，现在的初始化方法如下</p><figure class="highlight objc"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">XCUIApplication</span> *app = [[<span class="built_in">XCUIApplication</span> alloc]init];</span><br><span class="line">[Snapshot setupSnapshot:app waitForAnimations:<span class="literal">YES</span>];</span><br><span class="line">[app launch];</span><br></pre></td></tr></table></figure><p>然后在 <code>testExample</code> 方法中实现截图方法</p><figure class="highlight objc"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> <span class="built_in">XCUIApplication</span> *app = [[<span class="built_in">XCUIApplication</span> alloc] init];</span><br><span class="line"></span><br><span class="line"><span class="comment">//截图 - 首頁</span></span><br><span class="line">[Snapshot snapshot:<span class="string">@"0main"</span> timeWaitingForIdle:<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//截图 - 点击方法</span></span><br><span class="line"><span class="built_in">XCUIElement</span> *openButton = app.buttons[<span class="string">@"Open"</span>];</span><br><span class="line">[openButton tap];</span><br><span class="line">[Snapshot snapshot:<span class="string">@"1filter"</span> timeWaitingForIdle:<span class="number">10</span>];</span><br></pre></td></tr></table></figure><p>这里需要强调的一点是 <code>XCUIElement *openButton = app.buttons[@&quot;Open&quot;];</code> 这句里的 “Open”，是怎么来的，他是根据我们创建控件时所设置的 <code>accessibilityIdentifier</code> 的值来的。</p><figure class="highlight objc"><figcaption><span>Object-c</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIButton</span> *btnOne = [[<span class="built_in">UIButton</span> alloc]initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="keyword">self</span>.view.frame.size.width / <span class="number">2</span>, <span class="keyword">self</span>.view.frame.size.width / <span class="number">2</span>)];</span><br><span class="line">[btnOne addTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(jumpToAlibabba) forControlEvents:<span class="built_in">UIControlEventTouchUpInside</span>];</span><br><span class="line">[btnOne setAccessibilityIdentifier:<span class="string">@"Open"</span>];</span><br><span class="line">[<span class="keyword">self</span>.view addSubview:btnOne];</span><br></pre></td></tr></table></figure><p>完成这一步，剩下需要做的就不多了。</p><h3 id="5、获取自动化截图结果"><a href="#5、获取自动化截图结果" class="headerlink" title="5、获取自动化截图结果"></a>5、获取自动化截图结果</h3><p>同样打开终端，切到项目路径，运行</p><figure class="highlight bash"><figcaption><span>Terminal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastlane snapshot</span><br></pre></td></tr></table></figure><p>然后会出现一连串的打印<br><img src="https://s2.ax1x.com/2019/09/16/nfAIFx.jpg" alt><br>运行结束以后，成功的话会生成了一个 html 文件和一组截图，html 页面会自己打开。<br><img src="https://s2.ax1x.com/2019/09/16/nfATfK.jpg" alt><br>不过显示的效果有点不太友好~<br>以上。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
-      
-    
-    </summary>
-    
-    
-      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
-    
-      <category term="OC" scheme="http://kaaaaai.cn/tags/OC/"/>
-    
-      <category term="IOS" scheme="http://kaaaaai.cn/tags/IOS/"/>
     
   </entry>
   
