@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kaaaaai.cn/"/>
-  <updated>2020-05-30T10:09:42.796Z</updated>
+  <updated>2020-06-07T07:34:20.300Z</updated>
   <id>http://kaaaaai.cn/</id>
   
   <author>
@@ -17,13 +17,43 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>我的 AIO-notion 工作流搭建</title>
+    <link href="http://kaaaaai.cn/articles/My-AIO-notion-workflow-setup.html"/>
+    <id>http://kaaaaai.cn/articles/My-AIO-notion-workflow-setup.html</id>
+    <published>2020-06-07T05:24:52.000Z</published>
+    <updated>2020-06-07T07:34:20.300Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://i.loli.net/2020/06/07/cSgrjKnkbB41AxI.jpg" alt="cSgrjKnkbB41AxI"></p><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h1><p>制造和使用工具，是人类和动物最本质的区别。而使用好的工具和使用好工具，又是效率高的人类和效率低的人类最本质的区别。如何使用好工具，是方法，是技巧，千人千面，可能同一个好的方法放到不同的人身上，效果却是迥然不同的。好的工具的定义也同理。但在我们最终找到适合我们的方法和工具之前，我们可以选择那些久经人们考验的一些工具和方法来尝试和体验。本文介绍的就是一个久（大概有那么一两年）经人们考验的笔记软件——Notion。</p><h1 id="使用-Notion-之前"><a href="#使用-Notion-之前" class="headerlink" title="使用 Notion 之前"></a><strong>使用 Notion 之前</strong></h1><p>在使用 Notion 之前，我日常使用的工具大概有：苹果自带的便签、Sublime Text、MWeb、滴答清单。便签是用来记录琐碎的信息、想法，Sublime Text 用来浏览一些开发语言后缀的文件，MWeb 用来 Markdown 写作，滴答清单用来 GTD 管理和番茄计时。针对不同类型的事情，使用不同的工具去解决，在大部分情况下，体验还是不错的。但也存在一些局限，比如：</p><ul><li>当我处理一件任务，需要同时多个工具时，dock 栏挂了一大堆软件不说，在不同应用间切换也让我不能很好地集中注意力。</li><li>当我想回溯一个任务的文件或者记录时，不太方便。</li></ul><p>原因是我会实际产生数据记录的有两个地方，一个是便签，一个是 MWeb 的 Library，后者因为软件属性的原因，不好做分类，文件数量一多起来检索困难，前者虽然可以做分类，而我虽然也在做分类上花了一些心思。<br><img src="https://i.loli.net/2020/06/07/mYiUI1ZtVN3nA4X.png" alt="mYiUI1ZtVN3nA4X"><br>但也会存在当数据记录一旦多起来就检索困难，在层级不深的界面预览查找，通常只能看到便签内容的前几行内容，因为没有文件名和标签这种概念，要用便签这个轻量级应用做知识管理还是有点强便签所难的。</p><p>所以基于使用当前工具所发现的这两个局限，我倾向于找一个尽可能可以大一统的笔记/GTD/文档加工软件，并且在文件分类上最好能有一些自己的思考。在体验了 Bear、OneNote、印象笔记之后，最终我选择 Notion。</p><h1 id="选择-Notion-的理由"><a href="#选择-Notion-的理由" class="headerlink" title="选择 Notion 的理由"></a><strong>选择 Notion 的理由</strong></h1><p>为什么在体验后筛选掉那些同样优秀的笔记软件而选择 notion，抛开高低优劣的比较不谈。这里只说 notion 吸引我的地方。</p><p>比起 block 的使用便利性，和可以无限递增层级这两个特点。主要吸引我的其实是好看，通过各种不同类型的 block 组装来输出自己想要的东西，可以轻松的让输出结果很好看，稍微注意排版和颜色搭配的话，不过分的说，赏心悦目。甚至于有时候工作的间隙只是看着自己搭建的 GTD 界面就不自觉的感到被治愈。除了好看，所有二级目录都以瀑布流的形式汇集在一个界面，对于查找文件来说，也非常一目了然。</p><p>其次是好玩，网上对 notion 的评价，看到一个很形象的比喻：像乐高积木。我很赞同，notion 除了像乐高积木一样可以不断堆叠出自己想要的东西，从某种方面也具备着和它相似的可以无限拓展的可能性。另外，使用不同 block 堆叠的整个过程，也显得非常 geek，而 geek 在我看来他的意思就是，玩一些有意思的东西。</p><p>最后是好用。当然对于刚使用的人来说，是有一定上手难度的，但这些难度对于上手后可以提供的帮助也可以忽略不计。而具体是否好用，如何好用，我会在后文通过搭建我的工作流的例子来做展示。</p><h1 id="使用-Notion-搭建我的工作流"><a href="#使用-Notion-搭建我的工作流" class="headerlink" title="使用 Notion 搭建我的工作流"></a><strong>使用 Notion 搭建我的工作流</strong></h1><p>搭建我的工作流之前，我稍微去了解了一下在 notion 上用的很多的 PARA 相关知识，在 B 站上看到一个 up 主列了一个比较直观的脑图，大体如下：<br><img src="https://i.loli.net/2020/06/07/5uWnINJeSMsA7UV.jpg" alt="5uWnINJeSMsA7UV"></p><p>然后就把我以前记在便签内容，抽取了出来，分成了五个模块，分别是：</p><ul><li>Memo - 便签，用于快速记录笔记，和某个正在编辑的内容的快速链接地址</li><li>Personal - 个人，如题图所见，用于保存年度目标，习惯养成，愿望清单，记录想看的书籍电影的马克清单，记录账号的通行证，“有待整理”则是一个方便拓展的接口，用于保存随手收藏的资源。</li><li>Work - 工作，记录一些公司的信息，比如地址邮编，账号信息，客户信息，还有工作过程中产生的一些文件。</li><li>Study - 学习，除了记录大学自考本科的一些信息，还有一些个人开发和学习中记录到的一些琐碎小知识，虽然前面按身份属性区分，Study 也可以归类到 Personal，但为了方便记录跟踪，所以就把学习抽取出来做单独一个模块。</li><li>Archive - 归档，保存一些不经常用到资料，和用作展示的个人网站。</li></ul><p>有了这个初步结果，已经基本可以收纳我日常学习工作所产生的信息了。但基于 All-In-One 这一点，又看到 Youtube 上一个直播主的这个视频 - <a href="https://www.youtube.com/watch?v=wtBSAwPSjoU" target="_blank" rel="noopener">How I Use Notion ● June 2019</a>，于是就决定把我滴答清单的项目搬运到 Notion 来，除了在首页置顶显示方便跟踪以外，我在单个的项目中添加了以下下属性：<br><img src="https://i.loli.net/2020/06/07/G9ejc6uqBdUMoVz.png" alt="G9ejc6uqBdUMoVz"></p><ul><li>类型：区分工作和个人</li><li>项目类型：二级分类，区分具体项目，学习也在这一级里面</li><li>状态：主要有四种，预处理，进行中，暂停，已完成。日常工作中我通常把图标切成看板模式，进行中只挂一个任务，排除其他的干扰。通常的流程是 预处理 → 进行中 → 已完成。而暂停则可以在 预处理 和 进行中 两者间转换。</li><li>Description：关于当前任务的描述，可选项</li><li>文件：作用于属性名一致</li><li>Mouths、Weeks、Weekday、isThisMouth、isThisWeek：都是为了从时间线查看任务信息，实际使用上用的比较多的是使用 isThisWeek 来过滤出一个只显示 本周任务 的表格，用于每个礼拜末的任务复盘。</li><li>截止：和预期时间相关联，确保任务可以按时完成。</li></ul><p>除了以上属性，这个表格我也创建了一个快速笔记的模板，用于记录任务中琐碎，具有时效性的信息。而有意义的数据则记录到工作或者个人的数据库中，以快捷方式引用。</p><p>至此，整个属于我的 Notion 工作流已经搭建完毕。当然有一些在规划时没想到的问题和后面新增的需求因为也要在实际使用中持续迭代，所以也创建了一个任务，用来持续更新我的 Notion 工作流。</p><p>除了用作只是管理和 GTD，在深度使用 Notion 后我也用它搭建了我的第二个博客网站 - <a href="https://notion.kaaaaai.cn" target="_blank" rel="noopener">背面-肆拾壹</a>，在 Study 中为我大学接下来的考试搭建了一个简单的学习复习跟踪和实行的表格。而 Notion 可以做到的远比我在这里分享的还要多得多。</p><p>当然除了很多优点，notion 作为一个刚起步没几年的新生软件也有一些体验比较糟糕的地方，比如从其他地方复制文本过来，不会保留空行，导出的文件无论是选择 md 格式、cvs 格式还是 pdf 格式都不是很尽人意，支持导入的软件寥寥无几，还有因为是在线的应用，有时候打开加载比较慢，如果碰到网络差，你恰好要快速记录时，就比较容易着急上火，另外前一阵子被墙的新闻闹得沸沸扬扬，没有国内版本支持，也是比较硬伤的地方。</p><p>最后，回到开始，制造和使用工具，是人类和动物最本质的区别。Notion 作为一个笔记工具，虽然强大，但工具只是工具。我们应该关注的是自我本身，关注如何通过工具创造出更有价值的内容。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
+      
+    
+    </summary>
+    
+    
+      <category term="工具" scheme="http://kaaaaai.cn/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="时间管理" scheme="http://kaaaaai.cn/tags/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/"/>
+    
+      <category term="笔记软件" scheme="http://kaaaaai.cn/tags/%E7%AC%94%E8%AE%B0%E8%BD%AF%E4%BB%B6/"/>
+    
+      <category term="Notion" scheme="http://kaaaaai.cn/tags/Notion/"/>
+    
+  </entry>
+  
+  <entry>
     <title>解决使用 GitPage 重定向多次问题</title>
     <link href="http://kaaaaai.cn/articles/web-resolve-recirculation-errors.html"/>
     <id>http://kaaaaai.cn/articles/web-resolve-recirculation-errors.html</id>
     <published>2020-05-30T09:24:52.000Z</published>
-    <updated>2020-05-30T10:09:42.796Z</updated>
+    <updated>2020-05-31T01:07:39.468Z</updated>
     
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="问题表现"><a href="#问题表现" class="headerlink" title="问题表现"></a>问题表现</h2><p>博客网站更换了 DNS 解析的服务商，访问出现以下问题。<br><img src="https://gitee.com/woailvkai/Kaaaaai.tool.oss/raw/uPic/uPic/03oBxi-2020%2005%2030.jpg" alt="03oBxi-20200530"></p><h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>主要是使用的 <code>DNS</code> 解析服务的 <code>SSL/TLS</code> 设置和 GitPage 的 <code>HTTPS</code> 设置冲突了。</p><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>解决方法很简单，主要就是保证网页和 <code>DNS</code> 解析服务的设置一致就好了。</p><h3 id="一、CloudFlare-设置灵活，GitHub-取消-HTTPS"><a href="#一、CloudFlare-设置灵活，GitHub-取消-HTTPS" class="headerlink" title="一、CloudFlare 设置灵活，GitHub 取消 HTTPS"></a>一、CloudFlare 设置灵活，GitHub 取消 HTTPS</h3><p>进入 GitHub 的仓库，点击 <strong>Setting → Options</strong>，一路下拉到 GitHub Pages，把 Enforce HTTPS  取消勾选就好了。<br><img src="https://gitee.com/woailvkai/Kaaaaai.tool.oss/raw/uPic/uPic/OjCxmm-2020%2005%2030.jpg" alt="OjCxmm-20200530"></p><p>二、GitHub 设置 HTTPS，CloudFlare 设置 完全 模式<br><img src="https://gitee.com/woailvkai/Kaaaaai.tool.oss/raw/uPic/uPic/DdM9XQ-2020%2005%2030.jpg" alt="DdM9XQ-20200530"></p><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>这里也推荐官方提供的解决方法-<a href="https://support.cloudflare.com/hc/zh-cn/articles/115000219871-%E8%A7%A3%E5%86%B3%E9%87%8D%E5%AE%9A%E5%90%91%E5%BE%AA%E7%8E%AF%E9%94%99%E8%AF%AF" title="解决重定向循环错误" target="_blank" rel="noopener">解决重定向循环错误</a>，其实和我上述所说的是一致的。对于有经验的话按照里面所说的解决应该是不难的，但是对于第一次碰到这种问题的人来说，可能有点抽象。</p>]]></content>
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="问题表现"><a href="#问题表现" class="headerlink" title="问题表现"></a>问题表现</h2><p>博客网站更换了 DNS 解析的服务商，访问出现以下问题。<br><img src="https://gitee.com/woailvkai/Kaaaaai.tool.oss/raw/uPic/uPic/03oBxi-2020%2005%2030.jpg" alt="03oBxi-20200530"></p><h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>主要是使用的 <code>DNS</code> 解析服务的 <code>SSL/TLS</code> 设置和 GitPage 的 <code>HTTPS</code> 设置冲突了。</p><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>解决方法很简单，主要就是保证网页和 <code>DNS</code> 解析服务的设置一致就好了。可以从两个方向解决。</p><h3 id="一、CloudFlare-设置灵活，GitHub-取消-HTTPS"><a href="#一、CloudFlare-设置灵活，GitHub-取消-HTTPS" class="headerlink" title="一、CloudFlare 设置灵活，GitHub 取消 HTTPS"></a>一、CloudFlare 设置灵活，GitHub 取消 HTTPS</h3><p>进入 GitHub 的仓库，点击 <strong>Setting → Options</strong>，一路下拉到 GitHub Pages，把 Enforce HTTPS  取消勾选就好了。<br><img src="https://gitee.com/woailvkai/Kaaaaai.tool.oss/raw/uPic/uPic/OjCxmm-2020%2005%2030.jpg" alt="OjCxmm-20200530"></p><h3 id="二、GitHub-设置-HTTPS，CloudFlare-设置-完全-模式"><a href="#二、GitHub-设置-HTTPS，CloudFlare-设置-完全-模式" class="headerlink" title="二、GitHub 设置 HTTPS，CloudFlare 设置 完全 模式"></a>二、GitHub 设置 HTTPS，CloudFlare 设置 完全 模式</h3><p><img src="https://gitee.com/woailvkai/Kaaaaai.tool.oss/raw/uPic/uPic/DdM9XQ-2020%2005%2030.jpg" alt="DdM9XQ-20200530"></p><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>这里也推荐官方提供的解决方法-<a href="https://support.cloudflare.com/hc/zh-cn/articles/115000219871-%E8%A7%A3%E5%86%B3%E9%87%8D%E5%AE%9A%E5%90%91%E5%BE%AA%E7%8E%AF%E9%94%99%E8%AF%AF" title="解决重定向循环错误" target="_blank" rel="noopener">解决重定向循环错误</a>，其实和我上述所说的是一致的。对于有经验的话按照里面所说的解决应该是不难的，但是对于第一次碰到这种问题的人来说，可能有点抽象。</p>]]></content>
     
     <summary type="html">
     
@@ -435,9 +465,9 @@
     <link href="http://kaaaaai.cn/articles/Chicken-soup-from-inference-writer.html"/>
     <id>http://kaaaaai.cn/articles/Chicken-soup-from-inference-writer.html</id>
     <published>2019-12-24T02:13:52.000Z</published>
-    <updated>2020-05-30T10:01:13.286Z</updated>
+    <updated>2020-05-31T02:50:26.055Z</updated>
     
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　去年部门抽奖抽中一本《解忧杂货铺》，因为在那之前就已经看过这本书了，所以后来也就没有反抗的，让同事抢走归了她。到年底忽然想起这本书，索性就提笔写写。<br>　　《解忧杂货铺》讲的是几个小偷闯进了一个废弃的杂货铺，通过一个牛奶箱和不同年代的人通信，给与回应，不断解决不同人的问题，到最后也找到自己人生的出路。<br>　　整本书由几个不同的故事串联而成，简单易懂，不同于东野圭吾其他的推理小说，在结局的时候或者在过程中，推理有答案或者答案有了反转。甚至唯一一点略有神秘色彩的事件——信箱的信会穿越时空，也在事件出现之后的一两页内容里得到了答案。纵观全文，值得大书特书的内容有不少，但对我来说，那些值得一提的东西，温暖，感动，悔过，坚持自己等等这些书里的特质，都有些乏善可陈。<br>　　产生这样的心情当然也不是因为书写的不够好，书还可以，大概能打三星半。但抱着吃川味火锅店的心情，点菜的时候发现只有清淡偏甜的粤菜可点。因为结果低于期待，难免有所抱怨。<br>　　当然如果因为自己的期待就不允许火锅店的菜谱上只有粤菜可点，这种态度是不够端正的，虽然我不喜欢，但我也捍卫火锅店做粤菜的自由，而且也不是挂羊头卖狗肉，《解忧杂货铺》也没打着我是推理小说的招牌出来接活，所以不妨把它当做是作者的一种尝试。<br>　　梳理推理小说发展过程，从古典推理到侦探小说，到日本新本格出现，松本清张结合时事始创社会派推理小说，最后宫部美雪、伊坂幸太郎、绫辻行人、东野圭吾等作家让日本推理小说百花齐放。到这，我不禁有个疑问，为什么东野圭吾可以在同时代的同行作家中脱颖而出，让路人也有个好像在哪听过的印象？东野圭吾虽然也写过侦探破案的本格小说，但他真正让人印象深刻的作品，比如《白夜行》《嫌疑犯X的献身》，这些书无一不以事件中的人物纠葛为主色调，辅以推理破案，结尾真相大白，人物冲突达到最高峰。这些人事纠葛，日式风格的说法是，羁绊。因为羁绊，使得东野圭吾讲的故事多了些人情味，当然部分给人眼前一亮的推理也是一个地基式的存在，另一个方面东野圭吾小说被大量改编成了影视剧，吸引了不少推理小说圈外的路人粉，这也是东野圭吾火起来的一个原因，儿比起其他推理、侦探小说衍生的影视剧，东野圭吾书里在上述中提到的人情味所带来的晚间八点档狗血剧的氛围，冲淡了推理小说迷们和普通观众们之间的壁垒，像迪士尼动画片大人可以看到成年人的元素，小孩可以看到小孩子的元素，大家各取所需，皆大欢喜。<br>　　说完东野圭吾小说的整体风格，我们再来看这本书，比起他之前的那些作品——《黑笑小说》之类的不在对比范围，我们可以看到，《解忧杂货铺》推理味和人情味的配比，前者少，近乎于无，后者晚间八点档的氛围则被推到前作们所未有的地步。这种改变对于推理小说迷们来说是接受困难的，甚至是抵触：没想到东野圭吾你个浓眉大眼的家伙也写这种东西了？但对于东野圭吾、普通观众、普通读者，从现在结果来看，好处是远大于坏处的。而且这种改变从东野圭吾之前的作品中其实已经可以窥见端倪，对社会人性黑暗的长期注视，不可避免会产生两种态度，看透看破心灰意冷，或者一直乐观下去，对人之初性本善投赞成票。《解忧杂货铺》如果我们不把他粗暴的归类到是作者投读者们所好的一部纯商业作品——比如《阿弥陀佛么么哒》之流，而把他当做是作者在黑暗中得到的答案，似乎变得容易让人接受起来，甚至于作者本身跳出了推理小说家这个标签所带来的局限性，但这么看，似乎又给原本平庸的作品加了一个过分闪耀的光环。<br>　　无论如何，《解忧杂货铺》给我的观感仍然还是开头所提到的一样，三星半。至于东野圭吾先生之后的作品是在《解忧杂货铺》上一条道走到黑，还是又折回头写以前那类推理小说。我始终都会感谢他带来那么多优秀的作品。</p><p>#from Kai的MacBook Pro#</p>]]></content>
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　去年部门抽奖抽中一本《解忧杂货铺》，因为在那之前就已经看过这本书了，所以后来也就没有反抗的，让同事抢走归了她。到年底忽然想起这本书，索性就提笔写写。<br>　　《解忧杂货铺》讲的是几个小偷闯进了一个废弃的杂货铺，通过一个牛奶箱和不同年代的人通信，给与回应，不断解决不同人的问题，到最后也找到自己人生的出路。<br>　　整本书由几个不同的故事串联而成，简单易懂，不同于东野圭吾其他的推理小说，在结局的时候或者在过程中，推理有答案或者答案有了反转。甚至唯一一点略有神秘色彩的事件——信箱的信会穿越时空，也在事件出现之后的一两页内容里得到了答案。纵观全文，值得大书特书的内容有不少，但对我来说，那些值得一提的东西，温暖，感动，悔过，坚持自己等等这些书里的特质，都有些乏善可陈。<br>　　产生这样的心情当然也不是因为书写的不够好，书还可以，大概能打三星半。但抱着吃川味火锅店的心情，点菜的时候发现只有清淡偏甜的粤菜可点。因为结果低于期待，难免有所抱怨。<br>　　当然如果因为自己的期待就不允许火锅店的菜谱上只有粤菜可点，这种态度是不够端正的，虽然我不喜欢，但我也捍卫火锅店做粤菜的自由，而且也不是挂羊头卖狗肉，《解忧杂货铺》也没打着我是推理小说的招牌出来接活，所以不妨把它当做是作者的一种尝试。<br>　　梳理推理小说发展过程，从古典推理到侦探小说，到日本新本格出现，松本清张结合时事始创社会派推理小说，最后宫部美雪、伊坂幸太郎、绫辻行人、东野圭吾等作家让日本推理小说百花齐放。到这，我不禁有个疑问，为什么东野圭吾可以在同时代的同行作家中脱颖而出，让路人也有个好像在哪听过的印象？东野圭吾虽然也写过侦探破案的本格小说，但他真正让人印象深刻的作品，比如《白夜行》《嫌疑犯X的献身》，这些书无一不以事件中的人物纠葛为主色调，辅以推理破案，结尾真相大白，人物冲突达到最高峰。这些人事纠葛，日式风格的说法是，羁绊。因为羁绊，使得东野圭吾讲的故事多了些人情味，当然部分给人眼前一亮的推理也是一个地基式的存在，另一个方面东野圭吾小说被大量改编成了影视剧，吸引了不少推理小说圈外的路人粉，这也是东野圭吾火起来的一个原因，儿比起其他推理、侦探小说衍生的影视剧，东野圭吾书里在上述中提到的人情味所带来的晚间八点档狗血剧的氛围，冲淡了推理小说迷们和普通观众们之间的壁垒，像迪士尼动画片大人可以看到成年人的元素，小孩可以看到小孩子的元素，大家各取所需，皆大欢喜。<br>　　说完东野圭吾小说的整体风格，我们再来看这本书，比起他之前的那些作品——《黑笑小说》之类的不在对比范围，我们可以看到，《解忧杂货铺》推理味和人情味的配比，前者少，近乎于无，后者晚间八点档的氛围则被推到前作们所未有的地步。这种改变对于推理小说迷们来说是接受困难的，甚至是抵触：没想到东野圭吾你个浓眉大眼的家伙也写这种东西了？但对于东野圭吾、普通观众、普通读者，从现在结果来看，好处是远大于坏处的。而且这种改变从东野圭吾之前的作品中其实已经可以窥见端倪，对社会人性黑暗的长期注视，不可避免会产生两种态度，看透看破心灰意冷，或者一直乐观下去，对人之初性本善投赞成票。《解忧杂货铺》如果我们不把他粗暴的归类到是作者投读者们所好的一部纯商业作品——比如《阿弥陀佛么么哒》之流，而把他当做是作者在黑暗中得到的答案，似乎变得容易让人接受起来，甚至于作者本身跳出了推理小说家这个标签所带来的局限性，但这么看，似乎又给原本平庸的作品加了一个过分闪耀的光环。<br>　　无论如何，《解忧杂货铺》给我的观感仍然还是开头所提到的一样，三星半。至于东野圭吾先生之后的作品是在《解忧杂货铺》上一条道走到黑，还是又折回头写以前那类推理小说。我始终都会感谢他带来那么多优秀的作品。</p>]]></content>
     
     <summary type="html">
     
@@ -573,36 +603,6 @@
       <category term="随笔" scheme="http://kaaaaai.cn/tags/%E9%9A%8F%E7%AC%94/"/>
     
       <category term="读后感" scheme="http://kaaaaai.cn/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何解决网站访问时弹出“您要访问的网站包含恶意软件”的页面</title>
-    <link href="http://kaaaaai.cn/articles/how-to-fix-warnings-about-unsafe-sites.html"/>
-    <id>http://kaaaaai.cn/articles/how-to-fix-warnings-about-unsafe-sites.html</id>
-    <published>2019-11-07T07:00:52.000Z</published>
-    <updated>2019-11-14T03:39:56.000Z</updated>
-    
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　前一阵子公司网站的访问出了一点问题，每次访问的时候都会弹出一个警告页面，类似于这种<img src="https://s2.ax1x.com/2019/11/07/MACQ0A.png" alt><br>　　由于之前也没碰过这种问题，只能简单粗暴的归纳出两个方向：<br>　　１.可能是域名原因<br>　　２.可能是服务器原因<br>　　后来问题已经解决的时候看网上分享的资料知道还有一种可能就是，网站本身没问题，之所以出现这个警告页面是因为被运营商 HTTP 或 DNS 劫持了。<br>　　这里刷一条给我们提供域名服务的服务商——<a href="http://now.cn/" target="_blank" rel="noopener">时代互联</a>的差评，在解决这个问题的过程中，联系我们账号底下的客服和电话客服，大概联系了不下十次，都没能解决问题，其中有几次，不仅没能帮我解决问题，还用一种推卸责任和不耐烦的态度把我怼的差点憋不住气的跳脚。<br>　　不仅态度有问题，而且他们的工作人员对自己那块的业务好像也不太熟练。因为怀疑网站网站报警告问题，可能和域名服务商的服务可能存在某些问题，所以预期的解决方案中也有一项是迁移域名，迁移域名的话需要通过手机或者邮箱验证，而手机和邮箱这些信息，由于公司人员变动，需要修改。基于这点我问他们工作人员，在修改信息页面中的一个需要勾选的选项，“修改信息之后的 <strong>720</strong> 天内不能迁移域名”，和接我电话的工作人员再三确认，是不是必须勾选，不勾选会不会有问题，告知我可以不用勾选，并且确认不勾选不会造成什么问题。结果最后我确认修改信息的时候，发现那个选项不勾选竟然不能到下一步。。。<br>　　回归正题，当域名问题不能再域名服务商那边解决时，我开始尝试定位到底是域名还是服务器的问题，具体方式：<br>　　1.把我们的域名指向到另一个服务器，如果仍然报警告，那就是域名问题<br>　　2.用其他的域名指向当前服务器，如果仍然报警告，那就是服务器问题<br>　　测试结果出来后，基本可以定位是域名问题，然后让后台的同事帮了一下忙，安装了一个在腾讯云申请的免费 SSL 证书（这个好像也能解决上述所说的未发现的被劫持问题），但仍然无效，打电话给域名服务商，他说肯定是 SSL 证书不起作用或者是根本就没用，没办法，我只好追着皮球到了腾讯云客服人员那，幸运的是，大厂不愧为大厂，服务完全没有可比性，只是提交了怀疑 SSL 证书可能没生效的工单，对方就帮我检测了我的网站是否有异常，以及用不同浏览器测试，得出 QQ 浏览器访问正常，可能需要向谷歌站长平台提供申述。不过因为在此之前，我就在一个网站申述平台提了一个申述：<a href="https://www.stopbadware.org/" target="_blank" rel="noopener">StopBadware</a>，因为申述通过但网站访问仍然异常。所以带着将信将疑的态度，又重新激活腾讯问题的工单，然后过了一个上午就接到腾讯云平台技术人员的电话，非常耐心的给我解释了他们所做的所有尝试，最后得出结果，只能去<a href="https://www.google.com/webmasters/tools/home?hl=zh-CN" target="_blank" rel="noopener">谷歌站长平台</a>注册，申述试试看了。<br>　　在谷歌站长平台添加了网站之后，立马有个警告消息提醒我，我们公司的网站存在一些问题，不加思索，我反手就是一个申述，第二天收到邮件，有点出乎意料，竟然没有通过，仔细看邮件描述，推测问题可能出在我们的网站因为提供了很多安卓 apk 的下载，而有一部分 apk 之前在 Google 应用市场因为添加了<strong>有风险的广告 SDK 被下架了</strong>，然后谷歌站长平台也默认这些 apk 存在一定风险。再次提交申述之前，让安卓的同事提供了去除广告 SDK 的 apk 替换掉服务器里的文件，果然，第二天收到邮件，审核通过了。<br>　　<img src="https://s2.ax1x.com/2019/11/07/MAClTI.jpg" alt><br>　　这次网站申述的经历给我有两个体会，一个是，只要死磕到底，就一定能让周润发翻译出什么他妈的叫他妈的惊喜。另一个是互联网服务一定要选大厂，盘靓活好态度也呱呱叫。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
-      
-    
-    </summary>
-    
-    
-      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
-    
-      <category term="domain name" scheme="http://kaaaaai.cn/tags/domain-name/"/>
-    
-      <category term="Google Search Console" scheme="http://kaaaaai.cn/tags/Google-Search-Console/"/>
     
   </entry>
   
