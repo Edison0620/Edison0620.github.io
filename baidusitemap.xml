@@ -4,6 +4,30 @@
 
     
   <url>
+    <loc>http://kaaaaai.cn/articles/A-person-abandoned-by-the-light.html</loc>
+    <lastmod>2020-07-19T07:29:32.553Z</lastmod>
+    <data>
+        <display>
+        <title>被光放弃的人</title>
+        <pubTime>2020-07-18T02:13:52.000Z</pubTime>
+        
+        <tag>随笔</tag>
+         
+        <tag>电影</tag>
+         
+        <tag>观后感</tag>
+         
+         
+           
+             
+              <breadCrumb title="旁白" url="http://kaaaaai.cn/categories/%E6%97%81%E7%99%BD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://kaaaaai.cn/articles/OC-Multi-Delegate-Implementation.html</loc>
     <lastmod>2020-07-16T10:27:46.602Z</lastmod>
     <data>
@@ -223,9 +247,9 @@
         
         <tag>EXP</tag>
          
-        <tag>OC</tag>
-         
         <tag>Swift</tag>
+         
+        <tag>OC</tag>
          
          
            
@@ -1165,9 +1189,9 @@
         
         <tag>EXP</tag>
          
-        <tag>OC</tag>
-         
         <tag>Swift</tag>
+         
+        <tag>OC</tag>
          
          
            
@@ -1326,16 +1350,16 @@
 
     
   <url>
-    <loc>http://kaaaaai.cn/articles/farewell_to_the_darkness.html</loc>
+    <loc>http://kaaaaai.cn/articles/fifthart.html</loc>
     <lastmod>2019-06-29T03:50:45.000Z</lastmod>
     <data>
         <display>
-        <title>和轮廓渐现的黑暗告别</title>
-        <pubTime>2018-07-19T13:00:52.000Z</pubTime>
+        <title>最近的读书笔记</title>
+        <pubTime>2017-07-01T05:00:52.000Z</pubTime>
         
         <tag>读书笔记</tag>
          
-        <tag>外国现当代文学</tag>
+        <tag>中国当代文学</tag>
          
          
            
@@ -1348,16 +1372,16 @@
 
     
   <url>
-    <loc>http://kaaaaai.cn/articles/fifthart.html</loc>
+    <loc>http://kaaaaai.cn/articles/farewell_to_the_darkness.html</loc>
     <lastmod>2019-06-29T03:50:45.000Z</lastmod>
     <data>
         <display>
-        <title>最近的读书笔记</title>
-        <pubTime>2017-07-01T05:00:52.000Z</pubTime>
+        <title>和轮廓渐现的黑暗告别</title>
+        <pubTime>2018-07-19T13:00:52.000Z</pubTime>
         
         <tag>读书笔记</tag>
          
-        <tag>中国当代文学</tag>
+        <tag>外国现当代文学</tag>
          
          
            
@@ -1482,12 +1506,12 @@
 
     
   <url>
-    <loc>http://kaaaaai.cn/articles/037.html</loc>
+    <loc>http://kaaaaai.cn/articles/035.html</loc>
     <lastmod>2019-06-29T03:41:15.000Z</lastmod>
     <data>
         <display>
-        <title>在草房子外</title>
-        <pubTime>2018-08-23T10:00:52.000Z</pubTime>
+        <title>唯“鸭嘴兽”主义哲学</title>
+        <pubTime>2018-08-07T10:00:52.000Z</pubTime>
         
         <tag>随笔</tag>
          
@@ -1504,12 +1528,12 @@
 
     
   <url>
-    <loc>http://kaaaaai.cn/articles/035.html</loc>
+    <loc>http://kaaaaai.cn/articles/037.html</loc>
     <lastmod>2019-06-29T03:41:15.000Z</lastmod>
     <data>
         <display>
-        <title>唯“鸭嘴兽”主义哲学</title>
-        <pubTime>2018-08-07T10:00:52.000Z</pubTime>
+        <title>在草房子外</title>
+        <pubTime>2018-08-23T10:00:52.000Z</pubTime>
         
         <tag>随笔</tag>
          
@@ -1853,9 +1877,9 @@
          
         <tag>Swift</tag>
          
-        <tag>IOS</tag>
-         
         <tag>codeAnalysis</tag>
+         
+        <tag>IOS</tag>
          
          
            
@@ -1944,16 +1968,14 @@
 
     
   <url>
-    <loc>http://kaaaaai.cn/articles/046.html</loc>
+    <loc>http://kaaaaai.cn/articles/lean-cache.html</loc>
     <lastmod>2019-03-15T09:38:28.000Z</lastmod>
     <data>
         <display>
-        <title>iOS - YTKNetwork 日志框架源码分析</title>
-        <pubTime>2018-11-12T07:24:52.000Z</pubTime>
+        <title>iOS - Cache 源码分析</title>
+        <pubTime>2019-01-22T12:24:52.000Z</pubTime>
         
         <tag>EXP</tag>
-         
-        <tag>iOS</tag>
          
         <tag>OC</tag>
          
@@ -1970,14 +1992,16 @@
 
     
   <url>
-    <loc>http://kaaaaai.cn/articles/lean-cache.html</loc>
+    <loc>http://kaaaaai.cn/articles/046.html</loc>
     <lastmod>2019-03-15T09:38:28.000Z</lastmod>
     <data>
         <display>
-        <title>iOS - Cache 源码分析</title>
-        <pubTime>2019-01-22T12:24:52.000Z</pubTime>
+        <title>iOS - YTKNetwork 日志框架源码分析</title>
+        <pubTime>2018-11-12T07:24:52.000Z</pubTime>
         
         <tag>EXP</tag>
+         
+        <tag>iOS</tag>
          
         <tag>OC</tag>
          
@@ -2152,30 +2176,6 @@
 
     
   <url>
-    <loc>http://kaaaaai.cn/articles/026.html</loc>
-    <lastmod>2018-11-01T07:12:50.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS 开发里的那些散手（二）</title>
-        <pubTime>2018-06-14T11:37:05.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>iOS</tag>
-         
-        <tag>OC</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://kaaaaai.cn/articles/023.html</loc>
     <lastmod>2018-11-01T07:12:50.000Z</lastmod>
     <data>
@@ -2212,6 +2212,30 @@
         <tag>iOS</tag>
          
         <tag>Swift</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://kaaaaai.cn/articles/026.html</loc>
+    <lastmod>2018-11-01T07:12:50.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS 开发里的那些散手（二）</title>
+        <pubTime>2018-06-14T11:37:05.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>iOS</tag>
+         
+        <tag>OC</tag>
          
          
            
@@ -2320,28 +2344,6 @@
 
     
   <url>
-    <loc>http://kaaaaai.cn/articles/034.html</loc>
-    <lastmod>2018-11-01T07:12:50.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS 关于第三方库的选择</title>
-        <pubTime>2018-08-02T06:24:52.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>IOS</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://kaaaaai.cn/articles/039.html</loc>
     <lastmod>2018-11-01T07:12:50.000Z</lastmod>
     <data>
@@ -2398,30 +2400,6 @@
         <tag>EXP</tag>
          
         <tag>Python</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://kaaaaai.cn/articles/043.html</loc>
-    <lastmod>2018-11-01T07:12:50.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS - Xcode 10 和 iOS 12 问题集合</title>
-        <pubTime>2018-10-08T08:24:52.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>OC</tag>
-         
-        <tag>Swift</tag>
          
          
            
@@ -2541,6 +2519,30 @@
            
              
               <breadCrumb title="涂鸦" url="http://kaaaaai.cn/categories/%E6%B6%82%E9%B8%A6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://kaaaaai.cn/articles/043.html</loc>
+    <lastmod>2018-11-01T07:12:50.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS - Xcode 10 和 iOS 12 问题集合</title>
+        <pubTime>2018-10-08T08:24:52.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>Swift</tag>
+         
+        <tag>OC</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>
@@ -2687,6 +2689,28 @@
            
              
               <breadCrumb title="涂鸦" url="http://kaaaaai.cn/categories/%E6%B6%82%E9%B8%A6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://kaaaaai.cn/articles/034.html</loc>
+    <lastmod>2018-11-01T07:12:50.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS 关于第三方库的选择</title>
+        <pubTime>2018-08-02T06:24:52.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>IOS</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>
