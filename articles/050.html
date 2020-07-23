@@ -1,0 +1,1445 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="EXP,Swift,OC,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="壹拾肆" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+
+
+
+
+
+
+<meta name="description" content="一、权限1.info.plist 中可以请求的权限 蓝牙 - NSBluetoothPeripheralUsageDescription / Bluetooth Peripheral Usage Description 麦克风 - NSMicrophoneUsageDescription / Microphone Usage Description 媒体资料库 - NSAppleMusicUsa">
+<meta name="keywords" content="EXP,Swift,OC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS - 权限、二维码、crash、热更新的技术调研">
+<meta property="og:url" content="http://kaaaaai.cn/articles/050.html">
+<meta property="og:site_name" content="壹拾肆">
+<meta property="og:description" content="一、权限1.info.plist 中可以请求的权限 蓝牙 - NSBluetoothPeripheralUsageDescription / Bluetooth Peripheral Usage Description 麦克风 - NSMicrophoneUsageDescription / Microphone Usage Description 媒体资料库 - NSAppleMusicUsa">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-15T07:29:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS - 权限、二维码、crash、热更新的技术调研">
+<meta name="twitter:description" content="一、权限1.info.plist 中可以请求的权限 蓝牙 - NSBluetoothPeripheralUsageDescription / Bluetooth Peripheral Usage Description 麦克风 - NSMicrophoneUsageDescription / Microphone Usage Description 媒体资料库 - NSAppleMusicUsa">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://kaaaaai.cn/articles/050.html">
+
+
+
+
+
+  <title>iOS - 权限、二维码、crash、热更新的技术调研 | 壹拾肆</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">壹拾肆</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">闲言和碎语</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-xumi">
+          <a href="/xumi" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-coffee"></i> <br>
+            
+            须弥
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+</ul></nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kaaaaai.cn/articles/050.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaaaaai">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://s2.ax1x.com/2019/03/14/AESiM4.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="壹拾肆">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">iOS - 权限、二维码、crash、热更新的技术调研</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-06T20:24:52+08:00">
+                2018-12-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/articles/050.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="articles/050.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">热度
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>℃ |
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  3,183 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  12 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="一、权限"><a href="#一、权限" class="headerlink" title="一、权限"></a>一、权限</h1><h2 id="1-info-plist-中可以请求的权限"><a href="#1-info-plist-中可以请求的权限" class="headerlink" title="1.info.plist 中可以请求的权限"></a>1.info.plist 中可以请求的权限</h2><ul>
+<li><strong>蓝牙</strong> - <code>NSBluetoothPeripheralUsageDescription</code> / <code>Bluetooth Peripheral Usage Description</code></li>
+<li><strong>麦克风</strong> - <code>NSMicrophoneUsageDescription</code> / <code>Microphone Usage Description</code></li>
+<li><strong>媒体资料库</strong> - <code>NSAppleMusicUsageDescription</code> / <code>Media Library Usage Description</code></li>
+<li><strong>定位</strong> - <code>NSLocationUsageDescription</code> / <code>Location Usage Description</code>（iOS 6~iOS 7 使用，iOS 8 以后废弃）</li>
+<li><strong>使用时请求定位</strong> - <code>NSLocationWhenInUseUsageDescription</code> / <code>Location When In Use Usage Description</code>（iOS 8 以后使用）</li>
+<li><strong>一直获取定位</strong> - <code>NSLocationAlwaysUsageDescription</code> / <code>Location Always Usage Description</code>（iOS 8 ~ iOS 10 使用）</li>
+<li><strong>一直获取定位</strong> - <code>NSLocationAlwaysAndWhenInUseUsageDescription</code> / <code>Location Always and When In Usage Description</code>（iOS 11 使用）</li>
+<li><strong>相机</strong> - <code>NSCameraUsageDescription</code> / <code>Camera Usage Description</code></li>
+<li><strong>访问相册</strong> - <code>NSPhotoLibraryUsageDescription</code> / <code>Photo Library Usage Description</code></li>
+<li><strong>添加相册照片</strong> - <code>NSPhotoLibraryAddUsageDescription</code> / <code>Photo Libarary Additions Usage Description</code></li>
+<li><strong>通讯录</strong> - <code>NSContactsUsageDescription</code> / <code>Contacts Usage Description</code></li>
+<li><strong>日历</strong> - <code>NSCalendarsUsageDescription</code> / <code>Calendars Usage Description</code></li>
+<li><strong>提醒事项</strong> - <code>NSRemindersUsageDescription</code> / <code>Remiders Usage Description</code></li>
+<li><strong>音乐</strong> - <code>kTCCServiceMediaLibrary</code> / <code>Music Usage Description</code></li>
+<li><strong>Face ID</strong> - <code>NSFaceIDUsageDescription</code> / <code>Face ID Usage Description</code></li>
+<li><strong>语音识别</strong> - <code>NSSpeechRecognitionUsageDescription</code> / <code>Speech Recognition Usage Description</code></li>
+<li><strong>Siri</strong> - <code>NSSiriUsageDescription</code> / <code>Siri Usage Description</code></li>
+<li><strong>NFC</strong> - <code>NFCReaderUsageDescription</code> / <code>NFC Scan Usage Description</code></li>
+<li><strong>HomeKit</strong> - <code>NSHomeKitUsageDescription</code> / <code>HomeKit Usage Description</code></li>
+<li><strong>运动与健康</strong> - <code>NSMotionUsageDescription</code> / <code>Motion Usage Description</code></li>
+<li><strong>健康更新</strong> - <code>NSHealthUpdateUsageDescription</code> / <code>Health Update Usage Description</code></li>
+<li><strong>健康分享</strong> - <code>Health Share Usage Description</code> / <code>NSHealthShareUsageDescription</code></li>
+<li><strong>电视供应商使用权限</strong> - <code>NSVideoSubscriberAccountUsageDescription</code> / <code>TV Provider Usage Description</code></li>
+</ul>
+<h2 id="2-其他"><a href="#2-其他" class="headerlink" title="2.其他"></a>2.其他</h2><ul>
+<li>联网</li>
+</ul>
+<p>导入<code>#import &lt;CoreTelephony/CTCellularData.h&gt;</code>//网络权限<br>说明:只能获取首次进入APP是否允许蜂窝网络权限,其实也可以不判断</p>
+<figure class="highlight objectivec"><figcaption><span>Objective-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)getNetworkPermissions:(<span class="keyword">void</span> (^)(<span class="built_in">BOOL</span>))completion &#123;</span><br><span class="line">    <span class="built_in">CTCellularData</span> *cellularData = [[<span class="built_in">CTCellularData</span> alloc] init];</span><br><span class="line">    <span class="built_in">CTCellularDataRestrictedState</span> authState = cellularData.restrictedState;</span><br><span class="line">    <span class="keyword">if</span> (authState == kCTCellularDataRestrictedStateUnknown) &#123;</span><br><span class="line">        cellularData.cellularDataRestrictionDidUpdateNotifier = ^(<span class="built_in">CTCellularDataRestrictedState</span> state)&#123;</span><br><span class="line">            <span class="keyword">if</span> (state == kCTCellularDataNotRestricted) &#123;</span><br><span class="line">                <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">                    <span class="keyword">if</span> (completion) &#123;</span><br><span class="line">                        completion(<span class="literal">YES</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">                    [<span class="keyword">self</span> createAlertWithMessage:<span class="string">@"无线数据"</span>];</span><br><span class="line">                    <span class="keyword">if</span> (completion) &#123;</span><br><span class="line">                        completion(<span class="literal">NO</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (authState == kCTCellularDataNotRestricted)&#123;</span><br><span class="line">        <span class="keyword">if</span> (completion) &#123;</span><br><span class="line">            completion(<span class="literal">YES</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        [<span class="keyword">self</span> createAlertWithMessage:<span class="string">@"无线数据"</span>];</span><br><span class="line">        <span class="keyword">if</span> (completion) &#123;</span><br><span class="line">            completion(<span class="literal">NO</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>推送通知</li>
+</ul>
+<p>本地通知(UILocalNotification) 、远程通知(APNs)</p>
+<figure class="highlight objectivec"><figcaption><span>Objective-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIUserNotificationSettings</span> *notificationSettings = [<span class="built_in">UIUserNotificationSettings</span> settingsForTypes:<span class="built_in">UIUserNotificationTypeAlert</span>|<span class="built_in">UIUserNotificationTypeBadge</span>|<span class="built_in">UIUserNotificationTypeSound</span>  categories:<span class="literal">nil</span>];</span><br><span class="line">[[<span class="built_in">UIApplication</span> sharedApplication] registerUserNotificationSettings:notificationSettings];</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-提高-APP-获取系统权限的通过率。"><a href="#3-提高-APP-获取系统权限的通过率。" class="headerlink" title="3.提高 APP 获取系统权限的通过率。"></a>3.提高 APP 获取系统权限的通过率。</h2><ul>
+<li>在绝对必要的情况下才向用户请求权限，例如：用户访问照片库时请求访问系统相册权限;</li>
+<li>在展示系统权限的对话框前，先向用户显示自定义的对话框，若用户选择不允许，默认无操作，若用户选择允许，再展示系统对话框。</li>
+<li>在用户打开APP时就向用户请求权限;</li>
+<li>告知用户授权权限后能够获得好处之后，再向用户请求权限;</li>
+</ul>
+<h1 id="二、二维码第三方库调研"><a href="#二、二维码第三方库调研" class="headerlink" title="二、二维码第三方库调研"></a>二、二维码第三方库调研</h1><h2 id="1-ZXingObjC-OC"><a href="#1-ZXingObjC-OC" class="headerlink" title="1.ZXingObjC(OC)"></a>1.<a href="https://github.com/TheLevelUp/ZXingObjC" target="_blank" rel="noopener">ZXingObjC</a>(OC)</h2><p>Star 数：2,752<br>最近一次更新时间：3 天以前<br>谷歌搜索词条结果：9,820<br>百度搜索词条结果：1,560,000<br>是否也支持 Swift：是<br>是否有中文文档：否</p>
+<p>简介：ZXingObjC 是 ZXing（“Zebra Crossing”）的 Objective-C 版本，ZXing 是一个 Java 条形码图像处理库。它主要用于 iOS 设备和 Mac 应用程序实现二维码功能。 </p>
+<p>编码和解码目前支持以下条形码： </p>
+<ul>
+<li>UPC-A and UPC-E</li>
+<li>EAN-8 and EAN-13</li>
+<li>Code 39</li>
+<li>Code 93</li>
+<li>Code 128</li>
+<li>ITF</li>
+<li>Codabar</li>
+<li>RSS-14 (all variants)</li>
+<li>QR Code</li>
+<li>Data Matrix</li>
+<li>Maxicode</li>
+<li>Aztec (‘beta’ quality)</li>
+<li>PDF 417 (‘beta’ quality)<br>ZXingObjC 目前具有与 ZXing 版本 3.3.3 相同的功能。</li>
+</ul>
+<h2 id="2-LBXScan"><a href="#2-LBXScan" class="headerlink" title="2.LBXScan"></a>2.<a href="https://github.com/MxABC/LBXScan" target="_blank" rel="noopener">LBXScan</a></h2><p>Star 数：2,565<br>最近一次更新时间：3 月以前<br>谷歌搜索词条结果：7,550<br>百度搜索词条结果：23,500<br>是否也支持 Swift：是<br>是否有中文文档：是</p>
+<p>简介：<br>（1）iOS扫码封装</p>
+<ul>
+<li>扫码识别封装: 系统API(AVFoundation)、ZXing、ZBar</li>
+<li>扫码界面效果封装</li>
+<li>二维码、条形码</li>
+<li>相册获取图片后识别</li>
+</ul>
+<p>（2）设置参数自定义效果</p>
+<ul>
+<li>扫码框周围区域背景色可设置</li>
+<li>扫码框颜色可也设置</li>
+<li>扫码框4个角的颜色可设置、大小可设置</li>
+<li>可设置只识别扫码框内的图像区域</li>
+<li>可设置扫码成功后，获取当前图片</li>
+<li>动画效果选择: 线条上下移动、网格形式移动、中间线条不移动(一般扫码条形码的效果)</li>
+</ul>
+<p>（3）模仿其他app(通过设置参数即可完成)</p>
+<ul>
+<li>模仿QQ扫码界面</li>
+<li>支付宝扫码框效果</li>
+<li>微信扫码框效果</li>
+</ul>
+<h2 id="3-SGQRCode"><a href="#3-SGQRCode" class="headerlink" title="3.SGQRCode"></a>3.<a href="https://github.com/kingsic/SGQRCode" target="_blank" rel="noopener">SGQRCode</a></h2><p>Star 数：1,101<br>最近一次更新时间：6 天以前<br>谷歌搜索词条结果：1,860<br>百度搜索词条结果：86<br>是否也支持 Swift：是<br>是否有中文文档：是</p>
+<p>简介：<br>生成二维码<br>扫描二维码<br>从相册中读取二维码<br>根据光线强弱开启手电筒<br>扫描成功之后界面之间逻辑跳转处理<br>扫描界面可自定义（线扫描条样式以及网格样式）<br>扫描界面仿微信（请根据项目需求，自行布局或调整）</p>
+<p>4.<a href="https://github.com/MxABC/swiftScan" target="_blank" rel="noopener">swiftScan</a><br>Star 数：1,000<br>最近一次更新时间：2 月以前<br>谷歌搜索词条结果：4,560<br>百度搜索词条结果：70,000<br>是否有中文文档：是</p>
+<p>简介：<br>(1)swift封装系统自带扫码及识别图片功能</p>
+<ul>
+<li>扫码界面效果封装</li>
+<li>二维码和条形码识别及生成</li>
+<li>相册获取图片后识别（测试效果不好…）</li>
+</ul>
+<p>(2) 模仿其他app</p>
+<ul>
+<li>模仿QQ扫码界面</li>
+<li>支付宝扫码框效果</li>
+<li>微信扫码框效果</li>
+</ul>
+<p>(3)其他设置参数自定义效果</p>
+<ul>
+<li>扫码框周围区域背景色可设置</li>
+<li>扫码框颜色可也设置</li>
+<li>扫码框4个角的颜色可设置、大小可设置</li>
+<li>可设置只识别扫码框内的图像区域</li>
+<li>可设置扫码成功后，获取当前图片</li>
+<li>根据扫码结果，截取码的部分图像(在模仿qq扫码界面，扫码成功后可看到)</li>
+<li>动画效果选择: 线条上下移动、网格形式移动、中间线条不移动(一般扫码条形码的效果).</li>
+</ul>
+<p><strong>总结：OC 二维码框架的框架，GitHub 靠前的只有这三个，其中 LBXScan 是封装了有 系统扫描，ZBar，ZXingObjC 等扫描库的第三方库，在使用上也可以避免臃肿的选择封装了其中一项的库引用，在界面上和 SGQRCode，主打高度模仿微信扫描界面的不相上下，可以支持微信、支付宝等、QQ 扫描界面的设置。所以推荐使用 LBXScan。而 swift 版的二维码框架，GitHub 上 Star 数量合格的只有一个，而且又是 LBXScan 同一个作者。所以 Swift 也推荐使用swiftScan</strong></p>
+<h1 id="三、crash"><a href="#三、crash" class="headerlink" title="三、crash"></a>三、crash</h1><p>为什么不使用官方的崩溃信息监控？</p>
+<p>官方提供的崩溃信息并不是实时的，只能查看两天之前的崩溃信息。且需要用户设置，设置-&gt;隐私-&gt;诊断与用量-&gt;与应用开发者共享，为自动发送。才可有收到 Crash 信息。</p>
+<h2 id="1-Bugly"><a href="#1-Bugly" class="headerlink" title="1.Bugly"></a>1.Bugly</h2><p>地址：<a href="http://www.umeng.com/analytics" target="_blank" rel="noopener">http://bugly.qq.com/</a></p>
+<p>提供：专业的Crash(崩溃)、Android ANR(application not response)、iOS卡顿监控和解决方案。发现用户在使用过程中出现的Crash(崩溃)、Android ANR和iOS卡顿，并根据上报的信息快速定位和解决问题。</p>
+<p>费用：免费、且可以提供精确定位到某个用户的异常</p>
+<h2 id="2-友盟"><a href="#2-友盟" class="headerlink" title="2.友盟"></a>2.友盟</h2><p>地址：<a href="http://www.umeng.com/analytics" target="_blank" rel="noopener">http://www.umeng.com/analytics</a></p>
+<p>提供：友盟sdk（一个统计分析sdk）友盟统计分析工具，可以捕捉用户在使用应用程序过程中出现的异常退出(FC), 并在应用程序下次启动时将错误报告发送给服务器。<br>错误报告包含应用程序版本，操作系统版本和设备型号以及程序出现异常时的Stacktrace。</p>
+<p>费用：免费。</p>
+<h2 id="3-Fabric（Crashlytics）"><a href="#3-Fabric（Crashlytics）" class="headerlink" title="3.Fabric（Crashlytics）"></a>3.Fabric（Crashlytics）</h2><p>地址：<a href="https://get.fabric.io/" target="_blank" rel="noopener">https://get.fabric.io/</a><br>提供：<br>1、Crashlytics 不会漏掉任何应用崩溃信息。在发生崩溃后，用户再次进入 APP 并联网情况下，日志自动上传。<br>2、Crashlytics 可以象 Bug 管理工具那样，管理这些崩溃日志。例如：Crashlytics 会根据每种类型的 Crash 的出现频率以及影响的用户量来自动设置优先级。对于每种类型的 Crash，Crashlytics 除了会像一般的工具提供 Call Stack 外，还会显示更多相关的有助于诊断的信息，例如：设备是否越狱，当时的内存量，当时的 iOS 版本等。对于修复掉的 Crash 日志，可以在 Crashlytics 的后台将其关掉。<br>3、Crashlytics 可以每天和每周将崩溃信息汇总发到你的邮箱。<br>4、提供在线的报告，解释崩溃原因，甚至能给出是哪一行代码导致的崩溃。<br>费用：免费</p>
+<p>其他还有一些 crash 服务： Testin（部分收费）、极光推送、TalkingData 的  crash 等</p>
+<p>还有关于 crash 其他的技术：网易大白 App 运行时 Crash 自动防护</p>
+<h1 id="四、热更新"><a href="#四、热更新" class="headerlink" title="四、热更新"></a>四、热更新</h1><h2 id="1-react-native"><a href="#1-react-native" class="headerlink" title="1.react-native"></a>1.<a href="https://github.com/facebook/react-native" target="_blank" rel="noopener">react-native</a></h2><p>Star 数：71,567<br>最近一次更新时间：2 小时以前<br>谷歌搜索词条结果：148,000,000<br>百度搜索词条结果：10,600,000<br>是否也支持 Swift：是<br>是否有中文文档：否</p>
+<p>简介：<br>facebook 出品。<br>适配 iOS 和 android 需要自己分别做修改。<br>React Native 和 Weex 都可以进行热更新，但都不能修改原生 OC 代码。<br>JSPatch、lua 配合 React Native 可以让一个原生 APP 时刻处于可扩展可修改的状态。</p>
+<h2 id="2-JSPatch"><a href="#2-JSPatch" class="headerlink" title="2.JSPatch"></a>2.<a href="https://github.com/bang590/JSPatch" target="_blank" rel="noopener">JSPatch</a></h2><p>Star 数：10,692<br>最近一次更新时间：8 月以前<br>谷歌搜索词条结果：62,300<br>百度搜索词条结果：2,090,000<br>是否也支持 Swift：是<br>是否有中文文档：是</p>
+<p>简介：<br>bugly 所包含的热更新核心也是采用 JSPatch 技术。<br>JSPatch 是一个开源项目(Github链接)，只需要在项目里引入极小的引擎文件，就可以使用 JavaScript 调用任何 Objective-C 的原生接口，替换任意 Objective-C 原生方法。目前主要用于下发 JS 脚本替换原生 Objective-C 代码，实时修复线上 bug。<br>理论上可以修改和新建所有的模块，但是不建议这样做。<br>建议用来做紧急的小需求和修复严重的线上 bug。</p>
+<p>使用时需要接入 JSPatch 平台，官方给出以下解释：</p>
+<p>若从苹果的审核规则来看，JSPatch 和 React Native 是一样的，但苹果接受 React Native，拒绝 JSPatch，主要是因为JSPatch 可以调用任意原生 API，出于安全和滥用方面的顾虑而拒绝，之前大量 APP 自行接入 JSPatch，导致有几个风险点：</p>
+<ol>
+<li>无法保证每个 APP 接入方式都是安全的，容易传输过程被替换，被黑客中间人攻击，成为 iOS 上的一个漏洞。</li>
+<li>一些像地图/推送类 SDK 接入 JSPatch 后覆盖大量 APP，若这些 SDK 后台被攻破，可以对这些 APP 下发恶意脚本，造成大面积危害。</li>
+<li>开发者可以方便地不经过苹果审查使用 JSPatch 调用私有 API。</li>
+<li>若大家还是通过一些混淆手段骗过苹果继续各自接入 JSPatch，出于上述三点考虑，苹果不可能再允许，但若接入 JSPatch 平台，上述三个问题可以帮苹果解决，不再有这类隐患，详见这里，苹果才会考虑允许继续使用。</li>
+</ol>
+<h2 id="3-DynamicCocoa"><a href="#3-DynamicCocoa" class="headerlink" title="3.DynamicCocoa"></a>3.<a href="https://github.com/DynamicCocoa/DynamicCocoa" target="_blank" rel="noopener">DynamicCocoa</a></h2><p>Star 数：1,204<br>最近一次更新时间：2 年以前<br>谷歌搜索词条结果：4,870<br>百度搜索词条结果：19,400<br>是否也支持 Swift：是<br>是否有中文文档：否</p>
+<p>简介：<br>滴滴打车出品。</p>
+<ul>
+<li>使用原生技术栈：使用者完全不用接触到JS或任何中间代码，保持原生的 Objective-C 开发、调试方式不变；</li>
+<li>无需重写已有代码：已有 native 模块能很方便的变成动态化插件；</li>
+<li>语法支持完备性高：支持绝大多数日常开发中用到的语法，不用担心这不支持那不支持；</li>
+<li>支持 HotPatch：改完 bug 后直接从源码打出 patch，一站式解决动态化和热修复需求。</li>
+</ul>
+<h2 id="4-lua脚本"><a href="#4-lua脚本" class="headerlink" title="4.lua脚本"></a>4.lua脚本</h2><p>比如： wax。热更新时，从服务器拉去 lua 脚本。游戏开发经常用到。</p>
+<h2 id="5-Weex"><a href="#5-Weex" class="headerlink" title="5.Weex"></a>5.Weex</h2><p>跨平台，一套代码，iOS、Android 都可以运行。<br>weex 基于 vue.js，ReactNative 使用 React。<br>react 模板 JSX 有一定的学习成本，vue 和常用的 web 开发类似，模板是普通的 html，数据绑定用 mustache 风格，样式直接使用 css。<br>weex 是阿里开源的技术。</p>
+<h2 id="6-Hybrid"><a href="#6-Hybrid" class="headerlink" title="6.Hybrid"></a>6.Hybrid</h2><p>像 PhoneGap 之类的框架, 基本概念和 web 差不多, 通过更新 js/html 来实现动态化，没有原生的效果流畅。</p>
+<h2 id="7-动态库"><a href="#7-动态库" class="headerlink" title="7.动态库"></a>7.动态库</h2><p>可以做 demo 用，真实使用的时候会被苹果禁止。<br>因为 打包发到 AppStor e的 ipa 安装包 里的每个动态库 都有唯一的编码，iOS 系统会进行验证，所以动态通过网络获取 新的动态库 也用不了。</p>
+<h2 id="8-rollout-io"><a href="#8-rollout-io" class="headerlink" title="8.rollout.io"></a>8.rollout.io</h2><p>Rollout 紧急修复线上 bug。后端有相关的管理页面。因为是国外的网站，然后呢，要 FQ 才能使用。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------本文结束 <i class="fa fa-thermometer-three-quarters" aria-hidden="true"></i> 感谢阅读------</div>
+        <div>
+	    <p id="div-border-left-red">
+	   <b>本文地址：</b><a href="/articles/050.html" title="iOS - 权限、二维码、crash、热更新的技术调研">http://kaaaaai.cn/articles/050.html</a><br>
+	    <span>
+	    <b>本文基于<a target="_blank" title="Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)" href="http://creativecommons.org/licenses/by-sa/4.0/"> 知识共享署名-相同方式共享 4.0 </a>国际许可协议发布</b><br><b>转载请注明出处，谢谢！</b>
+	    </span>
+	    </p>
+</div>
+    
+</div>
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>众筹项目：拯救世界！<br></div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="https://s2.ax1x.com/2020/03/04/3ouwuT.gif" alt="Kaaaaai WeChat Pay">
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+    
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/EXP/" rel="tag"><i class="fa fa-tag"></i> EXP</a>
+          
+            <a href="/tags/Swift/" rel="tag"><i class="fa fa-tag"></i> Swift</a>
+          
+            <a href="/tags/OC/" rel="tag"><i class="fa fa-tag"></i> OC</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/articles/veteran_science_fiction.html" rel="next" title="老派科幻">
+                <i class="fa fa-chevron-left"></i> 老派科幻
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/articles/after-reading-wangsuo.html" rel="prev" title="半把瘾">
+                半把瘾 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="https://s2.ax1x.com/2019/03/14/AESiM4.jpg" alt="Kaaaaai">
+          <p class="site-author-name" itemprop="name">Kaaaaai</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-description motion-element" itemprop="description">我独自一人/照顾着/历代的星辰</p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">115</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">65</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Edison0620" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/lvkaimeiyouhenshuai" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Funny Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://htwins.net/scale2/" title="刻度" target="_blank">刻度</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://siida.me" title="Eric" target="_blank">Eric</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.rabbittu.com" title="某兔子の御用花园" target="_blank">某兔子の御用花园</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+
+        <script type="text/javascript" charset="utf-8" src="/js/src/tagcloud.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/js/src/tagcanvas.js"></script>
+        <div class="widget-wrap">
+            <h4 class="widget-title">Tag Cloud</h4>
+            <div id="myCanvasContainer" class="widget tagcloud">
+                <canvas width="250" height="250" id="resCanvas" style="width=100%">
+                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-Studio/">Android Studio</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Audio-Focus/">Audio Focus</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CocoaPods/">CocoaPods</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DNS-解析/">DNS 解析</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Development/">Development</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EXP/">EXP</a><span class="tag-list-count">69</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Format/">Format</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Search-Console/">Google Search Console</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Https/">Https</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOS/">IOS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Live/">Live</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Notion/">Notion</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OC/">OC</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Other/">Other</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Poem/">Poem</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sourcetree/">Sourcetree</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study/">Study</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Work/">Work</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xcode/">Xcode</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/adb/">adb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/codeAnalysis/">codeAnalysis</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/domain-name/">domain name</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a><span class="tag-list-count">32</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/seekbar/">seekbar</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中国当代/">中国当代</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中国当代小说/">中国当代小说</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中国当代文学/">中国当代文学</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中国近代文学/">中国近代文学</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书籍/">书籍</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/产品思考/">产品思考</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/写作计划/">写作计划</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/外国现当代文学/">外国现当代文学</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/季度总结/">季度总结</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/年度总结/">年度总结</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/幻想/">幻想</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/扯淡/">扯淡</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/扯谈/">扯谈</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日常/">日常</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/时间管理/">时间管理</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/梦/">梦</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/武侠小说/">武侠小说</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/江湖体验报告/">江湖体验报告</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/灵感碎片/">灵感碎片</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/王朔/">王朔</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/生活/">生活</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/用户需求/">用户需求</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/电影/">电影</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/短篇故事/">短篇故事</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科幻/">科幻</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记软件/">笔记软件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/肇始/">肇始</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/观后感/">观后感</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/观影/">观影</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/诗歌/">诗歌</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书笔记/">读书笔记</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读后感/">读后感</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随感/">随感</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/青春文学/">青春文学</a><span class="tag-list-count">1</span></li></ul>
+                </canvas>
+            </div>
+        </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、权限"><span class="nav-text">一、权限</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-info-plist-中可以请求的权限"><span class="nav-text">1.info.plist 中可以请求的权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-其他"><span class="nav-text">2.其他</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-提高-APP-获取系统权限的通过率。"><span class="nav-text">3.提高 APP 获取系统权限的通过率。</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、二维码第三方库调研"><span class="nav-text">二、二维码第三方库调研</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-ZXingObjC-OC"><span class="nav-text">1.ZXingObjC(OC)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-LBXScan"><span class="nav-text">2.LBXScan</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-SGQRCode"><span class="nav-text">3.SGQRCode</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、crash"><span class="nav-text">三、crash</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Bugly"><span class="nav-text">1.Bugly</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-友盟"><span class="nav-text">2.友盟</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Fabric（Crashlytics）"><span class="nav-text">3.Fabric（Crashlytics）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、热更新"><span class="nav-text">四、热更新</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-react-native"><span class="nav-text">1.react-native</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-JSPatch"><span class="nav-text">2.JSPatch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-DynamicCocoa"><span class="nav-text">3.DynamicCocoa</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-lua脚本"><span class="nav-text">4.lua脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Weex"><span class="nav-text">5.Weex</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-Hybrid"><span class="nav-text">6.Hybrid</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-动态库"><span class="nav-text">7.动态库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-rollout-io"><span class="nav-text">8.rollout.io</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kaaaaai</span>
+</div>
+
+
+<!-- time -->
+  <div id="show-time">
+    <span id="span_dt_dt"></span>
+  </div>
+  <script>
+      function show_date_time() {
+        window.setTimeout("show_date_time()", 1000);
+        BirthDay = new Date("6/23/2017 19:37:01");
+        today = new Date();
+        //总时间
+        timeold = (today.getTime() - BirthDay.getTime());
+        sectimeold = timeold / 1000
+        secondsold = Math.floor(sectimeold);
+        msPerDay = 24 * 60 * 60 * 1000
+        e_daysold = timeold / msPerDay
+        daysold = Math.floor(e_daysold);
+        e_hrsold = (e_daysold - daysold) * 24;
+        hrsold = Math.floor(e_hrsold);
+        e_minsold = (e_hrsold - hrsold) * 60;
+        minsold = Math.floor((e_hrsold - hrsold) * 60);
+        seconds = Math.floor((e_minsold - minsold) * 60);
+        span_dt_dt.innerHTML = "已存活 " + daysold + " 天 " + hrsold + " 小时 " + minsold + " 分 " + seconds + " 秒";
+    }
+show_date_time();
+  </script>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+
+  <div class="powered-by"></div>
+     <span class="post-count">博客全站共 162.0k 字</span>
+  
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://kaaaaai-cn.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://kaaaaai.cn/articles/050.html';
+          this.page.identifier = 'articles/050.html';
+          this.page.title = 'iOS - 权限、二维码、crash、热更新的技术调研';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://kaaaaai-cn.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+ 
+ <!--崩溃欺骗-->
+<script type="text/javascript" src="/js/src/makeajoke.js"></script>
+</body>
+</html>
