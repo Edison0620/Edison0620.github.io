@@ -84,7 +84,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="EXP,iOS,Swift,Xcode,">
+  <meta name="keywords" content="EXP,iOS,Swift,">
 
 
 
@@ -102,25 +102,21 @@
 
 
 
-<meta name="description" content="Xcode 升级到 8.x 以上版本后为了提升安全性, 防止 XcodeGhost 事件的发生, 添加了代码签名机制, 所以以往我们那些用的很顺手的 Xcode 插件一下子统统都被打入冷宫。这种情况下，我们想要重新使用插件，我们应该怎么做呢？　　首先我们要使用插件第一步是给 Xcode 重新签名, 在签名前建议备份一个纯净 Xcode 做 App 打包发布用(应用程序目录下复制一个即可)。">
-<meta name="keywords" content="EXP,iOS,Swift,Xcode">
+<meta name="description" content="抽空把项目里的顶部弹出框封装了一下。效果大概是这个样子： .hexo-image-steam-lazy {display:none;}.hexo-img-stream{width:90%;max-width:1100px;margin:3% auto}div.hexo-img-stream figure{background:#fefefe;box-shadow:0 1px 2px rgba(3">
+<meta name="keywords" content="EXP,iOS,Swift">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS - Xcode Plugin 调研和使用">
-<meta property="og:url" content="http://kaaaaai.cn/articles/Xcode-plugin-research.html">
+<meta property="og:title" content="Swift - 顶部弹出框封装">
+<meta property="og:url" content="http://kaaaaai.cn/articles/Swift-TopPop-upBoxEncapsulation.html">
 <meta property="og:site_name" content="壹拾肆">
-<meta property="og:description" content="Xcode 升级到 8.x 以上版本后为了提升安全性, 防止 XcodeGhost 事件的发生, 添加了代码签名机制, 所以以往我们那些用的很顺手的 Xcode 插件一下子统统都被打入冷宫。这种情况下，我们想要重新使用插件，我们应该怎么做呢？　　首先我们要使用插件第一步是给 Xcode 重新签名, 在签名前建议备份一个纯净 Xcode 做 App 打包发布用(应用程序目录下复制一个即可)。">
+<meta property="og:description" content="抽空把项目里的顶部弹出框封装了一下。效果大概是这个样子： .hexo-image-steam-lazy {display:none;}.hexo-img-stream{width:90%;max-width:1100px;margin:3% auto}div.hexo-img-stream figure{background:#fefefe;box-shadow:0 1px 2px rgba(3">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s2.ax1x.com/2019/07/17/Zqz7RI.jpg">
-<meta property="og:image" content="https://s2.ax1x.com/2019/07/17/Zqz5IH.jpg">
-<meta property="og:image" content="https://s2.ax1x.com/2019/07/17/ZqzTJA.jpg">
-<meta property="og:image" content="https://s2.ax1x.com/2019/07/17/Zqzoid.jpg">
-<meta property="og:image" content="https://s2.ax1x.com/2019/07/17/Zqz4de.jpg">
-<meta property="og:image" content="https://s2.ax1x.com/2019/07/17/ZqzHzt.jpg">
-<meta property="og:updated_time" content="2020-04-11T02:28:25.717Z">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="https://i.loli.net/2020/08/04/9R7WuCT2b5ezKoN.gif">
+<meta property="og:updated_time" content="2020-08-04T11:52:46.452Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS - Xcode Plugin 调研和使用">
-<meta name="twitter:description" content="Xcode 升级到 8.x 以上版本后为了提升安全性, 防止 XcodeGhost 事件的发生, 添加了代码签名机制, 所以以往我们那些用的很顺手的 Xcode 插件一下子统统都被打入冷宫。这种情况下，我们想要重新使用插件，我们应该怎么做呢？　　首先我们要使用插件第一步是给 Xcode 重新签名, 在签名前建议备份一个纯净 Xcode 做 App 打包发布用(应用程序目录下复制一个即可)。">
-<meta name="twitter:image" content="https://s2.ax1x.com/2019/07/17/Zqz7RI.jpg">
+<meta name="twitter:title" content="Swift - 顶部弹出框封装">
+<meta name="twitter:description" content="抽空把项目里的顶部弹出框封装了一下。效果大概是这个样子： .hexo-image-steam-lazy {display:none;}.hexo-img-stream{width:90%;max-width:1100px;margin:3% auto}div.hexo-img-stream figure{background:#fefefe;box-shadow:0 1px 2px rgba(3">
+<meta name="twitter:image" content="https://ws4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
 
 
 
@@ -148,13 +144,13 @@
 
 
 
-  <link rel="canonical" href="http://kaaaaai.cn/articles/Xcode-plugin-research.html">
+  <link rel="canonical" href="http://kaaaaai.cn/articles/Swift-TopPop-upBoxEncapsulation.html">
 
 
 
 
 
-  <title>iOS - Xcode Plugin 调研和使用 | 壹拾肆</title>
+  <title>Swift - 顶部弹出框封装 | 壹拾肆</title>
   
 
 
@@ -300,7 +296,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kaaaaai.cn/articles/Xcode-plugin-research.html">
+    <link itemprop="mainEntityOfPage" href="http://kaaaaai.cn/articles/Swift-TopPop-upBoxEncapsulation.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kaaaaai">
@@ -317,7 +313,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">iOS - Xcode Plugin 调研和使用</h2>
+          <h2 class="post-title" itemprop="name headline">Swift - 顶部弹出框封装</h2>
         
 
         <div class="post-meta">
@@ -329,8 +325,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-17T17:24:52+08:00">
-                2019-07-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-04T13:24:52+08:00">
+                2020-08-04
               </time>
             
 
@@ -370,8 +366,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/articles/Xcode-plugin-research.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="articles/Xcode-plugin-research.html" itemprop="commentCount"></span>
+                <a href="/articles/Swift-TopPop-upBoxEncapsulation.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="articles/Swift-TopPop-upBoxEncapsulation.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -398,7 +394,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1,072 字
+                  1,646 字
                 </span>
               
 
@@ -414,7 +410,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  4 分钟
+                  7 分钟
                 </span>
               
             </div>
@@ -432,33 +428,57 @@
       
 
       
-        <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　Xcode 升级到 8.x 以上版本后为了提升安全性, 防止 <code>XcodeGhost</code> 事件的发生, 添加了代码签名机制, 所以以往我们那些用的很顺手的 Xcode 插件一下子统统都被打入冷宫。这种情况下，我们想要重新使用插件，我们应该怎么做呢？<br>　　首先我们要使用插件第一步是给 Xcode 重新签名, 在签名前建议备份一个纯净 Xcode 做 App 打包发布用(应用程序目录下复制一个即可)。</p>
-<h3 id="一、Xcode-重签名以使用插件"><a href="#一、Xcode-重签名以使用插件" class="headerlink" title="一、Xcode 重签名以使用插件"></a>一、Xcode 重签名以使用插件</h3><p>　　打开 Keychain Access 之后如图操作，选中 钥匙串访问-&gt;证书助理-&gt;创建证书:<br><img src="https://s2.ax1x.com/2019/07/17/Zqz7RI.jpg" alt><br><img src="https://s2.ax1x.com/2019/07/17/Zqz5IH.jpg" alt></p>
-<p>　　之后打开 终端/Terminal，输入：</p>
-<figure class="highlight bash"><figcaption><span>Terminal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo codesigner -f -s XcodeSigner /Applications/Xcode.app</span><br></pre></td></tr></table></figure>
+        <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>抽空把项目里的顶部弹出框封装了一下。效果大概是这个样子：</p>
+<script src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script><script src="//cdn.bootcss.com/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script><div class="hexo-img-stream"><style type="text/css">.hexo-image-steam-lazy {display:none;}.hexo-img-stream{width:90%;max-width:1100px;margin:3% auto}div.hexo-img-stream figure{background:#fefefe;box-shadow:0 1px 2px rgba(34,25,25,0.4);margin:0 0.05% 3%;padding:3%;padding-bottom:10px;display:inline-block;max-width:25%}div.hexo-img-stream figure img{border-bottom:1px solid #ccc;padding-bottom:15px;margin-bottom:5px}div.hexo-img-stream figure figcaption{font-size:.9rem;color:#444;line-height:1.5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}div.hexo-img-stream small{font-size:1rem;float:right;text-transform:uppercase;color:#aaa}div.hexo-img-stream small a{color:#666;text-decoration:none;transition:.4s color}@media screen and (max-width:750px){.hexo-img-stream{column-gap:0}}</style><figure><img class="hexo-image-steam-lazy nofancy" src="https://ws4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif" data-original="https://i.loli.net/2020/08/04/9R7WuCT2b5ezKoN.gif"><noscript><img src="https://i.loli.net/2020/08/04/9R7WuCT2b5ezKoN.gif"></noscript><figcaption></figcaption></figure></div><script type="text/javascript">$('img.hexo-image-steam-lazy').lazyload({ effect:'fadeIn' });</script>
+<!--<img align="center" src="https://i.loli.net/2020/08/04/9R7WuCT2b5ezKoN.gif" width=375px height=677px/>-->
 
-<p>　　其中 <code>codesigner</code> 是上一步创建证书的名称，随后是要重签名使用插件的 Xcode 目录。</p>
-<p>　　经过一段漫长等待后, 重启 Xcode, 选择 LoadBundle。Xcode 已经可以使用插件啦。</p>
-<h3 id="二、插件使用总结"><a href="#二、插件使用总结" class="headerlink" title="二、插件使用总结"></a>二、插件使用总结</h3><p>　　随着 Xcode 的迭代，一部分插件实现的功能已经被 集成进 Xcode 里面了，比如很有名的注释插件 VVDocumenter，和一些代码补全插件等等。另一部分由于缺少维护和 Xcode 本身的机制，而导致插件使用不太方便，造成使用插件的投入成本大大增加。之前在为了给一个马甲包增加垃圾代码，我用上一段的方法成功安装使用过插件 <code>Alcatraz</code>，作为一个插件管理工具，它内部指向的其他插件已经很多不太兼容新版的 Xcode 了，而他本身最新的更新节点也停留在两年前的状态。而在重启 Xcode 后，安装的 <code>Alcatraz</code>，也消失不见了。而在最新的 Xcode10 上用上面那个方法尝试安装代码格式化插件 —— <a href="https://github.com/V5zhou/ZZXcodeFormat" target="_blank" rel="noopener">ZZXcodeFormat</a>，虽然重启应用后，也跳出了 <code>Load Bundle</code> 的提示框，也点击确定加载，但打开 Xcode 后却没在相应的位置找到插件使用项目。不确定是不是新版 Xcode 所影响导致的。但可以看到，在官方不支持的情况下，使用插件是一个耗时又耗力的事。<br>　　而在调研的过程中，我发现了一个使用苹果官方提供的插件机制（Xcode Source Editor Extension）编写的插件——<a href="https://github.com/SSBun/FlyCoding" target="_blank" rel="noopener">FlyCoding</a>，这个插件的主要功能是，通过特殊语法来快速的生成你想要的 Swfit / Objective-C 代码，比如这句代码：</p>
-<figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pv.<span class="type">UIImageView</span></span><br></pre></td></tr></table></figure>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p><strong>自定义弹出框：</strong></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  KKHeadMessageView.swift</span></span><br><span class="line"><span class="comment">//  VoiceAssistant</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  Created by Kai Lv on 2020/7/29.</span></span><br><span class="line"><span class="comment">//  Copyright © 2020 Kaaaaai. All rights reserved.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"></span><br><span class="line"><span class="meta">@objc</span> <span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">MessageStyle</span>: <span class="title">Int</span></span>&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="keyword">none</span></span><br><span class="line">    <span class="keyword">case</span> success</span><br><span class="line">    <span class="keyword">case</span> error</span><br><span class="line">    <span class="keyword">case</span> warning</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@objc</span> <span class="class"><span class="keyword">extension</span> <span class="title">KKHeadMessageView</span></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> mv: <span class="type">KKHeadMessageView</span>?</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@objc</span> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">showMessageView</span>(<span class="title">_</span> <span class="title">message</span>: <span class="title">String</span>) -&gt; ()</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> mv != <span class="literal">nil</span> &#123;</span><br><span class="line">            mv?.removeFromSuperview()</span><br><span class="line">            mv = <span class="literal">nil</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        mv = <span class="type">KKHeadMessageView</span>.<span class="keyword">init</span>(message: message, style: .warning)</span><br><span class="line">        mv!.show()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@objc</span> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">showMessageView</span>(<span class="title">_</span> <span class="title">message</span>: <span class="title">String</span>, <span class="title">style</span>:<span class="title">MessageStyle</span>) -&gt; ()</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> mv != <span class="literal">nil</span> &#123;</span><br><span class="line">            mv?.removeFromSuperview()</span><br><span class="line">            mv = <span class="literal">nil</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        mv = <span class="type">KKHeadMessageView</span>.<span class="keyword">init</span>(message: message, style: style)</span><br><span class="line">        mv!.show()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@objc</span> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">KKHeadMessageView</span>: <span class="title">UIView</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">let</span> message: <span class="type">String</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> label_mes = <span class="type">UILabel</span>.<span class="keyword">init</span>()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> style: <span class="type">MessageStyle</span> = .<span class="keyword">none</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">let</span> successBackgroundColor: <span class="type">UIColor</span> = <span class="type">UIColor</span>(red: <span class="number">86.0</span>/<span class="number">255</span>, green: <span class="number">188</span>/<span class="number">255</span>, blue: <span class="number">138.0</span>/<span class="number">255</span>,  alpha: <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">let</span> warningBackgroundColor: <span class="type">UIColor</span> = <span class="type">UIColor</span>(red: <span class="number">242.0</span>/<span class="number">255</span>, green: <span class="number">153.0</span>/<span class="number">255</span>, blue: <span class="number">46.0</span>/<span class="number">255</span>,  alpha: <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">let</span> errorBackgroundColor: <span class="type">UIColor</span> = <span class="type">UIColor</span>(red: <span class="number">192.0</span>/<span class="number">255</span>, green: <span class="number">36.0</span>/<span class="number">255</span>, blue: <span class="number">37.0</span>/<span class="number">255</span>,  alpha: <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">let</span> noneBackgroundColor: <span class="type">UIColor</span> =  <span class="type">UIColor</span>(red: <span class="number">44.0</span>/<span class="number">255</span>,  green: <span class="number">187.0</span>/<span class="number">255</span>, blue: <span class="number">255.0</span>/<span class="number">255</span>, alpha: <span class="number">1</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">init</span>(message: <span class="type">String</span>, style: <span class="type">MessageStyle</span>)&#123;</span><br><span class="line">        <span class="keyword">self</span>.message = message</span><br><span class="line">        <span class="keyword">self</span>.style = style</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">super</span>.<span class="keyword">init</span>(frame: <span class="type">CGRect</span>(x: <span class="number">0</span>, y: -<span class="number">49</span>, width: <span class="type">UIScreen</span>.main.bounds.size.width, height: <span class="number">48</span>))</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">switch</span> style &#123;</span><br><span class="line">        <span class="keyword">case</span> .success:</span><br><span class="line">            <span class="keyword">self</span>.backgroundColor = <span class="type">KKHeadMessageView</span>.successBackgroundColor</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">case</span> .warning:</span><br><span class="line">            <span class="keyword">self</span>.backgroundColor = <span class="type">KKHeadMessageView</span>.warningBackgroundColor</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">case</span> .error:</span><br><span class="line">            <span class="keyword">self</span>.backgroundColor = <span class="type">KKHeadMessageView</span>.errorBackgroundColor</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">case</span> .<span class="keyword">none</span>:</span><br><span class="line">            <span class="keyword">self</span>.backgroundColor = <span class="type">KKHeadMessageView</span>.noneBackgroundColor</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> attributes = [<span class="type">NSAttributedString</span>.<span class="type">Key</span>.font : <span class="type">UIFont</span>.<span class="keyword">init</span>(name: <span class="string">"PingFangSC-Medium"</span>, size: <span class="number">14</span>)]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> textSize = <span class="keyword">self</span>.message.boundingRect(with: <span class="type">CGSize</span>(width: <span class="type">UIScreen</span>.main.bounds.size.width, height: <span class="type">CGFloat</span>.greatestFiniteMagnitude), options: <span class="type">NSStringDrawingOptions</span>.usesLineFragmentOrigin, attributes: attributes <span class="keyword">as</span> [<span class="type">NSAttributedString</span>.<span class="type">Key</span> : <span class="type">Any</span>], context: <span class="literal">nil</span>).size</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> label_mes = <span class="type">UILabel</span>.<span class="keyword">init</span>(frame: <span class="type">CGRect</span>(x: <span class="number">10</span>, y: <span class="keyword">self</span>.frame.height - textSize.height - <span class="number">5</span>, width: textSize.width, height: textSize.height))</span><br><span class="line">        label_mes.font = <span class="type">UIFont</span>.<span class="keyword">init</span>(name: <span class="string">"PingFangSC-Medium"</span>, size: <span class="number">14</span>)</span><br><span class="line">        label_mes.textColor = .white</span><br><span class="line">        label_mes.text = message</span><br><span class="line">        <span class="keyword">self</span>.label_mes = label_mes</span><br><span class="line">        <span class="keyword">self</span>.addSubview(<span class="keyword">self</span>.label_mes)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">show</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="type">UIApplication</span>.shared.keyWindow?.addSubview(<span class="keyword">self</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> animations : () -&gt; () = &#123;</span><br><span class="line">            <span class="keyword">self</span>.frame.origin.y = -<span class="number">4</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> completionAnimations : (<span class="type">Bool</span>) -&gt; () = &#123; finished <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">if</span> finished &#123;</span><br><span class="line">                <span class="type">UIView</span>.animate(withDuration: <span class="number">5</span>, delay: <span class="number">0</span>, usingSpringWithDamping: <span class="number">1</span>, initialSpringVelocity: <span class="number">5</span>, options: [.curveEaseInOut], animations: &#123;</span><br><span class="line">                    <span class="keyword">self</span>.frame.origin.y = -<span class="number">49</span></span><br><span class="line">                &#125;)&#123;finished <span class="keyword">in</span></span><br><span class="line">                    <span class="keyword">self</span>.removeFromSuperview()</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="type">UIView</span>.animate(withDuration: <span class="number">1</span>, delay: <span class="number">0</span>, usingSpringWithDamping: <span class="number">10</span>, initialSpringVelocity: <span class="number">10</span>, options: [.curveEaseInOut], animations: animations, completion: completionAnimations)</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     NSCoding not supported. Use init(text, preferences, delegate) instead!</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">required</span> <span class="keyword">public</span> <span class="keyword">init</span>?(coder aDecoder: <span class="type">NSCoder</span>) &#123;</span><br><span class="line">        <span class="built_in">fatalError</span>(<span class="string">"NSCoding not supported. Use init(text, preferences, delegate) instead!"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>通过插件功能会变成这样的代码：</p>
-<figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">var</span> &lt;#name#&gt;: <span class="type">UIImageView</span></span><br></pre></td></tr></table></figure>
+<p><strong>调用方式：</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Swift 调用</span></span><br><span class="line">KKHeadMessageView.showMessageView(<span class="string">"😊这是一个测试的弹窗。"</span>, style: .success)</span><br><span class="line"></span><br><span class="line"><span class="comment">//OC 调用</span></span><br><span class="line">[KKHeadMessageView showMessageView:<span class="string">@"😊这是一个测试的弹窗"</span> style:MessageStyleNone];</span><br></pre></td></tr></table></figure>
 
-<p>　　实际体验了一下，觉得有点鸡肋，虽然他可以提供一种便捷的方式解决需要重复编写大量 UI 空间和约束的代码的问题，但是使用它却需要记住另一种语法，而且这种语法只能对照 GitHub 仓库来实现，插件本身并不提供自动补全功能。<br>　　虽然这个插件不怎么实用，但通过这个插件让我了解到了苹果官方插件机制（Xcode Source Editor Extension）所能提供的功能，具体有以下：</p>
+<h2 id="一些思考"><a href="#一些思考" class="headerlink" title="一些思考"></a>一些思考</h2><p>如上文所见，基本逻辑相对简单，首先编写一个继承自 <code>UIView</code> 的类，重写 <code>init</code> 方法用来自定义这个 <code>view</code>，为了方便调用，用拓展写了两个类方法 <code>showMessageView()</code>，让后通过定义的枚举来展示不同风格的提示框。虽然作为一个自定义 <code>View</code>，上面的代码可能不是最优写法，但勉强算最适合我当前项目的写法。</p>
+<p>也考虑到这个自定义 <code>View</code>，并不对多数人适用。所以想分享一下我在封装这个 <code>View</code> 时所做的一些思考，主要有两点：</p>
 <ul>
-<li>获取 Xcode 正在编辑的文本</li>
-<li>获取所有的选中区域</li>
-<li>替换 Xcode 正在编辑的文本</li>
-<li>选中 Xcode 正在编辑的文本</li>
-<li>在 Xcode 的 Editor 菜单里面给你的插件生成一个子菜单，用于调用插件</li>
-<li>可以在 Xcode 的 Key Binding 里面给插件分配一个快捷键</li>
+<li>1.如何写好一个自定义 View？</li>
+<li>2.我们应该如何设定自定义 View 的调用方式？</li>
 </ul>
-<h3 id="三、使用苹果官方所允许的插件"><a href="#三、使用苹果官方所允许的插件" class="headerlink" title="三、使用苹果官方所允许的插件"></a>三、使用苹果官方所允许的插件</h3><p>　　使用苹果官方所允许的插件主要有两种方式，一种是在苹果应用商店下载，Xcode 里有快捷入口<br><img src="https://s2.ax1x.com/2019/07/17/ZqzTJA.jpg" alt><br>　　点击可以直接进入。</p>
-<p>　　另一种方式是下载 GitHub 上别人分享的插件，举个例子，比如我现在安装一个代码格式化插件：<a href="https://github.com/mapbox/XcodeClangFormat" target="_blank" rel="noopener">XcodeClangFormat</a>。</p>
-<p>1、下载源码运行，或 dmg 安装包。<br>2、到 系统设置-&gt;插件 中打开。<br><img src="https://s2.ax1x.com/2019/07/17/Zqzoid.jpg" alt><br><img src="https://s2.ax1x.com/2019/07/17/Zqz4de.jpg" alt><br>3、然后进入 Xcode，你就可以看到插件了。<br><img src="https://s2.ax1x.com/2019/07/17/ZqzHzt.jpg" alt></p>
-<p><strong>推荐两个插件：</strong></p>
-<p><a href="https://github.com/qfish/XAlign" target="_blank" rel="noopener">XAlign</a>：代码对齐插件，主要用于宏定义、属性群、代码内等号对齐三种代码对齐。<br><a href="https://github.com/mapbox/XcodeClangFormat" target="_blank" rel="noopener">XcodeClangFormat</a>：代码格式化插件，支持定义代码格式。</p>
+<p>那么关于这两个问题的答案从哪里可以找到呢？其实总的来说也就是老生常谈的三个方向：</p>
+<ol>
+<li>官方文档。</li>
+<li>阅读源码。</li>
+<li>技术博客。</li>
+</ol>
+<p>展开来说，自定义 <code>View</code> 的官方文档，其实就是去看看 <code>UIButton</code>、<code>UIView</code> 官方是怎么写的。但因为苹果是不开源的，看不到——虽然网上也有反推的实现，但毕竟有作者个人风格，而且有些还是用 <code>C++</code> 实现的，要模仿着写比较费劲。所以这条先搁置。</p>
+<p>然后退而求其次，阅读 GitHub 上 Star 数量较多的自定义视图开源库，学学他们的写法。这里推荐两个库：</p>
+<ul>
+<li><a href="https://github.com/SwiftKickMobile/SwiftMessages" target="_blank" rel="noopener">SwiftMessages</a></li>
+<li><a href="https://github.com/jdg/MBProgressHUD" target="_blank" rel="noopener">MBProgressHUD</a></li>
+</ul>
+<p>在封装消息提示框的时候我也考虑过对外开放的接口做成 <code>MBProgressHUD</code> 中调用方法返回一个单例，或者是和 <code>SwiftMessages</code> 将视图定义和使用分开。但最终因为图省事就选了一个简单的方式。另外还想到一个把 <code>MessageView</code> 用枚举来定义，然后通过实现关联值方法来直接显示，如果换这种实现的话，上面的调用方式可能就会变成这样：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">KKHeadMessageView</span>.success.showMessageView(<span class="string">"😊这是一个测试的弹窗。"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>看起来有点像工厂模式的产物😊。</p>
+<p>最后是技术博客。在 Google 上搜，一大推的教你怎么自定义 <code>View</code>，这里推荐两篇我觉得比较好的，有概念，有源码，值得参考：</p>
+<ul>
+<li><a href="https://juejin.im/post/6844903686758481934" target="_blank" rel="noopener">如何写好一个自定义View</a></li>
+<li><a href="https://juejin.im/post/6844903878111002637" target="_blank" rel="noopener">自定义View都写不好还做什么iOS开发</a>&gt; </li>
+</ul>
+<p>最后还有几个小疑惑备注在这里：</p>
+<ol>
+<li><p>在自定义 <code>View</code> 中，我们通常在 <code>setSubUI</code> 方法里面设置子视图，在里面写一大堆类似于这种代码：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> label_mes = <span class="type">UILabel</span>.<span class="keyword">init</span>(frame: <span class="type">CGRect</span>(x: <span class="number">10</span>, y: <span class="keyword">self</span>.frame.height - textSize.height - <span class="number">5</span>, width: textSize.width, height: textSize.height))</span><br><span class="line">        label_mes.font = <span class="type">UIFont</span>.<span class="keyword">init</span>(name: <span class="string">"PingFangSC-Medium"</span>, size: <span class="number">14</span>)</span><br><span class="line">label_mes.textColor = .white</span><br><span class="line">label_mes.text = message</span><br><span class="line"><span class="keyword">self</span>.label_mes = label_mes</span><br><span class="line"><span class="keyword">self</span>.addSubview(<span class="keyword">self</span>.label_mes)</span><br></pre></td></tr></table></figure>
+
+<p> 在 <a href="https://casatwy.com/iosying-yong-jia-gou-tan-viewceng-de-zu-zhi-he-diao-yong-fang-an.html" target="_blank" rel="noopener">iOS应用架构谈 view层的组织和调用方案</a> 中看到说建议把这种初始化都丢进 <code>getter</code> 里面，而且 <strong>getter 和 setter 全部都放在最后</strong>。另外配合 <code>Swift</code> 中的 <code>extension</code> 可以让代码布局更好看，但也看到唐巧的<a href="http://blog.devtang.com/2015/03/15/ios-dev-controversy-1/#%E7%9C%81%E5%BF%83%E7%9C%81%E4%BA%8B" target="_blank" rel="noopener">iOS 开发中的争议（一）</a>中说：</p>
+<blockquote>
+<p>在类中完全使用 _property 的方式来访问私有成员变量，是不会有内存管理上的问题的。但是使用 self.property 的方式来访问私有变量是不是也是一样不会有内存管理上的问题呢？确实也是，但是有一点需要注意：我们最好不要在 init 和 dealloc 中使用 self.property 的方式来访问成员变量。<br>那么 <code>setSubUI</code> 的写法最优解是什么呢？</p>
+</blockquote>
+</li>
+<li><p>一个自定义 <code>View</code> 的展现形式通常有：<br>1）外部初始化后，外部手动添加到视图，比如一些嵌入视图<br>2）外部初始化后，自动添加到 <code>UIWindow</code> 或者当前显示 <code>Controller</code>，比如一些弹出框视图。<br>3）也看到一自定义 View 会定义这种初始化方法<code>initWith:(NSString*)Message ToRootView:(UIView*)View</code>。外部传入父视图，然后自己在内部添加自己。<br>以上三种方式，除了根据实际需求，就把自己添加到父视图上，还有什么更好的方式吗？</p>
+</li>
+</ol>
+<p>以上。</p>
 
       
     </div>
@@ -477,7 +497,7 @@
         <div style="text-align:center;color: #ccc;font-size:14px;">------本文结束 <i class="fa fa-thermometer-three-quarters" aria-hidden="true"></i> 感谢阅读------</div>
         <div>
 	    <p id="div-border-left-red">
-	   <b>本文地址：</b><a href="/articles/Xcode-plugin-research.html" title="iOS - Xcode Plugin 调研和使用">http://kaaaaai.cn/articles/Xcode-plugin-research.html</a><br>
+	   <b>本文地址：</b><a href="/articles/Swift-TopPop-upBoxEncapsulation.html" title="Swift - 顶部弹出框封装">http://kaaaaai.cn/articles/Swift-TopPop-upBoxEncapsulation.html</a><br>
 	    <span>
 	    <b>本文基于<a target="_blank" title="Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)" href="http://creativecommons.org/licenses/by-sa/4.0/"> 知识共享署名-相同方式共享 4.0 </a>国际许可协议发布</b><br><b>转载请注明出处，谢谢！</b>
 	    </span>
@@ -528,8 +548,6 @@
           
             <a href="/tags/Swift/" rel="tag"><i class="fa fa-tag"></i> Swift</a>
           
-            <a href="/tags/Xcode/" rel="tag"><i class="fa fa-tag"></i> Xcode</a>
-          
         </div>
       
 
@@ -541,8 +559,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/articles/weekly-summary-0713.html" rel="next" title="每周总结 - 0713">
-                <i class="fa fa-chevron-left"></i> 每周总结 - 0713
+              <a href="/articles/A-person-abandoned-by-the-light.html" rel="next" title="被光放弃的人">
+                <i class="fa fa-chevron-left"></i> 被光放弃的人
               </a>
             
           </div>
@@ -550,10 +568,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/articles/weekly-summary-0722.html" rel="prev" title="每周总结 - 0722">
-                每周总结 - 0722 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -750,7 +764,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、Xcode-重签名以使用插件"><span class="nav-text">一、Xcode 重签名以使用插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、插件使用总结"><span class="nav-text">二、插件使用总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、使用苹果官方所允许的插件"><span class="nav-text">三、使用苹果官方所允许的插件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些思考"><span class="nav-text">一些思考</span></a></li></ol></div>
             
 
           </div>
@@ -941,9 +955,9 @@ show_date_time();
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://kaaaaai.cn/articles/Xcode-plugin-research.html';
-          this.page.identifier = 'articles/Xcode-plugin-research.html';
-          this.page.title = 'iOS - Xcode Plugin 调研和使用';
+          this.page.url = 'http://kaaaaai.cn/articles/Swift-TopPop-upBoxEncapsulation.html';
+          this.page.identifier = 'articles/Swift-TopPop-upBoxEncapsulation.html';
+          this.page.title = 'Swift - 顶部弹出框封装';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://kaaaaai-cn.disqus.com/embed.js';
