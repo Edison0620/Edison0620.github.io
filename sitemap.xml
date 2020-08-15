@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://kaaaaai.cn/articles/iOS-Some-Question-About-Bluetooth.html</loc>
+    
+    <lastmod>2020-08-15T04:43:43.504Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kaaaaai.cn/articles/?-And-!-Learning.html</loc>
+    
+    <lastmod>2020-08-13T06:24:59.710Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://kaaaaai.cn/articles/Swift-TopPop-upBoxEncapsulation.html</loc>
     
-    <lastmod>2020-08-04T11:52:46.452Z</lastmod>
+    <lastmod>2020-08-05T02:27:17.049Z</lastmod>
     
   </url>
   
@@ -26,13 +40,6 @@
     <loc>http://kaaaaai.cn/articles/OC-Multi-Delegate-Implementation.html</loc>
     
     <lastmod>2020-07-16T10:27:46.602Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://kaaaaai.cn/articles/?-And-!-Learning.html</loc>
-    
-    <lastmod>2020-06-22T07:18:57.907Z</lastmod>
     
   </url>
   
@@ -401,14 +408,14 @@
   </url>
   
   <url>
-    <loc>http://kaaaaai.cn/articles/019.html</loc>
+    <loc>http://kaaaaai.cn/articles/025.html</loc>
     
     <lastmod>2019-06-29T03:50:45.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://kaaaaai.cn/articles/025.html</loc>
+    <loc>http://kaaaaai.cn/articles/019.html</loc>
     
     <lastmod>2019-06-29T03:50:45.000Z</lastmod>
     
@@ -422,14 +429,14 @@
   </url>
   
   <url>
-    <loc>http://kaaaaai.cn/articles/fifthart.html</loc>
+    <loc>http://kaaaaai.cn/articles/farewell_to_the_darkness.html</loc>
     
     <lastmod>2019-06-29T03:50:45.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://kaaaaai.cn/articles/farewell_to_the_darkness.html</loc>
+    <loc>http://kaaaaai.cn/articles/fifthart.html</loc>
     
     <lastmod>2019-06-29T03:50:45.000Z</lastmod>
     
@@ -471,7 +478,7 @@
   </url>
   
   <url>
-    <loc>http://kaaaaai.cn/articles/035.html</loc>
+    <loc>http://kaaaaai.cn/articles/040.html</loc>
     
     <lastmod>2019-06-29T03:41:15.000Z</lastmod>
     
@@ -479,13 +486,6 @@
   
   <url>
     <loc>http://kaaaaai.cn/articles/037.html</loc>
-    
-    <lastmod>2019-06-29T03:41:15.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://kaaaaai.cn/articles/040.html</loc>
     
     <lastmod>2019-06-29T03:41:15.000Z</lastmod>
     
@@ -507,6 +507,13 @@
   
   <url>
     <loc>http://kaaaaai.cn/articles/wizard-world-revolution.html</loc>
+    
+    <lastmod>2019-06-29T03:41:15.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kaaaaai.cn/articles/035.html</loc>
     
     <lastmod>2019-06-29T03:41:15.000Z</lastmod>
     
@@ -653,13 +660,6 @@
   </url>
   
   <url>
-    <loc>http://kaaaaai.cn/articles/021.html</loc>
-    
-    <lastmod>2018-11-01T07:12:50.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://kaaaaai.cn/articles/023.html</loc>
     
     <lastmod>2018-11-01T07:12:50.000Z</lastmod>
@@ -702,7 +702,14 @@
   </url>
   
   <url>
-    <loc>http://kaaaaai.cn/articles/036.html</loc>
+    <loc>http://kaaaaai.cn/articles/021.html</loc>
+    
+    <lastmod>2018-11-01T07:12:50.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kaaaaai.cn/articles/034.html</loc>
     
     <lastmod>2018-11-01T07:12:50.000Z</lastmod>
     
@@ -731,6 +738,13 @@
   
   <url>
     <loc>http://kaaaaai.cn/articles/043.html</loc>
+    
+    <lastmod>2018-11-01T07:12:50.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kaaaaai.cn/articles/036.html</loc>
     
     <lastmod>2018-11-01T07:12:50.000Z</lastmod>
     
@@ -814,13 +828,6 @@
   </url>
   
   <url>
-    <loc>http://kaaaaai.cn/articles/034.html</loc>
-    
-    <lastmod>2018-11-01T07:12:50.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://kaaaaai.cn/articles/unreasonable-guess.html</loc>
     
     <lastmod>2018-11-01T07:12:50.000Z</lastmod>
@@ -828,14 +835,14 @@
   </url>
   
   <url>
-    <loc>http://kaaaaai.cn/tags/index.html</loc>
+    <loc>http://kaaaaai.cn/categories/index.html</loc>
     
     <lastmod>2018-11-01T07:12:50.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://kaaaaai.cn/categories/index.html</loc>
+    <loc>http://kaaaaai.cn/tags/index.html</loc>
     
     <lastmod>2018-11-01T07:12:50.000Z</lastmod>
     
