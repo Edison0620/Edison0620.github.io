@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kaaaaai.cn/"/>
-  <updated>2020-09-12T04:01:46.235Z</updated>
+  <updated>2020-09-20T04:55:45.040Z</updated>
   <id>http://kaaaaai.cn/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>有关熵减-时间旅行的冷门问题</title>
+    <link href="http://kaaaaai.cn/articles/Frequently-Asked-Questions-About-Time-Travel-by-Entropy-reduction.html"/>
+    <id>http://kaaaaai.cn/articles/Frequently-Asked-Questions-About-Time-Travel-by-Entropy-reduction.html</id>
+    <published>2020-09-20T02:13:52.000Z</published>
+    <updated>2020-09-20T04:55:45.040Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>上个礼拜去看了电影《信条》，综合来说给我感觉是瑜不掩瑕。</p><p>熵减、时间钳形运动这些脑洞虽然很好，但是剧情薄弱，有点拉胯，尤其最后的战争戏，作为压轴，理想上觉得这会到了影片最后关头，各路英雄粉墨登场，酣畅淋漓对决之余也将所有剧情线索收束，画龙点睛。但实际上，这场戏给我感觉有点混乱，对比其他电影的战争场面，总会以单一的视角出发，也有画面视角切换，但其他的视角所需要承载的信息量并不多，只是给一个或宏观或切面的场景信息，但在《信条》里一场战斗中放了好几条线，几个镜头切换下来，人物就已经乱糟糟的了。而且以往场景只是场景，爆炸场面只是为了满足视觉快感，不需要思考。但在信条里因为科幻设定，有的爆炸发生后，观众往往要迟疑一下：逆向爆炸，正向爆炸？虽然这个停顿时间可以忽略不计，但这样的停顿多了，观众往往就要追着导演的镜头走，思维在视觉背后疲于追逐。总的来说，节奏不对。</p><p>不过这里我并不想针对影片的好坏展开谈论。我想谈谈电影里关于熵减的脑洞，也是这部电影里我最喜欢的部分。</p><p>进入正题之前，我想先提一个问题，假设在《信条》的电影背景下，现在有两个人现在有两个在打斗的人，他们同时在地上捡到一把枪，一把有子弹，一把没子弹，然后都冲对方开了枪，问，一共存在几种可能发生的情况？</p><p>问题先放在一边，现在我们来梳理一下电影里利用熵减进行时间旅行的逻辑：</p><ul><li>从电影所表现的来看，熵减实现的时间旅行实际上不是跳跃式的，而是流式的。</li><li>也就是说你想回到十四天前，你就按部就班，一分一秒都不能省略，先回到昨天，回到前天，回到大前天，以此类推。最后回到十四天前。</li><li>在旅行的开始和结束，变换了自己的物理属性。旅行开始，由熵增变为熵减，逆流而上。旅行结束，有熵减变为熵增，和十四天前的人们站在相同的起点，由逆序变为顺序，回到正常的流向。</li></ul><p>但这里有个问题就是，假设逆向机器的作用是把一个人的物理状态从熵增变为熵减，真正的情况应该是：</p><ul><li>他是怎么来的，就应该怎么回去。</li></ul><p>但从电影里的表现来看，我们可以把逆向机器的作用新增一条，即：</p><ul><li>把一个人的物理状态从熵增变为熵减。</li><li>解除他在过去时间里行为轨迹的限制。</li></ul><p>然而实际情况呢。如果把时间看作一条河流，人类是河流里面的鱼群。正向的世界，鱼群从上至下流向，逆向是鱼群里一只鱼脱离队伍，逆流而上。此时按照上面关于机器的定义，这个逆向的鱼，沿着同一条河流往上走，那他在回去的路上是不应该看到自己。但电影里看到了，这是不是说，当这条鱼脱离队伍，逆流而上的时候，此时的河流和他来的时候并不是同一条河流。</p><p>电影里也在飞机上用祖父理论和多元宇宙的讨论一笔带过。那我们再重新声明一下这个机器的作用：</p><ul><li>把一个人的物理状态从熵增变为熵减。</li><li><del>解除他在过去时间里行为轨迹的限制。</del></li><li>并把他送到另一个宇宙。</li></ul><p>这样就可以解释为什么逆向时可以在正向的世界里看到自己。但还有一个问题，就是如果我们把 <strong>把一个人的物理状态从熵增变为熵减</strong> 单独拎出来看，熵增时，人会经历出生，成长，变老，死亡。那么熵减时，人是不是会经历死亡，变老，成长，出生。也就是说主角回到十四天前，他的身体机能应该也是回到十四天前。但电影反派头头在最后和主角通电话时说的利用时间换取金钱。真正情况像是逆向后，世界在变年轻，人类仍然在变老。所以熵减机器真正的逆向的是世界，而不是人？</p><p>如果一台机器的作用那么大，可能反派也不需要再去找什么六合一公式了。</p><p>重新梳理一下，想想夜晚我们走路看月亮，我们在走，月亮也在走。我想那个机器真正的作用是。就像在一条高速路上行驶的车子，突然一个急转弯甩尾，从右边车道切到左边车道逆向而行。他和他本身的车道仍然是持续向前的。只是在左边车道眼里和在左边车道逆向行驶的车子眼里，对方是向自己后方驶去。</p><p>最后我们再次总结一下这个机器的作用，虽然不知道他怎么做到的，但他就是做到了：</p><ul><li><del>把一个人的物理状态从熵增变为熵减。</del></li><li><del>解除他在过去时间里行为轨迹的限制。</del></li><li><del>并把他送到另一个宇宙。</del></li><li>把一个人抛入一个与当前熵活动规律相反的世界。</li></ul><p>那我们现在知道逆向时时会变老的，逆向时是另一个世界。那么我们设想一种情况：当 A 从下午八点回到上午八点，这是他会碰到原本时间线的自己，我们姑且用递增的方式把他命名为 B。正常情况，当 B 到下午八点时，按照上一条时间线他会回去，而 A 代替 B 在 B 的时间线生活，保持唯一。但我们现在不按正常情况来，当 B 到下午八点回去时，A 也跟着他一起回去了。到了 C 时也采取同样的做法。</p><p>那么回到河流与鱼群的比喻，当来自无数条不同河流逆向而来所组成的鱼群汇入一条河流，并和原本正常流向的鱼群交汇。河道，是会被阻塞，还是会被所有鱼群会被河流的力量冲散？</p><p>换成熵定律，当那么多逆向的人进入熵减的世界，那实际上，熵是增还是减呢？熵减原本是分子从无序变为有序，在这个过程中，从另一个盒子又倾倒入很多无序的分子，此时分子的活动是如何的？</p><p>当然，作为非专业科研战斗人员，无从得到答案，只能止于头脑风暴和嘴炮一下，另外关于诺兰的电影，其实我更期待的解决是反派把机器启动了，虽然有悖正义战胜邪恶，而且可能世界毁灭，但好歹可以看到一种科学的可能性在大荧幕上展现，而不是不咸不淡的晚间八点档狗血，黑人男主角在车后座陷入一种煞有其事的沉默里面。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
+      
+    
+    </summary>
+    
+    
+      <category term="旁白" scheme="http://kaaaaai.cn/categories/%E6%97%81%E7%99%BD/"/>
+    
+    
+      <category term="随笔" scheme="http://kaaaaai.cn/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+      <category term="电影" scheme="http://kaaaaai.cn/tags/%E7%94%B5%E5%BD%B1/"/>
+    
+      <category term="观后感" scheme="http://kaaaaai.cn/tags/%E8%A7%82%E5%90%8E%E6%84%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>Swift - 权限请求封装</title>
@@ -581,38 +611,6 @@
       <category term="随笔" scheme="http://kaaaaai.cn/tags/%E9%9A%8F%E7%AC%94/"/>
     
       <category term="读后感" scheme="http://kaaaaai.cn/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS - 私有仓库通过 CocoaPods 引入工程</title>
-    <link href="http://kaaaaai.cn/articles/iOS-Private-Repository-Introduces-Engineering-Through-CocoaPods.html"/>
-    <id>http://kaaaaai.cn/articles/iOS-Private-Repository-Introduces-Engineering-Through-CocoaPods.html</id>
-    <published>2020-02-15T03:24:52.000Z</published>
-    <updated>2020-04-11T02:28:25.705Z</updated>
-    
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Spec-Repo-配置仓库-的概念"><a href="#Spec-Repo-配置仓库-的概念" class="headerlink" title="Spec Repo(配置仓库)的概念"></a>Spec Repo(配置仓库)的概念</h2><p>　　<code>CocoaPods</code> 对于一名 <code>iOS</code> 开发来说再熟悉不过了，它的工作原理就是在 <code>GitHub</code> 上面有个 <code>Spec Repo</code>，它里面包括成千上万的后缀名为 <code>.podspec</code> 的文件。我们在项目中集成第三方库(如 <code>SDWebImage</code> )的时候其实就是通过 <code>CocoaPods</code>的 <code>Spec Repo</code> 去找到我们需要的开源项目的 <code>.podspec</code> 文件，然后在 <code>.podspec</code> 文件中有具体的源码地址(放具体代码的地方)，根据这个地址去下载代码。</p><p>　　按照上面 <code>Spec Repo</code> 的理解，我们如果能自己创建一个类似 <code>CocoaPods</code> 的 <code>Spec Repo</code>，然后把我们私有的公共组件的 <code>.podspec</code> 文件放在里面，然后集成的时候让 <code>CocoaPods</code> 帮我们集成那我们就能达到目的，就可以建立私有pod库了。</p><p>　　一般项目经理都会把代码仓库和配置仓库都建好，这时候我们只需要把 <code>Spec Repo</code> 加到本地就行了。(注意：需要管理员将你的账号加到里边，有访问权限并且有修改权限)。</p><h2 id="一、添加’本地的私有仓库’-Spec-Repo-文件"><a href="#一、添加’本地的私有仓库’-Spec-Repo-文件" class="headerlink" title="一、添加’本地的私有仓库’(Spec Repo)文件　"></a>一、添加’本地的私有仓库’(Spec Repo)文件　</h2><p>1、使用下面的命令就可以在本地生成配置文件的仓库,建议这个本地的名字也和远程的一致,这样便于区分和后期的维护.<br>“baseSpecs”是你们团队远端创建的配置文件仓库的名字,后面是配置文件仓库远端的地址 .<br>注意此时不需要 <code>cd</code> 进入任何目录,从默认位置输入这个命令,即在点击终端快捷方式打开的状态下直接输入下面的命令即可</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod repo add baseSpecs http://***/***/specs.git</span><br></pre></td></tr></table></figure><p>2、查看是否添加成功(查看本地的所有repo)</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod repo list</span><br></pre></td></tr></table></figure><p>或者打开本地配置仓库管理文件夹进行查看</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open ~/.cocoapods/repos</span><br></pre></td></tr></table></figure><p>如果能看到自己团队的 repo(本地的私有仓库)，就 OK 了。注意：这个操作只需要执行一次就可以了，下次再打新的 pod 库的时候就不需要再执行了。</p><h2 id="二、创建-pods-项目工程文件"><a href="#二、创建-pods-项目工程文件" class="headerlink" title="二、创建 pods 项目工程文件"></a>二、创建 pods 项目工程文件</h2><p>1、创建项目和 <code>.podspec</code> 文件</p><p>方式1、可以利用 <code>pod</code> 提供的命令，直接创建一个 <code>pod</code> 库的标准模板。这个很方便，可以直接创建一个工程，可以省去很多操作。命令如下：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod lib create UIPoolSingleImage</span><br></pre></td></tr></table></figure><p>方式2、自己在项目根目录创建 <code>podspec</code> 文件。该方式比较麻烦，需要自己创建项目。</p><p>2、编写 <code>.podspec</code> 文件。根据自己的 <code>pod</code> 库更改相关内容，文件内容大概是这样的：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">//特别说明，里面的注释是博主为了大家知道什么意思加的，实际使用时一定要去掉</span><br><span class="line">Pod::Spec.new do |s|</span><br><span class="line">//文件名</span><br><span class="line">s.name = &apos;UIPoolSingleImage&apos;</span><br><span class="line">//版本</span><br><span class="line">s.version = &apos;0.1.0&apos;</span><br><span class="line">//描述信息</span><br><span class="line">s.summary = &apos;A short description of UIPoolSingleImage.&apos;</span><br><span class="line">//这里的主页自己随便写</span><br><span class="line">s.homepage = &apos;https://github.com/623099552@qq.com/UIPoolSingleImage&apos; </span><br><span class="line">//作者</span><br><span class="line">s.authors = &#123; &apos;623099552@qq.com&apos; =&gt; &apos;623099552@qq.com&apos; &#125;</span><br><span class="line">//资源路径</span><br><span class="line">s.source = &#123; :git =&gt; &apos;http://***/***/uipoolsingleimage.git&apos;, :tag =&gt; s.version.to_s &#125;</span><br><span class="line">//ARC模式</span><br><span class="line">s.requires_arc = true</span><br><span class="line">//license，一般我们用MIT</span><br><span class="line">s.license = &apos;MIT&apos;</span><br><span class="line">//允许的最低系统使用版本</span><br><span class="line">s.ios.deployment_target = &apos;8.0&apos;</span><br><span class="line">//库文件路径，这个路径需要和你提供的库文件的目录相对应，否则会报错</span><br><span class="line">s.source_files = &apos;UIPoolSingleImage/Classes/*&apos;</span><br><span class="line">end</span><br></pre></td></tr></table></figure><h2 id="三、创建自己的-pods-公共组件库项目"><a href="#三、创建自己的-pods-公共组件库项目" class="headerlink" title="三、创建自己的 pods 公共组件库项目"></a>三、创建自己的 pods 公共组件库项目</h2><p>1、在可以创建私有库的地方创建一个 <code>code repository</code>(代码仓库), 也就是存放要打的 <code>pod</code> 库中的代码文件。这里我使用的是 <code>gitlab</code>。</p><p> 点击右上角的加号按钮,创建代码仓库名为 <code>UIPoolSingleImage</code><br><img src="https://s2.ax1x.com/2020/02/15/1xiKSO.jpg" alt="2018101510425055"></p><p>2.克隆 <code>code repository</code>(代码仓库)到本地，并将上面创建好的私有库代码文件上传到 <code>code repository</code>(代码仓库)中。注意：代码上传之后时候需要打一个 <code>tag</code>，并且每次更新 <code>tag</code> 都要和 <code>.podspec</code> 文件中的 <code>tag</code> 对应。</p><h2 id="四、在命令行验证-podspec-文件是否有效"><a href="#四、在命令行验证-podspec-文件是否有效" class="headerlink" title="四、在命令行验证 .podspec 文件是否有效"></a>四、在命令行验证 <code>.podspec</code> 文件是否有效</h2><p>注意：<code>--allow-warnings</code> :表示忽略警告。 <code>--verbose</code>：表示会输出详细的debug信息。</p><p> 1、本地校验：pod lib lint UIPoolSingleImage.podspec –allow-warnings<br> 2、线上校验：pod spec lint UIPoolSingleImage.podspec –allow-warnings<br>注意：如果你制作的pod库，会依赖spec repository(配置文件仓库)中其他的私有仓库，则需要加上 –use-libraries。并且将spec repository 的源加上。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod spec lint  UIPoolSingleImage.podspec --sources=<span class="string">'http://***/***/specs.git'</span>,<span class="string">'https://github.com/CocoaPods/Specs.git'</span> --use-libraries</span><br></pre></td></tr></table></figure><p>如果出现 <code>passed validating</code> 则表示 <code>spec</code> 文件验证通过了<br><img src="https://s2.ax1x.com/2020/02/15/1ximY6.jpg" alt></p><h2 id="五、将-podspec配置文件push到远端专门存储配置文件的仓库中"><a href="#五、将-podspec配置文件push到远端专门存储配置文件的仓库中" class="headerlink" title="五、将.podspec配置文件push到远端专门存储配置文件的仓库中"></a>五、将.podspec配置文件push到远端专门存储配置文件的仓库中</h2><p>1、将配置文件 push 到远端专门存储配置文件的仓库中 ,本地的也会同步更新<br>此时需要 <code>cd</code> 进入本地的 <code>.podspec</code> 所在的路径(否则会找不到 <code>podspe</code> c文件)<br>然后使用下面的命令即可，<code>baseSpecs</code> 是你创建的 <code>spec repository</code> 的名字,后面是你本地创建的 <code>.podspec</code> 文件</p><p>注意：如果你制作的 <code>pod</code> 库，会依赖 <code>spec repository</code>(配置文件仓库)中其他的私有仓库，则需要加上 <code>--use-libraries</code>。</p><p>注意：如果你在手动验证 <code>Pod</code> 时使用了 <code>--use-libraries</code>或 <code>--allow-warnings</code> 等修饰符，那么发布的时候也应该使用相同的字段修饰，否则可能会报错。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod repo push baseSpecs UIPoolSingleImage.podspec --allow-warnings --use-libraries --verbose</span><br></pre></td></tr></table></figure><p>2、出现下面信息,则代表成功<br><img src="https://s2.ax1x.com/2020/02/15/1xiMlD.jpg" alt><br>或者查询本地私有 <code>spec</code> 管理文件夹,如果看到了<code>UIPoolSingleImage</code> 则代表成功</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open ~/.cocoapods/repos</span><br></pre></td></tr></table></figure><p>3、可以在远端配置文件仓库中看到这个文件，如下：<br><img src="https://s2.ax1x.com/2020/02/15/1xinfK.jpg" alt></p><p>到此，利用 <code>Cocoapods</code> 打私有的 <code>pod</code> 库就完成了。接下来，在项目中就可以直接引入私有库了。 </p><p>注意：引用私有库的时候，需要将 <code>Spec Repo</code> 源加到 <code>Profile</code> 文件中，如下：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> <span class="string">"https://github.com/CocoaPods/Specs.git"</span> <span class="comment">#cocoapods的</span></span><br><span class="line"><span class="built_in">source</span> <span class="string">"http://***/***/specs.git"</span> <span class="comment">#私有的</span></span><br><span class="line"> </span><br><span class="line">pod <span class="string">'UIPoolSingleImage'</span>, <span class="string">'0.1.0'</span></span><br></pre></td></tr></table></figure><p><strong>更新</strong>：下次更新 <code>pod</code> 库的时候，在 <code>sourceTree</code> 需要打 <code>tag</code> ，比如从 0.1.0 升级到 0.2.0，要先将代码推送到远端，然后再打 <code>tag</code>，顺序不能反。而且打的 <code>tag</code> 要和 <code>.podspec</code> 文件中的 <code>tag</code> 要对应。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
-      
-    
-    </summary>
-    
-    
-      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
-    
-      <category term="iOS" scheme="http://kaaaaai.cn/tags/iOS/"/>
-    
-      <category term="OC" scheme="http://kaaaaai.cn/tags/OC/"/>
-    
-      <category term="CocoaPods" scheme="http://kaaaaai.cn/tags/CocoaPods/"/>
     
   </entry>
   
