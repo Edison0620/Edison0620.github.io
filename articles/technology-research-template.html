@@ -1,0 +1,1416 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="EXP,Technology,Template,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="壹拾肆" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+
+
+
+
+
+
+<meta name="description" content="部门小伙伴在做技术调研的时候，因为信息展示的格式不统一，或者没有注意在调研过程中抓取一些关键信息做展示和对比，为了方便，总结了一份技术调研模板，以供参考。 标题—–❗️每次输出文档时需要将本段删除❗️—– -&amp;gt; 格式：中英文排版参考：中英文排版指北 -&amp;gt; 模板：模板框架只是为大家提供一个索引，实际调研时可根据需要增加或删除部分内容 -&amp;gt; 调研参考流程：  确定调研目标（技术选型">
+<meta name="keywords" content="EXP,Technology,Template">
+<meta property="og:type" content="article">
+<meta property="og:title" content="技术调研模板">
+<meta property="og:url" content="http://kaaaaai.cn/articles/technology-research-template.html">
+<meta property="og:site_name" content="壹拾肆">
+<meta property="og:description" content="部门小伙伴在做技术调研的时候，因为信息展示的格式不统一，或者没有注意在调研过程中抓取一些关键信息做展示和对比，为了方便，总结了一份技术调研模板，以供参考。 标题—–❗️每次输出文档时需要将本段删除❗️—– -&amp;gt; 格式：中英文排版参考：中英文排版指北 -&amp;gt; 模板：模板框架只是为大家提供一个索引，实际调研时可根据需要增加或删除部分内容 -&amp;gt; 调研参考流程：  确定调研目标（技术选型">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-09-30T02:42:14.857Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="技术调研模板">
+<meta name="twitter:description" content="部门小伙伴在做技术调研的时候，因为信息展示的格式不统一，或者没有注意在调研过程中抓取一些关键信息做展示和对比，为了方便，总结了一份技术调研模板，以供参考。 标题—–❗️每次输出文档时需要将本段删除❗️—– -&amp;gt; 格式：中英文排版参考：中英文排版指北 -&amp;gt; 模板：模板框架只是为大家提供一个索引，实际调研时可根据需要增加或删除部分内容 -&amp;gt; 调研参考流程：  确定调研目标（技术选型">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://kaaaaai.cn/articles/technology-research-template.html">
+
+
+
+
+
+  <title>技术调研模板 | 壹拾肆</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">壹拾肆</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">闲言和碎语</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-xumi">
+          <a href="/xumi" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-coffee"></i> <br>
+            
+            须弥
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+</ul></nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kaaaaai.cn/articles/technology-research-template.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaaaaai">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://s2.ax1x.com/2019/03/14/AESiM4.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="壹拾肆">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">技术调研模板</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-09-30T09:24:52+08:00">
+                2020-09-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/articles/technology-research-template.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="articles/technology-research-template.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">热度
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>℃ |
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  2,381 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  9 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><em>部门小伙伴在做技术调研的时候，因为信息展示的格式不统一，或者没有注意在调研过程中抓取一些关键信息做展示和对比，为了方便，总结了一份技术调研模板，以供参考。</em></p>
+<h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a><strong>标题</strong></h1><p><em>—–❗️每次输出文档时需要将本段删除❗️—–</em></p>
+<p><em>-&gt; 格式：中英文排版参考：<a href="https://github.com/mzlogin/chinese-copywriting-guidelines" target="_blank" rel="noopener">中英文排版指北</a></em></p>
+<p><em>-&gt; 模板：模板框架只是为大家提供一个索引，实际调研时可根据需要增加或删除部分内容</em></p>
+<p><em>-&gt; 调研参考流程：</em></p>
+<ol>
+<li><em>确定调研目标（技术选型、工具选型、单个技术点深入调研）</em></li>
+<li><em>根据上一步的结果，确定是否需要横向比较（技术选型、工具选型需要，单个技术点深入调研不需要）</em></li>
+<li><em>需要横向比较：由内部和外部两个方面思考列举可对比标准，内部比如：技术/工具 本身的优势、功能优劣、稳定性、价格等，外部比如：网络评价、值得参考的排行榜、其他大公司是否也在使用等。输出时也应注意将横向比较的结果罗列成表格，方便浏览。</em></li>
+<li><em>不需要横向比较：对于单一的技术点，调研人应注意务求让被分享人了解大致流程、框架、思想等宏观知识（可以结合流程图、思维导图、原型图等做较为直观的表述），对次要技术点具体实现省略，只做罗列，对主要技术点具体实现做精简描述。</em></li>
+<li><em>过程中针对不理解的名词，需要详细记录，并添加到调研报告结束位置，避免干扰正文内容显示。</em></li>
+<li><em>同一类型的信息展示方式尽量统一，比如针对三种网络测速工具的使用，测速结果不应第一种使用图片，第二种使用文本，第三种使用超链接。</em></li>
+<li><em>调研报告应注意信息完整、逻辑自洽。不应存在部分内容需要通过<strong>链接</strong>跳转到其他网站才能理解的情况。是否需要<strong>链接</strong>，参考第 5 项，仅做补充和拓展，方便浏览文档人员了解详细信息。</em></li>
+<li><strong><em>重点注意：调研的目的是在调研人这层做信息过滤，因注意避免直接使用信息来源的贴图和源代码，例子展示。注意信息提炼。</em></strong></li>
+<li><em>以下模板以天气预报 API 调研结果举例：<a href="https://docs.qq.com/doc/DTnZOQkVCU2tXUmp4" target="_blank" rel="noopener">https://docs.qq.com/doc/DTnZOQkVCU2tXUmp4</a></em></li>
+</ol>
+<p><em>—–❗️每次输出文档时需要将本段删除❗️—-</em></p>
+<h1 id="修订记录"><a href="#修订记录" class="headerlink" title="修订记录"></a><strong>修订记录</strong></h1><table>
+<thead>
+<tr>
+<th>日期</th>
+<th>版本</th>
+<th>修改记录</th>
+<th>作者</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>xxxx-xx-xx</td>
+<td>v1.0.0</td>
+<td>新增或者修改了什么内容</td>
+<td>xxx</td>
+<td>创建</td>
+</tr>
+</tbody></table>
+<h1 id="一、调研背景与目标"><a href="#一、调研背景与目标" class="headerlink" title="一、调研背景与目标"></a><strong>一、调研背景与目标</strong></h1><h2 id="1-调研背景"><a href="#1-调研背景" class="headerlink" title="1.调研背景"></a>1.<strong>调研背景</strong></h2><table>
+<thead>
+<tr>
+<th>类目</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>调研背景</td>
+<td>（正文）（举例：CuteCatOS 需要使用到天气服务）</td>
+</tr>
+</tbody></table>
+<h2 id="2-调研目标"><a href="#2-调研目标" class="headerlink" title="2.调研目标"></a>2.<strong>调研目标</strong></h2><table>
+<thead>
+<tr>
+<th>类目</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>调研目标</td>
+<td>（正文）（举例：确定天气服务提供商，可以满足天气信息多种类显示，多地区，层级尽可能深入到区县级别，以免费为起点寻求高性价比服务）</td>
+</tr>
+</tbody></table>
+<h1 id="二、概述"><a href="#二、概述" class="headerlink" title="二、概述"></a><strong>二、概述</strong></h1><p>（对分享内容做提炼描述，让被分享人有整体印象。）</p>
+<p>（举例：以下总计调研了五种获取天气信息的方法，其中前四种来自网络服务商，最后一种通过网络爬虫的方式拉取信息。对于前三种来自网络的服务，通过 价格、支持平台、天气信息展示量、网站排名、是否还有其他企业或公司也在使用该项服务 等不同维度进行对比）</p>
+<h1 id="三、综合分析（比较）"><a href="#三、综合分析（比较）" class="headerlink" title="三、综合分析（比较）"></a><strong>三、综合分析（比较）</strong></h1><p>（正文内容）</p>
+<p>——————————————举例——————————————</p>
+<h2 id="1-天气-API"><a href="#1-天气-API" class="headerlink" title="1.天气 API"></a>1.<strong>天气 API</strong></h2><p>（备注说明：对单个技术点进行信息展示时注意以信息重要性从高到低排序，从提炼性信息到复杂信息排序，如下文例子中，天气信息的回调内容展示优先级虽然是次于价格的，但由于内容太多，且在后面的 综合对比 段落中会重新提到，故放到最后说明。）</p>
+<p><strong>价格：</strong>以实况天气和七日天气收费举例，两项服务均单独收费，¥365/年-每日10万次</p>
+<p><strong>支持平台：</strong>官方示例中包含 小程序、JS、JAVA、C# 等实现代码</p>
+<p><strong>网站信息：</strong></p>
+<ul>
+<li><strong>Alexa 排名：</strong>2414732</li>
+<li><strong>域名年龄：</strong>3 年</li>
+</ul>
+<p><strong>谁在用：</strong>海宁新闻网，长沙市卫健委，武汉市新洲区政府，开封市教育体育网，延安市总工会，长沙市教育局，长沙市统计局，长沙市生态环境局，于洪区人民政府 ，沁源县人民政府，鹤壁市人民代表大会，东宁市人民政府，甘井子区政府，河北交投京张高速公路 。</p>
+<p><strong>天气信息回调展示：</strong>以实况天气接口返回举例</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"cityid"</span>: <span class="string">"101280601"</span>,</span><br><span class="line">    <span class="attr">"date"</span>: <span class="string">"2020-05-27"</span>,</span><br><span class="line">    <span class="attr">"week"</span>: <span class="string">"星期三"</span>,</span><br><span class="line">    <span class="attr">"update_time"</span>: <span class="string">"16:35"</span>,</span><br><span class="line">    <span class="attr">"city"</span>: <span class="string">"深圳"</span>,</span><br><span class="line">    <span class="attr">"cityEn"</span>: <span class="string">"shenzhen"</span>,</span><br><span class="line">    <span class="attr">"country"</span>: <span class="string">"中国"</span>,</span><br><span class="line">    <span class="attr">"countryEn"</span>: <span class="string">"China"</span>,</span><br><span class="line">    <span class="attr">"wea"</span>: <span class="string">"阴"</span>,</span><br><span class="line">    <span class="attr">"wea_img"</span>: <span class="string">"yin"</span>,</span><br><span class="line">    <span class="attr">"tem"</span>: <span class="string">"29"</span>,</span><br><span class="line">    <span class="attr">"tem1"</span>: <span class="string">"30"</span>,</span><br><span class="line">    <span class="attr">"tem2"</span>: <span class="string">"25"</span>,</span><br><span class="line">    <span class="attr">"win"</span>: <span class="string">"西北风"</span>,</span><br><span class="line">    <span class="attr">"win_speed"</span>: <span class="string">"1级"</span>,</span><br><span class="line">    <span class="attr">"win_meter"</span>: <span class="string">"小于12km/h"</span>,</span><br><span class="line">    <span class="attr">"humidity"</span>: <span class="string">"77%"</span>,</span><br><span class="line">    <span class="attr">"visibility"</span>: <span class="string">"21.84km"</span>,</span><br><span class="line">    <span class="attr">"pressure"</span>: <span class="string">"1000"</span>,</span><br><span class="line">    <span class="attr">"air"</span>: <span class="string">"45"</span>,</span><br><span class="line">    <span class="attr">"air_pm25"</span>: <span class="string">"27"</span>,</span><br><span class="line">    <span class="attr">"air_level"</span>: <span class="string">"优"</span>,</span><br><span class="line">    <span class="attr">"air_tips"</span>: <span class="string">"空气很好，可以外出活动，呼吸新鲜空气，拥抱大自然！"</span>,</span><br><span class="line">    <span class="attr">"alarm"</span>: &#123;</span><br><span class="line">        <span class="attr">"alarm_type"</span>: <span class="string">"雷电"</span>,</span><br><span class="line">        <span class="attr">"alarm_level"</span>: <span class="string">"黄色"</span>,</span><br><span class="line">        <span class="attr">"alarm_content"</span>: <span class="string">"深圳市气象台于05月27日11时59分发布深圳市雷电黄色预警信号，请注意防御。（预警信息来源：国家预警信息发布中心）"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"aqi"</span>: &#123;</span><br><span class="line">        <span class="attr">"air"</span>: <span class="string">"45"</span>,</span><br><span class="line">        <span class="attr">"air_level"</span>: <span class="string">"优"</span>,</span><br><span class="line">        <span class="attr">"air_tips"</span>: <span class="string">"空气很好，可以外出活动，呼吸新鲜空气，拥抱大自然！"</span>,</span><br><span class="line">        <span class="attr">"pm25"</span>: <span class="string">"27"</span>,</span><br><span class="line">        <span class="attr">"pm25_desc"</span>: <span class="string">"优"</span>,</span><br><span class="line">        <span class="attr">"pm10"</span>: <span class="string">"45"</span>,</span><br><span class="line">        <span class="attr">"pm10_desc"</span>: <span class="string">"优"</span>,</span><br><span class="line">        <span class="attr">"o3"</span>: <span class="string">"92"</span>,</span><br><span class="line">        <span class="attr">"o3_desc"</span>: <span class="string">"优"</span>,</span><br><span class="line">        <span class="attr">"no2"</span>: <span class="string">"40"</span>,</span><br><span class="line">        <span class="attr">"no2_desc"</span>: <span class="string">"优"</span>,</span><br><span class="line">        <span class="attr">"so2"</span>: <span class="string">"6"</span>,</span><br><span class="line">        <span class="attr">"so2_desc"</span>: <span class="string">"优"</span>,</span><br><span class="line">        <span class="attr">"kouzhao"</span>: <span class="string">"无需戴口罩"</span>,</span><br><span class="line">        <span class="attr">"waichu"</span>: <span class="string">"适宜外出"</span>,</span><br><span class="line">        <span class="attr">"kaichuang"</span>: <span class="string">"适宜开窗"</span>,</span><br><span class="line">        <span class="attr">"jinghuaqi"</span>: <span class="string">"关闭净化器"</span>,</span><br><span class="line">        <span class="attr">"cityid"</span>: <span class="string">"101280601"</span>,</span><br><span class="line">        <span class="attr">"city"</span>: <span class="string">"深圳"</span>,</span><br><span class="line">        <span class="attr">"cityEn"</span>: <span class="string">"shenzhen"</span>,</span><br><span class="line">        <span class="attr">"country"</span>: <span class="string">"中国"</span>,</span><br><span class="line">        <span class="attr">"countryEn"</span>: <span class="string">"China"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>补充说明：</strong>除了实况天气和七日天气，还提供以下付费内容接口：专业七日天气、专业七日天气、专业实况天气、专业40日天气、实时降雨量预报、国外1-7日天气、历史天气、专业全球天气、全国预警数据、常规10项生活指数、全部31项生活指数、空气质量指数</p>
+<h2 id="2-高分天气"><a href="#2-高分天气" class="headerlink" title="2.高分天气"></a>2.<strong>高分天气</strong></h2><p><strong>（备注说明：参照前面第六点说明，同一类型的信息展示方式尽量统一。</strong></p>
+<p><strong>在更新后续服务的内容时，应以第一项为标准，如天气API 中提到一下内容：价格、支持平台、网站排名、谁在用、天气信息展示量及补充说明，如以上内容有查找不到的情况，也应留空，方便对比。如有额外内容，则添加到上述信息底部，如天气 API 中的 补充说明）</strong></p>
+<p><strong>……</strong></p>
+<h2 id="3-极速数据"><a href="#3-极速数据" class="headerlink" title="3.极速数据"></a>3.<strong>极速数据</strong></h2><p><strong>（同上）</strong></p>
+<p><strong>……</strong></p>
+<h2 id="4-聚合数据"><a href="#4-聚合数据" class="headerlink" title="4.聚合数据"></a>4.<strong>聚合数据</strong></h2><p><strong>（同上）</strong></p>
+<p><strong>……</strong></p>
+<h2 id="5-网络爬虫的天气-API"><a href="#5-网络爬虫的天气-API" class="headerlink" title="5.网络爬虫的天气 API"></a>5.<strong>网络爬虫的天气 API</strong></h2><p><strong>（同上）</strong></p>
+<p><strong>……</strong></p>
+<h2 id="6-综合对比"><a href="#6-综合对比" class="headerlink" title="6.综合对比"></a>6.<strong>综合对比</strong></h2><p><strong>（备注说明：做表格对比时，应注意信息筛选，将不重要的信息如网站排名和谁在用剔除，横向对比时应注意信息一致，比如下文例子中 天气 API 只提供年付费方案，高分天气提供月付费方案，应将后者换算成与前者一致的单位计算。）</strong></p>
+<p><a href="https://www.notion.so/e1fde96222214e2db5a129ced2d86e04" target="_blank" rel="noopener">Untitled</a></p>
+<p>——————————————举例完—————————————-</p>
+<h1 id="四、问题与建议"><a href="#四、问题与建议" class="headerlink" title="四、问题与建议"></a><strong>四、问题与建议</strong></h1><p>（调研过程中碰到的问题以及针对调研目标的建议，不做强制要求）</p>
+<p>——————————————举例——————————————</p>
+<p>问题：</p>
+<ol>
+<li>CuteCatOS 使用到的目标用户数量有多少？</li>
+<li>国外需要支持哪些国家？</li>
+<li>可接受付费的价格上限在哪？</li>
+<li>……</li>
+<li>……</li>
+</ol>
+<p>（可省略）建议：无</p>
+<p>——————————————举例完—————————————-</p>
+<h1 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a><strong>五、总结</strong></h1><h2 id="1-结论概述"><a href="#1-结论概述" class="headerlink" title="1.结论概述"></a>1.<strong>结论概述</strong></h2><p>（输出自己的观点、结论）</p>
+<p>（举例：综合所有情况，天气 API 目前是比较符合需求的，虽然收费，但是价钱不高，且有很多企业单位使用该公司的API，相对比较稳定。高分天气 API 虽然免费，但是天气信息太少，不符合基本需求。急速和聚合天气的话收费相对较高一点，其中聚合可以不做中转。</p>
+<p><strong>注意</strong>：聚合数据黑钻会员只能无限次数调用官网显示免费的 API，标记收费的需要另外收费。）</p>
+<h2 id="2-反思总结"><a href="#2-反思总结" class="headerlink" title="2.反思总结"></a>2.<strong>反思总结</strong></h2><p>（思考调研的过程中不足或者可以提高的内容）</p>
+<p>（举例：由于时间关系没有验证不同服务商提供的接口响应的速度，及批量测试接口，测试接口响应成功率，测试不同地区的接口请求的响应）</p>
+<h1 id="五、参考文档"><a href="#五、参考文档" class="headerlink" title="五、参考文档"></a><strong>五、参考文档</strong></h1><p>（可放链接）</p>
+<p>——————————————举例——————————————</p>
+<p>天气 API 官网：<a href="https://www.tianqiapi.com/index" target="_blank" rel="noopener">https://www.tianqiapi.com/index</a></p>
+<p>高分天气官网：<a href="http://gaofen.mlogcn.com/" target="_blank" rel="noopener">http://gaofen.mlogcn.com/</a></p>
+<p>极速数据官网：<a href="https://www.jisuapi.com/api/weather/" target="_blank" rel="noopener">https://www.jisuapi.com/api/weather/</a></p>
+<p>聚合数据官网：<a href="https://www.juhe.cn/docs/api/id/73" target="_blank" rel="noopener">https://www.juhe.cn/docs/api/id/73</a></p>
+<p>网络爬虫天气 API 来源：无</p>
+<p>——————————————举例完—————————————-</p>
+<h1 id="六、附录"><a href="#六、附录" class="headerlink" title="六、附录"></a><strong>六、附录</strong></h1><p>（可放名词解释）</p>
+<p>——————————————举例——————————————</p>
+<p><strong>Alexa 排名：</strong>Alexa排名是指网站的世界排名，主要分为综合排名和分类排名，Alexa提供了包括综合排名、到访量排名、页面访问量排名等多个评价指标信息，大多数人把它当作当前较为权威的网站访问量评价指标。—— 来源：百度百科</p>
+<p>——————————————举例完—————————————-</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------本文结束 <i class="fa fa-thermometer-three-quarters" aria-hidden="true"></i> 感谢阅读------</div>
+        <div>
+	    <p id="div-border-left-red">
+	   <b>本文地址：</b><a href="/articles/technology-research-template.html" title="技术调研模板">http://kaaaaai.cn/articles/technology-research-template.html</a><br>
+	    <span>
+	    <b>本文基于<a target="_blank" title="Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)" href="http://creativecommons.org/licenses/by-sa/4.0/"> 知识共享署名-相同方式共享 4.0 </a>国际许可协议发布</b><br><b>转载请注明出处，谢谢！</b>
+	    </span>
+	    </p>
+</div>
+    
+</div>
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>众筹项目：拯救世界！<br></div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="https://s2.ax1x.com/2020/03/04/3ouwuT.gif" alt="Kaaaaai WeChat Pay">
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+    
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/EXP/" rel="tag"><i class="fa fa-tag"></i> EXP</a>
+          
+            <a href="/tags/Technology/" rel="tag"><i class="fa fa-tag"></i> Technology</a>
+          
+            <a href="/tags/Template/" rel="tag"><i class="fa fa-tag"></i> Template</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/articles/Frequently-Asked-Questions-About-Time-Travel-by-Entropy-reduction.html" rel="next" title="有关熵减-时间旅行的冷门问题">
+                <i class="fa fa-chevron-left"></i> 有关熵减-时间旅行的冷门问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/articles/iOS-ThirdParty-Music-Research.html" rel="prev" title="iOS - 第三方音乐播放器调研">
+                iOS - 第三方音乐播放器调研 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="https://s2.ax1x.com/2019/03/14/AESiM4.jpg" alt="Kaaaaai">
+          <p class="site-author-name" itemprop="name">Kaaaaai</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-description motion-element" itemprop="description">我独自一人/照顾着/历代的星辰</p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">124</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">69</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Edison0620" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/lvkaimeiyouhenshuai" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Funny Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://htwins.net/scale2/" title="刻度" target="_blank">刻度</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://siida.me" title="Eric" target="_blank">Eric</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.rabbittu.com" title="某兔子の御用花园" target="_blank">某兔子の御用花园</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+
+        <script type="text/javascript" charset="utf-8" src="/js/src/tagcloud.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/js/src/tagcanvas.js"></script>
+        <div class="widget-wrap">
+            <h4 class="widget-title">Tag Cloud</h4>
+            <div id="myCanvasContainer" class="widget tagcloud">
+                <canvas width="250" height="250" id="resCanvas" style="width=100%">
+                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-Studio/">Android Studio</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Audio-Focus/">Audio Focus</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CocoaPods/">CocoaPods</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DNS-解析/">DNS 解析</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Development/">Development</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EXP/">EXP</a><span class="tag-list-count">77</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Format/">Format</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Search-Console/">Google Search Console</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Https/">Https</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOS/">IOS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Live/">Live</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Notion/">Notion</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OC/">OC</a><span class="tag-list-count">25</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Other/">Other</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Poem/">Poem</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Premiere-Pro/">Premiere Pro</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sourcetree/">Sourcetree</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study/">Study</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a><span class="tag-list-count">23</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Technology/">Technology</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Template/">Template</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Work/">Work</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xcode/">Xcode</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/adb/">adb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/codeAnalysis/">codeAnalysis</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/domain-name/">domain name</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a><span class="tag-list-count">38</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/seekbar/">seekbar</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中国当代/">中国当代</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中国当代小说/">中国当代小说</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中国当代文学/">中国当代文学</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中国近代文学/">中国近代文学</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书籍/">书籍</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/产品思考/">产品思考</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/写作计划/">写作计划</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/外国现当代文学/">外国现当代文学</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/季度总结/">季度总结</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/年度总结/">年度总结</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/幻想/">幻想</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/扯淡/">扯淡</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/扯谈/">扯谈</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日常/">日常</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/时间管理/">时间管理</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/梦/">梦</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/武侠小说/">武侠小说</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/江湖体验报告/">江湖体验报告</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/灵感碎片/">灵感碎片</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/王朔/">王朔</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/生活/">生活</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/用户需求/">用户需求</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/电影/">电影</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/短篇故事/">短篇故事</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科幻/">科幻</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记软件/">笔记软件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/肇始/">肇始</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/观后感/">观后感</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/观影/">观影</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/视频剪辑/">视频剪辑</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/诗歌/">诗歌</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书笔记/">读书笔记</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读后感/">读后感</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随感/">随感</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/青春文学/">青春文学</a><span class="tag-list-count">1</span></li></ul>
+                </canvas>
+            </div>
+        </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#标题"><span class="nav-text">标题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修订记录"><span class="nav-text">修订记录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、调研背景与目标"><span class="nav-text">一、调研背景与目标</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-调研背景"><span class="nav-text">1.调研背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-调研目标"><span class="nav-text">2.调研目标</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、概述"><span class="nav-text">二、概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、综合分析（比较）"><span class="nav-text">三、综合分析（比较）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-天气-API"><span class="nav-text">1.天气 API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-高分天气"><span class="nav-text">2.高分天气</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-极速数据"><span class="nav-text">3.极速数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-聚合数据"><span class="nav-text">4.聚合数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-网络爬虫的天气-API"><span class="nav-text">5.网络爬虫的天气 API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-综合对比"><span class="nav-text">6.综合对比</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、问题与建议"><span class="nav-text">四、问题与建议</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、总结"><span class="nav-text">五、总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-结论概述"><span class="nav-text">1.结论概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-反思总结"><span class="nav-text">2.反思总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、参考文档"><span class="nav-text">五、参考文档</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#六、附录"><span class="nav-text">六、附录</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kaaaaai</span>
+</div>
+
+
+<!-- time -->
+  <div id="show-time">
+    <span id="span_dt_dt"></span>
+  </div>
+  <script>
+      function show_date_time() {
+        window.setTimeout("show_date_time()", 1000);
+        BirthDay = new Date("6/23/2017 19:37:01");
+        today = new Date();
+        //总时间
+        timeold = (today.getTime() - BirthDay.getTime());
+        sectimeold = timeold / 1000
+        secondsold = Math.floor(sectimeold);
+        msPerDay = 24 * 60 * 60 * 1000
+        e_daysold = timeold / msPerDay
+        daysold = Math.floor(e_daysold);
+        e_hrsold = (e_daysold - daysold) * 24;
+        hrsold = Math.floor(e_hrsold);
+        e_minsold = (e_hrsold - hrsold) * 60;
+        minsold = Math.floor((e_hrsold - hrsold) * 60);
+        seconds = Math.floor((e_minsold - minsold) * 60);
+        span_dt_dt.innerHTML = "已存活 " + daysold + " 天 " + hrsold + " 小时 " + minsold + " 分 " + seconds + " 秒";
+    }
+show_date_time();
+  </script>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+
+  <div class="powered-by"></div>
+     <span class="post-count">博客全站共 172.9k 字</span>
+  
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://kaaaaai-cn.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://kaaaaai.cn/articles/technology-research-template.html';
+          this.page.identifier = 'articles/technology-research-template.html';
+          this.page.title = '技术调研模板';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://kaaaaai-cn.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+ 
+ <!--崩溃欺骗-->
+<script type="text/javascript" src="/js/src/makeajoke.js"></script>
+</body>
+</html>
