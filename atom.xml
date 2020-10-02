@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kaaaaai.cn/"/>
-  <updated>2020-10-02T09:52:46.124Z</updated>
+  <updated>2020-10-02T11:46:42.067Z</updated>
   <id>http://kaaaaai.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mac 使用问题处理</title>
+    <link href="http://kaaaaai.cn/articles/mac-usage-problems.html"/>
+    <id>http://kaaaaai.cn/articles/mac-usage-problems.html</id>
+    <published>2020-10-02T09:24:52.000Z</published>
+    <updated>2020-10-02T11:46:42.067Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="一、应用无法打开"><a href="#一、应用无法打开" class="headerlink" title="一、应用无法打开"></a>一、应用无法打开</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Eng.</span></span><br><span class="line"><span class="comment">#To resolute Gatekeeper issues on macOS Sierra we prepared a script to automatically unlock images and programs (annoying image/application is damaged messages pretending you cannot open things).</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#In cases you prefer a manual installation the image file in this folder could be used. For that reason you might have to partially or completely disable Gatekeeper checks.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Option I （自签名）</span></span><br><span class="line"><span class="comment">#For a certain application run in Terminal:</span></span><br><span class="line">sudo xattr -rd com.apple.quarantine /Applications/LockedApp.app</span><br><span class="line"></span><br><span class="line"><span class="comment">#Option II （开启系统设置允许所有来源安装）</span></span><br><span class="line"><span class="comment">#To disable checks globally run in Terminal:</span></span><br><span class="line">sudo spctl --master-disable</span><br><span class="line"></span><br><span class="line"><span class="comment">#TNT team</span></span><br></pre></td></tr></table></figure><h1 id="二、解决-MAC-删除应用程序后依然残留的图标"><a href="#二、解决-MAC-删除应用程序后依然残留的图标" class="headerlink" title="二、解决 MAC 删除应用程序后依然残留的图标"></a>二、解决 MAC 删除应用程序后依然残留的图标</h1><p>在 MAC，有时候删除应用程序后，发现 应用台 仍有该应用的图标</p><p><strong>删除方法：</strong><br>在终端输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlite3 $(find /private/var/folders \( -name com.apple.dock.launchpad -a -user <span class="variable">$USER</span> \) 2&gt; /dev/null)/db/db <span class="string">"DELETE FROM apps WHERE title='Mousecape';"</span> &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure><p>我这个是删除Mousecape,如果要删除其他的，改成相应应用程序的名字即可，注意大小写</p><h1 id="三、MAC-垃圾桶无法清空"><a href="#三、MAC-垃圾桶无法清空" class="headerlink" title="三、MAC 垃圾桶无法清空"></a>三、MAC 垃圾桶无法清空</h1><p>打开终端输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rfv ~/.Trash /Volumes/*/.Trashes</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
+      
+    
+    </summary>
+    
+    
+      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
+    
+      <category term="Mac" scheme="http://kaaaaai.cn/tags/Mac/"/>
+    
+  </entry>
   
   <entry>
     <title>Swift 中 Class 和 Struct 的区别 (类和结构体)</title>
@@ -585,34 +613,6 @@
       <category term="随笔" scheme="http://kaaaaai.cn/tags/%E9%9A%8F%E7%AC%94/"/>
     
       <category term="读后感" scheme="http://kaaaaai.cn/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Git - .gitignore 相关</title>
-    <link href="http://kaaaaai.cn/articles/Git-about-git-ignore.html"/>
-    <id>http://kaaaaai.cn/articles/Git-about-git-ignore.html</id>
-    <published>2020-04-03T03:24:52.000Z</published>
-    <updated>2020-04-03T11:25:13.174Z</updated>
-    
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在使用 Git 的过程中，我们喜欢有的文件比如日志，临时文件，编译的中间文件等不要提交到代码仓库，这时就要设置相应的忽略规则，来忽略这些文件的提交。</p><p>规则作用：</p><blockquote><p>/mtk 过滤整个文件夹<br>*.zip 过滤所有.zip文件<br>/mtk/do.c 过滤某个具体文件<br>!/mtk/one.txt 追踪（不过滤）某个具体文件</p></blockquote><p><strong>注意：</strong>如果你创建.gitignore 文件之前就 push 了某一文件，那么即使你在.gitignore 文件中写入过滤该文件的规则，该规则也不会起作用，git 仍然会对该文件进行版本管理。</p><p>配置语法：</p><blockquote><p>以斜杠“/”开头表示目录<br>以星号“*”通配多个字符<br>以问号“?”通配单个字符<br>以方括号“[]”包含单个字符的匹配列表<br>以叹号“!”表示不忽略(跟踪)匹配到的文件或目录</p></blockquote><p><strong>注意：</strong>git 对于 .gitignore 配置文件是按行从上到下进行规则匹配的。</p><p>Git 忽略文件提交的方法<br>有三种方法可以实现忽略 Git 中不想提交的文件。</p><h2 id="在Git项目中定义-gitignore-文件"><a href="#在Git项目中定义-gitignore-文件" class="headerlink" title="在Git项目中定义 .gitignore 文件"></a>在Git项目中定义 .gitignore 文件</h2><p>这种方式通过在项目的某个文件夹下定义 .gitignore 文件，在该文件中定义相应的忽略规则，来管理当前文件夹下的文件的 Git 提交行为。</p><p>.gitignore 文件是可以提交到共有仓库中，这就为该项目下的所有开发者都共享一套定义好的忽略规则。</p><p>在 .gitingore 文件中，遵循相应的语法，在每一行指定一个忽略规则。如：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">*.log</span><br><span class="line">*.temp</span><br><span class="line">/vendor</span><br></pre></td></tr></table></figure><h2 id="在Git项目的设置中指定排除文件"><a href="#在Git项目的设置中指定排除文件" class="headerlink" title="在Git项目的设置中指定排除文件"></a>在Git项目的设置中指定排除文件</h2><p>这种方式只是临时指定该项目的行为，需要编辑当前项目下的 .git/info/exclude 文件，然后将需要忽略提交的文件写入其中。</p><p>需要注意的是，这种方式指定的忽略文件的根目录是项目根目录。</p><h2 id="定义Git全局的-gitignore-文件"><a href="#定义Git全局的-gitignore-文件" class="headerlink" title="定义Git全局的 .gitignore 文件"></a>定义Git全局的 .gitignore 文件</h2><p>除了可以在项目中定义 .gitignore 文件外，还可以设置全局的 git .gitignore 文件来管理所有Git项目的行为。这种方式在不同的项目开发者之间是不共享的，是属于项目之上 Git 应用级别的行为。</p><p>这种方式也需要创建相应的.gitignore 文件，可以放在任意位置。然后在使用以下命令配置Git：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global core.excludesfile ~/.gitignore</span><br></pre></td></tr></table></figure><h2 id="Git-忽略规则"><a href="#Git-忽略规则" class="headerlink" title="Git 忽略规则"></a>Git 忽略规则</h2><p>详细的忽略规则可以参考<a href="https://git-scm.com/docs/gitignore" target="_blank" rel="noopener">官方英文文档</a></p><h2 id="Git-忽略规则优先级"><a href="#Git-忽略规则优先级" class="headerlink" title="Git 忽略规则优先级"></a>Git 忽略规则优先级</h2><p>在 <code>.gitingore</code> 文件中，每一行指定一个忽略规则，Git 检查忽略规则的时候有多个来源，它的优先级如下（由高到低）：</p><ul><li>从命令行中读取可用的忽略规则</li><li>当前目录定义的规则</li><li>父级目录定义的规则，依次地推</li><li>$GIT_DIR/info/exclude 文件中定义的规则</li><li>core.excludesfile 中定义的全局规则</li></ul><h2 id="Git-忽略规则匹配语法"><a href="#Git-忽略规则匹配语法" class="headerlink" title="Git 忽略规则匹配语法"></a>Git 忽略规则匹配语法</h2><p>在 .gitignore 文件中，每一行的忽略规则的语法如下：</p><ul><li><em>空格</em>不匹配任意文件，可作为分隔符，可用反斜杠转义</li><li><em>#开头</em>的模式标识注释，可以使用反斜杠进行转义</li><li><em>! 开头</em>的模式标识否定，该文件将会再次被包含，如果排除了该文件的父级目录，则使用 ! 也不会再次被包含。可以使用反斜杠进行转义</li><li><em>/ 结束</em>的模式只匹配文件夹以及在该文件夹路径下的内容，但是不匹配该文件</li><li><em>/ 开始</em>的模式匹配项目跟目录</li><li>如果一个模式不包含斜杠，则它匹配相对于当前 .gitignore 文件路径的内容，如果该模式不在 .gitignore 文件中，则相对于项目根目录</li><li><em>\</em>**匹配多级目录，可在开始，中间，结束</li><li><em>?</em>通用匹配单个字符</li><li>*[]*通用匹配单个字符列表</li></ul><h2 id="常用匹配示例"><a href="#常用匹配示例" class="headerlink" title="常用匹配示例"></a>常用匹配示例</h2><ul><li>bin/: 忽略当前路径下的bin文件夹，该文件夹下的所有内容都会被忽略，不忽略 bin 文件</li><li>/bin: 忽略根目录下的bin文件</li><li>/*.c: 忽略 cat.c，不忽略 build/cat.c</li><li>debug/*.obj: 忽略 debug/io.obj，不忽略 debug/common/io.obj 和 tools/debug/io.obj</li><li>**/foo: 忽略/foo, a/foo, a/b/foo等</li><li>a/**/b: 忽略a/b, a/x/b, a/x/y/b等</li><li>!/bin/run.sh: 不忽略 bin 目录下的 run.sh 文件</li><li>*.log: 忽略所有 .log 文件</li><li>config.php: 忽略当前路径的 config.php 文件</li><li><h2 id="gitignore规则不生效"><a href="#gitignore规则不生效" class="headerlink" title=".gitignore规则不生效"></a>.gitignore规则不生效</h2><code>.gitignore</code> 只能忽略那些原来没有被 track 的文件，如果某些文件已经被纳入了版本管理中，则修改 <code>.gitignore</code> 是无效的。</li></ul><p>解决方法就是先把本地缓存删除（改变成未 track 状态），然后再提交:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git rm -r --cached .</span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">'update .gitignore'</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.
-      
-    
-    </summary>
-    
-    
-      <category term="笔记" scheme="http://kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="EXP" scheme="http://kaaaaai.cn/tags/EXP/"/>
-    
-      <category term="Git" scheme="http://kaaaaai.cn/tags/Git/"/>
     
   </entry>
   
