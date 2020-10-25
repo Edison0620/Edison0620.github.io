@@ -5,9 +5,9 @@
   <subtitle>闲言和碎语</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://www.kaaaaai.cn/"/>
+  <link href="https://www.kaaaaai.cn/"/>
   <updated>2020-10-19T07:17:53.170Z</updated>
-  <id>http://www.kaaaaai.cn/</id>
+  <id>https://www.kaaaaai.cn/</id>
   
   <author>
     <name>Kaaaaai</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>iOS 自动化打包上传 AppleStore、fir.im，并发邮件通知测试人员</title>
-    <link href="http://www.kaaaaai.cn/articles/ios-automated-packaging-complicated-by-mail.html"/>
-    <id>http://www.kaaaaai.cn/articles/ios-automated-packaging-complicated-by-mail.html</id>
+    <link href="https://www.kaaaaai.cn/ios-automated-packaging-complicated-by-mail.html"/>
+    <id>https://www.kaaaaai.cn/ios-automated-packaging-complicated-by-mail.html</id>
     <published>2020-10-19T03:24:52.000Z</published>
     <updated>2020-10-19T07:17:53.170Z</updated>
     
@@ -35,21 +35,21 @@
     </summary>
     
     
-      <category term="笔记" scheme="http://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="EXP" scheme="http://www.kaaaaai.cn/tags/EXP/"/>
+      <category term="EXP" scheme="https://www.kaaaaai.cn/tags/EXP/"/>
     
-      <category term="iOS" scheme="http://www.kaaaaai.cn/tags/iOS/"/>
+      <category term="iOS" scheme="https://www.kaaaaai.cn/tags/iOS/"/>
     
-      <category term="Xcode" scheme="http://www.kaaaaai.cn/tags/Xcode/"/>
+      <category term="Xcode" scheme="https://www.kaaaaai.cn/tags/Xcode/"/>
     
   </entry>
   
   <entry>
     <title>Mac 使用问题处理</title>
-    <link href="http://www.kaaaaai.cn/articles/mac-usage-problems.html"/>
-    <id>http://www.kaaaaai.cn/articles/mac-usage-problems.html</id>
+    <link href="https://www.kaaaaai.cn/mac-usage-problems.html"/>
+    <id>https://www.kaaaaai.cn/mac-usage-problems.html</id>
     <published>2020-10-02T09:24:52.000Z</published>
     <updated>2020-10-02T11:46:55.436Z</updated>
     
@@ -65,19 +65,19 @@
     </summary>
     
     
-      <category term="笔记" scheme="http://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="EXP" scheme="http://www.kaaaaai.cn/tags/EXP/"/>
+      <category term="EXP" scheme="https://www.kaaaaai.cn/tags/EXP/"/>
     
-      <category term="Mac" scheme="http://www.kaaaaai.cn/tags/Mac/"/>
+      <category term="Mac" scheme="https://www.kaaaaai.cn/tags/Mac/"/>
     
   </entry>
   
   <entry>
     <title>Swift 中 Class 和 Struct 的区别 (类和结构体)</title>
-    <link href="http://www.kaaaaai.cn/articles/class-and-struct-in-swift.html"/>
-    <id>http://www.kaaaaai.cn/articles/class-and-struct-in-swift.html</id>
+    <link href="https://www.kaaaaai.cn/class-and-struct-in-swift.html"/>
+    <id>https://www.kaaaaai.cn/class-and-struct-in-swift.html</id>
     <published>2020-10-02T03:24:52.000Z</published>
     <updated>2020-10-02T09:52:46.124Z</updated>
     
@@ -93,21 +93,21 @@
     </summary>
     
     
-      <category term="笔记" scheme="http://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="EXP" scheme="http://www.kaaaaai.cn/tags/EXP/"/>
+      <category term="EXP" scheme="https://www.kaaaaai.cn/tags/EXP/"/>
     
-      <category term="iOS" scheme="http://www.kaaaaai.cn/tags/iOS/"/>
+      <category term="iOS" scheme="https://www.kaaaaai.cn/tags/iOS/"/>
     
-      <category term="Swift" scheme="http://www.kaaaaai.cn/tags/Swift/"/>
+      <category term="Swift" scheme="https://www.kaaaaai.cn/tags/Swift/"/>
     
   </entry>
   
   <entry>
     <title>Swift - 利用高阶函数给字典排序</title>
-    <link href="http://www.kaaaaai.cn/articles/swift-use-higher-orderfunctions-to-dictionary-sort.html"/>
-    <id>http://www.kaaaaai.cn/articles/swift-use-higher-orderfunctions-to-dictionary-sort.html</id>
+    <link href="https://www.kaaaaai.cn/swift-use-higher-orderfunctions-to-dictionary-sort.html"/>
+    <id>https://www.kaaaaai.cn/swift-use-higher-orderfunctions-to-dictionary-sort.html</id>
     <published>2020-10-02T02:24:52.000Z</published>
     <updated>2020-10-02T09:37:22.658Z</updated>
     
@@ -123,21 +123,21 @@
     </summary>
     
     
-      <category term="笔记" scheme="http://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="EXP" scheme="http://www.kaaaaai.cn/tags/EXP/"/>
+      <category term="EXP" scheme="https://www.kaaaaai.cn/tags/EXP/"/>
     
-      <category term="iOS" scheme="http://www.kaaaaai.cn/tags/iOS/"/>
+      <category term="iOS" scheme="https://www.kaaaaai.cn/tags/iOS/"/>
     
-      <category term="Swift" scheme="http://www.kaaaaai.cn/tags/Swift/"/>
+      <category term="Swift" scheme="https://www.kaaaaai.cn/tags/Swift/"/>
     
   </entry>
   
   <entry>
     <title>业余剪辑自我修养</title>
-    <link href="http://www.kaaaaai.cn/articles/amateur-clipsself-improvement.html"/>
-    <id>http://www.kaaaaai.cn/articles/amateur-clipsself-improvement.html</id>
+    <link href="https://www.kaaaaai.cn/amateur-clipsself-improvement.html"/>
+    <id>https://www.kaaaaai.cn/amateur-clipsself-improvement.html</id>
     <published>2020-10-02T01:24:52.000Z</published>
     <updated>2020-10-02T09:18:55.123Z</updated>
     
@@ -153,21 +153,21 @@
     </summary>
     
     
-      <category term="工具" scheme="http://www.kaaaaai.cn/categories/%E5%B7%A5%E5%85%B7/"/>
+      <category term="工具" scheme="https://www.kaaaaai.cn/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="EXP" scheme="http://www.kaaaaai.cn/tags/EXP/"/>
+      <category term="EXP" scheme="https://www.kaaaaai.cn/tags/EXP/"/>
     
-      <category term="视频剪辑" scheme="http://www.kaaaaai.cn/tags/%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91/"/>
+      <category term="视频剪辑" scheme="https://www.kaaaaai.cn/tags/%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91/"/>
     
-      <category term="Premiere Pro" scheme="http://www.kaaaaai.cn/tags/Premiere-Pro/"/>
+      <category term="Premiere Pro" scheme="https://www.kaaaaai.cn/tags/Premiere-Pro/"/>
     
   </entry>
   
   <entry>
     <title>iOS - 第三方音乐播放器调研</title>
-    <link href="http://www.kaaaaai.cn/articles/ios-thirdparty-music-research.html"/>
-    <id>http://www.kaaaaai.cn/articles/ios-thirdparty-music-research.html</id>
+    <link href="https://www.kaaaaai.cn/ios-thirdparty-music-research.html"/>
+    <id>https://www.kaaaaai.cn/ios-thirdparty-music-research.html</id>
     <published>2020-09-30T01:24:52.000Z</published>
     <updated>2020-10-02T09:13:43.404Z</updated>
     
@@ -183,21 +183,21 @@
     </summary>
     
     
-      <category term="笔记" scheme="http://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="EXP" scheme="http://www.kaaaaai.cn/tags/EXP/"/>
+      <category term="EXP" scheme="https://www.kaaaaai.cn/tags/EXP/"/>
     
-      <category term="Swift" scheme="http://www.kaaaaai.cn/tags/Swift/"/>
+      <category term="Swift" scheme="https://www.kaaaaai.cn/tags/Swift/"/>
     
-      <category term="OC" scheme="http://www.kaaaaai.cn/tags/OC/"/>
+      <category term="OC" scheme="https://www.kaaaaai.cn/tags/OC/"/>
     
   </entry>
   
   <entry>
     <title>技术调研模板</title>
-    <link href="http://www.kaaaaai.cn/articles/technology-research-template.html"/>
-    <id>http://www.kaaaaai.cn/articles/technology-research-template.html</id>
+    <link href="https://www.kaaaaai.cn/technology-research-template.html"/>
+    <id>https://www.kaaaaai.cn/technology-research-template.html</id>
     <published>2020-09-30T01:24:52.000Z</published>
     <updated>2020-09-30T02:42:14.857Z</updated>
     
@@ -213,21 +213,21 @@
     </summary>
     
     
-      <category term="笔记" scheme="http://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="EXP" scheme="http://www.kaaaaai.cn/tags/EXP/"/>
+      <category term="EXP" scheme="https://www.kaaaaai.cn/tags/EXP/"/>
     
-      <category term="Technology" scheme="http://www.kaaaaai.cn/tags/Technology/"/>
+      <category term="Technology" scheme="https://www.kaaaaai.cn/tags/Technology/"/>
     
-      <category term="Template" scheme="http://www.kaaaaai.cn/tags/Template/"/>
+      <category term="Template" scheme="https://www.kaaaaai.cn/tags/Template/"/>
     
   </entry>
   
   <entry>
     <title>有关熵减-时间旅行的冷门问题</title>
-    <link href="http://www.kaaaaai.cn/articles/frequently-asked-questions-about-time-travel-by-entropy-reduction.html"/>
-    <id>http://www.kaaaaai.cn/articles/frequently-asked-questions-about-time-travel-by-entropy-reduction.html</id>
+    <link href="https://www.kaaaaai.cn/frequently-asked-questions-about-time-travel-by-entropy-reduction.html"/>
+    <id>https://www.kaaaaai.cn/frequently-asked-questions-about-time-travel-by-entropy-reduction.html</id>
     <published>2020-09-20T02:13:52.000Z</published>
     <updated>2020-09-30T02:20:34.614Z</updated>
     
@@ -243,21 +243,21 @@
     </summary>
     
     
-      <category term="旁白" scheme="http://www.kaaaaai.cn/categories/%E6%97%81%E7%99%BD/"/>
+      <category term="旁白" scheme="https://www.kaaaaai.cn/categories/%E6%97%81%E7%99%BD/"/>
     
     
-      <category term="随笔" scheme="http://www.kaaaaai.cn/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://www.kaaaaai.cn/tags/%E9%9A%8F%E7%AC%94/"/>
     
-      <category term="电影" scheme="http://www.kaaaaai.cn/tags/%E7%94%B5%E5%BD%B1/"/>
+      <category term="电影" scheme="https://www.kaaaaai.cn/tags/%E7%94%B5%E5%BD%B1/"/>
     
-      <category term="观后感" scheme="http://www.kaaaaai.cn/tags/%E8%A7%82%E5%90%8E%E6%84%9F/"/>
+      <category term="观后感" scheme="https://www.kaaaaai.cn/tags/%E8%A7%82%E5%90%8E%E6%84%9F/"/>
     
   </entry>
   
   <entry>
     <title>Swift - 权限请求封装</title>
-    <link href="http://www.kaaaaai.cn/articles/swift-permission-request-tools.html"/>
-    <id>http://www.kaaaaai.cn/articles/swift-permission-request-tools.html</id>
+    <link href="https://www.kaaaaai.cn/swift-permission-request-tools.html"/>
+    <id>https://www.kaaaaai.cn/swift-permission-request-tools.html</id>
     <published>2020-09-12T02:24:52.000Z</published>
     <updated>2020-09-12T04:01:46.235Z</updated>
     
@@ -273,21 +273,21 @@
     </summary>
     
     
-      <category term="笔记" scheme="http://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="EXP" scheme="http://www.kaaaaai.cn/tags/EXP/"/>
+      <category term="EXP" scheme="https://www.kaaaaai.cn/tags/EXP/"/>
     
-      <category term="iOS" scheme="http://www.kaaaaai.cn/tags/iOS/"/>
+      <category term="iOS" scheme="https://www.kaaaaai.cn/tags/iOS/"/>
     
-      <category term="Swift" scheme="http://www.kaaaaai.cn/tags/Swift/"/>
+      <category term="Swift" scheme="https://www.kaaaaai.cn/tags/Swift/"/>
     
   </entry>
   
   <entry>
     <title>iOS - HMAC 加密算法和一个 MD5 加密的问题</title>
-    <link href="http://www.kaaaaai.cn/articles/ios-hmac-encryption-and-an-md5-problem.html"/>
-    <id>http://www.kaaaaai.cn/articles/ios-hmac-encryption-and-an-md5-problem.html</id>
+    <link href="https://www.kaaaaai.cn/ios-hmac-encryption-and-an-md5-problem.html"/>
+    <id>https://www.kaaaaai.cn/ios-hmac-encryption-and-an-md5-problem.html</id>
     <published>2020-09-06T02:24:52.000Z</published>
     <updated>2020-09-12T03:54:35.753Z</updated>
     
@@ -303,23 +303,23 @@
     </summary>
     
     
-      <category term="笔记" scheme="http://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="EXP" scheme="http://www.kaaaaai.cn/tags/EXP/"/>
+      <category term="EXP" scheme="https://www.kaaaaai.cn/tags/EXP/"/>
     
-      <category term="iOS" scheme="http://www.kaaaaai.cn/tags/iOS/"/>
+      <category term="iOS" scheme="https://www.kaaaaai.cn/tags/iOS/"/>
     
-      <category term="Swift" scheme="http://www.kaaaaai.cn/tags/Swift/"/>
+      <category term="Swift" scheme="https://www.kaaaaai.cn/tags/Swift/"/>
     
-      <category term="OC" scheme="http://www.kaaaaai.cn/tags/OC/"/>
+      <category term="OC" scheme="https://www.kaaaaai.cn/tags/OC/"/>
     
   </entry>
   
   <entry>
     <title>iOS - 一些蓝牙问题的解决</title>
-    <link href="http://www.kaaaaai.cn/articles/ios-some-question-about-bluetooth.html"/>
-    <id>http://www.kaaaaai.cn/articles/ios-some-question-about-bluetooth.html</id>
+    <link href="https://www.kaaaaai.cn/ios-some-question-about-bluetooth.html"/>
+    <id>https://www.kaaaaai.cn/ios-some-question-about-bluetooth.html</id>
     <published>2020-08-15T02:24:52.000Z</published>
     <updated>2020-08-15T04:44:19.787Z</updated>
     
@@ -335,23 +335,23 @@
     </summary>
     
     
-      <category term="笔记" scheme="http://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="EXP" scheme="http://www.kaaaaai.cn/tags/EXP/"/>
+      <category term="EXP" scheme="https://www.kaaaaai.cn/tags/EXP/"/>
     
-      <category term="iOS" scheme="http://www.kaaaaai.cn/tags/iOS/"/>
+      <category term="iOS" scheme="https://www.kaaaaai.cn/tags/iOS/"/>
     
-      <category term="Swift" scheme="http://www.kaaaaai.cn/tags/Swift/"/>
+      <category term="Swift" scheme="https://www.kaaaaai.cn/tags/Swift/"/>
     
-      <category term="OC" scheme="http://www.kaaaaai.cn/tags/OC/"/>
+      <category term="OC" scheme="https://www.kaaaaai.cn/tags/OC/"/>
     
   </entry>
   
   <entry>
     <title>Swift - 顶部弹出框封装</title>
-    <link href="http://www.kaaaaai.cn/articles/swift-toppop-upboxencapsulation.html"/>
-    <id>http://www.kaaaaai.cn/articles/swift-toppop-upboxencapsulation.html</id>
+    <link href="https://www.kaaaaai.cn/swift-toppop-upboxencapsulation.html"/>
+    <id>https://www.kaaaaai.cn/swift-toppop-upboxencapsulation.html</id>
     <published>2020-08-04T05:24:52.000Z</published>
     <updated>2020-08-05T02:27:17.049Z</updated>
     
@@ -367,21 +367,21 @@
     </summary>
     
     
-      <category term="笔记" scheme="http://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="EXP" scheme="http://www.kaaaaai.cn/tags/EXP/"/>
+      <category term="EXP" scheme="https://www.kaaaaai.cn/tags/EXP/"/>
     
-      <category term="iOS" scheme="http://www.kaaaaai.cn/tags/iOS/"/>
+      <category term="iOS" scheme="https://www.kaaaaai.cn/tags/iOS/"/>
     
-      <category term="Swift" scheme="http://www.kaaaaai.cn/tags/Swift/"/>
+      <category term="Swift" scheme="https://www.kaaaaai.cn/tags/Swift/"/>
     
   </entry>
   
   <entry>
     <title>被光放弃的人</title>
-    <link href="http://www.kaaaaai.cn/articles/a-person-abandoned-by-the-light.html"/>
-    <id>http://www.kaaaaai.cn/articles/a-person-abandoned-by-the-light.html</id>
+    <link href="https://www.kaaaaai.cn/a-person-abandoned-by-the-light.html"/>
+    <id>https://www.kaaaaai.cn/a-person-abandoned-by-the-light.html</id>
     <published>2020-07-18T02:13:52.000Z</published>
     <updated>2020-07-23T06:09:11.554Z</updated>
     
@@ -397,21 +397,21 @@
     </summary>
     
     
-      <category term="旁白" scheme="http://www.kaaaaai.cn/categories/%E6%97%81%E7%99%BD/"/>
+      <category term="旁白" scheme="https://www.kaaaaai.cn/categories/%E6%97%81%E7%99%BD/"/>
     
     
-      <category term="随笔" scheme="http://www.kaaaaai.cn/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://www.kaaaaai.cn/tags/%E9%9A%8F%E7%AC%94/"/>
     
-      <category term="电影" scheme="http://www.kaaaaai.cn/tags/%E7%94%B5%E5%BD%B1/"/>
+      <category term="电影" scheme="https://www.kaaaaai.cn/tags/%E7%94%B5%E5%BD%B1/"/>
     
-      <category term="观后感" scheme="http://www.kaaaaai.cn/tags/%E8%A7%82%E5%90%8E%E6%84%9F/"/>
+      <category term="观后感" scheme="https://www.kaaaaai.cn/tags/%E8%A7%82%E5%90%8E%E6%84%9F/"/>
     
   </entry>
   
   <entry>
     <title>OC - 多代理的实现</title>
-    <link href="http://www.kaaaaai.cn/articles/oc-multi-delegate-implementation.html"/>
-    <id>http://www.kaaaaai.cn/articles/oc-multi-delegate-implementation.html</id>
+    <link href="https://www.kaaaaai.cn/oc-multi-delegate-implementation.html"/>
+    <id>https://www.kaaaaai.cn/oc-multi-delegate-implementation.html</id>
     <published>2020-07-16T05:24:52.000Z</published>
     <updated>2020-07-16T10:27:46.602Z</updated>
     
@@ -427,21 +427,21 @@
     </summary>
     
     
-      <category term="笔记" scheme="http://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="EXP" scheme="http://www.kaaaaai.cn/tags/EXP/"/>
+      <category term="EXP" scheme="https://www.kaaaaai.cn/tags/EXP/"/>
     
-      <category term="iOS" scheme="http://www.kaaaaai.cn/tags/iOS/"/>
+      <category term="iOS" scheme="https://www.kaaaaai.cn/tags/iOS/"/>
     
-      <category term="OC" scheme="http://www.kaaaaai.cn/tags/OC/"/>
+      <category term="OC" scheme="https://www.kaaaaai.cn/tags/OC/"/>
     
   </entry>
   
   <entry>
     <title>我的 AIO-notion 工作流搭建</title>
-    <link href="http://www.kaaaaai.cn/articles/my-aio-notion-workflow-setup.html"/>
-    <id>http://www.kaaaaai.cn/articles/my-aio-notion-workflow-setup.html</id>
+    <link href="https://www.kaaaaai.cn/my-aio-notion-workflow-setup.html"/>
+    <id>https://www.kaaaaai.cn/my-aio-notion-workflow-setup.html</id>
     <published>2020-06-07T05:24:52.000Z</published>
     <updated>2020-06-07T07:35:22.964Z</updated>
     
@@ -457,21 +457,21 @@
     </summary>
     
     
-      <category term="工具" scheme="http://www.kaaaaai.cn/categories/%E5%B7%A5%E5%85%B7/"/>
+      <category term="工具" scheme="https://www.kaaaaai.cn/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="时间管理" scheme="http://www.kaaaaai.cn/tags/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/"/>
+      <category term="时间管理" scheme="https://www.kaaaaai.cn/tags/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/"/>
     
-      <category term="笔记软件" scheme="http://www.kaaaaai.cn/tags/%E7%AC%94%E8%AE%B0%E8%BD%AF%E4%BB%B6/"/>
+      <category term="笔记软件" scheme="https://www.kaaaaai.cn/tags/%E7%AC%94%E8%AE%B0%E8%BD%AF%E4%BB%B6/"/>
     
-      <category term="Notion" scheme="http://www.kaaaaai.cn/tags/Notion/"/>
+      <category term="Notion" scheme="https://www.kaaaaai.cn/tags/Notion/"/>
     
   </entry>
   
   <entry>
     <title>解决使用 GitPage 重定向多次问题</title>
-    <link href="http://www.kaaaaai.cn/articles/web-resolve-recirculation-errors.html"/>
-    <id>http://www.kaaaaai.cn/articles/web-resolve-recirculation-errors.html</id>
+    <link href="https://www.kaaaaai.cn/web-resolve-recirculation-errors.html"/>
+    <id>https://www.kaaaaai.cn/web-resolve-recirculation-errors.html</id>
     <published>2020-05-30T09:24:52.000Z</published>
     <updated>2020-05-31T01:07:39.468Z</updated>
     
@@ -487,23 +487,23 @@
     </summary>
     
     
-      <category term="笔记" scheme="http://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="EXP" scheme="http://www.kaaaaai.cn/tags/EXP/"/>
+      <category term="EXP" scheme="https://www.kaaaaai.cn/tags/EXP/"/>
     
-      <category term="Web" scheme="http://www.kaaaaai.cn/tags/Web/"/>
+      <category term="Web" scheme="https://www.kaaaaai.cn/tags/Web/"/>
     
-      <category term="Https" scheme="http://www.kaaaaai.cn/tags/Https/"/>
+      <category term="Https" scheme="https://www.kaaaaai.cn/tags/Https/"/>
     
-      <category term="DNS 解析" scheme="http://www.kaaaaai.cn/tags/DNS-%E8%A7%A3%E6%9E%90/"/>
+      <category term="DNS 解析" scheme="https://www.kaaaaai.cn/tags/DNS-%E8%A7%A3%E6%9E%90/"/>
     
   </entry>
   
   <entry>
     <title>iOS - 日志打印收集第三方库调研</title>
-    <link href="http://www.kaaaaai.cn/articles/ios-log-printing-to-collect-third-party-library.html"/>
-    <id>http://www.kaaaaai.cn/articles/ios-log-printing-to-collect-third-party-library.html</id>
+    <link href="https://www.kaaaaai.cn/ios-log-printing-to-collect-third-party-library.html"/>
+    <id>https://www.kaaaaai.cn/ios-log-printing-to-collect-third-party-library.html</id>
     <published>2020-05-18T05:24:52.000Z</published>
     <updated>2020-05-18T07:58:14.641Z</updated>
     
@@ -519,21 +519,21 @@
     </summary>
     
     
-      <category term="笔记" scheme="http://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="EXP" scheme="http://www.kaaaaai.cn/tags/EXP/"/>
+      <category term="EXP" scheme="https://www.kaaaaai.cn/tags/EXP/"/>
     
-      <category term="Swift" scheme="http://www.kaaaaai.cn/tags/Swift/"/>
+      <category term="Swift" scheme="https://www.kaaaaai.cn/tags/Swift/"/>
     
-      <category term="OC" scheme="http://www.kaaaaai.cn/tags/OC/"/>
+      <category term="OC" scheme="https://www.kaaaaai.cn/tags/OC/"/>
     
   </entry>
   
   <entry>
     <title>Swift - ?和!的学习</title>
-    <link href="http://www.kaaaaai.cn/articles/?-and-!-learning.html"/>
-    <id>http://www.kaaaaai.cn/articles/?-and-!-learning.html</id>
+    <link href="https://www.kaaaaai.cn/?-and-!-learning.html"/>
+    <id>https://www.kaaaaai.cn/?-and-!-learning.html</id>
     <published>2020-04-24T09:24:52.000Z</published>
     <updated>2020-08-13T06:24:59.710Z</updated>
     
@@ -549,21 +549,21 @@
     </summary>
     
     
-      <category term="笔记" scheme="http://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="EXP" scheme="http://www.kaaaaai.cn/tags/EXP/"/>
+      <category term="EXP" scheme="https://www.kaaaaai.cn/tags/EXP/"/>
     
-      <category term="iOS" scheme="http://www.kaaaaai.cn/tags/iOS/"/>
+      <category term="iOS" scheme="https://www.kaaaaai.cn/tags/iOS/"/>
     
-      <category term="Swift" scheme="http://www.kaaaaai.cn/tags/Swift/"/>
+      <category term="Swift" scheme="https://www.kaaaaai.cn/tags/Swift/"/>
     
   </entry>
   
   <entry>
     <title>《文学回忆录》读书笔记</title>
-    <link href="http://www.kaaaaai.cn/articles/literary-memoirs-reading-notes.html"/>
-    <id>http://www.kaaaaai.cn/articles/literary-memoirs-reading-notes.html</id>
+    <link href="https://www.kaaaaai.cn/literary-memoirs-reading-notes.html"/>
+    <id>https://www.kaaaaai.cn/literary-memoirs-reading-notes.html</id>
     <published>2020-04-18T05:00:52.000Z</published>
     <updated>2020-04-23T05:41:27.219Z</updated>
     
@@ -579,19 +579,19 @@
     </summary>
     
     
-      <category term="剪报" scheme="http://www.kaaaaai.cn/categories/%E5%89%AA%E6%8A%A5/"/>
+      <category term="剪报" scheme="https://www.kaaaaai.cn/categories/%E5%89%AA%E6%8A%A5/"/>
     
     
-      <category term="读书笔记" scheme="http://www.kaaaaai.cn/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+      <category term="读书笔记" scheme="https://www.kaaaaai.cn/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="中国近代文学" scheme="http://www.kaaaaai.cn/tags/%E4%B8%AD%E5%9B%BD%E8%BF%91%E4%BB%A3%E6%96%87%E5%AD%A6/"/>
+      <category term="中国近代文学" scheme="https://www.kaaaaai.cn/tags/%E4%B8%AD%E5%9B%BD%E8%BF%91%E4%BB%A3%E6%96%87%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>iOS - UITableview 阴影圆角共存</title>
-    <link href="http://www.kaaaaai.cn/articles/ios-uitableview-shadow-rounded-corners-coexist.html"/>
-    <id>http://www.kaaaaai.cn/articles/ios-uitableview-shadow-rounded-corners-coexist.html</id>
+    <link href="https://www.kaaaaai.cn/ios-uitableview-shadow-rounded-corners-coexist.html"/>
+    <id>https://www.kaaaaai.cn/ios-uitableview-shadow-rounded-corners-coexist.html</id>
     <published>2020-04-11T02:24:52.000Z</published>
     <updated>2020-05-27T12:29:06.404Z</updated>
     
@@ -607,14 +607,14 @@
     </summary>
     
     
-      <category term="笔记" scheme="http://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="EXP" scheme="http://www.kaaaaai.cn/tags/EXP/"/>
+      <category term="EXP" scheme="https://www.kaaaaai.cn/tags/EXP/"/>
     
-      <category term="iOS" scheme="http://www.kaaaaai.cn/tags/iOS/"/>
+      <category term="iOS" scheme="https://www.kaaaaai.cn/tags/iOS/"/>
     
-      <category term="Swift" scheme="http://www.kaaaaai.cn/tags/Swift/"/>
+      <category term="Swift" scheme="https://www.kaaaaai.cn/tags/Swift/"/>
     
   </entry>
   
