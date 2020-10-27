@@ -84,7 +84,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="读书笔记,诗歌,">
+  <meta name="keywords" content="EXP,iOS,Swift,">
 
 
 
@@ -102,18 +102,18 @@
 
 
 
-<meta name="description" content="《大海上的柠檬》 [姚风](https://www.amazon.cn/dp/B01GJKHX40/ref=cm_sw_r_qz_2_dp_2unvzb8Y953A4)   6 个片段    炙热的石头 大约在夏天你给我一块烤热的石头我把它放在左手又把它放在右手日子翻来覆去石头渐渐地凉了我的手收藏了所有的阴影  诗人的午餐 *在法罗， 我们坐在大海边我们用诗句歌颂大海我们用牙齿把 一条大鱼剔成大">
-<meta name="keywords" content="读书笔记,诗歌">
+<meta name="description" content="最近在优化一个项目的过程，过程中发现之前开发时由于刚接触 Swift 的原因，在 Swift 中的类里使用了很多 OC 的写法，比如字典数组对象会习惯性用 NSDictionary、NSArray来初始化，而不是用 [KeyType: ValueType]() 或是 [SomeType]() 这种类型来实例化变量。虽然在使用上没有什么问题，但看起来多少有点。。。不优雅。　　当我把大部分类型都">
+<meta name="keywords" content="EXP,iOS,Swift">
 <meta property="og:type" content="article">
-<meta property="og:title" content="三本诗集的片段">
-<meta property="og:url" content="https://www.kaaaaai.cn/019.html">
+<meta property="og:title" content="Swift - ?和!的学习">
+<meta property="og:url" content="https://www.kaaaaai.cn/swift-">
 <meta property="og:site_name" content="壹拾肆">
-<meta property="og:description" content="《大海上的柠檬》 [姚风](https://www.amazon.cn/dp/B01GJKHX40/ref=cm_sw_r_qz_2_dp_2unvzb8Y953A4)   6 个片段    炙热的石头 大约在夏天你给我一块烤热的石头我把它放在左手又把它放在右手日子翻来覆去石头渐渐地凉了我的手收藏了所有的阴影  诗人的午餐 *在法罗， 我们坐在大海边我们用诗句歌颂大海我们用牙齿把 一条大鱼剔成大">
+<meta property="og:description" content="最近在优化一个项目的过程，过程中发现之前开发时由于刚接触 Swift 的原因，在 Swift 中的类里使用了很多 OC 的写法，比如字典数组对象会习惯性用 NSDictionary、NSArray来初始化，而不是用 [KeyType: ValueType]() 或是 [SomeType]() 这种类型来实例化变量。虽然在使用上没有什么问题，但看起来多少有点。。。不优雅。　　当我把大部分类型都">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-10-21T03:25:19.540Z">
+<meta property="og:updated_time" content="2020-08-13T06:24:59.710Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="三本诗集的片段">
-<meta name="twitter:description" content="《大海上的柠檬》 [姚风](https://www.amazon.cn/dp/B01GJKHX40/ref=cm_sw_r_qz_2_dp_2unvzb8Y953A4)   6 个片段    炙热的石头 大约在夏天你给我一块烤热的石头我把它放在左手又把它放在右手日子翻来覆去石头渐渐地凉了我的手收藏了所有的阴影  诗人的午餐 *在法罗， 我们坐在大海边我们用诗句歌颂大海我们用牙齿把 一条大鱼剔成大">
+<meta name="twitter:title" content="Swift - ?和!的学习">
+<meta name="twitter:description" content="最近在优化一个项目的过程，过程中发现之前开发时由于刚接触 Swift 的原因，在 Swift 中的类里使用了很多 OC 的写法，比如字典数组对象会习惯性用 NSDictionary、NSArray来初始化，而不是用 [KeyType: ValueType]() 或是 [SomeType]() 这种类型来实例化变量。虽然在使用上没有什么问题，但看起来多少有点。。。不优雅。　　当我把大部分类型都">
 
 
 
@@ -141,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="https://www.kaaaaai.cn/019.html">
+  <link rel="canonical" href="https://www.kaaaaai.cn/swift-">
 
 
 
 
 
-  <title>三本诗集的片段 | 壹拾肆</title>
+  <title>Swift - ?和!的学习 | 壹拾肆</title>
   
 
 
@@ -316,7 +316,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://www.kaaaaai.cn/019.html">
+    <link itemprop="mainEntityOfPage" href="https://www.kaaaaai.cn/swift-?-and-!-learning.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kaaaaai">
@@ -333,7 +333,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">三本诗集的片段</h2>
+          <h2 class="post-title" itemprop="name headline">Swift - ?和!的学习</h2>
         
 
         <div class="post-meta">
@@ -345,8 +345,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-30T21:00:52+08:00">
-                2017-12-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-24T17:24:52+08:00">
+                2020-04-24
               </time>
             
 
@@ -368,8 +368,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/剪报/" itemprop="url" rel="index">
-                    <span itemprop="name">剪报</span>
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
                   </a>
                 </span>
 
@@ -386,8 +386,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/019.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="/019.html" itemprop="commentCount"></span>
+                <a href="/swift-?-and-!-learning.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="/swift-?-and-!-learning.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -414,7 +414,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  899 字
+                  1,068 字
                 </span>
               
 
@@ -430,7 +430,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  3 分钟
+                  5 分钟
                 </span>
               
             </div>
@@ -448,35 +448,36 @@
       
 
       
-        <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="《大海上的柠檬》"><a href="#《大海上的柠檬》" class="headerlink" title="《大海上的柠檬》"></a>《大海上的柠檬》</h1><div align="right"> [姚风](https://www.amazon.cn/dp/B01GJKHX40/ref=cm_sw_r_qz_2_dp_2unvzb8Y953A4) </div>
-<div align="right"> 6 个片段 </div> 
+        <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　最近在优化一个项目的过程，过程中发现之前开发时由于刚接触 <code>Swift</code> 的原因，在 <code>Swift</code> 中的类里使用了很多 <code>OC</code> 的写法，比如字典数组对象会习惯性用 <code>NSDictionary</code>、<code>NSArray</code>来初始化，而不是用 <code>[KeyType: ValueType]()</code> 或是 <code>[SomeType]()</code> 这种类型来实例化变量。虽然在使用上没有什么问题，但看起来多少有点。。。不优雅。<br>　　当我把大部分类型都修改成 <code>Swift</code> 中的写法后（部分未修改是因为使用 <code>String</code> 类型来给文本做截取和富文本定义，实在不如 <code>NSString</code> 顺手，这种不顺手让我不由想起 Stack Overflow 上看到的一个评论：I thougt i already getting along well  with Swift.）发现，原来一些变量是否为空的判断中，使用 <code>Swift</code> 里的 <code>optional</code> 类型会方便很多。<br>　　比如解析一个 json 数据，如果层级多而且里面每个元素都是不确定的，那么可能就需要每个层级都判一次空。而如果使用 ? 来设置当前对象为可选值，只需要在最后一层实际使用到对象值时，判一次空就 OK 了。<br>　　对于 ? 和 ! 的区别和总结，网上有很多文章，在这里就不重复造轮子了。下面就对这个 <code>optional</code> 的自己两个疑问做个记录。
+　　</p>
+<h2 id="和-！-是表示两种不同的类型吗，一种是可以为空，一种不可以为空？"><a href="#和-！-是表示两种不同的类型吗，一种是可以为空，一种不可以为空？" class="headerlink" title="? 和 ！ 是表示两种不同的类型吗，一种是可以为空，一种不可以为空？"></a>? 和 ！ 是表示两种不同的类型吗，一种是可以为空，一种不可以为空？</h2><p>　　刚开始使用的时候没做深入了解，以为 <code>optional</code> 中的 ? 和 ! 和 <code>let</code> 声明不可变变量，<code>var</code> 声明可变变量。? 和 ! 是一组彼此相对只是含义不同的两个符号。但深入了解了一下，发现并不是这样，引用两段官方的文档：</p>
+<blockquote>
+<p>You use the Optional type whenever you use optional values, even if you never type the word Optional. Swift’s type system usually shows the wrapped type’s name with a trailing question mark (?) instead of showing the full type name. For example, if a variable has the type Int?, that’s just another way of writing Optional<int>. The shortened form is preferred for ease of reading and writing code.</int></p>
+<p>The types of shortForm and longForm in the following code sample are the same:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; let shortForm: Int? = Int(&quot;42&quot;)</span><br><span class="line">&gt; let longForm: Optional&lt;Int&gt; = Int(&quot;42&quot;)</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>　　这里的意思是说当你使用 <code>Optional</code> 类型时的值，即使在初始化时没有用“Optional”这个单词指定类型，在 Swift 中也可用 ? 代替。即 <code>Int?</code> 等于 <code>Optional&lt;Int&gt;</code>。那按照之前我的理解，是否 ! 也是某个 Not Optional 单词的代替？后面官方文档就有提到了：</p>
+<blockquote>
+<p>When you’re certain that an instance of Optional contains a value, you can unconditionally unwrap the value by using the forced unwrap operator (postfix !). For example, the result of the failable Int initializer is unconditionally unwrapped in the example below.</p>
+</blockquote>
+<p>　　意思是说 ! 是代表一种 <code>Unconditional Unwrapping</code> 的运算符，而并不是作为一种类型的表达。
+　　</p>
+<h2 id="关于-Unconditional-Unwrapping"><a href="#关于-Unconditional-Unwrapping" class="headerlink" title="关于 Unconditional Unwrapping"></a>关于 Unconditional Unwrapping</h2><p>　　<code>Unconditional Unwrapping</code> 怎么理解，直译的话叫<strong>无条件展开</strong>，专业术语叫<strong>强制拆包</strong>。为什么使用 <code>Optional</code> 类型会需要强制拆包，如果使用 ! 运算符意味着强制拆包，那不使用 ! 时，<code>Optional</code> 是否还会做拆包的处理呢？<br>　　仍然回到官方文档，有这句：</p>
+<blockquote>
+<p>The Optional type is an enumeration with two cases. Optional.none is equivalent to the nil literal.</p>
+</blockquote>
+<p>　　也就是说 <code>Optional</code> 是一个默认带有 <code>Optional.none</code> 枚举类型的包装。所以使用时我们必须按官方说的：</p>
+<blockquote>
+<p>You must unwrap the value of an Optional instance before you can use it in many contexts.</p>
+</blockquote>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>　　基于以上的学习和理解，我们可以来解读以下一些写法：</p>
+<figure class="highlight swift"><figcaption><span>初始化</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> value:<span class="type">NSString</span> = <span class="literal">nil</span> <span class="comment">//错误写法，未指定 Optional，所以不可以被赋值为空</span></span><br><span class="line"><span class="keyword">let</span> value:<span class="type">NSString</span>! <span class="comment">//如果后续未赋值而直接使用则会崩溃</span></span><br><span class="line"><span class="keyword">let</span> value:<span class="type">NSString</span>? = <span class="literal">nil</span> <span class="comment">//同下，如果后续 value 未被赋值，他会默认等于 nil</span></span><br><span class="line"><span class="keyword">let</span> value:<span class="type">NSString</span>?</span><br></pre></td></tr></table></figure>
 
-<p><strong>炙热的石头</strong></p>
-<p>大约在夏天<br>你给我一块烤热的石头<br>我把它放在左手<br>又把它放在右手<br>日子翻来覆去<br>石头渐渐地凉了<br>我的手收藏了所有的阴影</p>
-<hr>
-<p><strong>诗人的午餐</strong></p>
-<p>*在法罗， 我们坐在大海边<br>我们用诗句歌颂大海<br>我们用牙齿<br>把 一条大鱼剔成大海的胸针</p>
-<hr>
-<p><strong>景山</strong></p>
-<p>夕阳向西山滑去<br>暮色使宫殿渐渐远离<br>游人纷纷下山<br>丁香在山坡独自开放<br>暗香浮动<br>引我凭栏眺望<br>日出日落，千篇一律<br>如朝代更迭<br>无非揭竿而起<br>无非腐败堕落<br>无非再揭竿而起<br>我兴味索然<br>更想知道巍峨宫殿，三千粉黛<br>美丽的人民<br>如何度过<br>她们绝经前后的人生</p>
-<hr>
-<p><strong>镜子</strong></p>
-<p>*树枝在镜子里摇晃<br>我看见了远方和风<br>我还看见，我的五官日渐消瘦<br>而孤独增长了身高<br>但我还没有积攒足够的孤独<br>还没有力量打碎镜子<br>找到深藏镜中的你</p>
-<hr>
-<p><strong>大海上的柠檬</strong></p>
-<p>我要了一杯红茶，你拿来柠檬<br>问我要不要加糖<br>我不喜欢加糖，但喜欢柠檬<br>在阿尔加维， 我们坐在树下喝茶<br>树结满了柠檬和鸟鸣<br>水太蓝，你把一个柠檬扔进了大海<br>此刻，只有风坐在我的身旁<br>不停扯我的衣衫<br>树叶喧哗，如波浪翻卷<br>我看见，一个柠檬向我漂来<br>整个大海<br>没有加糖，只有柠檬<br>只有一个柠檬</p>
-<hr>
-<p><strong>诗歌</strong></p>
-<p>诗歌<br>无法阻止一辆坦克<br>但可以把坦克手<br>培养成一名诗人<br>他跳出那一堆钢铁<br>坐到树下<br>若有所思地写下<br>如下的句子：<br>春天还没有来<br>一只小鸟<br>落在绿色的炮筒上<br>……</p>
-<h1 id="《永居异乡》"><a href="#《永居异乡》" class="headerlink" title="《永居异乡》"></a>《永居异乡》</h1><div align="right"> [欧阳昱](https://www.amazon.cn/dp/B01GJKHXA4/ref=cm_sw_r_qz_2_dp_2unvzb8Y953A4) </div><div align="right"> 1 个片段 </div> 
+<figure class="highlight swift"><figcaption><span>转换类型</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> array:<span class="type">NSArray</span> = <span class="type">NSMutableArray</span>.<span class="keyword">init</span>(object: <span class="string">"111"</span>)</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">(111)</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="built_in">print</span>(array <span class="keyword">as</span>! <span class="type">NSMutableArray</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Optional(&lt;__NSArrayM 0x7b790430&gt;(111))</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="built_in">print</span>(array <span class="keyword">as</span>? <span class="type">NSMutableArray</span>)</span><br></pre></td></tr></table></figure>
 
-<p><strong>假如</strong></p>
-<p>假如明天就死<br>你想做点什么<br>在天上挖个洞<br>种下一棵诗<br>假如明天就死<br>你想做点什么<br>把国家从脑中挖出<br>作为器官，捐给无国可归者<br>假如明天就死<br>你还想做点什么<br>活摘今天的阳具<br>做明天的装置展出<br>假如明天就死<br>你还有什么想做<br>找上帝开具结婚证<br>跟死亡永结连理</p>
-<h1 id="《每一首都是情歌》"><a href="#《每一首都是情歌》" class="headerlink" title="《每一首都是情歌》"></a>《每一首都是情歌》</h1><div align="right"> [王小龙](https://www.amazon.cn/dp/B01GNVYL40/ref=cm_sw_r_qz_2_dp_2unvzb8Y953A4) </div><div align="right"> 1 个片段 </div> 
+<figure class="highlight swift"><figcaption><span>方法定义</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//可传空值</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">buttonClick</span><span class="params">(sender: UIButton?)</span></span>&#123;</span><br><span class="line">    <span class="comment">//....    </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//不可传空值</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">buttonClick</span><span class="params">(sender: UIButton)</span></span>&#123;</span><br><span class="line">    <span class="comment">//....    </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>鼓浪屿</strong></p>
-<p>我要在夜半偷偷砍断所有的缆绳<br>放你逃走，鼓浪屿<br>逃得很远很远<br>让你去优美地流浪<br>月亮们找不到你<br>每个夜晚你都在另一个地方梦呓<br>把凤凰花瓣撒满海上<br>我们将永远站在岸上<br>一次次睡去一次次醒来<br>活着活着然后无奈地死去<br>八月的阳光下狗在咻咻奔走<br>公共汽车太挤<br>冬天太冷<br>钱太少<br>而你依然优美地流浪<br>从终日半合的百叶窗里<br>以少女的琴声召唤上一 世纪<br>哦日光岩下的三角梅<br>哦月光漫上了台阶<br>这时攀缘而上的常春藤一起松开<br>白鲸浮出水面<br>兵舰们围绕着你<br>这个世界上的兵舰<br>假如只是为了检阅<br>为了漂亮地穿过波浪<br>那么你垂悬在古榕树上的梦<br>会是多么真实令人神往我们将永远站在岸上</p>
-
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fruitDic: [<span class="type">String</span>: <span class="type">String</span>] = [<span class="string">"apple"</span>:<span class="string">"red"</span>,<span class="string">"banana"</span>:<span class="string">"yellow"</span>]</span><br><span class="line"><span class="keyword">let</span> apple: <span class="type">String</span>! = fruitDic[<span class="string">"apple"</span>]! <span class="comment">// String! 可以直接写成 String，这里只是为了直观阅读</span></span><br><span class="line"><span class="keyword">let</span> banana: <span class="type">String</span>? = fruitDic[<span class="string">"apple"</span>]</span><br><span class="line"><span class="keyword">let</span> blueberry: <span class="type">String</span>! = fruitDic[<span class="string">"blueberry"</span>] ?? <span class="string">""</span></span><br><span class="line"><span class="keyword">let</span> orange: <span class="type">String</span>? = fruitDic[<span class="string">"orange"</span>]</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -494,7 +495,7 @@
         <div style="text-align:center;color: #ccc;font-size:14px;">------本文结束 <i class="fa fa-thermometer-three-quarters" aria-hidden="true"></i> 感谢阅读------</div>
         <div>
 	    <p id="div-border-left-red">
-	   <b>本文地址：</b><a href="/019.html" title="三本诗集的片段">https://www.kaaaaai.cn/019.html</a><br>
+	   <b>本文地址：</b><a href="/swift-?-and-!-learning.html" title="Swift - ?和!的学习">https://www.kaaaaai.cn/swift-?-and-!-learning.html</a><br>
 	    <span>
 	    <b>本文基于<a target="_blank" title="Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)" href="http://creativecommons.org/licenses/by-sa/4.0/"> 知识共享署名-相同方式共享 4.0 </a>国际许可协议发布</b><br><b>转载请注明出处，谢谢！</b>
 	    </span>
@@ -539,9 +540,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/读书笔记/" rel="tag"><i class="fa fa-tag"></i> 读书笔记</a>
+            <a href="/tags/EXP/" rel="tag"><i class="fa fa-tag"></i> EXP</a>
           
-            <a href="/tags/诗歌/" rel="tag"><i class="fa fa-tag"></i> 诗歌</a>
+            <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
+          
+            <a href="/tags/Swift/" rel="tag"><i class="fa fa-tag"></i> Swift</a>
           
         </div>
       
@@ -554,8 +557,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/writing-plan.html" rel="next" title="写作计划">
-                <i class="fa fa-chevron-left"></i> 写作计划
+              <a href="/literary-memoirs-reading-notes.html" rel="next" title="《文学回忆录》读书笔记">
+                <i class="fa fa-chevron-left"></i> 《文学回忆录》读书笔记
               </a>
             
           </div>
@@ -564,8 +567,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/020.html" rel="prev" title="初入江湖的第一份报告">
-                初入江湖的第一份报告 <i class="fa fa-chevron-right"></i>
+              <a href="/ios-log-printing-to-collect-third-party-library.html" rel="prev" title="iOS - 日志打印收集第三方库调研">
+                iOS - 日志打印收集第三方库调研 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -667,7 +670,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">126</span>
+                <span class="site-state-item-count">127</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -689,7 +692,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">70</span>
+                <span class="site-state-item-count">71</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -765,7 +768,7 @@
             <h4 class="widget-title">Tag Cloud</h4>
             <div id="myCanvasContainer" class="widget tagcloud">
                 <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-Studio/">Android Studio</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Audio-Focus/">Audio Focus</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CocoaPods/">CocoaPods</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DNS-解析/">DNS 解析</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Development/">Development</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EXP/">EXP</a><span class="tag-list-count">79</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Format/">Format</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Search-Console/">Google Search Console</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Https/">Https</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOS/">IOS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Live/">Live</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Notion/">Notion</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OC/">OC</a><span class="tag-list-count">25</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Other/">Other</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Poem/">Poem</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Premiere-Pro/">Premiere Pro</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sourcetree/">Sourcetree</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study/">Study</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Technology/">Technology</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Template/">Template</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Work/">Work</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xcode/">Xcode</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/adb/">adb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/codeAnalysis/">codeAnalysis</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/domain-name/">domain name</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a><span class="tag-list-count">38</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/seekbar/">seekbar</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中国当代/">中国当代</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中国当代小说/">中国当代小说</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中国当代文学/">中国当代文学</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中国近代文学/">中国近代文学</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书籍/">书籍</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/产品思考/">产品思考</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/写作计划/">写作计划</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/外国现当代文学/">外国现当代文学</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/季度总结/">季度总结</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/年度总结/">年度总结</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/幻想/">幻想</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/扯淡/">扯淡</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/扯谈/">扯谈</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日常/">日常</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/时间管理/">时间管理</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/梦/">梦</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/武侠小说/">武侠小说</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/江湖体验报告/">江湖体验报告</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/灵感碎片/">灵感碎片</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/王朔/">王朔</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/生活/">生活</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/用户需求/">用户需求</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/电影/">电影</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/短篇故事/">短篇故事</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科幻/">科幻</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记软件/">笔记软件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/肇始/">肇始</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/观后感/">观后感</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/观影/">观影</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/视频剪辑/">视频剪辑</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/诗歌/">诗歌</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书笔记/">读书笔记</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读后感/">读后感</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随感/">随感</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/青春文学/">青春文学</a><span class="tag-list-count">1</span></li></ul>
+                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-Studio/">Android Studio</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Audio-Focus/">Audio Focus</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CocoaPods/">CocoaPods</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DNS-解析/">DNS 解析</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Development/">Development</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EXP/">EXP</a><span class="tag-list-count">79</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Format/">Format</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Search-Console/">Google Search Console</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Https/">Https</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOS/">IOS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Live/">Live</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Notion/">Notion</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OC/">OC</a><span class="tag-list-count">25</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Other/">Other</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Poem/">Poem</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Premiere-Pro/">Premiere Pro</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sourcetree/">Sourcetree</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study/">Study</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Technology/">Technology</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Template/">Template</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Work/">Work</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xcode/">Xcode</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/adb/">adb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/codeAnalysis/">codeAnalysis</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/domain-name/">domain name</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a><span class="tag-list-count">38</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/seekbar/">seekbar</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中国当代/">中国当代</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中国当代小说/">中国当代小说</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中国当代文学/">中国当代文学</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中国近代文学/">中国近代文学</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书籍/">书籍</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/产品思考/">产品思考</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/写作计划/">写作计划</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/外国现当代文学/">外国现当代文学</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/季度总结/">季度总结</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/年度总结/">年度总结</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/幻想/">幻想</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/扯淡/">扯淡</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/扯谈/">扯谈</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/播客/">播客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日常/">日常</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/时间管理/">时间管理</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/梦/">梦</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/武侠小说/">武侠小说</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/江湖体验报告/">江湖体验报告</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/灵感碎片/">灵感碎片</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/王朔/">王朔</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/生活/">生活</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/用户需求/">用户需求</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/电影/">电影</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/短篇故事/">短篇故事</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科幻/">科幻</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记软件/">笔记软件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/肇始/">肇始</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/观后感/">观后感</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/观影/">观影</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/视频剪辑/">视频剪辑</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/诗歌/">诗歌</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书笔记/">读书笔记</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读后感/">读后感</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随感/">随感</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/青春文学/">青春文学</a><span class="tag-list-count">1</span></li></ul>
                 </canvas>
             </div>
         </div>
@@ -786,7 +789,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#《大海上的柠檬》"><span class="nav-text">《大海上的柠檬》</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#《永居异乡》"><span class="nav-text">《永居异乡》</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#《每一首都是情歌》"><span class="nav-text">《每一首都是情歌》</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#和-！-是表示两种不同的类型吗，一种是可以为空，一种不可以为空？"><span class="nav-text">? 和 ！ 是表示两种不同的类型吗，一种是可以为空，一种不可以为空？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于-Unconditional-Unwrapping"><span class="nav-text">关于 Unconditional Unwrapping</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-text">其他</span></a></li></ol></div>
             
 
           </div>
@@ -866,7 +869,7 @@ show_date_time();
     </span>
 
   <div class="powered-by"></div>
-     <span class="post-count">博客全站共 175.4k 字</span>
+     <span class="post-count">博客全站共 176.4k 字</span>
   
   
 </div>
@@ -977,9 +980,9 @@ show_date_time();
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://www.kaaaaai.cn/019.html';
-          this.page.identifier = '/019.html';
-          this.page.title = '三本诗集的片段';
+          this.page.url = 'https://www.kaaaaai.cn/swift-?-and-!-learning.html';
+          this.page.identifier = '/swift-?-and-!-learning.html';
+          this.page.title = 'Swift - ?和!的学习';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://kaaaaai-cn.disqus.com/embed.js';
