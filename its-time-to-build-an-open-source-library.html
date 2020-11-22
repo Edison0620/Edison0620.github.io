@@ -1,0 +1,1420 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="EXP,OpenSource,GitHub,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="壹拾肆" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+
+
+
+
+
+
+<meta name="description" content="使用 GitHub 很久，除了无脑 star、fork 大神们的仓库、输出一些学习代码以外，对于 GitHub 本身的贡献似乎寥寥。Arctic Code Vault Contributor 的勋章我受之有愧。如果你也有和我类似的想法，那么，是时候可以尝试一下维护一个自己的开源库了。 维护一个开源库，听起来很简单，但是真正要开始动手，似乎颇有些千头万绪，无从下手。首先第一个问题就是：我们可以去维">
+<meta name="keywords" content="EXP,OpenSource,GitHub">
+<meta property="og:type" content="article">
+<meta property="og:title" content="是时候维护一个属于自己的开源库了">
+<meta property="og:url" content="https://www.kaaaaai.cn/its-time-to-build-an-open-source-library.html">
+<meta property="og:site_name" content="壹拾肆">
+<meta property="og:description" content="使用 GitHub 很久，除了无脑 star、fork 大神们的仓库、输出一些学习代码以外，对于 GitHub 本身的贡献似乎寥寥。Arctic Code Vault Contributor 的勋章我受之有愧。如果你也有和我类似的想法，那么，是时候可以尝试一下维护一个自己的开源库了。 维护一个开源库，听起来很简单，但是真正要开始动手，似乎颇有些千头万绪，无从下手。首先第一个问题就是：我们可以去维">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://i.loli.net/2020/11/22/IJGh1tVqATzZlYL.jpg">
+<meta property="og:image" content="https://i.loli.net/2020/11/22/9FHA4eQsfUqkWYX.png">
+<meta property="og:image" content="https://i.loli.net/2020/11/22/F39zC7M2nTcXGyP.png">
+<meta property="og:image" content="https://i.loli.net/2020/11/22/b4ga6fzWIvkVoce.png">
+<meta property="og:image" content="https://i.loli.net/2020/11/22/ezD8NbqloGFipHX.png">
+<meta property="og:image" content="https://i.loli.net/2020/11/22/qKgJbv1x2cGzk7e.png">
+<meta property="og:image" content="https://img.shields.io/static/v1?label=&labelColor=505050&message=website&color=%230076D6&style=flat&logo=google-chrome&logoColor=%230076D6">
+<meta property="og:image" content="https://i.loli.net/2020/11/22/pcHKt3e9LRv1jdV.png">
+<meta property="og:image" content="https://i.loli.net/2020/11/22/s6yAmwq84ZRFkoz.png">
+<meta property="og:image" content="https://i.loli.net/2020/11/22/Mmc8NQbY4g5Tw3q.png">
+<meta property="og:updated_time" content="2020-11-22T07:48:58.740Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="是时候维护一个属于自己的开源库了">
+<meta name="twitter:description" content="使用 GitHub 很久，除了无脑 star、fork 大神们的仓库、输出一些学习代码以外，对于 GitHub 本身的贡献似乎寥寥。Arctic Code Vault Contributor 的勋章我受之有愧。如果你也有和我类似的想法，那么，是时候可以尝试一下维护一个自己的开源库了。 维护一个开源库，听起来很简单，但是真正要开始动手，似乎颇有些千头万绪，无从下手。首先第一个问题就是：我们可以去维">
+<meta name="twitter:image" content="https://i.loli.net/2020/11/22/IJGh1tVqATzZlYL.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://www.kaaaaai.cn/its-time-to-build-an-open-source-library.html">
+
+
+
+
+
+  <title>是时候维护一个属于自己的开源库了 | 壹拾肆</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9578d14210d67becef48447e4f6b3f20";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+<script>
+  	var _mtac = {};
+  	(function() {
+  		var mta = document.createElement("script");
+  		mta.src = "https://pingjs.qq.com/h5/stats.js?v2.0.4";
+  		mta.setAttribute("name", "MTAH5");
+  		mta.setAttribute("sid", "500731939");
+
+  		var s = document.getElementsByTagName("script")[0];
+  		s.parentNode.insertBefore(mta, s);
+  	})();
+</script>
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">壹拾肆</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">闲言和碎语</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-xumi">
+          <a href="/xumi" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-coffee"></i> <br>
+            
+            须弥
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+</ul></nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://www.kaaaaai.cn/its-time-to-build-an-open-source-library.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaaaaai">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://s2.ax1x.com/2019/03/14/AESiM4.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="壹拾肆">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">是时候维护一个属于自己的开源库了</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-11-21T09:37:05+08:00">
+                2020-11-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/its-time-to-build-an-open-source-library.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="/its-time-to-build-an-open-source-library.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">热度
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>℃ |
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  2,354 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  8 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <script src="/assets/js/APlayer.min.js"> </script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>使用 GitHub 很久，除了无脑 star、fork 大神们的仓库、输出一些学习代码以外，对于 GitHub 本身的贡献似乎寥寥。<a href="https://archiveprogram.github.com/arctic-vault/" target="_blank" rel="noopener"><strong>Arctic Code Vault Contributor</strong></a> 的勋章我受之有愧。如果你也有和我类似的想法，那么，是时候可以尝试一下维护一个自己的开源库了。</p>
+<p>维护一个开源库，听起来很简单，但是真正要开始动手，似乎颇有些千头万绪，无从下手。首先第一个问题就是：我们可以去维护一个怎样的开源库？</p>
+<h2 id="开源库选题"><a href="#开源库选题" class="headerlink" title="开源库选题"></a>开源库选题</h2><p>该维护一个怎样的开源库，讨论这个问题之前。我们先把维护开源库这件事当做一个项目来分析，首先我们来思考这个项目的目的和意义——这个思考的结果有利于我们对于这个项目的持续维护，也可以当做一项工作开始前的心理建设。</p>
+<p>我们的目的除了上面提到的增加一些对 GitHub 的贡献，我们所选择去维护的开源库类型也可以从另一方面确认我们这个项目的目的，比如如果你打算维护一个你所对应的开发语言的工具类框架，那你们目的就是把这个框架完成，并且好用。</p>
+<p>而在这个过程中，你的技能水平有所提升，是附带产生的收获，也是可以在这个阶段当做我们的目的之一。</p>
+<p>另外如果你期望你的框架可以满足了一部分人的需求，可以帮助到别人，得到一些 <strong>Star</strong> 和 <strong>Follow</strong>，那么获得他人认可也是作为这个项目的目的之一。</p>
+<p>最后，当我们选择去维护一个开源库，这个开源库必然是我们最想去维护的，那这个过程中我们必然是开心和满足的，获得自我满足感也可以当做我们的目的之一，这点也是我认为最重要的。</p>
+<p>以上几点，既可以当做目的，从结果上也可以当做我们维护开源库所具备的意义。</p>
+<p>进入正题，我们该维护一个怎样的开源库？对于大神来说，这个问题很简单，基本就是输出一些自制的小工具或者简洁优美的代码轮子，但对于一个还在自己的知识领域里辛苦耕耘的朋友来说，要独立维护一个技术含量比较高的开源库也许会略感吃力，甚至有可能是劝退性的。对于这类心里打鼓的朋友，也许前面干巴巴的文字无法成功完成第一轮的心理建设，也许需要一些更直观的东西来把退堂鼓换成锣鼓，比如：</p>
+<ul>
+<li><a href="https://www.zhihu.com/question/23498424/answer/565475152" target="_blank" rel="noopener">你在 GitHub 上看到过的最有意思的项目是什么？ - 知乎</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/58404875" target="_blank" rel="noopener">我在 GitHub 上都见过哪些沙雕项目？ - 知乎</a></li>
+</ul>
+<p>这两个链接里面有许多技术含量不高，但很有趣也有很多 <strong>Star</strong> 的项目，比如这个<a href="https://github.com/kelseyhightower/nocode" target="_blank" rel="noopener">nocode</a><br><img align="center" src="https://i.loli.net/2020/11/22/IJGh1tVqATzZlYL.jpg" width="650px/"></p>
+<p>没有一行代码的应用程序，看起来像是一个愚人节玩笑。</p>
+<blockquote>
+<p>Write nothing; deploy nowhere.</p>
+</blockquote>
+<p>OK，maybe it is the most secure and reliable applications.这个项目在 GitHub 有四万多的 <strong>Star</strong>，颇有几分不着一字，尽得风流的意味。</p>
+<p>总之，从以上例子来看，其实我们无需局限于技术，在开源库的类型选择上，我们可以有更开放的选择，总结如下：</p>
+<ul>
+<li>技术，比如：<a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="noopener">AFNetworking</a></li>
+<li>某个领域的资讯整合，比如：<a href="https://github.com/SwiftOldDriver/iOS-Weekly" target="_blank" rel="noopener">iOS-Weekly</a></li>
+<li>学习资料，比如：<a href="https://github.com/soapyigu/Swift-30-Projects" target="_blank" rel="noopener">Swift-30-Projects</a></li>
+<li>同一类资源的合集，比如：<a href="https://github.com/jaywcjlove/awesome-mac" target="_blank" rel="noopener">awesome-mac</a>、<a href="https://github.com/timmy3131/design-resource" target="_blank" rel="noopener">design-resource</a></li>
+<li>偏生活向的，比如：<a href="https://github.com/hoosin/EveryDaySport" target="_blank" rel="noopener">EveryDaySport</a>、<a href="https://github.com/YixuanFranco/YourBoyfriend" target="_blank" rel="noopener">YourBoyfriend</a></li>
+<li>emmmmm，比如：<a href="https://github.com/komeiji-satori/Dress" target="_blank" rel="noopener">Dress</a></li>
+</ul>
+<p>确定一个方向后，然后在此基础上从自己擅长或者感兴趣的入手，相信你很快就能找到一个合适的项目。</p>
+<h2 id="开源库维护"><a href="#开源库维护" class="headerlink" title="开源库维护"></a>开源库维护</h2><p>确定好要维护一个怎样的开源库后，接下来就是创建仓库，拉取部署和维护——这里默认所有想维护开源库的朋友对 GitHub 的基本操作都熟悉。</p>
+<p>创建仓库这里有个小 Tips，是公司同事分享的，就是一个比较正式的开源库，通常会挂在一个组织底下，比如：<br><img align="center" src="https://i.loli.net/2020/11/22/9FHA4eQsfUqkWYX.png" width="650px/"><br>比如：<br><img align="center" src="https://i.loli.net/2020/11/22/F39zC7M2nTcXGyP.png" width="650px/"><br>再比如<br><img align="center" src="https://i.loli.net/2020/11/22/b4ga6fzWIvkVoce.png" width="650px/"><br>由以上例子可见，挂在组织底下的项目会比挂在个人底下的项目看起来更会正式。哪怕我们是个人维护的，但让他看起来正式一点也没什么错误。另外在被搜索和在 url 路径展示上也相对会工整一点。<br><img align="center" src="https://i.loli.net/2020/11/22/ezD8NbqloGFipHX.png" width="650px/"></p>
+<p>创建完一个仓库以后，拉取部署等常规操作略过不提，说说维护。步入正轨的维护，其实就是持续的 push 就好，根据仓库类型不同，有的也许是周期需要维护的，有的也许上线已接近完成，需要做的只是抓虫和偶尔更新。这个时候需要注意：</p>
+<ol>
+<li>对项目保持一定的关注，给自己固定一个周期性的时间检查项目，以防止时间断层导致项目失去维护。</li>
+<li>每次 commit 的描述，清晰直观的提交历史可以让人对你的表述能力有大概了解，也方便给潜在的，想要一起维护的开发者一个直观的项目过往，有利于增加与你一起协作维护的吸引力。</li>
+<li>项目结构的条理性，原因同上。</li>
+</ol>
+<p>除了步入正轨的维护，在创建时，还有项目本身的一些设定也很重要：<br><img src="https://i.loli.net/2020/11/22/qKgJbv1x2cGzk7e.png" alt="qKgJbv1x2cGzk7e"></p>
+<ul>
+<li>项目 logo</li>
+<li>readme 文件的书写</li>
+<li>项目描述</li>
+<li>开源声明</li>
+</ul>
+<p>项目 logo 如果动手能力强的朋友可以考虑自己设计一下，网上也有在线工具可以用符号排列组合生成属于自己的 logo。</p>
+<p>readme 文件作为一个项目的头脸，描述清晰直观的重要性远远超过上述提到的 commint，内容排版，头部和尾部信息的展示。</p>
+<p>细心的朋友可能注意到许多项目的 readme 文件的开始会有类似于这种<a href="https://awesome-online-efficiency.github.io/Awesome-Online-Efficiency/" target="_blank" rel="noopener"><img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=website&color=%230076D6&style=flat&logo=google-chrome&logoColor=%230076D6" alt="website"></a>仓库属性信息的小标签，这种标签可以使用 <a href="https://shields.io/" target="_blank" rel="noopener">Shields.io</a> 这个网站来制作。</p>
+<p>以我的仓库为例，在网站首页填入仓库地址，点击 <strong>Suggest badges</strong> 会自动生成几个标签，不同的标签代表着不同的含义。<br><img src="https://i.loli.net/2020/11/22/pcHKt3e9LRv1jdV.png" alt="pcHKt3e9LRv1jdV"></p>
+<p>如果想展示更多的内容，可以上拉网页自己定制。</p>
+<p>readme 的底部信息，没有标准，有的仓库会把作者的个人信息挂上，有的会列出贡献者名单，也有的会把自己的收款二维码贴上，供人打赏。全凭个人喜欢。</p>
+<p>关于仓库 <code>About</code> 的描述，力求简洁，明朗，最好一句话能说清楚是干嘛的。而一个有网站可以浏览的仓库体验也会相对好点，这方面使用 GitHub 提供的服务——GitHub Pages 已然可以满足。实现起来有两种方式：</p>
+<ol>
+<li><p>可以在仓库设置界面点击 <code>Change Theme</code>，在进去的二级页面选择好主题后，GitHub 会自动帮你生成一个网站分支，自动拉取你主分支的内容更新。<br> <img src="https://i.loli.net/2020/11/22/s6yAmwq84ZRFkoz.png" alt="s6yAmwq84ZRFkoz"></p>
+</li>
+<li><p>如果不喜欢产生多余分支，有强迫症的朋友也可以尝试在仓库主路径底下增加 <code>_config.yml</code> 文件，在里面添加主题配置：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: jekyll-theme-cayman</span><br></pre></td></tr></table></figure>
+
+<p> 并在设置中选择，通过主分支来构建网站，即可生成仓库网站。<br> <img src="https://i.loli.net/2020/11/22/Mmc8NQbY4g5Tw3q.png" alt="Mmc8NQbY4g5Tw3q"></p>
+</li>
+</ol>
+<p>给仓库设置标签有利于检索，比如我给我的仓库设置了一个 <code>awesome</code> 的标签，那么如果有人搜索相关字段，或者直接在 <a href="https://github.com/topics/awesome" target="_blank" rel="noopener">Awesome Lists</a> 这个列表里找，会有相对较高的曝光率。</p>
+<p>关于版权声明，如果在创建仓库时勾选了生成版权声明的文件，创建后会自动生成该文件。如果没有后面自己加也可以，添加后侧边栏会自动生成版权声明的描述。我这里选择的是 CC0-1.0 的版本。关于不同版权声明的区别会在后续文章中更新。</p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>要维护好一个开源库需要做的事情远比上面列举的还要对，只是对于一个刚开始维护一个开源库的新手来说，不至于劝退，这些内容已经足够。</p>
+<p>而在步入正轨以后，你可能需要回答 <code>Issues</code> 里提出来的各种意想不到的问题，也可能要甄别 <code>Pull requests</code> 下的提交是否有益，利用好 GitHub 提供的额外功能 <code>Actions</code>、<code>Projects</code> 则可以大大提高维护和协作的效率。另外你还可以在 <code>Insights</code> 看到自己仓库的各种统计信息，仓库的贡献曲线图，浏览次数，被下载次数等等。</p>
+<p>最后，无论你的开源库是否因为代码优美而获得许多 <strong>Star</strong>，还是持续维护仍无人问津。都祝你好运。最后分享一句孔子的一段话，也做自我勉励：</p>
+<blockquote>
+<p>芝兰生于空谷，不以无人而不芳。</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------本文结束 <i class="fa fa-thermometer-three-quarters" aria-hidden="true"></i> 感谢阅读------</div>
+        <div>
+	    <p id="div-border-left-red">
+	   <b>本文地址：</b><a href="/its-time-to-build-an-open-source-library.html" title="是时候维护一个属于自己的开源库了">https://www.kaaaaai.cn/its-time-to-build-an-open-source-library.html</a><br>
+	    <span>
+	    <b>本文基于<a target="_blank" title="Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)" href="http://creativecommons.org/licenses/by-sa/4.0/"> 知识共享署名-相同方式共享 4.0 </a>国际许可协议发布</b><br><b>转载请注明出处，谢谢！</b>
+	    </span>
+	    </p>
+</div>
+    
+</div>
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>众筹项目：拯救世界！<br></div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="https://s2.ax1x.com/2020/03/04/3ouwuT.gif" alt="Kaaaaai WeChat Pay">
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+    
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/EXP/" rel="tag"><i class="fa fa-tag"></i> EXP</a>
+          
+            <a href="/tags/OpenSource/" rel="tag"><i class="fa fa-tag"></i> OpenSource</a>
+          
+            <a href="/tags/GitHub/" rel="tag"><i class="fa fa-tag"></i> GitHub</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/ios-douban-open-source-license-mentioned-in-the-library.html" rel="next" title="iOS 端豆瓣开源许可提到的库">
+                <i class="fa fa-chevron-left"></i> iOS 端豆瓣开源许可提到的库
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="https://s2.ax1x.com/2019/03/14/AESiM4.jpg" alt="Kaaaaai">
+          <p class="site-author-name" itemprop="name">Kaaaaai</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-description motion-element" itemprop="description">我独自一人/照顾着/历代的星辰</p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">129</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">72</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Edison0620" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/lvkaimeiyouhenshuai" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Funny Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://htwins.net/scale2/" title="刻度" target="_blank">刻度</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://siida.me" title="Eric" target="_blank">Eric</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.rabbittu.com" title="某兔子の御用花园" target="_blank">某兔子の御用花园</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+
+        <script type="text/javascript" charset="utf-8" src="/js/src/tagcloud.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/js/src/tagcanvas.js"></script>
+        <div class="widget-wrap">
+            <h4 class="widget-title">Tag Cloud</h4>
+            <div id="myCanvasContainer" class="widget tagcloud">
+                <canvas width="250" height="250" id="resCanvas" style="width=100%">
+                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-Studio/">Android Studio</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Audio-Focus/">Audio Focus</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CocoaPods/">CocoaPods</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DNS-解析/">DNS 解析</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Development/">Development</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EXP/">EXP</a><span class="tag-list-count">81</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Format/">Format</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/">GitHub</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Search-Console/">Google Search Console</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Https/">Https</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Live/">Live</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Notion/">Notion</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OC/">OC</a><span class="tag-list-count">25</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenSource/">OpenSource</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Other/">Other</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Poem/">Poem</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Premiere-Pro/">Premiere Pro</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sourcetree/">Sourcetree</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study/">Study</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Technology/">Technology</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Template/">Template</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Work/">Work</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xcode/">Xcode</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/adb/">adb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/codeAnalysis/">codeAnalysis</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/domain-name/">domain name</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a><span class="tag-list-count">41</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/seekbar/">seekbar</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中国当代/">中国当代</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中国当代小说/">中国当代小说</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中国当代文学/">中国当代文学</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中国近代文学/">中国近代文学</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书籍/">书籍</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/产品思考/">产品思考</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/写作计划/">写作计划</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/外国现当代文学/">外国现当代文学</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/季度总结/">季度总结</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/年度总结/">年度总结</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/幻想/">幻想</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/扯淡/">扯淡</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/扯谈/">扯谈</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/播客/">播客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日常/">日常</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/时间管理/">时间管理</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/梦/">梦</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/武侠小说/">武侠小说</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/江湖体验报告/">江湖体验报告</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/灵感碎片/">灵感碎片</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/王朔/">王朔</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/生活/">生活</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/用户需求/">用户需求</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/电影/">电影</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/短篇故事/">短篇故事</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科幻/">科幻</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记软件/">笔记软件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/肇始/">肇始</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/观后感/">观后感</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/观影/">观影</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/视频剪辑/">视频剪辑</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/诗歌/">诗歌</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书笔记/">读书笔记</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读后感/">读后感</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随感/">随感</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/青春文学/">青春文学</a><span class="tag-list-count">1</span></li></ul>
+                </canvas>
+            </div>
+        </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#开源库选题"><span class="nav-text">开源库选题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开源库维护"><span class="nav-text">开源库维护</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最后"><span class="nav-text">最后</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kaaaaai</span>
+</div>
+
+
+<!-- time -->
+  <div id="show-time">
+    <span id="span_dt_dt"></span>
+  </div>
+  <script>
+      function show_date_time() {
+        window.setTimeout("show_date_time()", 1000);
+        BirthDay = new Date("6/23/2017 19:37:01");
+        today = new Date();
+        //总时间
+        timeold = (today.getTime() - BirthDay.getTime());
+        sectimeold = timeold / 1000
+        secondsold = Math.floor(sectimeold);
+        msPerDay = 24 * 60 * 60 * 1000
+        e_daysold = timeold / msPerDay
+        daysold = Math.floor(e_daysold);
+        e_hrsold = (e_daysold - daysold) * 24;
+        hrsold = Math.floor(e_hrsold);
+        e_minsold = (e_hrsold - hrsold) * 60;
+        minsold = Math.floor((e_hrsold - hrsold) * 60);
+        seconds = Math.floor((e_minsold - minsold) * 60);
+        span_dt_dt.innerHTML = "已存活 " + daysold + " 天 " + hrsold + " 小时 " + minsold + " 分 " + seconds + " 秒";
+    }
+show_date_time();
+  </script>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+
+  <div class="powered-by"></div>
+     <span class="post-count">博客全站共 180.2k 字</span>
+  
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://kaaaaai-cn.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://www.kaaaaai.cn/its-time-to-build-an-open-source-library.html';
+          this.page.identifier = '/its-time-to-build-an-open-source-library.html';
+          this.page.title = '是时候维护一个属于自己的开源库了';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://kaaaaai-cn.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+ 
+ <!--崩溃欺骗-->
+<script type="text/javascript" src="/js/src/makeajoke.js"></script>
+</body>
+</html>
