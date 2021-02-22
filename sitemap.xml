@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.kaaaaai.cn/about/index.html</loc>
+    <loc>https://www.kaaaaai.cn/its-time-to-build-an-open-source-library.html</loc>
     
-    <lastmod>2021-02-22T02:16:09.602Z</lastmod>
+    <lastmod>2021-02-22T05:45:25.318Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.kaaaaai.cn/translation-why-use-dependency-injection.html</loc>
     
-    <lastmod>2021-02-22T02:11:17.163Z</lastmod>
+    <lastmod>2021-02-22T05:45:25.304Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/about/index.html</loc>
+    
+    <lastmod>2021-02-22T02:16:09.602Z</lastmod>
     
   </url>
   
@@ -68,13 +75,6 @@
     <loc>https://www.kaaaaai.cn/oc-multi-delegate-implementation.html</loc>
     
     <lastmod>2021-01-30T02:07:28.448Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.kaaaaai.cn/its-time-to-build-an-open-source-library.html</loc>
-    
-    <lastmod>2021-01-30T02:07:28.415Z</lastmod>
     
   </url>
   

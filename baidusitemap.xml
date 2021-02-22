@@ -3,21 +3,54 @@
 
 
     
-    
   <url>
-    <loc>https://www.kaaaaai.cn//translation-why-use-dependency-injection.html</loc>
-    <lastmod>2021-02-22T02:11:17.163Z</lastmod>
+    <loc>https://www.kaaaaai.cn//its-time-to-build-an-open-source-library.html</loc>
+    <lastmod>2021-02-22T05:45:25.318Z</lastmod>
     <data>
         <display>
-        <title></title>
-        <pubTime>2021-02-22T02:11:08.772Z</pubTime>
+        <title>是时候维护一个属于自己的开源库了</title>
+        <pubTime>2020-11-21T01:37:05.000Z</pubTime>
         
+        <tag>EXP</tag>
+         
+        <tag>OpenSource</tag>
+         
+        <tag>GitHub</tag>
+         
          
            
+             
+              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
         </display>
     </data>
     </url>
 
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//translation-why-use-dependency-injection.html</loc>
+    <lastmod>2021-02-22T05:45:25.304Z</lastmod>
+    <data>
+        <display>
+        <title>翻译：Why use dependency injection</title>
+        <pubTime>2021-02-22T01:37:05.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>GitHub</tag>
+         
+        <tag>Translation</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>https://www.kaaaaai.cn//weekly-summary-190722.html</loc>
@@ -196,30 +229,6 @@
         <tag>iOS</tag>
          
         <tag>OC</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.kaaaaai.cn//its-time-to-build-an-open-source-library.html</loc>
-    <lastmod>2021-01-30T02:07:28.415Z</lastmod>
-    <data>
-        <display>
-        <title>是时候维护一个属于自己的开源库了</title>
-        <pubTime>2020-11-21T01:37:05.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>OpenSource</tag>
-         
-        <tag>GitHub</tag>
          
          
            
