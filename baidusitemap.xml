@@ -3,21 +3,199 @@
 
 
     
+    
   <url>
-    <loc>https://www.kaaaaai.cn//android-more-than-adb-commands.html</loc>
-    <lastmod>2020-11-22T09:31:26.205Z</lastmod>
+    <loc>https://www.kaaaaai.cn//translation-why-use-dependency-injection.html</loc>
+    <lastmod>2021-02-22T02:11:17.163Z</lastmod>
     <data>
         <display>
-        <title>Android - ADB 命令备忘及其他</title>
-        <pubTime>2019-10-24T07:00:52.000Z</pubTime>
+        <title></title>
+        <pubTime>2021-02-22T02:11:08.772Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//weekly-summary-190722.html</loc>
+    <lastmod>2021-01-31T02:45:15.913Z</lastmod>
+    <data>
+        <display>
+        <title>每周总结 - 0722</title>
+        <pubTime>2019-07-22T02:13:52.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>Live</tag>
+         
+        <tag>Study</tag>
+         
+        <tag>Work</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//android-call-the-system-to-send-text-messages-customize-the-number-and-text-message-content.html</loc>
+    <lastmod>2021-01-30T02:32:28.781Z</lastmod>
+    <data>
+        <display>
+        <title>Android - 调用系统发短信功能，自定义号码和短信内容</title>
+        <pubTime>2017-07-07T12:31:05.000Z</pubTime>
         
         <tag>EXP</tag>
          
         <tag>Android</tag>
          
-        <tag>Android Studio</tag>
          
-        <tag>adb</tag>
+           
+             
+              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//a-previously-written-poem.html</loc>
+    <lastmod>2021-01-30T02:32:28.776Z</lastmod>
+    <data>
+        <display>
+        <title>记一篇以前写的诗</title>
+        <pubTime>2017-06-25T04:38:54.000Z</pubTime>
+        
+        <tag>Poem</tag>
+         
+         
+           
+             
+              <breadCrumb title="涂鸦" url="https://www.kaaaaai.cn/categories/%E6%B6%82%E9%B8%A6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//xcode-plugin-research.html</loc>
+    <lastmod>2021-01-30T02:32:28.757Z</lastmod>
+    <data>
+        <display>
+        <title>iOS - Xcode Plugin 调研和使用</title>
+        <pubTime>2019-07-17T09:24:52.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>iOS</tag>
+         
+        <tag>Swift</tag>
+         
+        <tag>Xcode</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//mac-usage-problems.html</loc>
+    <lastmod>2021-01-30T02:07:28.514Z</lastmod>
+    <data>
+        <display>
+        <title>Mac 使用问题处理</title>
+        <pubTime>2020-10-02T09:24:52.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>Mac</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//ios-automated-packaging-complicated-by-mail.html</loc>
+    <lastmod>2021-01-30T02:07:28.495Z</lastmod>
+    <data>
+        <display>
+        <title>iOS 自动化打包上传 AppleStore、fir.im，并发邮件通知测试人员</title>
+        <pubTime>2020-10-19T03:24:52.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>iOS</tag>
+         
+        <tag>Xcode</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//ios-develop-tips-2.html</loc>
+    <lastmod>2021-01-30T02:07:28.460Z</lastmod>
+    <data>
+        <display>
+        <title>iOS 开发里的那些散手（二）</title>
+        <pubTime>2018-06-14T11:37:05.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>iOS</tag>
+         
+        <tag>OC</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//oc-multi-delegate-implementation.html</loc>
+    <lastmod>2021-01-30T02:07:28.448Z</lastmod>
+    <data>
+        <display>
+        <title>OC - 多代理的实现</title>
+        <pubTime>2020-07-16T05:24:52.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>iOS</tag>
+         
+        <tag>OC</tag>
          
          
            
@@ -31,7 +209,7 @@
     
   <url>
     <loc>https://www.kaaaaai.cn//its-time-to-build-an-open-source-library.html</loc>
-    <lastmod>2020-11-22T09:15:20.099Z</lastmod>
+    <lastmod>2021-01-30T02:07:28.415Z</lastmod>
     <data>
         <display>
         <title>是时候维护一个属于自己的开源库了</title>
@@ -54,8 +232,742 @@
 
     
   <url>
+    <loc>https://www.kaaaaai.cn//weekly-summary-190629.html</loc>
+    <lastmod>2021-01-30T02:06:21.431Z</lastmod>
+    <data>
+        <display>
+        <title>每周总结 - 0629</title>
+        <pubTime>2019-06-29T02:13:52.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>Live</tag>
+         
+        <tag>Study</tag>
+         
+        <tag>Work</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//weekly-summary-190622.html</loc>
+    <lastmod>2021-01-30T02:06:21.412Z</lastmod>
+    <data>
+        <display>
+        <title>每周总结 - 0622</title>
+        <pubTime>2019-06-22T02:13:52.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>Live</tag>
+         
+        <tag>Study</tag>
+         
+        <tag>Work</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//weekly-summary-190511.html</loc>
+    <lastmod>2021-01-30T01:36:23.035Z</lastmod>
+    <data>
+        <display>
+        <title>每周总结 - 0511</title>
+        <pubTime>2019-05-11T02:13:52.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>Live</tag>
+         
+        <tag>Study</tag>
+         
+        <tag>Work</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//weekly-summary-190418.html</loc>
+    <lastmod>2021-01-30T01:36:23.018Z</lastmod>
+    <data>
+        <display>
+        <title>每周工作学习总结 - 0418</title>
+        <pubTime>2019-04-18T08:24:52.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>Live</tag>
+         
+        <tag>Study</tag>
+         
+        <tag>Work</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//ios-runtime-study.html</loc>
+    <lastmod>2021-01-30T01:35:53.887Z</lastmod>
+    <data>
+        <display>
+        <title>iOS - Runtime 学习</title>
+        <pubTime>2019-08-16T02:24:52.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>OC</tag>
+         
+        <tag>Xcode</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//weekly-summary-190713.html</loc>
+    <lastmod>2021-01-30T01:35:53.879Z</lastmod>
+    <data>
+        <display>
+        <title>每周总结 - 0713</title>
+        <pubTime>2019-07-13T02:13:52.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>Live</tag>
+         
+        <tag>Study</tag>
+         
+        <tag>Work</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//weekly-summary-190428.html</loc>
+    <lastmod>2021-01-30T01:35:53.872Z</lastmod>
+    <data>
+        <display>
+        <title>每周总结 - 0428</title>
+        <pubTime>2019-04-28T08:24:52.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>Live</tag>
+         
+        <tag>Study</tag>
+         
+        <tag>Work</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//weekly-summary-190819.html</loc>
+    <lastmod>2021-01-30T01:35:53.864Z</lastmod>
+    <data>
+        <display>
+        <title>每周总结 - 0819</title>
+        <pubTime>2019-08-19T02:13:52.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>Live</tag>
+         
+        <tag>Study</tag>
+         
+        <tag>Work</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//automatically-generates-annotation-documents.html</loc>
+    <lastmod>2021-01-30T01:35:53.858Z</lastmod>
+    <data>
+        <display>
+        <title>iOS - Xcode 自动生成注释文档</title>
+        <pubTime>2019-07-26T09:24:52.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>iOS</tag>
+         
+        <tag>Swift</tag>
+         
+        <tag>Xcode</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//044.html</loc>
+    <lastmod>2021-01-30T01:34:24.622Z</lastmod>
+    <data>
+        <display>
+        <title>iOS - 关于静态库的其他问题</title>
+        <pubTime>2018-10-26T08:24:52.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>iOS</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//ios-sdwebimage-analysis.html</loc>
+    <lastmod>2021-01-30T01:34:24.614Z</lastmod>
+    <data>
+        <display>
+        <title>iOS - SDWebImage 源码分析</title>
+        <pubTime>2019-09-06T03:24:52.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>iOS</tag>
+         
+        <tag>OC</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//i-can't-stay-here-to-love-you.html</loc>
+    <lastmod>2021-01-30T01:34:24.607Z</lastmod>
+    <data>
+        <display>
+        <title>我不能留在这里爱你</title>
+        <pubTime>2020-03-08T02:13:52.000Z</pubTime>
+        
+        <tag>随笔</tag>
+         
+        <tag>电影</tag>
+         
+        <tag>观后感</tag>
+         
+         
+           
+             
+              <breadCrumb title="旁白" url="https://www.kaaaaai.cn/categories/%E6%97%81%E7%99%BD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//git-submodule.html</loc>
+    <lastmod>2021-01-30T01:34:24.582Z</lastmod>
+    <data>
+        <display>
+        <title>Git - Submodule 使用简单教程</title>
+        <pubTime>2020-03-14T03:24:52.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>Git</tag>
+         
+        <tag>Sourcetree</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//ios-log-printing-to-collect-third-party-library.html</loc>
+    <lastmod>2021-01-30T01:34:24.564Z</lastmod>
+    <data>
+        <display>
+        <title>iOS - 日志打印收集第三方库调研</title>
+        <pubTime>2020-05-18T05:24:52.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>OC</tag>
+         
+        <tag>Swift</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//xiangzi-and-his-misfortune.html</loc>
+    <lastmod>2021-01-15T07:28:30.115Z</lastmod>
+    <data>
+        <display>
+        <title>运气不好的祥子的一生</title>
+        <pubTime>2019-11-16T02:13:52.000Z</pubTime>
+        
+        <tag>随笔</tag>
+         
+        <tag>读后感</tag>
+         
+         
+           
+             
+              <breadCrumb title="旁白" url="https://www.kaaaaai.cn/categories/%E6%97%81%E7%99%BD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//web-resolve-recirculation-errors.html</loc>
+    <lastmod>2021-01-15T07:28:30.107Z</lastmod>
+    <data>
+        <display>
+        <title>解决使用 GitPage 重定向多次问题</title>
+        <pubTime>2020-05-30T09:24:52.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>Web</tag>
+         
+        <tag>Https</tag>
+         
+        <tag>DNS 解析</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//literary-memoirs-reading-notes.html</loc>
+    <lastmod>2021-01-15T07:28:30.102Z</lastmod>
+    <data>
+        <display>
+        <title>《文学回忆录》读书笔记</title>
+        <pubTime>2020-04-18T05:00:52.000Z</pubTime>
+        
+        <tag>读书笔记</tag>
+         
+        <tag>中国近代文学</tag>
+         
+         
+           
+             
+              <breadCrumb title="剪报" url="https://www.kaaaaai.cn/categories/%E5%89%AA%E6%8A%A5/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//recommend-a-few-podcasts.html</loc>
+    <lastmod>2021-01-15T07:28:30.059Z</lastmod>
+    <data>
+        <display>
+        <title>推荐几个播客节目</title>
+        <pubTime>2020-10-26T05:24:52.000Z</pubTime>
+        
+        <tag>播客</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="https://www.kaaaaai.cn/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//035.html</loc>
+    <lastmod>2021-01-07T05:40:16.946Z</lastmod>
+    <data>
+        <display>
+        <title>唯“鸭嘴兽”主义哲学</title>
+        <pubTime>2018-08-07T10:00:52.000Z</pubTime>
+        
+        <tag>随笔</tag>
+         
+        <tag>读后感</tag>
+         
+         
+           
+             
+              <breadCrumb title="旁白" url="https://www.kaaaaai.cn/categories/%E6%97%81%E7%99%BD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//036.html</loc>
+    <lastmod>2021-01-07T05:40:16.932Z</lastmod>
+    <data>
+        <display>
+        <title>iOS - CocoaPods 和 Carthage 的比较</title>
+        <pubTime>2018-08-15T06:24:52.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>iOS</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//038.html</loc>
+    <lastmod>2021-01-07T05:40:16.866Z</lastmod>
+    <data>
+        <display>
+        <title>iOS - CocoaLumberjack 日志框架源码分析</title>
+        <pubTime>2018-08-28T06:24:52.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>iOS</tag>
+         
+        <tag>OC</tag>
+         
+        <tag>codeAnalysis</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//045.html</loc>
+    <lastmod>2021-01-07T05:39:00.092Z</lastmod>
+    <data>
+        <display>
+        <title>iOS - SwiftyBeaver 日志框架源码分析</title>
+        <pubTime>2018-11-12T06:24:52.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>iOS</tag>
+         
+        <tag>codeAnalysis</tag>
+         
+        <tag>Swift</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//on-the-road.html</loc>
+    <lastmod>2021-01-07T05:39:00.087Z</lastmod>
+    <data>
+        <display>
+        <title>在路上</title>
+        <pubTime>2019-03-11T10:00:52.000Z</pubTime>
+        
+        <tag>随笔</tag>
+         
+        <tag>扯谈</tag>
+         
+        <tag>季度总结</tag>
+         
+         
+           
+             
+              <breadCrumb title="涂鸦" url="https://www.kaaaaai.cn/categories/%E6%B6%82%E9%B8%A6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//swift-style-guide.html</loc>
+    <lastmod>2021-01-07T05:39:00.045Z</lastmod>
+    <data>
+        <display>
+        <title>iOS - Swift 开发规范</title>
+        <pubTime>2019-01-16T12:24:52.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>Swift</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//ios-utf8-to-chinese.html</loc>
+    <lastmod>2021-01-07T05:39:00.039Z</lastmod>
+    <data>
+        <display>
+        <title>iOS - 如何把 Xcode 打印出来的 UTF-8 格式字符变成汉字？</title>
+        <pubTime>2019-08-07T02:24:52.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>OC</tag>
+         
+        <tag>Xcode</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//weekly-summary-190729.html</loc>
+    <lastmod>2021-01-07T05:39:00.034Z</lastmod>
+    <data>
+        <display>
+        <title>每周总结 - 0729</title>
+        <pubTime>2019-07-29T12:13:52.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>Live</tag>
+         
+        <tag>Study</tag>
+         
+        <tag>Work</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//046.html</loc>
+    <lastmod>2021-01-07T05:39:00.023Z</lastmod>
+    <data>
+        <display>
+        <title>iOS - YTKNetwork 日志框架源码分析</title>
+        <pubTime>2018-11-12T07:24:52.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>iOS</tag>
+         
+        <tag>OC</tag>
+         
+        <tag>codeAnalysis</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//028.html</loc>
+    <lastmod>2021-01-07T05:39:00.003Z</lastmod>
+    <data>
+        <display>
+        <title>给你的 iOS 马甲项目增加一点垃圾代码</title>
+        <pubTime>2018-06-28T11:37:05.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>iOS</tag>
+         
+        <tag>OC</tag>
+         
+        <tag>Python</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//ios-hot-fix.html</loc>
+    <lastmod>2021-01-07T05:38:59.998Z</lastmod>
+    <data>
+        <display>
+        <title>iOS 热修复技术调研</title>
+        <pubTime>2019-08-01T09:24:52.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>iOS</tag>
+         
+        <tag>Swift</tag>
+         
+        <tag>Xcode</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//ios-lean-cache.html</loc>
+    <lastmod>2021-01-07T05:38:59.994Z</lastmod>
+    <data>
+        <display>
+        <title>iOS - Cache 源码分析</title>
+        <pubTime>2019-01-22T12:24:52.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>OC</tag>
+         
+        <tag>codeAnalysis</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://www.kaaaaai.cn//025.html</loc>
-    <lastmod>2020-11-22T08:27:02.005Z</lastmod>
+    <lastmod>2021-01-07T05:38:59.989Z</lastmod>
     <data>
         <display>
         <title>他三本书厚的怀念</title>
@@ -71,6 +983,150 @@
            
              
               <breadCrumb title="剪报" url="https://www.kaaaaai.cn/categories/%E5%89%AA%E6%8A%A5/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//swift-optional-and-unwrapping-learning.html</loc>
+    <lastmod>2021-01-07T05:38:59.978Z</lastmod>
+    <data>
+        <display>
+        <title>Swift - ?和!的学习</title>
+        <pubTime>2020-04-24T09:24:52.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>iOS</tag>
+         
+        <tag>Swift</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//frequently-asked-questions-about-time-travel-by-entropy-reduction.html</loc>
+    <lastmod>2020-12-04T07:57:00.979Z</lastmod>
+    <data>
+        <display>
+        <title>有关熵减-时间旅行的冷门问题</title>
+        <pubTime>2020-09-20T02:13:52.000Z</pubTime>
+        
+        <tag>随笔</tag>
+         
+        <tag>电影</tag>
+         
+        <tag>观后感</tag>
+         
+         
+           
+             
+              <breadCrumb title="旁白" url="https://www.kaaaaai.cn/categories/%E6%97%81%E7%99%BD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//swift-permission-request-tools.html</loc>
+    <lastmod>2020-11-25T05:49:09.431Z</lastmod>
+    <data>
+        <display>
+        <title>Swift - 权限请求封装</title>
+        <pubTime>2020-09-12T02:24:52.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>iOS</tag>
+         
+        <tag>Swift</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//swift-use-higher-orderfunctions-to-dictionary-sort.html</loc>
+    <lastmod>2020-11-24T13:21:46.485Z</lastmod>
+    <data>
+        <display>
+        <title>Swift - 利用高阶函数给字典排序</title>
+        <pubTime>2020-10-02T02:24:52.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>iOS</tag>
+         
+        <tag>Swift</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//as-the-boat.html</loc>
+    <lastmod>2020-11-24T13:21:46.476Z</lastmod>
+    <data>
+        <display>
+        <title>成舟</title>
+        <pubTime>2018-01-16T13:00:52.000Z</pubTime>
+        
+        <tag>扯谈</tag>
+         
+        <tag>梦</tag>
+         
+         
+           
+             
+              <breadCrumb title="涂鸦" url="https://www.kaaaaai.cn/categories/%E6%B6%82%E9%B8%A6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.kaaaaai.cn//android-more-than-adb-commands.html</loc>
+    <lastmod>2020-11-24T09:09:34.025Z</lastmod>
+    <data>
+        <display>
+        <title>Android - ADB 命令备忘及其他</title>
+        <pubTime>2019-10-24T07:00:52.000Z</pubTime>
+        
+        <tag>EXP</tag>
+         
+        <tag>Android</tag>
+         
+        <tag>Android Studio</tag>
+         
+        <tag>adb</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>
@@ -176,80 +1232,6 @@
 
     
   <url>
-    <loc>https://www.kaaaaai.cn//ios-lean-cache.html</loc>
-    <lastmod>2020-11-22T08:27:01.932Z</lastmod>
-    <data>
-        <display>
-        <title>iOS - Cache 源码分析</title>
-        <pubTime>2019-01-22T12:24:52.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>OC</tag>
-         
-        <tag>codeAnalysis</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.kaaaaai.cn//on-the-road.html</loc>
-    <lastmod>2020-11-22T08:27:01.921Z</lastmod>
-    <data>
-        <display>
-        <title>在路上</title>
-        <pubTime>2019-03-11T10:00:52.000Z</pubTime>
-        
-        <tag>随笔</tag>
-         
-        <tag>扯谈</tag>
-         
-        <tag>季度总结</tag>
-         
-         
-           
-             
-              <breadCrumb title="涂鸦" url="https://www.kaaaaai.cn/categories/%E6%B6%82%E9%B8%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.kaaaaai.cn//weekly-summary-190418.html</loc>
-    <lastmod>2020-11-22T08:27:01.907Z</lastmod>
-    <data>
-        <display>
-        <title>每周工作学习总结 - 0418</title>
-        <pubTime>2019-04-18T08:24:52.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>Live</tag>
-         
-        <tag>Study</tag>
-         
-        <tag>Work</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://www.kaaaaai.cn//forever-and-solongmyson.html</loc>
     <lastmod>2020-11-22T08:27:01.901Z</lastmod>
     <data>
@@ -269,32 +1251,6 @@
            
              
               <breadCrumb title="旁白" url="https://www.kaaaaai.cn/categories/%E6%97%81%E7%99%BD/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.kaaaaai.cn//045.html</loc>
-    <lastmod>2020-11-22T08:27:01.880Z</lastmod>
-    <data>
-        <display>
-        <title>iOS - SwiftyBeaver 日志框架源码分析</title>
-        <pubTime>2018-11-12T06:24:52.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>iOS</tag>
-         
-        <tag>codeAnalysis</tag>
-         
-        <tag>Swift</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>
@@ -348,28 +1304,6 @@
 
     
   <url>
-    <loc>https://www.kaaaaai.cn//swift-style-guide.html</loc>
-    <lastmod>2020-11-22T08:27:01.805Z</lastmod>
-    <data>
-        <display>
-        <title>iOS - Swift 开发规范</title>
-        <pubTime>2019-01-16T12:24:52.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>Swift</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://www.kaaaaai.cn//ios-code-formatting.html</loc>
     <lastmod>2020-11-22T08:27:01.746Z</lastmod>
     <data>
@@ -380,52 +1314,6 @@
         <tag>EXP</tag>
          
         <tag>Xcode</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.kaaaaai.cn//a-previously-written-poem.html</loc>
-    <lastmod>2020-11-22T08:25:55.593Z</lastmod>
-    <data>
-        <display>
-        <title>记一篇以前写的诗</title>
-        <pubTime>2017-06-25T04:38:54.000Z</pubTime>
-        
-        <tag>Poem</tag>
-         
-         
-           
-             
-              <breadCrumb title="涂鸦" url="https://www.kaaaaai.cn/categories/%E6%B6%82%E9%B8%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.kaaaaai.cn//028.html</loc>
-    <lastmod>2020-11-22T08:25:55.572Z</lastmod>
-    <data>
-        <display>
-        <title>给你的 iOS 马甲项目增加一点垃圾代码</title>
-        <pubTime>2018-06-28T11:37:05.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>iOS</tag>
-         
-        <tag>OC</tag>
-         
-        <tag>Python</tag>
          
          
            
@@ -462,28 +1350,6 @@
 
     
   <url>
-    <loc>https://www.kaaaaai.cn//035.html</loc>
-    <lastmod>2020-11-22T08:25:55.558Z</lastmod>
-    <data>
-        <display>
-        <title>唯“鸭嘴兽”主义哲学</title>
-        <pubTime>2018-08-07T10:00:52.000Z</pubTime>
-        
-        <tag>随笔</tag>
-         
-        <tag>读后感</tag>
-         
-         
-           
-             
-              <breadCrumb title="旁白" url="https://www.kaaaaai.cn/categories/%E6%97%81%E7%99%BD/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://www.kaaaaai.cn//eat-a-burger-with-chopped-green-onion-and-sugar.html</loc>
     <lastmod>2020-11-22T08:25:55.554Z</lastmod>
     <data>
@@ -492,28 +1358,6 @@
         <pubTime>2017-06-25T04:32:40.000Z</pubTime>
         
         <tag>扯谈</tag>
-         
-         
-           
-             
-              <breadCrumb title="涂鸦" url="https://www.kaaaaai.cn/categories/%E6%B6%82%E9%B8%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.kaaaaai.cn//as-the-boat.html</loc>
-    <lastmod>2020-11-22T08:25:55.543Z</lastmod>
-    <data>
-        <display>
-        <title>成舟</title>
-        <pubTime>2018-01-16T13:00:52.000Z</pubTime>
-        
-        <tag>扯谈</tag>
-         
-        <tag>梦</tag>
          
          
            
@@ -548,32 +1392,6 @@
 
     
   <url>
-    <loc>https://www.kaaaaai.cn//038.html</loc>
-    <lastmod>2020-11-22T08:25:55.531Z</lastmod>
-    <data>
-        <display>
-        <title>iOS - CocoaLumberjack 日志框架源码分析</title>
-        <pubTime>2018-08-28T06:24:52.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>iOS</tag>
-         
-        <tag>OC</tag>
-         
-        <tag>codeAnalysis</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://www.kaaaaai.cn//043.html</loc>
     <lastmod>2020-11-22T08:25:55.524Z</lastmod>
     <data>
@@ -586,28 +1404,6 @@
         <tag>OC</tag>
          
         <tag>Swift</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.kaaaaai.cn//036.html</loc>
-    <lastmod>2020-11-22T08:25:55.517Z</lastmod>
-    <data>
-        <display>
-        <title>iOS - CocoaPods 和 Carthage 的比较</title>
-        <pubTime>2018-08-15T06:24:52.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>iOS</tag>
          
          
            
@@ -754,32 +1550,6 @@
 
     
   <url>
-    <loc>https://www.kaaaaai.cn//ios-hot-fix.html</loc>
-    <lastmod>2020-11-22T08:22:42.776Z</lastmod>
-    <data>
-        <display>
-        <title>iOS 热修复技术调研</title>
-        <pubTime>2019-08-01T09:24:52.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>iOS</tag>
-         
-        <tag>Swift</tag>
-         
-        <tag>Xcode</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://www.kaaaaai.cn//learn-humor-before-become-a-hero.html</loc>
     <lastmod>2020-11-22T08:22:42.760Z</lastmod>
     <data>
@@ -814,32 +1584,6 @@
         <tag>iOS</tag>
          
         <tag>Swift</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.kaaaaai.cn//046.html</loc>
-    <lastmod>2020-11-22T08:22:42.721Z</lastmod>
-    <data>
-        <display>
-        <title>iOS - YTKNetwork 日志框架源码分析</title>
-        <pubTime>2018-11-12T07:24:52.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>iOS</tag>
-         
-        <tag>OC</tag>
-         
-        <tag>codeAnalysis</tag>
          
          
            
@@ -980,100 +1724,6 @@
 
     
   <url>
-    <loc>https://www.kaaaaai.cn//044.html</loc>
-    <lastmod>2020-11-22T07:22:49.916Z</lastmod>
-    <data>
-        <display>
-        <title>iOS - 关于静态库的其他问题</title>
-        <pubTime>2018-10-26T08:24:52.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>iOS</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.kaaaaai.cn//ios-develop-tips-2.html</loc>
-    <lastmod>2020-11-22T07:22:49.884Z</lastmod>
-    <data>
-        <display>
-        <title>iOS 开发里的那些散手（二）</title>
-        <pubTime>2018-06-14T11:37:05.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>iOS</tag>
-         
-        <tag>OC</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.kaaaaai.cn//ios-automated-packaging-complicated-by-mail.html</loc>
-    <lastmod>2020-11-22T07:22:49.872Z</lastmod>
-    <data>
-        <display>
-        <title>iOS 自动化打包上传 AppleStore、fir.im，并发邮件通知测试人员</title>
-        <pubTime>2020-10-19T03:24:52.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>iOS</tag>
-         
-        <tag>Xcode</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.kaaaaai.cn//swift-permission-request-tools.html</loc>
-    <lastmod>2020-11-22T01:52:46.034Z</lastmod>
-    <data>
-        <display>
-        <title>Swift - 权限请求封装</title>
-        <pubTime>2020-09-12T02:24:52.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>iOS</tag>
-         
-        <tag>Swift</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://www.kaaaaai.cn//impromptu-late-spring.html</loc>
     <lastmod>2020-11-22T01:49:54.539Z</lastmod>
     <data>
@@ -1144,50 +1794,6 @@
 
     
   <url>
-    <loc>https://www.kaaaaai.cn//recommend-a-few-podcasts.html</loc>
-    <lastmod>2020-11-22T01:44:11.074Z</lastmod>
-    <data>
-        <display>
-        <title>推荐几个播客节目</title>
-        <pubTime>2020-10-26T05:24:52.000Z</pubTime>
-        
-        <tag>播客</tag>
-         
-         
-           
-             
-              <breadCrumb title="工具" url="https://www.kaaaaai.cn/categories/%E5%B7%A5%E5%85%B7/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.kaaaaai.cn//ios-log-printing-to-collect-third-party-library.html</loc>
-    <lastmod>2020-11-22T01:38:52.982Z</lastmod>
-    <data>
-        <display>
-        <title>iOS - 日志打印收集第三方库调研</title>
-        <pubTime>2020-05-18T05:24:52.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>OC</tag>
-         
-        <tag>Swift</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://www.kaaaaai.cn//god-will-rolls-the-dice-several-times.html</loc>
     <lastmod>2020-11-22T01:38:52.975Z</lastmod>
     <data>
@@ -1203,30 +1809,6 @@
            
              
               <breadCrumb title="旁白" url="https://www.kaaaaai.cn/categories/%E6%97%81%E7%99%BD/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.kaaaaai.cn//git-submodule.html</loc>
-    <lastmod>2020-11-22T01:38:52.962Z</lastmod>
-    <data>
-        <display>
-        <title>Git - Submodule 使用简单教程</title>
-        <pubTime>2020-03-14T03:24:52.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>Git</tag>
-         
-        <tag>Sourcetree</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>
@@ -1280,32 +1862,6 @@
 
     
   <url>
-    <loc>https://www.kaaaaai.cn//automatically-generates-annotation-documents.html</loc>
-    <lastmod>2020-11-22T01:35:35.669Z</lastmod>
-    <data>
-        <display>
-        <title>iOS - Xcode 自动生成注释文档</title>
-        <pubTime>2019-07-26T09:24:52.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>iOS</tag>
-         
-        <tag>Swift</tag>
-         
-        <tag>Xcode</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://www.kaaaaai.cn//ios-private-repository-introduces-engineering-through-cocoapods.html</loc>
     <lastmod>2020-11-22T01:35:35.654Z</lastmod>
     <data>
@@ -1320,30 +1876,6 @@
         <tag>OC</tag>
          
         <tag>CocoaPods</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.kaaaaai.cn//ios-sdwebimage-analysis.html</loc>
-    <lastmod>2020-11-22T01:35:35.643Z</lastmod>
-    <data>
-        <display>
-        <title>iOS - SDWebImage 源码分析</title>
-        <pubTime>2019-09-06T03:24:52.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>iOS</tag>
-         
-        <tag>OC</tag>
          
          
            
@@ -1546,30 +2078,6 @@
 
     
   <url>
-    <loc>https://www.kaaaaai.cn//i-can't-stay-here-to-love-you.html</loc>
-    <lastmod>2020-11-22T01:32:52.280Z</lastmod>
-    <data>
-        <display>
-        <title>我不能留在这里爱你</title>
-        <pubTime>2020-03-08T02:13:52.000Z</pubTime>
-        
-        <tag>随笔</tag>
-         
-        <tag>电影</tag>
-         
-        <tag>观后感</tag>
-         
-         
-           
-             
-              <breadCrumb title="旁白" url="https://www.kaaaaai.cn/categories/%E6%97%81%E7%99%BD/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://www.kaaaaai.cn//ios-kingfisher-analysis.html</loc>
     <lastmod>2020-11-22T01:32:52.267Z</lastmod>
     <data>
@@ -1618,30 +2126,6 @@
 
     
   <url>
-    <loc>https://www.kaaaaai.cn//ios-utf8-to-chinese.html</loc>
-    <lastmod>2020-11-22T01:32:52.235Z</lastmod>
-    <data>
-        <display>
-        <title>iOS - 如何把 Xcode 打印出来的 UTF-8 格式字符变成汉字？</title>
-        <pubTime>2019-08-07T02:24:52.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>OC</tag>
-         
-        <tag>Xcode</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://www.kaaaaai.cn//how-to-fix-warnings-about-unsafe-sites.html</loc>
     <lastmod>2020-11-22T01:32:52.225Z</lastmod>
     <data>
@@ -1676,30 +2160,6 @@
         <tag>EXP</tag>
          
         <tag>iOS</tag>
-         
-        <tag>Xcode</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.kaaaaai.cn//ios-runtime-study.html</loc>
-    <lastmod>2020-11-22T01:32:52.171Z</lastmod>
-    <data>
-        <display>
-        <title>iOS - Runtime 学习</title>
-        <pubTime>2019-08-16T02:24:52.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>OC</tag>
          
         <tag>Xcode</tag>
          
@@ -1808,30 +2268,6 @@
 
     
   <url>
-    <loc>https://www.kaaaaai.cn//swift-optional-and-unwrapping-learning.html</loc>
-    <lastmod>2020-11-21T02:09:49.072Z</lastmod>
-    <data>
-        <display>
-        <title>Swift - ?和!的学习</title>
-        <pubTime>2020-04-24T09:24:52.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>iOS</tag>
-         
-        <tag>Swift</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://www.kaaaaai.cn//after-reading-wangsuo.html</loc>
     <lastmod>2020-11-17T13:09:19.194Z</lastmod>
     <data>
@@ -1878,32 +2314,6 @@
 
     
   <url>
-    <loc>https://www.kaaaaai.cn//xcode-plugin-research.html</loc>
-    <lastmod>2020-11-14T02:31:48.369Z</lastmod>
-    <data>
-        <display>
-        <title>iOS - Xcode Plugin 调研和使用</title>
-        <pubTime>2019-07-17T09:24:52.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>iOS</tag>
-         
-        <tag>Swift</tag>
-         
-        <tag>Xcode</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://www.kaaaaai.cn//weekly-summary-190831.html</loc>
     <lastmod>2020-11-14T02:31:48.316Z</lastmod>
     <data>
@@ -1923,28 +2333,6 @@
            
              
               <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.kaaaaai.cn//xiangzi-and-his-misfortune.html</loc>
-    <lastmod>2020-11-14T02:31:48.206Z</lastmod>
-    <data>
-        <display>
-        <title>运气不好的祥子的一生</title>
-        <pubTime>2019-11-16T02:13:52.000Z</pubTime>
-        
-        <tag>随笔</tag>
-         
-        <tag>读后感</tag>
-         
-         
-           
-             
-              <breadCrumb title="旁白" url="https://www.kaaaaai.cn/categories/%E6%97%81%E7%99%BD/"/>
           
         </display>
     </data>
@@ -1996,116 +2384,12 @@
 
     
   <url>
-    <loc>https://www.kaaaaai.cn//weekly-summary-190713.html</loc>
-    <lastmod>2020-11-05T02:24:30.973Z</lastmod>
-    <data>
-        <display>
-        <title>每周总结 - 0713</title>
-        <pubTime>2019-07-13T02:13:52.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>Live</tag>
-         
-        <tag>Study</tag>
-         
-        <tag>Work</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.kaaaaai.cn//weekly-summary-190722.html</loc>
-    <lastmod>2020-11-05T02:24:30.926Z</lastmod>
-    <data>
-        <display>
-        <title>每周总结 - 0722</title>
-        <pubTime>2019-07-22T02:13:52.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>Live</tag>
-         
-        <tag>Study</tag>
-         
-        <tag>Work</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.kaaaaai.cn//weekly-summary-190729.html</loc>
-    <lastmod>2020-11-05T02:24:30.911Z</lastmod>
-    <data>
-        <display>
-        <title>每周总结 - 0729</title>
-        <pubTime>2019-07-29T12:13:52.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>Live</tag>
-         
-        <tag>Study</tag>
-         
-        <tag>Work</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://www.kaaaaai.cn//weekly-summary-190803.html</loc>
     <lastmod>2020-11-05T02:24:30.890Z</lastmod>
     <data>
         <display>
         <title>每周总结 - 0803</title>
         <pubTime>2019-08-03T02:13:52.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>Live</tag>
-         
-        <tag>Study</tag>
-         
-        <tag>Work</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.kaaaaai.cn//weekly-summary-190819.html</loc>
-    <lastmod>2020-11-05T02:24:30.862Z</lastmod>
-    <data>
-        <display>
-        <title>每周总结 - 0819</title>
-        <pubTime>2019-08-19T02:13:52.000Z</pubTime>
         
         <tag>EXP</tag>
          
@@ -2146,50 +2430,6 @@
 
     
   <url>
-    <loc>https://www.kaaaaai.cn//literary-memoirs-reading-notes.html</loc>
-    <lastmod>2020-11-05T02:21:02.000Z</lastmod>
-    <data>
-        <display>
-        <title>《文学回忆录》读书笔记</title>
-        <pubTime>2020-04-18T05:00:52.000Z</pubTime>
-        
-        <tag>读书笔记</tag>
-         
-        <tag>中国近代文学</tag>
-         
-         
-           
-             
-              <breadCrumb title="剪报" url="https://www.kaaaaai.cn/categories/%E5%89%AA%E6%8A%A5/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.kaaaaai.cn//mac-usage-problems.html</loc>
-    <lastmod>2020-11-05T02:21:02.000Z</lastmod>
-    <data>
-        <display>
-        <title>Mac 使用问题处理</title>
-        <pubTime>2020-10-02T09:24:52.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>Mac</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://www.kaaaaai.cn//recent-reading-notes.html</loc>
     <lastmod>2020-11-05T02:18:20.355Z</lastmod>
     <data>
@@ -2205,56 +2445,6 @@
            
              
               <breadCrumb title="剪报" url="https://www.kaaaaai.cn/categories/%E5%89%AA%E6%8A%A5/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.kaaaaai.cn//oc-multi-delegate-implementation.html</loc>
-    <lastmod>2020-11-05T02:18:20.000Z</lastmod>
-    <data>
-        <display>
-        <title>OC - 多代理的实现</title>
-        <pubTime>2020-07-16T05:24:52.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>iOS</tag>
-         
-        <tag>OC</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.kaaaaai.cn//weekly-summary-190511.html</loc>
-    <lastmod>2020-11-05T02:16:56.390Z</lastmod>
-    <data>
-        <display>
-        <title>每周总结 - 0511</title>
-        <pubTime>2019-05-11T02:13:52.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>Live</tag>
-         
-        <tag>Study</tag>
-         
-        <tag>Work</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>
@@ -2314,84 +2504,6 @@
 
     
   <url>
-    <loc>https://www.kaaaaai.cn//weekly-summary-190428.html</loc>
-    <lastmod>2020-11-05T02:16:56.300Z</lastmod>
-    <data>
-        <display>
-        <title>每周总结 - 0428</title>
-        <pubTime>2019-04-28T08:24:52.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>Live</tag>
-         
-        <tag>Study</tag>
-         
-        <tag>Work</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.kaaaaai.cn//weekly-summary-190622.html</loc>
-    <lastmod>2020-11-05T02:16:56.239Z</lastmod>
-    <data>
-        <display>
-        <title>每周总结 - 0622</title>
-        <pubTime>2019-06-22T02:13:52.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>Live</tag>
-         
-        <tag>Study</tag>
-         
-        <tag>Work</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.kaaaaai.cn//weekly-summary-190629.html</loc>
-    <lastmod>2020-11-05T02:16:56.211Z</lastmod>
-    <data>
-        <display>
-        <title>每周总结 - 0629</title>
-        <pubTime>2019-06-29T02:13:52.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>Live</tag>
-         
-        <tag>Study</tag>
-         
-        <tag>Work</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://www.kaaaaai.cn//weekly-summary-190706.html</loc>
     <lastmod>2020-11-05T02:16:56.204Z</lastmod>
     <data>
@@ -2406,32 +2518,6 @@
         <tag>Study</tag>
          
         <tag>Work</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.kaaaaai.cn//web-resolve-recirculation-errors.html</loc>
-    <lastmod>2020-11-05T02:16:41.000Z</lastmod>
-    <data>
-        <display>
-        <title>解决使用 GitPage 重定向多次问题</title>
-        <pubTime>2020-05-30T09:24:52.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>Web</tag>
-         
-        <tag>Https</tag>
-         
-        <tag>DNS 解析</tag>
          
          
            
@@ -2505,28 +2591,6 @@
            
              
               <breadCrumb title="涂鸦" url="https://www.kaaaaai.cn/categories/%E6%B6%82%E9%B8%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.kaaaaai.cn//android-call-the-system-to-send-text-messages-customize-the-number-and-text-message-content.html</loc>
-    <lastmod>2020-11-05T02:02:22.456Z</lastmod>
-    <data>
-        <display>
-        <title>Android - 调用系统发短信功能，自定义号码和短信内容</title>
-        <pubTime>2017-07-07T12:31:05.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>Android</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>
@@ -2852,30 +2916,6 @@
 
     
   <url>
-    <loc>https://www.kaaaaai.cn//swift-use-higher-orderfunctions-to-dictionary-sort.html</loc>
-    <lastmod>2020-10-02T09:37:22.000Z</lastmod>
-    <data>
-        <display>
-        <title>Swift - 利用高阶函数给字典排序</title>
-        <pubTime>2020-10-02T02:24:52.000Z</pubTime>
-        
-        <tag>EXP</tag>
-         
-        <tag>iOS</tag>
-         
-        <tag>Swift</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://www.kaaaaai.cn//ios-thirdparty-music-research.html</loc>
     <lastmod>2020-10-02T09:13:43.000Z</lastmod>
     <data>
@@ -2917,30 +2957,6 @@
            
              
               <breadCrumb title="笔记" url="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.kaaaaai.cn//frequently-asked-questions-about-time-travel-by-entropy-reduction.html</loc>
-    <lastmod>2020-09-30T02:20:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>有关熵减-时间旅行的冷门问题</title>
-        <pubTime>2020-09-20T02:13:52.000Z</pubTime>
-        
-        <tag>随笔</tag>
-         
-        <tag>电影</tag>
-         
-        <tag>观后感</tag>
-         
-         
-           
-             
-              <breadCrumb title="旁白" url="https://www.kaaaaai.cn/categories/%E6%97%81%E7%99%BD/"/>
           
         </display>
     </data>
@@ -3046,7 +3062,6 @@
     </data>
     </url>
 
-    
     
     
     
