@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="学习地址：Python 教程其他：官网-函数列表 一、基础笔记列表：list用 len() 函数可以获得 list 元素的个数： Python1&gt;&gt;&gt; len(classmates)  list 是一个可变的有序表，所以，可以往 list 中追加元素到末尾： Python1&gt;&gt;&gt; classmates.append(&amp;#x27;Adam&amp;#x27;)  要删除">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python - 学习笔记">
+<meta property="og:url" content="http://example.com/2018/09/20/python-study-notes/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="学习地址：Python 教程其他：官网-函数列表 一、基础笔记列表：list用 len() 函数可以获得 list 元素的个数： Python1&gt;&gt;&gt; len(classmates)  list 是一个可变的有序表，所以，可以往 list 中追加元素到末尾： Python1&gt;&gt;&gt; classmates.append(&amp;#x27;Adam&amp;#x27;)  要删除">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-09-20T08:24:52.000Z">
+<meta property="article:modified_time" content="2020-11-21T02:11:01.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="EXP">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2018/09/20/python-study-notes/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Python - 学习笔记 | Hexo</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9578d14210d67becef48447e4f6b3f20";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2018/09/20/python-study-notes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Python - 学习笔记
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-09-20 16:24:52" itemprop="dateCreated datePublished" datetime="2018-09-20T16:24:52+08:00">2018-09-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-21 10:11:01" itemprop="dateModified" datetime="2020-11-21T10:11:01+08:00">2020-11-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>学习地址：<a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000">Python 教程</a><br>其他：<a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#abs">官网-函数列表</a></p>
+<h2 id="一、基础笔记"><a href="#一、基础笔记" class="headerlink" title="一、基础笔记"></a>一、基础笔记</h2><h3 id="列表：list"><a href="#列表：list" class="headerlink" title="列表：list"></a>列表：list</h3><p>用 <code>len()</code> 函数可以获得 <code>list</code> 元素的个数：</p>
+<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">len</span>(classmates)</span><br></pre></td></tr></table></figure>
+
+<p><code>list</code> 是一个可变的有序表，所以，可以往 <code>list</code> 中追加元素到末尾：</p>
+<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>classmates.append(<span class="string">&#x27;Adam&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>要删除 <code>list</code> 末尾的元素，用 <code>pop()</code> 方法。要删除指定位置的元素，用 <code>pop(i)</code> 方法，其中 i 是索引位置。</p>
+<h3 id="循环：for-和-while"><a href="#循环：for-和-while" class="headerlink" title="循环：for 和 while"></a>循环：for 和 while</h3><p>for 循环：<code>range()</code> 函数，可以生成一个整数序列，再通过 <code>list()</code> 函数可以转换为list。</p>
+<p>while 循环：<code>continue</code> 语句，跳过当前的这次循环，直接开始下一次循环。<code>break</code> 语句可以提前退出循环。</p>
+<h3 id="dict"><a href="#dict" class="headerlink" title="dict"></a>dict</h3><p>通过 <code>in</code> 判断 <code>key</code> 是否存在：</p>
+<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">&#x27;Thomas&#x27;</span> <span class="keyword">in</span> d</span><br></pre></td></tr></table></figure>
+
+<p>通过 <code>dict</code> 提供的 <code>get()</code> 方法，如果 <code>key</code> 不存在，可以返回 <code>None</code>，或者自己指定的 <code>value</code>：</p>
+<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>d.get(<span class="string">&#x27;Thomas&#x27;</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d.get(<span class="string">&#x27;Thomas&#x27;</span>, -<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<p>要删除一个 <code>key</code> ，用 <code>pop(key)</code> 方法，对应的 <code>value</code> 也会从 <code>dict</code> 中删除：</p>
+<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>d.pop(<span class="string">&#x27;Bob&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="set"><a href="#set" class="headerlink" title="set"></a>set</h3><p><code>set</code> 和 <code>dict</code> 类似，也是一组 <code>key</code> 的集合，但不存储 <code>value</code>。由于 <code>key</code> 不能重复，所以，在 <code>set</code> 中，没有重复的 <code>key</code> 。</p>
+<p>通过 <code>add(key)</code> 方法可以添加元素到 <code>set</code> 中，可以重复添加，但不会有效果，通过 <code>remove(key)</code> 方法可以删除元素。</p>
+<h3 id="参数组合"><a href="#参数组合" class="headerlink" title="参数组合"></a>参数组合</h3><p>在 <code>Python</code> 中定义函数，可以用必选参数、默认参数、可变参数、关键字参数和命名关键字参数，这5种参数都可以组合使用。但是请注意，参数定义的顺序必须是：必选参数、默认参数、可变参数、命名关键字参数和关键字参数。</p>
+<h3 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h3><p>取前 3 个元素，用一行代码就可以完成切片：</p>
+<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>L[<span class="number">0</span>:<span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+
+<p><code>Python</code> 支持 <code>L[-1]</code> 取倒数第一个元素，那么它同样支持倒数切片，试试：</p>
+<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>L[-<span class="number">2</span>:]</span><br><span class="line">[<span class="string">&#x27;Bob&#x27;</span>, <span class="string">&#x27;Jack&#x27;</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>L[-<span class="number">2</span>:-<span class="number">1</span>]</span><br><span class="line">[<span class="string">&#x27;Bob&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<p>所有数，每5个取一个：</p>
+<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>L[::<span class="number">5</span>]</span><br></pre></td></tr></table></figure>
+
+<h3 id="列表生成式"><a href="#列表生成式" class="headerlink" title="列表生成式"></a>列表生成式</h3><p>列表生成式即 List Comprehensions，是 <code>Python</code> 内置的非常简单却强大的可以用来创建 <code>list</code> 的生成式。</p>
+<p>举个例子，要生成 list [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]可以用 <code>list(range(1, 11))</code>：</p>
+<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">1</span>, <span class="number">11</span>))</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>]</span><br></pre></td></tr></table></figure>
+
+<p>但如果要生成[1x1, 2x2, 3x3, …, 10x10]怎么做？方法一是循环：</p>
+<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>L = []</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">11</span>):</span><br><span class="line"><span class="meta">... </span>   L.append(x * x)</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>L</span><br><span class="line">[<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>, <span class="number">36</span>, <span class="number">49</span>, <span class="number">64</span>, <span class="number">81</span>, <span class="number">100</span>]</span><br></pre></td></tr></table></figure>
+
+<p>但是循环太繁琐，而列表生成式则可以用一行语句代替循环生成上面的 <code>list</code>：</p>
+<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>[x * x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">11</span>)]</span><br><span class="line">[<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>, <span class="number">36</span>, <span class="number">49</span>, <span class="number">64</span>, <span class="number">81</span>, <span class="number">100</span>]</span><br></pre></td></tr></table></figure>
+
+<p>写列表生成式时，把要生成的元素x * x放到前面，后面跟for循环，就可以把list创建出来，十分有用，多写几次，很快就可以熟悉这种语法。</p>
+<p>for循环后面还可以加上if判断，这样我们就可以筛选出仅偶数的平方：</p>
+<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>[x * x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">11</span>) <span class="keyword">if</span> x % <span class="number">2</span> == <span class="number">0</span>]</span><br><span class="line">[<span class="number">4</span>, <span class="number">16</span>, <span class="number">36</span>, <span class="number">64</span>, <span class="number">100</span>]</span><br></pre></td></tr></table></figure>
+
+<p>还可以使用两层循环，可以生成全排列：</p>
+<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>[m + n <span class="keyword">for</span> m <span class="keyword">in</span> <span class="string">&#x27;ABC&#x27;</span> <span class="keyword">for</span> n <span class="keyword">in</span> <span class="string">&#x27;XYZ&#x27;</span>]</span><br><span class="line">[<span class="string">&#x27;AX&#x27;</span>, <span class="string">&#x27;AY&#x27;</span>, <span class="string">&#x27;AZ&#x27;</span>, <span class="string">&#x27;BX&#x27;</span>, <span class="string">&#x27;BY&#x27;</span>, <span class="string">&#x27;BZ&#x27;</span>, <span class="string">&#x27;CX&#x27;</span>, <span class="string">&#x27;CY&#x27;</span>, <span class="string">&#x27;CZ&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、函数式编程"><a href="#二、函数式编程" class="headerlink" title="二、函数式编程"></a>二、函数式编程</h2><p><code>map</code> 函数：接收一个函数和一个序列，并把传入的函数作用于每个元素</p>
+<p><code>reduce</code> 函数：把一个函数作用在一个序列[x1, x2, x3, …]上，这个函数必须接收两个参数，<code>reduce</code> 把结果继续和序列的下一个元素做累积计算，其效果就是：</p>
+<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reduce(f, [x1, x2, x3, x4]) = f(f(f(x1, x2), x3), x4)</span><br></pre></td></tr></table></figure>
+
+<p><code>fiter</code>函数：和 <code>map</code> 类似，区别是会根据返回值是 <code>True</code> 和 <code>False</code> 决定保留还是丢弃该元素</p>
+<p><code>sorted</code>函数：排序函数，可通过key实现自定义排序。可传入第三个参数 <code>reverse=True</code>，要进行反向排序，不必改动 <code>key</code> 函数。</p>
+<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sorted</span>([<span class="string">&#x27;bob&#x27;</span>, <span class="string">&#x27;about&#x27;</span>, <span class="string">&#x27;Zoo&#x27;</span>, <span class="string">&#x27;Credit&#x27;</span>], key=<span class="built_in">str</span>.lower, reverse=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<p>匿名函数：lambda x: x * x实际上就是：<br> <figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> x * x</span><br></pre></td></tr></table></figure><br>关键字 <code>lambda</code> 表示匿名函数，冒号前面的 <code>x</code> 表示函数参数。</p>
+<p>装饰器——？：需要再进一步了解。</p>
+<p>偏函数：<code>functools.partial</code> 就是帮助我们创建一个偏函数的，不需要我们自己定义 <code>int2()</code>，可以直接使用下面的代码创建一个新的函数 <code>int2</code>：</p>
+<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> functools</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>int2 = functools.partial(<span class="built_in">int</span>, base=<span class="number">2</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>int2(<span class="string">&#x27;1000000&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>定义：对原函数的默认参数进行改造，为我所用</li>
+<li>方式：<code>max8=functools.partial(max,8)</code>(当然要先导入 <code>functools</code> 包)</li>
+<li>新知：<code>int</code> 居然这么强，<code>int(&#39;1234234&#39;,2)</code></li>
+</ol>
+<h2 id="三、调试"><a href="#三、调试" class="headerlink" title="三、调试"></a>三、调试</h2><p>程序能一次写完并正常运行的概率很小，基本不超过 1%。总会有各种各样的 <code>bug</code> 需要修正。有的 <code>bug</code> 很简单，看看错误信息就知道，有的 <code>bug</code> 很复杂，我们需要知道出错时，哪些变量的值是正确的，哪些变量的值是错误的，因此，需要一整套调试程序的手段来修复 <code>bug</code>。<br>第一种方法简单直接粗暴有效，就是用 <code>print()</code> 把可能有问题的变量打印出来看看：</p>
+<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">foo</span>(<span class="params">s</span>):</span><br><span class="line">    n = <span class="built_in">int</span>(s)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;&gt;&gt;&gt; n = %d&#x27;</span> % n)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">10</span> / n</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    foo(<span class="string">&#x27;0&#x27;</span>)</span><br><span class="line"></span><br><span class="line">main()</span><br></pre></td></tr></table></figure>
+
+<p>执行后在输出中查找打印的变量值：</p>
+<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ python ~/documents/err.py</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>n = <span class="number">0</span></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  ...</span><br><span class="line">ZeroDivisionError: integer division <span class="keyword">or</span> modulo by zero</span><br></pre></td></tr></table></figure>
+
+<p>用 <code>print()</code> 最大的坏处是将来还得删掉它，想想程序里到处都是 <code>print()</code>，运行结果也会包含很多垃圾信息。所以，我们又有第二种方法。</p>
+<h3 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h3><p>凡是用 <code>print()</code> 来辅助查看的地方，都可以用断言（assert）来替代：</p>
+<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">foo</span>(<span class="params">s</span>):</span><br><span class="line">    n = <span class="built_in">int</span>(s)</span><br><span class="line">    <span class="keyword">assert</span> n != <span class="number">0</span>, <span class="string">&#x27;n is zero!&#x27;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">10</span> / n</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    foo(<span class="string">&#x27;0&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><code>assert</code> 的意思是，表达式 <code>n != 0</code> 应该是 <code>True</code>，否则，根据程序运行的逻辑，后面的代码肯定会出错。<br>如果断言失败，<code>assert</code> 语句本身就会抛出</p>
+<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">AssertionError：</span><br><span class="line">$ python ~/documents/err.py</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  ...</span><br><span class="line">AssertionError: n <span class="keyword">is</span> zero!</span><br></pre></td></tr></table></figure>
+
+<p>程序中如果到处充斥着 <code>assert</code>，和 <code>print()</code> 相比也好不到哪去。不过，启动 <code>Python</code> 解释器时可以用 -O 参数来关闭<code>assert</code>：</p>
+<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ python -O err.py</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  ...</span><br><span class="line">ZeroDivisionError: division by zero</span><br></pre></td></tr></table></figure>
+
+<p>关闭后，你可以把所有的 <code>assert</code> 语句当成<code>pass</code> 来看。</p>
+<h3 id="logging"><a href="#logging" class="headerlink" title="logging"></a>logging</h3><p>把 <code>print()</code> 替换为 <code>logging</code> 是第3种方式，和 <code>assert</code> 比，<code>logging</code> 不会抛出错误，而且可以输出到文件：</p>
+<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"></span><br><span class="line">s = <span class="string">&#x27;0&#x27;</span></span><br><span class="line">n = <span class="built_in">int</span>(s)</span><br><span class="line">logging.info(<span class="string">&#x27;n = %d&#x27;</span> % n)</span><br><span class="line"><span class="built_in">print</span>(<span class="number">10</span> / n)</span><br></pre></td></tr></table></figure>
+
+<p><code>logging.info()</code> 就可以输出一段文本。运行，发现除了 <code>ZeroDivisionError</code>，没有任何信息。怎么回事？<br>别急，在 <code>import logging</code> 之后添加一行配置再试试：</p>
+<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line">logging.basicConfig(level=logging.INFO)</span><br></pre></td></tr></table></figure>
+
+<p>看到输出了：</p>
+<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ python err.py</span><br><span class="line">INFO:root:n = <span class="number">0</span></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">&quot;err.py&quot;</span>, line <span class="number">8</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    <span class="built_in">print</span>(<span class="number">10</span> / n)</span><br><span class="line">ZeroDivisionError: division by zero</span><br></pre></td></tr></table></figure>
+
+<p>这就是 <code>logging</code> 的好处，它允许你指定记录信息的级别，有 <code>debug</code>，<code>info</code>，<code>warning</code>，<code>error</code> 等几个级别，当我们指定 <code>level=INFO</code> 时，<code>logging.debug</code> 就不起作用了。同理，指定 <code>level=WARNING</code> 后，<code>debug</code> 和 <code>info</code> 就不起作用了。这样一来，你可以放心地输出不同级别的信息，也不用删除，最后统一控制输出哪个级别的信息。<br><code>logging</code> 的另一个好处是通过简单的配置，一条语句可以同时输出到不同的地方，比如<code>console</code> 和文件。</p>
+<h3 id="pdb"><a href="#pdb" class="headerlink" title="pdb"></a>pdb</h3><p>第4种方式是启动 <code>Python</code> 的调试器 <code>pdb</code>，让程序以单步方式运行，可以随时查看运行状态。我们先准备好程序：</p>
+<figure class="highlight python"><figcaption><span>Python err.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&#x27;0&#x27;</span></span><br><span class="line">n = <span class="built_in">int</span>(s)</span><br><span class="line"><span class="built_in">print</span>(<span class="number">10</span> / n)</span><br></pre></td></tr></table></figure>
+
+<p>然后启动：</p>
+<figure class="highlight bash"><figcaption><span>终端</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ python -m pdb err.py</span><br><span class="line">&gt; /Users/michael/Github/learn-python3/samples/debug/err.py(2)&lt;module&gt;()</span><br><span class="line">-&gt; s = <span class="string">&#x27;0&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>以参数 <code>-m pdb</code> 启动后，<code>pdb</code> 定位到下一步要执行的代码<code>-&gt; s = &#39;0&#39;</code>。输入命令 <code>l</code> 来查看代码：</p>
+<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(Pdb) l</span><br><span class="line">  <span class="number">1</span>     <span class="comment"># err.py</span></span><br><span class="line">  <span class="number">2</span>  -&gt; s = <span class="string">&#x27;0&#x27;</span></span><br><span class="line">  <span class="number">3</span>     n = <span class="built_in">int</span>(s)</span><br><span class="line">  <span class="number">4</span>     <span class="built_in">print</span>(<span class="number">10</span> / n)</span><br></pre></td></tr></table></figure>
+<p>输入命令n可以单步执行代码：</p>
+<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(Pdb) n</span><br><span class="line">&gt; /Users/michael/Github/learn-python3/samples/debug/err.py(<span class="number">3</span>)&lt;module&gt;()</span><br><span class="line">-&gt; n = <span class="built_in">int</span>(s)</span><br><span class="line">(Pdb) n</span><br><span class="line">&gt; /Users/michael/Github/learn-python3/samples/debug/err.py(<span class="number">4</span>)&lt;module&gt;()</span><br><span class="line">-&gt; <span class="built_in">print</span>(<span class="number">10</span> / n)</span><br></pre></td></tr></table></figure>
+
+<p>任何时候都可以输入命令p 变量名来查看变量：</p>
+<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(Pdb) p s</span><br><span class="line"><span class="string">&#x27;0&#x27;</span></span><br><span class="line">(Pdb) p n</span><br><span class="line"><span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>输入命令q结束调试，退出程序：</p>
+<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(Pdb) q</span><br></pre></td></tr></table></figure>
+
+<p>这种通过 <code>pdb</code> 在命令行调试的方法理论上是万能的，但实在是太麻烦了，如果有一千行代码，要运行到第 999 行得敲多少命令啊。还好，我们还有另一种调试方法。</p>
+<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pdb.set_trace()</span><br></pre></td></tr></table></figure>
+
+<p>这个方法也是用 <code>pdb</code>，但是不需要单步执行，我们只需要 <code>import pdb</code>，然后，在可能出错的地方放一个 <code>pdb.set_trace()</code>，就可以设置一个断点：</p>
+<figure class="highlight python"><figcaption><span>Python err.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pdb</span><br><span class="line"></span><br><span class="line">s = <span class="string">&#x27;0&#x27;</span></span><br><span class="line">n = <span class="built_in">int</span>(s)</span><br><span class="line">pdb.set_trace() <span class="comment"># 运行到这里会自动暂停</span></span><br><span class="line"><span class="built_in">print</span>(<span class="number">10</span> / n)</span><br></pre></td></tr></table></figure>
+
+<p>运行代码，程序会自动在 <code>pdb.set_trace()</code> 暂停并进入 <code>pdb</code> 调试环境，可以用命令 <code>p</code> 查看变量，或者用命令 <code>c</code> 继续运行：</p>
+<figure class="highlight bash"><figcaption><span>终端</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ python err.py </span><br><span class="line">&gt; /Users/michael/Github/learn-python3/samples/debug/err.py(7)&lt;module&gt;()</span><br><span class="line">-&gt; <span class="built_in">print</span>(10 / n)</span><br><span class="line">(Pdb) p n</span><br><span class="line">0</span><br><span class="line">(Pdb) c</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">&quot;err.py&quot;</span>, line 7, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    <span class="built_in">print</span>(10 / n)</span><br><span class="line">ZeroDivisionError: division by zero</span><br></pre></td></tr></table></figure>
+
+<p>这个方式比直接启动 <code>pdb</code> 单步调试效率要高很多，但也高不到哪去。</p>
+<h3 id="IDE"><a href="#IDE" class="headerlink" title="IDE"></a>IDE</h3><p>如果要比较爽地设置断点、单步执行，就需要一个支持调试功能的 <code>IDE</code>。目前比较好的 <code>Python IDE</code> 有：<br><a target="_blank" rel="noopener" href="https://code.visualstudio.com/">Visual Studio Code</a>：需要安装<code>Python</code> 插件。<br><a target="_blank" rel="noopener" href="http://www.jetbrains.com/pycharm/">PyCharm</a>。<br>另外，<code>Eclipse</code> 加上 <code>pydev</code> 插件也可以调试 <code>Python</code> 程序。</p>
+<p><strong>小结：</strong>写程序最痛苦的事情莫过于调试，程序往往会以你意想不到的流程来运行，你期待执行的语句其实根本没有执行，这时候，就需要调试了。<br>虽然用 <code>IDE</code> 调试起来比较方便，但是最后你会发现，<code>logging</code> 才是终极武器。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/EXP/" rel="tag"># EXP</a>
+              <a href="/tags/Python/" rel="tag"># Python</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/09/03/other-fragment-about-huan/" rel="prev" title="胡安另一些片段">
+      <i class="fa fa-chevron-left"></i> 胡安另一些片段
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/11/22/wizard-world-revolution/" rel="next" title="巫师世界革命">
+      巫师世界革命 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0"><span class="nav-number">1.</span> <span class="nav-text">一、基础笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%97%E8%A1%A8%EF%BC%9Alist"><span class="nav-number">1.1.</span> <span class="nav-text">列表：list</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%EF%BC%9Afor-%E5%92%8C-while"><span class="nav-number">1.2.</span> <span class="nav-text">循环：for 和 while</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dict"><span class="nav-number">1.3.</span> <span class="nav-text">dict</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#set"><span class="nav-number">1.4.</span> <span class="nav-text">set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E7%BB%84%E5%90%88"><span class="nav-number">1.5.</span> <span class="nav-text">参数组合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%87%E7%89%87"><span class="nav-number">1.6.</span> <span class="nav-text">切片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%97%E8%A1%A8%E7%94%9F%E6%88%90%E5%BC%8F"><span class="nav-number">1.7.</span> <span class="nav-text">列表生成式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">二、函数式编程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E8%B0%83%E8%AF%95"><span class="nav-number">3.</span> <span class="nav-text">三、调试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%AD%E8%A8%80"><span class="nav-number">3.1.</span> <span class="nav-text">断言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#logging"><span class="nav-number">3.2.</span> <span class="nav-text">logging</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pdb"><span class="nav-number">3.3.</span> <span class="nav-text">pdb</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IDE"><span class="nav-number">3.4.</span> <span class="nav-text">IDE</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="John Doe"
+      src="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">97</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">67</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="sidebar-button motion-element"><i class="fa fa-comment"></i>
+    Chat
+  </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Kaaaaai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Kaaaaai" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/lvkaimeiyouhenshuai" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lvkaimeiyouhenshuai" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kaaaaai</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

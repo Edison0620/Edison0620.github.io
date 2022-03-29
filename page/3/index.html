@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/page/3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Hexo</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9578d14210d67becef48447e4f6b3f20";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/03/22/everyone-love-gtd/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/22/everyone-love-gtd/" class="post-title-link" itemprop="url">社畜都爱 GTD</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-22 10:24:52" itemprop="dateCreated datePublished" datetime="2020-03-22T10:24:52+08:00">2020-03-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-03-26 10:55:37" itemprop="dateModified" datetime="2022-03-26T10:55:37+08:00">2022-03-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://s1.ax1x.com/2020/03/21/8hSBZR.jpg"></p>
+<p>　　用了很久 GTD 工具，才知道它的全拼是 Getting Things done（把事情做好），而不是 Get to do（快去做）。虽然意思差不多，但是情绪上好像一个是在昂首挺胸向前迈进，另一个是无可奈何负重前行。看过关于很多关于时间管理的文章，每个作者侧重点和方向不同，都给我带来一定的收获。虽然在用心程度，耕耘深度都不如写文章的大佬们，但还是想写一下自己从接触到使用那么久以来的心得。<br>　　看到题目“社畜都爱 GTD”，可能有朋友就会跳出来这样反驳：我承认我是个社畜，但我不爱 GTD，我甚至不知道 GTD。或是这样反驳：我每天从八百平方米的卧室起来，在高大的落地窗前喝咖啡欣赏清晨的阳光，我不是个社畜，但我也爱 GTD 啊。虽然后面的杠法难度有点高，但这两个争议对于我的题目来说也确实存在，不过不去钻牛角尖，通过这两个争议我们可以延伸出两个问题：</p>
+<blockquote>
+<p>1.我是一名普通的工作者，不知道 GTD，也不知道 GTD 对我有何意义？<br>2.我并不是一个传统型的工作者，我甚至不用工作，但我也在使用 GTD，所以 GTD 到底适合哪些人群？</p>
+</blockquote>
+<h2 id="为什么需要-GTD"><a href="#为什么需要-GTD" class="headerlink" title="为什么需要 GTD"></a>为什么需要 GTD</h2><p>　　GTD 虽然只是一种时间管理的方法，但透过方法我们可以看到他的本质，即有条不紊的安排自己的事情，以避免手上事情堆积给自己造成压力和更好地完成手上的事情。就这点来说，我觉得每个人可能都有主动地去做 GTD 这件事或做了 GTD 而不自知。比如一个远离现代都市的农民，春种秋收，虽说是按着时节变化，按部就班，但不可否认，具体到哪天播种，哪天收割，田地上的每个人都有自己的打算。这算不算一种 GTD？<br>　　比如一个小孩，虽然小孩子的行为总是天马行空，想到做啥就去做啥，但像我小时候也偶尔会计划，哪一天要和朋友爬山，爬山那天要干嘛，哪一天和朋友去骑自行车，骑自行车那天要干什么。这又算不算一种 GTD？<br>　　我觉得 GTD 其实并不是一板一眼把计划写出来：很重要不紧急——补作业，很重要很紧急——看迪迦奥特曼。GTD 只是一种方法，一种化整为零，把我们需要做的事情按阶段，按层次划分的一种思想。这样看起来，人人都在 GTD。<br>　　当然也有人会说，这只是一种诡辩，把 GTD 和时间管理划等号的一种概念偷换。那换个方向，直面问题，GTD 对于一名普通工作者，意义到底在哪里？我想如果自己的位置不是在当前权利阶级的塔尖位置，所有人都会面临一个问题，就是自己的时间被自己的直属领导安排，当然这都是理所应当的。而这时候如果你在设定好的时间内完成好自己所需要做的事情，那么是不是可以获得一定的时间自由？而 GTD 的意义在于这里，可以更好的帮助你在设定好的边界内，获取到尽可能的时间自由。通俗一点说就是，你不进行时间管理，你就被时间管理。当然也可以比较浪漫的想，GTD 是每天三点一线的社畜为捍卫自己时间自由进行的最后一点负隅顽抗，几乎是一种戴着镣铐的舞蹈了。
+　　</p>
+<h2 id="GTD-到底适合哪些人群"><a href="#GTD-到底适合哪些人群" class="headerlink" title="GTD 到底适合哪些人群"></a>GTD 到底适合哪些人群</h2><p>　　另一个问题，GTD 到底适合哪些人群，在上文中，我说人人都在 GTD，所以每个人都适合 GTD，这就是我的结论。但我想在这个结论的基础上延伸一下，为什么每个人都适合 GTD？<br>　　回到原点，GTD 是什么，GTD 是一种时间管理的方法，那为什么我们需要时间管理，因为我们时间不够，拿最近的疫情来说，医生呼吁大家不用每个疑似患者都去医院检查，这样容易照成医疗资源挤兑，每个人都检查，导致真正重症病人被遗漏，乃至悲剧发生。换成我们的日常来说，就是每件事都挤到这一分钟想被完成，造成了一种时间挤兑，导致真正重要的事情被我们遗忘。<br>　　也就是说我们需要时间管理，本质是因为我们时间不够用，因为时间不够用我们去寻求一种解决方式。从某种意义上来看，这是一件让人伤感的事。所以结论虽然是每个人都适合 GTD，但我希望每个人都用不上 GTD。
+　　</p>
+<h2 id="选择一个-GTD-工具"><a href="#选择一个-GTD-工具" class="headerlink" title="选择一个 GTD 工具"></a>选择一个 GTD 工具</h2><p>　　长篇累牍铺垫了那么久，发现我说废话能力又上升了一个档次，几乎可以收拾收拾去官场里打滚了。haha，进入正题，选择一个 GTD 工具，市面上的 GTD 工具有很多，考虑到在苹果不同的设备端上都能使用，我尝试了三种主流的工具：Microsoft To Do&#x2F;Things&#x2F;滴答清单<br>　<img src="https://s1.ax1x.com/2020/03/21/8hS4eA.jpg"><img src="https://s1.ax1x.com/2020/03/21/8hScRO.jpg"><img src="https://s1.ax1x.com/2020/03/21/8hSyi6.jpg"><br>　　先说结论，如果是深度用户，可以接受付费使用的话，推荐使用滴答清单。而如果是像我这样，整体的工作流核心并不是围绕着 GTD 工具展开，而是把它当成一个辅助工具来用的话，且不想为之付费的用户，则推荐使用 Microsoft To Do。<br>　　为了直观展现这三个软件的差异，针对他们的功能我列了个表格：<br> <img src="https://s1.ax1x.com/2020/03/23/8TSxPA.jpg"></p>
+<p>　　除此以外，还有一些频度不是很高的功能或是并不是功能性的，只是某个软件独有的小功能，我并没列出来，比如 Microsoft To Do 的任务清单设置背景，Things 自成风格的动画效果，滴答清单的任务评论。不过前两个虽然看似是一个差异性的功能，但实际使用却不是那么友好，Microsoft To Do 的任务清单设置背景，可设置的背景图片只有默认的几张，而且有的图片会比较突出某种风格，难以当成一个通用选择来用，而 things 的动画效果，初次使用时，特别是在移动端上着实有被惊艳到，但长时间使用下来，也发现一些问题，像比如在滴答清单，我们需要从一个任务的详细描述切换查看另一个任务的详细描述，我们只需要点击一下，即可完成切换。但在 things 上，如果你展开了一个任务，首先要在展开任务以外的区域点击一下收起，然后在另一个任务上双击才可暂开。对于习惯每天早上打开电脑都会过一遍手头上所有任务及及其细节的我来说，实在有点疲惫。<br>　　当然除了以上三种工具市面上可供选择的软件也有很多，包括苹果自家的提醒事项也是不错的选择，而我选择不用的原因是，他的任务清单不支持 emoji 命名，在这一点上有必要夸一下 Microsoft To Do，在选择新建 list 后，列表会有一个默认图标，但当你命名的开头有一个 emoji 时，默认的图标就会隐藏，在视觉上避免了繁复之感。还有另一个我也曾考虑过的工具是 notice，可以作为 GTD 工具但却不止可以做 GTD 工具，无限 block 和多模版是我看中它的两个原因，但网络差加载很慢以及需要花很多精力去搭建整个工作流也是劝退我的另外两个原因。
+　　</p>
+<h2 id="平常心对待-GTD-这件事"><a href="#平常心对待-GTD-这件事" class="headerlink" title="平常心对待 GTD 这件事"></a>平常心对待 GTD 这件事</h2><p>　　之前为了找到适合自己的 GTD 工具看了不少文章，在过程中发现，会谈论 GTD 的人也会谈论到诸如番茄工作法，康奈尔笔记法，极简主义，自我管理，减负，手账，成就，目标等之类的字眼，就好像每个人都在通过各种不同的方式为自己打造一个美好生活，高效工作的满分局面，期望可以从不断加速的生活旋涡逃离或可以加以控制，但在我看来这些不同的生活方式交织重叠在一块，又好像变成了另一种旋涡，漩涡的中心是焦虑。<br>　　我想我们不应该被那些看起来很好的方法和工具的表象所迷惑，工具只是工具，我们不仅要分清主次关系，也要明确主从关系。如果花在规划的时间远远超过实践的时间，就有点本末倒置了。希望我们可以平常心对待包括 GTD 以内的提高效率、提升自己这些事。 　　
+　　</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/03/14/git-submodule/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/14/git-submodule/" class="post-title-link" itemprop="url">Git - Submodule 使用简单教程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-14 11:24:52" itemprop="dateCreated datePublished" datetime="2020-03-14T11:24:52+08:00">2020-03-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-22 09:38:52" itemprop="dateModified" datetime="2020-11-22T09:38:52+08:00">2020-11-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>　　最近在项目中使用了 <code>Git Submodule</code> 的功能，好处是如果是自己开发的封装库，比较方便调试，push 时可以同时上传项目和库的修改，别人通过主仓库地址下载工程的时候速度也会快上一些。<br>　　<code>Git Submodule</code> 的使用可以通过终端命令来操作（<a target="_blank" rel="noopener" href="https://tnie.github.io/2018/04/02/git_submodule/">Git Submoudle 使用完整教程</a>），或者通过 <code>Git</code> 第三方可视化客户端直接操作。本文展示的是通过 <code>Git</code> 第三方客户端 Sourcetree 来实现这个功能的。
+　　</p>
+<h2 id="一、通过-Sourcetree-使用-Git-Submodule"><a href="#一、通过-Sourcetree-使用-Git-Submodule" class="headerlink" title="一、通过 Sourcetree 使用 Git Submodule"></a>一、通过 Sourcetree 使用 Git Submodule</h2><p>1.首先下载一个你想要添加 Git Submodule 功能的主仓库。<br>这里以我用来学习的仓库为例子<br><img src="https://s1.ax1x.com/2020/03/14/8MjX4S.jpg"><br>　　<br>2.在下载好的仓库左侧菜单栏，右键点击 SUMODULES，在弹出的菜单中选中“Add Sumodelues”<br><img src="https://s1.ax1x.com/2020/03/14/8MjON8.jpg"></p>
+<p>3.在弹出的菜单中填写远程仓库地址，和本地仓库地址<br>这里我填的远程仓库地址是一个第三方库 AFNetworking，大家可以根据自己的实际需求填写自己私有仓库地址或者其他仓库地址。<br>需要注意的是，Git Submodule 的文件夹地址的路径最好是在主工程文件路径的子目录底下，比如：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">master path：~/User/xxx/主工程文件夹</span><br><span class="line">Submodule path：~/User/xxx/主工程文件夹/Submodule 文件夹</span><br></pre></td></tr></table></figure>
+<p><img src="https://s1.ax1x.com/2020/03/14/8MjLAf.jpg"><br>点击 OK 就可以随意使用了。</p>
+<p>后面如果需要 push&#x2F;pull Submodule 仓库，更新方式也和在 sourcetree 中正常使用其他工程的流程是一样的。</p>
+<p>4.切换分支和节点<br>如果需要指定 Submodule 固定的版本或分支，也很简单。<br>双击左侧菜单 SUMODULES 下我们添加的子仓库，仍以上面 AFNetworking 为例子：<br><img src="https://s1.ax1x.com/2020/03/23/8TJuqK.jpg"><br>在弹出的窗口可以看到很多很多 Tag 和分支，按自己需求手动点击切换即可。</p>
+<p>5.删除子模块<br><img src="https://s1.ax1x.com/2020/03/23/8TBwdI.jpg"><br>操作也很简单，右键点击左侧菜单 SUMODULES 下我们添加的子仓库，在弹出的菜单中选择“删除”，然后点击确认“即可”</p>
+<p>Sourcetree 会帮我们完成剩下的事情：<br><img src="https://s1.ax1x.com/2020/03/23/8TBnsJ.jpg"></p>
+<h2 id="二、其他说明"><a href="#二、其他说明" class="headerlink" title="二、其他说明"></a>二、其他说明</h2><ol>
+<li>实际开发中建议子仓库权限除管理员和子仓库维护人员以外设置为 reporter 权限（即可以克隆代码，不能提交）。</li>
+<li>当子仓库有更新时，需要通知主仓库底下所有开发人员手动更新。</li>
+</ol>
+<p>以下测试结果为上述结论提供依据：<br>1） 当子仓库为 reporter 权限的开发人员提交子仓库修改。其他开发人员会在主仓库中会收到子仓库的 commit 提交，但实际代码并无改变。<br>2） 当子仓库为 Developer 权限以上的开发人员提交代码更新时。其他开发人员会在主仓库收到子仓库的更新提醒，但需要手动 pull 到本地，代码才会发生变化。<br>3） 当有两个开发人员分别在子仓库中使用了不同分支或节点，并把使用的设置提交了修改。其他开发人员会在主仓库中会收到子仓库的 commit 提交，但实际代码并无改变。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/03/08/i-can't-stay-here-to-love-you/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/08/i-can't-stay-here-to-love-you/" class="post-title-link" itemprop="url">我不能留在这里爱你</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-08 10:13:52" itemprop="dateCreated datePublished" datetime="2020-03-08T10:13:52+08:00">2020-03-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-22 09:32:52" itemprop="dateModified" datetime="2020-11-22T09:32:52+08:00">2020-11-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%81%E7%99%BD/" itemprop="url" rel="index"><span itemprop="name">旁白</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>每当我远离日常生活<br>就会被日常生活的场景感动<br>长椅上的老人他神色安详<br>两个骑单车的少年在树下相遇<br>停车说笑，相互点烟<br>恋人们手拉手穿过人行横道<br>那一刻的依恋是真心<br>每当我被这日常生活的场景感动<br>就忍不住要狠心逃开</p>
+</blockquote>
+<p>　　看电影《桃姐》，总是让我想起这首诗。不是因为感动，而是因为电影里那些充满生活气息的镜头和似曾相识的片段，让我想起和家中长辈相处的情形，在家庭关系里，我大概一直扮演的是一个不通情达理，不懂事妥帖的小孩，而电影勾起的我的种种回忆，让我意识到我内心有一部分可能是通情懂事的，是柔软的，这让我感到有点难为情。这种感觉，就像是以前在学校食堂吃午饭，奶奶来看我，在餐桌旁探着头，看我在吃什么，和我说话，叮嘱我要吃饱饭。虽然现在想起来觉得怀念和难过，但当时我只是难为情，想奶奶快点回家。<br>　　“每当我被这日常生活的场景感动，就忍不住要狠心逃开”。这是我看《桃姐》大部分时候的感受。一部分是因为自己的经历，另一部分是因为共情，共谁的情？桃姐刚入老人院的时候，因为被说名字听起来像佣人，桃姐生气说得罪你啦，要这样骂我，那时候共的是桃姐的情，桃姐过世，坚叔借钱买花，到了灵堂犹豫踌躇，那时候共的是坚叔的情，罗杰妈妈探望桃姐，给桃姐钱，两人互相推搡，那时候共的是亲近又有分寸感的两个人之间氛围的情，还有老人院的老头用粤语念诗，一字一句，相见时难别亦难，东风无力百花残。春蚕到死丝方尽，蜡炬成灰泪始干。晓镜但愁云鬓改，夜吟应觉月光寒。蓬山此去无多路，青鸟殷勤为探看。那时候共的是李商隐的情，也可以说是导演的情，但这个倒没让我难为情的想逃开，只觉得怅然若失。<br>　　虽然前面抒了很多严肃又沉重的情，看起来，《桃姐》这部电影又像是讲一个大爱无疆，高山仰止这类的故事，但其实电影整体的情绪并不激烈和沉重，相反，它平淡朴实的像一篇流水账日记，虽然也有很多家长里短的龌蹉部分藏在电影的角落头，但整体让人感受到的还是温暖积极的，很适合挑一个无所事事的晚上，准备点瓜子，一个人安静的看。<br>　　从整体出来，里面演员的表现也非常可圈可点，不提那些老戏骨的表现，就连演什么都像演自己的刘德华因为角色是电影监制，也算娱乐圈里的人，所以有时候有点端着，也不算违和。而让人惊喜的是，电影里面出现了很多很久没见过但在以前几乎家喻户晓的老明星，其中最让我影响深刻的就是罗兰了——我也是刚搜索她才知道名字，可能大家都很陌生，但是提起她演过的角色可能都有印象，比如陈浩民版的《封神榜》里李靖他妈，古天乐版《神雕侠侣》里公孙绿萼他妈以及等等慈眉善目和面目可憎的老太太。真是相当遥远的记忆了。另一个觉得很有意思的是黄秋生演的养老院院长，不知道扮演通过巧立名目对老人们收取各种不合理费用的角色时，他是否有预料到几年后，他也会扮演一个下肢瘫痪，单身寡居，脾气暴躁的老头？演员们因为年龄增长，而不可避免的只能出演中老年角色，再过几年是否也会看到华仔颤颤巍巍的在大屏幕上出现。想到这，忽觉时光流逝飞快，世事也不过都是面貌不同的轮回。<br>　　可能再过几年，再迎头撞上这样的日常，我不会再想逃开，而是想着尽可能的和它再温存一会儿，并在它把我远远抛之脑后时，不时想起，温柔的怀念。
+　　</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/29/ios-preliminary-study-of-symbolic-breakpoints/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/29/ios-preliminary-study-of-symbolic-breakpoints/" class="post-title-link" itemprop="url">iOS - 初探符号断点调试</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-29 11:24:52" itemprop="dateCreated datePublished" datetime="2020-02-29T11:24:52+08:00">2020-02-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-22 09:35:35" itemprop="dateModified" datetime="2020-11-22T09:35:35+08:00">2020-11-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><em>在调试一个项目中包含库工程的工程时发现，平常在代码视图左侧点击添加断点调试，忽然发现不起作用了，然后尝试使用了一些不同的方法去解决，虽然最后仍然是通过开关机，重启 Xcode 的方式解决问题的，但那些尝试也在过程中期起到了排除问题的作用，记录一下其中用到的符号断点的用法。</em></p>
+<h2 id="一、介绍"><a href="#一、介绍" class="headerlink" title="一、介绍"></a>一、介绍</h2><p>Symbolic Breakpoint 为符号断点，可以针对某一个方法(函数)设置断点并暂停执行；有时候，我们并不清楚会在什么情况下调用某一个函数，那我们可以通过符号断点来跟踪获取调用该函数的程序堆栈。</p>
+<h2 id="二、使用方法"><a href="#二、使用方法" class="headerlink" title="二、使用方法"></a>二、使用方法</h2><p>例：跟踪应用程序的启动函数。<br>第一步：左侧导航视图切换到“Breakpoint Navigator”<br><img src="https://s2.ax1x.com/2020/02/29/3s1QNF.jpg"></p>
+<p>第二步：点击左侧导航栏左下角的“+”<br><img src="https://s2.ax1x.com/2020/02/29/3s139J.jpg"></p>
+<p>第三步：在弹出的菜单中选择“Add Symbolic Breakpoint”<br><img src="https://s2.ax1x.com/2020/02/29/3s1MAU.jpg"></p>
+<p>第四步：在“Symbol”右侧的输入框中输入要设置断点的函数(方法)<br><img src="https://s2.ax1x.com/2020/02/29/3s1lh4.jpg"></p>
+<p>第五步：本例中设置断点在 App 应用的启动函数<br><img src="https://s2.ax1x.com/2020/02/29/3s1nBV.jpg"></p>
+<p>第六步：模拟器运行 APP，断点停留在了启动函数“- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions”<br><img src="https://s2.ax1x.com/2020/02/29/3s1839.jpg"></p>
+<p>3、符号断点输入框中各字段说明<br><strong>Symbol</strong>：填入你想设置断点的方法<br>（例如：-[NSException raise]，-号是实例方法，+号是类方法）。<br>你也可以输入：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">objc_exception_throw malloc_error_break <span class="comment">//跟踪调试释放了2次的对象</span></span><br><span class="line">-[<span class="built_in">NSObject</span> doesNotRecognizeSelector:] <span class="comment">//向某个object发送没有的方法</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Module</strong>：填入要设置断点的方法或函数是否在位于dylib中，默认不填。</p>
+<p><strong>Conditon</strong>：填入条件，例如：(BOOL)[item isEqualToString:@“test”]前面的（BOOL）是必须的。否则 console 会提示类型不符号，导致条件不能生效。意思是 <code>item（NSString）</code> 是 <code>test</code> 时停下。<br>同样可以写一下判断的方法比如用来确定类类型的 <code>isKindOfClass</code>:，确定对象在继承体系中的位置的 <code>isMemberOfClass</code>:，判断一个对象是否能接收某个特定消息的 <code>respondsToSelector:，判断一个对象是否遵循某个协议的 </code>conformsToProtocol<code>:，以及提供方法实现地址的 </code>methodForSelector&#96;:。</p>
+<p><strong>Ignore</strong>：忽略几次。</p>
+<p><strong>Action</strong>：可在程序断点执行后增加额外动作（Applescript，捕捉动画帧速，调试器命令（lldb），输入 log 记录，终端命令（shell）,播放声音）<br>例如：Debugger Commond 中可填入<br>po item 输出 item 变量的值<br>bt 表示输出方法调用堆栈信息</p>
+<p>4、示例<br>查找项目中哪些地方对 <code>UICollectionView</code> 的背景色进行了设置。<br>注 <code>UICollectionView</code> 的设置背景色方法继续了 <code>UIView</code> 的 <code>setBackgroundColor</code>，故使用以下设置：<br><img src="https://s2.ax1x.com/2020/02/29/3s1GcR.jpg"></p>
+<p>设置成功后断点下方显示了要跟踪的方法：<br><img src="https://s2.ax1x.com/2020/02/29/3s1Jj1.jpg"></p>
+<p>运行调试，断点停留在方法的调用位置：<br><img src="https://s2.ax1x.com/2020/02/29/3s1cut.jpg"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/22/gangster-and-litchi/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/22/gangster-and-litchi/" class="post-title-link" itemprop="url">黑帮老大和荔枝</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-22 10:13:52" itemprop="dateCreated datePublished" datetime="2020-02-22T10:13:52+08:00">2020-02-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-22 09:38:52" itemprop="dateModified" datetime="2020-11-22T09:38:52+08:00">2020-11-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%81%E7%99%BD/" itemprop="url" rel="index"><span itemprop="name">旁白</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>　　疫情蔓延的春天，待在家看了几本书，有一本是马家辉先生写的《龙头凤尾》，讲的是一个在动荡年代里一个香港黑帮龙头“南爷”的故事，和传统的江湖故事，历史演义不同，这本书没有在争斗和时局多费笔墨，只是把这些当做推动人物活动的一个必要的背景，更多的是关注南爷和他同性恋人的纠缠和他本身的心理活动。</p>
+<p>　　起初这本书吸引我，是因为开头便知故事主角陆北才会当上后面的“南爷”，所以对南爷何以成为南爷，故事后续发展可能藏着的风波诡谲，存着微微雀跃的期待，有着像《新世界》的电影剧情的想象。</p>
+<p>　　看到一半，故事虽然没像我想象的一样发展，但江湖毕竟是江湖，波涛翻滚前零星半点的浪花——陆北才当兵无意窥知兄弟的秘密差点被开瓤送命；投奔弟弟入了洪门做马仔；在凌晨雾气弥漫的时候将替死鬼沉湖；开创黄赌毒代金券玩法，便足以满足乏味时期的我的猎奇心情。而到后半部，看到南爷对鬼佬张迪臣也不只是因为贪昧肉体欢娱，而是把他放在自己心里反复想念，到张迪臣入狱，陆北才为他奔走操心，得知张迪臣可能死亡的消息，他接近崩溃，又引发了我对他们所发生的一切所持态度的思考。</p>
+<p>　　我对同性恋群体没有什么偏见，觉得就像有人喜欢下象棋，有人喜欢打篮球，都是兴趣爱好，只是表现不同，而无分高低。但陆北才的性向偏好并非来自先天，而是源于幼年他叔父对他的侵犯，所以在后来的故事中，在结婚后的逃避，离开家乡去当兵，然后去了香港爱上鬼佬等等这一切的事情，在心理上，我都把他当做一个病人。爱上鬼佬男人，只是旧病复发，可以原谅，但让我理解却很难。哪怕书里有很多内心独白都表现出他对自身状态早就早早接受，我也偏偏不替主人公接受，这种顽固的来源，一部分可能来自于身为直男的体面，对这种强暴式人生走向坚决 say no，另一部分大概因为看见了前因后果，所以对每个雄性个体存在着这部分的可能性，感到抗拒，甚至是害怕。另一方面也忽然理解那些旧式社会里一些男同性恋，长大成人后反而会表现的比普通男人更有男子气概，比普通人更加敌视同性恋者，我想这也是因为恐惧，所不同的是，我恐惧的是这事在我身上发生，而他们的恐惧是这事被人发现。</p>
+<p>　　想通这些，书最后一部分反而能用更客观的态度去看了。除了主体故事，有几个配角也很出彩，比如女同妓女仙蒂，她大概是乱世中唯一一个可以理解南爷的人了，比如南爷手下，得知南爷性向，回家大哭，和老婆大打一架。但除此以外，许多人物脸孔过于扁平，故事结局安排的也显得有些刻意。<br>　　看完在豆瓣看到一个评论：</p>
+<blockquote>
+<p>　　心疼南爷，像一颗荔枝，剥开外表的一层硬壳，里头竟是一汪水，水里头包裹着的核儿，却是死心塌地的苦和涩。</p>
+</blockquote>
+<p>　　我想写这句话的人一定很温柔——搞不好也是个 gay。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/15/ios-private-repository-introduces-engineering-through-cocoapods/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/15/ios-private-repository-introduces-engineering-through-cocoapods/" class="post-title-link" itemprop="url">iOS - 私有仓库通过 CocoaPods 引入工程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-15 11:24:52" itemprop="dateCreated datePublished" datetime="2020-02-15T11:24:52+08:00">2020-02-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-22 09:35:35" itemprop="dateModified" datetime="2020-11-22T09:35:35+08:00">2020-11-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Spec-Repo-配置仓库-的概念"><a href="#Spec-Repo-配置仓库-的概念" class="headerlink" title="Spec Repo(配置仓库)的概念"></a>Spec Repo(配置仓库)的概念</h2><p>　　<code>CocoaPods</code> 对于一名 <code>iOS</code> 开发来说再熟悉不过了，它的工作原理就是在 <code>GitHub</code> 上面有个 <code>Spec Repo</code>，它里面包括成千上万的后缀名为 <code>.podspec</code> 的文件。我们在项目中集成第三方库(如 <code>SDWebImage</code> )的时候其实就是通过 <code>CocoaPods</code>的 <code>Spec Repo</code> 去找到我们需要的开源项目的 <code>.podspec</code> 文件，然后在 <code>.podspec</code> 文件中有具体的源码地址(放具体代码的地方)，根据这个地址去下载代码。</p>
+<p>　　按照上面 <code>Spec Repo</code> 的理解，我们如果能自己创建一个类似 <code>CocoaPods</code> 的 <code>Spec Repo</code>，然后把我们私有的公共组件的 <code>.podspec</code> 文件放在里面，然后集成的时候让 <code>CocoaPods</code> 帮我们集成那我们就能达到目的，就可以建立私有pod库了。</p>
+<p>　　一般项目经理都会把代码仓库和配置仓库都建好，这时候我们只需要把 <code>Spec Repo</code> 加到本地就行了。(注意：需要管理员将你的账号加到里边，有访问权限并且有修改权限)。
+ </p>
+<h2 id="一、添加’本地的私有仓库’-Spec-Repo-文件"><a href="#一、添加’本地的私有仓库’-Spec-Repo-文件" class="headerlink" title="一、添加’本地的私有仓库’(Spec Repo)文件"></a>一、添加’本地的私有仓库’(Spec Repo)文件</h2><p>1、使用下面的命令就可以在本地生成配置文件的仓库,建议这个本地的名字也和远程的一致,这样便于区分和后期的维护.<br>“baseSpecs”是你们团队远端创建的配置文件仓库的名字,后面是配置文件仓库远端的地址 .<br>注意此时不需要 <code>cd</code> 进入任何目录,从默认位置输入这个命令,即在点击终端快捷方式打开的状态下直接输入下面的命令即可</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod repo add baseSpecs http://***/***/specs.git</span><br></pre></td></tr></table></figure>
+<p>2、查看是否添加成功(查看本地的所有repo)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod repo list</span><br></pre></td></tr></table></figure>
+<p>或者打开本地配置仓库管理文件夹进行查看</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open ~/.cocoapods/repos</span><br></pre></td></tr></table></figure>
+<p>如果能看到自己团队的 repo(本地的私有仓库)，就 OK 了。注意：这个操作只需要执行一次就可以了，下次再打新的 pod 库的时候就不需要再执行了。</p>
+<h2 id="二、创建-pods-项目工程文件"><a href="#二、创建-pods-项目工程文件" class="headerlink" title="二、创建 pods 项目工程文件"></a>二、创建 pods 项目工程文件</h2><p>1、创建项目和 <code>.podspec</code> 文件</p>
+<p>方式1、可以利用 <code>pod</code> 提供的命令，直接创建一个 <code>pod</code> 库的标准模板。这个很方便，可以直接创建一个工程，可以省去很多操作。命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod lib create UIPoolSingleImage</span><br></pre></td></tr></table></figure>
+<p>方式2、自己在项目根目录创建 <code>podspec</code> 文件。该方式比较麻烦，需要自己创建项目。</p>
+<p>2、编写 <code>.podspec</code> 文件。根据自己的 <code>pod</code> 库更改相关内容，文件内容大概是这样的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">//特别说明，里面的注释是博主为了大家知道什么意思加的，实际使用时一定要去掉</span><br><span class="line">Pod::Spec.new do |s|</span><br><span class="line">//文件名</span><br><span class="line">s.name = &#x27;UIPoolSingleImage&#x27;</span><br><span class="line">//版本</span><br><span class="line">s.version = &#x27;0.1.0&#x27;</span><br><span class="line">//描述信息</span><br><span class="line">s.summary = &#x27;A short description of UIPoolSingleImage.&#x27;</span><br><span class="line">//这里的主页自己随便写</span><br><span class="line">s.homepage = &#x27;https://github.com/623099552@qq.com/UIPoolSingleImage&#x27; </span><br><span class="line">//作者</span><br><span class="line">s.authors = &#123; &#x27;623099552@qq.com&#x27; =&gt; &#x27;623099552@qq.com&#x27; &#125;</span><br><span class="line">//资源路径</span><br><span class="line">s.source = &#123; :git =&gt; &#x27;http://***/***/uipoolsingleimage.git&#x27;, :tag =&gt; s.version.to_s &#125;</span><br><span class="line">//ARC模式</span><br><span class="line">s.requires_arc = true</span><br><span class="line">//license，一般我们用MIT</span><br><span class="line">s.license = &#x27;MIT&#x27;</span><br><span class="line">//允许的最低系统使用版本</span><br><span class="line">s.ios.deployment_target = &#x27;8.0&#x27;</span><br><span class="line">//库文件路径，这个路径需要和你提供的库文件的目录相对应，否则会报错</span><br><span class="line">s.source_files = &#x27;UIPoolSingleImage/Classes/*&#x27;</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<h2 id="三、创建自己的-pods-公共组件库项目"><a href="#三、创建自己的-pods-公共组件库项目" class="headerlink" title="三、创建自己的 pods 公共组件库项目"></a>三、创建自己的 pods 公共组件库项目</h2><p>1、在可以创建私有库的地方创建一个 <code>code repository</code>(代码仓库), 也就是存放要打的 <code>pod</code> 库中的代码文件。这里我使用的是 <code>gitlab</code>。</p>
+<p> 点击右上角的加号按钮,创建代码仓库名为 <code>UIPoolSingleImage</code><br><img src="https://s2.ax1x.com/2020/02/15/1xiKSO.jpg" alt="2018101510425055"></p>
+<p>2.克隆 <code>code repository</code>(代码仓库)到本地，并将上面创建好的私有库代码文件上传到 <code>code repository</code>(代码仓库)中。注意：代码上传之后时候需要打一个 <code>tag</code>，并且每次更新 <code>tag</code> 都要和 <code>.podspec</code> 文件中的 <code>tag</code> 对应。</p>
+<h2 id="四、在命令行验证-podspec-文件是否有效"><a href="#四、在命令行验证-podspec-文件是否有效" class="headerlink" title="四、在命令行验证 .podspec 文件是否有效"></a>四、在命令行验证 <code>.podspec</code> 文件是否有效</h2><p>注意：<code>--allow-warnings</code> :表示忽略警告。 <code>--verbose</code>：表示会输出详细的debug信息。</p>
+<p> 1、本地校验：pod lib lint UIPoolSingleImage.podspec –allow-warnings<br> 2、线上校验：pod spec lint UIPoolSingleImage.podspec –allow-warnings<br>注意：如果你制作的pod库，会依赖spec repository(配置文件仓库)中其他的私有仓库，则需要加上 –use-libraries。并且将spec repository 的源加上。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod spec lint  UIPoolSingleImage.podspec --sources=<span class="string">&#x27;http://***/***/specs.git&#x27;</span>,<span class="string">&#x27;https://github.com/CocoaPods/Specs.git&#x27;</span> --use-libraries</span><br></pre></td></tr></table></figure>
+<p>如果出现 <code>passed validating</code> 则表示 <code>spec</code> 文件验证通过了<br><img src="https://s2.ax1x.com/2020/02/15/1ximY6.jpg"></p>
+<h2 id="五、将-podspec配置文件push到远端专门存储配置文件的仓库中"><a href="#五、将-podspec配置文件push到远端专门存储配置文件的仓库中" class="headerlink" title="五、将.podspec配置文件push到远端专门存储配置文件的仓库中"></a>五、将.podspec配置文件push到远端专门存储配置文件的仓库中</h2><p>1、将配置文件 push 到远端专门存储配置文件的仓库中 ,本地的也会同步更新<br>此时需要 <code>cd</code> 进入本地的 <code>.podspec</code> 所在的路径(否则会找不到 <code>podspe</code> c文件) <br>然后使用下面的命令即可，<code>baseSpecs</code> 是你创建的 <code>spec repository</code> 的名字,后面是你本地创建的 <code>.podspec</code> 文件</p>
+<p>注意：如果你制作的 <code>pod</code> 库，会依赖 <code>spec repository</code>(配置文件仓库)中其他的私有仓库，则需要加上 <code>--use-libraries</code>。</p>
+<p>注意：如果你在手动验证 <code>Pod</code> 时使用了 <code>--use-libraries </code>或 <code>--allow-warnings</code> 等修饰符，那么发布的时候也应该使用相同的字段修饰，否则可能会报错。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod repo push baseSpecs UIPoolSingleImage.podspec --allow-warnings --use-libraries --verbose</span><br></pre></td></tr></table></figure>
+
+<p>2、出现下面信息,则代表成功<br><img src="https://s2.ax1x.com/2020/02/15/1xiMlD.jpg"><br>或者查询本地私有 <code>spec</code> 管理文件夹,如果看到了<code>UIPoolSingleImage</code> 则代表成功</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open ~/.cocoapods/repos</span><br></pre></td></tr></table></figure>
+
+<p>3、可以在远端配置文件仓库中看到这个文件，如下：<br><img src="https://s2.ax1x.com/2020/02/15/1xinfK.jpg"></p>
+<p>到此，利用 <code>Cocoapods</code> 打私有的 <code>pod</code> 库就完成了。接下来，在项目中就可以直接引入私有库了。 </p>
+<p>注意：引用私有库的时候，需要将 <code>Spec Repo</code> 源加到 <code>Profile</code> 文件中，如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> <span class="string">&quot;https://github.com/CocoaPods/Specs.git&quot;</span> <span class="comment">#cocoapods的</span></span><br><span class="line"><span class="built_in">source</span> <span class="string">&quot;http://***/***/specs.git&quot;</span> <span class="comment">#私有的</span></span><br><span class="line"> </span><br><span class="line">pod <span class="string">&#x27;UIPoolSingleImage&#x27;</span>, <span class="string">&#x27;0.1.0&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>更新</strong>：下次更新 <code>pod</code> 库的时候，在 <code>sourceTree</code> 需要打 <code>tag</code> ，比如从 0.1.0 升级到 0.2.0，要先将代码推送到远端，然后再打 <code>tag</code>，顺序不能反。而且打的 <code>tag</code> 要和 <code>.podspec</code> 文件中的 <code>tag</code> 要对应。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/02/sun-sleeping-in-the-forest/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/02/sun-sleeping-in-the-forest/" class="post-title-link" itemprop="url">林中落日</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-02 16:13:52" itemprop="dateCreated datePublished" datetime="2020-02-02T16:13:52+08:00">2020-02-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-01 10:30:18" itemprop="dateModified" datetime="2020-11-01T10:30:18+08:00">2020-11-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B6%82%E9%B8%A6/" itemprop="url" rel="index"><span itemprop="name">涂鸦</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ul>
+<li><p>梦见一剑劈开了太阳，蛋黄浸透大半个银河系。我从岸上落下，在蛋液里浮沉，你在高处梨花带雨，你快上来，我不吃辣椒炒蛋了，快上来。太阳已经无可救药了，我想把剩下的星球都送给你。 </p>
+</li>
+<li><p>梦见和北野武决斗，各有一名帮手在旁边掠阵。我和北野武持剑相对，一剑未出，我在北野武强大的气势下，不断后退，后退。另一边，他的帮手迟钝，只做防御，我的帮手灵活，在进攻的间隙，还能在北野武身上留下伤口。眼见我在稳定的后退中，即将取胜。北野武忽然大喝，我扑通一声掉入河面。原来我早已被逼退至岸边。</p>
+</li>
+<li><p>梦见住在一个位于大厦顶层的陌生公寓，公寓往外望有很多奇形怪状的建筑，有照相机形的，有裸体女人形的。<br>每天都有很多人从我房间经过，借道下楼，一开始还有点生气，但看到其他楼层也一样情况，就释然了。<br>后来大厦发生了杀人事件，一位漂亮的女士在她家里被杀，警察们以房间每日人流量太多，不予立案。<br>画面一转，看见我一身侦探打扮和凶手坐在他家的床上谈话，床下躺着那具漂亮女尸。后来不知道说到了什么，房间的气氛变得有点忧郁。我们四个都很难过。</p>
+</li>
+</ul>
+<p>我在这种难过中提前醒来。</p>
+<ul>
+<li><p>梦见坐飞船到了外太空，发现一段在陨石碎片生长的走廊，日式风格，玄关处飘落很多纸片，捏中一张，立马看见远山炊烟，贞子伽椰子恐怖片里的各种子林立在田野。村里喜欢抱着猫上树的老太太说纸片上有字，我没看见。旁边窜出一个身患白化病的和尚，大声喝咒太上老君急急如律令，在我们两手上各划拉一刀，贴一块。上面写，九州怪谈，今日奇人奇事。</p>
+</li>
+<li><p>梦见去了德云社看李小龙讲相声，梳朝天辫，包袱听不太真切，台下一阵突兀响亮的喝彩，李小龙歪着头露出唐山大兄里得意的笑。</p>
+</li>
+<li><p>梦见脑袋里有个录音机，循环播放着四首记不起名字的老歌，最近播到第三首总是卡带引起的头疼，去看医生，开处方药，两盒周杰伦的专辑，早晚服食 ​​​​</p>
+</li>
+<li><p>梦见去了喜欢的女孩的卧室，天花板倒挂着两把打开的纸伞，伞面上龙飞凤舞的挂着几行毛笔字，一把伞上是，天生我材必有用，千金散去还复来。另一把伞上是，不许欺负小女孩。 ​​​​</p>
+</li>
+<li><p>梦见策划了一个展，展出有开发到一半但已然荒废的大厦，一只袖子没织的毛衣，加载着没通关游戏的游戏机，没寄出的信，树和他上面的风筝，被黄色警戒条围起来的女士讲述着一位先生追她追到一半忽然了无音讯的故事，会生产人们谈话回声的空旷房间，展会还没到尽头的位置挂着一块指示牌：由于本次展会的多个展品，在正式展出之前失去了适合展出的状态，请大家原路返回，由我们工作人员退还部分票价。</p>
+</li>
+<li><p>我老远就看见她了。<br>她松开挎着的男人手臂，朝我走来。<br>打完招呼，我插着裤兜，踢马路上的石子，头也不抬问她：“怎么和他在一块了？”<br>“其实他是个很有意思的人。”她笑了笑，“我原来也挺瞧不上他的，也是后来相处了一阵才发现的。”<br>我抬头看了看不远处的那个男人，察觉到我在看他，朝我憨厚的笑笑，脸上依稀还有些我记忆中的少年时代的样子，我点了点头，脑子里想起来的全是以前瞧不起他的印象。<br>“这几年都在干嘛啊，一直都不联系，还以为你消失了。要不要待会一起吃个饭，反正都是认识的，就在附近，刚好我知道有个馆子还不错，是你喜欢的口味……”<br>她一直滔滔不绝，我闷着头只顾踢路上的石子，没说话。最后她又问了一遍要不要一起吃饭，没办法，我抬头和她说，不了，待会还有点事，最近都好忙，而且这几年我的口味也都变了。<br>后来，我就醒了。</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/12/24/chicken-soup-from-inference-writer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/24/chicken-soup-from-inference-writer/" class="post-title-link" itemprop="url">推理小说家煲的鸡汤</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-24 10:13:52" itemprop="dateCreated datePublished" datetime="2019-12-24T10:13:52+08:00">2019-12-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-05 10:16:12" itemprop="dateModified" datetime="2020-11-05T10:16:12+08:00">2020-11-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%81%E7%99%BD/" itemprop="url" rel="index"><span itemprop="name">旁白</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>　　去年部门抽奖抽中一本《解忧杂货铺》，因为在那之前就已经看过这本书了，所以后来也就没有反抗的，让同事抢走归了她。到年底忽然想起这本书，索性就提笔写写。<br>　　《解忧杂货铺》讲的是几个小偷闯进了一个废弃的杂货铺，通过一个牛奶箱和不同年代的人通信，给与回应，不断解决不同人的问题，到最后也找到自己人生的出路。<br>　　整本书由几个不同的故事串联而成，简单易懂，不同于东野圭吾其他的推理小说，在结局的时候或者在过程中，推理有答案或者答案有了反转。甚至唯一一点略有神秘色彩的事件——信箱的信会穿越时空，也在事件出现之后的一两页内容里得到了答案。纵观全文，值得大书特书的内容有不少，但对我来说，那些值得一提的东西，温暖，感动，悔过，坚持自己等等这些书里的特质，都有些乏善可陈。<br>　　产生这样的心情当然也不是因为书写的不够好，书还可以，大概能打三星半。但抱着吃川味火锅店的心情，点菜的时候发现只有清淡偏甜的粤菜可点。因为结果低于期待，难免有所抱怨。<br>　　当然如果因为自己的期待就不允许火锅店的菜谱上只有粤菜可点，这种态度是不够端正的，虽然我不喜欢，但我也捍卫火锅店做粤菜的自由，而且也不是挂羊头卖狗肉，《解忧杂货铺》也没打着我是推理小说的招牌出来接活，所以不妨把它当做是作者的一种尝试。<br>　　梳理推理小说发展过程，从古典推理到侦探小说，到日本新本格出现，松本清张结合时事始创社会派推理小说，最后宫部美雪、伊坂幸太郎、绫辻行人、东野圭吾等作家让日本推理小说百花齐放。到这，我不禁有个疑问，为什么东野圭吾可以在同时代的同行作家中脱颖而出，让路人也有个好像在哪听过的印象？东野圭吾虽然也写过侦探破案的本格小说，但他真正让人印象深刻的作品，比如《白夜行》《嫌疑犯X的献身》，这些书无一不以事件中的人物纠葛为主色调，辅以推理破案，结尾真相大白，人物冲突达到最高峰。这些人事纠葛，日式风格的说法是，羁绊。因为羁绊，使得东野圭吾讲的故事多了些人情味，当然部分给人眼前一亮的推理也是一个地基式的存在，另一个方面东野圭吾小说被大量改编成了影视剧，吸引了不少推理小说圈外的路人粉，这也是东野圭吾火起来的一个原因，儿比起其他推理、侦探小说衍生的影视剧，东野圭吾书里在上述中提到的人情味所带来的晚间八点档狗血剧的氛围，冲淡了推理小说迷们和普通观众们之间的壁垒，像迪士尼动画片大人可以看到成年人的元素，小孩可以看到小孩子的元素，大家各取所需，皆大欢喜。<br>　　说完东野圭吾小说的整体风格，我们再来看这本书，比起他之前的那些作品——《黑笑小说》之类的不在对比范围，我们可以看到，《解忧杂货铺》推理味和人情味的配比，前者少，近乎于无，后者晚间八点档的氛围则被推到前作们所未有的地步。这种改变对于推理小说迷们来说是接受困难的，甚至是抵触：没想到东野圭吾你个浓眉大眼的家伙也写这种东西了？但对于东野圭吾、普通观众、普通读者，从现在结果来看，好处是远大于坏处的。而且这种改变从东野圭吾之前的作品中其实已经可以窥见端倪，对社会人性黑暗的长期注视，不可避免会产生两种态度，看透看破心灰意冷，或者一直乐观下去，对人之初性本善投赞成票。《解忧杂货铺》如果我们不把他粗暴的归类到是作者投读者们所好的一部纯商业作品——比如《阿弥陀佛么么哒》之流，而把他当做是作者在黑暗中得到的答案，似乎变得容易让人接受起来，甚至于作者本身跳出了推理小说家这个标签所带来的局限性，但这么看，似乎又给原本平庸的作品加了一个过分闪耀的光环。<br>　　无论如何，《解忧杂货铺》给我的观感仍然还是开头所提到的一样，三星半。至于东野圭吾先生之后的作品是在《解忧杂货铺》上一条道走到黑，还是又折回头写以前那类推理小说。我始终都会感谢他带来那么多优秀的作品。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/12/06/android-learning-audio-ocus/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/06/android-learning-audio-ocus/" class="post-title-link" itemprop="url">Android - 音频焦点学习</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-06 08:00:52" itemprop="dateCreated datePublished" datetime="2019-12-06T08:00:52+08:00">2019-12-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-22 09:32:52" itemprop="dateModified" datetime="2020-11-22T09:32:52+08:00">2020-11-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在做蓝牙带屏音箱项目的时候，碰到一个问题，具体是在连接蓝牙音箱回连的时候，播放音乐会在手机端点击播放过一会就回被暂停。</p>
+<p>调试了一下问题后，大概问题是这样的，一般情况下，我们在播放音乐时会请求系统音频焦点，然后在不播放的时候释放焦点。</p>
+<p>我也是按照这种逻辑处理的，但和一般情况不同的是，我应用所在的底层系统是经过定制的，而在音频焦点的处理上，除了我上层应用会在蓝牙播放变化的时候请求焦点，底层的系统也会做同样的操作，这就造成了在两者来回请求的过程中，焦点丢失了。</p>
+<p>这种问题还是比较少见的，所以记录一下，而最终的解决办法是让提供定制系统的硬件方解决。不过这里也记录一下对于音频焦点请求和监听的学习。</p>
+<p>完整的代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MusicService</span> <span class="keyword">extends</span> <span class="title class_">Service</span> &#123;</span><br><span class="line">   <span class="keyword">private</span> AudioManager mAm;</span><br><span class="line">   <span class="keyword">private</span> <span class="type">boolean</span> isPlaymusic;</span><br><span class="line">   <span class="keyword">private</span> String url;</span><br><span class="line">   <span class="keyword">private</span> MediaPlayer mediaPlayer;</span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onCreate</span><span class="params">()</span> &#123;</span><br><span class="line">       <span class="built_in">super</span>.onCreate();</span><br><span class="line">       mAm = (AudioManager) getSystemService(AUDIO_SERVICE);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onStart</span><span class="params">(Intent intent, <span class="type">int</span> startId)</span> &#123;</span><br><span class="line">       <span class="keyword">if</span> (intent != <span class="literal">null</span>) &#123;</span><br><span class="line">           <span class="type">Bundle</span> <span class="variable">bundle</span> <span class="operator">=</span> intent.getExtras();</span><br><span class="line">           <span class="keyword">if</span> (bundle != <span class="literal">null</span>) &#123;</span><br><span class="line">               isPlaymusic = bundle.getBoolean(<span class="string">&quot;isPlay&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">               url = bundle.getString(<span class="string">&quot;url&quot;</span>);</span><br><span class="line">               <span class="keyword">if</span> (isPlaymusic)</span><br><span class="line">                   play();</span><br><span class="line">               <span class="keyword">else</span></span><br><span class="line">                   stop();</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="type">OnAudioFocusChangeListener</span> <span class="variable">afChangeListener</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">OnAudioFocusChangeListener</span>() &#123;</span><br><span class="line">       <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onAudioFocusChange</span><span class="params">(<span class="type">int</span> focusChange)</span> &#123;</span><br><span class="line">           <span class="keyword">if</span> (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT) &#123;</span><br><span class="line">               <span class="comment">// Pause playback</span></span><br><span class="line">               pause();</span><br><span class="line">           &#125; <span class="keyword">else</span> <span class="keyword">if</span> (focusChange == AudioManager.AUDIOFOCUS_GAIN) &#123;</span><br><span class="line">               <span class="comment">// Resume playback</span></span><br><span class="line">               resume();</span><br><span class="line">           &#125; <span class="keyword">else</span> <span class="keyword">if</span> (focusChange == AudioManager.AUDIOFOCUS_LOSS) &#123;</span><br><span class="line">               <span class="comment">// mAm.unregisterMediaButtonEventReceiver(RemoteControlReceiver);</span></span><br><span class="line">               mAm.abandonAudioFocus(afChangeListener);</span><br><span class="line">               <span class="comment">// Stop playback</span></span><br><span class="line">               stop();</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;;</span><br><span class="line">   <span class="keyword">private</span> <span class="type">boolean</span> <span class="title function_">requestFocus</span><span class="params">()</span> &#123;</span><br><span class="line">       <span class="comment">// Request audio focus for playback</span></span><br><span class="line">       <span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> mAm.requestAudioFocus(afChangeListener,</span><br><span class="line">       <span class="comment">// Use the music stream.</span></span><br><span class="line">               AudioManager.STREAM_MUSIC,</span><br><span class="line">               <span class="comment">// Request permanent focus.</span></span><br><span class="line">               AudioManager.AUDIOFOCUS_GAIN);</span><br><span class="line">       <span class="type">return</span> <span class="variable">result</span> <span class="operator">=</span>= AudioManager.AUDIOFOCUS_REQUEST_GRANTED;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">resume</span><span class="params">()</span> &#123;</span><br><span class="line">       <span class="keyword">if</span> (mediaPlayer != <span class="literal">null</span>) &#123;</span><br><span class="line">           mediaPlayer.start();</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">pause</span><span class="params">()</span> &#123;</span><br><span class="line">       <span class="keyword">if</span> (mediaPlayer != <span class="literal">null</span> &amp;&amp; mediaPlayer.isPlaying()) &#123;</span><br><span class="line">           mediaPlayer.pause();</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="type">OnCompletionListener</span> <span class="variable">completionListener</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">OnCompletionListener</span>() &#123;</span><br><span class="line">       <span class="meta">@Override</span></span><br><span class="line">       <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onCompletion</span><span class="params">(MediaPlayer player)</span> &#123;</span><br><span class="line">           <span class="keyword">if</span>(!player.isLooping())&#123;</span><br><span class="line">               mAm.abandonAudioFocus(afChangeListener);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;;</span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">play</span><span class="params">()</span> &#123;</span><br><span class="line">       <span class="keyword">if</span> (requestFocus()) &#123;</span><br><span class="line">           <span class="keyword">if</span> (mediaPlayer == <span class="literal">null</span>) &#123;</span><br><span class="line">               <span class="keyword">try</span> &#123;</span><br><span class="line">                   mediaPlayer = <span class="keyword">new</span> <span class="title class_">MediaPlayer</span>();</span><br><span class="line">                   mediaPlayer.setDataSource(url);</span><br><span class="line">                   mediaPlayer.prepare();</span><br><span class="line">                   mediaPlayer.setOnCompletionListener(completionListener);</span><br><span class="line">               &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                   e.printStackTrace();</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">if</span> (!mediaPlayer.isPlaying()) &#123;</span><br><span class="line">               mediaPlayer.start();</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onDestroy</span><span class="params">()</span> &#123;</span><br><span class="line">       <span class="built_in">super</span>.onDestroy();</span><br><span class="line">       <span class="keyword">if</span> (mediaPlayer != <span class="literal">null</span>)</span><br><span class="line">           mediaPlayer.release();</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">stop</span><span class="params">()</span> &#123;</span><br><span class="line">       <span class="keyword">if</span> (mediaPlayer != <span class="literal">null</span>) &#123;</span><br><span class="line">           mediaPlayer.stop();</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="keyword">public</span> IBinder <span class="title function_">onBind</span><span class="params">(Intent arg0)</span> &#123;</span><br><span class="line">       <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">       <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>需要解释一下的是，在 <code>onAudioFocusChange</code> 方法里的返回值代表了当前焦点变化的状态</p>
+<table>
+<thead>
+<tr>
+<th>常量</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AUDIOFOCUS_GAIN</td>
+<td>持有焦点</td>
+</tr>
+<tr>
+<td>AUDIOFOCUS_LOSS</td>
+<td>失去焦点</td>
+</tr>
+<tr>
+<td>AUDIOFOCUS_LOSS_TRANSIENT</td>
+<td>临时失去焦点</td>
+</tr>
+<tr>
+<td>AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK</td>
+<td>临时失去焦点，允许小声播放</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/11/23/android-more-than-seekbar-slider-dynamic-change/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/23/android-more-than-seekbar-slider-dynamic-change/" class="post-title-link" itemprop="url">Android - 动态改变 seekbar 滑块大小和其他</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-11-23 08:00:52" itemprop="dateCreated datePublished" datetime="2019-11-23T08:00:52+08:00">2019-11-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-01 10:30:18" itemprop="dateModified" datetime="2020-11-01T10:30:18+08:00">2020-11-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>　　在做项目下拉栏音量条拖动的时候，产品提了一个新需求，想拖动的时候让滑块选中时变大，未选中时就正常大小，这个需求如果在 iOS 项目，我会选择监听手势方法，监听按下和松开的时机，改变滑块的大小。在 Android 中我想应该也有类似的方法，但实际在网上搜索资料，发现问题简单，但找解决问题的方式非常困难，具体困难点在于，无法找到精确到“动态改变 seekbar 滑块大小”这个需求具体实现的文章，除了一方面很多文章来源自复制粘贴，另一部分在讲述 seekbar 的使用顺便提了一下选中和普通状态的样式改变，但这个方法的效果在新的版本里，不知道是不是从来就如此，还是接口变化导致不适用了。到最后我解决这个方法的姿势是：我想类似需求的实现出现最多的地方应该是在音乐播放器之类的项目，然后就在 GitHub 上搜索类似的工程，最后在 <a target="_blank" rel="noopener" href="https://github.com/magic5650/Recoderapp">Recoderapp</a> 这个项目最新更新的节点中看到有关 seekbar 的描述，抱着试一试的心态，下了，看了，解决了。具体方法会和上面那个不适用的方法一起放在后文。<br>　　我想大部分开发者在搜索问题解决的时候都会倾向于直接看代码，所以我这里的长篇累牍显得有点不太必要，但是还是想提一下的就是，由查找不到问题解决方式引发的一些思考，类似于，大家应该多多少少有动态改变滑块大小的需求，但是网上为什么没有这么精确的回答，如果是因为简单，但哪怕再简单的问题，也会有处于新手期的开发者会觉得这是一个难题——比如我，这篇文章也是基于这个思考才写的，而另一个原因是想到最近大火的电商——拼多多，他之所以能在淘宝京东的围杀中杀出重围，主要做的一件事就是渠道下沉。而渠道下沉的变体其实就是集中解决一部分人的需求。最近下的两三个 App 也给我这种感觉，一个是播放白噪音的软件，一个是类似于番茄钟的软件，但和传统的 GTD 软件区别在于后者的记录是主要针对你在做某一项技能的学习时的记录，最后会统计单一技能所花费的时间。不知道这个例子能不能解释清楚，总的来说，另一个原因可以总结成，既然没有人写简单问题的讲解，那我就来做为开发者来做一个技术方面渠道下沉的尝试。
+　　</p>
+<h2 id="第一个方法：在-XML-文件配置-seekbar-不同状态"><a href="#第一个方法：在-XML-文件配置-seekbar-不同状态" class="headerlink" title="第一个方法：在 XML 文件配置 seekbar 不同状态"></a>第一个方法：在 XML 文件配置 seekbar 不同状态</h2><p>控件布局</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;SeekBar</span><br><span class="line">               android:id=<span class="string">&quot;@+id/sb_volume&quot;</span></span><br><span class="line">               android:layout_width=<span class="string">&quot;match_parent&quot;</span></span><br><span class="line">               android:layout_height=<span class="string">&quot;match_parent&quot;</span></span><br><span class="line">               android:layout_marginEnd=<span class="string">&quot;44dp&quot;</span></span><br><span class="line">               android:thumbOffset=<span class="string">&quot;5dp&quot;</span></span><br><span class="line">               android:minHeight=<span class="string">&quot;4dp&quot;</span></span><br><span class="line">               android:maxHeight=<span class="string">&quot;4dp&quot;</span></span><br><span class="line">               android:background=<span class="string">&quot;@null&quot;</span></span><br><span class="line">               android:progressDrawable=<span class="string">&quot;@drawable/seekbar_background_light_volueme&quot;</span></span><br><span class="line">               android:thumb=<span class="string">&quot;@drawable/seekbar_light_volume_shape&quot;</span> /&gt;</span><br></pre></td></tr></table></figure>
+
+<p>seekbar_background_light_volueme.xml 样式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;layer-list</span><br><span class="line">    xmlns:android=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span>&gt;</span><br><span class="line">    &lt;item&gt; ----对背景的控制，没有进度时</span><br><span class="line">        &lt;shape&gt;</span><br><span class="line">            &lt;corners android:radius=<span class="string">&quot;2dp&quot;</span> /&gt; --圆角</span><br><span class="line">            &lt;solid android:color=<span class="string">&quot;#33ffffff&quot;</span>/&gt; --颜色</span><br><span class="line">        &lt;/shape&gt;</span><br><span class="line">    &lt;/item&gt;</span><br><span class="line">    &lt;item&gt; --- 这个目前来说不知道什么用，也可以去掉这一部分</span><br><span class="line">        &lt;clip&gt;</span><br><span class="line">            &lt;shape&gt;</span><br><span class="line">                &lt;corners android:radius=<span class="string">&quot;2dp&quot;</span> /&gt;</span><br><span class="line">                &lt;solid android:color=<span class="string">&quot;#ffffff&quot;</span> /&gt;</span><br><span class="line">            &lt;/shape&gt;</span><br><span class="line">        &lt;/clip&gt;</span><br><span class="line">    &lt;/item&gt;</span><br><span class="line">    &lt;item&gt; --- 对进度条的控制</span><br><span class="line">        &lt;clip&gt;</span><br><span class="line">            &lt;shape&gt;</span><br><span class="line">                &lt;corners android:radius=<span class="string">&quot;2dp&quot;</span> /&gt; --圆角</span><br><span class="line">                &lt;solid android:color=<span class="string">&quot;#ccffffff&quot;</span> /&gt; --颜色</span><br><span class="line">            &lt;/shape&gt;</span><br><span class="line">        &lt;/clip&gt;</span><br><span class="line">    &lt;/item&gt;</span><br><span class="line">&lt;/layer-list&gt;</span><br></pre></td></tr></table></figure>
+<p>seekbar_light_volume_shape.xml</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span><br><span class="line">&lt;selector xmlns:android=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span>&gt;</span><br><span class="line">    &lt;item android:drawable=<span class="string">&quot;@drawable/seekbar_thumb_selected&quot;</span> android:state_enabled=<span class="string">&quot;true&quot;</span> android:state_pressed=<span class="string">&quot;true&quot;</span>/&gt; --按下</span><br><span class="line">    &lt;item android:drawable=<span class="string">&quot;@drawable/seekbar_thumb_selected&quot;</span> android:state_selected=<span class="string">&quot;true&quot;</span>/&gt; --选中</span><br><span class="line">    &lt;item android:drawable=<span class="string">&quot;@drawable/seekbar_thumb_selected&quot;</span> android:state_focused=<span class="string">&quot;true&quot;</span>/&gt; --获取焦点</span><br><span class="line">    &lt;item android:drawable=<span class="string">&quot;@drawable/seekbar_thumb_normal&quot;</span>/&gt; ---默认效果</span><br><span class="line">&lt;/selector&gt;</span><br></pre></td></tr></table></figure>
+
+<p>seekbar_thumb_normal.xml</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;shape xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    android:shape=&quot;rectangle&quot;</span><br><span class="line">    android:useLevel=&quot;false&quot;&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;size</span><br><span class="line">        android:height=&quot;24px&quot;</span><br><span class="line">        android:width=&quot;24px&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;corners android:radius=&quot;12px&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;solid android:color=&quot;#ffffffff&quot;/&gt;</span><br><span class="line">&lt;/shape&gt;</span><br></pre></td></tr></table></figure>
+
+<p>seekbar_thumb_selected.xml</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span><br><span class="line">&lt;shape xmlns:android=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span><br><span class="line">    android:shape=<span class="string">&quot;rectangle&quot;</span></span><br><span class="line">    android:useLevel=<span class="string">&quot;false&quot;</span> &gt;</span><br><span class="line">    </span><br><span class="line">    &lt;size</span><br><span class="line">        android:height=<span class="string">&quot;30px&quot;</span></span><br><span class="line">        android:width=<span class="string">&quot;30px&quot;</span> /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;corners android:radius=<span class="string">&quot;15px&quot;</span> /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;solid android:color=<span class="string">&quot;#ffffffff&quot;</span>/&gt;</span><br><span class="line">&lt;/shape&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这个方法虽然也会在拖动的时候改变滑块的大小，但是会有两个问题，一个是滑块没有像预期的一样变成圆形的，而是变成椭圆，另一个是松开滑块时，不能变回来。</p>
+<h2 id="第二个方法：在代码中监听手势回调"><a href="#第二个方法：在代码中监听手势回调" class="headerlink" title="第二个方法：在代码中监听手势回调"></a>第二个方法：在代码中监听手势回调</h2><p>需要注意的是这里使用是 <code>Kotlin</code> 语法，回调和设置 <code>xml</code> 配置文件可能和在 <code>java</code> 有所出入。另外文中的 <code>xml</code> 配置可以参考上一个方法中的配置。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 音量调节监听</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> mOnVolumeSeekBarChangeListener = <span class="keyword">object</span> : SeekBar.OnSeekBarChangeListener &#123;</span><br><span class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onProgressChanged</span><span class="params">(seekBar: <span class="type">SeekBar</span>, progress: <span class="type">Int</span>, fromUser: <span class="type">Boolean</span>)</span></span> &#123;</span><br><span class="line">            mIsVolumeSlideing = <span class="literal">true</span></span><br><span class="line">            <span class="keyword">if</span> (fromUser) &#123;</span><br><span class="line">                preSeekBarProgress = progress</span><br><span class="line"><span class="comment">//                mVoiceSeekBar?.setRightText(progress.toString())</span></span><br><span class="line">             <span class="keyword">val</span> mVoice=progress/<span class="number">15f</span>*<span class="number">100</span></span><br><span class="line">                mVolumeTextView?.setText(<span class="string">&quot;&quot;</span>+mVoice.roundToInt())</span><br><span class="line">                <span class="comment">// 0-100</span></span><br><span class="line">                <span class="keyword">val</span> volume = ((progress / seekBar.max.toFloat()) * ScreenLightAndVoiceUtil.getInstance().mediaMaxVolume).toInt()</span><br><span class="line">                ScreenLightAndVoiceUtil.getInstance().mediaVolume = progress</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (progress &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                mVolumeImageView?.setBackgroundResource(R.mipmap.statusbar_setup_toolbar_volume_low)</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                mVolumeImageView?.setBackgroundResource(R.mipmap.statusbar_setup_toolbar_volume_off)</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onStartTrackingTouch</span><span class="params">(seekBar: <span class="type">SeekBar</span>?)</span></span> &#123;</span><br><span class="line">            <span class="keyword">var</span> tumb_selected = ContextCompat.getDrawable(context, R.drawable.seekbar_thumb_selected)</span><br><span class="line">            sb_volume.setThumb(tumb_selected)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onStopTrackingTouch</span><span class="params">(seekBar: <span class="type">SeekBar</span>?)</span></span> &#123;</span><br><span class="line">            <span class="comment">// todo</span></span><br><span class="line">            mIsVolumeSlideing = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">var</span> tumb_normal = ContextCompat.getDrawable(context, R.drawable.seekbar_thumb_normal)</span><br><span class="line">            sb_volume.setThumb(tumb_normal)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="John Doe"
+      src="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">97</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">67</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="sidebar-button motion-element"><i class="fa fa-comment"></i>
+    Chat
+  </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Kaaaaai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Kaaaaai" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/lvkaimeiyouhenshuai" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lvkaimeiyouhenshuai" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kaaaaai</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="部门小伙伴在做技术调研的时候，因为信息展示的格式不统一，或者没有注意在调研过程中抓取一些关键信息做展示和对比，为了方便，总结了一份技术调研模板，以供参考。 标题—–❗️每次输出文档时需要将本段删除❗️—– -&gt; 格式：中英文排版参考：中英文排版指北 -&gt; 模板：模板框架只是为大家提供一个索引，实际调研时可根据需要增加或删除部分内容 -&gt; 调研参考流程：  确定调研目标（技术选型、">
+<meta property="og:type" content="article">
+<meta property="og:title" content="技术调研模板">
+<meta property="og:url" content="http://example.com/2020/09/30/technology-research-template/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="部门小伙伴在做技术调研的时候，因为信息展示的格式不统一，或者没有注意在调研过程中抓取一些关键信息做展示和对比，为了方便，总结了一份技术调研模板，以供参考。 标题—–❗️每次输出文档时需要将本段删除❗️—– -&gt; 格式：中英文排版参考：中英文排版指北 -&gt; 模板：模板框架只是为大家提供一个索引，实际调研时可根据需要增加或删除部分内容 -&gt; 调研参考流程：  确定调研目标（技术选型、">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-09-30T01:24:52.000Z">
+<meta property="article:modified_time" content="2020-09-30T02:42:14.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="EXP">
+<meta property="article:tag" content="Technology">
+<meta property="article:tag" content="Template">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2020/09/30/technology-research-template/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>技术调研模板 | Hexo</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9578d14210d67becef48447e4f6b3f20";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/30/technology-research-template/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          技术调研模板
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-09-30 09:24:52 / Modified: 10:42:14" itemprop="dateCreated datePublished" datetime="2020-09-30T09:24:52+08:00">2020-09-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><em>部门小伙伴在做技术调研的时候，因为信息展示的格式不统一，或者没有注意在调研过程中抓取一些关键信息做展示和对比，为了方便，总结了一份技术调研模板，以供参考。</em></p>
+<h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a><strong>标题</strong></h1><p><em>—–❗️每次输出文档时需要将本段删除❗️—–</em></p>
+<p><em>-&gt; 格式：中英文排版参考：<a target="_blank" rel="noopener" href="https://github.com/mzlogin/chinese-copywriting-guidelines">中英文排版指北</a></em></p>
+<p><em>-&gt; 模板：模板框架只是为大家提供一个索引，实际调研时可根据需要增加或删除部分内容</em></p>
+<p><em>-&gt; 调研参考流程：</em></p>
+<ol>
+<li><em>确定调研目标（技术选型、工具选型、单个技术点深入调研）</em></li>
+<li><em>根据上一步的结果，确定是否需要横向比较（技术选型、工具选型需要，单个技术点深入调研不需要）</em></li>
+<li><em>需要横向比较：由内部和外部两个方面思考列举可对比标准，内部比如：技术&#x2F;工具 本身的优势、功能优劣、稳定性、价格等，外部比如：网络评价、值得参考的排行榜、其他大公司是否也在使用等。输出时也应注意将横向比较的结果罗列成表格，方便浏览。</em></li>
+<li><em>不需要横向比较：对于单一的技术点，调研人应注意务求让被分享人了解大致流程、框架、思想等宏观知识（可以结合流程图、思维导图、原型图等做较为直观的表述），对次要技术点具体实现省略，只做罗列，对主要技术点具体实现做精简描述。</em></li>
+<li><em>过程中针对不理解的名词，需要详细记录，并添加到调研报告结束位置，避免干扰正文内容显示。</em></li>
+<li><em>同一类型的信息展示方式尽量统一，比如针对三种网络测速工具的使用，测速结果不应第一种使用图片，第二种使用文本，第三种使用超链接。</em></li>
+<li><em>调研报告应注意信息完整、逻辑自洽。不应存在部分内容需要通过<strong>链接</strong>跳转到其他网站才能理解的情况。是否需要<strong>链接</strong>，参考第 5 项，仅做补充和拓展，方便浏览文档人员了解详细信息。</em></li>
+<li><em><strong>重点注意：调研的目的是在调研人这层做信息过滤，因注意避免直接使用信息来源的贴图和源代码，例子展示。注意信息提炼。</strong></em></li>
+<li><em>以下模板以天气预报 API 调研结果举例：<a target="_blank" rel="noopener" href="https://docs.qq.com/doc/DTnZOQkVCU2tXUmp4">https://docs.qq.com/doc/DTnZOQkVCU2tXUmp4</a></em></li>
+</ol>
+<p><em>—–❗️每次输出文档时需要将本段删除❗️—-</em></p>
+<h1 id="修订记录"><a href="#修订记录" class="headerlink" title="修订记录"></a><strong>修订记录</strong></h1><table>
+<thead>
+<tr>
+<th>日期</th>
+<th>版本</th>
+<th>修改记录</th>
+<th>作者</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>xxxx-xx-xx</td>
+<td>v1.0.0</td>
+<td>新增或者修改了什么内容</td>
+<td>xxx</td>
+<td>创建</td>
+</tr>
+</tbody></table>
+<h1 id="一、调研背景与目标"><a href="#一、调研背景与目标" class="headerlink" title="一、调研背景与目标"></a><strong>一、调研背景与目标</strong></h1><h2 id="1-调研背景"><a href="#1-调研背景" class="headerlink" title="1.调研背景"></a>1.<strong>调研背景</strong></h2><table>
+<thead>
+<tr>
+<th>类目</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>调研背景</td>
+<td>（正文）（举例：CuteCatOS 需要使用到天气服务）</td>
+</tr>
+</tbody></table>
+<h2 id="2-调研目标"><a href="#2-调研目标" class="headerlink" title="2.调研目标"></a>2.<strong>调研目标</strong></h2><table>
+<thead>
+<tr>
+<th>类目</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>调研目标</td>
+<td>（正文）（举例：确定天气服务提供商，可以满足天气信息多种类显示，多地区，层级尽可能深入到区县级别，以免费为起点寻求高性价比服务）</td>
+</tr>
+</tbody></table>
+<h1 id="二、概述"><a href="#二、概述" class="headerlink" title="二、概述"></a><strong>二、概述</strong></h1><p>（对分享内容做提炼描述，让被分享人有整体印象。）</p>
+<p>（举例：以下总计调研了五种获取天气信息的方法，其中前四种来自网络服务商，最后一种通过网络爬虫的方式拉取信息。对于前三种来自网络的服务，通过 价格、支持平台、天气信息展示量、网站排名、是否还有其他企业或公司也在使用该项服务 等不同维度进行对比）</p>
+<h1 id="三、综合分析（比较）"><a href="#三、综合分析（比较）" class="headerlink" title="三、综合分析（比较）"></a><strong>三、综合分析（比较）</strong></h1><p>（正文内容）</p>
+<p>——————————————举例——————————————</p>
+<h2 id="1-天气-API"><a href="#1-天气-API" class="headerlink" title="1.天气 API"></a>1.<strong>天气 API</strong></h2><p>（备注说明：对单个技术点进行信息展示时注意以信息重要性从高到低排序，从提炼性信息到复杂信息排序，如下文例子中，天气信息的回调内容展示优先级虽然是次于价格的，但由于内容太多，且在后面的 综合对比 段落中会重新提到，故放到最后说明。）</p>
+<p><strong>价格：</strong>以实况天气和七日天气收费举例，两项服务均单独收费，¥365&#x2F;年-每日10万次</p>
+<p><strong>支持平台：</strong>官方示例中包含 小程序、JS、JAVA、C# 等实现代码</p>
+<p><strong>网站信息：</strong></p>
+<ul>
+<li><strong>Alexa 排名：</strong>2414732</li>
+<li><strong>域名年龄：</strong>3 年</li>
+</ul>
+<p><strong>谁在用：</strong>海宁新闻网，长沙市卫健委，武汉市新洲区政府，开封市教育体育网，延安市总工会，长沙市教育局，长沙市统计局，长沙市生态环境局，于洪区人民政府 ，沁源县人民政府，鹤壁市人民代表大会，东宁市人民政府，甘井子区政府，河北交投京张高速公路 。</p>
+<p><strong>天气信息回调展示：</strong>以实况天气接口返回举例</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;cityid&quot;</span><span class="punctuation">:</span> <span class="string">&quot;101280601&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;date&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2020-05-27&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;week&quot;</span><span class="punctuation">:</span> <span class="string">&quot;星期三&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;update_time&quot;</span><span class="punctuation">:</span> <span class="string">&quot;16:35&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;city&quot;</span><span class="punctuation">:</span> <span class="string">&quot;深圳&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;cityEn&quot;</span><span class="punctuation">:</span> <span class="string">&quot;shenzhen&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;country&quot;</span><span class="punctuation">:</span> <span class="string">&quot;中国&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;countryEn&quot;</span><span class="punctuation">:</span> <span class="string">&quot;China&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;wea&quot;</span><span class="punctuation">:</span> <span class="string">&quot;阴&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;wea_img&quot;</span><span class="punctuation">:</span> <span class="string">&quot;yin&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;tem&quot;</span><span class="punctuation">:</span> <span class="string">&quot;29&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;tem1&quot;</span><span class="punctuation">:</span> <span class="string">&quot;30&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;tem2&quot;</span><span class="punctuation">:</span> <span class="string">&quot;25&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;win&quot;</span><span class="punctuation">:</span> <span class="string">&quot;西北风&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;win_speed&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1级&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;win_meter&quot;</span><span class="punctuation">:</span> <span class="string">&quot;小于12km/h&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;humidity&quot;</span><span class="punctuation">:</span> <span class="string">&quot;77%&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;visibility&quot;</span><span class="punctuation">:</span> <span class="string">&quot;21.84km&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;pressure&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1000&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;air&quot;</span><span class="punctuation">:</span> <span class="string">&quot;45&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;air_pm25&quot;</span><span class="punctuation">:</span> <span class="string">&quot;27&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;air_level&quot;</span><span class="punctuation">:</span> <span class="string">&quot;优&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;air_tips&quot;</span><span class="punctuation">:</span> <span class="string">&quot;空气很好，可以外出活动，呼吸新鲜空气，拥抱大自然！&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;alarm&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;alarm_type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;雷电&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;alarm_level&quot;</span><span class="punctuation">:</span> <span class="string">&quot;黄色&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;alarm_content&quot;</span><span class="punctuation">:</span> <span class="string">&quot;深圳市气象台于05月27日11时59分发布深圳市雷电黄色预警信号，请注意防御。（预警信息来源：国家预警信息发布中心）&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;aqi&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;air&quot;</span><span class="punctuation">:</span> <span class="string">&quot;45&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;air_level&quot;</span><span class="punctuation">:</span> <span class="string">&quot;优&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;air_tips&quot;</span><span class="punctuation">:</span> <span class="string">&quot;空气很好，可以外出活动，呼吸新鲜空气，拥抱大自然！&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;pm25&quot;</span><span class="punctuation">:</span> <span class="string">&quot;27&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;pm25_desc&quot;</span><span class="punctuation">:</span> <span class="string">&quot;优&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;pm10&quot;</span><span class="punctuation">:</span> <span class="string">&quot;45&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;pm10_desc&quot;</span><span class="punctuation">:</span> <span class="string">&quot;优&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;o3&quot;</span><span class="punctuation">:</span> <span class="string">&quot;92&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;o3_desc&quot;</span><span class="punctuation">:</span> <span class="string">&quot;优&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;no2&quot;</span><span class="punctuation">:</span> <span class="string">&quot;40&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;no2_desc&quot;</span><span class="punctuation">:</span> <span class="string">&quot;优&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;so2&quot;</span><span class="punctuation">:</span> <span class="string">&quot;6&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;so2_desc&quot;</span><span class="punctuation">:</span> <span class="string">&quot;优&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;kouzhao&quot;</span><span class="punctuation">:</span> <span class="string">&quot;无需戴口罩&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;waichu&quot;</span><span class="punctuation">:</span> <span class="string">&quot;适宜外出&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;kaichuang&quot;</span><span class="punctuation">:</span> <span class="string">&quot;适宜开窗&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;jinghuaqi&quot;</span><span class="punctuation">:</span> <span class="string">&quot;关闭净化器&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;cityid&quot;</span><span class="punctuation">:</span> <span class="string">&quot;101280601&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;city&quot;</span><span class="punctuation">:</span> <span class="string">&quot;深圳&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;cityEn&quot;</span><span class="punctuation">:</span> <span class="string">&quot;shenzhen&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;country&quot;</span><span class="punctuation">:</span> <span class="string">&quot;中国&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;countryEn&quot;</span><span class="punctuation">:</span> <span class="string">&quot;China&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>补充说明：</strong>除了实况天气和七日天气，还提供以下付费内容接口：专业七日天气、专业七日天气、专业实况天气、专业40日天气、实时降雨量预报、国外1-7日天气、历史天气、专业全球天气、全国预警数据、常规10项生活指数、全部31项生活指数、空气质量指数</p>
+<h2 id="2-高分天气"><a href="#2-高分天气" class="headerlink" title="2.高分天气"></a>2.<strong>高分天气</strong></h2><p><strong>（备注说明：参照前面第六点说明，同一类型的信息展示方式尽量统一。</strong></p>
+<p><strong>在更新后续服务的内容时，应以第一项为标准，如天气API 中提到一下内容：价格、支持平台、网站排名、谁在用、天气信息展示量及补充说明，如以上内容有查找不到的情况，也应留空，方便对比。如有额外内容，则添加到上述信息底部，如天气 API 中的 补充说明）</strong></p>
+<p><strong>……</strong></p>
+<h2 id="3-极速数据"><a href="#3-极速数据" class="headerlink" title="3.极速数据"></a>3.<strong>极速数据</strong></h2><p><strong>（同上）</strong></p>
+<p><strong>……</strong></p>
+<h2 id="4-聚合数据"><a href="#4-聚合数据" class="headerlink" title="4.聚合数据"></a>4.<strong>聚合数据</strong></h2><p><strong>（同上）</strong></p>
+<p><strong>……</strong></p>
+<h2 id="5-网络爬虫的天气-API"><a href="#5-网络爬虫的天气-API" class="headerlink" title="5.网络爬虫的天气 API"></a>5.<strong>网络爬虫的天气 API</strong></h2><p><strong>（同上）</strong></p>
+<p><strong>……</strong></p>
+<h2 id="6-综合对比"><a href="#6-综合对比" class="headerlink" title="6.综合对比"></a>6.<strong>综合对比</strong></h2><p><strong>（备注说明：做表格对比时，应注意信息筛选，将不重要的信息如网站排名和谁在用剔除，横向对比时应注意信息一致，比如下文例子中 天气 API 只提供年付费方案，高分天气提供月付费方案，应将后者换算成与前者一致的单位计算。）</strong></p>
+<p><a target="_blank" rel="noopener" href="https://www.notion.so/e1fde96222214e2db5a129ced2d86e04">Untitled</a></p>
+<p>——————————————举例完—————————————-</p>
+<h1 id="四、问题与建议"><a href="#四、问题与建议" class="headerlink" title="四、问题与建议"></a><strong>四、问题与建议</strong></h1><p>（调研过程中碰到的问题以及针对调研目标的建议，不做强制要求）</p>
+<p>——————————————举例——————————————</p>
+<p>问题：</p>
+<ol>
+<li>CuteCatOS 使用到的目标用户数量有多少？</li>
+<li>国外需要支持哪些国家？</li>
+<li>可接受付费的价格上限在哪？</li>
+<li>……</li>
+<li>……</li>
+</ol>
+<p>（可省略）建议：无</p>
+<p>——————————————举例完—————————————-</p>
+<h1 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a><strong>五、总结</strong></h1><h2 id="1-结论概述"><a href="#1-结论概述" class="headerlink" title="1.结论概述"></a>1.<strong>结论概述</strong></h2><p>（输出自己的观点、结论）</p>
+<p>（举例：综合所有情况，天气 API 目前是比较符合需求的，虽然收费，但是价钱不高，且有很多企业单位使用该公司的API，相对比较稳定。高分天气 API 虽然免费，但是天气信息太少，不符合基本需求。急速和聚合天气的话收费相对较高一点，其中聚合可以不做中转。</p>
+<p><strong>注意</strong>：聚合数据黑钻会员只能无限次数调用官网显示免费的 API，标记收费的需要另外收费。）</p>
+<h2 id="2-反思总结"><a href="#2-反思总结" class="headerlink" title="2.反思总结"></a>2.<strong>反思总结</strong></h2><p>（思考调研的过程中不足或者可以提高的内容）</p>
+<p>（举例：由于时间关系没有验证不同服务商提供的接口响应的速度，及批量测试接口，测试接口响应成功率，测试不同地区的接口请求的响应）</p>
+<h1 id="五、参考文档"><a href="#五、参考文档" class="headerlink" title="五、参考文档"></a><strong>五、参考文档</strong></h1><p>（可放链接）</p>
+<p>——————————————举例——————————————</p>
+<p>天气 API 官网：<a target="_blank" rel="noopener" href="https://www.tianqiapi.com/index">https://www.tianqiapi.com/index</a></p>
+<p>高分天气官网：<a target="_blank" rel="noopener" href="http://gaofen.mlogcn.com/">http://gaofen.mlogcn.com/</a></p>
+<p>极速数据官网：<a target="_blank" rel="noopener" href="https://www.jisuapi.com/api/weather/">https://www.jisuapi.com/api/weather/</a></p>
+<p>聚合数据官网：<a target="_blank" rel="noopener" href="https://www.juhe.cn/docs/api/id/73">https://www.juhe.cn/docs/api/id/73</a></p>
+<p>网络爬虫天气 API 来源：无</p>
+<p>——————————————举例完—————————————-</p>
+<h1 id="六、附录"><a href="#六、附录" class="headerlink" title="六、附录"></a><strong>六、附录</strong></h1><p>（可放名词解释）</p>
+<p>——————————————举例——————————————</p>
+<p><strong>Alexa 排名：</strong>Alexa排名是指网站的世界排名，主要分为综合排名和分类排名，Alexa提供了包括综合排名、到访量排名、页面访问量排名等多个评价指标信息，大多数人把它当作当前较为权威的网站访问量评价指标。—— 来源：百度百科</p>
+<p>——————————————举例完—————————————-</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/EXP/" rel="tag"># EXP</a>
+              <a href="/tags/Technology/" rel="tag"># Technology</a>
+              <a href="/tags/Template/" rel="tag"># Template</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/09/20/frequently-asked-questions-about-time-travel-by-entropy-reduction/" rel="prev" title="有关熵减-时间旅行的冷门问题">
+      <i class="fa fa-chevron-left"></i> 有关熵减-时间旅行的冷门问题
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/10/02/amateur-clipsself-improvement/" rel="next" title="业余剪辑自我修养">
+      业余剪辑自我修养 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">标题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BF%AE%E8%AE%A2%E8%AE%B0%E5%BD%95"><span class="nav-number">2.</span> <span class="nav-text">修订记录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E8%B0%83%E7%A0%94%E8%83%8C%E6%99%AF%E4%B8%8E%E7%9B%AE%E6%A0%87"><span class="nav-number">3.</span> <span class="nav-text">一、调研背景与目标</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E8%B0%83%E7%A0%94%E8%83%8C%E6%99%AF"><span class="nav-number">3.1.</span> <span class="nav-text">1.调研背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E8%B0%83%E7%A0%94%E7%9B%AE%E6%A0%87"><span class="nav-number">3.2.</span> <span class="nav-text">2.调研目标</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%A6%82%E8%BF%B0"><span class="nav-number">4.</span> <span class="nav-text">二、概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E7%BB%BC%E5%90%88%E5%88%86%E6%9E%90%EF%BC%88%E6%AF%94%E8%BE%83%EF%BC%89"><span class="nav-number">5.</span> <span class="nav-text">三、综合分析（比较）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%A4%A9%E6%B0%94-API"><span class="nav-number">5.1.</span> <span class="nav-text">1.天气 API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E9%AB%98%E5%88%86%E5%A4%A9%E6%B0%94"><span class="nav-number">5.2.</span> <span class="nav-text">2.高分天气</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%9E%81%E9%80%9F%E6%95%B0%E6%8D%AE"><span class="nav-number">5.3.</span> <span class="nav-text">3.极速数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E8%81%9A%E5%90%88%E6%95%B0%E6%8D%AE"><span class="nav-number">5.4.</span> <span class="nav-text">4.聚合数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E7%9A%84%E5%A4%A9%E6%B0%94-API"><span class="nav-number">5.5.</span> <span class="nav-text">5.网络爬虫的天气 API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E7%BB%BC%E5%90%88%E5%AF%B9%E6%AF%94"><span class="nav-number">5.6.</span> <span class="nav-text">6.综合对比</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E9%97%AE%E9%A2%98%E4%B8%8E%E5%BB%BA%E8%AE%AE"><span class="nav-number">6.</span> <span class="nav-text">四、问题与建议</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E6%80%BB%E7%BB%93"><span class="nav-number">7.</span> <span class="nav-text">五、总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E7%BB%93%E8%AE%BA%E6%A6%82%E8%BF%B0"><span class="nav-number">7.1.</span> <span class="nav-text">1.结论概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%8F%8D%E6%80%9D%E6%80%BB%E7%BB%93"><span class="nav-number">7.2.</span> <span class="nav-text">2.反思总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3"><span class="nav-number">8.</span> <span class="nav-text">五、参考文档</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E9%99%84%E5%BD%95"><span class="nav-number">9.</span> <span class="nav-text">六、附录</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="John Doe"
+      src="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">97</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">67</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="sidebar-button motion-element"><i class="fa fa-comment"></i>
+    Chat
+  </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Kaaaaai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Kaaaaai" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/lvkaimeiyouhenshuai" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lvkaimeiyouhenshuai" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kaaaaai</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

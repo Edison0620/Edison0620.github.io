@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Hexo</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9578d14210d67becef48447e4f6b3f20";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/22/translation-why-use-dependency-injection/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/22/translation-why-use-dependency-injection/" class="post-title-link" itemprop="url">翻译：Why use dependency injection</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-02-22 09:37:05 / Modified: 16:25:58" itemprop="dateCreated datePublished" datetime="2021-02-22T09:37:05+08:00">2021-02-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>原文来自：<a target="_blank" rel="noopener" href="https://github.com/uber/needle/blob/master/WHY_DI.md">Why use dependency injection</a></p>
+<p>第一次翻译，如有问题还请留言指出。<br>E-mail：<a href="mailto:&#114;&#x6f;&#111;&#116;&#64;&#x6b;&#97;&#97;&#97;&#x61;&#x61;&#x69;&#x2e;&#99;&#x6e;">&#114;&#x6f;&#111;&#116;&#64;&#x6b;&#97;&#97;&#97;&#x61;&#x61;&#x69;&#x2e;&#99;&#x6e;</a></p>
+<hr>
+<h2 id="为什么使用依赖注入？"><a href="#为什么使用依赖注入？" class="headerlink" title="为什么使用依赖注入？"></a>为什么使用依赖注入？</h2><p>本文档介绍了依赖注入的基本知识；它是什么；以及为什么把它加入进你的应用开发中会是个好的模式？下文将用 DI 这个术语作为依赖注入（dependency injection）的简称。</p>
+<h3 id="一个真实的例子来说明"><a href="#一个真实的例子来说明" class="headerlink" title="一个真实的例子来说明"></a>一个真实的例子来说明</h3><p>与其用抽象的语言描述这个模式，不如用一个简单的基于视图控制器的例子来理解它。如果你对抽象描述感兴趣，维基百科有一篇很棒的<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Dependency_injection">文章</a>。</p>
+<p>比如说我们正在开发一个照片浏览应用程序，其中，我们有一个视图控制器（view controller），显示从服务器上获取的一组照片。在这个非常简单的应用中，我们有一个 <code>PhotosViewController</code> 去展示照片，还有一个 <code>PhotosService</code> 封装了从我们的服务器请求照片的逻辑。<code>PhotosViewController</code> 实现了视图逻辑，而 <code>PhotosService</code> 包含 HTTP 请求发送和响应解析逻辑。没有使用 DI 时，我们的 <code>PhotosViewController</code> 会在 <code>init</code> 或 <code>viewDidLoad</code> 方法中实例化一个新的 <code>PhotosService</code> 实例，然后在适合的时候使用服务对象来请求照片。</p>
+<p>现在我们回过头来分析一下我们的代码。在当前状态下，<code>PhotosViewController</code> 和 <code>PhotosService</code> 是紧密耦合的。这就给我们留下了一些问题：</p>
+<ol>
+<li>在不改变 <code>PhotosViewController</code> 的情况下，我们不能改变 <code>PhotoServie</code>。这在只有两个类的情况下似乎没有问题，但在有上百个类的实际场景中，这将大大降低我们的应用迭代速度。</li>
+<li>在不改变 <code>PhotosViewController</code> 的情况下，我们不能替换掉 <code>PhotoServie</code>。我们想象一下，我们现在有了一个更好的 <code>PhotosServiceV2</code> 类，想让我们的视图控制器使用，我们就必须深入研究 <code>PhotosViewController</code> 的实现来进行修改。</li>
+<li>不引用 <code>PhotoServie</code> 我们就无法对 <code>PhotosViewController</code> 进行单元测试。</li>
+<li>我们不能同时独立开发 <code>PhotosViewController</code> 和 <code>PhotoServie</code>。这可能看起来不是很大的问题，但在团队开发的真实环境中，我们的工程师将会不断被阻挠。</li>
+</ol>
+<p>让我们加入 DI 模式到我们的应用。使用 DI，我们将会有第三个类，在 Needle 中，它被称作 <code>Componet</code> 类，他的作用是实例化 <code>PhotosService</code> 并通过协议（protocl）传递给 <code>PhotosViewController</code> 使用。我们将此协议（protocol）称为 <code>PhotosServicing</code>。现在，我们的 <code>PhotosViewController</code> 不再知道任何关于 <code>PhotosService</code> 的具体实现了，它只需使用传入的 <code>PhotosServicing</code> 协议来执行其逻辑。</p>
+<p>使用 DI 后，我们再来看看之前的问题：</p>
+<ol>
+<li>我们可以自由的改变 <code>PhotosService</code> 的实现，而不影响我们的 <code>PhotosViewController</code>。</li>
+<li>我们可以简单地更新 DI <code>Component</code> 类，实例化 <code>PhotosService</code> 并给 <code>PhotosViewController</code> 使用，只要它的实现仍然遵从 <code>PhotosServicing</code> 协议。这是我们可以自由切换照片服务（photos service）的实现而无需在视图控制器（view controller）中做任何修改。</li>
+<li>我们可以通过注入（injecting），也就是传入一个模拟 <code>PhotosServicing</code> 对象来正确地对 <code>PhotosViewController</code> 进行单元测试。</li>
+<li>只要定义了 <code>PhotosServicing</code> 协议，我们就可以同时独立开发 <code>PhotosService</code> 和 <code>PhotosViewController</code> 的实现。</li>
+</ol>
+<h2 id="依赖注入术语"><a href="#依赖注入术语" class="headerlink" title="依赖注入术语"></a>依赖注入术语</h2><p>在继续之前，让我们定义一些 DI 模式常用的术语。在上面我们简单的例子中，<code>PhotosService</code> 通常被称为“依赖关系”（dependency），我们的 <code>PhotosViewController</code> 有时称为“依赖”或“消费者”。将 <code>PhotosServicing</code> 的实例传入 <code>PhotosViewController</code> 的行为称为 “注入”。总之，我们简单的 DI 设置将 <code>PhotosServicing</code> 依赖关系注入到消费者 <code>PhotosViewController</code> 中。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/21/its-time-to-build-an-open-source-library/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/21/its-time-to-build-an-open-source-library/" class="post-title-link" itemprop="url">是时候维护一个属于自己的开源库了</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-11-21 09:37:05" itemprop="dateCreated datePublished" datetime="2020-11-21T09:37:05+08:00">2020-11-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-28 09:41:36" itemprop="dateModified" datetime="2020-11-28T09:41:36+08:00">2020-11-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>使用 GitHub 很久，除了无脑 star、fork 大神们的仓库、输出一些学习代码以外，对于 GitHub 本身的贡献似乎寥寥。<a target="_blank" rel="noopener" href="https://archiveprogram.github.com/arctic-vault/"><strong>Arctic Code Vault Contributor</strong></a> 的勋章我受之有愧。如果你也有和我类似的想法，那么，是时候可以尝试一下维护一个自己的开源库了。</p>
+<p>维护一个开源库，听起来很简单，但是真正要开始动手，似乎颇有些千头万绪，无从下手。那让我们来捋一捋，首先我们碰到的第一个问题可能是：我们可以去维护一个怎样的开源库？</p>
+<h2 id="目的和意义"><a href="#目的和意义" class="headerlink" title="目的和意义"></a>目的和意义</h2><p>该维护一个怎样的开源库，讨论这个问题之前。我们先把维护开源库这件事当做一个项目来分析，首先我们来思考这个项目的目的和意义——这个思考的结果有利于我们对于这个项目的持续维护，也可以当做一项工作开始前的心理建设。</p>
+<p>我们的目的除了上面提到的增加一些对 GitHub 的贡献，我们所选择去维护的开源库类型也可以从另一方面确认我们这个项目的目的，比如如果你打算维护一个你所对应的开发语言的工具类框架，那你们目的就是把这个框架完成，并且好用。</p>
+<p>而在这个过程中，你的技能水平有所提升，是附带产生的收获，也是可以在这个阶段当做我们的目的之一。</p>
+<p>另外如果你期望你的框架可以满足了一部分人的需求，可以帮助到别人，得到一些 <strong>Star</strong> 和 <strong>Follow</strong>，那么获得他人认可也是作为这个项目的目的之一。</p>
+<p>最后，当我们选择去维护一个开源库，这个开源库必然是我们最想去维护的，那这个过程中我们必然是开心和满足的，获得自我满足感也可以当做我们的目的之一，这点也是我认为最重要的。</p>
+<p>以上几点，既可以当做目的，从结果上也可以当做我们维护开源库所具备的意义。</p>
+<h2 id="选题"><a href="#选题" class="headerlink" title="选题"></a>选题</h2><p>进入正题，我们该维护一个怎样的开源库？对于大神来说，这个问题很简单，基本就是输出一些自制的小工具或者简洁优美的代码轮子，但对于一个还在自己的知识领域里辛苦耕耘的朋友来说，要独立维护一个技术含量比较高的开源库也许会略感吃力，甚至有可能是劝退性的。对于这类心里打鼓的朋友，也许前面干巴巴的文字无法成功完成第一轮的心理建设，也许需要一些更直观的东西来把退堂鼓换成锣鼓，比如：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/23498424/answer/565475152">你在 GitHub 上看到过的最有意思的项目是什么？ - 知乎</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/58404875">我在 GitHub 上都见过哪些沙雕项目？ - 知乎</a></li>
+</ul>
+<p>这两个链接里面有许多技术含量不高，但很有趣也有很多 <strong>Star</strong> 的项目，比如这个<a target="_blank" rel="noopener" href="https://github.com/kelseyhightower/nocode">nocode</a><br><img align="center" src="https://i.loli.net/2020/11/22/IJGh1tVqATzZlYL.jpg" width=650px/></p>
+<p>没有一行代码的应用程序，看起来像是一个愚人节玩笑。</p>
+<blockquote>
+<p>Write nothing; deploy nowhere.</p>
+</blockquote>
+<p>OK，maybe it is the most secure and reliable applications.这个项目在 GitHub 有四万多的 <strong>Star</strong>，颇有几分不着一字，尽得风流的意味。</p>
+<p>总之，从以上例子来看，其实我们无需局限于技术，在开源库的类型选择上，我们可以有更开放的选择，总结如下：</p>
+<ul>
+<li>技术，比如：<a target="_blank" rel="noopener" href="https://github.com/AFNetworking/AFNetworking">AFNetworking</a></li>
+<li>某个领域的资讯整合，比如：<a target="_blank" rel="noopener" href="https://github.com/SwiftOldDriver/iOS-Weekly">iOS-Weekly</a></li>
+<li>学习资料，比如：<a target="_blank" rel="noopener" href="https://github.com/soapyigu/Swift-30-Projects">Swift-30-Projects</a></li>
+<li>同一类资源的合集，比如：<a target="_blank" rel="noopener" href="https://github.com/jaywcjlove/awesome-mac">awesome-mac</a>、<a target="_blank" rel="noopener" href="https://github.com/timmy3131/design-resource">design-resource</a></li>
+<li>偏生活向的，比如：<a target="_blank" rel="noopener" href="https://github.com/hoosin/EveryDaySport">EveryDaySport</a>、<a target="_blank" rel="noopener" href="https://github.com/YixuanFranco/YourBoyfriend">YourBoyfriend</a></li>
+<li>emmmmm，比如：<a target="_blank" rel="noopener" href="https://github.com/komeiji-satori/Dress">Dress</a></li>
+</ul>
+<p>确定一个方向后，然后在此基础上从自己擅长或者感兴趣的入手，相信你很快就能找到一个合适的项目。当然别忘了开始前在 GitHub 上检索一下，看看是否有类似的仓库，避免重复造轮子。</p>
+<h2 id="维护"><a href="#维护" class="headerlink" title="维护"></a>维护</h2><p>确定好要维护一个怎样的开源库后，接下来就是怎样去维护一个开源库了，即是走一遍创建仓库，拉取部署和维护的流程。——这里默认所有想维护开源库的朋友对 GitHub 的基本操作都熟悉。</p>
+<h3 id="创建仓库-Tips"><a href="#创建仓库-Tips" class="headerlink" title="创建仓库 Tips"></a>创建仓库 Tips</h3><p>创建仓库这里有个小 Tips，是公司同事分享的，就是一个比较正式的开源库，通常会挂在一个组织底下，比如：<br><img align="center" src="https://i.loli.net/2020/11/22/9FHA4eQsfUqkWYX.png" width=650px/><br>比如：<br><img align="center" src="https://i.loli.net/2020/11/22/F39zC7M2nTcXGyP.png" width=650px/><br>再比如<br><img align="center" src="https://i.loli.net/2020/11/22/b4ga6fzWIvkVoce.png" width=650px/><br>由以上例子可见，挂在组织底下的项目会比挂在个人底下的项目看起来更会正式。哪怕我们是个人维护的，但让他看起来正式一点也没什么错误。另外在被搜索和在 url 路径展示上也相对会工整一点。<br><img align="center" src="https://i.loli.net/2020/11/22/ezD8NbqloGFipHX.png" width=650px/></p>
+<h3 id="维护和一些设定"><a href="#维护和一些设定" class="headerlink" title="维护和一些设定"></a>维护和一些设定</h3><p>创建完一个仓库以后，拉取部署等常规操作略过不提，说说维护。步入正轨的维护，其实就是持续的 push 就好，根据仓库类型不同，有的也许是周期需要维护的，有的也许上线已接近完成，需要做的只是抓虫和偶尔更新。这个时候需要注意：</p>
+<ol>
+<li>对项目保持一定的关注，给自己固定一个周期性的时间检查项目，以防止时间断层导致项目失去维护。</li>
+<li>每次 commit 的描述，清晰直观的提交历史可以让人对你的表述能力有大概了解，也方便给潜在的，想要一起维护的开发者一个直观的项目过往，有利于增加与你一起协作维护的吸引力。</li>
+<li>项目结构的条理性，原因同上。</li>
+</ol>
+<p>除了步入正轨的维护，在创建时，还有项目本身的一些设定也很重要：<br><img src="https://i.loli.net/2020/11/22/qKgJbv1x2cGzk7e.png" alt="qKgJbv1x2cGzk7e"></p>
+<ul>
+<li>项目 logo</li>
+<li>readme 文件的书写</li>
+<li>项目描述</li>
+<li>开源声明</li>
+</ul>
+<p>项目 logo 如果动手能力强的朋友可以考虑自己设计一下，网上也有在线工具可以用符号排列组合生成属于自己的 logo。</p>
+<p>readme 文件作为一个项目的头脸，描述清晰直观的重要性远远超过上述提到的 commint，需要注意的主要有内容排版，头部和尾部信息。</p>
+<p>细心的朋友可能注意到许多项目的 readme 文件的头部会有类似于这种<a target="_blank" rel="noopener" href="https://awesome-online-efficiency.github.io/Awesome-Online-Efficiency/"><img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=website&color=%230076D6&style=flat&logo=google-chrome&logoColor=%230076D6" alt="website"/></a>展示仓库属性信息的小标签，这种标签可以使用 <a target="_blank" rel="noopener" href="https://shields.io/">Shields.io</a> 这个网站来制作。</p>
+<p>以我的仓库为例，在网站首页填入仓库地址，点击 <strong>Suggest badges</strong> 会自动生成几个标签，不同的标签代表着不同的含义。<br><img src="https://i.loli.net/2020/11/22/pcHKt3e9LRv1jdV.png" alt="pcHKt3e9LRv1jdV"></p>
+<p>如果想展示更多的内容，可以上拉网页自己定制。</p>
+<p>readme 的底部信息，没有标准，有的仓库会把作者的个人信息挂上，有的会列出贡献者名单，也有的会把自己的收款二维码贴上，供人打赏。全凭个人喜欢。</p>
+<p>关于仓库 <strong>About</strong> 的描述，力求简洁，明朗，最好一句话能说清楚是干嘛的。而一个有网站可以浏览的仓库体验也会相对好点，这方面使用 GitHub 提供的服务——GitHub Pages 已然可以满足。实现起来有两种方式：</p>
+<ol>
+<li>可以在仓库设置界面点击 <code>Change Theme</code>，在进去的二级页面选择好主题后，GitHub 会自动帮你生成一个网站分支，自动拉取你主分支的内容更新。<br> <img src="https://i.loli.net/2020/11/22/s6yAmwq84ZRFkoz.png" alt="s6yAmwq84ZRFkoz"></li>
+<li>如果不喜欢产生多余分支，有强迫症的朋友也可以尝试在仓库主路径底下增加 <code>_config.yml</code> 文件，在里面添加主题配置： <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: jekyll-theme-cayman</span><br></pre></td></tr></table></figure>
+ 并在设置中选择，通过主分支来构建网站，即可生成仓库网站。<br> <img src="https://i.loli.net/2020/11/22/Mmc8NQbY4g5Tw3q.png" alt="Mmc8NQbY4g5Tw3q"></li>
+</ol>
+<p>给仓库设置标签有利于检索，比如我给我的仓库设置了一个 <code>awesome</code> 的标签，那么如果有人搜索相关字段，或者直接在 <a target="_blank" rel="noopener" href="https://github.com/topics/awesome">Awesome Lists</a> 这个列表里找，会有相对较高的曝光率。</p>
+<p>关于版权声明，如果在创建仓库时勾选了生成版权声明的文件，创建后会自动生成该文件。如果没有后面自己加也可以，添加后侧边栏会自动生成版权声明的描述。我这里选择的是 CC0-1.0 的版本。关于不同版本声明的区别会在<del>后续文章中更新</del>——本来想更新一篇关于不同版本开源声明的区别的文章，在网上检索资料时发现一个开源库可以帮助开发者选择不同的软件开源声明：<a target="_blank" rel="noopener" href="https://choosealicense.com/">Choose a License</a>。</p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>要维护好一个开源库需要做的事情远比上面列举的还要多，只是对于一个刚开始维护一个开源库的新手来说，不至于劝退，这些内容已经足够。</p>
+<p>而在步入正轨以后，你可能需要回答 <code>Issues</code> 里提出来的各种意想不到的问题，也可能要甄别 <code>Pull requests</code> 下的提交是否有益，利用好 GitHub 提供的额外功能 <code>Actions</code>、<code>Projects</code> 则可以大大提高维护和协作的效率。另外你还可以在 <code>Insights</code> 看到自己仓库的各种统计信息，仓库的贡献曲线图，浏览次数，被下载次数等等。</p>
+<p>最后，无论你的开源库是否因为代码优美而获得许多 <strong>Star</strong>，还是持续维护仍无人问津，都祝你好运。最后分享一句孔子的一段话，也做自我勉励：</p>
+<blockquote>
+<p>芝兰生于空谷，不以无人而不芳。</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/31/ios-douban-open-source-license-mentioned-in-the-library/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/31/ios-douban-open-source-license-mentioned-in-the-library/" class="post-title-link" itemprop="url">iOS 端豆瓣开源许可提到的库</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-10-31 11:24:52" itemprop="dateCreated datePublished" datetime="2020-10-31T11:24:52+08:00">2020-10-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-05 09:51:55" itemprop="dateModified" datetime="2020-11-05T09:51:55+08:00">2020-11-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在网上看到一篇<a target="_blank" rel="noopener" href="https://juejin.im/post/6844903749949865991">豆瓣开源许可-android</a>的文章，列举了一些 <code>Android</code> 端豆瓣开源许可中所提到的第三方框架，出于好奇心理在网上搜索了一下想看下有没有 <code>iOS</code> 版本。结果是没有的，于是索性就自己动手整理了一份：</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://github.com/nanopb/nanopb">nanopb &#x2F; nanopb：具有较小代码量的协议缓冲区</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/airbnb/lottie-ios">airbnb &#x2F; lottie-ios：一个 iOS 库，用于本地渲染 After Effects 矢量动画</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/jspahrsummers/libextobjc">jspahrsummers &#x2F; libextobjc：一个 Coca Library，用于扩展 Objective-C 编程语言的动态性</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ibireme/YYCache">ibireme &#x2F; YYCache：iOS 的高性能缓存框架</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/TTTAttributedLabel/TTTAttributedLabel">TTTAttributedLabel &#x2F; TTTAttributedLabel：UILabel 的替代品，支持属性，数据检测器，链接等</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/glaszig/SZTextView">glaszig &#x2F; SZTextView：替代 UITextView 的替代方案，为您提供：占位符。</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ZipArchive/ZipArchive">ZipArchive &#x2F; ZipArchive：ZipArchive 是用于在 iOS，macOS 和 tvOS 上压缩和解压缩文件的简单实用程序类。</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/soffes/SAMKeychain">soffes &#x2F; SAMKeychain：适用于 Mac 和 iOS 的钥匙串的简单 Objective-C 包装器</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ReactiveCocoa/ReactiveObjC">ReactiveCocoa &#x2F; ReactiveObjC：2.x ReactiveCocoa Objective-C API：函数式响应式编程</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/tonymillion/Reachability">tonymillion&#x2F;Reachability：网络可用性</a> </li>
+<li><a target="_blank" rel="noopener" href="https://github.com/PureLayout/PureLayout">PureLayout &#x2F; PureLayout：适用于 iOS 和 OS X Auto Layout 的终极 API —极其简单，功能强大。 与Objective-C 和 Swift 兼容。</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/google/promises">google &#x2F; promises：Promises是一个现代框架，可为 Swift 和 Objective-C 提供同步结构，以方便编写异步代码。</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/shramos/polymorph">shramos &#x2F; polymorph：Polymorph是一种实时网络数据包处理框架，几乎支持所有现有协议，是一种工具，它允许在实时拦截的网络数据包上执行Python代码，从而有助于即时修改网络流量。</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/muZZkat/NMRangeSlider">muZZkat &#x2F; NMRangeSlider：UISlider，适用于 iOS 的自定义范围滑块</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/novastone-media/MQTT-Client-Framework">novastone-media &#x2F; MQTT-Client-Framework：iOS，macOS，tvOS 本机 ObjectiveC MQTT 客户端框架，消息推送</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Tencent/MLeaksFinder">Tencent&#x2F; MLeaksFinder：在开发时查找 iOS 应用中的内存泄漏。</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ChangbaDevs/KTVHTTPCache">ChangbaDevs &#x2F; KTVHTTPCache：一个功能强大的媒体缓存框架。</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ChangbaDevs/KTVCocoaHTTPServer">ChangbaDevs&#x2F;KTVCocoaHTTPServer</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/HisaMasa/JYSlideSegmentController">HisaMasa &#x2F; JYSlideSegmentController：JYSlideSegmentController 是一个视图控制器容器，就像 UITabBarController 一样，具有平滑的手势。</a><ul>
+<li>截图<br>  <img src="https://i.loli.net/2020/11/01/R9dt1mfbHzTZJEB.jpg" alt="R9dt1mfbHzTZJEB"></li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/futuretap/InAppSettingsKit">futuretap &#x2F; InAppSettingsKit：此 iOS 框架允许将设置设置为应用程序内设置，而不是将其设置为设置应用程序。</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ikesyo/Himotoki">ikesyo &#x2F; Himotoki：一种完全由 Swift 编写的类型安全的 JSON 解码库</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ishkawa/APIKit">ishkawa &#x2F; APIKit：类型安全的网络抽象层，将请求类型与响应类型相关联。</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/SDWebImage/SDWebImage">SDWebImage &#x2F; SDWebImage：具有缓存支持的异步图像下载器，作为 UIImageView Category</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/SDWebImage/SDWebImageWebPCoder">SDWebImage &#x2F; SDWebImageWebPCoder：用于 SDWebImage 的 WebP 编码器插件，请使用libwebp</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/webmproject/libwebp">webmproject &#x2F; libwebp：WebP编解码器：用于以WebP格式编码和解码图像的库</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/AFNetworking/AFNetworking">AFNetworking &#x2F; AFNetworking：一个适用于 iOS，macOS，watchOS 和 tvOS 的令人愉悦的网络框架。</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/akkyie/AKPickerView">akkyie &#x2F; AKPickerView：一个简单但可自定义的水平选择器视图。</a><ul>
+<li>Swift 版本：<a target="_blank" rel="noopener" href="https://github.com/Akkyie/AKPickerView-Swift">akkyie &#x2F; AKPickerView-Swift：一个简单但可自定义的水平选择器视图。</a></li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/BlocksKit/BlocksKit">BlocksKit &#x2F; BlocksKit：您一直希望拥有的 Objective-C block 实现。</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/robbiehanson/CocoaAsyncSocket">robbiehanson &#x2F; CocoaAsyncSocket：适用于 Mac 和 iOS 的异步 socket 网络库</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/CocoaLumberjack/CocoaLumberjack">CocoaLumberjack &#x2F; CocoaLumberjack：适用于 Mac 和 iOS 的快速，简单，功能强大且灵活的日志记录框架</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/douban/DOUSNSSharing">douban &#x2F; DOUSNSSharing：SNS OAuth 2 绑定和共享</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/devicekit/DeviceKit">devicekit &#x2F; DeviceKit：DeviceKit 是 UIDevice 的值类型替换。</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/facebook/FBRetainCycleDetector">facebook &#x2F; FBRetainCycleDetector：iOS 库，可帮助检测运行时中的保留周期。</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ccgus/fmdb">ccgus &#x2F; fmdb：这是一个围绕SQLite的Objective-C包装器。</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/foursquare/FSQCollectionViewAlignedLayout">foursquare &#x2F; FSQCollectionViewAlignedLayout：FSQCollectionViewAlignedLayout 是一种通用的集合视图布局，旨在非常灵活和可配置。 目的是使每次 UICollectionViewFlowLayout 不适合其视图的用户都不必编写自己的自定义布局类。</a></li>
+<li><a target="_blank" rel="noopener" href="https://firebase.google.com/">Firebase</a></li>
+<li><a target="_blank" rel="noopener" href="https://firebase.google.com/docs/reference/android/com/google/firebase/analytics/FirebaseAnalytics">FirebaseAnalytics</a></li>
+<li><a target="_blank" rel="noopener" href="https://firebase.google.com/docs/reference/ios/firebasecore/api/reference/Classes">FirebaseCore</a></li>
+<li><a target="_blank" rel="noopener" href="https://cocoapods.org/pods/FirebaseCoreDiagnostics">FirebaseCoreDiagnostics</a></li>
+<li><a target="_blank" rel="noopener" href="https://firebase.google.com/docs/crashlytics">Firebase Crashlytics</a></li>
+<li><a target="_blank" rel="noopener" href="https://firebase.google.com/docs/reference/android/com/google/firebase/installations/FirebaseInstallations">FirebaseInstallations</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/FormatterKit/FormatterKit">FormatterKit &#x2F; FormatterKit：<code>stringWithFormat：</code>用于复杂的黑客集</a></li>
+<li><a target="_blank" rel="noopener" href="https://cocoapods.org/pods/GoogleDataTransport">GoogleDataTransport</a></li>
+<li><a target="_blank" rel="noopener" href="https://firebase.google.com/docs/reference/android/com/google/android/gms/measurement/AppMeasurement">AppMeasurement</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/HeshamMegid/HMSegmentedControl">HeshamMegid &#x2F; HMSegmentedControl：UISegmentedControl 的高度可定制的替代品。</a></li>
+</ol>
+<p><em>因为数量众多的原因，许多库的描述我是直接使用 GitHub 上的描述机译后的结果，如有不甚了解或是产生误解的地方，还请读者点击链接访问库地址了解详情。</em></p>
+<p>从以上列举的第三方库来看，豆瓣的 iOS 客户端编写仍然以 <code>Objective-C</code> 为主，但也有用到 <code>Swift</code>，没有用到跨平台的框架，部分库已经略显老旧（不排除他们自己维护更新的可能），来自于谷歌的以 <code>Firebase</code> 为核心的的第三方库，在客户端中应用广泛，这个库也是在之前我所不了解的，除此以外，还有一些了解后也不知道具体实现后会有什么效果的，如：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/nanopb/nanopb">nanopb &#x2F; nanopb：具有较小代码量的协议缓冲区</a></li>
+</ul>
+<p> 是用来让 <code>protocol</code> 文件变小的吗？</p>
+<p>诸如这类情况，整理并不能收获什么，只是方便了索引，真正的提高还需要进一步的基于业务对第三方库的使用和源码阅读。</p>
+<p>最后一点题外话，在去年的时候点开各大软件的设置界面，有开源许可页面的应用记得还有知乎、京东、网易云这些，但在这次整理豆瓣开源许可第三方库的时候，再打开那些应用里看，发现原来的入口都已经消失。很好奇这种变化是因为原来所有的那些第三方库被那些公司用自研的技术取代了，还是因为对技术的尊重本就是一种可有可无的东西，在某次版本更迭中没做多大取舍就轻易的给取消了（取消了这份尊重）？虽然不是很重要的事，但细思起来好像也颇有些耐人寻味的地方。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/26/recommend-a-few-podcasts/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/26/recommend-a-few-podcasts/" class="post-title-link" itemprop="url">推荐几个播客节目</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-10-26 13:24:52" itemprop="dateCreated datePublished" datetime="2020-10-26T13:24:52+08:00">2020-10-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-22 09:44:11" itemprop="dateModified" datetime="2020-11-22T09:44:11+08:00">2020-11-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>因为最近有点用眼过度，所以在空闲时间想找一件尽量可以不用到眼睛又能涨知识的事情做。我先想到的其实是听书和听线上的付费课程。</p>
+<p><strong>听书</strong>不太习惯，原因是许多原本通过看书看到的书面语，从看到变为听到，在从声音转换成画面的这个过渡里，总会有因为追不上朗读者稳定而平均的朗读速度而造成的空白。有时思绪想在某些段落稍作停留，有时又因为对当前段落的后续发展有了预见性的推测，想快点赶往下一章节，总之因为听书的方式相比较看书，缺乏一种主动可控的速度变换，而经常有一种错位的感觉。</p>
+<p><strong>线上课程</strong>虽然有很多干货和知识点，但因为知识点多多少少都围绕着一个或两个中心点，一脉相承，有方便理解的优势和卖课的人也会注意由浅入深的方式讲课，虽然也需要思索，但几乎片刻就能想明白。然而听课也有一个不好的地方，就是对连贯性的要求比较高，用上下班通勤的时间来听课，偶尔会被其他的事情插入打乱，有时就会疲于回溯之前听过的课程。</p>
+<p>所以最后就选择了听<strong>播客</strong>。原因也就是因为他和以上列出的两种选择比起来，内容以谈话为主，相对于书本，不需要持续的集中注意力，而听人说话，也是生活中比较平常的行为，不存在需要适应转换的问题。相对于听课，一集就一个主题，不用要求连贯性，随听随听，比较方便，没有压力。</p>
+<p>进入正题，播客在国外已经发展很久了，在国内好像是最近一两年才火起来的，我也是在<a target="_blank" rel="noopener" href="http://sspai.com/">少数派</a>的网站上才了解到，到现在，网络上可供选择的播客节目已经有很多了，形形色色的，有音乐的，脱口秀的，学英语的，甚至还有类似于 CCTV10 的走近科学栏目类型的节目。</p>
+<p>因为初衷是涨知识，所以我倾向选择的节目类型大概是有干货，通熟易懂，行业相关或者因为知识壁垒的存在，跨行业能听懂可以被科普的节目也可以。给自己做好用户画像后，我在网上找了一些别人推荐的节目列表，有的从名字上过滤掉了，有的听了一两次过滤掉了。现在常听的节目大概有以下几个：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://podcasts.apple.com/cn/podcast/%E5%A3%B0%E4%B8%9C%E5%87%BB%E8%A5%BF/id1183662640?l=en">声东击西</a>：比较关注时事政治，话题深入的程度和切入的角度我都很喜欢。</li>
+<li><a target="_blank" rel="noopener" href="https://podcasts.apple.com/cn/podcast/%E7%96%AF%E6%8A%95%E5%9C%88/id1088178402">疯投圈</a>：大概是我听的频率最高的一个节目了。主要是两个投资人在一块从投资的角度聊不同行业的事情，很难说我从里面可以得到什么直观的东西，但从节目里了解到的一些行业数据、轶事，也可以说打开了不少的眼界。</li>
+<li><a target="_blank" rel="noopener" href="https://podcasts.apple.com/cn/podcast/%E6%A2%81%E6%96%87%E9%81%93-%E5%85%AB%E5%88%86/id1492414487?l=en">梁文道•八分</a>：也是时事政治的内容比较多，似乎和第一个重复了，但因为主持人是梁文道，所以视角会偏向人文和哲学的角度多一点，更书生意气一点——也因为这个，有些推送我听到一半后面就不听了，倒不是觉得不好或者和我看法不同，难以容忍。而是觉得从文人的角度出发谈论一些需要身体力行去体会实践的事，总有点不太务实的感觉。</li>
+<li><a target="_blank" rel="noopener" href="https://podcasts.apple.com/cn/podcast/%E6%97%A0%E8%81%8A%E6%96%8B-%E6%97%A0%E8%81%8A%E7%9A%84%E6%97%B6%E5%80%99%E5%90%AC%E4%B8%80%E5%90%AC/id1433530822?l=en">无聊斋</a>：从节目的名字可以看出来是一档比较轻松的播客，我专门用来打发时间，舒缓神经，不太想集中注意力时，打开听听两人瞎侃还是不错的。</li>
+</ul>
+<p>以上。</p>
+<p>&lt;!-—<img src="/media/16037036946465/16037174040742.jpg">&gt;</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/19/ios-automated-packaging-complicated-by-mail/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/19/ios-automated-packaging-complicated-by-mail/" class="post-title-link" itemprop="url">iOS 自动化打包上传 AppleStore、fir.im，并发邮件通知测试人员</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-10-19 11:24:52" itemprop="dateCreated datePublished" datetime="2020-10-19T11:24:52+08:00">2020-10-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-22 15:22:49" itemprop="dateModified" datetime="2020-11-22T15:22:49+08:00">2020-11-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://i.loli.net/2020/10/19/XKmLbdSTGNoWYZl.png" alt="Exp-w1832"></p>
+<p>从上图可以看出使用自动化出包，可以优化掉好几个需要人工介入的步骤，优化开发流程，节省开发者的时间。</p>
+<p>自动打包的原理概不累述了，测试过程中如果有问题，可以用终端 <code>cd</code> 到项目目录，单独执行出问题的语句，再把错误的输出丢到搜索引擎，只要相信你遇到的问题别人肯定也会遇到，就一定能得到解决。如果有例外，那我相信——能弄出史无前例的问题的你，一定也厉害到可以史无前例的予以解决~当然也可以试着给我留言，说不定三个臭皮匠果真赛过诸葛亮。</p>
+<p>脚本内容基本是基于网络上内容，做了整合，修复了一些可能会导致打包失败的错误。将打印添加颜色输出，以及添加了一些注释。</p>
+<h1 id="一、参考"><a href="#一、参考" class="headerlink" title="一、参考"></a>一、参考</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/05dc9f925467">iOS 自动打包发布到 Fir 和 AppStore</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/ismilesky/article/details/76689448">自动打包 ipa 文件，上传 fir.im 托管平台_ismilesky 的博客 - CSDN 博客</a></li>
+</ul>
+<p>延伸知识：<a target="_blank" rel="noopener" href="https://juejin.im/post/6844904067106340878">多渠道自动打包</a></p>
+<h1 id="二、脚本源码"><a href="#二、脚本源码" class="headerlink" title="二、脚本源码"></a>二、脚本源码</h1><p>已做脱敏处理。</p>
+<h2 id="自动打包并上传"><a href="#自动打包并上传" class="headerlink" title="自动打包并上传"></a>自动打包并上传</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#打包前需要在 xcode 工程中证书选项设置 `Automatically manage signing` 否则会报错</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#-------------项目自定义部分(自定义好下列参数后再执行该脚本)</span></span><br><span class="line"><span class="comment"># 计时</span></span><br><span class="line">SECONDS=0</span><br><span class="line"></span><br><span class="line"><span class="comment">#工程名 将XXX替换成自己的工程名</span></span><br><span class="line">project_name=xxxxx</span><br><span class="line"></span><br><span class="line"><span class="comment">#scheme名 将XXX替换成自己的sheme名</span></span><br><span class="line">scheme_name=xxxxx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 工程中Target对应的配置plist文件名称, Xcode默认的配置文件为Info.plist</span></span><br><span class="line">info_plist_name=<span class="string">&quot;Info&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#打包模式 Debug/Release</span></span><br><span class="line">development_mode=Release</span><br><span class="line"></span><br><span class="line"><span class="comment">#firToken 替换成自己账号的 token</span></span><br><span class="line">fir_token=<span class="string">&quot;xxxxx&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#上传到 AppleStore 替换成自己的开发者账号</span></span><br><span class="line"><span class="comment">#密码需要到 https://appleid.apple.com/account 生成 App 专用密码</span></span><br><span class="line">apple_account=<span class="string">&quot;xxxxx&quot;</span></span><br><span class="line">apple_password=<span class="string">&quot;xxxxx&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ----------------自动打包部分(无特殊情况不用修改)#</span></span><br><span class="line"><span class="comment">#工程绝对路径</span></span><br><span class="line">project_path=$(<span class="built_in">cd</span> `<span class="built_in">dirname</span> <span class="variable">$0</span>`; <span class="built_in">pwd</span>)</span><br><span class="line"></span><br><span class="line">archive_path=<span class="variable">$&#123;project_path&#125;</span>/PackageArchived</span><br><span class="line"></span><br><span class="line"><span class="comment">#build文件夹路径</span></span><br><span class="line">build_path=<span class="variable">$&#123;project_path&#125;</span>/AutoBuild</span><br><span class="line"></span><br><span class="line"><span class="comment">#plist文件所在路径</span></span><br><span class="line">exportOptionsPlistPath=<span class="variable">$&#123;project_path&#125;</span>/exportTest.plist</span><br><span class="line"></span><br><span class="line"><span class="comment"># 时间</span></span><br><span class="line">DATE=`<span class="built_in">date</span> <span class="string">&#x27;+%Y-%m-%d-%H-%m-%S&#x27;</span>`</span><br><span class="line"></span><br><span class="line"><span class="comment">#导出.ipa文件所在路径</span></span><br><span class="line">exportIpaPath=<span class="variable">$&#123;archive_path&#125;</span>/<span class="variable">$&#123;development_mode-$DATE&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取版本号</span></span><br><span class="line">version=$(sed -n <span class="string">&#x27;/MARKETING_VERSION/&#123;s/MARKETING_VERSION = //;s/;//;s/^[[:space:]]*//;p;q;&#125;&#x27;</span> <span class="variable">$&#123;project_name&#125;</span>.xcodeproj/project.pbxproj)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定输出ipa名称</span></span><br><span class="line">ipa_name=<span class="string">&quot;<span class="variable">$scheme_name</span>-v<span class="variable">$version</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#输出包路径，如果不存在创建，否则删除</span></span><br><span class="line"><span class="keyword">if</span> [ ! -d <span class="string">&quot;<span class="variable">$archive_path</span>&quot;</span> ];</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">	<span class="built_in">mkdir</span> -p <span class="string">&quot;<span class="variable">$archive_path</span>&quot;</span>;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	<span class="built_in">rm</span> -rf <span class="string">&quot;<span class="variable">$archive_path</span>&quot;</span></span><br><span class="line">	<span class="built_in">mkdir</span> -p <span class="string">&quot;<span class="variable">$archive_path</span>&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ -d <span class="string">&quot;<span class="variable">$build_path</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">	<span class="comment">#statements</span></span><br><span class="line">	<span class="built_in">rm</span> -rf <span class="string">&quot;<span class="variable">$build_path</span>&quot;</span></span><br><span class="line">	<span class="built_in">mkdir</span> -p <span class="string">&quot;<span class="variable">$build_path</span>&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;\033[34;1m请选择打包方式(输入序号,按回车即可) \033[0m&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;\033[32;1m1:app-store       \033[0m&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;\033[32;1m2:ad-hoc    \033[0m&quot;</span></span><br><span class="line"><span class="comment">##</span></span><br><span class="line"><span class="built_in">read</span> number</span><br><span class="line"><span class="keyword">while</span>([[ <span class="variable">$number</span> != 1 ]] &amp;&amp; [[ <span class="variable">$number</span> != 2 ]])</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;\033[31m错误! 请输入 1 或者 2\033[0m&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;\033[34;1m请选择打包方式(输入序号,按回车即可) \033[0m&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;\033[32;1m1:app-store       \033[0m&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;\033[32;1m2:ad-hoc    \033[0m&quot;</span></span><br><span class="line"><span class="built_in">read</span> number</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$number</span> == 1 ];<span class="keyword">then</span></span><br><span class="line">development_mode=Release</span><br><span class="line">exportOptionsPlistPath=<span class="variable">$&#123;project_path&#125;</span>/exportAppstore.plist</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">development_mode=Debug</span><br><span class="line">exportOptionsPlistPath=<span class="variable">$&#123;project_path&#125;</span>/exportTest.plist</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;\033[33;1m///-----------\033[0m&#x27;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;\033[33;1m/// 正在清理工程\033[0m&#x27;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;\033[33;1m///-----------\033[0m&#x27;</span></span><br><span class="line"></span><br><span class="line">xcodebuild \</span><br><span class="line">clean -configuration <span class="variable">$&#123;development_mode&#125;</span> -quiet  || <span class="built_in">exit</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;\033[32;1m///--------\033[0m&#x27;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;\033[32;1m/// 清理完成\033[0m&#x27;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;\033[32;1m///--------\033[0m&#x27;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;\033[33;1m///-------------\033[0m&#x27;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;\033[33;1m/// 正在编译工程: <span class="variable">$&#123;development_mode&#125;</span>\033[0m&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;\033[33;1m///-------------\033[0m&#x27;</span></span><br><span class="line">xcodebuild \</span><br><span class="line">archive -workspace <span class="variable">$&#123;project_path&#125;</span>/<span class="variable">$&#123;project_name&#125;</span>.xcworkspace \</span><br><span class="line">-scheme <span class="variable">$&#123;scheme_name&#125;</span> \</span><br><span class="line">-configuration <span class="variable">$&#123;development_mode&#125;</span> \</span><br><span class="line">-archivePath <span class="variable">$&#123;build_path&#125;</span>/<span class="variable">$&#123;project_name&#125;</span>.xcarchive  -quiet  || <span class="built_in">exit</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;\033[32;1m///-------------\033[0m&#x27;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;\033[32;1m/// 编译完成   \033[0m&#x27;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;\033[32;1m///-------------\033[0m&#x27;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;\033[33m///-------------\033[0m&#x27;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;\033[33m/// 开始ipa打包\033[0m&#x27;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;\033[33m///-------------\033[0m&#x27;</span></span><br><span class="line">xcodebuild -exportArchive -archivePath <span class="variable">$&#123;build_path&#125;</span>/<span class="variable">$&#123;project_name&#125;</span>.xcarchive \</span><br><span class="line">-configuration <span class="variable">$&#123;development_mode&#125;</span> \</span><br><span class="line">-exportPath <span class="variable">$&#123;exportIpaPath&#125;</span> \</span><br><span class="line">-exportOptionsPlist <span class="variable">$&#123;exportOptionsPlistPath&#125;</span> \</span><br><span class="line">-allowProvisioningUpdates \</span><br><span class="line">-quiet || <span class="built_in">exit</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改ipa文件名称</span></span><br><span class="line"><span class="built_in">mv</span> <span class="variable">$exportIpaPath</span>/<span class="variable">$scheme_name</span>.ipa <span class="variable">$exportIpaPath</span>/<span class="variable">$ipa_name</span>.ipa</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ -e <span class="variable">$exportIpaPath</span>/<span class="variable">$ipa_name</span>.ipa ]; <span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;\033[32;1m///-------------\033[0m&#x27;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;\033[32;1m导出 <span class="variable">$&#123;ipa_name&#125;</span>.ipa 包成功 🎉🎉🎉  \033[0m&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;\033[32;1m///-------------\033[0m&#x27;</span></span><br><span class="line">open <span class="variable">$exportIpaPath</span></span><br><span class="line"><span class="comment">#移除构建文件夹</span></span><br><span class="line"><span class="built_in">rm</span> -rf <span class="string">&quot;<span class="variable">$build_path</span>&quot;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;\033[31;1m///-------------\033[0m&#x27;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;\033[31;1m导出 <span class="variable">$&#123;ipa_name&#125;</span>.ipa 包失败 💔💔💔 \033[0m&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;\033[31;1m///-------------\033[0m&#x27;</span></span><br><span class="line"><span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;\033[36;1m///-------------\033[0m&#x27;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;\033[36;1m/// 打包 ipa 完成。总耗时:<span class="variable">$&#123;SECONDS&#125;</span>s \033[0m&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;\033[36;1m///-------------\033[0m&#x27;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;\033[33m///-------------\033[0m&#x27;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;\033[33m/// 开始发布ipa包 \033[0m&#x27;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;\033[33m///-------------\033[0m&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$number</span> == 1 ];<span class="keyword">then</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#验证并上传到App Store</span></span><br><span class="line"><span class="comment"># 将 -u 后面填入账号，-p后面填入密码</span></span><br><span class="line">altoolPath=<span class="string">&quot;/Applications/Xcode.app/Contents/SharedFrameworks/ContentDeliveryServices.framework/Versions/A/Frameworks/AppStoreService.framework/Versions/A/Support/altool&quot;</span></span><br><span class="line"><span class="string">&quot;<span class="variable">$altoolPath</span>&quot;</span> --validate-app -f <span class="variable">$&#123;exportIpaPath&#125;</span>/<span class="variable">$&#123;ipa_name&#125;</span>.ipa -u <span class="variable">$apple_account</span> -p <span class="variable">$apple_password</span> -t ios --output-format xml</span><br><span class="line"><span class="string">&quot;<span class="variable">$altoolPath</span>&quot;</span> --upload-app -f <span class="variable">$&#123;exportIpaPath&#125;</span>/<span class="variable">$&#123;ipa_name&#125;</span>.ipa -u  <span class="variable">$apple_account</span> -p <span class="variable">$apple_password</span> -t ios --output-format xml</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#上传到 Fir</span></span><br><span class="line">fir login -T <span class="variable">$fir_token</span></span><br><span class="line">fir publish <span class="variable">$exportIpaPath</span>/<span class="variable">$ipa_name</span>.ipa --skip-update-icon</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;\033[33m///-------------\033[0m&#x27;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;\033[33m/// 开始发送邮件给测试人员 \033[0m&#x27;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;\033[33m///-------------\033[0m&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#如需变更发件人和收件人邮箱，请到工程目录底下 sendEmail.py 文件内修改</span></span><br><span class="line">python sendEmail.py <span class="string">&quot;测试版本 (iOS)xxxxx v(<span class="variable">$&#123;version&#125;</span>) 上传成功&quot;</span> <span class="string">&quot;赶紧下载体验吧：xxxxx&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">exit</span> 0</span><br></pre></td></tr></table></figure>
+
+<h2 id="上传成功成功后发送邮件"><a href="#上传成功成功后发送邮件" class="headerlink" title="上传成功成功后发送邮件"></a>上传成功成功后发送邮件</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*</span></span><br><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># sendEmail title content</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> smtplib</span><br><span class="line"><span class="keyword">import</span> io</span><br><span class="line"><span class="keyword">from</span> email.mime.text <span class="keyword">import</span> MIMEText</span><br><span class="line"><span class="keyword">from</span> email.header <span class="keyword">import</span> Header</span><br><span class="line"><span class="keyword">from</span> email.mime.image <span class="keyword">import</span> MIMEImage</span><br><span class="line"><span class="keyword">from</span> email.mime.multipart <span class="keyword">import</span> MIMEMultipart</span><br><span class="line"></span><br><span class="line">sender = <span class="string">&#x27;lvkai@cutecatos.com;&#x27;</span></span><br><span class="line"><span class="comment">#单个邮箱 改为 to_receiver = &#x27;xxxxx&#x27;</span></span><br><span class="line"><span class="comment">#群发邮箱</span></span><br><span class="line">to_receiver = [<span class="string">&#x27;xxxxx&#x27;</span>,<span class="string">&#x27;xxxxx&#x27;</span>]</span><br><span class="line"><span class="comment">#抄送</span></span><br><span class="line">cc_receiver = [<span class="string">&#x27;xxxxx&#x27;</span>]</span><br><span class="line">smtpserver = <span class="string">&#x27;smtp.exmail.qq.com&#x27;</span></span><br><span class="line"><span class="comment">#smtpserver = &#x27;smtp.exmail.qq.com&#x27;</span></span><br><span class="line">smtpport = <span class="number">465</span></span><br><span class="line"></span><br><span class="line">//smtp 配置，需要到邮箱账户设置界面自行获取</span><br><span class="line">username = <span class="string">&#x27;xxxxx&#x27;</span></span><br><span class="line">password = <span class="string">&#x27;xxxxx&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 待优化内容，发送网页形式 邮件</span></span><br><span class="line"><span class="comment"># SendHtml = &quot;&quot;&quot;</span></span><br><span class="line"><span class="comment"># &lt;html&gt;</span></span><br><span class="line"><span class="comment"># &lt;h1&gt;赶紧下载体验吧:&lt;a href=&quot;http://d.firim.vip/jpy7&quot;&gt;点击跳转&lt;/a&gt;&lt;/h1&gt;</span></span><br><span class="line"><span class="comment">#     &lt;/html&gt;</span></span><br><span class="line"><span class="comment"># &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">send_mail</span>(<span class="params">title, content</span>):</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        subject = title</span><br><span class="line"></span><br><span class="line">        msg = MIMEMultipart(<span class="string">&quot;related&quot;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># msg = MIMEText(content,&#x27;plain&#x27;,&#x27;utf-8&#x27;)</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">isinstance</span>(title,unicode):</span><br><span class="line">            title = unicode(title, <span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">        msg[<span class="string">&#x27;Subject&#x27;</span>] = title</span><br><span class="line">        msg[<span class="string">&#x27;From&#x27;</span>] = sender</span><br><span class="line">        msg[<span class="string">&#x27;To&#x27;</span>] = <span class="string">&quot;;&quot;</span>.join(to_receiver)</span><br><span class="line">        msg[<span class="string">&#x27;Cc&#x27;</span>] = <span class="string">&quot;;&quot;</span>.join(cc_receiver)</span><br><span class="line">        msg[<span class="string">&quot;Accept-Language&quot;</span>]=<span class="string">&quot;zh-CN&quot;</span></span><br><span class="line">        msg[<span class="string">&quot;Accept-Charset&quot;</span>]=<span class="string">&quot;ISO-8859-1,utf-8&quot;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># msgText = MIMEText(SendHtml,&quot;html&quot;,&quot;utf-8&quot;)</span></span><br><span class="line">        msgText = MIMEText(content,<span class="string">&#x27;plain&#x27;</span>,<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">        msg.attach(msgText)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># fp = open(&quot;Ta_Pro_adHoc.png&quot;, &#x27;rb&#x27;)</span></span><br><span class="line">        <span class="comment"># msgImage = MIMEImage(fp.read())</span></span><br><span class="line">        <span class="comment"># fp.close()</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># # 定义图片 ID，在 HTML 文本中引用</span></span><br><span class="line">        <span class="comment"># msgImage.add_header(&#x27;Content-ID&#x27;, &#x27;&lt;image&gt;&#x27;)</span></span><br><span class="line">        <span class="comment"># msg.attach(msgImage)</span></span><br><span class="line"></span><br><span class="line">        to_addrs=to_receiver+cc_receiver</span><br><span class="line">        smtp = smtplib.SMTP_SSL(smtpserver,smtpport)</span><br><span class="line">        smtp.login(username, password)</span><br><span class="line">        smtp.sendmail(sender, to_addrs, msg.as_string())</span><br><span class="line">        smtp.quit()</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">except</span> Exception, e:</span><br><span class="line">        <span class="built_in">print</span> <span class="built_in">str</span>(e)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> send_mail(sys.argv[<span class="number">1</span>], sys.argv[<span class="number">2</span>]):</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&quot;🎉🎉🎉发送成功!&quot;</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&quot;❌❌❌发送失败!&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="三、问题"><a href="#三、问题" class="headerlink" title="三、问题"></a>三、问题</h1><h2 id="上传工具路径不对问题"><a href="#上传工具路径不对问题" class="headerlink" title="上传工具路径不对问题"></a>上传工具路径不对问题</h2><p>解决方法来源：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/guichongsui/p/11678841.html">xcode11 构建上传问题</a></p>
+<p>从原来的</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Applications/Xcode.app/Contents/Applications/Application\ Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Versions/A/Support/altool</span><br></pre></td></tr></table></figure>
+
+<p>变为了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Applications/Xcode.app/Contents/SharedFrameworks/ContentDeliveryServices.framework/Versions/A/Frameworks/AppStoreService.framework/Versions/A/Support/altool</span><br></pre></td></tr></table></figure>
+
+<h2 id="MARKETING-VERSION-获取版本号失败"><a href="#MARKETING-VERSION-获取版本号失败" class="headerlink" title="$(MARKETING_VERSION) 获取版本号失败"></a>$(MARKETING_VERSION) 获取版本号失败</h2><p>解决方法来源：<a target="_blank" rel="noopener" href="https://medium.com/flawless-app-stories/how-to-handle-marketing-version-of-xcode-11-by-ci-db64a0ac71b9">How to handle $(MARKETING_VERSION) of Xcode 11 by CI</a></p>
+<p>使用一下语句获取</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># get release number from Xcode build settings</span></span><br><span class="line">version=$(sed -n <span class="string">&#x27;/MARKETING_VERSION/&#123;s/MARKETING_VERSION = //;s/;//;s/^[[:space:]]*//;p;q;&#125;&#x27;</span> &#123;your project name&#125;.xcodeproj/project.pbxproj)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ -z <span class="string">&quot;<span class="variable">$&#123;version&#125;</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;[ERROR] failed to get MARKETING_VERSION&quot;</span></span><br><span class="line">  <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="xcrun-altool-–upload-app-f-path-u-username-p-password-上传失败"><a href="#xcrun-altool-–upload-app-f-path-u-username-p-password-上传失败" class="headerlink" title="xcrun altool –upload-app -f path -u username -p password 上传失败"></a>xcrun altool –upload-app -f path -u username -p password 上传失败</h2><p>错误信息：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Error: Errors uploading <span class="string">&#x27;xxx.ipa&#x27;</span>: (</span><br><span class="line">    <span class="string">&quot;Error Domain=ITunesSoftwareServiceErrorDomain Code=-22014 \&quot;We are unable to create an authentication session.\&quot; </span></span><br><span class="line"><span class="string">UserInfo=&#123;NSLocalizedDescription=We are unable to create an authentication session., NSLocalizedFailureReason=Unable to </span></span><br><span class="line"><span class="string">validate your application.&#125;&quot;</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>解决方式：到 <a target="_blank" rel="noopener" href="https://appleid.apple.com/">https://appleid.apple.com</a> 生成一个专用密码就行了，然后用这个密码改到上面去，再次执行。即：<code>xcrun altool --upload-app -f a/b/xxx.ipa -u [xxxx@qq.com](mailto:xxxx@qq.com) -p 生成的专用密码</code></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/02/amateur-clipsself-improvement/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/02/amateur-clipsself-improvement/" class="post-title-link" itemprop="url">业余剪辑自我修养</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-10-02 09:24:52" itemprop="dateCreated datePublished" datetime="2020-10-02T09:24:52+08:00">2020-10-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-25 21:31:55" itemprop="dateModified" datetime="2020-10-25T21:31:55+08:00">2020-10-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>陆陆续续的剪了不少视频，在过程中也有一点收获，遂做个笔记，也做分享。</p>
+<h2 id="剪辑软件的选择"><a href="#剪辑软件的选择" class="headerlink" title="剪辑软件的选择"></a>剪辑软件的选择</h2><p>随着短视频和自媒体的兴起，市面上陆陆续续的涌现出很多面向不同用户群体的视频软件，有的偏向使用简易，有的偏向特色功能。抛开移动端的 App，在 PC 端上剪辑视频有以下一些主流选择：</p>
+<table>
+<thead>
+<tr>
+<th>视频编辑软件</th>
+<th>最适合于</th>
+<th align="center">运动追踪</th>
+<th align="center">多相机</th>
+<th align="center">3D编辑</th>
+<th align="center">360° VR</th>
+<th align="center">XAVC-S</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://www.10besty.com/best-video-editing-software/#one">Adobe Premiere Pro CC</a></td>
+<td>专业人士</td>
+<td align="center">🚫</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.10besty.com/best-video-editing-software/#two">Corel VideoStudio Ultimate</a></td>
+<td>爱好者</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.10besty.com/best-video-editing-software/#three">CyberLink PowerDirector</a></td>
+<td>爱好者</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.10besty.com/best-video-editing-software/#four">Pinnacle Studio Ultimate</a></td>
+<td><a target="_blank" rel="noopener" href="https://wiki.mbalib.com/wiki/%E4%BA%A7%E6%B6%88%E5%90%88%E4%B8%80%E6%A8%A1%E5%BC%8F">产消合一者</a></td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.10besty.com/best-video-editing-software/#five">Magix Movie Edit Pro Premium</a></td>
+<td>爱好者</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.10besty.com/best-video-editing-software/#six">Adobe Premiere Elements</a></td>
+<td>爱好者</td>
+<td align="center">✅</td>
+<td align="center">🚫</td>
+<td align="center">🚫</td>
+<td align="center">🚫</td>
+<td align="center">✅</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.10besty.com/best-video-editing-software/#seven">Apple Final Cut Pro X</a></td>
+<td>专业人士</td>
+<td align="center">🚫</td>
+<td align="center">✅</td>
+<td align="center">🚫</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.10besty.com/best-video-editing-software/#eight">Apple iMovie</a></td>
+<td>消费者</td>
+<td align="center">🚫</td>
+<td align="center">🚫</td>
+<td align="center">🚫</td>
+<td align="center">🚫</td>
+<td align="center">✅</td>
+</tr>
+</tbody></table>
+<p><em>数据来自于：<a target="_blank" rel="noopener" href="https://www.10besty.com/best-video-editing-software/">2020年最好的视频编辑软件推荐</a></em></p>
+<p>除了以上列举的，还有比如会声会影、爱剪辑等等比较适合新手的剪辑软件也可选择。这里我选择的是 Adobe Premiere Pro CC，下面的快捷键及其他操作也都都是和 Pr 相关的。</p>
+<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><p>打开 pr 的快捷键面板，列表往下拉快捷键一大堆，刚入手时可以只记一些高频率的按键。随着使用深入其他快捷键的掌握也是水到渠成的。平时我工作最常用的几个快捷键：</p>
+<blockquote>
+<p>C：鼠标可以切开视频轨道</p>
+<p>V：鼠标可以选中&#x2F;移动视频轨道</p>
+<p>A：鼠标可以同时选中后面所有视频轨道</p>
+<p>R：鼠标可以缩放视频速率</p>
+<p>M：添加标记</p>
+<p>ctrl+K：切断整个视频轨道</p>
+<p>ctrl+M：输出视频</p>
+</blockquote>
+<h2 id="快捷键进阶"><a href="#快捷键进阶" class="headerlink" title="快捷键进阶"></a>快捷键进阶</h2><blockquote>
+<p>键盘上下键：移动到上一段&#x2F;下一段剪切点，按住shift无视已激活轨道</p>
+<p>键盘左右键：逐帧移动，按住shift变5帧移动，按住alt变成左右移动素材一帧</p>
+<p>I&#x2F;O：标记入点&#x2F;出点，形成工作区</p>
+<p>X：快速标记所选剪辑工作区</p>
+<p>ctrl+shift+X：取消工作区</p>
+<p>；键（L右边）：删除工作区</p>
+<p>‘ 引号键（；右边）：抽取工作区（波纹）</p>
+<p>\键（]键右边）：全局缩放时间轴，能看到整个序列的时长</p>
+<p>&#96;键（1键左边）：最大化窗口</p>
+<p>S：开启&#x2F;关闭吸附</p>
+<p>Q&#x2F;W：波纹剪辑</p>
+<p>shift+Q：右移剪辑点</p>
+<p>shift+W：左移剪辑点</p>
+<p>+&#x2F;-加减号：缩放时间轴宽度</p>
+<p>ctrl+加减号+&#x2F;-：缩放轨道高度</p>
+<p>shift+加减号+&#x2F;-：一次性缩放所有轨道高度</p>
+<p>crtl+U：制作子剪辑（在项目生成新的视频资源，但不占用空间，配合上面入点出点标记可以很方便从一段长视频中删选提取想要的片段）</p>
+<p>ctrl+K：剪切已激活轨道，按住shift无视已激活轨道。</p>
+</blockquote>
+<h2 id="关于素材"><a href="#关于素材" class="headerlink" title="关于素材"></a>关于素材</h2><p>视频剪辑的工作主要是围绕着视频素材展开，好的拍摄素材可以让后期的剪辑工作省事不少。但关于素材的拍摄，要展开讲的话，可能另一个话题了。所以这里仅以后期剪辑的角度粗略的提几点建议：</p>
+<ul>
+<li>转场。如果没有考虑好后期如何切换画面和镜头转换，拍摄时画面尽量稳定，镜头固定到单一视角，不要拍成朋友圈“大家和我一起来看看”这种没什么营养的视频。</li>
+<li>拍摄角度。从视觉上出发对拍摄角度做区分，平视，仰视，俯视等不同角度，但是视频拍摄所考虑的不仅只是拍摄者所看到的，更重要的是被拍摄物体的展现，不过方法也大同小异，只是将角度的变换重心由拍摄者，变成拍摄物体。简而言之，就是多切换拍摄的角度试试看。就好比拍照讲究陌生感一个道理，从反直觉的角度去找角度。</li>
+<li>构图。剪辑的时候发现视频拍摄，虽然叙事，保证一个时间段记录的信息完整性很重要，但构图也挺重要的，好的构图会让因为比例需要剪裁的视频，取舍起来不那么困难。另一方面，也可以让视频变得好看。还有关于构图更多的内容，网上有很多教程，概不累述，如果没有什么特别的想法，几乎可以选择适合自己的构图，直接套公式。</li>
+<li>最后，器材很重要。好的器材可以让视频的容错性大大提升。</li>
+</ul>
+<h2 id="其他素材"><a href="#其他素材" class="headerlink" title="其他素材"></a>其他素材</h2><p>视频剪辑中，除了我们自己拍摄的素材以外，如果想在视频中插入的一些特殊效果，转场，或者替换字体等等。这些就需要通过搜索引擎来，这里推荐几个免费好用的模板网站：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.lookae.com/">https://www.lookae.com</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.cgmao.com/">http://www.cgmao.com</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cgsucai.com/">https://www.cgsucai.com</a></li>
+</ul>
+<p>免费字体网站：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.fontsquirrel.com/">Free Font Utopia</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.mianfeiziti.com/">免费字体网</a></li>
+</ul>
+<h2 id="制作滚动字幕的小技巧"><a href="#制作滚动字幕的小技巧" class="headerlink" title="制作滚动字幕的小技巧"></a>制作滚动字幕的小技巧</h2><p>制作字幕一开始我是创建<strong>旧版标题</strong>，把所有文本粘贴进去，然后用空格手动对齐。弄了一阵，发现由于中英文混排，总是无法较好的对齐，遂转换思路，把左右两边字幕创建两个文本框对齐。<br>整合其他一些制作字幕小技巧记录如下：</p>
+<ul>
+<li>人名排版对齐，创建 PR 旧版标题，人名和拼音最好分成单独两列。</li>
+<li>人名拼音转换：<a href="link">汉字拼音在线转换</a></li>
+<li>需要按人名排序，可以将人名复制到 Excel 表，通过选择排序方式实现按人名首字母递增或递减排序</li>
+<li>如果已有人名和拼音的问题，想要快速分离文本中的汉字和拼音，可以用具备正则搜索功能的文本编辑器，搜索到对应类型的文本，选中删除。举个例子，利用 Sublime Text 在文本中筛选出英文，在搜索栏填入 <code>[^\x00-\xff]</code> 匹配双字节字符，效果如图。筛选出中文也是同样的操作，只需要将正则算法替换成 <code>[a-zA-Z]</code> 即可。<br>  <img src="https://i.loli.net/2020/10/02/Lv1VePaZQJ2T6yw.jpg" alt="Lv1VePaZQJ2T6yw"></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/30/technology-research-template/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/30/technology-research-template/" class="post-title-link" itemprop="url">技术调研模板</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-09-30 09:24:52 / Modified: 10:42:14" itemprop="dateCreated datePublished" datetime="2020-09-30T09:24:52+08:00">2020-09-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><em>部门小伙伴在做技术调研的时候，因为信息展示的格式不统一，或者没有注意在调研过程中抓取一些关键信息做展示和对比，为了方便，总结了一份技术调研模板，以供参考。</em></p>
+<h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a><strong>标题</strong></h1><p><em>—–❗️每次输出文档时需要将本段删除❗️—–</em></p>
+<p><em>-&gt; 格式：中英文排版参考：<a target="_blank" rel="noopener" href="https://github.com/mzlogin/chinese-copywriting-guidelines">中英文排版指北</a></em></p>
+<p><em>-&gt; 模板：模板框架只是为大家提供一个索引，实际调研时可根据需要增加或删除部分内容</em></p>
+<p><em>-&gt; 调研参考流程：</em></p>
+<ol>
+<li><em>确定调研目标（技术选型、工具选型、单个技术点深入调研）</em></li>
+<li><em>根据上一步的结果，确定是否需要横向比较（技术选型、工具选型需要，单个技术点深入调研不需要）</em></li>
+<li><em>需要横向比较：由内部和外部两个方面思考列举可对比标准，内部比如：技术&#x2F;工具 本身的优势、功能优劣、稳定性、价格等，外部比如：网络评价、值得参考的排行榜、其他大公司是否也在使用等。输出时也应注意将横向比较的结果罗列成表格，方便浏览。</em></li>
+<li><em>不需要横向比较：对于单一的技术点，调研人应注意务求让被分享人了解大致流程、框架、思想等宏观知识（可以结合流程图、思维导图、原型图等做较为直观的表述），对次要技术点具体实现省略，只做罗列，对主要技术点具体实现做精简描述。</em></li>
+<li><em>过程中针对不理解的名词，需要详细记录，并添加到调研报告结束位置，避免干扰正文内容显示。</em></li>
+<li><em>同一类型的信息展示方式尽量统一，比如针对三种网络测速工具的使用，测速结果不应第一种使用图片，第二种使用文本，第三种使用超链接。</em></li>
+<li><em>调研报告应注意信息完整、逻辑自洽。不应存在部分内容需要通过<strong>链接</strong>跳转到其他网站才能理解的情况。是否需要<strong>链接</strong>，参考第 5 项，仅做补充和拓展，方便浏览文档人员了解详细信息。</em></li>
+<li><em><strong>重点注意：调研的目的是在调研人这层做信息过滤，因注意避免直接使用信息来源的贴图和源代码，例子展示。注意信息提炼。</strong></em></li>
+<li><em>以下模板以天气预报 API 调研结果举例：<a target="_blank" rel="noopener" href="https://docs.qq.com/doc/DTnZOQkVCU2tXUmp4">https://docs.qq.com/doc/DTnZOQkVCU2tXUmp4</a></em></li>
+</ol>
+<p><em>—–❗️每次输出文档时需要将本段删除❗️—-</em></p>
+<h1 id="修订记录"><a href="#修订记录" class="headerlink" title="修订记录"></a><strong>修订记录</strong></h1><table>
+<thead>
+<tr>
+<th>日期</th>
+<th>版本</th>
+<th>修改记录</th>
+<th>作者</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>xxxx-xx-xx</td>
+<td>v1.0.0</td>
+<td>新增或者修改了什么内容</td>
+<td>xxx</td>
+<td>创建</td>
+</tr>
+</tbody></table>
+<h1 id="一、调研背景与目标"><a href="#一、调研背景与目标" class="headerlink" title="一、调研背景与目标"></a><strong>一、调研背景与目标</strong></h1><h2 id="1-调研背景"><a href="#1-调研背景" class="headerlink" title="1.调研背景"></a>1.<strong>调研背景</strong></h2><table>
+<thead>
+<tr>
+<th>类目</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>调研背景</td>
+<td>（正文）（举例：CuteCatOS 需要使用到天气服务）</td>
+</tr>
+</tbody></table>
+<h2 id="2-调研目标"><a href="#2-调研目标" class="headerlink" title="2.调研目标"></a>2.<strong>调研目标</strong></h2><table>
+<thead>
+<tr>
+<th>类目</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>调研目标</td>
+<td>（正文）（举例：确定天气服务提供商，可以满足天气信息多种类显示，多地区，层级尽可能深入到区县级别，以免费为起点寻求高性价比服务）</td>
+</tr>
+</tbody></table>
+<h1 id="二、概述"><a href="#二、概述" class="headerlink" title="二、概述"></a><strong>二、概述</strong></h1><p>（对分享内容做提炼描述，让被分享人有整体印象。）</p>
+<p>（举例：以下总计调研了五种获取天气信息的方法，其中前四种来自网络服务商，最后一种通过网络爬虫的方式拉取信息。对于前三种来自网络的服务，通过 价格、支持平台、天气信息展示量、网站排名、是否还有其他企业或公司也在使用该项服务 等不同维度进行对比）</p>
+<h1 id="三、综合分析（比较）"><a href="#三、综合分析（比较）" class="headerlink" title="三、综合分析（比较）"></a><strong>三、综合分析（比较）</strong></h1><p>（正文内容）</p>
+<p>——————————————举例——————————————</p>
+<h2 id="1-天气-API"><a href="#1-天气-API" class="headerlink" title="1.天气 API"></a>1.<strong>天气 API</strong></h2><p>（备注说明：对单个技术点进行信息展示时注意以信息重要性从高到低排序，从提炼性信息到复杂信息排序，如下文例子中，天气信息的回调内容展示优先级虽然是次于价格的，但由于内容太多，且在后面的 综合对比 段落中会重新提到，故放到最后说明。）</p>
+<p><strong>价格：</strong>以实况天气和七日天气收费举例，两项服务均单独收费，¥365&#x2F;年-每日10万次</p>
+<p><strong>支持平台：</strong>官方示例中包含 小程序、JS、JAVA、C# 等实现代码</p>
+<p><strong>网站信息：</strong></p>
+<ul>
+<li><strong>Alexa 排名：</strong>2414732</li>
+<li><strong>域名年龄：</strong>3 年</li>
+</ul>
+<p><strong>谁在用：</strong>海宁新闻网，长沙市卫健委，武汉市新洲区政府，开封市教育体育网，延安市总工会，长沙市教育局，长沙市统计局，长沙市生态环境局，于洪区人民政府 ，沁源县人民政府，鹤壁市人民代表大会，东宁市人民政府，甘井子区政府，河北交投京张高速公路 。</p>
+<p><strong>天气信息回调展示：</strong>以实况天气接口返回举例</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;cityid&quot;</span><span class="punctuation">:</span> <span class="string">&quot;101280601&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;date&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2020-05-27&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;week&quot;</span><span class="punctuation">:</span> <span class="string">&quot;星期三&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;update_time&quot;</span><span class="punctuation">:</span> <span class="string">&quot;16:35&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;city&quot;</span><span class="punctuation">:</span> <span class="string">&quot;深圳&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;cityEn&quot;</span><span class="punctuation">:</span> <span class="string">&quot;shenzhen&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;country&quot;</span><span class="punctuation">:</span> <span class="string">&quot;中国&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;countryEn&quot;</span><span class="punctuation">:</span> <span class="string">&quot;China&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;wea&quot;</span><span class="punctuation">:</span> <span class="string">&quot;阴&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;wea_img&quot;</span><span class="punctuation">:</span> <span class="string">&quot;yin&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;tem&quot;</span><span class="punctuation">:</span> <span class="string">&quot;29&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;tem1&quot;</span><span class="punctuation">:</span> <span class="string">&quot;30&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;tem2&quot;</span><span class="punctuation">:</span> <span class="string">&quot;25&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;win&quot;</span><span class="punctuation">:</span> <span class="string">&quot;西北风&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;win_speed&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1级&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;win_meter&quot;</span><span class="punctuation">:</span> <span class="string">&quot;小于12km/h&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;humidity&quot;</span><span class="punctuation">:</span> <span class="string">&quot;77%&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;visibility&quot;</span><span class="punctuation">:</span> <span class="string">&quot;21.84km&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;pressure&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1000&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;air&quot;</span><span class="punctuation">:</span> <span class="string">&quot;45&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;air_pm25&quot;</span><span class="punctuation">:</span> <span class="string">&quot;27&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;air_level&quot;</span><span class="punctuation">:</span> <span class="string">&quot;优&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;air_tips&quot;</span><span class="punctuation">:</span> <span class="string">&quot;空气很好，可以外出活动，呼吸新鲜空气，拥抱大自然！&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;alarm&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;alarm_type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;雷电&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;alarm_level&quot;</span><span class="punctuation">:</span> <span class="string">&quot;黄色&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;alarm_content&quot;</span><span class="punctuation">:</span> <span class="string">&quot;深圳市气象台于05月27日11时59分发布深圳市雷电黄色预警信号，请注意防御。（预警信息来源：国家预警信息发布中心）&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;aqi&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;air&quot;</span><span class="punctuation">:</span> <span class="string">&quot;45&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;air_level&quot;</span><span class="punctuation">:</span> <span class="string">&quot;优&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;air_tips&quot;</span><span class="punctuation">:</span> <span class="string">&quot;空气很好，可以外出活动，呼吸新鲜空气，拥抱大自然！&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;pm25&quot;</span><span class="punctuation">:</span> <span class="string">&quot;27&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;pm25_desc&quot;</span><span class="punctuation">:</span> <span class="string">&quot;优&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;pm10&quot;</span><span class="punctuation">:</span> <span class="string">&quot;45&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;pm10_desc&quot;</span><span class="punctuation">:</span> <span class="string">&quot;优&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;o3&quot;</span><span class="punctuation">:</span> <span class="string">&quot;92&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;o3_desc&quot;</span><span class="punctuation">:</span> <span class="string">&quot;优&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;no2&quot;</span><span class="punctuation">:</span> <span class="string">&quot;40&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;no2_desc&quot;</span><span class="punctuation">:</span> <span class="string">&quot;优&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;so2&quot;</span><span class="punctuation">:</span> <span class="string">&quot;6&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;so2_desc&quot;</span><span class="punctuation">:</span> <span class="string">&quot;优&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;kouzhao&quot;</span><span class="punctuation">:</span> <span class="string">&quot;无需戴口罩&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;waichu&quot;</span><span class="punctuation">:</span> <span class="string">&quot;适宜外出&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;kaichuang&quot;</span><span class="punctuation">:</span> <span class="string">&quot;适宜开窗&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;jinghuaqi&quot;</span><span class="punctuation">:</span> <span class="string">&quot;关闭净化器&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;cityid&quot;</span><span class="punctuation">:</span> <span class="string">&quot;101280601&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;city&quot;</span><span class="punctuation">:</span> <span class="string">&quot;深圳&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;cityEn&quot;</span><span class="punctuation">:</span> <span class="string">&quot;shenzhen&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;country&quot;</span><span class="punctuation">:</span> <span class="string">&quot;中国&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;countryEn&quot;</span><span class="punctuation">:</span> <span class="string">&quot;China&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>补充说明：</strong>除了实况天气和七日天气，还提供以下付费内容接口：专业七日天气、专业七日天气、专业实况天气、专业40日天气、实时降雨量预报、国外1-7日天气、历史天气、专业全球天气、全国预警数据、常规10项生活指数、全部31项生活指数、空气质量指数</p>
+<h2 id="2-高分天气"><a href="#2-高分天气" class="headerlink" title="2.高分天气"></a>2.<strong>高分天气</strong></h2><p><strong>（备注说明：参照前面第六点说明，同一类型的信息展示方式尽量统一。</strong></p>
+<p><strong>在更新后续服务的内容时，应以第一项为标准，如天气API 中提到一下内容：价格、支持平台、网站排名、谁在用、天气信息展示量及补充说明，如以上内容有查找不到的情况，也应留空，方便对比。如有额外内容，则添加到上述信息底部，如天气 API 中的 补充说明）</strong></p>
+<p><strong>……</strong></p>
+<h2 id="3-极速数据"><a href="#3-极速数据" class="headerlink" title="3.极速数据"></a>3.<strong>极速数据</strong></h2><p><strong>（同上）</strong></p>
+<p><strong>……</strong></p>
+<h2 id="4-聚合数据"><a href="#4-聚合数据" class="headerlink" title="4.聚合数据"></a>4.<strong>聚合数据</strong></h2><p><strong>（同上）</strong></p>
+<p><strong>……</strong></p>
+<h2 id="5-网络爬虫的天气-API"><a href="#5-网络爬虫的天气-API" class="headerlink" title="5.网络爬虫的天气 API"></a>5.<strong>网络爬虫的天气 API</strong></h2><p><strong>（同上）</strong></p>
+<p><strong>……</strong></p>
+<h2 id="6-综合对比"><a href="#6-综合对比" class="headerlink" title="6.综合对比"></a>6.<strong>综合对比</strong></h2><p><strong>（备注说明：做表格对比时，应注意信息筛选，将不重要的信息如网站排名和谁在用剔除，横向对比时应注意信息一致，比如下文例子中 天气 API 只提供年付费方案，高分天气提供月付费方案，应将后者换算成与前者一致的单位计算。）</strong></p>
+<p><a target="_blank" rel="noopener" href="https://www.notion.so/e1fde96222214e2db5a129ced2d86e04">Untitled</a></p>
+<p>——————————————举例完—————————————-</p>
+<h1 id="四、问题与建议"><a href="#四、问题与建议" class="headerlink" title="四、问题与建议"></a><strong>四、问题与建议</strong></h1><p>（调研过程中碰到的问题以及针对调研目标的建议，不做强制要求）</p>
+<p>——————————————举例——————————————</p>
+<p>问题：</p>
+<ol>
+<li>CuteCatOS 使用到的目标用户数量有多少？</li>
+<li>国外需要支持哪些国家？</li>
+<li>可接受付费的价格上限在哪？</li>
+<li>……</li>
+<li>……</li>
+</ol>
+<p>（可省略）建议：无</p>
+<p>——————————————举例完—————————————-</p>
+<h1 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a><strong>五、总结</strong></h1><h2 id="1-结论概述"><a href="#1-结论概述" class="headerlink" title="1.结论概述"></a>1.<strong>结论概述</strong></h2><p>（输出自己的观点、结论）</p>
+<p>（举例：综合所有情况，天气 API 目前是比较符合需求的，虽然收费，但是价钱不高，且有很多企业单位使用该公司的API，相对比较稳定。高分天气 API 虽然免费，但是天气信息太少，不符合基本需求。急速和聚合天气的话收费相对较高一点，其中聚合可以不做中转。</p>
+<p><strong>注意</strong>：聚合数据黑钻会员只能无限次数调用官网显示免费的 API，标记收费的需要另外收费。）</p>
+<h2 id="2-反思总结"><a href="#2-反思总结" class="headerlink" title="2.反思总结"></a>2.<strong>反思总结</strong></h2><p>（思考调研的过程中不足或者可以提高的内容）</p>
+<p>（举例：由于时间关系没有验证不同服务商提供的接口响应的速度，及批量测试接口，测试接口响应成功率，测试不同地区的接口请求的响应）</p>
+<h1 id="五、参考文档"><a href="#五、参考文档" class="headerlink" title="五、参考文档"></a><strong>五、参考文档</strong></h1><p>（可放链接）</p>
+<p>——————————————举例——————————————</p>
+<p>天气 API 官网：<a target="_blank" rel="noopener" href="https://www.tianqiapi.com/index">https://www.tianqiapi.com/index</a></p>
+<p>高分天气官网：<a target="_blank" rel="noopener" href="http://gaofen.mlogcn.com/">http://gaofen.mlogcn.com/</a></p>
+<p>极速数据官网：<a target="_blank" rel="noopener" href="https://www.jisuapi.com/api/weather/">https://www.jisuapi.com/api/weather/</a></p>
+<p>聚合数据官网：<a target="_blank" rel="noopener" href="https://www.juhe.cn/docs/api/id/73">https://www.juhe.cn/docs/api/id/73</a></p>
+<p>网络爬虫天气 API 来源：无</p>
+<p>——————————————举例完—————————————-</p>
+<h1 id="六、附录"><a href="#六、附录" class="headerlink" title="六、附录"></a><strong>六、附录</strong></h1><p>（可放名词解释）</p>
+<p>——————————————举例——————————————</p>
+<p><strong>Alexa 排名：</strong>Alexa排名是指网站的世界排名，主要分为综合排名和分类排名，Alexa提供了包括综合排名、到访量排名、页面访问量排名等多个评价指标信息，大多数人把它当作当前较为权威的网站访问量评价指标。—— 来源：百度百科</p>
+<p>——————————————举例完—————————————-</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/20/frequently-asked-questions-about-time-travel-by-entropy-reduction/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/20/frequently-asked-questions-about-time-travel-by-entropy-reduction/" class="post-title-link" itemprop="url">有关熵减-时间旅行的冷门问题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-09-20 10:13:52" itemprop="dateCreated datePublished" datetime="2020-09-20T10:13:52+08:00">2020-09-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-03-26 10:55:39" itemprop="dateModified" datetime="2022-03-26T10:55:39+08:00">2022-03-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%81%E7%99%BD/" itemprop="url" rel="index"><span itemprop="name">旁白</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://i.loli.net/2020/09/20/xD3d8Jgfup2WEKF.jpg"></p>
+<!--<img align="center" src="https://i.loli.net/2020/09/20/xD3d8Jgfup2WEKF.jpg" width=375px/>-->
+
+<p>上个礼拜去看了电影《信条》，综合来说给我感觉是瑜不掩瑕。</p>
+<p>熵减、时间钳形运动这些脑洞虽然很好，但是剧情薄弱，有点拉胯，尤其最后的战争戏，作为压轴，理想上觉得这会到了影片最后关头，各路英雄粉墨登场，酣畅淋漓对决之余也将所有剧情线索收束，画龙点睛。但实际上，这场戏给我感觉有点混乱，对比其他电影的战争场面，总会以单一的视角出发，也有画面视角切换，但其他的视角所需要承载的信息量并不多，只是给一个或宏观或切片的画面，交代场景，但在《信条》里一场战斗中放了好几条线，几个镜头切换下来，人物就已经乱糟糟的了。而且以往场景只是场景，爆炸场面只是为了满足视觉快感，不需要思考。但在信条里因为科幻设定，有的爆炸发生后，观众往往要迟疑一下：逆向爆炸，正向爆炸？虽然这个停顿时间可以忽略不计，但这样的停顿多了，观众往往就要追着导演的镜头走，思维在视觉背后疲于追逐。总的来说，节奏不对。</p>
+<p>不过这里我并不想针对影片的好坏展开谈论。我想谈谈电影里关于熵减的脑洞，也是这部电影里我最喜欢的部分。</p>
+<p>进入正题之前，我想先提一个问题，假设在《信条》的电影背景下，现在有两个人在打斗，他们同时在地上捡到一把枪，一把有子弹，一把没子弹，然后都冲对方开了枪，问，一共存在几种可能发生的情况？</p>
+<p>问题先放在一边，现在我们来梳理一下电影里利用熵减进行时间旅行的逻辑：</p>
+<ul>
+<li>从电影所表现的来看，熵减实现的时间旅行实际上不是跳跃式的，而是流式的。</li>
+<li>也就是说你想回到十四天前，你就得按部就班，一分一秒都不能省略，先回到昨天，回到前天，回到大前天，以此类推。最后回到十四天前。</li>
+<li>在旅行的开始和结束，变换了自己的物理属性。旅行开始，由熵增变为熵减，逆流而上。旅行结束，由熵减变为熵增，和十四天前的人们站在相同的起点，由逆序变为顺序，回到正常的流向。</li>
+</ul>
+<p>但这里有个问题就是，假设逆向机器的作用是把一个人的物理状态从熵增变为熵减，真正的情况应该是：<strong>他是怎么来的，就应该怎么回去。</strong></p>
+<p>但从主人公逆向后可以自由活动来看，我们可以把逆向机器的作用新增一条，即：</p>
+<ul>
+<li>把一个人的物理状态从熵增变为熵减。</li>
+<li>解除他在过去时间里行为轨迹的限制。</li>
+</ul>
+<p>按照这个逻辑，如果把时间看作一条河流，人类是河流里面的鱼群。正向的世界，鱼群从上至下流向，逆向是鱼群里一只鱼脱离队伍，逆流而上。此时按照上面关于机器的定义，这个逆向的鱼，沿着同一条河流往上走，那他在回去的路上是不应该看到自己。但电影里看到了，这是不是说，当这条鱼脱离队伍，逆流而上的时候，此时的河流和他来的时候并不是同一条河流。</p>
+<p>电影里也在飞机上用祖父理论和多元宇宙的讨论一笔带过。那我们再重新声明一下这个机器的作用：</p>
+<ul>
+<li>把一个人的物理状态从熵增变为熵减。</li>
+<li>解除他在过去时间里行为轨迹的限制。</li>
+<li>并把他送到另一个宇宙。</li>
+</ul>
+<p>这样就可以解释为什么逆向时可以在正向的世界里看到自己。但还有一个问题，就是如果我们把 <strong>一个人的物理状态从熵增变为熵减</strong> 单独拎出来看，熵增时，人会经历出生，成长，变老，死亡。那么熵减时，人是不是会经历死亡，变老，成长，出生。也就是说主角回到十四天前，他的身体机能应该也是回到十四天前。但电影反派头头在最后和主角通电话时说的利用时间换取金钱。真正情况像是逆向后，世界在变年轻，人类仍然在变老。所以熵减机器真正的逆向的是世界，而不是人？</p>
+<p>如果一台机器的作用那么大，可能反派也不需要再去找什么六合一公式了。</p>
+<p>重新梳理一下，想想夜晚我们走路看月亮，我们在走，月亮也跟着走。我想那个机器真正的作用是：就像在一条高速路上行驶的车子，突然一个急转弯甩尾，从右边车道切到左边车道逆向而行。他和他本身的车道仍然是持续向前的。只是在左边车道眼里和在左边车道逆向行驶的车子眼里，对方是向自己后方驶去。</p>
+<p>最后我们再次总结一下这个机器的作用，虽然不知道他怎么做到的，但他就是做到了：</p>
+<ul>
+<li><del>把一个人的物理状态从熵增变为熵减。</del></li>
+<li><del>解除他在过去时间里行为轨迹的限制。</del></li>
+<li><del>并把他送到另一个宇宙。</del></li>
+<li>把一个人抛入一个与当前熵活动规律相反的世界。</li>
+</ul>
+<p>那么我们设想一种情况：当 A 从下午八点回到上午八点，这是他会碰到原本时间线的自己，我们姑且用递增的方式把他命名为 B。正常情况，当 B 到下午八点时，按照上一条时间线他会回去，而 A 代替 B 在 B 的时间线生活，保持唯一。但我们现在不按正常情况来，当 B 到下午八点回去时，A 也跟着他一起回去了。到了 C 时也采取同样的做法。</p>
+<p>那么回到河流与鱼群的比喻，当来自无数条不同河流逆向而来所组成的鱼群汇入一条河流，并和原本正常流向的鱼群交汇。河道，是会被阻塞，还是会被所有鱼群会被河流的力量冲散？</p>
+<p>换成熵定律，当那么多逆向的人进入熵减的世界，那实际上，熵是增还是减呢？熵减原本是分子从无序变为有序，在这个过程中，从另一个盒子又倾倒入很多无序的分子，此时分子的活动是如何的？</p>
+<p>当然，作为非专业科研战斗人员，无从得到答案，只能止于头脑风暴和嘴炮一下，另外关于诺兰的电影，其实我更期待的解决是反派把机器启动了，虽然有悖正义战胜邪恶，而且可能世界毁灭，但好歹可以看到一种科学的可能性在大荧幕上展现，而不是不咸不淡的晚间八点档狗血，黑人男主角在车后座陷入一种煞有其事的沉默里面。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/12/swift-permission-request-tools/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/12/swift-permission-request-tools/" class="post-title-link" itemprop="url">Swift - 权限请求封装</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-09-12 10:24:52" itemprop="dateCreated datePublished" datetime="2020-09-12T10:24:52+08:00">2020-09-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-25 13:49:09" itemprop="dateModified" datetime="2020-11-25T13:49:09+08:00">2020-11-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <img align="center" src="https://i.loli.net/2020/09/12/VLyFtvB4AJTErjU.gif" width=375px height=677px/>
+
+
+<p>注意到工程里面关于权限请求这块的逻辑没有很好地管理起来，一些是用 OC 的工具类，一些是用 Swift 代码在一些 <code>ViewController</code> 里面单独调用，不能复用，就想封装一个 Swift 版关于权限请求的工具类，虽然这个需求在 GitHub 上搜索也有很多现成的轮子，但使用起来感觉太重，而且有些久不维护，Swift 版本更新的又快，有些接口就不好使了，索性就自己封装一个。</p>
+<p>一开始的思路也是想通过枚举来创建不同权限字段，通过静态方法来实现请求，但是蓝牙权限和定位权限需要实例化对象，设置代理。当使用 <code>static</code> 关键字来创建蓝牙和定位对象，当应用内有其他的业务也要使用蓝牙和定位对象时，代理响应就会有点问题。后面索性就用单例方法创建一个整体的权限管理对象，然后创建类方法，在类方法中自己调用自己。</p>
+<p>过程中也参考了以下开源仓库的一些逻辑：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/delba/Permission">Permission</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/pascalbros/PAPermissions">PAPermissions</a></li>
+</ul>
+<p>当前封装的库仍存在的一个问题是，暂时未做到对所有权限的海陆空全方位覆盖，只是针对当前我们应用业务所使用到的权限的封装。</p>
+<p>好了，话不多说上代码：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//MARK: 权限状态枚举</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> <span class="title class_">PermissionStatus</span>: <span class="title class_">String</span> &#123;</span><br><span class="line">    <span class="keyword">case</span> authorized    <span class="operator">=</span> <span class="string">&quot;Authorized&quot;</span></span><br><span class="line">    <span class="keyword">case</span> denied        <span class="operator">=</span> <span class="string">&quot;Denied&quot;</span></span><br><span class="line">    <span class="keyword">case</span> disabled      <span class="operator">=</span> <span class="string">&quot;Disabled&quot;</span></span><br><span class="line">    <span class="keyword">case</span> notDetermined <span class="operator">=</span> <span class="string">&quot;Not Determined&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">init?</span>(<span class="params">string</span>: <span class="type">String</span>?) &#123;</span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> string <span class="operator">=</span> string <span class="keyword">else</span> &#123; <span class="keyword">return</span> <span class="literal">nil</span> &#125;</span><br><span class="line">        <span class="keyword">self</span>.<span class="keyword">init</span>(rawValue: string)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">extension</span> <span class="title class_">PermissionStatus</span>: <span class="title class_">CustomStringConvertible</span> &#123;</span><br><span class="line">    <span class="comment">/// The textual representation of self.</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> description: <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> rawValue</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">extension</span> <span class="title class_">KKPermissions</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">typealias</span> <span class="type">Callback</span> <span class="operator">=</span> (<span class="type">PermissionStatus</span>) -&gt; <span class="type">Void</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//MARK:权限请求方法</span></span><br><span class="line"><span class="keyword">extension</span> <span class="title class_">KKPermissions</span>&#123;</span><br><span class="line">    <span class="comment">//MARK:蓝牙权限</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="title function_">requestBluetooth</span>(<span class="keyword">_</span> <span class="params">callback</span>: <span class="keyword">@escaping</span> <span class="type">Callback</span>)&#123;</span><br><span class="line">        <span class="type">KKPermissions</span>.provide.bluetoothManager <span class="operator">=</span> <span class="type">KKPermissions</span>.provide.createBluetoothManager()</span><br><span class="line"></span><br><span class="line">        <span class="type">KKPermissions</span>.provide.bluetoothCallBack <span class="operator">=</span> callback</span><br><span class="line">        <span class="type">KKPermissions</span>.provide.bluetoothManager.startAdvertising(<span class="literal">nil</span>)</span><br><span class="line">        <span class="type">KKPermissions</span>.provide.bluetoothManager.stopAdvertising()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//MARK:应用内定位权限</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="title function_">requestLocationWhenInUse</span>(<span class="keyword">_</span> <span class="params">callback</span>: <span class="keyword">@escaping</span> <span class="type">Callback</span>)&#123;</span><br><span class="line">        <span class="type">KKPermissions</span>.provide.<span class="type">LocationManager</span> <span class="operator">=</span> <span class="type">KKPermissions</span>.provide.createLocationManager()</span><br><span class="line">        <span class="type">KKPermissions</span>.provide.locationCallBack <span class="operator">=</span> callback</span><br><span class="line">        <span class="type">KKPermissions</span>.provide.<span class="type">LocationManager</span>.requestWhenInUseAuthorization()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//MARK:持续使用定位权限</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="title function_">requestLocationAlways</span>(<span class="keyword">_</span> <span class="params">callback</span>: <span class="keyword">@escaping</span> <span class="type">Callback</span>)&#123;</span><br><span class="line">        <span class="type">KKPermissions</span>.provide.<span class="type">LocationManager</span> <span class="operator">=</span> <span class="type">KKPermissions</span>.provide.createLocationManager()</span><br><span class="line">        <span class="type">KKPermissions</span>.provide.locationCallBack <span class="operator">=</span> callback</span><br><span class="line">        <span class="type">KKPermissions</span>.provide.<span class="type">LocationManager</span>.requestAlwaysAuthorization()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//MARK:麦克风权限</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="title function_">requestMicrophone</span>(<span class="keyword">_</span> <span class="params">callback</span>: <span class="keyword">@escaping</span> <span class="type">Callback</span>)&#123;</span><br><span class="line">        <span class="keyword">let</span> audioSession <span class="operator">=</span> <span class="type">AVAudioSession</span>.sharedInstance()</span><br><span class="line">        audioSession.requestRecordPermission &#123; (allowed) <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">if</span> allowed &#123;</span><br><span class="line">                callback(.authorized)</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                callback(.denied)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//MARK:通讯录权限</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="title function_">requestContacts</span>(<span class="keyword">_</span> <span class="params">callback</span>: <span class="keyword">@escaping</span> <span class="type">Callback</span>) &#123;</span><br><span class="line">        <span class="comment">//1.获取授权状态</span></span><br><span class="line">        <span class="comment">//CNContactStore 通讯录对象</span></span><br><span class="line">        <span class="keyword">let</span> status <span class="operator">=</span> <span class="type">CNContactStore</span>.authorizationStatus(for: .contacts)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> phoneStatus: <span class="type">PermissionStatus</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//2.判断如果是未决定状态,则请求授权</span></span><br><span class="line">        <span class="keyword">if</span> status <span class="operator">==</span> .notDetermined &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//创建通讯录对象</span></span><br><span class="line">            <span class="keyword">let</span> store <span class="operator">=</span> <span class="type">CNContactStore</span>()</span><br><span class="line"></span><br><span class="line">            phoneStatus <span class="operator">=</span> .notDetermined</span><br><span class="line">            <span class="comment">//请求授权</span></span><br><span class="line">            store.requestAccess(for: .contacts, completionHandler: &#123;(isRight : <span class="type">Bool</span>,error : <span class="type">Error</span>?) <span class="keyword">in</span></span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> isRight &#123;</span><br><span class="line">                    <span class="built_in">print</span>(<span class="string">&quot;授权成功&quot;</span>)</span><br><span class="line">                    phoneStatus <span class="operator">=</span> .authorized</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    phoneStatus <span class="operator">=</span> .denied</span><br><span class="line">                    <span class="built_in">print</span>(<span class="string">&quot;授权失败&quot;</span>)</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">                callback(phoneStatus)</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> status <span class="operator">!=</span> .authorized &#123;</span><br><span class="line">            phoneStatus <span class="operator">=</span> .denied</span><br><span class="line">            callback(phoneStatus)</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            phoneStatus <span class="operator">=</span> .authorized</span><br><span class="line">            callback(phoneStatus)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//MARK: 相册权限</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">func</span> <span class="title function_">requestPhoto</span>(<span class="keyword">_</span> <span class="params">callback</span>: <span class="keyword">@escaping</span> <span class="type">Callback</span>) &#123;</span><br><span class="line">        <span class="keyword">let</span> granted <span class="operator">=</span> <span class="type">PHPhotoLibrary</span>.authorizationStatus()</span><br><span class="line">        <span class="keyword">switch</span> granted &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="type">PHAuthorizationStatus</span>.authorized:</span><br><span class="line">            callback(.authorized)</span><br><span class="line">        <span class="keyword">case</span> <span class="type">PHAuthorizationStatus</span>.denied, <span class="type">PHAuthorizationStatus</span>.restricted:</span><br><span class="line">            callback(.denied)</span><br><span class="line">        <span class="keyword">case</span> <span class="type">PHAuthorizationStatus</span>.notDetermined:</span><br><span class="line">            <span class="type">PHPhotoLibrary</span>.requestAuthorization(&#123; status <span class="keyword">in</span></span><br><span class="line">                <span class="type">DispatchQueue</span>.main.async &#123;</span><br><span class="line">                    <span class="keyword">if</span> status <span class="operator">==</span> .authorized&#123;</span><br><span class="line">                        callback(.authorized)</span><br><span class="line">                    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                        callback(.denied)</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        <span class="keyword">@unknown</span> <span class="keyword">default</span>:</span><br><span class="line">            callback(.denied)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//MARK: 相机权限</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">func</span> <span class="title function_">requestCamera</span>(<span class="keyword">_</span> <span class="params">callback</span>: <span class="keyword">@escaping</span> <span class="type">Callback</span>) &#123;</span><br><span class="line">        <span class="keyword">let</span> granted <span class="operator">=</span> <span class="type">AVCaptureDevice</span>.authorizationStatus(for: <span class="type">AVMediaType</span>.video)</span><br><span class="line">        <span class="keyword">switch</span> granted &#123;</span><br><span class="line">        <span class="keyword">case</span> .authorized:</span><br><span class="line">            callback(.authorized)</span><br><span class="line">        <span class="keyword">case</span> .denied,.restricted:</span><br><span class="line">            callback(.denied)</span><br><span class="line">        <span class="keyword">case</span> .notDetermined:</span><br><span class="line">            <span class="type">AVCaptureDevice</span>.requestAccess(for: <span class="type">AVMediaType</span>.video, completionHandler: &#123; (granted: <span class="type">Bool</span>) <span class="keyword">in</span></span><br><span class="line">                <span class="type">DispatchQueue</span>.main.async &#123;</span><br><span class="line">                    <span class="keyword">if</span> granted &#123;</span><br><span class="line">                        callback(.authorized)</span><br><span class="line">                    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                        callback(.denied)</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        <span class="keyword">@unknown</span> <span class="keyword">default</span>:</span><br><span class="line">            callback(.denied)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//MARK: 跳转到APP系统设置权限界面</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="title function_">jumpToSystemPrivacySetting</span>() &#123;</span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> appSetting <span class="operator">=</span> <span class="type">URL</span>(string: <span class="type">UIApplication</span>.openSettingsURLString) <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">#available</span>(<span class="keyword">iOS</span> <span class="number">10</span>, <span class="operator">*</span>) &#123;</span><br><span class="line">            <span class="type">UIApplication</span>.shared.open(appSetting, options: [:], completionHandler: <span class="literal">nil</span>)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="type">UIApplication</span>.shared.openURL(appSetting)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">KKPermissions</span>: <span class="title class_">NSObject</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">func</span> <span class="title function_">createBluetoothManager</span>() -&gt; <span class="type">CBPeripheralManager</span>&#123;</span><br><span class="line">        <span class="keyword">let</span> bluetoothManager <span class="operator">=</span> <span class="type">CBPeripheralManager</span>(</span><br><span class="line">            delegate: <span class="type">KKPermissions</span>.provide,</span><br><span class="line">            queue: <span class="literal">nil</span>,</span><br><span class="line">            options: <span class="literal">nil</span>)</span><br><span class="line">        <span class="keyword">return</span> bluetoothManager</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">func</span> <span class="title function_">createLocationManager</span>() -&gt; <span class="type">CLLocationManager</span>&#123;</span><br><span class="line">        <span class="keyword">let</span> locManager <span class="operator">=</span> <span class="type">CLLocationManager</span>()</span><br><span class="line">        locManager.delegate <span class="operator">=</span> <span class="type">KKPermissions</span>.provide</span><br><span class="line">        <span class="keyword">return</span> locManager</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> <span class="type">LocationManager</span>:<span class="type">CLLocationManager</span>!</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">var</span> locationState: <span class="type">PermissionStatus</span>?</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> locationCallBack: <span class="type">Callback</span>?</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> bluetoothManager: <span class="type">CBPeripheralManager</span>!</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> bluetoothCallBack: <span class="type">Callback</span>?</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">var</span> bluetoothState: <span class="type">PermissionStatus</span>?</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">let</span> provide:<span class="type">KKPermissions</span> <span class="operator">=</span>  <span class="type">KKPermissions</span>()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">override</span> <span class="keyword">init</span>() &#123;</span><br><span class="line">        <span class="keyword">super</span>.<span class="keyword">init</span>()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//MARK: 定位/蓝牙 代理处理</span></span><br><span class="line"><span class="keyword">extension</span> <span class="title class_">KKPermissions</span>: <span class="title class_">CLLocationManagerDelegate</span>,<span class="title class_">CBPeripheralManagerDelegate</span>&#123;</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">locationManager</span>(<span class="keyword">_</span> <span class="params">manager</span>: <span class="type">CLLocationManager</span>, <span class="params">didChangeAuthorization</span> <span class="params">status</span>: <span class="type">CLAuthorizationStatus</span>) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">guard</span> <span class="type">KKPermissions</span>.provide.<span class="type">LocationManager</span> <span class="operator">!=</span> <span class="literal">nil</span> <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">switch</span> status &#123;</span><br><span class="line">        <span class="keyword">case</span> .authorizedAlways, .authorizedWhenInUse:</span><br><span class="line">            <span class="type">KKPermissions</span>.locationState <span class="operator">=</span> .authorized</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">case</span> .restricted, .denied:</span><br><span class="line">            <span class="type">KKPermissions</span>.locationState <span class="operator">=</span> .denied</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">case</span> .notDetermined:</span><br><span class="line">            <span class="type">KKPermissions</span>.locationState <span class="operator">=</span> .notDetermined</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">@unknown</span> <span class="keyword">default</span>:</span><br><span class="line">            <span class="type">KKPermissions</span>.locationState <span class="operator">=</span> .notDetermined</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">self</span>.locationCallBack<span class="operator">?</span>(<span class="type">KKPermissions</span>.locationState<span class="operator">!</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">self</span>.locationCallBack <span class="operator">=</span> <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">peripheralManagerDidUpdateState</span>(<span class="keyword">_</span> <span class="params">peripheral</span>: <span class="type">CBPeripheralManager</span>) &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;&gt;&gt;&gt;&gt;&gt;权限状态测试  KKpermissions <span class="subst">\(peripheral.state)</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">guard</span> <span class="type">KKPermissions</span>.provide.bluetoothManager <span class="operator">!=</span> <span class="literal">nil</span> <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">switch</span> peripheral.state &#123;</span><br><span class="line">        <span class="keyword">case</span> .unsupported, .poweredOff:</span><br><span class="line">            <span class="type">KKPermissions</span>.bluetoothState <span class="operator">=</span> .disabled</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">case</span> .unauthorized:</span><br><span class="line">            <span class="type">KKPermissions</span>.bluetoothState <span class="operator">=</span> .denied</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">case</span> .poweredOn:</span><br><span class="line">            <span class="type">KKPermissions</span>.bluetoothState <span class="operator">=</span> .authorized</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">case</span> .resetting, .unknown:</span><br><span class="line">            <span class="type">KKPermissions</span>.bluetoothState <span class="operator">=</span> .notDetermined</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">@unknown</span> <span class="keyword">default</span>:</span><br><span class="line">            <span class="type">KKPermissions</span>.bluetoothState <span class="operator">=</span> .notDetermined</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">self</span>.bluetoothCallBack<span class="operator">?</span>(<span class="type">KKPermissions</span>.bluetoothState<span class="operator">!</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//响应一次后不再持有</span></span><br><span class="line">        <span class="keyword">self</span>.bluetoothCallBack <span class="operator">=</span> <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/06/ios-hmac-encryption-and-an-md5-problem/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/06/ios-hmac-encryption-and-an-md5-problem/" class="post-title-link" itemprop="url">iOS - HMAC 加密算法和一个 MD5 加密的问题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-09-06 10:24:52" itemprop="dateCreated datePublished" datetime="2020-09-06T10:24:52+08:00">2020-09-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-12 11:54:35" itemprop="dateModified" datetime="2020-09-12T11:54:35+08:00">2020-09-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="最近阅读"><a href="#最近阅读" class="headerlink" title="最近阅读"></a>最近阅读</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://swift.gg/2016/06/17/when-to-use-mutating-functions-in-swift-structs/">Swift 结构体何时使用 mutating 函数</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.im/post/6862898534857834510">2020 年疫情之下 iOS 面试题总结篇</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/tianhai110/article/details/6339565">UML类图几种关系的总结</a></li>
+</ul>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近我们部门重新定义了一下应用更新的接口，使用到的主要加密方式主要有 HMAC SHA1 加密和 MD5 加密。</p>
+<h2 id="HMAC-SHA1-加密"><a href="#HMAC-SHA1-加密" class="headerlink" title="HMAC SHA1 加密"></a>HMAC SHA1 加密</h2><p>HMAC SHA1 加密的方法是在 Stack Overflow 上看到的 <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/24099520/commonhmac-in-swift/24411522#24411522">CommonHMAC in Swift</a></p>
+<p>大概分两步：</p>
+<ol>
+<li>定义一个 HMAC 加密方式的枚举</li>
+<li>实现一个 String 的拓展方法用来加密</li>
+</ol>
+<p>代码如下：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> HMACAlgorithm &#123;</span><br><span class="line">    <span class="keyword">case</span> MD5, SHA1, SHA224, SHA256, SHA384, SHA512</span><br><span class="line"></span><br><span class="line">    func toCCHmacAlgorithm() -&gt; CCHmacAlgorithm &#123;</span><br><span class="line">        var result: Int = <span class="number">0</span></span><br><span class="line">        <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</span><br><span class="line">        <span class="keyword">case</span> .MD5:</span><br><span class="line">            result = kCCHmacAlgMD5</span><br><span class="line">        <span class="keyword">case</span> .SHA1:</span><br><span class="line">            result = kCCHmacAlgSHA1</span><br><span class="line">        <span class="keyword">case</span> .SHA224:</span><br><span class="line">            result = kCCHmacAlgSHA224</span><br><span class="line">        <span class="keyword">case</span> .SHA256:</span><br><span class="line">            result = kCCHmacAlgSHA256</span><br><span class="line">        <span class="keyword">case</span> .SHA384:</span><br><span class="line">            result = kCCHmacAlgSHA384</span><br><span class="line">        <span class="keyword">case</span> .SHA512:</span><br><span class="line">            result = kCCHmacAlgSHA512</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> CCHmacAlgorithm(result)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    func digestLength() -&gt; Int &#123;</span><br><span class="line">        var result: <span class="built_in">CInt</span> = <span class="number">0</span></span><br><span class="line">        <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</span><br><span class="line">        <span class="keyword">case</span> .MD5:</span><br><span class="line">            result = CC_MD5_DIGEST_LENGTH</span><br><span class="line">        <span class="keyword">case</span> .SHA1:</span><br><span class="line">            result = CC_SHA1_DIGEST_LENGTH</span><br><span class="line">        <span class="keyword">case</span> .SHA224:</span><br><span class="line">            result = CC_SHA224_DIGEST_LENGTH</span><br><span class="line">        <span class="keyword">case</span> .SHA256:</span><br><span class="line">            result = CC_SHA256_DIGEST_LENGTH</span><br><span class="line">        <span class="keyword">case</span> .SHA384:</span><br><span class="line">            result = CC_SHA384_DIGEST_LENGTH</span><br><span class="line">        <span class="keyword">case</span> .SHA512:</span><br><span class="line">            result = CC_SHA512_DIGEST_LENGTH</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Int(result)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">extension String &#123;</span><br><span class="line">    func hmac(algorithm: HMACAlgorithm, key: String) -&gt; String &#123;</span><br><span class="line">        let cKey = key.cStringUsingEncoding(<span class="built_in">NSUTF8StringEncoding</span>)</span><br><span class="line">        let cData = <span class="keyword">self</span>.cStringUsingEncoding(<span class="built_in">NSUTF8StringEncoding</span>)</span><br><span class="line">        var result = [CUnsignedChar](count: Int(algorithm.digestLength()), repeatedValue: <span class="number">0</span>)</span><br><span class="line">        CCHmac(algorithm.toCCHmacAlgorithm(), cKey!, strlen(cKey!), cData!, strlen(cData!), &amp;result)</span><br><span class="line">        var hmacData:<span class="built_in">NSData</span> = <span class="built_in">NSData</span>(bytes: result, length: (Int(algorithm.digestLength())))</span><br><span class="line">        var hmacBase64 = hmacData.base64EncodedStringWithOptions(<span class="built_in">NSDataBase64EncodingOptions</span>.Encoding76CharacterLineLength)</span><br><span class="line">        <span class="keyword">return</span> String(hmacBase64)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="MD5-加密的问题"><a href="#MD5-加密的问题" class="headerlink" title="MD5 加密的问题"></a>MD5 加密的问题</h2><p>细心的朋友注意到，上面 HMAC 加密的枚举里有一个 MD5 的字段，如果同时用到  HMAC 加密和 MD5 加密的朋友，需要注意一下 Hmac-MD5 加密和 MD5 加密的区别，推荐可以用在线加密工具比较直观的看到加密结果的区别：<a target="_blank" rel="noopener" href="https://tool.oschina.net/encrypt?type=2">在线加解密</a>。另外这个工具也可以用于通信双方用来和自己解密的结果校验是否正确。</p>
+<p>回归正题，<code>MD5</code> 加密本身没什么难度，网上搜索一大把。抱着做笔记的目的贴一下 Swift 的源码：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">///字符直接转 md5</span></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">conversionToMD5</span>() -&gt; <span class="type">String</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> str <span class="operator">=</span> <span class="keyword">self</span>.cString(using: <span class="type">String</span>.<span class="type">Encoding</span>.utf8)</span><br><span class="line">    <span class="keyword">let</span> strLen <span class="operator">=</span> <span class="type">CUnsignedInt</span>(<span class="keyword">self</span>.lengthOfBytes(using: <span class="type">String</span>.<span class="type">Encoding</span>.utf8))</span><br><span class="line">    <span class="keyword">let</span> digestLen <span class="operator">=</span> <span class="type">Int</span>(<span class="type">CC_MD5_DIGEST_LENGTH</span>)</span><br><span class="line">    <span class="keyword">let</span> result <span class="operator">=</span> <span class="type">UnsafeMutablePointer</span>&lt;<span class="type">UInt8</span>&gt;.allocate(capacity: <span class="number">16</span>)</span><br><span class="line">    <span class="type">CC_MD5</span>(str<span class="operator">!</span>, strLen, result)</span><br><span class="line">    <span class="keyword">let</span> hash <span class="operator">=</span> <span class="type">NSMutableString</span>()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span> <span class="operator">..&lt;</span> digestLen &#123;</span><br><span class="line">        hash.appendFormat(<span class="string">&quot;%02x&quot;</span>, result[i])</span><br><span class="line">    &#125;</span><br><span class="line">    free(result)</span><br><span class="line">    <span class="keyword">return</span> <span class="type">String</span>(format: hash <span class="keyword">as</span> <span class="type">String</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后问题就来了：iOS 端的加密和服务器那边的加密结果无法对应，导致鉴权失败。<br>排查问题，让服务器同事打印在 <code>MD5</code> 加密前的每个步骤的值，发现都是一致的，在 <code>MD5</code> 加密后就不一致了。然后去就看了一下他写的源码，服务器那边的逻辑使用 <code>Java</code> 写的，发现他丢进 <code>MD5</code> 加密时是把上一步的结果调用 <code>getBytes()</code> 语句后丢进去的。即<strong>加密的是字符串转换后的字节数组</strong>。所以在 iOS 端这边的处理也需要将 <code>String</code> 转换成 <code>Data</code> 数据来加密。</p>
+<p>所以步骤分为以下两步：<br>1.把 <code>String</code> 类型数据转换成 16 进制 <code>Data</code> 数据——注意是 16 进制的 <code>Data</code> 数据，如果直接用原生方法 <code>&quot;&lt;#String#&gt;&quot;.(using: .utf8)</code> 转换肯定是不行的。<br>2.把 <code>Data</code> 数据丢进 <code>MD5</code> 方法中进行加密<br>而在网上搜了一圈，Swift 版本大部分看到的都是用字符串进行 <code>MD5</code> 加密，最后仍是在 Stack Overflow 上看到了一个正确的结果 - <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/39400495/md5-of-data-in-swift-3">MD5 of Data in Swift 3</a></p>
+<p>最后和 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/95dd32a15246"><code>String</code> 转 <code>Data</code> 的方法</a>整合以后。代码如下：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">///转换成 Data 数据再转换成 md5</span></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">conversionToDataToMD5</span>() -&gt; <span class="type">String</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> data <span class="operator">=</span> <span class="type">Data</span>(hex: <span class="keyword">self</span>)</span><br><span class="line">    <span class="keyword">var</span> digest <span class="operator">=</span> [<span class="type">UInt8</span>](repeating: <span class="number">0</span>, count: <span class="type">Int</span>(<span class="type">CC_MD5_DIGEST_LENGTH</span>))</span><br><span class="line"></span><br><span class="line">    data.withUnsafeBytes &#123;</span><br><span class="line">        <span class="type">CC_MD5</span>(<span class="variable">$0</span>.baseAddress, <span class="type">UInt32</span>(data.count), <span class="operator">&amp;</span>digest)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> hashString <span class="operator">=</span> <span class="string">&quot;&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> byte <span class="keyword">in</span> digest &#123;</span><br><span class="line">        hashString <span class="operator">+=</span> <span class="type">String</span>(format:<span class="string">&quot;%02x&quot;</span>, <span class="type">UInt8</span>(byte))</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> hashString</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">extension</span> <span class="title class_">Data</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">init</span>(<span class="params">hex</span>: <span class="type">String</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.<span class="keyword">init</span>(bytes: <span class="type">Array</span>&lt;<span class="type">UInt8</span>&gt;(hex: hex))</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> bytes: <span class="type">Array</span>&lt;<span class="type">UInt8</span>&gt; &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">Array</span>(<span class="keyword">self</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">extension</span> <span class="title class_">Array</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">init</span>(<span class="params">reserveCapacity</span>: <span class="type">Int</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span> <span class="operator">=</span> <span class="type">Array</span>&lt;<span class="type">Element</span>&gt;()</span><br><span class="line">        <span class="keyword">self</span>.reserveCapacity(reserveCapacity)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">extension</span> <span class="title class_">Array</span> <span class="title class_">where</span> <span class="title class_">Element</span> == <span class="title class_">UInt8</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">init</span>(<span class="params">hex</span>: <span class="type">String</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.<span class="keyword">init</span>(reserveCapacity: hex.unicodeScalars.lazy.underestimatedCount)</span><br><span class="line">        <span class="keyword">var</span> buffer: <span class="type">UInt8</span>?</span><br><span class="line">        <span class="keyword">var</span> skip <span class="operator">=</span> hex.hasPrefix(<span class="string">&quot;0x&quot;</span>) <span class="operator">?</span> <span class="number">2</span> : <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> char <span class="keyword">in</span> hex.unicodeScalars.lazy &#123;</span><br><span class="line">            <span class="keyword">guard</span> skip <span class="operator">==</span> <span class="number">0</span> <span class="keyword">else</span> &#123;</span><br><span class="line">                skip <span class="operator">-=</span> <span class="number">1</span></span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">guard</span> char.value <span class="operator">&gt;=</span> <span class="number">48</span> <span class="operator">&amp;&amp;</span> char.value <span class="operator">&lt;=</span> <span class="number">102</span> <span class="keyword">else</span> &#123;</span><br><span class="line">                removeAll()</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">let</span> v: <span class="type">UInt8</span></span><br><span class="line">            <span class="keyword">let</span> c: <span class="type">UInt8</span> <span class="operator">=</span> <span class="type">UInt8</span>(char.value)</span><br><span class="line">            <span class="keyword">switch</span> c &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="keyword">let</span> c <span class="keyword">where</span> c <span class="operator">&lt;=</span> <span class="number">57</span>:</span><br><span class="line">                v <span class="operator">=</span> c <span class="operator">-</span> <span class="number">48</span></span><br><span class="line">            <span class="keyword">case</span> <span class="keyword">let</span> c <span class="keyword">where</span> c <span class="operator">&gt;=</span> <span class="number">65</span> <span class="operator">&amp;&amp;</span> c <span class="operator">&lt;=</span> <span class="number">70</span>:</span><br><span class="line">                v <span class="operator">=</span> c <span class="operator">-</span> <span class="number">55</span></span><br><span class="line">            <span class="keyword">case</span> <span class="keyword">let</span> c <span class="keyword">where</span> c <span class="operator">&gt;=</span> <span class="number">97</span>:</span><br><span class="line">                v <span class="operator">=</span> c <span class="operator">-</span> <span class="number">87</span></span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                removeAll()</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">let</span> b <span class="operator">=</span> buffer &#123;</span><br><span class="line">                append(b <span class="operator">&lt;&lt;</span> <span class="number">4</span> <span class="operator">|</span> v)</span><br><span class="line">                buffer <span class="operator">=</span> <span class="literal">nil</span></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                buffer <span class="operator">=</span> v</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> b <span class="operator">=</span> buffer &#123;</span><br><span class="line">            append(b)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> md5Str <span class="operator">=</span> <span class="string">&quot;两个黄鹂鸣翠柳，一行白鹭上青天。&quot;</span>.conversionToDataToMD5()</span><br></pre></td></tr></table></figure>
+
+<p>然后因为业务原因，也用 OC 实现了这一整套的加密流程，最后一步的转换加密也大同小异：</p>
+<ol>
+<li>转换成 16 进制 <code>NSData</code> 数据<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">+(NSData*)getHexDataWithString:(NSString*)string&#123;</span><br><span class="line">    const char *buf = [string UTF8String];</span><br><span class="line">    </span><br><span class="line">    NSMutableData *data = [NSMutableData data];</span><br><span class="line">    if (buf)&#123;</span><br><span class="line">        uint32_t len = strlen(buf);</span><br><span class="line">        char singleNumberString[3] = &#123;&#x27;\0&#x27;, &#x27;\0&#x27;, &#x27;\0&#x27;&#125;;</span><br><span class="line">        uint32_t singleNumber = 0;</span><br><span class="line">        for(uint32_t i = 0 ; i &lt; len; i+=2)&#123;</span><br><span class="line">            if ( ((i+1) &lt; len) &amp;&amp; isxdigit(buf[i]) &amp;&amp; (isxdigit(buf[i+1])) )&#123;</span><br><span class="line"></span><br><span class="line">                 singleNumberString[0] = buf[i];</span><br><span class="line"></span><br><span class="line">                 singleNumberString[1] = buf[i + 1];</span><br><span class="line"></span><br><span class="line">                 sscanf(singleNumberString, &quot;%x&quot;, &amp;singleNumber);</span><br><span class="line"></span><br><span class="line">                 uint8_t tmp = (uint8_t)(singleNumber &amp; 0x000000FF);</span><br><span class="line"></span><br><span class="line">                 [data appendBytes:(void *)(&amp;tmp)length:1];</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line">    return data;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><code>NSData</code> <code>MD5</code> 加密<br>OC<code>MD5</code> 的加密就概不累述了，OC 比 Swift 更容易搜到，放一个我参考的博客：<a target="_blank" rel="noopener" href="https://blog.csdn.net/u011349387/article/details/47318679">Objective-C NSString NSData Byte 等转换</a></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="John Doe"
+      src="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">97</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">67</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="sidebar-button motion-element"><i class="fa fa-comment"></i>
+    Chat
+  </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Kaaaaai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Kaaaaai" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/lvkaimeiyouhenshuai" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lvkaimeiyouhenshuai" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kaaaaai</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

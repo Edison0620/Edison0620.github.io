@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/5/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/page/5/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Hexo</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9578d14210d67becef48447e4f6b3f20";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/08/03/weekly-summary-190803/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/08/03/weekly-summary-190803/" class="post-title-link" itemprop="url">每周总结 - 0803</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-08-03 10:13:52" itemprop="dateCreated datePublished" datetime="2019-08-03T10:13:52+08:00">2019-08-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-05 10:24:30" itemprop="dateModified" datetime="2020-11-05T10:24:30+08:00">2020-11-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>　　匆匆一周过去，回想起来，值得一提的也没有什么，有些做一天和尚撞一天钟的碌碌，但平静心情总结一下，虽然碌碌倒也不是无为。<br>　　先聊聊天气，本周阴天占比较多，可能是到了月末月初交接，股市大盘这几日也不断波动，阴晴不定。心情也时好时坏，说话的欲望被沉默吞并，鞋子在几场大雨里被反复浸成船，某天晚上下班，看见飞机穿过乌云，开着大灯，像吸尘器把乌云吸走，留下一块一块白色的光道，看起来就像 UFO 飞过。想起星空、宇宙和不明飞行物，心情似乎就好了一点。<br>　　上周工作量增多初见端倪，本周的端倪又多了一些，部门的项目慢慢多了起来，虽然总结工作内容也就是为了需求搭建功能和解决 bug，但量一多了，难免有些焦头烂额。想打个鸡蛋在额头上做荷包蛋——哈。<br>　　我有没有说过有时候想到一些东西，但最后总是发现别人早就已经有现成的理论学说在很早就已经出来了。如果没有，那我再说一遍，有时候我心血来潮想到一些我自以为特别的想法，比如成功学是用来淘汰社会上平庸但又野心勃勃的年轻人的。然后一翻书——忘记谁谁谁了，就说过差不多的话。除此以外，最近还发现，总是在一件事发生很久以后才想起来最好的应对方式——包括话语，态度，行为之类的应对。不过想想这可能是人类的通病，也可能是人们产生后悔的根源。也就释怀了一点点了。
+　　
+　　　　</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/07/29/weekly-summary-190729/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/07/29/weekly-summary-190729/" class="post-title-link" itemprop="url">每周总结 - 0729</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-07-29 20:13:52" itemprop="dateCreated datePublished" datetime="2019-07-29T20:13:52+08:00">2019-07-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-03-26 10:57:25" itemprop="dateModified" datetime="2022-03-26T10:57:25+08:00">2022-03-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>　　小时候在酒桌上喝酒，总在大人们的撺掇向一些长辈敬酒，熟面孔多的时候也会童言无忌说上几句叔叔伯伯生意兴隆万事大吉，但生面孔多的时候心里也会有点害羞的不情愿，到了后来念书走上社会，面对学校老师职场前辈，起初也会有一些真心实意的感谢祝酒词。但是后来觥筹交错多了，渐渐习惯了这种场面，说不走心的祝福，妥协于气氛，绞尽脑汁，生编硬造一些词来祝酒，偶尔心里也会回忆起小时候被长辈逼迫下情不由衷的别扭。但时间长了，这种感觉也慢慢淡了。<br>　　我想走上社会以后的变化，可能就是由这些劝服自己开口讲话、劝服自己相信自己说的话的一个又一个瞬间所构成的，向外界的诱惑，向自己的欲望低头的那些瞬间，就好像温水煮青蛙，但一点一点把温度加高的人却是自己。坚持做自己真的是一件很难的事，就像一个学轮滑的新手，要在不断的摇摆中稳定自己，视线所及，还要注意前方是否有危险。总是想起那句：世界上只有一种真正的英雄主义，就是认清了生活的真相后还依然热爱它。做自己很难，认清做自己很难之后还可以继续坚持做自己更是难上加难。可能这是当代年轻人的通病吧，能清除精确的把握到自己的局限，但又不知道往哪里使劲可以跳出这个局限。在脑袋上绑头带给自己加油鼓劲，买几斤心灵鸡汤的书给自己喘口气，但如果这些是治标又治本的方法，也就不至于再发出这些疑问了。<br>　　跳过这个问题。本周工作上接手了一个新的项目，里面有用到跨平台技术，native，不过没空仔细研究，我负责的部分仍然是传统的 <code>OC</code> 代码，但可能是因为用到了 native 技术，所以项目的结构也和以往有些不同，有一点挑战性，但深入看了整个项目的代码以后，发现其实也万变不离其宗，虽然他重写了 <code>Appdelegate</code> 类，导致我在前期不知道根控制器被设置成了哪个，但是搜索 <code>applicationDidEnterBackground</code> 方法就立马找到了这个重写的类，但是对于这个重写以后的类没有 <code>.h</code> 文件，还是有点迷惑，可能是和他这个项目机制有关系。<br>　　另外有个体会就是，可能是经手的项目多了，经验上来了，以前遇到比较麻烦，看不懂的代码，第一反应是焦灼烦闷，但现在平静多了，可以保持正常水平去看问题，有时也能超水平发挥，举一反三的看，把其他项目都放在眼底下对比各自不同和相同部分，用为什么在 A 项目不出现问题，但在 B 项目会出现问题的思路去解决问题。<br>　　周末部门团建去山庄玩了，心情和风景都很不错。不过团建虽说是缓和工作压力，缓解部门同事平常工作时的紧张气氛，增进感情。但效果不是很好，之前讨厌的人还是一样惹人讨厌，而且其他的同事似乎也有同样的感觉，甚至比我有过之而无不及，而在这种情况下我就更加心安理得保持我的讨厌，不会再试图反思是不是自己太小家子气。<img src="https://s2.ax1x.com/2019/07/31/eY3kmn.jpg"><img src="https://s2.ax1x.com/2019/07/31/eY3iOs.jpg"><img src="https://s2.ax1x.com/2019/07/31/eY3Pyj.jpg"><img src="https://s2.ax1x.com/2019/07/31/eY3ClQ.jpg"><br>　　这周还去看了哪吒，非常不错，虽然剧情人物刻画的较其他剧情片都很脸谱化，但对于哪吒闹海本身的故事来说，算是跳出了自己的框架，取消了自刎情节，父子之间变得温情脉脉，取消了屠龙情节，敖丙哪吒之间变得温情脉脉。似乎唯一真正的大反派就只有一个申公豹，申公豹太惨了，同情申公豹。<br>　　以上。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/07/26/automatically-generates-annotation-documents/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/07/26/automatically-generates-annotation-documents/" class="post-title-link" itemprop="url">iOS - Xcode 自动生成注释文档</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-07-26 17:24:52" itemprop="dateCreated datePublished" datetime="2019-07-26T17:24:52+08:00">2019-07-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-22 09:35:35" itemprop="dateModified" datetime="2020-11-22T09:35:35+08:00">2020-11-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>自动生成注释文档有三种方式:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://www.stack.nl/~dimitri/doxygen/index.html">docxygen</a></li>
+<li><a target="_blank" rel="noopener" href="http://developer.apple.com/opensource/tools/headerdoc.html">headdoc</a></li>
+<li><a target="_blank" rel="noopener" href="http://gentlebytes.com/appledoc/">appledoc</a></li>
+</ul>
+<p><strong>docxygen</strong><br>docxygen 感觉是这 3 个工具中支持语言最多的，可以配置的地方也比较多。我大概看了一下文档，觉得还是比较复杂，而且默认生成的风格与苹果的风格不一致。就去看后面 2 个工具的介绍了。另外，它虽然是开源软件，但是没有将源码放到 github 上让我感觉这个工具的开发活跃度是不是不够。</p>
+<p><strong>headerdoc</strong><br>headerdoc 是 xcode 自带的文档生成工具。在安装完 xcode 后，就可以用命令行：headdoc2html + 源文件名 来生成对应的文档。我个人试用了一下，还是比较方便的，不过headerdoc的注释生成规则比较特别，只生成以 &#x2F;*! *&#x2F; 的格式的注释。还有一个缺点是每个类文件对应一个注释文件，没有汇总的文件，这点感觉有点不爽。</p>
+<p><strong>appledoc</strong><br>appledoc 是在 stackoverflow 上被大家推荐的一个注释工具。比起以上两个工具，他的优点有：<br>它默认生成的文档风格和苹果的官方文档是一致的，而 doxygen 需要另外配置。<br>appledoc 就是用 objective-c 生成的，必要的时候调试和改动也比较方便。<br>可以生成 docset，并且集成到 xcode 中。这一点是很赞的，相当于在源码中按住 option 再单击就可以调出相应方法的帮助。<br>appledoc 源码在 github 上，而 doxygen 在 svn 上。我个人比较偏激地认为比较活跃的开源项目都应该在 github 上。<br>相对于 headerdoc，它没有特殊的注释要求，可以用&#x2F;** <em>&#x2F; 的格式，也可以兼容&#x2F;</em>! *&#x2F;的格式的注释，并且生成的注释有汇总页面。</p>
+<h2 id="appledoc-的安装"><a href="#appledoc-的安装" class="headerlink" title="appledoc 的安装"></a>appledoc 的安装</h2><p>那么简单介绍一下如何安装 appledoc，安装非常简单，只需要 2 步：</p>
+<figure class="highlight bash"><figcaption><span>Terminal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git://github.com/tomaz/appledoc.git</span><br><span class="line"><span class="built_in">cd</span> appledoc</span><br><span class="line">sudo sh install-appledoc.sh</span><br></pre></td></tr></table></figure>
+<p>当出现 INSTALL SUCCEEDED 时说明成功了，你也可以用 appledoc –version 查看验证下。如果可以正常执行下面指令则证明安装成功，否则需要查看报错说明。</p>
+<figure class="highlight bash"><figcaption><span>Terminal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看版本号</span></span><br><span class="line">$ appledoc --version</span><br><span class="line"><span class="comment"># 查看更多文档信息</span></span><br><span class="line">$ appledoc --<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.ax1x.com/2019/07/26/enQnXj.jpg"></p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>1、使用终端进入代码目录<br>直接拖拽我们的工程文件夹到终端，然后按回车键<br>或者使用 cd+”项目名字目录”，然后按回车键<br>以上两种方法都可以进入到我们的工程根目录<br>2、指令用法及参数说明</p>
+<figure class="highlight bash"><figcaption><span>Terminal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 参考指令写法1(不生成docset文件)</span></span><br><span class="line">$ appledoc --no-create-docset --output ./doc --project-name <span class="string">&quot;QQ&quot;</span> --company-id <span class="string">&quot;com.tencent.QQ&quot;</span> --project-company <span class="string">&quot;Tencent Inc.&quot;</span> /Users/superdanny/Desktop/QQ-Project/QQ/Views</span><br><span class="line"><span class="comment"># 参考指令写法2(不生成docset文件，参数使用“=”等号写法)</span></span><br><span class="line">$ appledoc --no-create-docset --output=<span class="string">&quot;./doc&quot;</span> --project-name=<span class="string">&quot;QQ&quot;</span> --company-id=<span class="string">&quot;com.tencent.QQ&quot;</span> --project-company=<span class="string">&quot;Tencent Inc.&quot;</span> /Users/superdanny/Desktop/QQ-Project/QQ/Views</span><br><span class="line"><span class="comment"># 参考指令写法3(生成docset文件并指定生成路径)</span></span><br><span class="line">$ appledoc --output ./doc --project-name <span class="string">&quot;QQ&quot;</span> --company-id <span class="string">&quot;com.tencent.QQ&quot;</span> --project-company <span class="string">&quot;Tencent Inc.&quot;</span> /Users/superdanny/Desktop/QQ-Project/QQ/Views --docset-install-path ./doc</span><br><span class="line"><span class="comment"># 以上都是扫描指定目录下的文件，如果想扫描当前目录所有文件，只需要将指定目录换成&quot;.&quot;即可</span></span><br><span class="line">$ appledoc --no-create-docset --output=<span class="string">&quot;./doc&quot;</span> --project-name=<span class="string">&quot;QQ&quot;</span> --company-id=<span class="string">&quot;com.tencent.QQ&quot;</span> --project-company=<span class="string">&quot;Tencent Inc.&quot;</span> .</span><br></pre></td></tr></table></figure>
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">–no-create-docset</td>
+<td align="center">(选填参数)只生成html，不生成docset文件。如果需要生成，则去掉该参数即可</td>
+</tr>
+<tr>
+<td align="center">–output</td>
+<td align="center">(必填参数)生成结果输出路径，如“.&#x2F;doc”，会在工程目录下创建一个doc文件夹存放生成的文档。当然你可以指定一个完整的目录路径存放生成的文档</td>
+</tr>
+<tr>
+<td align="center">–project-name</td>
+<td align="center">(必填参数)工程名字，如“QQ”</td>
+</tr>
+<tr>
+<td align="center">–project-company</td>
+<td align="center">(必填参数)公司名字，如“Tencent Inc.”</td>
+</tr>
+<tr>
+<td align="center">–company-id</td>
+<td align="center">(选填参数)公司ID，如“com.tencent.QQ”，会生成文件名为companyID.projectName.docset的docset文件。如果不设置，则文件名为com.companyname.projectname.projectName.docset</td>
+</tr>
+<tr>
+<td align="center">–docset-install-path</td>
+<td align="center">(选填参数)生成docset文件的目录。如果此目录不设置，默认会在~&#x2F;Library&#x2F;Developer&#x2F;Shared&#x2F;Documentation&#x2F;DocSets&#x2F;目录生成</td>
+</tr>
+<tr>
+<td align="center">&#x2F;Users&#x2F;superdanny&#x2F;Desktop&#x2F;QQ-Project&#x2F;QQ&#x2F;Views</td>
+<td align="center">扫描对应路径下的类，如果想扫描当前目录所有文件，则将此路径换成.即可</td>
+</tr>
+</tbody></table>
+<p>如果是生成 docset 文件，则 <code>--output</code> 参数对应的目录会生成一个 docset-installed.txt 文件，里面记录 docset 存放的目录。<br>如果是不生成 docset 文件，则 <code>--output</code> 参数对应的目录会生成html文件。直接打开 index.html 文件即可查看。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/07/22/weekly-summary-190722/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/07/22/weekly-summary-190722/" class="post-title-link" itemprop="url">每周总结 - 0722</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-07-22 10:13:52" itemprop="dateCreated datePublished" datetime="2019-07-22T10:13:52+08:00">2019-07-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-05 10:24:30" itemprop="dateModified" datetime="2020-11-05T10:24:30+08:00">2020-11-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>　　上周六因为一个项目的迭代，所以写周记的时间就被冲到这个礼拜周一写了。其实项目本身更新的功能很容易解决，但是更多的时间是在解决之前开发人员所产生的 bug，解决 bug 的过程比较麻烦和消耗时间，但是当一个 bug 解决以后，往往能获得一点新的知识。比如通过侧滑手势的增加，在手势结束后时间 layerAnimation 的缩放动画，可以让整个侧滑过程看上去更生动。还有手势操作在继承关系中的响应问题，其他的问题不太具有普遍性，只会在单个项目中出现，所以略过不提。<br>　　周二的时候换了办公场所，是之前提到的兄弟公司，据说之后我们部门也可能整体搬迁过来，只不过现在算是临时支援。兄弟公司，离住的地方近了一些，人也多了一下，周围的环境也比较悠闲，早上傍晚都有老头老太或者妈妈带小朋友在遛弯，虽然他们在遛弯的时候，我在上班，但我觉得他们背着手优哉游哉的样子，在一定程度上缓解了我紧绷的情绪。<br>　　周六和同事去游泳，算上这次，是我第二次正经去泳池学习游泳了，进度不谦虚的讲，可以说是一日千里。第一次下水，克服了在水里的恐惧，可以在泳池中直立起来，第二次下水，虽然还不会换气，但是已经可以一口气用蛙泳的姿势游十来米了。按照这个速度，再来几次，不日将可以参加国家队~哈哈。<br>　　继续看陈丹青的《笑谈大先生》，看陈从鲁迅的朋友，鲁迅的死亡各个角度写，写的很好，我没什么想说的。<br>　　一个礼拜都没怎么学习，没怎么画画，周末去图书馆看了两章数据库的内容，觉得很充实，我想我已经从上个礼拜的懈怠情绪出来了。下个礼拜希望可以表现得更好。
+　　</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/07/17/xcode-plugin-research/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/07/17/xcode-plugin-research/" class="post-title-link" itemprop="url">iOS - Xcode Plugin 调研和使用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-07-17 17:24:52" itemprop="dateCreated datePublished" datetime="2019-07-17T17:24:52+08:00">2019-07-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-14 10:31:48" itemprop="dateModified" datetime="2020-11-14T10:31:48+08:00">2020-11-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>　　Xcode 升级到 8.x 以上版本后为了提升安全性, 防止 <code>XcodeGhost</code> 事件的发生, 添加了代码签名机制, 所以以往我们那些用的很顺手的 Xcode 插件一下子统统都被打入冷宫。这种情况下，我们想要重新使用插件，我们应该怎么做呢？<br>　　首先我们要使用插件第一步是给 Xcode 重新签名, 在签名前建议备份一个纯净 Xcode 做 App 打包发布用(应用程序目录下复制一个即可)。</p>
+<h3 id="一、Xcode-重签名以使用插件"><a href="#一、Xcode-重签名以使用插件" class="headerlink" title="一、Xcode 重签名以使用插件"></a>一、Xcode 重签名以使用插件</h3><p>　　打开 Keychain Access 之后如图操作，选中 钥匙串访问-&gt;证书助理-&gt;创建证书:<br><img src="https://s2.ax1x.com/2019/07/17/Zqz7RI.jpg"><br><img src="https://s2.ax1x.com/2019/07/17/Zqz5IH.jpg"></p>
+<p>　　之后打开 终端&#x2F;Terminal，输入：</p>
+<figure class="highlight bash"><figcaption><span>Terminal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo codesigner -f -s XcodeSigner /Applications/Xcode.app</span><br></pre></td></tr></table></figure>
+<p>　　其中 <code>codesigner</code> 是上一步创建证书的名称，随后是要重签名使用插件的 Xcode 目录。</p>
+<p>　　经过一段漫长等待后, 重启 Xcode, 选择 LoadBundle。Xcode 已经可以使用插件啦。</p>
+<h3 id="二、插件使用总结"><a href="#二、插件使用总结" class="headerlink" title="二、插件使用总结"></a>二、插件使用总结</h3><p>　　随着 Xcode 的迭代，一部分插件实现的功能已经被 集成进 Xcode 里面了，比如很有名的注释插件 VVDocumenter，和一些代码补全插件等等。另一部分由于缺少维护和 Xcode 本身的机制，而导致插件使用不太方便，造成使用插件的投入成本大大增加。之前在为了给一个马甲包增加垃圾代码，我用上一段的方法成功安装使用过插件 <code>Alcatraz</code>，作为一个插件管理工具，它内部指向的其他插件已经很多不太兼容新版的 Xcode 了，而他本身最新的更新节点也停留在两年前的状态。而在重启 Xcode 后，安装的 <code>Alcatraz</code>，也消失不见了。而在最新的 Xcode10 上用上面那个方法尝试安装代码格式化插件 —— <a target="_blank" rel="noopener" href="https://github.com/V5zhou/ZZXcodeFormat">ZZXcodeFormat</a>，虽然重启应用后，也跳出了 <code>Load Bundle</code> 的提示框，也点击确定加载，但打开 Xcode 后却没在相应的位置找到插件使用项目。不确定是不是新版 Xcode 所影响导致的。但可以看到，在官方不支持的情况下，使用插件是一个耗时又耗力的事。<br>　　而在调研的过程中，我发现了一个使用苹果官方提供的插件机制（Xcode Source Editor Extension）编写的插件——<a target="_blank" rel="noopener" href="https://github.com/SSBun/FlyCoding">FlyCoding</a>，这个插件的主要功能是，通过特殊语法来快速的生成你想要的 Swfit &#x2F; Objective-C 代码，比如这句代码：</p>
+<figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pv.<span class="type">UIImageView</span></span><br></pre></td></tr></table></figure>
+<p>通过插件功能会变成这样的代码：</p>
+<figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">var</span> <span class="operator">&lt;</span>#name#<span class="operator">&gt;</span>: <span class="type">UIImageView</span></span><br></pre></td></tr></table></figure>
+<p>　　实际体验了一下，觉得有点鸡肋，虽然他可以提供一种便捷的方式解决需要重复编写大量 UI 空间和约束的代码的问题，但是使用它却需要记住另一种语法，而且这种语法只能对照 GitHub 仓库来实现，插件本身并不提供自动补全功能。<br>　　虽然这个插件不怎么实用，但通过这个插件让我了解到了苹果官方插件机制（Xcode Source Editor Extension）所能提供的功能，具体有以下：</p>
+<ul>
+<li>获取 Xcode 正在编辑的文本</li>
+<li>获取所有的选中区域</li>
+<li>替换 Xcode 正在编辑的文本</li>
+<li>选中 Xcode 正在编辑的文本</li>
+<li>在 Xcode 的 Editor 菜单里面给你的插件生成一个子菜单，用于调用插件</li>
+<li>可以在 Xcode 的 Key Binding 里面给插件分配一个快捷键</li>
+</ul>
+<h3 id="三、使用苹果官方所允许的插件"><a href="#三、使用苹果官方所允许的插件" class="headerlink" title="三、使用苹果官方所允许的插件"></a>三、使用苹果官方所允许的插件</h3><p>　　使用苹果官方所允许的插件主要有两种方式，一种是在苹果应用商店下载，Xcode 里有快捷入口<br><img src="https://s2.ax1x.com/2019/07/17/ZqzTJA.jpg"><br>　　点击可以直接进入。</p>
+<p>　　另一种方式是下载 GitHub 上别人分享的插件，举个例子，比如我现在安装一个代码格式化插件：<a target="_blank" rel="noopener" href="https://github.com/mapbox/XcodeClangFormat">XcodeClangFormat</a>。</p>
+<p>1、下载源码运行，或 dmg 安装包。<br>2、到 系统设置-&gt;插件 中打开。<br><img src="https://s2.ax1x.com/2019/07/17/Zqzoid.jpg"><br><img src="https://s2.ax1x.com/2019/07/17/Zqz4de.jpg"><br>3、然后进入 Xcode，你就可以看到插件了。<br><img src="https://s2.ax1x.com/2019/07/17/ZqzHzt.jpg"></p>
+<p><strong>推荐两个插件：</strong></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/qfish/XAlign">XAlign</a>：代码对齐插件，主要用于宏定义、属性群、代码内等号对齐三种代码对齐。<br><a target="_blank" rel="noopener" href="https://github.com/mapbox/XcodeClangFormat">XcodeClangFormat</a>：代码格式化插件，支持定义代码格式。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/07/13/weekly-summary-190713/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/07/13/weekly-summary-190713/" class="post-title-link" itemprop="url">每周总结 - 0713</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-07-13 10:13:52" itemprop="dateCreated datePublished" datetime="2019-07-13T10:13:52+08:00">2019-07-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-05 10:24:30" itemprop="dateModified" datetime="2020-11-05T10:24:30+08:00">2020-11-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>　　周记这个 flag 立了已有三个月了，体验一般，虽然每个礼拜确实有回顾和反思，但实际起到的作用大概还是走马观花多一些，而且营养也不是很大，不过孰好孰坏现在也说不清，就像之前写了几年的日记，后来骤然放下，对我的影响也微乎其微。但当时留下来的日记在时间过去许久以后的现在发挥的作用其实远大于在当时所发挥的作用。所以我想周记在我还没颓废还可以写的时候，能写一些就写一些吧。<br>　　上周有一点点懈怠，预计好的学习计划都 GG 了，整理了一下所有课程还没看到部分总共还有三百多页，上个礼拜本来想至少也要看完三分之一的，但发现注意力很容易被分散，周末上课也是，老师讲着讲着，忽然我就想到其他事情去，然后思绪转回来想我不应该这样，有没有什么软件可以帮人集中注意力，记得有一个叫 forest，然后就拿出手机搜索，一点一点开起小差来。我想大概是学习步入正轨已经很长一段时间了，刚开始的热情有点消退，学习又是一个很难在短期内能收到回馈的一件苦差，所以难免心生懈怠。想到这，不由恨从心起，学习真是个王八蛋。不过即使这样他再王八蛋，也是个可以提升我的好王八蛋。所以下个礼拜目标继续把教材啃完。<br>　　本周看了一部电影《摇摆狂潮》，恶，很烂不讲。周三的时候忽然心血来潮看起了陈丹青的《笑谈大先生：七讲鲁迅》，还不错，如果看做是一本鲁迅研究的书，切入点很别树一格，然后发现陈丹青的叙事语气和木心的叙事语气很像，不过对一点不意外因为之前知道他们的师徒关系，但看到更多的是，陈丹青好像真的很推崇他的老师。<br>　　工作上的事本周都比较平，都是一些难度不是很高的任务，还有一些要和人沟通推进的事，但对我来说也不在话下，之前可能会因为对方不配合或敷衍的态度可能会心里不通畅，但现在已经好多了，大都以公事公办的态度切入对话。不过也在心里叹一口气，诶，我也慢慢变成了一个不动声色的大人了。否则按照归来仍是少年的逻辑，这会我应该跨马横刀，头昂昂气扬扬送他一句去你妈的。<br>　　公司给我提薪的事总要有了阶段性的结果，不过具体还要下个礼拜确定，过程有些一波三折，甚至让我觉得是不是某种形式的敲打，甚至不抱很大希望了，不过就当好事多磨吧，中间琐碎就跳过不讲好了。
+　　</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/07/06/weekly-summary-190706/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/07/06/weekly-summary-190706/" class="post-title-link" itemprop="url">每周总结 - 0706</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-07-06 10:13:52" itemprop="dateCreated datePublished" datetime="2019-07-06T10:13:52+08:00">2019-07-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-05 10:16:56" itemprop="dateModified" datetime="2020-11-05T10:16:56+08:00">2020-11-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>　　每次有一些模棱两可想法的时候，都会在互联网上看到别人已经成体系的理论。这让我觉得虽然沙雕网友遍地走，睿智网友也不少。<br>　　本周依旧，忙碌的部分集中在头部，后半段的时候主要的都是一些琐碎的事，不过周四的时候针对当前项目的一个 bug，重写了部分逻辑。让我对加载 h5 页面的控件多了一些认识，还有手势响应链的理解，比如当前页面如果同时有侧滑返回手势和页面右滑手势时，两者在响应的优先级上，侧滑手势作为更底层的方法会先响应，当返回 <code>false</code> 时，页面右滑手势才会开始响应。虽然是个小知识点，但对于我理解系统继承类和系统代理实现有了更直观的认识，虽然一直有系统的类，和我们自己生成的类其实没什么差别的概念，只不过系统是封装起来，然后有很多父类方法，可以用在某些场景中解决问题。但是开发的时候有时也会有盲点，对于一些顽固，或者需要捆绑修改才能生效的地方总有黔驴技穷的心塞。<br>　　极客时间停在了项目开发的任务划分，也似乎因为停留太久，每次从头看都很难有一鼓作气看完的气力，也许也和我的拖延症有一些关系，因为画画认识一个网友，约好说互相鼓励，学习画画。最近几个礼拜互相交流进度，他佩服我自制力强，作息规律。但如人饮水，冷暖自知，我自制力强吗？不强，刚出新手村吧。这个礼拜线条练了两天，新的手绘课程算正式开始了，第一节课老师教人物描形，画草图，看着简单，但实际联系的时候也有些问题，用四边形概括人物轮廓，问题不到，但是画草图时，虽然老师也说不用太在意画的想不想，只要大致样子就行，但是在我刻意的临摹人物五官，想复原神态的时候总是画虎不成反类犬，而且画完总觉得整体看上去不够大气。<br>　　抽空看了一下最近很火的《长安十二时辰》，有马伯庸老师作品改编垫底，加上制作讲究，人物也都智商在线，确实不错。不过就是优酷的广告太过恶劣，每次看都要先看两分钟广告，中间还要穿插剧中人物的广告，而且发现现在网贷和网络理财的广告出现频率很高，想着一边是二十多岁花龄少女欠下巨额网贷无法偿还自杀身亡额新网，另一边这种网贷公司仍然没有管制的野蛮生长，越演越烈。不过除了心里嗤笑，也于事无补。还看了一部电影《恶人传》，警匪合作缉拿连环凶手的创意不错，但原本预期以为看《恶人传》的名字，以为故事里有价值观的分歧是会产生在黑帮老大和连环杀手身上，一种是因其为实现目的而表现成恶，另一种纯粹的恶，觉得应该会很有看头，所以剧情后面的发展虽然好看但是心里觉得有点不尽人意。而且连环凶手除了家庭合照在他的住处一闪而逝以外——也只是为了推进剧情确认身份，觉得他这个人物不是很饱满，甚至作为一个变态杀手，都有些脸谱化，被抓被打被判罪，都保持一种邪恶的狞笑，符合人们对变态杀手的直观印象，但没有跳出来。就像一个从其他地方摘录过来的人物剪贴。<br>　　周末照旧去上了课，信息资源管理已经上完了，然后发现有一门课，因为周六上午都没上课的原因，我自己才看了十几页书，嗯，下周要把重心放在学习上了。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/06/29/weekly-summary-190629/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/06/29/weekly-summary-190629/" class="post-title-link" itemprop="url">每周总结 - 0629</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-06-29 10:13:52" itemprop="dateCreated datePublished" datetime="2019-06-29T10:13:52+08:00">2019-06-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-05 10:16:56" itemprop="dateModified" datetime="2020-11-05T10:16:56+08:00">2020-11-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>　　忽然觉得当咸鱼既容易又困难，只要找到某种自洽，并能说服自己。和朋友聊天问近况，他说頽了，放弃了。原因是看见未来无望，贫富阶级固定，咸鱼再难翻身。我想起另外一个朋友当咸鱼的理由是得过且过，活在当下，当前的快乐最重要。他们立足于现在和未来都给自己当咸鱼找到了理论支撑，这样没有心理压力的做咸鱼是容易的，但这些理由一点也都说服不了我，而在尝试做咸鱼失败之后我甚至可以立马找到理由开导自己，不一定每个人都有天赋做咸鱼，找到适合自己的方式生活就好。所以事情陷入僵局，但回到起点看，问题倒不是要不要做咸鱼，又或者是怎么才能做咸鱼的问题。而是如何心无旁骛的在自己选择的路上走，不再三心二意的左右顾盼，不再对自己没得到的东西报有念念不忘的遗憾。之前在微博上看到一句，大概意思是人要是没有回忆，就可以像一台完美的机器一样一直合理运作。总是在空闲的时候，在脑子里猝尔闪烁，仔细想想，或许可以。但如果真是那样，彼时的我可能也不会有此时这种想法。<br>　　新开了一本书《迁徙的间隙》，作者只比我大一岁，文字很有灵气，对事物的描写所选择切入的视角也很有意思，前卫，故事的内核有点晦涩，有些地方也有一些流于雕琢的痕迹，但即便这样，也让我很羡慕，书里的那种文字，是我一直在尝试但却一直没写出来的东西。不过我也不是很气馁，因为想写的东西还有很多很多，作者也让我看到了一个可能性，就是坚持写，不断耕耘，总会有开花结果的一天。<br>　　素描课已经学到三棱体的画法了，透视打调子越来越熟练，但是图形线条好像越画越不直了，所以接下来的重心是回过头继续练基本功。英语单词的第一轮复习大概这周末可以结束，极客时间上的课有些懈怠，本周只看了一两节，中午本来预计拿来刷题的时间也被我用来看小说，所以下周要加油了~<br>　　工作上重头内容都在星期一一口气解决了，其他几天做的事除了修改 bug，都是一些重复性很强的事，所以本周比较清闲，值得记录的是，我用 UITextField 写登录界面的输入框，设置 right view 分别是下拉的箭头和隐藏显示密码的按钮，有个问题就是他们的位置都显示在 textfield 的边缘，显得很怪异。然后我试了 UITextField 的拓展，试把 right view 的 UIButton 改用 UIiamgeview，试了改变 left view，content view，right view 的边距来改变 right view 的位置，都没有起作用。最后起作用的是，改变 right view 的大小，使设置 right view 的 button 内部图片居中，起到位置移动的效果。<br>　　另外一个问题是用 swiftScan 现成的轮子生成二维码图片，用他自带的方法在中心位置添加 logo，会导致 logo 图片模糊，然后我就手动修改了添加 logo 的方法，解决。
+　　
+　　</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/06/22/weekly-summary-190622/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/06/22/weekly-summary-190622/" class="post-title-link" itemprop="url">每周总结 - 0622</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-06-22 10:13:52" itemprop="dateCreated datePublished" datetime="2019-06-22T10:13:52+08:00">2019-06-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-03-26 10:55:55" itemprop="dateModified" datetime="2022-03-26T10:55:55+08:00">2022-03-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>　　上周博客落了一篇，说起来其实上周还没有本周忙，上周主要是测试兄弟公司开发的语音库，和针对新项目给出一个开发周期的预估，虽然一周都不是很忙，但是最后一天因为很久之前的老项目出了问题，需要维护，所以就没有抽出时间来写博客了。<br>　　本周主要在弄一个儿童绘本读物的 App，因为主要的几个页面，需求里都是用现成的内容 <code>SDK</code> 和 <code>h5</code> 实现，所以我的工作还是比较轻松的，因为这个原因也让我有空对自己的知识进行一个归纳整理，包括对一些模棱两可的知识点的提炼。<br>　　比如在新项目里的内容 <code>SDK</code> 的调用，他初始化之后，可以获取到一个控制器，在我的项目中使用，我是直接封装进 <code>tabbar</code> 中，类似于这样使用：</p>
+<figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> v1 <span class="operator">=</span> <span class="type">XYSDK</span>.obtainRootNavigationRootViewController() <span class="comment">//SDK 获取到的控制器</span></span><br><span class="line">v2.tabBarItem <span class="operator">=</span> <span class="type">ESTabBarItem</span>.<span class="keyword">init</span>(<span class="type">XYBasicContentView</span>(),title: <span class="string">&quot;听听&quot;</span>, image: <span class="type">UIImage</span>(named: <span class="string">&quot;icon_gang&quot;</span>), selectedImage: <span class="type">UIImage</span>(named: <span class="string">&quot;&quot;</span>)) <span class="comment">//定义 tabbarItem 显示文字和图片</span></span><br><span class="line"><span class="keyword">let</span> n1 <span class="operator">=</span> <span class="type">UINavigationController</span>.<span class="keyword">init</span>(rootViewController: v1)</span><br><span class="line"><span class="keyword">let</span> v2 <span class="operator">=</span> <span class="type">UIViewController</span>()</span><br><span class="line"><span class="keyword">let</span> n2 <span class="operator">=</span> <span class="type">UINavigationController</span>.<span class="keyword">init</span>(rootViewController: v2)</span><br><span class="line"><span class="operator">.....</span></span><br><span class="line"><span class="keyword">let</span> n5 <span class="operator">=</span> <span class="type">UINavigationController</span>.<span class="keyword">init</span>(rootViewController: v4)</span><br><span class="line">tabBarController.viewControllers <span class="operator">=</span> [n1, n2, n3, n4]</span><br></pre></td></tr></table></figure>
+<p>　　但是有个问题就是 <code>tabbar</code> 的文字不显示为我设置的“看看”，而是显示为 SDK 内部自定义 “推荐”，放在之前我可能会抓耳挠腮的在 <code>tabbar</code> 的显示问题是不断尝试，但是基于对控制器的层级理解，我创建了一个集成于 <code>UIViewController</code> 的控制器界面，并在 <code>viewDidLoad</code> 中写入一下代码：</p>
+<figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> musicVC <span class="operator">=</span> <span class="type">XYDMSDK</span>.obtainRootNavigationRootViewController()</span><br><span class="line"><span class="keyword">self</span>.addChild(musicVC<span class="operator">!</span>)</span><br><span class="line"><span class="keyword">self</span>.view.addSubview(musicVC<span class="operator">!</span>.view)</span><br></pre></td></tr></table></figure>
+<p>　　这段代码的含义也就是把一个控制器包装到另一个控制器内部，然后 <code>SDK</code> 获取到的控制器就不会对 <code>tabbar</code> 造成什么影响了。<br>　　除了对问题有了更灵活的解决以外，在新的项目中也尝试使用新的技术，和之前没用到的东西，比如 <code>autolayout</code> 布局，和 <code>UIStackView</code>，<code>Swift</code>中 <code>autolayout</code> 布局我是用现成的框架 <code>Snap</code> 实现的，简单易上手。上下左右的约束设置也很好理解，按 X 轴 Y 轴，从左到右，从上到下，为正，当使用 <code>make.right.equalToSuperview()</code> 时，如果想设置，离父视图的右边距为 27，那么按照刚才的理解也就是，父视图的边缘位置往回（左）走 27 个小格，也就是：<code>make.right.equalToSuperview().offset(-27)</code>，如果写成 <code>.offset(27)</code>，那此时 <code>make</code> 的这个视图右边缘是处在父视图再往右 27 个小格的位置。这是基本使用。有一点值得注意的是，当使用 <code>autolayout</code> 布局时，你要获取到视图的 <code>frame</code>，需要在获取之前调用<code>self.view.layoutIfNeeded()</code>去强制更新下布局才可以获取到不为空的布局参数。<br>　　关于 <code>stackView</code> 的使用，这几天使用的感受是他就像一个内部封装了 autolayout 布局的视图，只要我们给好约束，内部视图就会按照比例显示，这种特性可以应用在当页面有很多重复性的布局，但用 <code>UIcollectionview</code> 或 <code>UItableview</code> 解决的效果又不是很理想的情况下使用。<br>　　关于技术的学习，还有就是在看业内大佬戴铭老师在极客时间上的课了。除了引导语，本周就看了两篇，第一篇讲整体框架，提到一个 iOS 开发的知识体系，并给出了思维导图：<br>　　<img src="https://s2.ax1x.com/2019/06/22/Zpg42t.jpg"><br>　　对于我来说大概可以起到一个查缺补漏的作用，因为之前都是面向工作内容开发，不明白哪里补哪里，杂食性的学习习惯导致知识体系臃肿但并不健壮。这个导图很直观的列出了各个部分需要了解的内容，也在这个基础上给出了深入学习的分支。虽说尽信书不如无书，但在这个阶段的我还是需要多信信书的。而且戴铭老师在文章里的有个观点我觉得很好，大概是说现在互联网时代，新技术层出不穷的冒出来，但其实技术的本质都是殊途同归的，就像从天津去北京，选择坐车还是坐飞机，目的都是一致的。只要能在一门技术上深耕，学的明白透彻，那再去学其他的技术，就很容易触类旁通，举一反三的拿下了。<br>　　另外一篇是讲怎么优化 app 启动时间的。概不累述<br>　　接下来可以解释本周为什么很忙了，除了业内的学习，业外时间我报的专升本课程上个礼拜去上课，发现落了几节课之后老师都快把书讲完了，数据库老师布置课堂习题做的时候，我心里不断被黑人问号脸刷左心室左心房右心室右心房。所以这个礼拜就把重点稍稍往自己的学习上倾斜了一点，早上背单词，中午午休前刷题，晚上回去除了一两天的健身跑步以外，继续我之前的素描课程，618 剁手买了个 iPad，也就顺便再加了一个手绘教程。最近也小有成果~<br>　　<img src="https://s2.ax1x.com/2019/06/22/ZpRQXV.jpg"><img src="https://s2.ax1x.com/2019/06/22/ZpRM60.jpg"><img src="https://s2.ax1x.com/2019/06/22/ZpWAjx.png"><br>　　算起来工作以后我似乎比在学校里勤勉很多，但这种改变的本质并不是那种以前我没得选，现在我想做个好人的洗心革面，而是更多的是出来工作后的焦虑所导致我不得不去做一点什么来抵抗这种焦虑，或者说让自己忙起来而不去焦虑。或许我下一个学习内容可以尝试看心理学领域~　　
+　　
+　　</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/06/01/weekly-summary-190601/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/06/01/weekly-summary-190601/" class="post-title-link" itemprop="url">每周总结 - 0601</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-06-01 10:13:52" itemprop="dateCreated datePublished" datetime="2019-06-01T10:13:52+08:00">2019-06-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-03-26 10:57:59" itemprop="dateModified" datetime="2022-03-26T10:57:59+08:00">2022-03-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>　　上周去旅游，就没空写周记，旅游的心情和工作的心情全然不同，虽然一直在走马观花，但回想起来也有些琐碎的事情可以摘出来谈一下。<br>　　<br>　　跟着旅行团去了大皇宫，去了玉佛寺，去最高大楼吃了自助餐，去看了成人表演，去了海边，去了天上，去体验了互相泼水的风俗活动，热闹好玩有意思。美中不足的是，行程太满，让人疲惫，旅游路线几乎和其他好多团重叠，几乎每个景区入目满眼的都是中国人，甚至在一些景区，除了我们一行人以外，其他的都是六十岁起步的大叔大妈。想象中的异域情调几乎都只在 711 便利店里体验到。<br><img src="https://s2.ax1x.com/2019/05/31/VlQir9.jpg"><img src="https://s2.ax1x.com/2019/05/31/VlQFbR.jpg"><img src="https://s2.ax1x.com/2019/05/31/VlQAV1.jpg"><br><img src="https://s2.ax1x.com/2019/05/31/VlQEUx.jpg"><img src="https://s2.ax1x.com/2019/05/31/VlQPKJ.jpg"><img src="https://s2.ax1x.com/2019/05/31/VlQV56.jpg"></p>
+<p>　　所以在旅游的间隙我总是想，有时候去另一个城市或者国家旅游，其实并不需要去很多的景点，拍很多照片，买很多纪念品，只需要找一间不那么破烂的房子，每天日出晚归，体验一下他们的日常就行了。<br>　　<br>　　对于这种流水线式的旅游模式，我在玉佛寺出来碰到的一个穿着鲜艳，气势咄咄的老太太大概可以上一个声情并茂的最好注脚，她在一只脚踏出寺庙门口的时候，回头看了一眼，脸上说不清是愤愤不平还是埋怨，说了句，这都是走马观花。整个旅游过程中最让我感到不适的是观看成人表演到高潮部分，我从不标榜自己是个正人君子，甚至为了防止被人指为面冷心热的闷骚，我在互动环节选择单刀直入，稍稍落于我一个同伴在第二个上了台，在她白花花的胸脯上摸了一把并合照，在后来另一个人下台强硬坐在我身上并合照的行为我也表现出十分配合的态度，但最后许多人上台密密麻麻的围成一个圈，中间宽敞的地方空出来由表演者挑人出来和他们互动，互动内容基本往下三路靠，眼看着我平时的熟人尖叫甩动着手臂进入一种狂热的状态，我忽然产生了一点生理上的不适。于是我就从舞台上退了下来。<br>　　<br>　　当时从舞台上下来，我脑子里想到的是王小波先生书里的一句：一切都无可救药的走向庸俗。当精神鸦片猛嘬了两口，感觉自己不再有同流合污的丑陋。但转而立马回头想到，当我试图用一种鄙弃的态度以保持我精神上的超然物外时，这时的我是不是表现出了另一种丑陋。如果不是，那是解释成既做婊子又立牌坊的不要脸，还是只是像旧时士大夫在出淤泥而不染的路上偶尔没能把持住自己但最终悬崖勒马的庆幸。我不能对自己狠下心来评判，也不想无谓抬高自己，最终没得到答案，但经过这一轮思辨之后，我状态明显好了很多。后来坐在位置上，台上穿着暴露的人再来想拉我上去，我也只是摆摆手，你们玩吧，我上去见识过了。——说这句话的时候，我忽然觉得在刚两种极端自我认知里，这句话的态度倒可以当做中肯的平均值。<br>　　<br>　　虽然说旅行是个认识自己认识别人的过程，但除了隐约知道自己能接受和不能接受的事物在某方面的边界在哪，在旅途中对其他人的旧有印象并没有任何改变。回来后一连几天都提不起精神，但是班还是要上，这几天发现心灵鸡汤也是有些用处的，就像上班的时候精神不好影响到心情也不好，但中间没由来想到某些成功人士分享的经验：每天给自己一个傻笑，早上刷牙的时候就冲着镜子里一脸颓废的自己笑了一下，心情竟也出奇的好了一些。不过这也说明了人受外部因素影响比在内部自我调节要见效更快，再怎么哄自己知足常乐，平凡挺好也没有立马中五百万大奖狂喜后的平静更有质感。穿一件新衣服远比睡一个懒觉更显得有精神。<br>　　<br>　　本周回来后的工作都比较轻松，但技术上碰到了一个难点，用 <code>runloop</code> 机制检测 app 卡顿。虽然看了很多网上的教程，心里也有了一个模棱两可的概念，但是深入理解总有一些隔靴挠痒的感觉，<code>runloop</code> 的运行周期不像 <code>viewcontroller</code> 的生命周期那么容易理解，不是按顺序来的，而是在激活后达到某个调节又会折回去开始另一个流程，当我最终把整个流程不加理解的硬记下来，落实到具体的代码时又让我一脸懵逼，中间又有工作上的事打断扰乱思绪，所以最后都没有展开深入的理解完。另外的工作都算是基本操作，整合新的语音 <code>SDK</code> 到原来应用，修复 app <code>bug</code>，和人配合制定蓝牙设备命令，额外的就是中移动的项目，有时需要回答当前负责人的一些问题，幸运的是之前注释写的比较细，他找到问题代码的位置，基本可以根据注释推进，但也有一个问题就是，我发现——可能是人的共性，当我回答问题响应的比较快和回答内容比较详细，多次之后，他会有一种问问题的惯性，甚至在一些简单的问题上不做思考就把问题丢给我。在这个礼拜最后一次的问题中我有和他说这个问题。<br>　　<br>　　这个礼拜也终于把《邻人之妻》看完了，新开一本《繁花》，是因为听说王家卫要拍以这本书为剧本的电影才看的，现在大概看了一章，特点是通篇都用沪语对话，你做什么事体，你有什么事体，从文字就可以想象到书里人说上海话的氛围。从初见端倪的剧情看，大概想到王家卫为什么会选这本书拍电影了，基本上感觉和《花样年华》是一个调调，饮食男女，你侬我侬的。虽然《花样年华》好看，但再来一部差不多口味的，却没有太多新鲜劲了。希望墨镜王可以在自己的基础上推陈出新，再接再厉，再创高峰。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="John Doe"
+      src="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">97</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">67</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="sidebar-button motion-element"><i class="fa fa-comment"></i>
+    Chat
+  </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Kaaaaai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Kaaaaai" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/lvkaimeiyouhenshuai" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lvkaimeiyouhenshuai" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kaaaaai</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

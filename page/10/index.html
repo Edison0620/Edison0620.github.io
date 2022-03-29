@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/10/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/page/10/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Hexo</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9578d14210d67becef48447e4f6b3f20";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="stylesheet" href="/assets/css/APlayer.min.css" class="aplayer-style-marker">
+<script src="/assets/js/APlayer.min.js" class="aplayer-script-marker"></script>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2017/07/07/android-call-the-system-to-send-text-messages-customize-the-number-and-text-message-content/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/07/07/android-call-the-system-to-send-text-messages-customize-the-number-and-text-message-content/" class="post-title-link" itemprop="url">Android - 调用系统发短信功能，自定义号码和短信内容</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2017-07-07 20:31:05" itemprop="dateCreated datePublished" datetime="2017-07-07T20:31:05+08:00">2017-07-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-05 10:02:22" itemprop="dateModified" datetime="2020-11-05T10:02:22+08:00">2020-11-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>&amp;#160; &amp;#160; &amp;#160; &amp;#160;开发需用使用到系统短信功能，昨天看了下文档，弄了一下午，现在已经得到我想要的效果，做个笔记记一下。具体有两种方法，一种需要跳到系统短信界面发送，可自带号码和短信内容参数，另一种可以直接在App内发送，并返回发送状态。两种方法都写在下面。</p>
+<p>&amp;#160; &amp;#160; &amp;#160; &amp;#160;<em>无论是哪种方法，都需要申请权限，在app&#x2F;src&#x2F;main&#x2F;AndroidManifest.xml文件内添加</em></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;uses-permission android:name=<span class="string">&quot;android.permission.SEND_SMS&quot;</span> /&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="跳到系统界面发送短信"><a href="#跳到系统界面发送短信" class="headerlink" title="跳到系统界面发送短信"></a>跳到系统界面发送短信</h2><h3 id="新建工具类"><a href="#新建工具类" class="headerlink" title="新建工具类"></a>新建工具类</h3><p>　　为了方便使用，我们定义一个工具类用来调用。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ContentUtil</span> &#123;</span><br><span class="line"> </span><br><span class="line">	    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">showToast</span><span class="params">(Context context, String msg)</span></span><br><span class="line">	    &#123;</span><br><span class="line">	        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();;</span><br><span class="line">	    &#125;</span><br><span class="line">	</span><br><span class="line">	    <span class="comment">/**</span></span><br><span class="line"><span class="comment">	     * 调用系统界面，给指定的号码发送短信，并附带短信内容</span></span><br><span class="line"><span class="comment">	     *</span></span><br><span class="line"><span class="comment">	     * <span class="doctag">@param</span> context</span></span><br><span class="line"><span class="comment">	     * <span class="doctag">@param</span> number</span></span><br><span class="line"><span class="comment">	     * <span class="doctag">@param</span> body</span></span><br><span class="line"><span class="comment">	     */</span></span><br><span class="line">	    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">sendSmsWithBody</span><span class="params">(Context context, String number, String body)</span> &#123;</span><br><span class="line">	        <span class="type">Intent</span> <span class="variable">sendIntent</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Intent</span>(Intent.ACTION_SENDTO);</span><br><span class="line">	        sendIntent.setData(Uri.parse(<span class="string">&quot;smsto:&quot;</span> + number));</span><br><span class="line">	        sendIntent.putExtra(<span class="string">&quot;sms_body&quot;</span>, body);</span><br><span class="line">	        context.startActivity(sendIntent);</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="xml-布局文件修改"><a href="#xml-布局文件修改" class="headerlink" title="xml 布局文件修改"></a>xml 布局文件修改</h3><p>　　这里我放了两个文本输入框，和一个发送按钮。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">\&lt;RelativeLayout xmlns:android=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span><br><span class="line">	    xmlns:tools=<span class="string">&quot;http://schemas.android.com/tools&quot;</span></span><br><span class="line">	    android:layout_width=<span class="string">&quot;match_parent&quot;</span></span><br><span class="line">	    android:layout_height=<span class="string">&quot;match_parent&quot;</span></span><br><span class="line">	    android:paddingBottom=<span class="string">&quot;@dimen/activity_vertical_margin&quot;</span></span><br><span class="line">	    android:paddingLeft=<span class="string">&quot;@dimen/activity_horizontal_margin&quot;</span></span><br><span class="line">	    android:paddingRight=<span class="string">&quot;@dimen/activity_horizontal_margin&quot;</span></span><br><span class="line">	    android:paddingTop=<span class="string">&quot;@dimen/activity_vertical_margin&quot;</span></span><br><span class="line">	    tools:context=<span class="string">&quot;.MessageActivity&quot;</span>&gt;</span><br><span class="line">	</span><br><span class="line">	    &lt;EditText</span><br><span class="line">	        android:id=<span class="string">&quot;@+id/phonenumber_edit&quot;</span></span><br><span class="line">	        android:layout_width=<span class="string">&quot;match_parent&quot;</span></span><br><span class="line">	        android:layout_height=<span class="string">&quot;wrap_content&quot;</span></span><br><span class="line">	        android:text=<span class="string">&quot;13879327137&quot;</span>/&gt;</span><br><span class="line">	</span><br><span class="line">	    &lt;EditText</span><br><span class="line">	        android:id=<span class="string">&quot;@+id/message_edit&quot;</span></span><br><span class="line">	        android:layout_width=<span class="string">&quot;match_parent&quot;</span></span><br><span class="line">	        android:layout_height=<span class="string">&quot;wrap_content&quot;</span></span><br><span class="line">	        android:layout_below=<span class="string">&quot;@id/phonenumber_edit&quot;</span></span><br><span class="line">	        android:text=<span class="string">&quot;你好吗？&quot;</span>/&gt;</span><br><span class="line">	</span><br><span class="line">	    &lt;Button</span><br><span class="line">	        android:id=<span class="string">&quot;@+id/message_btn&quot;</span></span><br><span class="line">	        android:layout_width=<span class="string">&quot;wrap_content&quot;</span></span><br><span class="line">	        android:layout_height=<span class="string">&quot;wrap_content&quot;</span></span><br><span class="line">	        android:layout_below=<span class="string">&quot;@+id/message_edit&quot;</span></span><br><span class="line">	        android:text=<span class="string">&quot;发送&quot;</span>/&gt;</span><br><span class="line">	&lt;/RelativeLayout&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Activity-活动文件修改"><a href="#Activity-活动文件修改" class="headerlink" title="Activity 活动文件修改"></a>Activity 活动文件修改</h3><p>方法实现</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MessageActivity</span> <span class="keyword">extends</span> <span class="title class_">Activity</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> EditText phoneNumedit;</span><br><span class="line">    <span class="keyword">private</span> EditText msgEdit;</span><br><span class="line">    <span class="keyword">private</span> Button msgBtn;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onCreate</span><span class="params">(Bundle savedInstanceState)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_message);</span><br><span class="line"></span><br><span class="line">        phoneNumedit=(EditText) findViewById(R.id.phonenumber_edit);</span><br><span class="line">        msgEdit=(EditText) findViewById(R.id.message_edit);</span><br><span class="line">        msgBtn=(Button)findViewById(R.id.message_btn);</span><br><span class="line">        msgBtn.setOnClickListener(<span class="keyword">new</span> <span class="title class_">View</span>.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onClick</span><span class="params">(View v)</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (msgEdit.getText().toString() != <span class="string">&quot;&quot;</span> &amp;&amp; phoneNumedit.getText().toString() != <span class="string">&quot;&quot;</span>) <span class="comment">//判断手机号和短信内容不为空</span></span><br><span class="line">                &#123;</span><br><span class="line">                    ContentUtil.sendSmsWithBody(MessageActivity.<span class="built_in">this</span>, phoneNumedit.getText().toString() , msgEdit.getText().toString());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>　　点击运行就可以看到效果了。</p>
+<h2 id="后台静默发短信"><a href="#后台静默发短信" class="headerlink" title="后台静默发短信"></a>后台静默发短信</h2><p>　　布局文件和上面的差不多，就是名字不一样。所以省略一下，下面是方法实现</p>
+<h3 id="Activity-活动文件修改-1"><a href="#Activity-活动文件修改-1" class="headerlink" title="Activity 活动文件修改"></a>Activity 活动文件修改</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Message_second</span> <span class="keyword">extends</span> <span class="title class_">AppCompatActivity</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> EditText phone_number_editText;</span><br><span class="line">    <span class="keyword">private</span> EditText sms_content_editText;</span><br><span class="line">    <span class="keyword">private</span> Button send_sms_button;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onCreate</span><span class="params">(Bundle savedInstanceState)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_message_second);</span><br><span class="line"></span><br><span class="line">        phone_number_editText = (EditText) findViewById(R.id.phone_number_editText);</span><br><span class="line">        sms_content_editText = (EditText) findViewById(R.id.sms_content_editText);</span><br><span class="line">        send_sms_button = (Button) findViewById(R.id.send_sms_button);</span><br><span class="line"></span><br><span class="line">        send_sms_button.setOnClickListener(<span class="keyword">new</span> <span class="title class_">View</span>.OnClickListener() &#123;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onClick</span><span class="params">(View arg0)</span> &#123;</span><br><span class="line">                <span class="type">String</span> <span class="variable">phone_number</span> <span class="operator">=</span> phone_number_editText.getText().toString().trim();</span><br><span class="line">                <span class="type">String</span> <span class="variable">sms_content</span> <span class="operator">=</span> sms_content_editText.getText().toString().trim();</span><br><span class="line">                <span class="keyword">if</span>(phone_number.equals(<span class="string">&quot;&quot;</span>)) &#123;</span><br><span class="line">                    Toast.makeText(Message_second.<span class="built_in">this</span>, R.string.str_remind_input_phone_number, Toast.LENGTH_LONG).show();</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="type">SmsManager</span> <span class="variable">smsManager</span> <span class="operator">=</span> SmsManager.getDefault();</span><br><span class="line">                    <span class="keyword">if</span>(sms_content.length() &gt; <span class="number">70</span>) &#123;</span><br><span class="line">                        List&lt;String&gt; contents = smsManager.divideMessage(sms_content);</span><br><span class="line">                        <span class="keyword">for</span>(String sms : contents) &#123;</span><br><span class="line">                            smsManager.sendTextMessage(phone_number, <span class="literal">null</span>, sms, <span class="literal">null</span>, <span class="literal">null</span>);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        smsManager.sendTextMessage(phone_number, <span class="literal">null</span>, sms_content, <span class="literal">null</span>, <span class="literal">null</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                    Toast.makeText(Message_second.<span class="built_in">this</span>, R.string.str_remind_sms_send_finish, Toast.LENGTH_SHORT).show();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="OVER"><a href="#OVER" class="headerlink" title="OVER"></a>OVER</h2><p>　　托谷歌的福，以上就是我半天的工作成果。其他时间需要做对短信内容进行AES加密，不过我还不怎么懂。稍微了解了一下发现很有意思的一点，寻常意义上的加密，是用通信双方约定好的密匙，然后对要传达的信息进行加密。但原来现在有很多加密方法，是把要送达的信息当做密匙用，而加密内容反而要双方约定好。从送信的动作传达信息，而不是通过信本身，这点我觉得很有意思。聪明人可真多啊~</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2017/07/01/recent-reading-notes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/07/01/recent-reading-notes/" class="post-title-link" itemprop="url">最近的读书笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2017-07-01 13:00:52" itemprop="dateCreated datePublished" datetime="2017-07-01T13:00:52+08:00">2017-07-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-05 10:18:20" itemprop="dateModified" datetime="2020-11-05T10:18:20+08:00">2020-11-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%AA%E6%8A%A5/" itemprop="url" rel="index"><span itemprop="name">剪报</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="《罗曼蒂克消亡史》"><a href="#《罗曼蒂克消亡史》" class="headerlink" title="《罗曼蒂克消亡史》"></a>《罗曼蒂克消亡史》</h2><div align = right>[程耳](https://www.amazon.cn/dp/B01N2UNFB6/ref=cm_sw_r_qz_2_dp_2unvzb8Y953A4)</div><div align = right>9 条标注，2 条笔记</div>
+
+
+<blockquote>
+<p>她读书不多，却自以为并不少，偏爱被廉价的诗意打动。同时她也没能碰到好老师，并不真正会读书，翻去再多的页码也没有用处，知识与视野都很局限。 </p>
+</blockquote>
+<blockquote>
+<p>她生在普通人家，父母都颇为急功近利，渴望改变。她从小的教训便仅限于不近人情的严苛，却不得要领。她在压抑中学会了忍耐与逃避，离有效的解决之道相去甚远。这使得胡小姐即使在成名之后也仍然时时拘谨、紧张刻板。谈吐之间既没有市井的灵活风趣，也没有她所期待或是她以为拥有的智慧，无知而刻板。<br>* 真是刻薄啊~</p>
+</blockquote>
+<blockquote>
+<p>但不会真的没有影响，而且不好的影响总在致命之处，比如她内心的懦弱。她在成名之后跟沪上著名的富二代同居数年，数年之中一定有过很多次机会，可惜她都没有抓住，最终也没有解决掉临门一脚。分手弄得满城风雨，她敏感脆弱，上海几乎待不下去。在最为孤独困苦的时候她回到家乡，回到父母家小住，是躲避也是想从家里得些安慰或启示。</p>
+</blockquote>
+<blockquote>
+<p>父母却都不是敏感的人，离世界比她更遥远，而且真正关心的无非是利害。他们缺少远见，拥有的只是丧失自信后的迂腐。</p>
+</blockquote>
+<blockquote>
+<p>再抬头望过去，静静地看着自己，她奇怪地感到从接了电话直到现在，担心突然减弱了，只剩下一种徒劳和对自己的厌恶——像是看到了小时候，土气和穷酸历历在目。</p>
+</blockquote>
+<blockquote>
+<p>她有时会想起在杜先生家的盥洗室，从镜子里瞥见自己的那一刻，一切早已铸就，往昔从未离她而去。</p>
+</blockquote>
+<blockquote>
+<p>他长得不算丑陋，力气又大，反复推搡纠缠之后，胸终于被他掏了出来，暴露在空气里，乳头瞬间变硬。羞耻感蹿升使她的反抗停顿了片刻。他抓住这片刻时机，捅了进去，把握野蛮与温柔的尺度，在激烈与平静间摇摆，很快占据主动，渐渐变得从容。<br>第一次总是这样的流程吧。久而久之，她也就伸出手来，即便不算抱住但至少是扶着或仅仅只是停留在他的腰或是背上。所谓爱情或爱情的错觉便从这去意不明的手开始萌发生长。<br>* 便从这目的明确的欲望开始</p>
+</blockquote>
+<blockquote>
+<p>他们在幽暗中聊天，一些不重要的话，说说停停，前言不搭后语，好像在等待什么也好像什么也没有等待。想不想跟我回去？我很便宜的，她突然说。他没有回答，他们陷入了沉默。</p>
+</blockquote>
+<blockquote>
+<p>她一步跨到床上，熟练地在他身上坐了下来。他感到床铺以及整个房间都在随着她震荡摇摆。为了不被迅速蔓延的快感过早击倒，他紧闭双唇，用舌尖顶住上颚，望着发黄以及发黑的天花板，就着裸露的白炽灯泡的光线，数墙上的裂纹。好像回到了小时候。</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2017/06/26/fourthart/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/06/26/fourthart/" class="post-title-link" itemprop="url">今日文风：东北偏北一级微风</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2017-06-26 12:44:41" itemprop="dateCreated datePublished" datetime="2017-06-26T12:44:41+08:00">2017-06-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-22 16:22:42" itemprop="dateModified" datetime="2020-11-22T16:22:42+08:00">2020-11-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B6%82%E9%B8%A6/" itemprop="url" rel="index"><span itemprop="name">涂鸦</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>&amp;#160; &amp;#160; &amp;#160; &amp;#160;为了让网站看起来充实一点，我最近都想把日记都搬到这上面来写。之前看太宰治不成熟，虽然仍旧是摆弄消极情绪但技巧上却用力过度的处女作，忽然原谅他是看到书里一句，“怀着美好的情感，人往往做出低劣的作品”。真的是让人原谅他到想和他抱头痛哭。这也大概是我最近的状态吧。<br>&amp;#160; &amp;#160; &amp;#160; &amp;#160;我经常看一本书，看久了，写字时的语气就会下意识的模仿作者，特别专心致志的时候，连心里话也下意识的用那个语气。<br>&amp;#160; &amp;#160; &amp;#160; &amp;#160;早以前很喜欢村上春树，写作文总是模仿他，虽然他是男性作家，但情感细腻丰富，要使用大量长短句铺开来写，所以那时候我的作文总是亢长，段落结构大都雷同，先写一点现实生活，最好带点趣味性，再写想到的回忆，也最好带点趣味性，然后再回来写某段路上看到的风景，“某处传来一阵声音，俶尔远逝，风景中有一些不可名状的色彩，太阳在远处的山坡上落下。”大致抓到捉摸不透的感觉就行，然后因为一些难以言喻的感觉，讲个大道理，总结全文。<br>&amp;#160; &amp;#160; &amp;#160; &amp;#160;也不知道是不是运气好，那会有个老师挺喜欢我的。不过因为我自己惫懒，因为这样写一篇作文总是得写三四页，加上词汇量不丰富总喜欢在作文里用“不可名状”“难以言喻”“未及分辨”等含糊的词语，三两次以后被老师发现了，她总是用红笔圈出来，在旁边写，到底是什么形状，到底是什么感觉，到底是什么东西。就总是拖欠作文，甚至后面再没交过作文。记得老师也说过我，忘记我当时是用什么态度和她解释的，打那以后她就不怎么关心我了。<br>&amp;#160; &amp;#160; &amp;#160; &amp;#160;在学村上之前也还学过韩寒和小四，但学的不是很好，有意思的段子和精致的词汇知道的都挺少，虽然后来发现这些都只是留于表面，但那会已经在看其他的书了。现在偶尔还会去看韩寒以前的博客，和以前想的不一样，现在就觉得网上虽然也有很多正义的人对社会现状不满意大肆批判的人，但都带着太多戾气，而且总是时不时的写些煽动性的句子，很不好。一等不好的是，总是“你国你国”的。阴阳怪气。<br>&amp;#160; &amp;#160; &amp;#160; &amp;#160;从村上跳出来，我对琢磨情绪的细微处有什么和描写不可名状的事物感到乏味。开始看王朔王小波冯唐，冯唐比较好学，王朔比较难学，王小波学不来。共同点是都挺敞着的，大开大合，北京大老爷们，冯唐有点不像的地方是书里书外零零碎碎自恋，不讨人喜欢。不过这点又比胡兰成好一点，胡兰成，老派文人，文风一板一眼，有时也像个风流才子，多数时候像个富态乡绅，总拿女孩子为自己做了很多说事，自恋，自恋的不好看，老不正经。当时还同时看了很多书，什么都学了一点，什么也都不像。<br>&amp;#160; &amp;#160; &amp;#160; &amp;#160;后来又很喜欢卡佛，他的文风漫不经心不着边际，结尾总是戛然而止，让人摸不着头脑却留有余味。当时想，这才是真正的直男写作风格啊！冯唐在书里写了那么多性器官也都弱爆了，也都没有卡佛有男子气概好不好？在刻意的模仿了一阵子后相差还是很大。念念不忘，最近在网易音乐看到一句很有卡佛味道的话，</p>
+<blockquote>
+<p>“真正准备离开的人，只会挑一个风和日丽的下午，随意裹上一件外套出门，再也不会回来。真正要走的人是不会说再见的 ​。” </p>
+</blockquote>
+<p>&amp;#160; &amp;#160; &amp;#160; &amp;#160;不写后半句不会说再见做补充就更像了。<br>&amp;#160; &amp;#160; &amp;#160; &amp;#160;至于总是模仿别人，好不好我也说不上，莫言的魔幻现实学了马尔克斯大半，王小波的书也隐约有卡夫卡的影子。我当然不是在自比大师，只是大师都这么做了，我这么做也应该没什么坏处。现在比以前更敢于写作了，以前不敢的原因是写的糟糕，另外又怕给人留下印象，你天天写东西以后是不是要当个作家啊。因为知道自己没什么才华，所以没有底气接受这个印象。现在的专业、职业规划和写作都没什么关系，写作成了真正兴趣使然的事情，就无所畏惧了。<br>&amp;#160; &amp;#160; &amp;#160; &amp;#160;前阵子刚看完木心老先生的《文学回忆录》，写的很好。木心老先生的文风，下结论的时候诚恳果断，偶尔对自己的结论再做递进说明，比如，可爱，可爱的一塌糊涂。浪漫，浪漫的一塌糊涂。关联词用的少，说一句是一句，很有底气。<br>&amp;#160; &amp;#160; &amp;#160; &amp;#160;先生说自己和陶潜相似，喜欢写风，文笔、格调都有风的特征。所以我模仿他的时候总对自己说，要像风一点要轻盈一些。<br>&amp;#160; &amp;#160; &amp;#160; &amp;#160;不过这篇学的并不是很好。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2017/06/25/eat-a-burger-with-chopped-green-onion-and-sugar/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/06/25/eat-a-burger-with-chopped-green-onion-and-sugar/" class="post-title-link" itemprop="url">今天中午吃汉堡，加点葱花加点糖</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2017-06-25 12:32:40" itemprop="dateCreated datePublished" datetime="2017-06-25T12:32:40+08:00">2017-06-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-22 16:25:55" itemprop="dateModified" datetime="2020-11-22T16:25:55+08:00">2020-11-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B6%82%E9%B8%A6/" itemprop="url" rel="index"><span itemprop="name">涂鸦</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>&amp;#160; &amp;#160; &amp;#160; &amp;#160;前天我在脖子上贴了个纹身，是一句藏文，意思是，除了上帝没有人可以惩罚你。<br>&amp;#160; &amp;#160; &amp;#160; &amp;#160;中午吃麦当劳，回去的时候在电梯里听到外面远远的一个声音，等一下等一下啊。我按了开门键，一个女生，她点了下头和我说了声谢谢，我也点了下头，什么也没说。<br>&amp;#160; &amp;#160; &amp;#160; &amp;#160;电梯里只有两个人，可能是为了缓和沉闷的气氛，她和我搭话，问，诶，你脖子上的，那个纹身？是韩文吗，是什么意思？<br>&amp;#160; &amp;#160; &amp;#160; &amp;#160;是藏文。<br>&amp;#160; &amp;#160; &amp;#160; &amp;#160;我想到虽然纹身很酷，这句话的意思也很酷，但如果在电梯里对一个陌生人口述出来，会显得很中二，不酷。<br>&amp;#160; &amp;#160; &amp;#160; &amp;#160;就是，今天中午吃汉堡，加点葱花加点糖的意思。<br>&amp;#160; &amp;#160; &amp;#160; &amp;#160;我在心里耸耸肩，语气是敷衍的酷。心里预期的效果是我说了一句敷衍的俏皮话，她笑一下，不再追问，大家和和气气的在各自楼层离开电梯。<br>&amp;#160; &amp;#160; &amp;#160; &amp;#160;她笑了起来，哈没想到西藏人民也爱吃炸鸡汉堡啊。她甩着马尾辫在二楼离开了。<br>&amp;#160; &amp;#160; &amp;#160; &amp;#160;我心情愉快，有那么一会，甚至不想酷了。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2017/06/24/firstart/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/06/24/firstart/" class="post-title-link" itemprop="url">欸，下午放学前记得帮我把要给前面那个女孩的情书写好</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2017-06-24 14:00:05" itemprop="dateCreated datePublished" datetime="2017-06-24T14:00:05+08:00">2017-06-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-22 16:22:42" itemprop="dateModified" datetime="2020-11-22T16:22:42+08:00">2020-11-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B6%82%E9%B8%A6/" itemprop="url" rel="index"><span itemprop="name">涂鸦</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <pre><code>  暂无访问权限。
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2017/06/23/hello-edison-s-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/06/23/hello-edison-s-world/" class="post-title-link" itemprop="url">Here is Kai's World</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2017-06-23 21:25:54" itemprop="dateCreated datePublished" datetime="2017-06-23T21:25:54+08:00">2017-06-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-05 09:52:43" itemprop="dateModified" datetime="2020-11-05T09:52:43+08:00">2020-11-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%82%87%E5%A7%8B/" itemprop="url" rel="index"><span itemprop="name">肇始</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>&amp;#160; &amp;#160; &amp;#160; &amp;#160;哈哈哈我终于解决了部署时出现的 cannot find module、local hexo not found in finder 等问题用<code>github</code>仓库做服务器弄好了基于<code>Node.js</code>的静态博客<code>Hexo</code>我的独立博客了不过，会不会写东西就不知道喽~~~~</p>
+
+        <div id="aplayer-xuEulZWp" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+            <pre class="aplayer-lrc-content"></pre>
+        </div>
+        <script>
+          var ap = new APlayer({
+            element: document.getElementById("aplayer-xuEulZWp"),
+            narrow: false,
+            autoplay: true,
+            showlrc: false,
+            music: {
+              title: "Let's Dance",
+              author: "David Bowie",
+              url: "http://os1i62usc.bkt.clouddn.com/David%20Bowie%20-%20Let%27s%20Dance.mp3",
+              pic: "http://os1i62usc.bkt.clouddn.com/Let%27s%20Dance_icon.png",
+              lrc: ""
+            }
+          });
+          window.aplayers || (window.aplayers = []);
+          window.aplayers.push(ap);
+        </script>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2017/06/23/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/06/23/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2017-06-23 16:35:40" itemprop="dateCreated datePublished" datetime="2017-06-23T16:35:40+08:00">2017-06-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-22 16:22:42" itemprop="dateModified" datetime="2020-11-22T16:22:42+08:00">2020-11-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%82%87%E5%A7%8B/" itemprop="url" rel="index"><span itemprop="name">肇始</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/deployment.html">Deployment</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="John Doe"
+      src="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">97</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">67</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="sidebar-button motion-element"><i class="fa fa-comment"></i>
+    Chat
+  </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Kaaaaai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Kaaaaai" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/lvkaimeiyouhenshuai" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lvkaimeiyouhenshuai" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kaaaaai</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
