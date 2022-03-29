@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.kaaaaai.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="最近在项目中使用了 Git Submodule 的功能，好处是如果是自己开发的封装库，比较方便调试，push 时可以同时上传项目和库的修改，别人通过主仓库地址下载工程的时候速度也会快上一些。　　Git Submodule 的使用可以通过终端命令来操作（Git Submoudle 使用完整教程），或者通过 Git 第三方可视化客户端直接操作。本文展示的是通过 Git 第三方客户端 Sourcet">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git - Submodule 使用简单教程">
+<meta property="og:url" content="https://www.kaaaaai.cn/git-submodule.html">
+<meta property="og:site_name" content="壹拾肆">
+<meta property="og:description" content="最近在项目中使用了 Git Submodule 的功能，好处是如果是自己开发的封装库，比较方便调试，push 时可以同时上传项目和库的修改，别人通过主仓库地址下载工程的时候速度也会快上一些。　　Git Submodule 的使用可以通过终端命令来操作（Git Submoudle 使用完整教程），或者通过 Git 第三方可视化客户端直接操作。本文展示的是通过 Git 第三方客户端 Sourcet">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/14/8MjX4S.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/14/8MjON8.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/14/8MjLAf.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/23/8TJuqK.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/23/8TBwdI.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/23/8TBnsJ.jpg">
+<meta property="article:published_time" content="2020-03-14T03:24:52.000Z">
+<meta property="article:modified_time" content="2020-11-22T01:38:52.000Z">
+<meta property="article:author" content="Kaaaaai">
+<meta property="article:tag" content="EXP">
+<meta property="article:tag" content="Git">
+<meta property="article:tag" content="Sourcetree">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/03/14/8MjX4S.jpg">
+
+<link rel="canonical" href="https://www.kaaaaai.cn/git-submodule.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Git - Submodule 使用简单教程 | 壹拾肆</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9578d14210d67becef48447e4f6b3f20";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">壹拾肆</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">闲言和碎语</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.kaaaaai.cn/git-submodule.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="Kaaaaai">
+      <meta itemprop="description" content="我独自一人/照顾着/历代的星辰">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="壹拾肆">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Git - Submodule 使用简单教程
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-14 11:24:52" itemprop="dateCreated datePublished" datetime="2020-03-14T11:24:52+08:00">2020-03-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-22 09:38:52" itemprop="dateModified" datetime="2020-11-22T09:38:52+08:00">2020-11-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>　　最近在项目中使用了 <code>Git Submodule</code> 的功能，好处是如果是自己开发的封装库，比较方便调试，push 时可以同时上传项目和库的修改，别人通过主仓库地址下载工程的时候速度也会快上一些。<br>　　<code>Git Submodule</code> 的使用可以通过终端命令来操作（<a target="_blank" rel="noopener" href="https://tnie.github.io/2018/04/02/git_submodule/">Git Submoudle 使用完整教程</a>），或者通过 <code>Git</code> 第三方可视化客户端直接操作。本文展示的是通过 <code>Git</code> 第三方客户端 Sourcetree 来实现这个功能的。
+　　</p>
+<h2 id="一、通过-Sourcetree-使用-Git-Submodule"><a href="#一、通过-Sourcetree-使用-Git-Submodule" class="headerlink" title="一、通过 Sourcetree 使用 Git Submodule"></a>一、通过 Sourcetree 使用 Git Submodule</h2><p>1.首先下载一个你想要添加 Git Submodule 功能的主仓库。<br>这里以我用来学习的仓库为例子<br><img src="https://s1.ax1x.com/2020/03/14/8MjX4S.jpg"><br>　　<br>2.在下载好的仓库左侧菜单栏，右键点击 SUMODULES，在弹出的菜单中选中“Add Sumodelues”<br><img src="https://s1.ax1x.com/2020/03/14/8MjON8.jpg"></p>
+<p>3.在弹出的菜单中填写远程仓库地址，和本地仓库地址<br>这里我填的远程仓库地址是一个第三方库 AFNetworking，大家可以根据自己的实际需求填写自己私有仓库地址或者其他仓库地址。<br>需要注意的是，Git Submodule 的文件夹地址的路径最好是在主工程文件路径的子目录底下，比如：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">master path：~/User/xxx/主工程文件夹</span><br><span class="line">Submodule path：~/User/xxx/主工程文件夹/Submodule 文件夹</span><br></pre></td></tr></table></figure>
+<p><img src="https://s1.ax1x.com/2020/03/14/8MjLAf.jpg"><br>点击 OK 就可以随意使用了。</p>
+<p>后面如果需要 push&#x2F;pull Submodule 仓库，更新方式也和在 sourcetree 中正常使用其他工程的流程是一样的。</p>
+<p>4.切换分支和节点<br>如果需要指定 Submodule 固定的版本或分支，也很简单。<br>双击左侧菜单 SUMODULES 下我们添加的子仓库，仍以上面 AFNetworking 为例子：<br><img src="https://s1.ax1x.com/2020/03/23/8TJuqK.jpg"><br>在弹出的窗口可以看到很多很多 Tag 和分支，按自己需求手动点击切换即可。</p>
+<p>5.删除子模块<br><img src="https://s1.ax1x.com/2020/03/23/8TBwdI.jpg"><br>操作也很简单，右键点击左侧菜单 SUMODULES 下我们添加的子仓库，在弹出的菜单中选择“删除”，然后点击确认“即可”</p>
+<p>Sourcetree 会帮我们完成剩下的事情：<br><img src="https://s1.ax1x.com/2020/03/23/8TBnsJ.jpg"></p>
+<h2 id="二、其他说明"><a href="#二、其他说明" class="headerlink" title="二、其他说明"></a>二、其他说明</h2><ol>
+<li>实际开发中建议子仓库权限除管理员和子仓库维护人员以外设置为 reporter 权限（即可以克隆代码，不能提交）。</li>
+<li>当子仓库有更新时，需要通知主仓库底下所有开发人员手动更新。</li>
+</ol>
+<p>以下测试结果为上述结论提供依据：<br>1） 当子仓库为 reporter 权限的开发人员提交子仓库修改。其他开发人员会在主仓库中会收到子仓库的 commit 提交，但实际代码并无改变。<br>2） 当子仓库为 Developer 权限以上的开发人员提交代码更新时。其他开发人员会在主仓库收到子仓库的更新提醒，但需要手动 pull 到本地，代码才会发生变化。<br>3） 当有两个开发人员分别在子仓库中使用了不同分支或节点，并把使用的设置提交了修改。其他开发人员会在主仓库中会收到子仓库的 commit 提交，但实际代码并无改变。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/EXP/" rel="tag"># EXP</a>
+              <a href="/tags/Git/" rel="tag"># Git</a>
+              <a href="/tags/Sourcetree/" rel="tag"># Sourcetree</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/i-can't-stay-here-to-love-you.html" rel="prev" title="我不能留在这里爱你">
+      <i class="fa fa-chevron-left"></i> 我不能留在这里爱你
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/everyone-love-gtd.html" rel="next" title="社畜都爱 GTD">
+      社畜都爱 GTD <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E9%80%9A%E8%BF%87-Sourcetree-%E4%BD%BF%E7%94%A8-Git-Submodule"><span class="nav-number">1.</span> <span class="nav-text">一、通过 Sourcetree 使用 Git Submodule</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%85%B6%E4%BB%96%E8%AF%B4%E6%98%8E"><span class="nav-number">2.</span> <span class="nav-text">二、其他说明</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Kaaaaai"
+      src="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+  <p class="site-author-name" itemprop="name">Kaaaaai</p>
+  <div class="site-description" itemprop="description">我独自一人/照顾着/历代的星辰</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">97</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">67</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="sidebar-button motion-element"><i class="fa fa-comment"></i>
+    Chat
+  </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Kaaaaai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Kaaaaai" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/lvkaimeiyouhenshuai" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lvkaimeiyouhenshuai" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kaaaaai</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.kaaaaai.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="*　　由于公司的一个项目屡次出现 Guideline 4.3 - Design 审核被拒问题，想着能最大程度的解决这种问题出现，就去了解了一下怎么给项目增加垃圾代码以通过审核，这里给大家推荐两种。* 一、用 Python 生成垃圾文件1.第一步:首先生成一个500位的数组 驼峰类型的元素 用作文件名 eg:AsdfdfGsdPython1234567891011121314151617181920">
+<meta property="og:type" content="article">
+<meta property="og:title" content="给你的 iOS 马甲项目增加一点垃圾代码">
+<meta property="og:url" content="https://www.kaaaaai.cn/028.html">
+<meta property="og:site_name" content="壹拾肆">
+<meta property="og:description" content="*　　由于公司的一个项目屡次出现 Guideline 4.3 - Design 审核被拒问题，想着能最大程度的解决这种问题出现，就去了解了一下怎么给项目增加垃圾代码以通过审核，这里给大家推荐两种。* 一、用 Python 生成垃圾文件1.第一步:首先生成一个500位的数组 驼峰类型的元素 用作文件名 eg:AsdfdfGsdPython1234567891011121314151617181920">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-06-28T11:37:05.000Z">
+<meta property="article:modified_time" content="2020-11-22T08:25:55.000Z">
+<meta property="article:author" content="Kaaaaai">
+<meta property="article:tag" content="EXP">
+<meta property="article:tag" content="iOS">
+<meta property="article:tag" content="OC">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.kaaaaai.cn/028.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>给你的 iOS 马甲项目增加一点垃圾代码 | 壹拾肆</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9578d14210d67becef48447e4f6b3f20";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">壹拾肆</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">闲言和碎语</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.kaaaaai.cn/028.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="Kaaaaai">
+      <meta itemprop="description" content="我独自一人/照顾着/历代的星辰">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="壹拾肆">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          给你的 iOS 马甲项目增加一点垃圾代码
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-06-28 19:37:05" itemprop="dateCreated datePublished" datetime="2018-06-28T19:37:05+08:00">2018-06-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-22 16:25:55" itemprop="dateModified" datetime="2020-11-22T16:25:55+08:00">2020-11-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>*　　由于公司的一个项目屡次出现 <code>Guideline 4.3 - Design</code> 审核被拒问题，想着能最大程度的解决这种问题出现，就去了解了一下怎么给项目增加垃圾代码以通过审核，这里给大家推荐两种。*</p>
+<h1 id="一、用-Python-生成垃圾文件"><a href="#一、用-Python-生成垃圾文件" class="headerlink" title="一、用 Python 生成垃圾文件"></a>一、用 Python 生成垃圾文件</h1><h2 id="1-第一步-首先生成一个500位的数组-驼峰类型的元素-用作文件名-eg-AsdfdfGsd"><a href="#1-第一步-首先生成一个500位的数组-驼峰类型的元素-用作文件名-eg-AsdfdfGsd" class="headerlink" title="1.第一步:首先生成一个500位的数组 驼峰类型的元素 用作文件名 eg:AsdfdfGsd"></a>1.第一步:首先生成一个500位的数组 驼峰类型的元素 用作文件名 eg:AsdfdfGsd</h2><figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line"></span><br><span class="line">first = <span class="string">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;</span></span><br><span class="line"></span><br><span class="line">second = <span class="string">&quot;abcdefghijklmnopqrstuvwxyz&quot;</span></span><br><span class="line"></span><br><span class="line">number = <span class="string">&quot;345&quot;</span></span><br><span class="line"></span><br><span class="line">index = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">array = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">500</span>):</span><br><span class="line"></span><br><span class="line">    final=(random.choice(first))</span><br><span class="line"></span><br><span class="line">    index = random.randint(<span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(index):</span><br><span class="line"></span><br><span class="line">        final+=(random.choice(second))</span><br><span class="line"></span><br><span class="line">    final += (random.choice(first))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(index):</span><br><span class="line"></span><br><span class="line">        final+=(random.choice(second))</span><br><span class="line"></span><br><span class="line">    array.append(final)</span><br><span class="line">    </span><br><span class="line"><span class="built_in">print</span> (array)</span><br></pre></td></tr></table></figure>
+
+<p>PS.如果是直接复制粘贴，不要忘记 <code>Python</code> 变态的首行缩进。</p>
+<h2 id="2-第二步-用上边生成的数组来创建对应的-h-和-m-文件"><a href="#2-第二步-用上边生成的数组来创建对应的-h-和-m-文件" class="headerlink" title="2.第二步: 用上边生成的数组来创建对应的 .h 和 .m 文件"></a>2.第二步: 用上边生成的数组来创建对应的 <code>.h</code> 和 <code>.m</code> 文件</h2><figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line"></span><br><span class="line"><span class="comment">#创建.h文件</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">text_createH</span>(<span class="params">fileNmae,msg,msg1,propertyNumber,methodArray,msg3</span>):</span><br><span class="line"></span><br><span class="line">    full_path = <span class="string">&#x27;/Users/zhoujinglin/Desktop/python-H-M/&#x27;</span> + fileNmae + <span class="string">&#x27;.h&#x27;</span></span><br><span class="line"></span><br><span class="line">    file = <span class="built_in">open</span>(full_path, <span class="string">&#x27;w&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    file.write(<span class="string">&#x27;//\n//  &#x27;</span>+fileNmae+<span class="string">&#x27;.h\n//  SajiaoShopping\n\n//  Created by Kaaaaai bo on 18/06/28.\n//  Copyright ©  2018年 Kaaaaai. All rights reserved.\n//\n\n&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    file.write(msg)</span><br><span class="line"></span><br><span class="line">    file.write(msg1)</span><br><span class="line"></span><br><span class="line">    propryNameArray = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,propertyNumber):</span><br><span class="line"></span><br><span class="line">        propryNameArray.append(random.choice(array))</span><br><span class="line"></span><br><span class="line">    propryNameArray = <span class="built_in">list</span>(<span class="built_in">set</span>(propryNameArray))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> propertyName <span class="keyword">in</span> propryNameArray:</span><br><span class="line">        file.write(<span class="string">&#x27;@property(nonatomic,strong)&#x27;</span>+random.choice(classArray)+<span class="string">&#x27; * &#x27;</span>+propertyName+<span class="string">&#x27;;\n&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    file.write(<span class="string">&#x27;\n\n&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> methodName <span class="keyword">in</span> methodArray:</span><br><span class="line"></span><br><span class="line">        file.write(<span class="string">&#x27;- (void)pushTo&#x27;</span>+methodName+<span class="string">&#x27;VC:(NSDictionary *)info;\n&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    file.write(msg3)</span><br><span class="line"></span><br><span class="line">    file.close()</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Done&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#创建.m文件</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">text_createM</span>(<span class="params">fileNmae,msg,msg1,methodArray,msg3</span>):</span><br><span class="line"></span><br><span class="line">    full_path = <span class="string">&#x27;/Users/zhoujinglin/Desktop/python-H-M/&#x27;</span> + fileNmae + <span class="string">&#x27;.m&#x27;</span></span><br><span class="line"></span><br><span class="line">    file = <span class="built_in">open</span>(full_path, <span class="string">&#x27;w&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    file.write(<span class="string">&#x27;//\n//  &#x27;</span>+fileNmae+<span class="string">&#x27;.m\n//  SajiaoShopping\n\n//  Created by Kaaaaai bo on 18/06/28.\n//  Copyright ©  2017年 Kaaaaai. All rights reserved.\n//\n\n&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    file.write(msg)</span><br><span class="line"></span><br><span class="line">    file.write(msg1)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> methodName <span class="keyword">in</span> methodArray:</span><br><span class="line"></span><br><span class="line">        file.write(<span class="string">&#x27;- (void)pushTo&#x27;</span>+methodName+<span class="string">&#x27;VC:(NSDictionary *)info\n&#123;\n\n  NSMutableArray *array = [NSMutableArray array];\n&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        number = random.randint(<span class="number">3</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,number):</span><br><span class="line"></span><br><span class="line">            file.write(<span class="string">&#x27;  [array addObject:@&quot;&#x27;</span>+random.choice(array)+<span class="string">&#x27;&quot;];\n&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        file.write(<span class="string">&#x27;\n&#125;\n\n&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    file.write(msg3)</span><br><span class="line"></span><br><span class="line">    file.close()</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Done&#x27;</span>)</span><br><span class="line"></span><br><span class="line">classArray = [<span class="string">&#x27;NSString&#x27;</span>,<span class="string">&#x27;UILabel&#x27;</span>,<span class="string">&#x27;NSDictionary&#x27;</span>,<span class="string">&#x27;NSData&#x27;</span>,<span class="string">&#x27;UIScrollView&#x27;</span>,<span class="string">&#x27;UIView&#x27;</span>]</span><br><span class="line"></span><br><span class="line">array = [<span class="string">&#x27;HwxrFvrj&#x27;</span>, <span class="string">&#x27;QnzduQbtdd&#x27;</span>, <span class="string">&#x27;PvcrwLtqhf&#x27;</span>, <span class="string">&#x27;UvdhDbjn&#x27;</span>, <span class="string">&#x27;SuntmyTxvyzg&#x27;</span>, <span class="string">&#x27;CvlxwBipbp&#x27;</span>, <span class="string">&#x27;GzrdyzIbimvz&#x27;</span>, <span class="string">&#x27;CqsjqMmgsp&#x27;</span>, <span class="string">&#x27;OxaaeuWjhasc&#x27;</span>, <span class="string">&#x27;NjiardRvwgbi&#x27;</span>, <span class="string">&#x27;NcculmLtpljq&#x27;</span>, <span class="string">&#x27;ApoqQrll&#x27;</span>, <span class="string">&#x27;GkgokDyvjb&#x27;</span>, <span class="string">&#x27;EblldkVouplj&#x27;</span>, <span class="string">&#x27;KfdrFvnw&#x27;</span>, <span class="string">&#x27;SfhyhObftc&#x27;</span>, <span class="string">&#x27;SmruByoc&#x27;</span>, <span class="string">&#x27;YzcccvXmpmit&#x27;</span>, <span class="string">&#x27;OmqvaHpxat&#x27;</span>, <span class="string">&#x27;XzytsUyvyd&#x27;</span>, <span class="string">&#x27;MjforNnnyi&#x27;</span>, <span class="string">&#x27;ZvjhuIdogs&#x27;</span>, <span class="string">&#x27;BzfrxzSeahxc&#x27;</span>, <span class="string">&#x27;PycycwFjtpny&#x27;</span>, <span class="string">&#x27;XvngtoSedljr&#x27;</span>, <span class="string">&#x27;DktiaCbucd&#x27;</span>, <span class="string">&#x27;AqbplNuodc&#x27;</span>, <span class="string">&#x27;MzkvgZuala&#x27;</span>, <span class="string">&#x27;KdwzIoej&#x27;</span>, <span class="string">&#x27;AaynatUpqcfd&#x27;</span>, <span class="string">&#x27;IyvwhZvtjc&#x27;</span>, <span class="string">&#x27;UmijGmsy&#x27;</span>, <span class="string">&#x27;AoayndXxghym&#x27;</span>]</span><br><span class="line"></span><br><span class="line">array = <span class="built_in">list</span>(<span class="built_in">set</span>(array))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> array:</span><br><span class="line"></span><br><span class="line">    number = random.randint(<span class="number">3</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    methodArray = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">5</span>):</span><br><span class="line"></span><br><span class="line">        methodArray.append(random.choice(array))</span><br><span class="line"></span><br><span class="line">    methodArray = <span class="built_in">list</span>(<span class="built_in">set</span>(methodArray))<span class="comment">#数组去重</span></span><br><span class="line"></span><br><span class="line">    text_createH(name+<span class="string">&#x27;ViewController&#x27;</span>, <span class="string">&#x27;#import &lt;UIKit/UIKit.h&gt;\n&#x27;</span>,<span class="string">&#x27;@interface &#x27;</span>+name+ <span class="string">&#x27;ViewController:&#x27;</span>+ <span class="string">&#x27;UIViewController\n\n&#x27;</span>,number,methodArray,<span class="string">&#x27;\n\n@end&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    text_createM(name+<span class="string">&#x27;ViewController&#x27;</span>, <span class="string">&#x27;#import &quot;&#x27;</span>+name+<span class="string">&#x27;ViewController.h&quot;\n\n&#x27;</span> <span class="string">&#x27;@interface &#x27;</span>+ name+<span class="string">&#x27;ViewController()\n\n @end\n\n&#x27;</span>,<span class="string">&#x27;@implementation &#x27;</span>+name+<span class="string">&#x27;ViewController\n\n- (void)viewDidLoad &#123; \n\n [super viewDidLoad];\n\n&#125;\n\n&#x27;</span>,methodArray,<span class="string">&#x27;\n\n@end&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="二、用造好的轮子直接生成"><a href="#二、用造好的轮子直接生成" class="headerlink" title="二、用造好的轮子直接生成"></a>二、用造好的轮子直接生成</h1><p><a target="_blank" rel="noopener" href="https://github.com/klaus01/KLGenerateSpamCode">KLGenerateSpamCode 垃圾代码生成器</a></p>
+<p>这个项目不仅可以生成垃圾代码，还可以自动化修改类名前缀，详细包含功能如下：</p>
+<blockquote>
+<p><strong>主要功能：</strong><br>修改工程名<br>修改类名前缀<br>扫描工程中的代码，生成同等数量的 <code>Category</code> 文件，文件中及是同等方法数量的垃圾代码。<br>修改 <code>xxx.xcassets</code> 文件夹中的 <code>png</code> 资源文件名。<br>删除代码中的所有注释和空行。</p>
+</blockquote>
+<p>使用时值得注意的有两点，一个是，他生成垃圾代码会遍历你所有的类名，然后生成无用的打印类，而实际使用时，我们并不需要增加如此多的代码，可以选择性的导入相关的 <code>.m</code> 和 <code>.h</code> 文件；另一个是在配置文件中的这个属性</p>
+<blockquote>
+<ul>
+<li><code>ignoreDirNames</code> [忽略文件夹名称字符串] 忽略这些文件夹，对-<code>modifyClassNamePrefix</code> 和 - <code>spamCodeOut</code> 参数有效。目前只会忽略源码文件夹绝对路径下一级的这些目录。如：&#x2F;p&#x2F;s - <code>ignoreDirNames categorys</code>，那么 <code>/p/s/categorys</code> 会被忽略，但 <code>/p/s/viewControllers/categorys</code> 不会忽略。</li>
+</ul>
+</blockquote>
+<p>因为他设定逻辑的原因，所以你可能要重复添加文件夹路径。这里我们需要做的是，到项目内部的<code>main</code> 方法里，添加判断，比如在这个方法可以添加判断，如果文件路径包含你想跳过的字符，直接 <code>return</code> ，就不用那么费劲了。</p>
+<figure class="highlight objectivec"><figcaption><span>Objective-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> modifyClassNamePrefix(<span class="built_in">NSMutableString</span> *projectContent, <span class="built_in">NSString</span> *sourceCodeDir, <span class="built_in">NSArray</span>&lt;<span class="built_in">NSString</span> *&gt; *ignoreDirNames, <span class="built_in">NSString</span> *oldName, <span class="built_in">NSString</span> *newName) &#123;</span><br><span class="line">    <span class="built_in">NSFileManager</span> *fm = [<span class="built_in">NSFileManager</span> defaultManager];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 遍历源代码文件 h 与 m 配对，swift</span></span><br><span class="line">    <span class="built_in">NSArray</span>&lt;<span class="built_in">NSString</span> *&gt; *files = [fm contentsOfDirectoryAtPath:sourceCodeDir error:<span class="literal">nil</span>];</span><br><span class="line">    <span class="type">BOOL</span> isDirectory;</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">NSString</span> *filePath <span class="keyword">in</span> files) &#123;</span><br><span class="line">        <span class="built_in">NSString</span> *path = [sourceCodeDir stringByAppendingPathComponent:filePath];</span><br><span class="line">        <span class="keyword">if</span> ([fm fileExistsAtPath:path isDirectory:&amp;isDirectory] &amp;&amp; isDirectory) &#123;</span><br><span class="line">            <span class="keyword">if</span> (![ignoreDirNames containsObject:filePath]) &#123;</span><br><span class="line">                modifyClassNamePrefix(projectContent, path, ignoreDirNames, oldName, newName);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">NSString</span> *fileName = filePath.lastPathComponent.stringByDeletingPathExtension;</span><br><span class="line">        <span class="built_in">NSString</span> *fileExtension = filePath.pathExtension;</span><br><span class="line">        <span class="built_in">NSString</span> *newClassName;</span><br><span class="line">        <span class="keyword">if</span> ([fileName hasPrefix:oldName]) &#123;</span><br><span class="line">            newClassName = [newName stringByAppendingString:[fileName substringFromIndex:oldName.length]];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            newClassName = [newName stringByAppendingString:fileName];</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 文件名 Const.ext &gt; DDConst.ext</span></span><br><span class="line">        <span class="keyword">if</span> ([fileExtension isEqualToString:<span class="string">@&quot;h&quot;</span>]) &#123;</span><br><span class="line">            <span class="built_in">NSString</span> *mFileName = [fileName stringByAppendingPathExtension:<span class="string">@&quot;m&quot;</span>];</span><br><span class="line">            <span class="keyword">if</span> ([files containsObject:mFileName]) &#123;</span><br><span class="line">                <span class="built_in">NSString</span> *oldFilePath = [[sourceCodeDir stringByAppendingPathComponent:fileName] stringByAppendingPathExtension:<span class="string">@&quot;h&quot;</span>];</span><br><span class="line">                <span class="built_in">NSString</span> *newFilePath = [[sourceCodeDir stringByAppendingPathComponent:newClassName] stringByAppendingPathExtension:<span class="string">@&quot;h&quot;</span>];</span><br><span class="line">                renameFile(oldFilePath, newFilePath);</span><br><span class="line">                oldFilePath = [[sourceCodeDir stringByAppendingPathComponent:fileName] stringByAppendingPathExtension:<span class="string">@&quot;m&quot;</span>];</span><br><span class="line">                newFilePath = [[sourceCodeDir stringByAppendingPathComponent:newClassName] stringByAppendingPathExtension:<span class="string">@&quot;m&quot;</span>];</span><br><span class="line">                renameFile(oldFilePath, newFilePath);</span><br><span class="line">                oldFilePath = [[sourceCodeDir stringByAppendingPathComponent:fileName] stringByAppendingPathExtension:<span class="string">@&quot;xib&quot;</span>];</span><br><span class="line">                <span class="keyword">if</span> ([fm fileExistsAtPath:oldFilePath]) &#123;</span><br><span class="line">                    newFilePath = [[sourceCodeDir stringByAppendingPathComponent:newClassName] stringByAppendingPathExtension:<span class="string">@&quot;xib&quot;</span>];</span><br><span class="line">                    renameFile(oldFilePath, newFilePath);</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">@autoreleasepool</span> &#123;</span><br><span class="line">                    modifyFilesClassName(gSourceCodeDir, fileName, newClassName);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> ([fileExtension isEqualToString:<span class="string">@&quot;swift&quot;</span>]) &#123;</span><br><span class="line">            <span class="built_in">NSString</span> *oldFilePath = [[sourceCodeDir stringByAppendingPathComponent:fileName] stringByAppendingPathExtension:<span class="string">@&quot;swift&quot;</span>];</span><br><span class="line">            <span class="built_in">NSString</span> *newFilePath = [[sourceCodeDir stringByAppendingPathComponent:newClassName] stringByAppendingPathExtension:<span class="string">@&quot;swift&quot;</span>];</span><br><span class="line">            renameFile(oldFilePath, newFilePath);</span><br><span class="line">            oldFilePath = [[sourceCodeDir stringByAppendingPathComponent:fileName] stringByAppendingPathExtension:<span class="string">@&quot;xib&quot;</span>];</span><br><span class="line">            <span class="keyword">if</span> ([fm fileExistsAtPath:oldFilePath]) &#123;</span><br><span class="line">                newFilePath = [[sourceCodeDir stringByAppendingPathComponent:newClassName] stringByAppendingPathExtension:<span class="string">@&quot;xib&quot;</span>];</span><br><span class="line">                renameFile(oldFilePath, newFilePath);</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">@autoreleasepool</span> &#123;</span><br><span class="line">                modifyFilesClassName(gSourceCodeDir, fileName.stringByDeletingPathExtension, newClassName);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 修改工程文件中的文件名</span></span><br><span class="line">        <span class="built_in">NSString</span> *regularExpression = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@&quot;\\b%@\\b&quot;</span>, fileName];</span><br><span class="line">        regularReplacement(projectContent, regularExpression, newClassName);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/EXP/" rel="tag"># EXP</a>
+              <a href="/tags/iOS/" rel="tag"># iOS</a>
+              <a href="/tags/OC/" rel="tag"># OC</a>
+              <a href="/tags/Python/" rel="tag"># Python</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/yansi-who-knows.html" rel="prev" title="焉识！焉识？">
+      <i class="fa fa-chevron-left"></i> 焉识！焉识？
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/be-a-man.html" rel="next" title="长大成人">
+      长大成人 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E7%94%A8-Python-%E7%94%9F%E6%88%90%E5%9E%83%E5%9C%BE%E6%96%87%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">一、用 Python 生成垃圾文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E7%AC%AC%E4%B8%80%E6%AD%A5-%E9%A6%96%E5%85%88%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AA500%E4%BD%8D%E7%9A%84%E6%95%B0%E7%BB%84-%E9%A9%BC%E5%B3%B0%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%85%83%E7%B4%A0-%E7%94%A8%E4%BD%9C%E6%96%87%E4%BB%B6%E5%90%8D-eg-AsdfdfGsd"><span class="nav-number">1.1.</span> <span class="nav-text">1.第一步:首先生成一个500位的数组 驼峰类型的元素 用作文件名 eg:AsdfdfGsd</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E7%AC%AC%E4%BA%8C%E6%AD%A5-%E7%94%A8%E4%B8%8A%E8%BE%B9%E7%94%9F%E6%88%90%E7%9A%84%E6%95%B0%E7%BB%84%E6%9D%A5%E5%88%9B%E5%BB%BA%E5%AF%B9%E5%BA%94%E7%9A%84-h-%E5%92%8C-m-%E6%96%87%E4%BB%B6"><span class="nav-number">1.2.</span> <span class="nav-text">2.第二步: 用上边生成的数组来创建对应的 .h 和 .m 文件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E7%94%A8%E9%80%A0%E5%A5%BD%E7%9A%84%E8%BD%AE%E5%AD%90%E7%9B%B4%E6%8E%A5%E7%94%9F%E6%88%90"><span class="nav-number">2.</span> <span class="nav-text">二、用造好的轮子直接生成</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Kaaaaai"
+      src="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+  <p class="site-author-name" itemprop="name">Kaaaaai</p>
+  <div class="site-description" itemprop="description">我独自一人/照顾着/历代的星辰</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">97</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">67</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="sidebar-button motion-element"><i class="fa fa-comment"></i>
+    Chat
+  </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Kaaaaai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Kaaaaai" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/lvkaimeiyouhenshuai" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lvkaimeiyouhenshuai" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kaaaaai</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>他三本书厚的怀念</title>
-    <url>/2018/06/10/025/</url>
+    <url>//025.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="《少年巴比伦》"><a href="#《少年巴比伦》" class="headerlink" title="《少年巴比伦》"></a>《少年巴比伦》</h2><div align = right> [路内](https://www.amazon.cn/dp/B00XOIYY9S/ref=sr_1_2?ie=UTF8&qid=1522639554&sr=8-2&keywords=%E5%B0%91%E5%B9%B4%E5%B7%B4%E6%AF%94%E4%BC%A6) </div><div align = right> 5 条标注 </div> 
 
 
@@ -48,7 +48,7 @@
   </entry>
   <entry>
     <title>被光放弃的人</title>
-    <url>/2020/07/18/a-person-abandoned-by-the-light/</url>
+    <url>//a-person-abandoned-by-the-light.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>看科幻小说常常会感到一种作为人类的自卑感，对于宇宙来说，我们只是其中数以亿计星球中的一个，即使拥有灿烂的文化和恢弘的历史，也一粒尘埃反射出的微弱光芒。</p>
 <p>而作为个体，虽然每个人都有自己引以为傲的事情，经历过的人和事、在事件中的感受，我们也因为所经历的这些事物成为了独一无二的个体。然而放在星空下，我们所珍视和热爱的，似乎也不太值得一提。甚至在灾难里，再深刻的痛苦也会失去他原来的分量。自卑感即源于此，个体只是历史的一个小注脚，而历史有只是宇宙中其中一个维度的部分片段，我们的所思所想所感，还存在什么意义吗？</p>
 <p>电影《被光抓走的人》讲述了一个城市被不明白光照射后，一些相亲相爱的人集体消失了。而剩下的人，则因为没有消失而在自己的故事里兜兜转转。而在这些人的故事里，电影摘取了四个不同人物的例子作为整个城市的切片展示。</p>
@@ -76,7 +76,7 @@
   </entry>
   <entry>
     <title>给你的 iOS 马甲项目增加一点垃圾代码</title>
-    <url>/2018/06/28/028/</url>
+    <url>//028.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>*　　由于公司的一个项目屡次出现 <code>Guideline 4.3 - Design</code> 审核被拒问题，想着能最大程度的解决这种问题出现，就去了解了一下怎么给项目增加垃圾代码以通过审核，这里给大家推荐两种。*</p>
 <h1 id="一、用-Python-生成垃圾文件"><a href="#一、用-Python-生成垃圾文件" class="headerlink" title="一、用 Python 生成垃圾文件"></a>一、用 Python 生成垃圾文件</h1><h2 id="1-第一步-首先生成一个500位的数组-驼峰类型的元素-用作文件名-eg-AsdfdfGsd"><a href="#1-第一步-首先生成一个500位的数组-驼峰类型的元素-用作文件名-eg-AsdfdfGsd" class="headerlink" title="1.第一步:首先生成一个500位的数组 驼峰类型的元素 用作文件名 eg:AsdfdfGsd"></a>1.第一步:首先生成一个500位的数组 驼峰类型的元素 用作文件名 eg:AsdfdfGsd</h2><figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line"></span><br><span class="line">first = <span class="string">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;</span></span><br><span class="line"></span><br><span class="line">second = <span class="string">&quot;abcdefghijklmnopqrstuvwxyz&quot;</span></span><br><span class="line"></span><br><span class="line">number = <span class="string">&quot;345&quot;</span></span><br><span class="line"></span><br><span class="line">index = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">array = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">500</span>):</span><br><span class="line"></span><br><span class="line">    final=(random.choice(first))</span><br><span class="line"></span><br><span class="line">    index = random.randint(<span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(index):</span><br><span class="line"></span><br><span class="line">        final+=(random.choice(second))</span><br><span class="line"></span><br><span class="line">    final += (random.choice(first))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(index):</span><br><span class="line"></span><br><span class="line">        final+=(random.choice(second))</span><br><span class="line"></span><br><span class="line">    array.append(final)</span><br><span class="line">    </span><br><span class="line"><span class="built_in">print</span> (array)</span><br></pre></td></tr></table></figure>
 
@@ -112,7 +112,7 @@
   </entry>
   <entry>
     <title>半把瘾</title>
-    <url>/2018/12/14/after-reading-wangsuo/</url>
+    <url>//after-reading-wangsuo.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　前阵子在看王朔的全集，94 年出版的，当时大概还是王朔人正当红，全集有四本——《纯情卷》、《谐虐卷》、《矫情卷》、《挚情卷》，四本书的封面上都印着王朔年轻的脸。看了两本半，后来就放下去看其他的书了，原本是想看完全集，得到一个完整印象才写读后感，但想到放下就不知道什么时候会重新拿起来，索性就按看过的部分写一篇感想。<br>　　以纯情小说出道的王朔，爱情主题在他的作品里占有很大的比重，不过作者的自觉性又让他没有一条道走到黑，也正是因为这种自觉让他在千篇一律的名家作品中有自己的位置，提到王朔，人们常会说他的语言风格，文笔， 反传统。从高处去看，褒和贬都各有各自的拥趸。我无意做非黑即白的定论，所以只说看到的几个有趣的小细节。<br>　　先前说到王朔的自觉，写作的自觉是一部分，对自己认识的自觉又是另一部分，当然因为写出来成文的原因大概也免不了多少粉饰自己，比如这段：</p>
 <blockquote>
 <p>　　那些一本正经的道德君子和实开家们就一定比用放荡的方式逃避两旁的人生活得更有意义。我只是想说，我是个世俗观念很强的人。我很在乎面子、名利以及在别人眼中的价值。和不想从年轻时就鬼混一生。我不是亿万富翁颓废的继承者，我的野心和自尊使我不甘沦落，我要有我的那一席之地。我没有可供挥霍的资本，我必须像个初到一大城市的究光蛋在新社会里一点点积聚起自己的财富。所以你可以得出结论：我决意告别放荡的生活不是出于顿悟、悔过，仅是一贯的自私个性必定使然。</p>
@@ -138,7 +138,7 @@
   </entry>
   <entry>
     <title>关于“猜你喜欢”的思考</title>
-    <url>/2019/08/22/about-what-do-you-like/</url>
+    <url>//about-what-do-you-like.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　最近刷知乎的频率上升，刷的多了之后隐隐感觉到知乎在内容显示上有一些变化，我想可能是它的推荐算法有些不一样了。这种不一样让我想起抖音，我偶尔也会刷一下抖音，频率大概一个月一两次左右，主要目的是看看朋友们的近况，刚下抖音的时候也有过一阵上瘾期，有刷抖音的朋友都很明白他推荐算法的强大，一个视频十几秒，不占用时间，能无限往下翻，虽然一个视频很短，但不知不觉就让人耗费了一两个小时，有隐性的成瘾机制。后来也是因为这个，导致我戒断抖音的，因为太消耗时间了，而且事后心里总有一种不踏实的感觉，就好像放暑假愉快的玩了两个月，一回头发现一无所获，作业一大堆没写的感觉，也可以简单归纳为放纵后的空虚。最近的知乎也给我这种感觉。<br>　　其实除了这些资讯娱乐类的应用，还有很多应用都有这种推荐机制，比如购物应用，淘宝，你在搜索框搜索了某个产品后，接下来几天，他的顶部滚动条，和往下滑的猜你喜欢，一定会存在类似的产品，或者是和产品配套的周边产品，比如你搜 苹果手机，隔天可能就给你推荐苹果手机壳，更过分一点的就是你在某个搜索引擎上搜索，想了解产品相关的信息，然后打开购物应用，就发现里面已经开始推荐你搜索过的产品了。不过这是他们内部的交易，又是另一件事了。<br>　　猜你喜欢这种产品功能，应用极为广泛。包括不止互联网行业，很多传统行业，其实也有做类似的方式，最宽泛的例子，就是当某个行业要出一款新产品的时候，首先会做市场调查，然后确认目标受众，而这个目标受众的反向概念，其实就是为这个群体做一个猜他们喜欢的产品。<br>　　而猜你喜欢的好处也是显而易见的，对于企业来说，可以提升用户粘性，刺激用户消费，有利于开拓新用户等等。对于用户来说，看资讯买东西看到的都是自己感兴趣的东西，可以更好更快地找到自己想要的东西，省时省力。<br>　　但就像前面说的，猜你喜欢也存在着一些缺点。就像你可能在某个投资公司或者投资理财顾问留过号码，之后总有一阵子会频繁的收到好多金融公司的电话，问你杭州地铁口的公寓要不要了解一下。我之前因为学历提升的问题，在某个机构留了一个电话，还是几年前留的，后来每年九月三月学校开学的点，就总有教育机构打电话过来询问我有没有这方面的意向。这种打扰其实是很不好的，而在应用里这种打扰就表现成，很多时候你可能只是想了解一下某方面的信息，但之后就不断收到这类信息。<br>　　我之前因为买了 iPad，想知道有什么应用可以提高 iPad 的生产力，就在知乎上搜索相似问题，搜到了，最后也得到了满意结果。以为事情就此告一段落了。但没想到之后打开他还是给我推送相关内容，而且还是在我没关注这个问题的情况下。而我也因为总有答案是我没看过的，会点开看一遍，正中他们的下怀。但新出现的答案对我有没有帮助呢，答案是否定的。因为 iPad 上有用的应用就那么些，所以很多答案给我推荐的应用重复率很高。我只是看他们在一个结果上的不同解法而已，最终我没有得到新的东西，但时间和精力却被消耗掉了。<br>　　当然你可能会说，是自制力的问题。对于不想再看的东西不看就好喽，但如果真能做到这种地步，抖音这类的应用就不会红红火火的走到现在了，毕竟这个内容也确实是你自己感兴趣的，而且你能克制住自己不看这一类的信息，但还有另一类的信息在等着你，总有一个内容会抓住你的注意力。就像我的知乎上有 iPad 应用的答案推荐，也有“女生什么样的身材算是身材好？”这类的答案推荐，虽然看小姐姐很好，但是在看小姐姐的事上花太多时间就不是很好了。<br>　　当然你还可能会说，那就统统不看喽，把应用卸载掉。这个很好做到，但是结合实际看，其实也有一些问题，我们是社会性的生物，需要和人沟通，和人沟通的核心是信息交换，当我们主动接切断自己的信息来源，我们如何保持和人无代沟的沟通？哪怕你性格孤僻，你也总要生活，总要去了解社会上的各种信息，以掌握如何更好生活的方式，买东西对比不同产品，评测看不看？对比价格优惠，电商网站活动看不看？投资理财更不用说了。<br>　　信息推荐相似度高同质化严重，造成精力耗费是猜你喜欢的一个问题。还有另一个我想说的是，应用的推荐机制虽然给人推荐了很多信息，扩展知识面，但其实因为是按需分配，它在不断推荐的过程中，其实他也在用我们喜欢的信息给我们建造了一个坚硬的认知壁垒。<br>　　为什么这么说呢？我记得我刚开始使用知乎的时候，那时还没有现在的去中心化概念，我看到的内容都是我关注的大 V 们关注、点赞的内容和自己关注的问题内容，当我还在上高中的收，限于见识，我还只是想看看有没有什么好书推荐，有没有什么段子可以解闷，所以关注的都是那类的信息，忽然有一天我看到我关注的一个大 V 点赞了一个修建一个穿透地球的电梯会是怎样，点进去看，里面的答题人真的很认真在用物理知识和地理知识去解释这个问题，列公式上图片做图解，就好像身体力行的告诉我说天马行空的脑洞也可以用一板一眼的数学思维去解答，让我这个知乎萌新好像被反向的按了一下“F5”键，但现在的知乎却很少再给我这种感觉，乏善可称更多了一些。抖音的例子就不举了，情况也大致如此。<br>　　信息时代，我们每天接收的信息看似很多，但其实很多信息是垃圾信息，有些有很强的时效性，有些只是别人输出观点的变体，而更多的是重复信息。我们在享受信息时代的便利，也要警惕信息时代给我们的负面影响，不要让信息主宰我们。<br>　　忽然想起现在在生活里越来越被弱化的存在——电视，他也同样作为信息来源渠道，虽然可能有些东西在电视上是被美化杯筛选后的结果，但是我更喜欢他把各种各样的东西就放在那，放在不同的频道里，等你自己去切台的特点。还记得小学放假在家找电视台动画片看不小心点到 CCTV-10 探索频道，第一次看人文科学的节目被刷新三观的感觉，我觉得一个好的产品应该多给人带来这种感觉。在保留更多的选择权的情况下，加一点点猜你喜欢。</p>
 ]]></content>
       <categories>
@@ -151,7 +151,7 @@
   </entry>
   <entry>
     <title>Android - 音频焦点学习</title>
-    <url>/2019/12/06/android-learning-audio-ocus/</url>
+    <url>//android-learning-audio-ocus.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>在做蓝牙带屏音箱项目的时候，碰到一个问题，具体是在连接蓝牙音箱回连的时候，播放音乐会在手机端点击播放过一会就回被暂停。</p>
 <p>调试了一下问题后，大概问题是这样的，一般情况下，我们在播放音乐时会请求系统音频焦点，然后在不播放的时候释放焦点。</p>
 <p>我也是按照这种逻辑处理的，但和一般情况不同的是，我应用所在的底层系统是经过定制的，而在音频焦点的处理上，除了我上层应用会在蓝牙播放变化的时候请求焦点，底层的系统也会做同样的操作，这就造成了在两者来回请求的过程中，焦点丢失了。</p>
@@ -196,7 +196,7 @@
   </entry>
   <entry>
     <title>业余剪辑自我修养</title>
-    <url>/2020/10/02/amateur-clipsself-improvement/</url>
+    <url>//amateur-clipsself-improvement.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>陆陆续续的剪了不少视频，在过程中也有一点收获，遂做个笔记，也做分享。</p>
 <h2 id="剪辑软件的选择"><a href="#剪辑软件的选择" class="headerlink" title="剪辑软件的选择"></a>剪辑软件的选择</h2><p>随着短视频和自媒体的兴起，市面上陆陆续续的涌现出很多面向不同用户群体的视频软件，有的偏向使用简易，有的偏向特色功能。抛开移动端的 App，在 PC 端上剪辑视频有以下一些主流选择：</p>
 <table>
@@ -353,7 +353,7 @@
   </entry>
   <entry>
     <title>Android - 调用系统发短信功能，自定义号码和短信内容</title>
-    <url>/2017/07/07/android-call-the-system-to-send-text-messages-customize-the-number-and-text-message-content/</url>
+    <url>//android-call-the-system-to-send-text-messages-customize-the-number-and-text-message-content.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>&amp;#160; &amp;#160; &amp;#160; &amp;#160;开发需用使用到系统短信功能，昨天看了下文档，弄了一下午，现在已经得到我想要的效果，做个笔记记一下。具体有两种方法，一种需要跳到系统短信界面发送，可自带号码和短信内容参数，另一种可以直接在App内发送，并返回发送状态。两种方法都写在下面。</p>
 <p>&amp;#160; &amp;#160; &amp;#160; &amp;#160;<em>无论是哪种方法，都需要申请权限，在app&#x2F;src&#x2F;main&#x2F;AndroidManifest.xml文件内添加</em></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&lt;uses-permission android:name=<span class="string">&quot;android.permission.SEND_SMS&quot;</span> /&gt;</span><br></pre></td></tr></table></figure>
@@ -382,7 +382,7 @@
   </entry>
   <entry>
     <title>Android - 动态改变 seekbar 滑块大小和其他</title>
-    <url>/2019/11/23/android-more-than-seekbar-slider-dynamic-change/</url>
+    <url>//android-more-than-seekbar-slider-dynamic-change.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>　　在做项目下拉栏音量条拖动的时候，产品提了一个新需求，想拖动的时候让滑块选中时变大，未选中时就正常大小，这个需求如果在 iOS 项目，我会选择监听手势方法，监听按下和松开的时机，改变滑块的大小。在 Android 中我想应该也有类似的方法，但实际在网上搜索资料，发现问题简单，但找解决问题的方式非常困难，具体困难点在于，无法找到精确到“动态改变 seekbar 滑块大小”这个需求具体实现的文章，除了一方面很多文章来源自复制粘贴，另一部分在讲述 seekbar 的使用顺便提了一下选中和普通状态的样式改变，但这个方法的效果在新的版本里，不知道是不是从来就如此，还是接口变化导致不适用了。到最后我解决这个方法的姿势是：我想类似需求的实现出现最多的地方应该是在音乐播放器之类的项目，然后就在 GitHub 上搜索类似的工程，最后在 <a href="https://github.com/magic5650/Recoderapp">Recoderapp</a> 这个项目最新更新的节点中看到有关 seekbar 的描述，抱着试一试的心态，下了，看了，解决了。具体方法会和上面那个不适用的方法一起放在后文。<br>　　我想大部分开发者在搜索问题解决的时候都会倾向于直接看代码，所以我这里的长篇累牍显得有点不太必要，但是还是想提一下的就是，由查找不到问题解决方式引发的一些思考，类似于，大家应该多多少少有动态改变滑块大小的需求，但是网上为什么没有这么精确的回答，如果是因为简单，但哪怕再简单的问题，也会有处于新手期的开发者会觉得这是一个难题——比如我，这篇文章也是基于这个思考才写的，而另一个原因是想到最近大火的电商——拼多多，他之所以能在淘宝京东的围杀中杀出重围，主要做的一件事就是渠道下沉。而渠道下沉的变体其实就是集中解决一部分人的需求。最近下的两三个 App 也给我这种感觉，一个是播放白噪音的软件，一个是类似于番茄钟的软件，但和传统的 GTD 软件区别在于后者的记录是主要针对你在做某一项技能的学习时的记录，最后会统计单一技能所花费的时间。不知道这个例子能不能解释清楚，总的来说，另一个原因可以总结成，既然没有人写简单问题的讲解，那我就来做为开发者来做一个技术方面渠道下沉的尝试。
 　　</p>
 <h2 id="第一个方法：在-XML-文件配置-seekbar-不同状态"><a href="#第一个方法：在-XML-文件配置-seekbar-不同状态" class="headerlink" title="第一个方法：在 XML 文件配置 seekbar 不同状态"></a>第一个方法：在 XML 文件配置 seekbar 不同状态</h2><p>控件布局</p>
@@ -413,7 +413,7 @@
   </entry>
   <entry>
     <title>成舟</title>
-    <url>/2018/01/16/as-the-boat/</url>
+    <url>//as-the-boat.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="13号的梦"><a href="#13号的梦" class="headerlink" title="13号的梦"></a>13号的梦</h2><p>　　当我躺在床上，伸展四肢，感受着头皮所有的毛囊都在放松，向着枕头方向缓慢流淌的时候，一只猫从我下体处爬了出来，我有点迷糊，我可是个男的啊，怎么还事生产了呢？<br>　　而且，还是一只猫。<br>　　在我纠结我是怎么生下猫的时候，另一猫又爬出来，在我的身体其他部位，陆陆续续的开始爬出各种各样的动物，我的胸口跳出两只羊，我的小腿钻出两只犀牛，我的胳肢窝迈出了两只鸵鸟。我见过的，我没见过的，最后两个人类一男一女从我的肚脐里爬了出来，他们站起身，我才看到是两个肌肉健硕的成年人。<br>　　海浪拍打着我的床沿，我听见他们在讨论把我拆掉做成遮风挡雨的房子。我感觉到他们诞生的地方在一点点消失，我的小腿，我的阴茎，我的胸膛。只剩下头颅的时候，听见男声问：还要继续拆吗？<br>　　女声斩钉截铁：动手吧。<br>　　<br>　　我大汗淋漓的醒了过来。</p>
 <p>　　</p>
 <h2 id="15-号的梦"><a href="#15-号的梦" class="headerlink" title="15 号的梦"></a>15 号的梦</h2><p>　　我和两个陌生人，叫他们 A 和 B 好了。大概是一个网络游戏的场景，我们待在一个新手区，准确的来说，我们在一个房子里——新手房，房子外面守着一个十级的人类反派Boss。可能这是个武侠类的游戏，我们都宽袍大袖，手拿宝剑。<br>　　我们要做的事是完成新手试炼，杀死外面那个 Boss 或者从他手底下逃走，进入下一个区域。<br>　　A 想到一个让我们逃跑的计划，就是他先冲出去，他速度快，带着 Boss 在房子外面绕圈圈，而我和B则抓住他们跑到房子周长二分之一的位置时候开始跑向下一个区域，等我们离开房子，他再跑一又二分之一圈，就开始追上我们，一起到下一个区域。<br>　　按计划展开了。我们跑出房间，通往下一个区域的是一条笔直向上、一眼望不到头的大理石阶梯。我们施展着类似周星驰电影《功夫》里和包租婆赛跑姿势的轻功，在阶梯上飞驰。<br>　　A 很快就追了上来，后面不远就是那个大 Boss。我们眼神交换，意味不言自明：接下来该怎么办？<br>　　B 说：要不然，你再去拖住他。<br>　　我们都清楚在这丝毫没有辗转腾挪余地的阶梯上，再去拖住他，意味着什么。也清楚B把话说出口，对 A 意味着什么。<br>　　A 面无表情，向我挑了挑眉。好像在说：你呢，你怎么想。<br>　　因为心里被恐惧占了一大半，在 B 说出那个主意时，我心里竟涌出松了口气的欣喜。但当我面临要做出让队友去送死的选择，我手心发汗，不知所措，有些难为情，想告诉他要不然试一下吧，但在心里挣扎了一会，最后还是泄气的摇了摇头。<br>　　A 点了点头，不再说话。一阵剑光。<br>　　我又回到了那个新手房，B说我们都被杀了，回档到了这里。他问 A，要不要再试试那个计划。<br>　　A 说不用了，你们先等上一阵。<br>　　可能是一盏茶的时间，也可能过了很久，A 什么话也没交代，径直推开门走了出去。<br>　　很快外面传来了剑刃交击的声音，声音不绝于耳。又过了一会，外面传来一声清啸，之后便什么声音都没有了。<br>　　我们从门缝悄悄的往外看，鲜血流淌了一地，没看见 A 的身影，Boss 仍在不远处守着房子。<br>　　B退回来问：你说 A 是死了，还是已经走了？<br>　　我摇摇头没有说话，被要永远困在这里的预感击溃，我蜷缩在房子的角落，试图躲进黑暗里。<br>　　<br>　　后来我就醒了，想继续睡过去，继续做那个梦，但没有成功。我也没有机会告诉 B，如果 A 死了，我们可以在房子里看到回档的他，如果 A 走了，那么 Boss 应该是死的，但 Boss 活着，而且他手里的那柄剑是 A 的。</p>
@@ -428,7 +428,7 @@
   </entry>
   <entry>
     <title>长大成人</title>
-    <url>/2018/07/12/be-a-man/</url>
+    <url>//be-a-man.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　看了《动物世界》和《我不是药神》（以下简称《动》和《药神》）。<br>　　剧情略过不提。<br>　　先从内容讲讲我的看法。虽然两部电影类型和主题都迥然不同，但我觉得他们讲的其实是一个东西，有关善良和蜕变。<br>　　《动》说的善良是小善，是守得住自己。《药神》说的是大善，度己度人。可能有人会觉得上善若水，善良应该像水一样润物无声。而《药神》里的男主角程勇所表现的，普度众生的那种善对平常人来说实在太过庞大，仿佛选择行善便是选择背水一战，有些咄咄逼人。但在本质上，他其实也是因为守住了自己，然后因为这种小善才衍生出了大善。<br>　　说时势造英雄，我觉得时势并不能造英雄，时势只是把英雄们身上的某些属于英雄的特质给激发了。同理，好人也基本如此，《药神》里的程勇，经历了自己得白血病的朋友去世，也终于放下独善其身的想法和对坐牢的恐惧，在泰国清晨的大雾中看清了自己，义无反顾的投身于倒卖药品救助病患的“违法犯罪”行动中。只是他受审被定为有罪，虽然法律不外乎人情给他减了刑，但当押送他的警车穿过泱泱人群的画面出现时，我仍然有些疑问，这等时势逼出的好人，好固然是好，但真的是社会所需要的吗？<br>　　《动》里的郑开司在被关进小黑屋用自己的聪明出来时，老人家跪在他面前求他给自己孩子托句话，他面无表情闪开，我当时想，这是要开始黑化了？因为前面的剧情，甚至对这点隐隐有些期待。然而当他说出一段台词：</p>
 <blockquote>
 <p>　　该打的仗我已经打过了，该跑的路我也跑到了尽头，老子信的道老子自己来守，背叛、争抢、没有底线，想把老子变成一只动物，no，没戏，老子宁可做一辈子披荆斩刺的小丑，也绝不会变成你们这种人渣的样子，游戏是你们的，规则，老子自己来定。</p>
@@ -449,7 +449,7 @@
   </entry>
   <entry>
     <title>中文文案排版学习</title>
-    <url>/2018/09/03/chinese-text-layout-study/</url>
+    <url>//chinese-text-layout-study.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>*　　偶尔在知乎、少数派或其他社区资讯网站上看文章，会发现有的文章看起来很舒服，有的感觉怪怪的，变扭。细究之下，大概就是排版的原因。那么如何学习好的排版呢，再细究，发现里面的学问也有不少，如何分段落，如何引用图片，以及句子段落本身的排版。刻意去看了下<a href="https://github.com/mzlogin/chinese-copywriting-guidelines">中文文案排版指北</a>，这里介绍了一些中文文案，中英文排版约定俗成的标准，而且许多网站也都引入了这些标准。值得学习，那现在就一起来看看。*</p>
 <p>　　第一部分讲空格，引言有这么一段：</p>
 <blockquote>
@@ -476,7 +476,7 @@
   </entry>
   <entry>
     <title>推理小说家煲的鸡汤</title>
-    <url>/2019/12/24/chicken-soup-from-inference-writer/</url>
+    <url>//chicken-soup-from-inference-writer.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　去年部门抽奖抽中一本《解忧杂货铺》，因为在那之前就已经看过这本书了，所以后来也就没有反抗的，让同事抢走归了她。到年底忽然想起这本书，索性就提笔写写。<br>　　《解忧杂货铺》讲的是几个小偷闯进了一个废弃的杂货铺，通过一个牛奶箱和不同年代的人通信，给与回应，不断解决不同人的问题，到最后也找到自己人生的出路。<br>　　整本书由几个不同的故事串联而成，简单易懂，不同于东野圭吾其他的推理小说，在结局的时候或者在过程中，推理有答案或者答案有了反转。甚至唯一一点略有神秘色彩的事件——信箱的信会穿越时空，也在事件出现之后的一两页内容里得到了答案。纵观全文，值得大书特书的内容有不少，但对我来说，那些值得一提的东西，温暖，感动，悔过，坚持自己等等这些书里的特质，都有些乏善可陈。<br>　　产生这样的心情当然也不是因为书写的不够好，书还可以，大概能打三星半。但抱着吃川味火锅店的心情，点菜的时候发现只有清淡偏甜的粤菜可点。因为结果低于期待，难免有所抱怨。<br>　　当然如果因为自己的期待就不允许火锅店的菜谱上只有粤菜可点，这种态度是不够端正的，虽然我不喜欢，但我也捍卫火锅店做粤菜的自由，而且也不是挂羊头卖狗肉，《解忧杂货铺》也没打着我是推理小说的招牌出来接活，所以不妨把它当做是作者的一种尝试。<br>　　梳理推理小说发展过程，从古典推理到侦探小说，到日本新本格出现，松本清张结合时事始创社会派推理小说，最后宫部美雪、伊坂幸太郎、绫辻行人、东野圭吾等作家让日本推理小说百花齐放。到这，我不禁有个疑问，为什么东野圭吾可以在同时代的同行作家中脱颖而出，让路人也有个好像在哪听过的印象？东野圭吾虽然也写过侦探破案的本格小说，但他真正让人印象深刻的作品，比如《白夜行》《嫌疑犯X的献身》，这些书无一不以事件中的人物纠葛为主色调，辅以推理破案，结尾真相大白，人物冲突达到最高峰。这些人事纠葛，日式风格的说法是，羁绊。因为羁绊，使得东野圭吾讲的故事多了些人情味，当然部分给人眼前一亮的推理也是一个地基式的存在，另一个方面东野圭吾小说被大量改编成了影视剧，吸引了不少推理小说圈外的路人粉，这也是东野圭吾火起来的一个原因，儿比起其他推理、侦探小说衍生的影视剧，东野圭吾书里在上述中提到的人情味所带来的晚间八点档狗血剧的氛围，冲淡了推理小说迷们和普通观众们之间的壁垒，像迪士尼动画片大人可以看到成年人的元素，小孩可以看到小孩子的元素，大家各取所需，皆大欢喜。<br>　　说完东野圭吾小说的整体风格，我们再来看这本书，比起他之前的那些作品——《黑笑小说》之类的不在对比范围，我们可以看到，《解忧杂货铺》推理味和人情味的配比，前者少，近乎于无，后者晚间八点档的氛围则被推到前作们所未有的地步。这种改变对于推理小说迷们来说是接受困难的，甚至是抵触：没想到东野圭吾你个浓眉大眼的家伙也写这种东西了？但对于东野圭吾、普通观众、普通读者，从现在结果来看，好处是远大于坏处的。而且这种改变从东野圭吾之前的作品中其实已经可以窥见端倪，对社会人性黑暗的长期注视，不可避免会产生两种态度，看透看破心灰意冷，或者一直乐观下去，对人之初性本善投赞成票。《解忧杂货铺》如果我们不把他粗暴的归类到是作者投读者们所好的一部纯商业作品——比如《阿弥陀佛么么哒》之流，而把他当做是作者在黑暗中得到的答案，似乎变得容易让人接受起来，甚至于作者本身跳出了推理小说家这个标签所带来的局限性，但这么看，似乎又给原本平庸的作品加了一个过分闪耀的光环。<br>　　无论如何，《解忧杂货铺》给我的观感仍然还是开头所提到的一样，三星半。至于东野圭吾先生之后的作品是在《解忧杂货铺》上一条道走到黑，还是又折回头写以前那类推理小说。我始终都会感谢他带来那么多优秀的作品。</p>
 ]]></content>
       <categories>
@@ -489,7 +489,7 @@
   </entry>
   <entry>
     <title>iOS - Xcode 自动生成注释文档</title>
-    <url>/2019/07/26/automatically-generates-annotation-documents/</url>
+    <url>//automatically-generates-annotation-documents.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>自动生成注释文档有三种方式:</p>
 <ul>
 <li><a href="http://www.stack.nl/~dimitri/doxygen/index.html">docxygen</a></li>
@@ -557,7 +557,7 @@
   </entry>
   <entry>
     <title>开发的阶段性反思</title>
-    <url>/2019/03/29/development_stage_reflection/</url>
+    <url>//development_stage_reflection.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　最近感觉到开发的技术提升缓慢，意识到自己可能进入了一个不上不下的瓶颈期。虽然在公司内部也一直有技术学习小组，但切实落于自身的总好像隔靴挠痒，不能很精确发现自己的不足，和如何针对这种不足去改正。为了下一阶段的继续提升，我觉得有必要总结一下自己学习到的内容，和规划一下未来的技术提升方向。<br>　　<br>　　工作上主要使用的 Swift 和 OC，已经基本掌握的很熟练了，各种布局、控件和数据处理的基本使用都没问题，也可以根据这些知识基础按自己的想法实现一些捷径式的小操作。<br>　　但是还有一些不足，比如最近很多人用的 auto layout，用着就很别扭，还不太熟练，音频，视频传输和编码的处理，没有深入了解过，还有代码的整洁度，和代码的结构，大局观比较差。OC 一阵子没用，也有些生涩的感觉，OC 和 Swift 的混编，在数据传输上的方法上还可以进一步学习一下。<br>　　Android 方便，因为很久没使用了，水平可能还是停在给上一家开发应用，可以读懂代码，可以按产品效果图实现一个 App，但是完成度可能不太让人满意，Android 新兴的语言 Kotlin 也都一直还没接触过。<br>　　Python 的学习很早就停下了，过了那么久，模糊的只记得一些函数表达式写法，和类型属性这些流于表面的概念性的东西。不具备独立开发的能力。<br>　　<br>　　以上就是我现阶段学习和使用过的语言总结，在开发的过程中，我越来越发现一个扎实基础的重要性，一言以蔽之，对底层的理解程度基本可以决定你现在所处的高度。因为之前技术的突破都是为了需求赶鸭子上架现学现卖，在过程中就容易错过很多细节，虽然在后续的开发里，自己也会不断回推梳理，但很难得到一个系统性的结论，反而是在找工作背面试题，不断过一些概念理论的时候，和自己过往开发印证，觉得收获很多。<br>　　所以，下一阶段的第一个目标我想是重新对我所学的语言，那些基础知识复习一遍，梳理巩固一下。<br>　　还有一个就是对 OC&#x2F;Swift 多线程的理解和掌握，虽然现在对 OC 的运行时态和多线程理解和使用都没有问题，但我注意到，很多大项目，对线程管理都有一定规范性的东西穿插在整个项目里，这一点是我所不足的。有同样问题的是网络请求方面，TCP、UDP、HTTP之前也都掌握的不是很好，需要重新梳理。<br>　　格外的目标是想把这两本书：《Effective Objective-C 2.0 编写高质量 iOS 与 OS X 代码的 52 个有效方法》、《Objective-C高级编程：iOS与OS X多线程和内存管理》，在最近的学习告一段落之后看完。<br>　　<br>　　除了实际的目标和计划以外，我觉得我最近对技术的态度也处在一个低谷期，可能是因为从新手期出来很久，以前敲一段代码看到效果的成就反馈对我影响很小了，也可能是技术处于一个停滞的阶段，所以对敲代码缺少以前的积极性了。所以我希望可以通过学习新的东西来重新回到之前对编程热情洋溢的阶段。<br>　　最近看《爱，死亡和机器人》，有一集《齐马的作品》，我很喜欢，开篇就讲一个大师的艺术探索，从人物肖像，到绘画出正中心带纯蓝色几何图形的浩瀚宇宙，结尾是他探索终极，发现自己的由来是一台清洁机器人，就回归自我，变成清洁机器人。所以他终极的答案是找一件简单的事做。其实举一反三来看，编程这件事，和他的艺术探索也是一回事，高屋建瓴太遥远，那就从简单的事情开始做。</p>
 ]]></content>
       <categories>
@@ -571,7 +571,7 @@
   </entry>
   <entry>
     <title>死于白兰地</title>
-    <url>/2017/09/27/died-of-brandy/</url>
+    <url>//died-of-brandy.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="《酒徒》"><a href="#《酒徒》" class="headerlink" title="《酒徒》"></a>《酒徒》</h2><div align = right> [刘以鬯](https://www.amazon.cn/dp/B005D5YJKY/ref=cm_sw_r_qz_2_dp_2unvzb8Y953A4) </div><div align = right> 12 条标注 </div> 
 
 
@@ -599,7 +599,7 @@
   </entry>
   <entry>
     <title>今天中午吃汉堡，加点葱花加点糖</title>
-    <url>/2017/06/25/eat-a-burger-with-chopped-green-onion-and-sugar/</url>
+    <url>//eat-a-burger-with-chopped-green-onion-and-sugar.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>&amp;#160; &amp;#160; &amp;#160; &amp;#160;前天我在脖子上贴了个纹身，是一句藏文，意思是，除了上帝没有人可以惩罚你。<br>&amp;#160; &amp;#160; &amp;#160; &amp;#160;中午吃麦当劳，回去的时候在电梯里听到外面远远的一个声音，等一下等一下啊。我按了开门键，一个女生，她点了下头和我说了声谢谢，我也点了下头，什么也没说。<br>&amp;#160; &amp;#160; &amp;#160; &amp;#160;电梯里只有两个人，可能是为了缓和沉闷的气氛，她和我搭话，问，诶，你脖子上的，那个纹身？是韩文吗，是什么意思？<br>&amp;#160; &amp;#160; &amp;#160; &amp;#160;是藏文。<br>&amp;#160; &amp;#160; &amp;#160; &amp;#160;我想到虽然纹身很酷，这句话的意思也很酷，但如果在电梯里对一个陌生人口述出来，会显得很中二，不酷。<br>&amp;#160; &amp;#160; &amp;#160; &amp;#160;就是，今天中午吃汉堡，加点葱花加点糖的意思。<br>&amp;#160; &amp;#160; &amp;#160; &amp;#160;我在心里耸耸肩，语气是敷衍的酷。心里预期的效果是我说了一句敷衍的俏皮话，她笑一下，不再追问，大家和和气气的在各自楼层离开电梯。<br>&amp;#160; &amp;#160; &amp;#160; &amp;#160;她笑了起来，哈没想到西藏人民也爱吃炸鸡汉堡啊。她甩着马尾辫在二楼离开了。<br>&amp;#160; &amp;#160; &amp;#160; &amp;#160;我心情愉快，有那么一会，甚至不想酷了。</p>
 ]]></content>
       <categories>
@@ -611,7 +611,7 @@
   </entry>
   <entry>
     <title>关于我和你的梦</title>
-    <url>/2017/12/13/dreaming-about-you-and-me/</url>
+    <url>//dreaming-about-you-and-me.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　自卑的我尾随着你，一言不发。在一个红绿灯前，我们的距离前所未有的接近，你被我不近人情的沉默吓到，低声的啜泣了起来。<br>　　骄傲的我大踏步踩着斑马线从对面走来，把你揽在怀里：“没关系，不要怕，还有我。”，我轻轻的拍打着你的肩膀进行安慰。<br>　　小气的我一把推开了我，对视僵持了一会，“你，你凭什么？”，骄傲的我又是敏感的我，一瞬间思绪万千，遗憾又舍不得的松开了最后搭在你肩头的手。<br>　　轻佻的我向前迈了一步，拾起你垂在身侧的手，又把你正在遮挡眼泪的手拿开，看着你说：“别哭，又不是没有男朋友的人对不对，再哭就不好看了。”。<br>　　怕麻烦的我和迟钝的我停下了在一边的跳山羊游戏，阴阳怪气说：“啧啧啧，还又不是没有男朋友的人，真是不要脸，别人答应你什么了嘛？”“是啊是啊，趁人之危倒是有鼻子有眼的。”，被戳破小心思的我，露出轻佻底下的软弱，提高了嗓子回应，“说什么呢，怎么不要脸了，怎么乘人之危了”，撇下你，一点一点的从你身边走开，想显得不那么刻意，和他们在一边吵起架来。<br>　　漫不经心的我骑着单车在你身旁停下，在你稍微停下抽泣，抬起头注意到我的时候，对你说：“欸，要不然，我带你离开这里。”，骄傲的我听见话音，又重新注意起这边，看着你许久没有回应，害怕我因为陷入含义模糊的等待而暴露出一部分真实的我，跳上单车后座，“算了，她不去，我们去。”。我看了一眼你，又看了看后座，轻快的说了声好，踩起踏板，转眼就消失在路的尽头。<br>　　光芒万丈的你从某个高处跳下，拉起你的手，仰着下巴，对着“我”们说：“我够意思，给你看到软弱的她。你不明白我的意思，还是对我太不够意思？不管了，以后你再也看不到她了。走了，留步。”，你手拉手消失在街头。<br>　　从那个红绿灯向四周辐散，很多个我走了出来，站在阳光底下，有穿橘黄色制服、工人的我，有西装革履、写字楼白领的我，有戴金丝边眼镜、医生的我，有穿着宽松连衣裙推着婴儿车，婴儿车里躺着咬着奶嘴的我的我，有黑种人的我，有白种人的我，有正在咬着自己尾巴转圈圈的我。<br>　　这时，我翻了一个身，把所有的我从身上抖落，从我丑陋的水泥皮肤开始，自顾自的崩溃了起来。</p>
 ]]></content>
       <categories>
@@ -624,7 +624,7 @@
   </entry>
   <entry>
     <title>社畜都爱 GTD</title>
-    <url>/2020/03/22/everyone-love-gtd/</url>
+    <url>//everyone-love-gtd.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="https://s1.ax1x.com/2020/03/21/8hSBZR.jpg"></p>
 <p>　　用了很久 GTD 工具，才知道它的全拼是 Getting Things done（把事情做好），而不是 Get to do（快去做）。虽然意思差不多，但是情绪上好像一个是在昂首挺胸向前迈进，另一个是无可奈何负重前行。看过关于很多关于时间管理的文章，每个作者侧重点和方向不同，都给我带来一定的收获。虽然在用心程度，耕耘深度都不如写文章的大佬们，但还是想写一下自己从接触到使用那么久以来的心得。<br>　　看到题目“社畜都爱 GTD”，可能有朋友就会跳出来这样反驳：我承认我是个社畜，但我不爱 GTD，我甚至不知道 GTD。或是这样反驳：我每天从八百平方米的卧室起来，在高大的落地窗前喝咖啡欣赏清晨的阳光，我不是个社畜，但我也爱 GTD 啊。虽然后面的杠法难度有点高，但这两个争议对于我的题目来说也确实存在，不过不去钻牛角尖，通过这两个争议我们可以延伸出两个问题：</p>
 <blockquote>
@@ -650,7 +650,7 @@
   </entry>
   <entry>
     <title>七月末</title>
-    <url>/2017/07/31/end-of-july/</url>
+    <url>//end-of-july.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　这个月过的很快，以至于是收到某网站会员即将到期的邮件,他才发现已经到月底了。</p>
 <p>　　其实这个月和以往的任何一个月也没多大差别，他想记录的原因在敲下第一个字节的时候就忘记了，不过既然已经开始，也就无所谓为什么开始为什么结束了。</p>
 <p>　　最近他的双手非常不舒服，究其原因，其实也大半是他自食其果——他总是强迫症似的洗手，一开始是因为感觉手上有污垢，后来可能是因为频繁的洗手，手掌变得敏感，开始容易出汗，他又总是因为出汗去洗手。手出汗而频繁洗手；频繁洗手，手敏感出汗。这似乎是一个糟糕的循环，他当然知道，如果要跳出一个循环，只要设定适当的判断，条件达到的时候，循环就可以结束。比如他可以设定当频繁洗手会造成手掌敏感的时候，就停止出汗就洗手的条件跳转，或者当手有污垢的时候并不去洗手，直到手不敏感才允许频繁洗手的循环判断。但即使有正确答案，心里上的坎仍旧是最难跨过的，他实在难以违背自己。在最近的一次洗手，他忽然觉得，其实有些人的生活变得越来越糟糕，犹如陷入了一个坏的循环，大概也是也有无可避免的原因的。</p>
@@ -673,7 +673,7 @@
   </entry>
   <entry>
     <title>进化</title>
-    <url>/2017/09/03/evolution/</url>
+    <url>//evolution.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　他看见了未来。准确的说，应该是感觉到了未来，不知从何时起，这项能力，就像味觉、嗅觉和视觉，一种单独存在的感觉，忽然在他身体里出现了。总是在一个恍惚间，他的脑子里便塞满了许多来自未来的碎片，是许多事物的印象堆积而成的碎片。某条大街上太阳直射在柏油路上的扭曲光线，咖啡店陌生女性清脆的笑声，飘忽不定的云朵，轻盈的风，斑斓的色彩，隔壁明天饭菜里的一道糖醋鲤鱼的醉人香味。有时他会沉浸在这些碎片里，就像发呆，忘记时间，甚至因此还耽误过一两件正经事。</p>
 <blockquote>
 <p>一</p>
@@ -711,7 +711,7 @@
   </entry>
   <entry>
     <title>欸，下午放学前记得帮我把要给前面那个女孩的情书写好</title>
-    <url>/2017/06/24/firstart/</url>
+    <url>//firstart.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><pre><code>  暂无访问权限。
 </code></pre>
 ]]></content>
@@ -724,7 +724,7 @@
   </entry>
   <entry>
     <title>今日文风：东北偏北一级微风</title>
-    <url>/2017/06/26/fourthart/</url>
+    <url>//fourthart.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>&amp;#160; &amp;#160; &amp;#160; &amp;#160;为了让网站看起来充实一点，我最近都想把日记都搬到这上面来写。之前看太宰治不成熟，虽然仍旧是摆弄消极情绪但技巧上却用力过度的处女作，忽然原谅他是看到书里一句，“怀着美好的情感，人往往做出低劣的作品”。真的是让人原谅他到想和他抱头痛哭。这也大概是我最近的状态吧。<br>&amp;#160; &amp;#160; &amp;#160; &amp;#160;我经常看一本书，看久了，写字时的语气就会下意识的模仿作者，特别专心致志的时候，连心里话也下意识的用那个语气。<br>&amp;#160; &amp;#160; &amp;#160; &amp;#160;早以前很喜欢村上春树，写作文总是模仿他，虽然他是男性作家，但情感细腻丰富，要使用大量长短句铺开来写，所以那时候我的作文总是亢长，段落结构大都雷同，先写一点现实生活，最好带点趣味性，再写想到的回忆，也最好带点趣味性，然后再回来写某段路上看到的风景，“某处传来一阵声音，俶尔远逝，风景中有一些不可名状的色彩，太阳在远处的山坡上落下。”大致抓到捉摸不透的感觉就行，然后因为一些难以言喻的感觉，讲个大道理，总结全文。<br>&amp;#160; &amp;#160; &amp;#160; &amp;#160;也不知道是不是运气好，那会有个老师挺喜欢我的。不过因为我自己惫懒，因为这样写一篇作文总是得写三四页，加上词汇量不丰富总喜欢在作文里用“不可名状”“难以言喻”“未及分辨”等含糊的词语，三两次以后被老师发现了，她总是用红笔圈出来，在旁边写，到底是什么形状，到底是什么感觉，到底是什么东西。就总是拖欠作文，甚至后面再没交过作文。记得老师也说过我，忘记我当时是用什么态度和她解释的，打那以后她就不怎么关心我了。<br>&amp;#160; &amp;#160; &amp;#160; &amp;#160;在学村上之前也还学过韩寒和小四，但学的不是很好，有意思的段子和精致的词汇知道的都挺少，虽然后来发现这些都只是留于表面，但那会已经在看其他的书了。现在偶尔还会去看韩寒以前的博客，和以前想的不一样，现在就觉得网上虽然也有很多正义的人对社会现状不满意大肆批判的人，但都带着太多戾气，而且总是时不时的写些煽动性的句子，很不好。一等不好的是，总是“你国你国”的。阴阳怪气。<br>&amp;#160; &amp;#160; &amp;#160; &amp;#160;从村上跳出来，我对琢磨情绪的细微处有什么和描写不可名状的事物感到乏味。开始看王朔王小波冯唐，冯唐比较好学，王朔比较难学，王小波学不来。共同点是都挺敞着的，大开大合，北京大老爷们，冯唐有点不像的地方是书里书外零零碎碎自恋，不讨人喜欢。不过这点又比胡兰成好一点，胡兰成，老派文人，文风一板一眼，有时也像个风流才子，多数时候像个富态乡绅，总拿女孩子为自己做了很多说事，自恋，自恋的不好看，老不正经。当时还同时看了很多书，什么都学了一点，什么也都不像。<br>&amp;#160; &amp;#160; &amp;#160; &amp;#160;后来又很喜欢卡佛，他的文风漫不经心不着边际，结尾总是戛然而止，让人摸不着头脑却留有余味。当时想，这才是真正的直男写作风格啊！冯唐在书里写了那么多性器官也都弱爆了，也都没有卡佛有男子气概好不好？在刻意的模仿了一阵子后相差还是很大。念念不忘，最近在网易音乐看到一句很有卡佛味道的话，</p>
 <blockquote>
 <p>“真正准备离开的人，只会挑一个风和日丽的下午，随意裹上一件外套出门，再也不会回来。真正要走的人是不会说再见的 ​。” </p>
@@ -740,7 +740,7 @@
   </entry>
   <entry>
     <title>和轮廓渐现的黑暗告别</title>
-    <url>/2018/07/19/farewell-to-the-darkness/</url>
+    <url>//farewell-to-the-darkness.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="《刺杀骑士团长》"><a href="#《刺杀骑士团长》" class="headerlink" title="《刺杀骑士团长》"></a>《刺杀骑士团长》</h2><div align = right> [村上春树](https://www.amazon.cn/dp/B079FLYB49/ref=sr_1_1?ie=UTF8&qid=1532067759&sr=8-1&keywords=%E5%88%BA%E6%9D%80%E9%AA%91%E5%A3%AB%E5%9B%A2%E9%95%BF) </div><div align = right> 10 条标注 </div> 
 
 
@@ -765,7 +765,7 @@
   </entry>
   <entry>
     <title>地久天长</title>
-    <url>/2019/05/04/forever-and-solongmyson/</url>
+    <url>//forever-and-solongmyson.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　前段时间去看了王小帅的电影《地久天长》，还不错，但低于期待值。本以为剧情片既然有剪成三小时时长的底气，也应该用有可能输于但不输很多同样时长像《牯岭街少年杀人事件》、《美国往事》等电影的精彩，但很显然电影只具备和他们同样的长度，并没有同样的深度。<br>　　电影前半段的起手很好，包括互文的叙事中出现两次抱着溺水的儿子冲向医院，堕胎争议时王景春被推靠在贴着红色主题壁画墙上无力的垂下身子，或隐晦或明显的在表达导演的一些小心思，有意思也可以从这些细节看出一个导演的基本素养。在这种铺垫下，剧情最后三分之一的绝症死亡，旧友重逢，游子归来的桥段就有些落于俗套，强行追求大团圆结局，给人有一种他像在迎合什么，虽然压中了符合普罗大众价值观的主题，却没有很好的压中符合自己本身的主题。<br>　　就这点而言，韩寒的新片《飞驰人生》，虽然有整场都在强行幽默，以及沈腾老师上蹿下跳费老大劲也没把他这个角色人物圆回来的尴尬，但在结局选择让车冲出悬崖这段，还是有些不落于熟套的让人眼前一亮。可能就像他写的书，短小精悍，总能在点题的时候给人记忆的点。<br>　　而那个小孩送他们夫妇两回去在老房子道歉时，插入的回放是早已原谅的剧情，从逻辑上很难与王景春夫妇背井离乡，和朋友断绝来往这段自洽起来，就好像口是心非，你说你已经原谅我们儿子了，还叫我们不要在他面前提这事，可是为什么又要离开我们，去那么远，而且再也没有音信。<br>　　综上，大概给个三点五分，情真意切是不错，但最后又有些耍小聪明似得把本来突出的特点给平衡回去了。<br>　　看完电影又过了几天，恰好看好王小波也有一本书叫做《地久天长》，是他早期的短篇小说集，说是集子，也就两个故事，还有一篇是他的朋友回忆他的，因为感觉他朋友回忆时态度不那么诚恳，略过不提。主要讲《绿毛水怪》和《地久天长》。<br>　　比起很早之前看《黄金时代》觉得晦涩难懂，看这本的时候，很容易就因为里面的情节产生共鸣，心潮涌动，《绿毛水怪》讲的是“我”和青梅竹马的女孩的故事，虽然剧情放在今天看可能只是一个男女主角因缘巧合彼此错过抱憾一生的烂俗故事。但不同的是，这个故事他是借着书中人的口述说了，可能这种处理本身就是对预期的质疑的回应。除此之外在剧情的设置上，结尾女主角变成了绿毛水怪，等候男主角，男主角未履约，以此结局。也为故事增添玄奇色彩。而《地久天长》，毋庸置疑的，他是比《绿毛水怪》更出色的故事，故事里我、大许和小红三人像友情又像爱情的关系，真挚浪漫到近乎乌托邦，虽然美好到不真实，但我愿意相信，这世上存在着这样一种关系，超越肉体和性，没有占有欲和嫉妒存在，单只是纯粹的爱。<br>　　《地久天长》的最后，小红死了。我想小波先生这样安排故事结局的目的，应该不仅仅是为了让故事有个结局，可能还以此想说一点其他的，比如美好总是短暂易碎的，比如悲剧将人生的有价值的东西毁灭给人看。他安排了小红的死亡，看上去像是一种对美好的扼杀，但我更愿意理解成是一种保存。这种保存不会因为来日方长而变质，还会因为日子渐渐过去在回忆里耀耀生辉。另外藉由小红的死，我又想起王朔的《空中小姐》，里面的女主人公最后也死了，也同样也在女主角爱到最真挚纯粹的时刻死去。他们的这种一致，让我觉得似乎对于英雄易老，美人迟暮的担忧存在于所有同阶段的年轻人心中。当然也不排除这只是一种普遍的戏剧技巧，就像欧里庇得斯戏剧中的解围之神，功夫里的如来神掌，天龙八部里的扫地僧。<br>　　最后放一段《地久天长》里我印象深刻的描述：</p>
 <blockquote>
 <p>　　人可以在那么年轻时就那么美，那么成熟，那么可爱。她常说她喜欢一切好人。她还说她根本分不清友谊和爱的界限在哪里。我回想起来，她绝对温存，绝对可爱，生机勃勃，全无畏惧而且自信。我从她身上感到一种永存的精神，超过平庸生活里的一切。 你不管叫别人做什么事，不光是为了他好，还要让他乐意。这是爱的艺术。</p>
@@ -783,7 +783,7 @@
   </entry>
   <entry>
     <title>黑帮老大和荔枝</title>
-    <url>/2020/02/22/gangster-and-litchi/</url>
+    <url>//gangster-and-litchi.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　疫情蔓延的春天，待在家看了几本书，有一本是马家辉先生写的《龙头凤尾》，讲的是一个在动荡年代里一个香港黑帮龙头“南爷”的故事，和传统的江湖故事，历史演义不同，这本书没有在争斗和时局多费笔墨，只是把这些当做推动人物活动的一个必要的背景，更多的是关注南爷和他同性恋人的纠缠和他本身的心理活动。</p>
 <p>　　起初这本书吸引我，是因为开头便知故事主角陆北才会当上后面的“南爷”，所以对南爷何以成为南爷，故事后续发展可能藏着的风波诡谲，存着微微雀跃的期待，有着像《新世界》的电影剧情的想象。</p>
 <p>　　看到一半，故事虽然没像我想象的一样发展，但江湖毕竟是江湖，波涛翻滚前零星半点的浪花——陆北才当兵无意窥知兄弟的秘密差点被开瓤送命；投奔弟弟入了洪门做马仔；在凌晨雾气弥漫的时候将替死鬼沉湖；开创黄赌毒代金券玩法，便足以满足乏味时期的我的猎奇心情。而到后半部，看到南爷对鬼佬张迪臣也不只是因为贪昧肉体欢娱，而是把他放在自己心里反复想念，到张迪臣入狱，陆北才为他奔走操心，得知张迪臣可能死亡的消息，他接近崩溃，又引发了我对他们所发生的一切所持态度的思考。</p>
@@ -804,7 +804,7 @@
   </entry>
   <entry>
     <title>有关熵减-时间旅行的冷门问题</title>
-    <url>/2020/09/20/frequently-asked-questions-about-time-travel-by-entropy-reduction/</url>
+    <url>//frequently-asked-questions-about-time-travel-by-entropy-reduction.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="https://i.loli.net/2020/09/20/xD3d8Jgfup2WEKF.jpg"></p>
 <!--<img align="center" src="https://i.loli.net/2020/09/20/xD3d8Jgfup2WEKF.jpg" width=375px/>-->
 
@@ -857,7 +857,7 @@
   </entry>
   <entry>
     <title>Git - Submodule 使用简单教程</title>
-    <url>/2020/03/14/git-submodule/</url>
+    <url>//git-submodule.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　最近在项目中使用了 <code>Git Submodule</code> 的功能，好处是如果是自己开发的封装库，比较方便调试，push 时可以同时上传项目和库的修改，别人通过主仓库地址下载工程的时候速度也会快上一些。<br>　　<code>Git Submodule</code> 的使用可以通过终端命令来操作（<a href="https://tnie.github.io/2018/04/02/git_submodule/">Git Submoudle 使用完整教程</a>），或者通过 <code>Git</code> 第三方可视化客户端直接操作。本文展示的是通过 <code>Git</code> 第三方客户端 Sourcetree 来实现这个功能的。
 　　</p>
 <h2 id="一、通过-Sourcetree-使用-Git-Submodule"><a href="#一、通过-Sourcetree-使用-Git-Submodule" class="headerlink" title="一、通过 Sourcetree 使用 Git Submodule"></a>一、通过 Sourcetree 使用 Git Submodule</h2><p>1.首先下载一个你想要添加 Git Submodule 功能的主仓库。<br>这里以我用来学习的仓库为例子<br><img src="https://s1.ax1x.com/2020/03/14/8MjX4S.jpg"><br>　　<br>2.在下载好的仓库左侧菜单栏，右键点击 SUMODULES，在弹出的菜单中选中“Add Sumodelues”<br><img src="https://s1.ax1x.com/2020/03/14/8MjON8.jpg"></p>
@@ -885,7 +885,7 @@
   </entry>
   <entry>
     <title>Here is Kai&#39;s World</title>
-    <url>/2017/06/23/hello-edison-s-world/</url>
+    <url>//hello-edison-s-world.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>&amp;#160; &amp;#160; &amp;#160; &amp;#160;哈哈哈我终于解决了部署时出现的 cannot find module、local hexo not found in finder 等问题用<code>github</code>仓库做服务器弄好了基于<code>Node.js</code>的静态博客<code>Hexo</code>我的独立博客了不过，会不会写东西就不知道喽~~~~</p>
 
         <div id="aplayer-xuEulZWp" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
@@ -919,7 +919,7 @@
   </entry>
   <entry>
     <title>上帝会掷几次骰子</title>
-    <url>/2020/04/04/god-will-rolls-the-dice-several-times/</url>
+    <url>//god-will-rolls-the-dice-several-times.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　看了一本图说量子物理学史的书，《上帝的骰子》，书名来自于爱因斯坦的一句话：上帝不会掷骰子。去年也有一本书很火叫《量子物理史話：上帝掷骰子嗎？》，不说大家为什么都一窝蜂的抓着骰子不放，从这些现象我们可以看出，量子的不确定性的迷人魅力让许多人趋之如骛。<br>　　《上帝的骰子》从量子物理的诞生引发争端开始，到贝尔不等式宣告近代量子物理的确立结束，中间穿插着近代物理学家的轶事和量子力学的知识点，基于人物引出理论，由时间线描述整个量子力学的演化过程，结构上还算井井有条，错落有致。但由于是一本入门书，不能讲的太深，这点就先天不足，然后所采取的叙述方式是用漫画这种形式，虽然生动形象，但总觉得有注水的嫌疑。前面讲量子物理学发展时还好，因为有干货，以物理学家对话的小剧场形式注水，勉强可以接受。但最后用了一整个大章用图解的形式来讲量子物理的应用，在我看来虽然不是画蛇添足，但也是一种可以让人一眼看穿的、并不高明的小聪明。<br>　　常言与人交往，切忌交浅言深。我补充一句，写读书评论，切忌学浅言深。回到内容本身，关于量子力学和量子力学史，可以让我评论的其实不多，限于认识，脱口而出的只有——牛逼，当贝尔不等式终结一切，我囫囵吃进几个认识：量子是纠缠的，宇宙是由无数个连续的不确定性所组成的。除此之外还有什么呢？在微观上，当代的技已尽于此，在宏观上，人类逃离地心引力仍然很费劲。对宇宙的认识除了依靠物理学家们的研究，作为时代里微不足道注脚的普通人，似乎只能依靠想象来填充关于宇宙的其他细枝末节，如此，宇宙、量子等等的一切对于我们普通人的意义在哪？<br>　　我想每个人都有自己的答案，虽然我也可以像之前一样，一字一句把我心里的答案通过推导的方式，摆出来给人看。但对于宇宙的答案，我想不给比给要好的多，不是因为害怕浅薄，浅薄没什么好怕的。只是觉得唯有无限才能回答无限。</p>
 ]]></content>
       <categories>
@@ -932,7 +932,7 @@
   </entry>
   <entry>
     <title>喘口气上来</title>
-    <url>/2018/12/31/happy-new-year-2019/</url>
+    <url>//happy-new-year-2019.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　问朋友今年用什么字总结，他说，一。意思大概是一年都在原地踏步，年头年尾的状态没什么区别。我没有回他。<br>　　今年换了一份新的工作，状况比去年的好上很多，去年没来得及和朋友说的展望词，今年恰好可以作为总结——“木”：总算是从原来的处境脱身出来，另外也存了一些小钱。比起工作和休息，我反倒喜欢找工作，坐着公交地铁在城市里穿来穿去的感觉，固然傍晚回家会有点风尘仆仆的疲惫，甚至某天面试很糟糕的时候，看着车水马龙的城市，想到万家灯火，何处有我那盏，会有点泄气。但那时候觉得很自由，而且目的是为了找工作，并不是漫无目的的奔波，自由，且自由得很踏实。<br>　　和一个女性朋友说起我找工作就当观光的事，她说我很乐观。我收下了她的称赞，也很乐意把我好的一面给她看，她离我很远，那会找工作，蓦然间看到一个很像她的人，便和她说了一声， 还说了电影里看到和她气质很像的人，后来我们有一阵子联系很频繁，说了很多琐事，互相交换了烦恼，我忘记，我们说了那么多，我有没有告诉她我很想她。再后来就没有联系了。<br>　　疏于和旧日朋友联系这大概是我今年不好的变化吧。到现在我也还没问我那位朋友 2019 年的展望词是什么。另一位朋友常打电话过来聊天，我也大部分时间都以一种不耐烦，拒绝配合的态度应付，当然一部分也有他太啰嗦的缘故，但我想按着我去年心态好的时候，大概会以一种朋友在胡闹，我除了原谅还能有什么办法的态度和他愉快的聊下去。和他有一段以最近书店里出的新书都没法看，老书才是经典的观点开始的对话，后面我说他是不是有些焦虑，对自己或者出来以后有很多怀才不遇的感慨，他犹豫着点头说是。现在回过头去看，他变得啰嗦是因为焦虑的缘故，我对人对事的不耐烦又何尝不是。<br>　　找到工作后生活就规律了很多，新公司的同事们都很友好，也在去年的基础上学了点新的东西。和公司旅游的时候惊讶的发现上司是个塞尔达粉，后来我们就交换游戏机玩，n3ds 和 ps4 让我废寝忘食。上半年的学习计划到了下半年流产也大半是因为这个原因。夏天的时候去学了游泳，从在心里说服自己克服恐惧，到在水里站起来还能游一个来回，整个过程让我感觉很有成就感。<br>　　今年看的书没有去年多，去电影院倒是比去年多多了，《江湖儿女》里有个地方让我印象深刻，斌哥还是出租车公司老总的时候，走路上被小年轻用钢管敲断了小腿，疼半天只是冲车子消失的地方喊了句，不至于吧。但后面中风偏瘫的时候却因为小弟的小弟先上主食后上菜说他没有规矩而大发雷霆把桌子翻了。境遇让人的心态变好又变坏，之前有些悲观，把自己个性签名写，心由境生。现在看起来像个黑色幽默——不由得想起我对自己其他的悲观的预见性结论了。<br>　　今年作为从去年的困境脱离的过渡期，好和不好都有一些，勉强给自己的表现打个及格分。来年的展望词是林，希望明年可以存更多的钱，多吃蔬菜，减轻体重，可以有“阵阵晚风吹动着松涛，只有青山藏在白云间”的心态，可以境由心生。
 　
 　　
@@ -949,7 +949,7 @@
   </entry>
   <entry>
     <title>我不能留在这里爱你</title>
-    <url>/2020/03/08/i-can&#39;t-stay-here-to-love-you/</url>
+    <url>//i-can&#39;t-stay-here-to-love-you.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
 <p>每当我远离日常生活<br>就会被日常生活的场景感动<br>长椅上的老人他神色安详<br>两个骑单车的少年在树下相遇<br>停车说笑，相互点烟<br>恋人们手拉手穿过人行横道<br>那一刻的依恋是真心<br>每当我被这日常生活的场景感动<br>就忍不住要狠心逃开</p>
 </blockquote>
@@ -967,7 +967,7 @@
   </entry>
   <entry>
     <title>如何解决网站访问时弹出“您要访问的网站包含恶意软件”的页面</title>
-    <url>/2019/11/07/how-to-fix-warnings-about-unsafe-sites/</url>
+    <url>//how-to-fix-warnings-about-unsafe-sites.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　前一阵子公司网站的访问出了一点问题，每次访问的时候都会弹出一个警告页面，类似于这种<img src="https://s2.ax1x.com/2019/11/07/MACQ0A.png"><br>　　由于之前也没碰过这种问题，只能简单粗暴的归纳出两个方向：<br>　　１.可能是域名原因<br>　　２.可能是服务器原因<br>　　后来问题已经解决的时候看网上分享的资料知道还有一种可能就是，网站本身没问题，之所以出现这个警告页面是因为被运营商 HTTP 或 DNS 劫持了。<br>　　这里刷一条给我们提供域名服务的服务商——<a href="http://now.cn/">时代互联</a>的差评，在解决这个问题的过程中，联系我们账号底下的客服和电话客服，大概联系了不下十次，都没能解决问题，其中有几次，不仅没能帮我解决问题，还用一种推卸责任和不耐烦的态度把我怼的差点憋不住气的跳脚。<br>　　不仅态度有问题，而且他们的工作人员对自己那块的业务好像也不太熟练。因为怀疑网站网站报警告问题，可能和域名服务商的服务可能存在某些问题，所以预期的解决方案中也有一项是迁移域名，迁移域名的话需要通过手机或者邮箱验证，而手机和邮箱这些信息，由于公司人员变动，需要修改。基于这点我问他们工作人员，在修改信息页面中的一个需要勾选的选项，“修改信息之后的 <strong>720</strong> 天内不能迁移域名”，和接我电话的工作人员再三确认，是不是必须勾选，不勾选会不会有问题，告知我可以不用勾选，并且确认不勾选不会造成什么问题。结果最后我确认修改信息的时候，发现那个选项不勾选竟然不能到下一步。。。<br>　　回归正题，当域名问题不能再域名服务商那边解决时，我开始尝试定位到底是域名还是服务器的问题，具体方式：<br>　　1.把我们的域名指向到另一个服务器，如果仍然报警告，那就是域名问题<br>　　2.用其他的域名指向当前服务器，如果仍然报警告，那就是服务器问题<br>　　测试结果出来后，基本可以定位是域名问题，然后让后台的同事帮了一下忙，安装了一个在腾讯云申请的免费 SSL 证书（这个好像也能解决上述所说的未发现的被劫持问题），但仍然无效，打电话给域名服务商，他说肯定是 SSL 证书不起作用或者是根本就没用，没办法，我只好追着皮球到了腾讯云客服人员那，幸运的是，大厂不愧为大厂，服务完全没有可比性，只是提交了怀疑 SSL 证书可能没生效的工单，对方就帮我检测了我的网站是否有异常，以及用不同浏览器测试，得出 QQ 浏览器访问正常，可能需要向谷歌站长平台提供申述。不过因为在此之前，我就在一个网站申述平台提了一个申述：<a href="https://www.stopbadware.org/">StopBadware</a>，因为申述通过但网站访问仍然异常。所以带着将信将疑的态度，又重新激活腾讯问题的工单，然后过了一个上午就接到腾讯云平台技术人员的电话，非常耐心的给我解释了他们所做的所有尝试，最后得出结果，只能去<a href="https://www.google.com/webmasters/tools/home?hl=zh-CN">谷歌站长平台</a>注册，申述试试看了。<br>　　在谷歌站长平台添加了网站之后，立马有个警告消息提醒我，我们公司的网站存在一些问题，不加思索，我反手就是一个申述，第二天收到邮件，有点出乎意料，竟然没有通过，仔细看邮件描述，推测问题可能出在我们的网站因为提供了很多安卓 apk 的下载，而有一部分 apk 之前在 Google 应用市场因为添加了<strong>有风险的广告 SDK 被下架了</strong>，然后谷歌站长平台也默认这些 apk 存在一定风险。再次提交申述之前，让安卓的同事提供了去除广告 SDK 的 apk 替换掉服务器里的文件，果然，第二天收到邮件，审核通过了。<br>　　<img src="https://s2.ax1x.com/2019/11/07/MAClTI.jpg"><br>　　这次网站申述的经历给我有两个体会，一个是，只要死磕到底，就一定能让周润发翻译出什么他妈的叫他妈的惊喜。另一个是互联网服务一定要选大厂，盘靓活好态度也呱呱叫。</p>
 ]]></content>
       <categories>
@@ -981,7 +981,7 @@
   </entry>
   <entry>
     <title>春末即兴</title>
-    <url>/2018/04/09/impromptu-late-spring/</url>
+    <url>//impromptu-late-spring.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　穿了好几个礼拜的短袖，以为已经到夏天了，这几天的气温骤降才发现春天还没有完全离场，它在这个以小长假开头的四月用尽最后一点力气试图让人们感知到它的存在，它的顽固让街上出现短袖和羽绒袄同时存在的矛盾又喜感的场面，又有大风把陌生路人的一板正经吹走——他们似乎也感到被风吹得七零八散的头发看起来很喜感，抢在别人取笑他们之前先绷不住笑了。城市因为天气的无常，让久居里面的人也忽然的对它感到一丝陌生。像被邀请到一场莫名其妙的派对，人们因为摸不着头脑，而主动向人释放初来乍到的善意，整座城市，一派和气。<br>　　春天即将过去，春天我都干了些什么？似乎什么都没干，但掰开揉碎似乎也有那么一些事情，和菩萨求了支上上签，和几乎不打算联系的朋友完成继初次认识以后的第二次关系破冰，换了份工作，和一个网友恢复通信，认识了一个很像老朋友的新朋友，看了几本书和几场电影。
 　　</p>
 <h1 id="一、和善男信女们一起"><a href="#一、和善男信女们一起" class="headerlink" title="一、和善男信女们一起"></a>一、和善男信女们一起</h1><p>　　<br>　　在旺季的大雄宝殿里，你会时刻有一种恍惚感，不只是因为香火熏着你的眼睛，而是整个大殿，被缭绕烟雾，绰绰人影和闪烁的烛火交相辉映，会让你有一丝远离人世的超脱感涌上心头，但就一会功夫，大殿外的鞭炮和所有善男信女们祈愿的声音又会让你知道，此刻，正是你离人间烟火距离最近又最远的时候。<br>　　和家人坐缆车上山，缆车在离山顶还有一段距离的位置停下。虽然现代科技让我们在朝圣的路上超了近道，但毕竟是去看菩萨，最后一段的“心诚则灵”，都要全凭自己。<br>　　去大殿的路上经过一座小庙，左右两边各立着两个尊者。表妹问我，哥哥，这些是什么神仙，他们都拜，我们要不要拜啊？我看了看我妈和我小姨在那双手合十念念有词，十分庄重。就低头和她说，不用了，这里都是些小角色，我们上山拜大个的。表妹哈哈大笑，拿着我的话和大人们说，他们也都会心一笑。<br>　　到了山顶，进殿点香，因为要给好多菩萨上香，每个人手里都拿着五六十根香，所以点香的时候很容易把整把香烧着，有的人看火灭不掉就把所有香丢掉，地上七零八散的散落了好多香，旁边有道士在劝阻，不用点那么多，可以去里面再点，每个人点三根就好了。但拦不住虔诚到红了眼的人们。我把香上的火刚扇灭，看我妈的香也在起火就把她的香拿了过来，走到一边，试图也把它弄灭。<br>　　拜菩萨的顺序，长辈们心里都有底，知道哪位菩萨要先来，哪位菩萨可以暂时放在一边，而到最后，怎么也不会冷落任何一位。我们小辈就随波逐流，见佛就拜。见到的有灶神，有弥勒佛，有送子送财送姻缘菩萨，有天王罗汉洋洋洒洒数十座，有老相识也有新面孔，我都没有厚此薄彼，迎面赶上，纳头便拜，偶尔福至心灵，就在心里念上一句，希望明年能如何如何。不过起身的时候总也免不了在心里嘀咕上一句，到底有没有菩萨？<br>　　最后长辈们让我们自己去找菩萨求根签，求签是怎么回事呢？大雄宝殿的中心位置，有很多蒲团，围绕着蒲团散落了一地的签，人们随手拿起一根，再拿两个贝壳形状的竹片往地上投掷，如果三次都是一正一反就说明这根签是给你的。听我妈说明怎么求签后，我算了一下，投掷一次出现正反的可能性大概是三分之一，投掷两次都是正反的可能性大概是九分之一，投掷三次都出现正反的可能性大概是二十七分之一。也就是说，如果说宗教是人们对生活、世界乃至宇宙里未知部分的一种推测结果，满天神佛就可能是那散落在从零到一里面的无限个概率，二十七分之一，这个概率代表了其中一位在派签的菩萨。这真是一个忙碌的概率。<br>　　在抽签大厅放眼望去，七八十个人头不断起伏涌动，人们快速的捡起继而投掷竹片，发现竹片两个面都一样就立马丢掉手中的签低头再捡一根，那种有些火急火燎的神态和盲目感让这些信徒看起来像在牌桌上一掷千金的赌徒，我想如果能听见人的心里话，他们里面大部分人可能都在说：快给我快给我，快给我啊。<br>　　我找了一个空地跪下， 挑了两块顺眼的竹片，慢条斯理的拿起一根签，投掷，正反，投掷，正反，投掷，正正。去你妈的。<br>　　事实证明我一开始的有条不紊，只是我刻意的想和周围人区别开来的一点做无用功，在久没有抽到签后，我也渐渐的和周围人一个神态，只是机械盲目的从地上捡签，投掷竹片，心里念，快给我快给我，快给我啊。直到有些意兴阑珊的时候，终于抽到了那根属于我的签。<br>　　然后根据签上的数字拿签文，再去找道士解签，老道士慈眉善目，他按签文上的字和我们说了一些模棱两可的话，在某个停顿间，我妈心照不宣在他面前的抽屉里放下香油钱。<br>　　吃了顿味道尚可的斋饭我们就下山了。坐在缆车上，我又回头看了看山顶的大雄宝殿，它仍旧被烟雾环绕着，没有了庙里喧嚣的声音，从远处看，它也真有几分仙家福地的气象。回过神来，忽然觉得，我们和菩萨离得最近的时候，大概是在那座小庙里开菩萨玩笑的时候。
@@ -1003,7 +1003,7 @@
   </entry>
   <entry>
     <title>傍晚</title>
-    <url>/2017/11/15/in-the-eveing/</url>
+    <url>//in-the-eveing.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
 <p>初亏</p>
 </blockquote>
@@ -1035,7 +1035,7 @@
   </entry>
   <entry>
     <title>iOS 自动化打包上传 AppleStore、fir.im，并发邮件通知测试人员</title>
-    <url>/2020/10/19/ios-automated-packaging-complicated-by-mail/</url>
+    <url>//ios-automated-packaging-complicated-by-mail.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="https://i.loli.net/2020/10/19/XKmLbdSTGNoWYZl.png" alt="Exp-w1832"></p>
 <p>从上图可以看出使用自动化出包，可以优化掉好几个需要人工介入的步骤，优化开发流程，节省开发者的时间。</p>
 <p>自动打包的原理概不累述了，测试过程中如果有问题，可以用终端 <code>cd</code> 到项目目录，单独执行出问题的语句，再把错误的输出丢到搜索引擎，只要相信你遇到的问题别人肯定也会遇到，就一定能得到解决。如果有例外，那我相信——能弄出史无前例的问题的你，一定也厉害到可以史无前例的予以解决~当然也可以试着给我留言，说不定三个臭皮匠果真赛过诸葛亮。</p>
@@ -1077,7 +1077,7 @@
   </entry>
   <entry>
     <title>iOS开发里的那些散手（一）</title>
-    <url>/2017/07/28/ios-develop-tips-1/</url>
+    <url>//ios-develop-tips-1.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="解决低版本Xcode不支持高版本iOS真机调试问题"><a href="#解决低版本Xcode不支持高版本iOS真机调试问题" class="headerlink" title="解决低版本Xcode不支持高版本iOS真机调试问题"></a>解决低版本Xcode不支持高版本iOS真机调试问题</h2><p>在真机运行程序后输出如下错误</p>
 <figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">The version of iOS on “xxx xxx” does not match any of the versions of iOS supported <span class="keyword">for</span> development with <span class="variable language_">this</span> installation of the iOS SDK. Please restore the device to a version of the iOS listed below, or update to the latest version of the iOS.</span><br></pre></td></tr></table></figure>
 <p>主要原因是在调试前我将iOS SDK升级到了9.3版本，而我的Xcode是7.3版本的，只支持到9.2的SDK。<br>其实每次iOS SDK版本升级都会遇到相同的问题，之前有在网上找过，除了重新安装Xcode外就是下载新的Xcode将里面的SDK复制到旧的Xcode中。<br>由于之前我是黑苹果，不能升级系统以更新<code>Xcode</code>到最新版，所以只能谷歌一下自己DIY了。</p>
@@ -1111,7 +1111,7 @@
   </entry>
   <entry>
     <title>iOS 开发里的那些散手（二）</title>
-    <url>/2018/06/14/ios-develop-tips-2/</url>
+    <url>//ios-develop-tips-2.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>*　　一直有把 iOS 开发里用到的一些边边角角的小技巧写成一个集合的想法，但一直没有付诸实践。刚好备忘录里的零零碎碎记的东西够凑成一篇东西来，就把之前的一篇 <a href="http://www.kaaaaai.cn/eleventh">OC 笔记 - 一些小技巧和问题处理的集合</a> 给改了名，加上现在的第二篇，打算以后写成一个系列。长路漫漫，与诸君共勉。*</p>
 <h2 id="一、打印bool值"><a href="#一、打印bool值" class="headerlink" title="一、打印bool值"></a>一、打印bool值</h2><figure class="highlight objectivec"><figcaption><span>Objective-C</span></figcaption><table><tr><td class="code"><pre><span class="line">Bool _YESorNO = <span class="literal">YES</span>;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@&quot;BOOL--YESorNO--&gt;%@&quot;</span>,_YESorNO?<span class="string">@&quot;YES&quot;</span>:<span class="string">@&quot;NO&quot;</span>);</span><br></pre></td></tr></table></figure>
 
@@ -1153,7 +1153,7 @@
   </entry>
   <entry>
     <title>iOS - 使用 fastlane snapshot 自动化截图</title>
-    <url>/2019/09/16/ios-fastlane-snapshot/</url>
+    <url>//ios-fastlane-snapshot.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="First-at-all"><a href="#First-at-all" class="headerlink" title="First at all"></a>First at all</h2><p>　　首先先介绍一下 fastlane 是干嘛用的：</p>
 <blockquote>
 <p>Fastlane 是一套使用 Ruby 写的自动化工具集，旨在简化 Android 和 iOS 的部署过程，自动化你的工作流。它可以简化一些乏味、单调、重复的工作，像截图、代码签名以及发布 App。</p>
@@ -1199,7 +1199,7 @@
   </entry>
   <entry>
     <title>iOS - HMAC 加密算法和一个 MD5 加密的问题</title>
-    <url>/2020/09/06/ios-hmac-encryption-and-an-md5-problem/</url>
+    <url>//ios-hmac-encryption-and-an-md5-problem.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="最近阅读"><a href="#最近阅读" class="headerlink" title="最近阅读"></a>最近阅读</h2><ul>
 <li><a href="https://swift.gg/2016/06/17/when-to-use-mutating-functions-in-swift-structs/">Swift 结构体何时使用 mutating 函数</a></li>
 <li><a href="https://juejin.im/post/6862898534857834510">2020 年疫情之下 iOS 面试题总结篇</a></li>
@@ -1244,7 +1244,7 @@
   </entry>
   <entry>
     <title>iOS 端豆瓣开源许可提到的库</title>
-    <url>/2020/10/31/ios-douban-open-source-license-mentioned-in-the-library/</url>
+    <url>//ios-douban-open-source-license-mentioned-in-the-library.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>在网上看到一篇<a href="https://juejin.im/post/6844903749949865991">豆瓣开源许可-android</a>的文章，列举了一些 <code>Android</code> 端豆瓣开源许可中所提到的第三方框架，出于好奇心理在网上搜索了一下想看下有没有 <code>iOS</code> 版本。结果是没有的，于是索性就自己动手整理了一份：</p>
 <ol>
 <li><a href="https://github.com/nanopb/nanopb">nanopb &#x2F; nanopb：具有较小代码量的协议缓冲区</a></li>
@@ -1319,7 +1319,7 @@
   </entry>
   <entry>
     <title>iOS - 类、属性、方法、枚举等命名规则和注释规范</title>
-    <url>/2019/10/31/ios-naming-rules-and-annotation-specifications/</url>
+    <url>//ios-naming-rules-and-annotation-specifications.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>iOS开发者规范:以苹果开发者中心规范(<a href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingBasics.html#//apple_ref/doc/uid/20001281-BBCHBFAH">Coding Guidelines for Cocoa</a>)为标准，添加部分规范。</p>
 <blockquote>
 <p>iOS 命名两大原则是:可读性高和防止命名冲突(通过加前缀来保证). Objective-C 的命名通常都比较长, 名称遵循<strong>驼峰式命名法</strong>. 一个好的命名标准很简单, 就是做到在开发者一看到名字时, 就能够懂得它的含义和使用方法. 另外, 每个模块都要加上自己的前缀, 前缀在编程接口中非常重要, 可以区分软件的功能范畴并防止不同文件或者类之间命名发生冲突, 比如相册模块(PhotoGallery)的代码都以 PG 作为前缀: PGAlbumViewController, PGDataManager.</p>
@@ -1419,7 +1419,7 @@
   </entry>
   <entry>
     <title>iOS - 初探符号断点调试</title>
-    <url>/2020/02/29/ios-preliminary-study-of-symbolic-breakpoints/</url>
+    <url>//ios-preliminary-study-of-symbolic-breakpoints.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><em>在调试一个项目中包含库工程的工程时发现，平常在代码视图左侧点击添加断点调试，忽然发现不起作用了，然后尝试使用了一些不同的方法去解决，虽然最后仍然是通过开关机，重启 Xcode 的方式解决问题的，但那些尝试也在过程中期起到了排除问题的作用，记录一下其中用到的符号断点的用法。</em></p>
 <h2 id="一、介绍"><a href="#一、介绍" class="headerlink" title="一、介绍"></a>一、介绍</h2><p>Symbolic Breakpoint 为符号断点，可以针对某一个方法(函数)设置断点并暂停执行；有时候，我们并不清楚会在什么情况下调用某一个函数，那我们可以通过符号断点来跟踪获取调用该函数的程序堆栈。</p>
 <h2 id="二、使用方法"><a href="#二、使用方法" class="headerlink" title="二、使用方法"></a>二、使用方法</h2><p>例：跟踪应用程序的启动函数。<br>第一步：左侧导航视图切换到“Breakpoint Navigator”<br><img src="https://s2.ax1x.com/2020/02/29/3s1QNF.jpg"></p>
@@ -1451,7 +1451,7 @@
   </entry>
   <entry>
     <title>iOS - 私有仓库通过 CocoaPods 引入工程</title>
-    <url>/2020/02/15/ios-private-repository-introduces-engineering-through-cocoapods/</url>
+    <url>//ios-private-repository-introduces-engineering-through-cocoapods.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="Spec-Repo-配置仓库-的概念"><a href="#Spec-Repo-配置仓库-的概念" class="headerlink" title="Spec Repo(配置仓库)的概念"></a>Spec Repo(配置仓库)的概念</h2><p>　　<code>CocoaPods</code> 对于一名 <code>iOS</code> 开发来说再熟悉不过了，它的工作原理就是在 <code>GitHub</code> 上面有个 <code>Spec Repo</code>，它里面包括成千上万的后缀名为 <code>.podspec</code> 的文件。我们在项目中集成第三方库(如 <code>SDWebImage</code> )的时候其实就是通过 <code>CocoaPods</code>的 <code>Spec Repo</code> 去找到我们需要的开源项目的 <code>.podspec</code> 文件，然后在 <code>.podspec</code> 文件中有具体的源码地址(放具体代码的地方)，根据这个地址去下载代码。</p>
 <p>　　按照上面 <code>Spec Repo</code> 的理解，我们如果能自己创建一个类似 <code>CocoaPods</code> 的 <code>Spec Repo</code>，然后把我们私有的公共组件的 <code>.podspec</code> 文件放在里面，然后集成的时候让 <code>CocoaPods</code> 帮我们集成那我们就能达到目的，就可以建立私有pod库了。</p>
 <p>　　一般项目经理都会把代码仓库和配置仓库都建好，这时候我们只需要把 <code>Spec Repo</code> 加到本地就行了。(注意：需要管理员将你的账号加到里边，有访问权限并且有修改权限)。
@@ -1504,7 +1504,7 @@
   </entry>
   <entry>
     <title>iOS - Runtime 学习</title>
-    <url>/2019/08/16/ios-runtime-study/</url>
+    <url>//ios-runtime-study.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>　　在维护一个项目时碰见一个问题，调用了一个方法后不起作用，这种问题一般有两个解决思路，一个是看方法有没有起作用，另一个是看是不是其他的方法打断了这个方法，比如设置 UIButton 的隐藏，但在另一个地方，又把它设置成显示了。这种问题在工程里通过调试代码一般都很好解决。<br>　　但是当它发生在我调用了一个 SDK 方法不起作用时，按照上文的思路，一查看是否是 SDK 方法的问题，这个除了向 SDK 提供人员反应没有其他更好的解决方法了，二是查看是否其他地方也调用了这个方法，使用了不同的参数导致本次的调用失效了。如果这个方法调用的少，可以全局搜索，然后注释掉方法，但是如果之前项目不是你开发的，你只是后期切入进来，同时代码结构一时半会还不能很好把握到，总之想快速利落的排除问题，这时你可以考虑用 Runtime 的特性，把 SDK 里的方法用自己写的替换掉。<br>　　先老调重弹一遍，什么是 Runtime？
 　　</p>
 <h2 id="二、概念"><a href="#二、概念" class="headerlink" title="二、概念"></a>二、概念</h2><p>　　Objective-C是动态语言，它将很多静态语言在编译和链接时做的事放到了运行时，这个运行时系统就是 Runtime。<br>Runtime 其实就是一个库，它基本上是用 C 和汇编写的一套 API，这个库使C语言有了面向对象的能力。<br>静态语言：在编译的时候会决定调用哪个函数。<br>动态语言（OC）：在运行的时候根据函数的名称找到对应的函数来调用。</p>
@@ -1554,7 +1554,7 @@
   </entry>
   <entry>
     <title>Hello World</title>
-    <url>/2017/06/23/hello-world/</url>
+    <url>//hello-world.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
@@ -1578,7 +1578,7 @@
   </entry>
   <entry>
     <title>iOS - UITableview 阴影圆角共存</title>
-    <url>/2020/04/11/ios-uitableview-shadow-rounded-corners-coexist/</url>
+    <url>//ios-uitableview-shadow-rounded-corners-coexist.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>给 <code>UITableView</code> 同时设置圆角和阴影时发现在视图上只会显示圆角，原因是因为当我们设置 <code>masksToBounds</code> 为 <code>YES</code> 允许圆角剪裁时，圆角以外的阴影也会一并被剪裁掉。在网上找了一下解决方法，<a href="https://www.jianshu.com/p/48b1a601febf">ios阴影圆角共存</a> 这篇文章提供了一个思路，就是把圆角和阴影放在不同的两个控件上实现，然后叠加到一块。基本思路是正确的，但实际操作发现在最后插入作为阴影层的 <code>CALayer</code>，调用的方法可能会照成层级有点混乱的问题。下面展示一下我解决这个问题的方法和用 Swift 实现的代码。</p>
 <h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>上图，阴影设置的有点浅：<br><img src="https://s1.ax1x.com/2020/04/11/G7xnHA.jpg" alt="IMG_8947A00ED7B9-1"></p>
 <p>上代码：</p>
@@ -1594,7 +1594,7 @@
   </entry>
   <entry>
     <title>iOS - 一些蓝牙问题的解决</title>
-    <url>/2020/08/15/ios-some-question-about-bluetooth/</url>
+    <url>//ios-some-question-about-bluetooth.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="最近阅读"><a href="#最近阅读" class="headerlink" title="最近阅读"></a>最近阅读</h2><ul>
 <li><a href="https://stackoverflow.com/questions/44030213/whats-the-swift-best-practice-for-reusable-uialertcontroller-configuration-via-e">通过枚举在 Swift 中实现 UIAlertController 的复用性</a></li>
 <li><a href="https://mp.weixin.qq.com/s/FShd9WAMQdWU9Mp6eZR4rA">一文看破Swift枚举本质</a> </li>
@@ -1635,7 +1635,7 @@
   </entry>
   <entry>
     <title>iOS - 如何把 Xcode 打印出来的 UTF-8 格式字符变成汉字？</title>
-    <url>/2019/08/07/ios-utf8-to-chinese/</url>
+    <url>//ios-utf8-to-chinese.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　下午在测试一个语音 SDK 的时候，发现打印出来字典里的中文汉字都显示为 UTF-8 的字符，百度了一下解决办法，发现大都是用给 <code>NSArray</code> 和 <code>NSDictionary</code> 创建分类的方法解决的，但是很多文章可能是写的匆忙，或者是复制粘贴的，不够美观和一目了然。而且创建分类的方式，对比我以前用小码哥的一个类来说，多了一个 <code>.h</code> 文件，不够精简。所以就做个笔记，留作备用。<br>　　首先新建一个 OC 的 <code>.m</code> 文件，不知道怎么新建也可以直接，创建普通的 <code>UIVIew</code> 的类，把 <code>.h</code> 删除，把 <code>.m</code> 所有除注释以外代码删除，修改成如下文所示一致就好。
 　　</p>
 <figure class="highlight objectivec"><figcaption><span>Objective-C</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">#import <span class="string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSDictionary</span> (<span class="title">Log</span>)</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)descriptionWithLocale:(<span class="type">id</span>)locale</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSMutableString</span> *string = [<span class="built_in">NSMutableString</span> string];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 开头有个&#123;</span></span><br><span class="line">    [string appendString:<span class="string">@&quot;&#123;\n&quot;</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 遍历所有的键值对</span></span><br><span class="line">    [<span class="keyword">self</span> enumerateKeysAndObjectsUsingBlock:^(<span class="type">id</span> key, <span class="type">id</span> obj, <span class="type">BOOL</span> *stop) &#123;</span><br><span class="line">        [string appendFormat:<span class="string">@&quot;\t%@&quot;</span>, key];</span><br><span class="line">        [string appendString:<span class="string">@&quot; : &quot;</span>];</span><br><span class="line">        [string appendFormat:<span class="string">@&quot;%@,\n&quot;</span>, obj];</span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 结尾有个&#125;</span></span><br><span class="line">    [string appendString:<span class="string">@&quot;&#125;&quot;</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 查找最后一个逗号</span></span><br><span class="line">    <span class="built_in">NSRange</span> range = [string rangeOfString:<span class="string">@&quot;,&quot;</span> options:<span class="built_in">NSBackwardsSearch</span>];</span><br><span class="line">    <span class="keyword">if</span> (range.location != <span class="built_in">NSNotFound</span>)</span><br><span class="line">    [string deleteCharactersInRange:range];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> string;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSArray</span> (<span class="title">Log</span>)</span></span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSString</span> *)descriptionWithLocale:(<span class="type">id</span>)locale</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSMutableString</span> *string = [<span class="built_in">NSMutableString</span> string];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 开头有个[</span></span><br><span class="line">    [string appendString:<span class="string">@&quot;[\n&quot;</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 遍历所有的元素</span></span><br><span class="line">    [<span class="keyword">self</span> enumerateObjectsUsingBlock:^(<span class="type">id</span> obj, <span class="built_in">NSUInteger</span> idx, <span class="type">BOOL</span> *stop) &#123;</span><br><span class="line">        [string appendFormat:<span class="string">@&quot;\t%@,\n&quot;</span>, obj];</span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 结尾有个]</span></span><br><span class="line">    [string appendString:<span class="string">@&quot;]&quot;</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 查找最后一个逗号</span></span><br><span class="line">    <span class="built_in">NSRange</span> range = [string rangeOfString:<span class="string">@&quot;,&quot;</span> options:<span class="built_in">NSBackwardsSearch</span>];</span><br><span class="line">    <span class="keyword">if</span> (range.location != <span class="built_in">NSNotFound</span>)</span><br><span class="line">    [string deleteCharactersInRange:range];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> string;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
@@ -1653,7 +1653,7 @@
   </entry>
   <entry>
     <title>是时候维护一个属于自己的开源库了</title>
-    <url>/2020/11/21/its-time-to-build-an-open-source-library/</url>
+    <url>//its-time-to-build-an-open-source-library.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>使用 GitHub 很久，除了无脑 star、fork 大神们的仓库、输出一些学习代码以外，对于 GitHub 本身的贡献似乎寥寥。<a href="https://archiveprogram.github.com/arctic-vault/"><strong>Arctic Code Vault Contributor</strong></a> 的勋章我受之有愧。如果你也有和我类似的想法，那么，是时候可以尝试一下维护一个自己的开源库了。</p>
 <p>维护一个开源库，听起来很简单，但是真正要开始动手，似乎颇有些千头万绪，无从下手。那让我们来捋一捋，首先我们碰到的第一个问题可能是：我们可以去维护一个怎样的开源库？</p>
 <h2 id="目的和意义"><a href="#目的和意义" class="headerlink" title="目的和意义"></a>目的和意义</h2><p>该维护一个怎样的开源库，讨论这个问题之前。我们先把维护开源库这件事当做一个项目来分析，首先我们来思考这个项目的目的和意义——这个思考的结果有利于我们对于这个项目的持续维护，也可以当做一项工作开始前的心理建设。</p>
@@ -1730,7 +1730,7 @@
   </entry>
   <entry>
     <title>当大侠要先说好俏皮话</title>
-    <url>/2017/07/19/learn-humor-before-become-a-hero/</url>
+    <url>//learn-humor-before-become-a-hero.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="《有匪》"><a href="#《有匪》" class="headerlink" title="《有匪》"></a>《有匪》</h2><div align = right> [priest](https://www.amazon.cn/dp/B01LYCO7KX/ref=cm_sw_r_qz_2_dp_2unvzb8Y953A4) </div><div align = right> 14 条标注 </div> 
 
 <p id="div-border-left-green">　终于有一天，你会跨过静谧无声的洗墨江，离开群山环抱的旧桃源，来到无边阴霾的夜空之下。你会目睹无数不可攀爬之山相继倾覆，不可逾越之海干涸成田。你要记得，你的命运悬在刀尖上，而刀尖必须得永远向前。
@@ -1760,7 +1760,7 @@
   </entry>
   <entry>
     <title>iOS - Xcode 设置代码片段</title>
-    <url>/2019/09/27/ios-xcode-setup-code-snippet/</url>
+    <url>//ios-xcode-setup-code-snippet.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><em>为了提高编程的效率，有时候也要用上一些捷径。代码片段就是我们可以用上的捷径之一。</em></p>
 <h2 id="一、创建代码片段"><a href="#一、创建代码片段" class="headerlink" title="一、创建代码片段"></a>一、创建代码片段</h2><p>以 <code>Strong</code> 为例：<br>1、在书写 <code>@property</code> 属性的地方写下如下语句：</p>
 <figure class="highlight objc"><figcaption><span>Object-C</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) &lt;#Class#&gt; *&lt;<span class="meta">#object#&gt;;</span></span><br></pre></td></tr></table></figure>
@@ -1813,7 +1813,7 @@
   </entry>
   <entry>
     <title>我的 AIO-notion 工作流搭建</title>
-    <url>/2020/06/07/my-aio-notion-workflow-setup/</url>
+    <url>//my-aio-notion-workflow-setup.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="https://i.loli.net/2020/06/07/cSgrjKnkbB41AxI.jpg" alt="cSgrjKnkbB41AxI"></p>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h1><p>制造和使用工具，是人类和动物最本质的区别。而使用好的工具和使用好工具，又是效率高的人类和效率低的人类最本质的区别。如何使用好工具，是方法，是技巧，千人千面，可能同一个好的方法放到不同的人身上，效果却是迥然不同的。好的工具的定义也同理。但在我们最终找到适合我们的方法和工具之前，我们可以选择那些久经人们考验的一些工具和方法来尝试和体验。本文介绍的就是一个久（大概有那么一两年）经人们考验的笔记软件——Notion。</p>
 <h1 id="使用-Notion-之前"><a href="#使用-Notion-之前" class="headerlink" title="使用 Notion 之前"></a><strong>使用 Notion 之前</strong></h1><p>在使用 Notion 之前，我日常使用的工具大概有：苹果自带的便签、Sublime Text、MWeb、滴答清单。便签是用来记录琐碎的信息、想法，Sublime Text 用来浏览一些开发语言后缀的文件，MWeb 用来 Markdown 写作，滴答清单用来 GTD 管理和番茄计时。针对不同类型的事情，使用不同的工具去解决，在大部分情况下，体验还是不错的。但也存在一些局限，比如：</p>
@@ -1863,7 +1863,7 @@
   </entry>
   <entry>
     <title>iOS - Objective-C 开发规范</title>
-    <url>/2018/12/29/objective-c-style-guide/</url>
+    <url>//objective-c-style-guide.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><em><strong>规范文档翻译自 <a href="https://github.com/raywenderlich/objective-c-style-guide">raywenderlich.com 的编码规范</a></strong></em></p>
 <h2 id="语言"><a href="#语言" class="headerlink" title="语言"></a>语言</h2><p>应该使用US英语.</p>
 <p><strong>应该:</strong></p>
@@ -2088,7 +2088,7 @@
   </entry>
   <entry>
     <title>OC - 多代理的实现</title>
-    <url>/2020/07/16/oc-multi-delegate-implementation/</url>
+    <url>//oc-multi-delegate-implementation.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="一、背景"><a href="#一、背景" class="headerlink" title="一、背景"></a>一、背景</h2><p>迭代项目的时候碰到一个问题， 原因是负责的内容有一项是封装各大 AI 开放平台的 SDK 集成到一个 SDK 里，然后输出统一的接口，目的是为了可以在不同的 AI 中快速切换并使用。但由于之前输出给了兄弟公司使用，他们在一个音乐 SDK 中用语音 SDK 实现语音点歌的功能。然后当我的主应用同时使用两个 SDK 时，由于音乐 SDK 中实现了语音 SDK 的代理，所以我在上层再初始化语音 SDK 设置代理就不起作用。</p>
 <h2 id="二、解决方式"><a href="#二、解决方式" class="headerlink" title="二、解决方式"></a>二、解决方式</h2><p>知道问题原因后，就比较容易解决了，具体有几种思路：</p>
 <ol>
@@ -2127,7 +2127,7 @@
   </entry>
   <entry>
     <title>在路上</title>
-    <url>/2019/03/11/on-the-road/</url>
+    <url>//on-the-road.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　行百里者半九十，新年过来就一头扎进工作，晕头转向直到现在，让我这才走了十里路的人看着剩下的九十里，都有了些望洋兴叹的惆怅。所以趁现在有空，休息一下，回顾一下。<br>　　过年照旧仍去上山烧香拜了佛，不同的是，今年没抽到上上签，而是中上签。不过也说不清是好是坏，表哥去年抽到中下签，我和表弟抽的是上上签和上中签，但去年反倒是他订婚成了家先。因为这个今年过年在外游荡的人就剩我和表弟两了。眼看过去吃了饭就撒手啥也不管变成一个抢着洗碗做家务事的人，我和表弟某个晚上吃了夜宵在大街上忽然感慨，以后就剩我们两相依为命啦。<br>　　凡事都说物是人非太不客观，就好像我表哥变了一些，而我们上山烧香拜佛，山也并非一成不变。上山变得更容易了，可以坐改装成游览车的金杯到山脚，再从山脚坐缆车到山顶。我们选择在坐缆车前走一小段路，路不是去年的那条，而是换成一条有些曲折，两边拨地而起了不少新建仿古建筑的坎坷小路，前两天下过雨，路上有些积水。一个拐角之后，迎面看到一个牌子，小吃街。穿过小街随便抬头看了各个店铺贴在门上墙上的菜单，个个都是 5A 级景区的价格，到了街尾，表弟拿着手机对着一个菜单拍了个照，说下次要和别人炫耀下我们这消费也是相当高的。![](<a href="https://s2.ax1x.com/2019/03/14/AAj9un.md.jpg">https://s2.ax1x.com/2019/03/14/AAj9un.md.jpg</a> 售票大厅里的陌生人们)　　我们买了票就坐缆车上山了，点香抽签解签，一如故往。庙里的变化是，今年对香客们的香做了限制，每人都只能拿三支香拜，所以不会再出现点香的时候把香点着整把香丢掉的事，庙里也不会总是烟雾缭绕的熏人眼睛。<br>　　整座庙的前半部分由两栋相连的屋子组成，中间有一个小阶梯，下去是条小巷，巷里紧紧贴着一个小卖铺，外面卖着零食小吃，里面卖的都是宗教用品，开过光的手串护身符，问了一下价格，略显粗糙的开光手串一百五，粗糙的开光手串一百，还没确定要不要图个吉利买一串就已经先生怯意，表弟说外面也就卖个二三十，我说要不然怎么说宗教是门大生意。Jesus is a big business。我在心里补充，来了个饶舌。回去的时候因为有点晚，路程又远，就和姨姨他们去了她婆婆家吃饭，吃饭的时候姨夫说让我喝点酒，整个新年的所有饭局我对喝酒都抱着一种可喝可不喝的态度，但总是看长辈各种推辞，觉得即社会又好笑。就学着印象里的神情，一半严肃一半玩笑的向姨夫摆手，摆手：“不喝不喝，待会还要开车。”姨夫冷不丁的懵了一会，随后恍然大笑，你哪开了车啊。<br>　　上香的事告一段落，新年另一件事就是和以前朋友见面，往年没约上的朋友，今年照旧因为各种琐事没有约上，见上的朋友也都是往年见过面的，也算是一期一会。小插曲是，和朋友见面的时候，看见了一个很久没联系的女性朋友，当初没联系，起因是她，结果是我赌气，到现在三四年没说过几句话，也一直没见过面。许久不见，样子似乎变了一些，成熟盖过稚气，穿过人群和她对视了一眼，我看到她眼里似乎有些久别重逢的惊喜，我不知道我当时的表情是怎样的，似乎是客气又克制的点头、抿嘴示意，然后没有寒暄，就扭头走了。现在回头看，好像在她面前，我又表现得有点小家子气，一如往昔。<br>　　后来和朋友们看完电影出来，又看到了她。我想既然老天爷都想让我和她冰释前嫌，那我也就不坚持了。但她又好像是报复似的，只是和我朋友寒暄了几句，等我走近，朝我点了点头就走了。<br>　　再后来回去，想了想，用“看你有没有换号码”的蹩脚理由给她打了个电话，聊了很久，总算是奠定了中美关系走向正常化的基础。<br>　　除了这些以外，有印象的还有，叔叔表哥说要给我介绍女朋友，一个拿着对方姐姐的照片说让我先看看，另一个在 KTV 的时候直接让我和他旁边的女孩视频了，放着我在这头，不管不顾的和那人对起话来，看看我这侄子帅吧。感觉有点胖。胖啊，不会，他就这个脸型。除了觉得颇有喜感，也被我两个亲人过于耿直的方式给唬得无可奈何。叔叔今年倒是没有给我上中国传统美德普及课了，不过去外公家时，今年瘦了两大圈的姐夫在晚饭后和我们这些年轻人上心灵鸡汤课，一脸朝气逢勃的和我们说自己老了，让我们努力，说年轻人不要怕失败，年轻人最不应该害怕的就是失败。我在心里想，年轻人不怕失败固然是可以轻易做到的，不过是一头热血，不管不顾找个方向往前使劲罢了。但失败的后果，却往往需要年轻人的家人一起承担，这样的后果，一个年轻人最多可以承受几次呢？<br>　　忽然想不到说什么结尾了，觉得这段比较应景。</p>
 <blockquote>
 <p>　　那一天我二十一岁，在我一生的黄金时代。我有好多奢望。我想爱，想吃，还想在一瞬间变成天上半明半暗的云。后来我才知道，生活就是个缓慢受锤的过程，人一天天老下去，奢望也一天天消失，最后变得像挨了锤的牛一样。可是我过二十一岁生日时没有预见到这一点。我觉得自己会永远生猛下去，什么也锤不了我。</p>
@@ -2144,7 +2144,7 @@
   </entry>
   <entry>
     <title>《文学回忆录》读书笔记</title>
-    <url>/2020/04/18/literary-memoirs-reading-notes/</url>
+    <url>//literary-memoirs-reading-notes.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="《文学回忆录》"><a href="#《文学回忆录》" class="headerlink" title="《文学回忆录》"></a>《文学回忆录》</h2><div align = right> [木心](https://book.douban.com/subject/20440644/) </div>
 <div align = right> 97 条标注 </div> 
 
@@ -2258,7 +2258,7 @@
   </entry>
   <entry>
     <title>在草房子外</title>
-    <url>/2018/08/23/outside-the-straw-house/</url>
+    <url>//outside-the-straw-house.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　看了曹文轩的《草房子》，内容讲的是发生桑桑这个小主人公周围的事，有孩子的故事，也有大人的故事。<br>　　<br>　　叙事口吻平淡朴实，像静谧的流水，又像傍晚从远处村庄传来带着泥土气息的风，让人也不由自主的想起自己的童年时光，就好像成年后在某个瞬间想起小时候放学经过正开饭的陌生人家闻到饭菜的味道，那个瞬间中所处的情景和记忆中的画面，便重叠串在一起。这本书也有类似的力量。<br>　　<br>　　书里写了许多大概每个人童年都会发生的事情，一个让人印象深刻的漂亮女孩，一个早早退学的朋友，一个在学校里因为彼此都很优秀而暗地里较真的小伙伴，还有因为人小所以身不由己的当了大人的传声筒，卷进大人们的爱情故事里。甚至是每个人都可能生过的一场发生在童年无可避免的大病。</p>
 <p>　　在那个大人的爱情故事里出现的男主人公，是桑桑的老师，那个老师是个很特别的人，会在节日庆典组织学生排练舞蹈，会在河边吹笛子吹出悠扬的曲子，穿白衬衫，皮鞋，英俊潇洒。在那种封闭的小村庄里，那样的人似乎很少，但又似乎每个村子都会有那么一两个那样的人。<br>　　<br>　　我童年记忆里像那样代表性的人大概是我的小学语文老师，爱扎羊角辫和马尾，都很好看。有时会提着一桶衣服穿过两三条街道，到我们家旁边的那条河洗衣服，我有时候会站在家门口偷看，看她把衣服放在河里，攥着一角轻轻摆动，涤荡干净。她夏天爱穿裙子，快分开的那个夏天，她总喜欢穿的是一条淡绿色的裙子，常常在我们早读的时候站在教室外的阳台上，发呆，眺望远方，有风的时候，裙子会轻轻扬起来。以致于在我反复回忆起这段记忆的时候，有时候想不起老师的样子，但裙子的颜色却越发鲜艳起来。</p>
 <p>　　沉浸在回忆里的抒情往往用力过度。以致于后来喜欢上的女孩子，总是因为她们举手投足和记忆里的某些印象相似，像女老师，像裙子，像河流。我被彻底击中被俘获。<br>　　<br>　　看完之后除了把故事情节和自己的童年记忆一一比对，另一方面觉得有点可惜，这本书要是早点看就好了。这种可惜，并不是因为它优秀的让人觉得相见恨晚——虽然它也很优秀，而是我觉得这类记录童年的书应该在人生的各个不同阶段都看一遍，童年的时候看，少年的时候再看，青年、壮年、老年。就好像在不同阶段留了一个标记，在之后的漫长岁月里总还可以时不时的回头，哦，那会看这本书的时候，我好像还是一个人在异地他乡为了那样那样而做着这样这样的。借助外物达到不忘初心的方式，这也算一个。</p>
@@ -2274,7 +2274,7 @@
   </entry>
   <entry>
     <title>唯“鸭嘴兽”主义哲学</title>
-    <url>/2018/08/07/platypus-philosophy/</url>
+    <url>//platypus-philosophy.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　A：”就站在比较正的三观上来说，每个人有权利选择自己的生活方式。你每天上网无所事事做咸鱼，我每天上班为生活疲于奔命，其实没什么优劣之分，只是做了不同的选择而已。但我还是想问，这一切的意义在哪里，你的人生的意义在哪，人生需要意义吗？”<br>　　B：“我都打算出家当和尚的人，你就别问我人生意义了。你觉得你的人生意义又是什么？”<br>　　A：“就以前和你讲过的那样，呆在山脚下，就觉得应该上山看看，以后和人说知足常乐这几个字，不会显得那么没底气。”<br>　　B：“如果你现在死了，你会觉得遗憾吗？”<br>　　A：“不会吧。”<br>　　B：“嗯？”<br>　　A：“我又不是处！”<br>　　B：“去你妈的。我觉得我不会遗憾，虽然很多东西都没吃到，很多地方都没去过，但我觉得我过得挺开心的。”<br>　　A：“我想我也不会遗憾吧。主要是遗憾没什么用，如果必须死的话，说不定我还不会遗憾，我会试图说服自己接受去死，毕竟有那么多宗教，可以信信来生啊什么的。这一点上我还是比较犬儒的。”<br>　　……<br>　　A：“其实我们现在说的想的，什么精神啊思想的，早就有人这么说过做过了，我们只是在不断地重复而已。”<br>　　B：“是吗，那你说，我们要怎样才可以不重复啊？”<br>　　A：“怎样都会重复的，所以学哲学家说空话是没什么用的，只有德先生和赛先生才可以拯救世界。”<br>　　<br>　　和朋友进行了一次一棒子打死哲学家的谈话之后，非常打脸的，我看完了一本谈论哲学的书，《柏拉图和鸭嘴兽一起去酒吧》。<br>　　人们普遍对哲学的印象是深奥，拗口，诡辩，对哲学家的印象是严肃，爱钻牛角尖，动不动就因为想不明白终极问题去自杀。但这本书则完全推翻了那些刻板印象，他展示了一个有趣生动的哲学，甚至还非常接地气的说了一连串的荤段子。可能他不是第一个想到把严肃的事变得轻松甚至荒诞的人，但在哲学这个体系他应该是第一个说女人像鲜花的人，他向人们展示了一种把哲学的严肃稀释掉的可能。<br>　　这本书结合笑话向读者构建了一个微小的哲学体系，就像一个颇负盛名的苍蝇馆，菜单可能不够丰富和精致，但剑走偏锋还能做出地道的美食这点，就值得让人竖起拇指称赞。对这本书的结论是，不懂哲学的，适合看， 懂哲学的，更适合看。能让外行人看热闹，内行人看门道，也是这本书出彩的一个地方，好的东西不一定都能雅俗共赏，但能雅俗共赏的一定是好的东西。<br>　　书以外的，有一个不算正确甚至可能是用力过度的想法是，除了悲剧会刻意用喜剧的外壳包装和喜剧的样子本来就是喜剧（不谈内核）以外，其他的各种事物，他们的样子应当是他们本来的样子，历史应当庄重，哲学应当严肃，笑话固然好看，但把所有的事都用笑话包装起来却不一定是好事。不只是这一个点，从许多事上似乎可以看到这种趋势：人们热衷于创造和接受把严肃的事物讲成一个笑话，在心里不放下任何一种庄重的情感。这是不是意味着我们已经在各个方面向《娱乐至死》里所描写的世界迈进了?<br>　　用力过度的想法以外的，用哲学的理论来看，这个想法完全符合因为一个错误的观点得出正确的结论，所以让观点看起来也像正确的。这在哲学上叫 Affirming the Consequent，肯定结果的谬误。</p>
 ]]></content>
       <categories>
@@ -2287,7 +2287,7 @@
   </entry>
   <entry>
     <title>胡安另一些片段</title>
-    <url>/2018/09/03/other-fragment-about-huan/</url>
+    <url>//other-fragment-about-huan.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote class="blockquote-center">　　鹿同时是阿喀琉斯和乌龟，同时是弓和箭：它们奔跑着，却永远追不到自己；
 它们停下来，有些东西却永远留在身外继续疾驰。</blockquote>
 
@@ -2303,7 +2303,7 @@
   </entry>
   <entry>
     <title>我的政治态度和我谈论政治的态度</title>
-    <url>/2017/07/16/political-attitudes-and-attitudes-towards-politics/</url>
+    <url>//political-attitudes-and-attitudes-towards-politics.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><em>本来想的题目是《那些讨论政治的男人们》，从看到的茶余饭后把政治话题当谈资的中年男人们切入，然后从他们里面挑一个开口伊拉克闭口叙利亚的个例分析他们的政治态度。最后说说我对政治和对谈论政治的态度。但觉得这样有主观引导的倾向，不好。所以只单说我自己的想法。</em></p>
 <p>　　最近因为社会上发生了一些事情，所以很多门户网站的网友都在说言论自由。B站下线了许多国外电视剧和李银河老师谈论言论自由的微博被新浪删了。我也切实感受到了一点窒息感。<br>　　一个朋友总是和我谈论政治，因为最近发生的事昨天又和我谈论起了，说微博上终于不再是哈哈韩寒韩厚华的气氛，群众终于有点变化了，开始说一些严肃的事了，哪怕过一阵子这事过去了，这阵子也会在他们心里埋下了一个种子。我说群众其实没有变，这阵子追逐言论自由的热点，和之前追逐娱乐花边的热点没什么不一样的。庸众还是庸众，真正保持思考的人也还是在冷静思考。<br>　　一棒子可能会误伤一些人，但，是我想说的意思，人云亦云以及脑袋发热什么都不知道就要冲进战场的人太多了。虽然这事可能不需要所有人都看明白，只要跟着一个看明白的人做和他一样的事就可能成功。但我没有跟牌的原因是，并没有一个明白人站出来做一些实际行之有效的事，多数人都只是站在岸上说一些煽动性但实际无关其本身痛痒的话。更恶劣的，有的人只是为了卖弄自己见识和华丽辞藻而去谈论言论自由这件事，以及政治。<br>　　另外，我觉得许多人可能高估了舆论的力量，很近的例子，某明星妻子出轨经纪人，舆论热度连国外媒体都报道了，但是舆论，除了产生一些数据以外，离婚案本身财产归属什么的，一点也帮不上忙。当然，绝大部分因为我们是个以法治而不是以人治的国家——我又想起微博上有人说我国量子态律法的梗了。舆论可能没有想象中的力量大。<br>　　甚至有的人还在反复说，类似这样的话：</p>
 <blockquote>
@@ -2320,7 +2320,7 @@
   </entry>
   <entry>
     <title>Python - 学习笔记</title>
-    <url>/2018/09/20/python-study-notes/</url>
+    <url>//python-study-notes.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>学习地址：<a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000">Python 教程</a><br>其他：<a href="https://docs.python.org/3/library/functions.html#abs">官网-函数列表</a></p>
 <h2 id="一、基础笔记"><a href="#一、基础笔记" class="headerlink" title="一、基础笔记"></a>一、基础笔记</h2><h3 id="列表：list"><a href="#列表：list" class="headerlink" title="列表：list"></a>列表：list</h3><p>用 <code>len()</code> 函数可以获得 <code>list</code> 元素的个数：</p>
 <figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">len</span>(classmates)</span><br></pre></td></tr></table></figure>
@@ -2454,7 +2454,7 @@
   </entry>
   <entry>
     <title>突然的自我</title>
-    <url>/2017/07/08/sudden-self/</url>
+    <url>//sudden-self.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　傍晚朋友打电话过来，叫我一起吃晚饭，我有些困说不想去，太累了。他重复，来嘛，我请客的。我笑了一下，不再坚持。骑自行车去吧，好像楼下有辆摩拜。<br> 　　路边有一个女孩，我想看清她长相，她抬头看过来，她和我对视了一会，我把目光轻巧的抽了回来。有个朋友总和我说他一个理论，他把和人对视看做一种比赛。一定不能认输，要看的对方先避开你才行。我觉得那种胜负太刻意了，有时候避开也不见得是输。<br>　　你以为我在看你吗，一点也没有。路上一辆警车把一辆巡逻摩托车撞倒了，副驾驶下来了一个人，他挺直了腰，指挥起了因为这个小车祸有点紊乱的交通。我骑车上了过河桥。<br> 　　有点挤。是因为刚刚的车祸吗？天气可真热啊。桥下的河堤有一个男人，那个河堤我之前都没有见过有人走下去。那个男人刚挂了电话，背着手看河，过了一会，在那个方寸里踱起了步，悠闲的快没了形状。那么悠闲的男人，那么平静的河流。<br>　　我下桥的时候，回头看了一眼那个男人，他已经融化在岸边，变成一滩平静的水洼。我想那么年轻就能成为自己想成为的事物可真好啊——水洼是河流的幼年。<br>　　在骑进一条窄巷前，又接到朋友电话，你还来不来啊，我们可先吃了。旁边一个小声音，都快吃完了。<br>　　那等我待会给你们上饭后甜点吧。挂了电话，车铃因为经过一个坑响了声，叮铃~铃。刚刚出来门好像只锁了一下，早上洗头发的时候好像用的是那瓶新的洗发水，旧的还有多少，丢了吧，和那瓶过期的花露水一起丢了好了。<br>　　接下来是一条窄巷，一只大熊牵着一只小熊，小熊走路的节奏是冲刺的跑一阵，再挂在大熊的手上走不动一阵。起初我不知道，以为他们是在匀速走，我贴近，想从旁边绕过去，小熊停下，我急刹车，没有绕过去。大熊说，你看你不好好走路，后边的叔叔都过不去了。我又刹了一下车。我倒像蹒跚学步的小孩了。我从旁边绕过去，歪头说，不是叔叔，是哥哥。但又全然不是因为计较年龄才说的。<br>　　夏日傍晚的小巷里，一只大熊牵着一只小熊一起呆住。谁看见，食欲都会变得旺盛起来。<br>　　差不多到了。我把单车停好。坐电梯，进了饭店，正找他们坐哪呢，天花板上传来一个声音，你怎么才来啊，我们都快吃完了。朋友喝醉了，飘在天花板上，还有一些我不认识的陌生人，也醉眼朦胧的飘在上面。我问他，他们呢，哪个房间。哝哝就那里。我牵着他散了的鞋带，带着他往里走。<br>　　诶我说，你们怎么都不照顾一下他，他都飘到大厅去了。房间里还有两个人，说请我吃饭的朋友，正准备夹菜。他喝醉了，拉不住啊。拉不住在天花板喃喃，放开我，我要去救紫霞仙子。<br>　　我们都笑了，不一会，就融化在了房间里。</p>
 
         <div id="aplayer-UnoDcuAs" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
@@ -2486,7 +2486,7 @@
   </entry>
   <entry>
     <title>最近的读书笔记</title>
-    <url>/2017/07/01/recent-reading-notes/</url>
+    <url>//recent-reading-notes.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="《罗曼蒂克消亡史》"><a href="#《罗曼蒂克消亡史》" class="headerlink" title="《罗曼蒂克消亡史》"></a>《罗曼蒂克消亡史》</h2><div align = right>[程耳](https://www.amazon.cn/dp/B01N2UNFB6/ref=cm_sw_r_qz_2_dp_2unvzb8Y953A4)</div><div align = right>9 条标注，2 条笔记</div>
 
 
@@ -2528,7 +2528,7 @@
   </entry>
   <entry>
     <title>推荐几个播客节目</title>
-    <url>/2020/10/26/recommend-a-few-podcasts/</url>
+    <url>//recommend-a-few-podcasts.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>因为最近有点用眼过度，所以在空闲时间想找一件尽量可以不用到眼睛又能涨知识的事情做。我先想到的其实是听书和听线上的付费课程。</p>
 <p><strong>听书</strong>不太习惯，原因是许多原本通过看书看到的书面语，从看到变为听到，在从声音转换成画面的这个过渡里，总会有因为追不上朗读者稳定而平均的朗读速度而造成的空白。有时思绪想在某些段落稍作停留，有时又因为对当前段落的后续发展有了预见性的推测，想快点赶往下一章节，总之因为听书的方式相比较看书，缺乏一种主动可控的速度变换，而经常有一种错位的感觉。</p>
 <p><strong>线上课程</strong>虽然有很多干货和知识点，但因为知识点多多少少都围绕着一个或两个中心点，一脉相承，有方便理解的优势和卖课的人也会注意由浅入深的方式讲课，虽然也需要思索，但几乎片刻就能想明白。然而听课也有一个不好的地方，就是对连贯性的要求比较高，用上下班通勤的时间来听课，偶尔会被其他的事情插入打乱，有时就会疲于回溯之前听过的课程。</p>
@@ -2553,7 +2553,7 @@
   </entry>
   <entry>
     <title>林中落日</title>
-    <url>/2020/02/02/sun-sleeping-in-the-forest/</url>
+    <url>//sun-sleeping-in-the-forest.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><ul>
 <li><p>梦见一剑劈开了太阳，蛋黄浸透大半个银河系。我从岸上落下，在蛋液里浮沉，你在高处梨花带雨，你快上来，我不吃辣椒炒蛋了，快上来。太阳已经无可救药了，我想把剩下的星球都送给你。 </p>
 </li>
@@ -2588,7 +2588,7 @@
   </entry>
   <entry>
     <title>Swift - ?和!的学习</title>
-    <url>/2020/04/24/swift-optional-and-unwrapping-learning/</url>
+    <url>//swift-optional-and-unwrapping-learning.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　最近在优化一个项目的过程，过程中发现之前开发时由于刚接触 <code>Swift</code> 的原因，在 <code>Swift</code> 中的类里使用了很多 <code>OC</code> 的写法，比如字典数组对象会习惯性用 <code>NSDictionary</code>、<code>NSArray</code>来初始化，而不是用 <code>[KeyType: ValueType]()</code> 或是 <code>[SomeType]()</code> 这种类型来实例化变量。虽然在使用上没有什么问题，但看起来多少有点。。。不优雅。<br>　　当我把大部分类型都修改成 <code>Swift</code> 中的写法后（部分未修改是因为使用 <code>String</code> 类型来给文本做截取和富文本定义，实在不如 <code>NSString</code> 顺手，这种不顺手让我不由想起 Stack Overflow 上看到的一个评论：I thougt i already getting along well  with Swift.）发现，原来一些变量是否为空的判断中，使用 <code>Swift</code> 里的 <code>optional</code> 类型会方便很多。<br>　　比如解析一个 json 数据，如果层级多而且里面每个元素都是不确定的，那么可能就需要每个层级都判一次空。而如果使用 ? 来设置当前对象为可选值，只需要在最后一层实际使用到对象值时，判一次空就 OK 了。<br>　　对于 ? 和 ! 的区别和总结，网上有很多文章，在这里就不重复造轮子了。下面就对这个 <code>optional</code> 的自己两个疑问做个记录。
 　　</p>
 <h2 id="和-！-是表示两种不同的类型吗，一种是可以为空，一种不可以为空？"><a href="#和-！-是表示两种不同的类型吗，一种是可以为空，一种不可以为空？" class="headerlink" title="? 和 ！ 是表示两种不同的类型吗，一种是可以为空，一种不可以为空？"></a>? 和 ！ 是表示两种不同的类型吗，一种是可以为空，一种不可以为空？</h2><p>　　刚开始使用的时候没做深入了解，以为 <code>optional</code> 中的 ? 和 ! 和 <code>let</code> 声明不可变变量，<code>var</code> 声明可变变量。? 和 ! 是一组彼此相对只是含义不同的两个符号。但深入了解了一下，发现并不是这样，引用两段官方的文档：</p>
@@ -2627,7 +2627,7 @@
   </entry>
   <entry>
     <title>Swift - 权限请求封装</title>
-    <url>/2020/09/12/swift-permission-request-tools/</url>
+    <url>//swift-permission-request-tools.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><img align="center" src="https://i.loli.net/2020/09/12/VLyFtvB4AJTErjU.gif" width=375px height=677px/>
 
 
@@ -2652,7 +2652,7 @@
   </entry>
   <entry>
     <title>像你我的少年们</title>
-    <url>/2017/09/18/teenages-like-you-and-me/</url>
+    <url>//teenages-like-you-and-me.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　看了《濑户内海》。之前一直分不清电影名字是叫濑户内海，濑内户海，还是濑海内户,电影很好看，隆重的交响乐式的配乐也非常好，一个半小时完全不过瘾。主演们都不是很好看的人，对内海的第一印象甚至觉得他像个中年大叔，但十分意外，他们都给人感觉少年气十足。</p>
 <p>　　电影百分之九十的时间都停在一个画面，都只是两个人的对话，但一点都不让人乏味，就像是看过去自己的日常，他们关心的事和谈论的问题，也都是过去学生时代和同学会谈论的内容，很有亲切感。印象深刻的一个情节是，濑户喜欢的女生喜欢内海，但内海并没有表现出喜欢她的样子，在影片快要结束的时候，那个女生在好像受到内海间接的拒绝的时候，发了一条短信给濑户，内海他讨厌我。濑户第一反应是敲出了“但我喜欢你啊”这几个字，虽然他是没有心机的下意识行为，但这种在女孩子失落的时候的表白，比任何形式的安慰都好，哪怕仍然是被拒绝，也会给自己加很多印象分，对增进关系有极大好处。</p>
 <p>　　此时画面一转，那个女孩和内海对峙的镜头。女孩收到了濑户的短信，里面写的是，</p>
@@ -2671,7 +2671,7 @@
   </entry>
   <entry>
     <title>技术调研模板</title>
-    <url>/2020/09/30/technology-research-template/</url>
+    <url>//technology-research-template.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><em>部门小伙伴在做技术调研的时候，因为信息展示的格式不统一，或者没有注意在调研过程中抓取一些关键信息做展示和对比，为了方便，总结了一份技术调研模板，以供参考。</em></p>
 <h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a><strong>标题</strong></h1><p><em>—–❗️每次输出文档时需要将本段删除❗️—–</em></p>
 <p><em>-&gt; 格式：中英文排版参考：<a href="https://github.com/mzlogin/chinese-copywriting-guidelines">中英文排版指北</a></em></p>
@@ -2801,7 +2801,7 @@
   </entry>
   <entry>
     <title>Swift - 顶部弹出框封装</title>
-    <url>/2020/08/04/swift-toppop-upboxencapsulation/</url>
+    <url>//swift-toppop-upboxencapsulation.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>抽空把项目里的顶部弹出框封装了一下。效果大概是这个样子：<br><img src="https://i.loli.net/2020/08/04/9R7WuCT2b5ezKoN.gif"></p>
 <!--<img align="center" src="https://i.loli.net/2020/08/04/9R7WuCT2b5ezKoN.gif" width=375px height=677px/>-->
 
@@ -2862,7 +2862,7 @@
   </entry>
   <entry>
     <title>初入江湖的第一份报告</title>
-    <url>/2018/01/05/the-first-report-of-the-newcomer/</url>
+    <url>//the-first-report-of-the-newcomer.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　公元2017，丁酉年的最后一天，朋友让我用一个字总结一下这一年。我飞鸽传书给他一个“困”字。<br>　　回信又让我用一个字展望戊戌年，我又把鸽子放出去，它带着“逃”字，逃离了我的屋子，之后反应过来，觉得“木”可能会更好。既有逃离困境的意思，木又是材，通财，有很好的寓意。但鸽子已经飞去有一盏茶了，来不及唤回，心中因此也有些疑虑，这是又要虎头蛇尾一年的征兆吗？<br>　　虽然去年就开始在各大门派投帖，做了一些见习弟子的营生，但到今年才算渡过了离开家乡离开私塾，独自在江湖上漂泊的一整年。对江湖也总算有了个模糊印象，江湖很大，南来北往的有好多人，这些人里又有聪明人和蠢人。和在学堂里碰到的人不同，无论是聪明人还是蠢人，大都喜欢直来直去。哪怕是和你虚以委蛇，也是因为需要虚以委蛇所以才这么做的。大概对于人来人往的江湖，像一剑封喉这种招式，省时省力，才比较讨人喜欢。而那些学堂里不同的部分，无论是被当做花架子还是水墨画里合适的留白，我都会一直怀念他们。<br>　　我的门派往上追溯可以算作墨家分支，平日里碰到的都是聪明人居多。我喜欢和聪明人打交道，有时可以从他们身上学到那么一招半式，虽然不知道什么时候用的上，但总没多大坏处。<br>　　说起武功，比起去年只会一门iOS键法，今年还学会了另一门——安卓键法，但对于偌大的江湖来说，我仍旧是个新的脑门可以反光的新手，按门派师兄的话说是，开武林大会的时候，我们也就是上去嚎两嗓子，给大人物当背景用的小人物。<br>　　当时我问师兄，什么时候才可以在江湖上不被当做道具用？记得那会他有些惆怅，用手指了指大街上，说：“看见没，西域的汗血宝马，那马上的屁股，可能什么武功都不会，但谁看见都不会对屁股吝啬一声少侠。而对我们就叫个小兄弟，大哥大爷，把我们当做进城刚卖完家里青菜的小贩。所以在这江湖上，你会多少武功并不重要，重要的是你用这些武功创造出了多少价值。至少得买得起一头骡子是不是？”“可是据我说知，少林寺藏金阁那个扫地秃驴就没有马，他只有一把扫把，可在江湖上也无人不知无人不晓。”“要是我的武功有他那么高，我也不在乎什么马不马的。”，和我说完这些话不久，他就跳槽到另一个门派去了，我想他可能真的很想买骡子。<br>　　其实师兄的离开是可以预见的，门派陆陆续续的有人离开，去年门派除了掌门还有两位长老，除我以外还有七八名弟子。师兄离开后，门内就只剩掌门和我了。师兄走之前，叫我也跟他一起走，但我还是留下来了。师兄问我留下来的理由，我说因为找不到离开的理由。<br>　　其实留下来的理由还是有的，一是我想等练好那两门武功再去其他门派，那样应该可以混上一个入室弟子什么的，二是掌门待我极宽厚，他又是十八般武艺样样精通的高手，跟着他我可以学到很多东西，另外掌门夫人煮的饭菜也极为可口。<br>　　所以其实我也是自私的，留下来的理由也都是因为自己。开始一阵子，我还试图说服自己想出这两个理由的根本原因是因为我讲义气，但到后面也就不费这劲了，甚至那两个理由也很少再想，只是脚踏实地的在门派渡过每一天，练好我的武功。最近，我好像快有离开的理由了。<br>　　除了门派日渐凋零，难以挽颓势于既倒。下半年我还因为一个姑娘，有了一些甜蜜的烦恼。<br>　　那姑娘是附近商铺的帮闲，平日里也多少见过，除了记得五官端正以外也没多大印象。那日我正在为一个变招抓耳挠腮，心情烦闷，皱着眉站在道上，听见声响，抬头见她迎着太阳光走来，笑容挂了一路，走近，她的笑容又撑开了一些，向我打招呼，说了声好，就像已经灿烂了很久的花忽然又盛开了一遍。一瞬间让我有些目眩神迷，在那里呆过去了一会，回过神来她就已经走远。<br>　　之后找到机会和她交换了信鸽，问她是否有心上人，可能是目的暴露的太快，也可能是我的莽撞，吓到她了，之后约她去看大戏都推脱天气原因，去他妈的天气。<br>　　后来在路上碰见她，赶上去和她聊天。<br>　　“看见你好几次一个人走路回去。”<br>　　“恩，我挺喜欢走路的。”<br>　　“哦~”我停顿了一会，“我也挺喜欢走路的。”<br>　　她白了我一眼：“你又来了。”<br>　　“我。。。”，我有点意识到她说的是什么，但是，“什么，怎么又来了？”<br>　　“能不能好好的聊天，每次聊天，你都要把话题带到让人尴尬的地步。”<br>　　我有些气馁了：“好吧。”<br>　　半响没说话，她忽然出声：“态度端正一点就好。”<br>　　其实我也意识到她说的是什么，但还是想继续装傻。假装没听清问什么。<br>　　“不要总是那样，态度端正一点就好。”<br>　　“态度端正”听她在强调的时候，我恍惚间又回到了闯了祸在老师面前受批评束手无策的时候，“好像老师会说的话。”<br>　　“恩，态度端正，老师说的也没错啊。”<br>　　我反复咀嚼态度端正这几个字，忽然想到，对她说：“那我态度端正了，是不是就可以约你去看电影了？”<br>　　她听到笑了起来，说：“我说你，你怎么会，有时候看起来很笨的，但有时候又很聪明？”<br>　　“啊，我啊，就是可能想有点反差感吧，不想人第一眼看到我是什么样，就以为我是那样的人。”<br>　　“哦，那你对我第一眼印象是什么？”<br>　　我说没什么第一印象，问她还记不记得和我笑着打招呼的那天，她说记得。然后我非常诚恳的向她描述了那天我的心理活动，所谓诚恳，就是没用那些多余的形容词，没有用那个鲜花的比喻，只是说记得她那天很开心，真的很开心。<br>　　那次谈话之后，有一天我忽然反应过来，向女孩描述喜欢上她的场景，丝毫不亚于一场微型表白。也就是说，我又一次的没有沉住气，放弃了一切抵抗向她再次招供。我一边为自己犯的错误懊悔，但另一边又破罐子破摔，颇有些浪漫的想到，我可能就要这么一往情深的栽在她手上了。<br>　　听完我的表白，她低着头没说话，我们两都沉默着。过了一会她就到地方了，在楼底下碰见她的朋友，我只好和她分开。她的朋友看了看我，朝她一个劲的挤眉弄眼，我也忍不住笑了，心情愉快的走了。<br>　　过了不久，她就辞职离开了。我给她发消息，和她说我想到的态度端正，大概就像以前那样做个邻居，偶尔帮他们的忙，听她从隔壁传来的笑声就心满意足。虽然这样也挺好，但我还是向她承认我大概态度端正不了，我想只要看到她露出的一点笑意，我可能就立马变回原形了。之后严肃活泼的和她说了再见。之所以放弃了，是因为感觉在她那收到的拒绝太多了，有些筋疲力尽的疲惫，而且本来也没有非要谈恋爱不可，就想，可能来日方长比较好。<br>　　但那次谈话总是被我一遍又一遍的想起，那似乎是我们唯一一次距离拉近了些的谈话。<br>　　我会怀念她的，也会怀念我的2017。</p>
 ]]></content>
       <categories>
@@ -2875,7 +2875,7 @@
   </entry>
   <entry>
     <title>三本诗集的片段</title>
-    <url>/2017/12/30/three-fragments-of-poetry/</url>
+    <url>//three-fragments-of-poetry.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="《大海上的柠檬》"><a href="#《大海上的柠檬》" class="headerlink" title="《大海上的柠檬》"></a>《大海上的柠檬》</h1><div align = right> [姚风](https://www.amazon.cn/dp/B01GJKHX40/ref=cm_sw_r_qz_2_dp_2unvzb8Y953A4) </div>
 <div align = right> 6 个片段 </div> 
 
@@ -2915,7 +2915,7 @@
   </entry>
   <entry>
     <title>iOS - Swift 开发规范</title>
-    <url>/2019/01/16/swift-style-guide/</url>
+    <url>//swift-style-guide.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><em><strong>规范文档翻译自 <a href="https://github.com/raywenderlich/swift-style-guide">raywenderlich.com 的编码规范</a></strong></em></p>
 <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
 <li><a href="#correctness">正确性</a></li>
@@ -3282,7 +3282,7 @@
   </entry>
   <entry>
     <title>无理猜想</title>
-    <url>/2017/07/24/unreasonable-guess/</url>
+    <url>//unreasonable-guess.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote class="blockquote-center">做了一个所有人脑袋掉光光的梦
 </blockquote>
 
@@ -3298,7 +3298,7 @@
   </entry>
   <entry>
     <title>老派科幻</title>
-    <url>/2018/11/29/veteran_science_fiction/</url>
+    <url>//veteran_science_fiction.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　因为某天坐地铁的时候忽然想到《黑衣人3》的结尾，因为特工 J 吃饭给了小费而避免了彗星撞击地球导致世界毁灭的蝴蝶效应现象。忽然想起第二部好像没看过，就抽空看了一下。<br>　　<br>　　在还没拍成电影之前，他还是一部动画片，记得以前在 CCTV 1 套每天下午播放，每天两集，但因为每次都在放学前就开始放了，所以导致我都只能看一集半，不过即使这样也无法阻止我当时对他的热爱。虽然现在关于动画的剧情已经忘记大半了，但永远都记得里面那些光怪陆离的外星人，会说话的狗，还有感觉湿滑柔软的竹节虫样子的外星人，还有脑袋打开里面坐着操控人类身体的外星人，以及被黑衣人用枪爆出各种颜色液体的外星人们。这些都让我在还没搞清楚爱国是怎么回事的时候，就已经先爱起了宇宙，在个人、共产、世界等各种主义进入脑子之前，就已经先是个银河主义者。<br>　　<br>　　电影是零二年的，现在看画面有些粗糙，电影主要讲的是一个外星人要来地球夺取另一个星球的外星人留在地球的武器的故事。<br>　　<br>　　电影总结一句话，好看。结局的彩蛋也很有意思。另外我有注意到就是虽然电影的画面特效做的不是很好，但是比起现在的科幻片多了很多创意，以及一些古灵精怪的小点子。比如在邮局暴露出其他员工是外星人的一段口技，在餐厅找钥匙的冷幽默等等。画面的劣势很好的被其他的东西填补了，这大概是这类老派的科幻片的特点吧，画面不够脑洞来凑。<br>　　<br>　　科技除了给人带来日常生活的便利，促进各行各业的发展以外，在电影方面，尤其是科幻电影的特效越来越酷炫，酷到震撼，炫到眼花缭乱。但工业化的制作，也让现在的许多科幻电影同质化很严重，必要的铺垫之后一顿狂轰滥炸，陷入危机，反转，解决危机，最后男女主人公一起共创美好未来。当然美好未来并没有什么错，只是重复的太多，美好也显得不那么真实。我想到 C.S.路易斯谈论童话故事的结局:</p>
 <blockquote>
 <p>　　如果我们把“他们从此幸福地生活在一起”这个古老的童话故事的结尾理解为，“在随后的五十年里他们的感觉和结婚前一日完全一样”，那么，这个结尾讲述的可能是一件从未真实，也永远不会真实，倘若真实便令人非常讨厌的事。</p>
@@ -3318,7 +3318,7 @@
   </entry>
   <entry>
     <title>解决使用 GitPage 重定向多次问题</title>
-    <url>/2020/05/30/web-resolve-recirculation-errors/</url>
+    <url>//web-resolve-recirculation-errors.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="问题表现"><a href="#问题表现" class="headerlink" title="问题表现"></a>问题表现</h2><p>博客网站更换了 DNS 解析的服务商，访问出现以下问题。<br><img src="https://gitee.com/woailvkai/Kaaaaai.tool.oss/raw/uPic/uPic/03oBxi-2020%2005%2030.jpg" alt="03oBxi-20200530"></p>
 <h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>主要是使用的 <code>DNS</code> 解析服务的 <code>SSL/TLS</code> 设置和 GitPage 的 <code>HTTPS</code> 设置冲突了。</p>
 <h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>解决方法很简单，主要就是保证网页和 <code>DNS</code> 解析服务的设置一致就好了。可以从两个方向解决。</p>
@@ -3338,7 +3338,7 @@
   </entry>
   <entry>
     <title>每周总结 - 0428</title>
-    <url>/2019/04/28/weekly-summary-190428/</url>
+    <url>//weekly-summary-190428.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　本周工作方面的基本告一段落，但是随之而来的也是比较棘手的一个项目，需要用到蓝牙 ota 技术，由于对接公司人手的缺失，对方只提供了安卓的 SDK，iOS 这方面需要我们对照着安卓的代码转译成 OC，幸运的是之前也有学习安卓，大体的逻辑都能看的明白，但涉及到一行一行的翻译过来，就比较吃力。所以这个礼拜所做的努力简单来说，就是用水磨功夫反复看细节处的代码，等待灵机一动的时刻。好吧，我得承认这个方法，耗时费力又没有效率，但用 Stack Overflow 里提问者经常回应的一句话说：it’s worked！<br>　　不过在反复解读的过程中也稍微掌握了一些提高效率的方法，整理如下：<br>　　第一、遇到不懂的代码，直接谷歌。善用搜索这虽然是老生常谈的事，但是对我来说有必要强调一下，因为学习过安卓的缘故，所以让我有些思维盲区，平时解决问题的时候都会直接用搜索引擎，但这次在解读安卓源码的前期阶段我都一直没想到用搜索引擎来解读代码。所以强调善用搜索，另一方面也是提醒自己不要因为接触不擅长的事的压力而导致总是钻入某个牛角尖。<br>　　第二、不能举一反三，就举三推一。这个方法是我通过从某个牛角尖刚钻出时的经验教训总结出来的。但我得到 ota 升级前发送第一次握手校验命令返回的消息时，我试图弄明白这些这个消息代表了什么含义，而且这个消息，和之后每次 ota 包分段发送后的返回消息有什么区别，打印之后发现第一次的长度和之后的长度都不一致，这让我很迷惑。又有兄弟公司的安卓工程师帮忙解读的文档里提到另一个透传通道，前缀说明里写很重要，影响到 ota 是否成功，然后我就思考这个通道和返回的验证消息是否有联系，在源码中搜索发现也确实用到了这个通道——这个后来发现到虽然这个通道进行了赋值和调用一次，除此之外再没有用到。但当时这些信息有点把我搞糊涂了，所以就在重复打印和对比安卓和iOS ota 的返回消息，以及希望在源码中解读出透传通道究竟起了什么作用。因为长时间没取得较好的进展，就颇有些自暴自弃的想把其他简单但不是很重要的命令先转成 oc，然后发现他 ota 线程中循环判断里的条件参数，和回调读取的值是有一定联系的，只是像 oc 把数据处理写成了一个单例形式，又用一层东西封装了一下，导致写入和读取不太像一个来源，造成了视觉盲点，但点进去就比较一目了然，虽然还有底层的东西需要用谷歌解读，但是关于处理返回验证消息就可以按着这个方法来校验了。以上就是我整个问题的思考过程，其实很多时候真正的问题也不是知识量的积累不够，而是主观上受情绪影响，思考的不太全面，所以以后这方面的问题需要多多注意。<br>　　说点轻松的，本周《妇联4》上映，没赶首映，周日放假时去看的，看的过程中几度红眼，因为剧情本身，也因为剧情以外 22 部漫威电影所累积下的情感积淀。也是我第一次在电影院等到片尾所有字幕放完，影院的清洁人员拿着扫把畚斗进来打扫。片尾曲放在最后出现的是钢铁侠，首尾呼应，而且，又是一个情绪的爆发点。我想我平抒直叙的方式实难写出我心里所感受的十分之一，所以就此打住。<br>　　英语这个礼拜开始复习，每天五十个，目标不是很大，早上坐车的时候就可以轻松完成。抽了一天看了下书，《信息资源管理》，最进新开课因为有事还没来得及去上。另外还有一些琐碎的思绪因为发散琐碎没来得及去记，就像云一样飘走了。<br>　　以上。</p>
 ]]></content>
       <categories>
@@ -3353,7 +3353,7 @@
   </entry>
   <entry>
     <title>每周工作学习总结 - 0418</title>
-    <url>/2019/04/18/weekly-summary-190418/</url>
+    <url>//weekly-summary-190418.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　立个 flag，每周写一篇周记，内容包括但不限于工作和学习上的总结反思。之所以会有这个想法，一方面是对自己的拖延症和惰性有客观的认知，另一方面是希望通过每个礼拜的总结反思，可以发现一些不足的地方，希望可以通过阶段性的反思推动自己往前走，提高执行力。<br>　　本周工作上的项目基本接近收尾，但是越到这个时候，开发过程中没有发现的问题，也都暴露了出来。我负责的音视频功能，原先作为一个用户来看，除了视频流和音频流的传输，在交互上，感觉简单的不能再简单，但是实际开发上，也发现有不少需要注意的点，比如当正在通话中，其他用户请求通话的场景；当应用处于后台，接到来电的场景等，花费时间较多的就是应用处于后台时，接到来电的 BUG，具体表现为接收到第一次电话以后，第二次就无法接收到，多次测试以后基本可以定位原因，大概是后台保活，由于项目中集成了环信的 SDK，所以当应用处于后台时也能保持活动，附带的让音视频 SDK 也不会被挂起，而是继续响应来电。至于第二次无法接收到，则是 SDK 封装的内部逻辑导致。这个问题让我对 iOS 应用退到后台机制又有了一点新的认识。<br>　　此外，除了问题本身，在关于问题的沟通推进上，比如在对方有些明显懈怠的情况下，如何推进问题解决以达到预期效果，也有了一些心得体会，归纳起来也其实就是老生常谈的那几句话，首要的就是保持主观动能性，需要自己先去找的问题根源，再让对方跟进解决，其次是最大程度的排除其他发生问题可能性，以避免问题归因的模糊而导致问题被踢来踢去，拉长处理问题周期。<br>　　还有一些另外因为需求修改而进行的工作因为简单和重复，概不累述。<br>　　上周周末两天时间，去参加了四场考试，专升本的第一次试手考，除了主观放弃的经济管理学，其他感觉还行，英语相对简单，历史稍有疏忽，有几道简答题和论述题不会，就干脆的空白放在那里，没有按照考试约定俗成的规矩——乱写都要写满，前天把百词斩 App 上背四级单词的计划完成了。接下来，学校等着开新课，单词开始下一轮的复习计划，生辞旧往，刚好这个礼拜给自己一个借口可以修生养息。也刚好最近视力下降的厉害，可以不用每天那么过度用眼了。<br>　　最近有些闲钱，又开始关注投资理财的事，发现周围许多朋友有的每年买巨额理财型的保险，有的在看理财类的书，有的没的都在为人生做长线规划。可能忧患意识是我们这代年轻人的共性，养生，理财，终身学习，最终目的也只是为了能和这个糟糕的世界刚久一点。言归正传，之前大学的时候就有投过基金，不过没挣多少，堪堪跑赢余额宝，去年了解到定投这种投资形式，试了一下，但恰好碰上去年整体经济不理想，下半年定投的基金估值指数下降，那会也犯了个新手都会犯的错误——怂，投了五六期就停了，钱就放在那里，今年稍微回升了一些就全部卖掉，没成想之后大盘会一路攀升，算算要是我之前没抛大概也能赚个四五百，有点可惜。不过也没有很可惜，毕竟现阶段对自己定位明确，学习投资为主，投资挣钱为辅。今年新学到的理财知识给我的启发是，首先明确两点，一、投资的类型，二、投资的方式。第一个问题在我心里没有争议的仍旧是基金，股票对我来说风险太大，理财型保险的回报周期太长，对我这种年轻气盛的小伙子来说也太过磨人。第二个问题经过去年的尝试，可以确定定投的方式优于一次性大量买入，又结合新学到的知识，把定期定额变成定期不定额投入，根据涨跌动态调整投资金额。其他还有需要细化的问题就是，开始定投的时间点，和买哪个基金。当然这两个我都没能得到很好地答案，毕竟这也都属于投资里的终极问题了，所以今年的额外学习目标是希望对整个市场能有更清楚的把握和认识。<br>　　以上。</p>
 ]]></content>
       <categories>
@@ -3368,7 +3368,7 @@
   </entry>
   <entry>
     <title>每周总结 - 0511</title>
-    <url>/2019/05/11/weekly-summary-190511/</url>
+    <url>//weekly-summary-190511.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p> 　　项目最后的交接工作，我被派到了中移动总部进行封闭开发，暂时作为 iOS 方面的项目管理和推进，就之前来说，这个礼拜我负责的内容多了一些，除了我本身的代码维护以外，对外要处理项目的交接工作，对内要分配测试人员测试出的 bug，和一些缺失内容，优化内容的推进。一个礼拜下来，有一些收获。<br> 　　之前看知乎上一个问题，是有什么是当上管理层才会想的事？虽然我还没有到那个地步，但是管理项目给我的一些体验让我觉得似乎可以把握到一些管理层的想法，比如很多时候我们觉得领导只看结果不问过程有点不可理喻，但是从另一方面来看这其实只是因为需要对接的内容太多，不问过程只看结果，可以最大程度的排除其他因素的干扰。另一个是就是个人的主观动能性，这阵子做项目管理的时候，我总是会因为分配下去的任务而收到关于很多任务的疑问，比如新增一项需求的时候，开发人员会询问关于这个功能在不同场景下需要表现成怎样，在一些无法实现的地方又应该怎样规避。在管理角度看，这些当然是合理的，但提问的时机太零碎了，容易被分散注意力，另一个是有些场景虽然没有给出标准，但其实可以横向参考其他类似的功能来实现需求，这时候提问并不是必要的，所缺乏的只是一点主动去思考，或者说是虽然想到了第一步，即会产生这个问题，但可能是某种局限导致开发人员没有往下一步怎么解决这个问题，我之前也存在过类似问题。切成开发人员角度，规避这些问题，一个是整理问题，统一解决，另一个是解决问题的方法，虽然可以思考怎么解决，但是如果解决方法最终没有通过产品的审核，那之前针对问题的解决也都白费劲，所以最好的应对方法是，发现问题，可以附上一条或两条解决方案，一并提交。我想这些经验对于以后我做个人开发或者管理都会有帮助。<br> 　　这个礼拜接触到的新技术是使用 OC&#x2F;Swift 自动生成文档的轮子：</p>
 <blockquote>
 <p> 　　OC 自动生成代码文档：<a href="https://blog.csdn.net/u011374880/article/details/82143782">appledoc</a><br> 　　swift 自动生成代码文档：<a href="https://www.jianshu.com/p/b0d77877bafe">jazzy</a></p>
@@ -3387,7 +3387,7 @@
   </entry>
   <entry>
     <title>每周总结 - 0518</title>
-    <url>/2019/05/11/weekly-summary-190518/</url>
+    <url>//weekly-summary-190518.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　本周买了画板，画纸和一大堆铅笔，打算就着 B 站的素描入门视频学习画画，练习了一两天线条，小臂和胳膊的肌肉持续酸痛，一个现在已经不联系的朋友之前回答我如何不费劲的练肌肉，说学画画。之前以为他是开玩笑，现在看果然如此。<br>　　周一花了半天结束交接了上个项目，本周主要工作是封装兄弟公司的语音 SDK 到原来我们集成了腾讯，百度，讯飞，阿里语音的 SDK 中，新的语音 SDK 从逻辑可以看到封装者的思路，基本上是想把我们需要做的都做了，只暴露出实现功能需要调用的接口，虽然使用时清晰直观，但对于我需要二次分装不算友好，比如各个阶段的状态返回，开始录音结束录音，开始识别语音，和语音回馈，我只好作比较粗糙的处理，比如在调用开始录音方法时，主动调开始录音状态的回调，因为监听不到停止，但在他返回的一个枚举方法里有开始识别的状态，我就在这里放了停止录音的回调。<br>　　虽然这个方法可以让我二次封装正常进行，但是在实际体验上，仍可以预估到可能发生的问题，比如本地音乐在播放的时候，启用录音，语音助手在播报时，播放本地音乐等等，一些场景交错下的体验问题。这让我反过来想封装一个框架，我们真正应该思考的是什么？简单便捷，还是复杂详细但面面俱到，参考官方暴露出来的框架和回想过往开发，我想这个问题应该是没有标准答案的，不同的产品有不同的需求，因为哪怕官方的框架，我也遇到过需要用 oc 运行时态的特点来替换系统方法来实现需求的问题。所以没有十全十美的框架，好的框架需要的是与时俱进，不断迭代和维护。另一方面也可以从这点上看出开源的优势。<br>　　另外还有关于这方面的内容就是发现了一个这个仓库：<a href="https://github.com/SunshineBrother/JHBlog">iOS开发：我的初级到中级的晋级之路</a>。里面介绍底层的相关知识很详细，还有完整的工程源码，我打算每天看一篇有关底层的文章。在掘金上看了一篇关于大佬面试的文章，里面针对三年经验的一些技术问题，有些我知其然而不知其所以然，算下看我做 iOS 开发也接近三年，但前期没太注意技术累积——虽然也有一部分是中间分心去弄安卓开发，导致现在每次提升一个方向的知识，总要从底层一步一步看上来，很麻烦，而且也因为这点导致在工作岗位上的处境也有些尴尬。<br>　　以上。</p>
 ]]></content>
       <categories>
@@ -3402,7 +3402,7 @@
   </entry>
   <entry>
     <title>每周总结 - 0601</title>
-    <url>/2019/06/01/weekly-summary-190601/</url>
+    <url>//weekly-summary-190601.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　上周去旅游，就没空写周记，旅游的心情和工作的心情全然不同，虽然一直在走马观花，但回想起来也有些琐碎的事情可以摘出来谈一下。<br>　　<br>　　跟着旅行团去了大皇宫，去了玉佛寺，去最高大楼吃了自助餐，去看了成人表演，去了海边，去了天上，去体验了互相泼水的风俗活动，热闹好玩有意思。美中不足的是，行程太满，让人疲惫，旅游路线几乎和其他好多团重叠，几乎每个景区入目满眼的都是中国人，甚至在一些景区，除了我们一行人以外，其他的都是六十岁起步的大叔大妈。想象中的异域情调几乎都只在 711 便利店里体验到。<br><img src="https://s2.ax1x.com/2019/05/31/VlQir9.jpg"><img src="https://s2.ax1x.com/2019/05/31/VlQFbR.jpg"><img src="https://s2.ax1x.com/2019/05/31/VlQAV1.jpg"><br><img src="https://s2.ax1x.com/2019/05/31/VlQEUx.jpg"><img src="https://s2.ax1x.com/2019/05/31/VlQPKJ.jpg"><img src="https://s2.ax1x.com/2019/05/31/VlQV56.jpg"></p>
 <p>　　所以在旅游的间隙我总是想，有时候去另一个城市或者国家旅游，其实并不需要去很多的景点，拍很多照片，买很多纪念品，只需要找一间不那么破烂的房子，每天日出晚归，体验一下他们的日常就行了。<br>　　<br>　　对于这种流水线式的旅游模式，我在玉佛寺出来碰到的一个穿着鲜艳，气势咄咄的老太太大概可以上一个声情并茂的最好注脚，她在一只脚踏出寺庙门口的时候，回头看了一眼，脸上说不清是愤愤不平还是埋怨，说了句，这都是走马观花。整个旅游过程中最让我感到不适的是观看成人表演到高潮部分，我从不标榜自己是个正人君子，甚至为了防止被人指为面冷心热的闷骚，我在互动环节选择单刀直入，稍稍落于我一个同伴在第二个上了台，在她白花花的胸脯上摸了一把并合照，在后来另一个人下台强硬坐在我身上并合照的行为我也表现出十分配合的态度，但最后许多人上台密密麻麻的围成一个圈，中间宽敞的地方空出来由表演者挑人出来和他们互动，互动内容基本往下三路靠，眼看着我平时的熟人尖叫甩动着手臂进入一种狂热的状态，我忽然产生了一点生理上的不适。于是我就从舞台上退了下来。<br>　　<br>　　当时从舞台上下来，我脑子里想到的是王小波先生书里的一句：一切都无可救药的走向庸俗。当精神鸦片猛嘬了两口，感觉自己不再有同流合污的丑陋。但转而立马回头想到，当我试图用一种鄙弃的态度以保持我精神上的超然物外时，这时的我是不是表现出了另一种丑陋。如果不是，那是解释成既做婊子又立牌坊的不要脸，还是只是像旧时士大夫在出淤泥而不染的路上偶尔没能把持住自己但最终悬崖勒马的庆幸。我不能对自己狠下心来评判，也不想无谓抬高自己，最终没得到答案，但经过这一轮思辨之后，我状态明显好了很多。后来坐在位置上，台上穿着暴露的人再来想拉我上去，我也只是摆摆手，你们玩吧，我上去见识过了。——说这句话的时候，我忽然觉得在刚两种极端自我认知里，这句话的态度倒可以当做中肯的平均值。<br>　　<br>　　虽然说旅行是个认识自己认识别人的过程，但除了隐约知道自己能接受和不能接受的事物在某方面的边界在哪，在旅途中对其他人的旧有印象并没有任何改变。回来后一连几天都提不起精神，但是班还是要上，这几天发现心灵鸡汤也是有些用处的，就像上班的时候精神不好影响到心情也不好，但中间没由来想到某些成功人士分享的经验：每天给自己一个傻笑，早上刷牙的时候就冲着镜子里一脸颓废的自己笑了一下，心情竟也出奇的好了一些。不过这也说明了人受外部因素影响比在内部自我调节要见效更快，再怎么哄自己知足常乐，平凡挺好也没有立马中五百万大奖狂喜后的平静更有质感。穿一件新衣服远比睡一个懒觉更显得有精神。<br>　　<br>　　本周回来后的工作都比较轻松，但技术上碰到了一个难点，用 <code>runloop</code> 机制检测 app 卡顿。虽然看了很多网上的教程，心里也有了一个模棱两可的概念，但是深入理解总有一些隔靴挠痒的感觉，<code>runloop</code> 的运行周期不像 <code>viewcontroller</code> 的生命周期那么容易理解，不是按顺序来的，而是在激活后达到某个调节又会折回去开始另一个流程，当我最终把整个流程不加理解的硬记下来，落实到具体的代码时又让我一脸懵逼，中间又有工作上的事打断扰乱思绪，所以最后都没有展开深入的理解完。另外的工作都算是基本操作，整合新的语音 <code>SDK</code> 到原来应用，修复 app <code>bug</code>，和人配合制定蓝牙设备命令，额外的就是中移动的项目，有时需要回答当前负责人的一些问题，幸运的是之前注释写的比较细，他找到问题代码的位置，基本可以根据注释推进，但也有一个问题就是，我发现——可能是人的共性，当我回答问题响应的比较快和回答内容比较详细，多次之后，他会有一种问问题的惯性，甚至在一些简单的问题上不做思考就把问题丢给我。在这个礼拜最后一次的问题中我有和他说这个问题。<br>　　<br>　　这个礼拜也终于把《邻人之妻》看完了，新开一本《繁花》，是因为听说王家卫要拍以这本书为剧本的电影才看的，现在大概看了一章，特点是通篇都用沪语对话，你做什么事体，你有什么事体，从文字就可以想象到书里人说上海话的氛围。从初见端倪的剧情看，大概想到王家卫为什么会选这本书拍电影了，基本上感觉和《花样年华》是一个调调，饮食男女，你侬我侬的。虽然《花样年华》好看，但再来一部差不多口味的，却没有太多新鲜劲了。希望墨镜王可以在自己的基础上推陈出新，再接再厉，再创高峰。</p>
 ]]></content>
@@ -3418,7 +3418,7 @@
   </entry>
   <entry>
     <title>每周总结 - 0622</title>
-    <url>/2019/06/22/weekly-summary-190622/</url>
+    <url>//weekly-summary-190622.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　上周博客落了一篇，说起来其实上周还没有本周忙，上周主要是测试兄弟公司开发的语音库，和针对新项目给出一个开发周期的预估，虽然一周都不是很忙，但是最后一天因为很久之前的老项目出了问题，需要维护，所以就没有抽出时间来写博客了。<br>　　本周主要在弄一个儿童绘本读物的 App，因为主要的几个页面，需求里都是用现成的内容 <code>SDK</code> 和 <code>h5</code> 实现，所以我的工作还是比较轻松的，因为这个原因也让我有空对自己的知识进行一个归纳整理，包括对一些模棱两可的知识点的提炼。<br>　　比如在新项目里的内容 <code>SDK</code> 的调用，他初始化之后，可以获取到一个控制器，在我的项目中使用，我是直接封装进 <code>tabbar</code> 中，类似于这样使用：</p>
 <figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> v1 <span class="operator">=</span> <span class="type">XYSDK</span>.obtainRootNavigationRootViewController() <span class="comment">//SDK 获取到的控制器</span></span><br><span class="line">v2.tabBarItem <span class="operator">=</span> <span class="type">ESTabBarItem</span>.<span class="keyword">init</span>(<span class="type">XYBasicContentView</span>(),title: <span class="string">&quot;听听&quot;</span>, image: <span class="type">UIImage</span>(named: <span class="string">&quot;icon_gang&quot;</span>), selectedImage: <span class="type">UIImage</span>(named: <span class="string">&quot;&quot;</span>)) <span class="comment">//定义 tabbarItem 显示文字和图片</span></span><br><span class="line"><span class="keyword">let</span> n1 <span class="operator">=</span> <span class="type">UINavigationController</span>.<span class="keyword">init</span>(rootViewController: v1)</span><br><span class="line"><span class="keyword">let</span> v2 <span class="operator">=</span> <span class="type">UIViewController</span>()</span><br><span class="line"><span class="keyword">let</span> n2 <span class="operator">=</span> <span class="type">UINavigationController</span>.<span class="keyword">init</span>(rootViewController: v2)</span><br><span class="line"><span class="operator">.....</span></span><br><span class="line"><span class="keyword">let</span> n5 <span class="operator">=</span> <span class="type">UINavigationController</span>.<span class="keyword">init</span>(rootViewController: v4)</span><br><span class="line">tabBarController.viewControllers <span class="operator">=</span> [n1, n2, n3, n4]</span><br></pre></td></tr></table></figure>
 <p>　　但是有个问题就是 <code>tabbar</code> 的文字不显示为我设置的“看看”，而是显示为 SDK 内部自定义 “推荐”，放在之前我可能会抓耳挠腮的在 <code>tabbar</code> 的显示问题是不断尝试，但是基于对控制器的层级理解，我创建了一个集成于 <code>UIViewController</code> 的控制器界面，并在 <code>viewDidLoad</code> 中写入一下代码：</p>
@@ -3439,7 +3439,7 @@
   </entry>
   <entry>
     <title>翻译：Why use dependency injection</title>
-    <url>/2021/02/22/translation-why-use-dependency-injection/</url>
+    <url>//translation-why-use-dependency-injection.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>原文来自：<a href="https://github.com/uber/needle/blob/master/WHY_DI.md">Why use dependency injection</a></p>
 <p>第一次翻译，如有问题还请留言指出。<br>E-mail：<a href="mailto:&#114;&#x6f;&#111;&#116;&#64;&#x6b;&#97;&#97;&#97;&#x61;&#x61;&#x69;&#x2e;&#99;&#x6e;">&#114;&#x6f;&#111;&#116;&#64;&#x6b;&#97;&#97;&#97;&#x61;&#x61;&#x69;&#x2e;&#99;&#x6e;</a></p>
 <hr>
@@ -3474,7 +3474,7 @@
   </entry>
   <entry>
     <title>每周总结 - 0713</title>
-    <url>/2019/07/13/weekly-summary-190713/</url>
+    <url>//weekly-summary-190713.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　周记这个 flag 立了已有三个月了，体验一般，虽然每个礼拜确实有回顾和反思，但实际起到的作用大概还是走马观花多一些，而且营养也不是很大，不过孰好孰坏现在也说不清，就像之前写了几年的日记，后来骤然放下，对我的影响也微乎其微。但当时留下来的日记在时间过去许久以后的现在发挥的作用其实远大于在当时所发挥的作用。所以我想周记在我还没颓废还可以写的时候，能写一些就写一些吧。<br>　　上周有一点点懈怠，预计好的学习计划都 GG 了，整理了一下所有课程还没看到部分总共还有三百多页，上个礼拜本来想至少也要看完三分之一的，但发现注意力很容易被分散，周末上课也是，老师讲着讲着，忽然我就想到其他事情去，然后思绪转回来想我不应该这样，有没有什么软件可以帮人集中注意力，记得有一个叫 forest，然后就拿出手机搜索，一点一点开起小差来。我想大概是学习步入正轨已经很长一段时间了，刚开始的热情有点消退，学习又是一个很难在短期内能收到回馈的一件苦差，所以难免心生懈怠。想到这，不由恨从心起，学习真是个王八蛋。不过即使这样他再王八蛋，也是个可以提升我的好王八蛋。所以下个礼拜目标继续把教材啃完。<br>　　本周看了一部电影《摇摆狂潮》，恶，很烂不讲。周三的时候忽然心血来潮看起了陈丹青的《笑谈大先生：七讲鲁迅》，还不错，如果看做是一本鲁迅研究的书，切入点很别树一格，然后发现陈丹青的叙事语气和木心的叙事语气很像，不过对一点不意外因为之前知道他们的师徒关系，但看到更多的是，陈丹青好像真的很推崇他的老师。<br>　　工作上的事本周都比较平，都是一些难度不是很高的任务，还有一些要和人沟通推进的事，但对我来说也不在话下，之前可能会因为对方不配合或敷衍的态度可能会心里不通畅，但现在已经好多了，大都以公事公办的态度切入对话。不过也在心里叹一口气，诶，我也慢慢变成了一个不动声色的大人了。否则按照归来仍是少年的逻辑，这会我应该跨马横刀，头昂昂气扬扬送他一句去你妈的。<br>　　公司给我提薪的事总要有了阶段性的结果，不过具体还要下个礼拜确定，过程有些一波三折，甚至让我觉得是不是某种形式的敲打，甚至不抱很大希望了，不过就当好事多磨吧，中间琐碎就跳过不讲好了。
 　　</p>
 ]]></content>
@@ -3490,7 +3490,7 @@
   </entry>
   <entry>
     <title>每周总结 - 0722</title>
-    <url>/2019/07/22/weekly-summary-190722/</url>
+    <url>//weekly-summary-190722.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　上周六因为一个项目的迭代，所以写周记的时间就被冲到这个礼拜周一写了。其实项目本身更新的功能很容易解决，但是更多的时间是在解决之前开发人员所产生的 bug，解决 bug 的过程比较麻烦和消耗时间，但是当一个 bug 解决以后，往往能获得一点新的知识。比如通过侧滑手势的增加，在手势结束后时间 layerAnimation 的缩放动画，可以让整个侧滑过程看上去更生动。还有手势操作在继承关系中的响应问题，其他的问题不太具有普遍性，只会在单个项目中出现，所以略过不提。<br>　　周二的时候换了办公场所，是之前提到的兄弟公司，据说之后我们部门也可能整体搬迁过来，只不过现在算是临时支援。兄弟公司，离住的地方近了一些，人也多了一下，周围的环境也比较悠闲，早上傍晚都有老头老太或者妈妈带小朋友在遛弯，虽然他们在遛弯的时候，我在上班，但我觉得他们背着手优哉游哉的样子，在一定程度上缓解了我紧绷的情绪。<br>　　周六和同事去游泳，算上这次，是我第二次正经去泳池学习游泳了，进度不谦虚的讲，可以说是一日千里。第一次下水，克服了在水里的恐惧，可以在泳池中直立起来，第二次下水，虽然还不会换气，但是已经可以一口气用蛙泳的姿势游十来米了。按照这个速度，再来几次，不日将可以参加国家队~哈哈。<br>　　继续看陈丹青的《笑谈大先生》，看陈从鲁迅的朋友，鲁迅的死亡各个角度写，写的很好，我没什么想说的。<br>　　一个礼拜都没怎么学习，没怎么画画，周末去图书馆看了两章数据库的内容，觉得很充实，我想我已经从上个礼拜的懈怠情绪出来了。下个礼拜希望可以表现得更好。
 　　</p>
 ]]></content>
@@ -3506,7 +3506,7 @@
   </entry>
   <entry>
     <title>每周总结 - 0706</title>
-    <url>/2019/07/06/weekly-summary-190706/</url>
+    <url>//weekly-summary-190706.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　每次有一些模棱两可想法的时候，都会在互联网上看到别人已经成体系的理论。这让我觉得虽然沙雕网友遍地走，睿智网友也不少。<br>　　本周依旧，忙碌的部分集中在头部，后半段的时候主要的都是一些琐碎的事，不过周四的时候针对当前项目的一个 bug，重写了部分逻辑。让我对加载 h5 页面的控件多了一些认识，还有手势响应链的理解，比如当前页面如果同时有侧滑返回手势和页面右滑手势时，两者在响应的优先级上，侧滑手势作为更底层的方法会先响应，当返回 <code>false</code> 时，页面右滑手势才会开始响应。虽然是个小知识点，但对于我理解系统继承类和系统代理实现有了更直观的认识，虽然一直有系统的类，和我们自己生成的类其实没什么差别的概念，只不过系统是封装起来，然后有很多父类方法，可以用在某些场景中解决问题。但是开发的时候有时也会有盲点，对于一些顽固，或者需要捆绑修改才能生效的地方总有黔驴技穷的心塞。<br>　　极客时间停在了项目开发的任务划分，也似乎因为停留太久，每次从头看都很难有一鼓作气看完的气力，也许也和我的拖延症有一些关系，因为画画认识一个网友，约好说互相鼓励，学习画画。最近几个礼拜互相交流进度，他佩服我自制力强，作息规律。但如人饮水，冷暖自知，我自制力强吗？不强，刚出新手村吧。这个礼拜线条练了两天，新的手绘课程算正式开始了，第一节课老师教人物描形，画草图，看着简单，但实际联系的时候也有些问题，用四边形概括人物轮廓，问题不到，但是画草图时，虽然老师也说不用太在意画的想不想，只要大致样子就行，但是在我刻意的临摹人物五官，想复原神态的时候总是画虎不成反类犬，而且画完总觉得整体看上去不够大气。<br>　　抽空看了一下最近很火的《长安十二时辰》，有马伯庸老师作品改编垫底，加上制作讲究，人物也都智商在线，确实不错。不过就是优酷的广告太过恶劣，每次看都要先看两分钟广告，中间还要穿插剧中人物的广告，而且发现现在网贷和网络理财的广告出现频率很高，想着一边是二十多岁花龄少女欠下巨额网贷无法偿还自杀身亡额新网，另一边这种网贷公司仍然没有管制的野蛮生长，越演越烈。不过除了心里嗤笑，也于事无补。还看了一部电影《恶人传》，警匪合作缉拿连环凶手的创意不错，但原本预期以为看《恶人传》的名字，以为故事里有价值观的分歧是会产生在黑帮老大和连环杀手身上，一种是因其为实现目的而表现成恶，另一种纯粹的恶，觉得应该会很有看头，所以剧情后面的发展虽然好看但是心里觉得有点不尽人意。而且连环凶手除了家庭合照在他的住处一闪而逝以外——也只是为了推进剧情确认身份，觉得他这个人物不是很饱满，甚至作为一个变态杀手，都有些脸谱化，被抓被打被判罪，都保持一种邪恶的狞笑，符合人们对变态杀手的直观印象，但没有跳出来。就像一个从其他地方摘录过来的人物剪贴。<br>　　周末照旧去上了课，信息资源管理已经上完了，然后发现有一门课，因为周六上午都没上课的原因，我自己才看了十几页书，嗯，下周要把重心放在学习上了。</p>
 ]]></content>
       <categories>
@@ -3521,7 +3521,7 @@
   </entry>
   <entry>
     <title>每周总结 - 0629</title>
-    <url>/2019/06/29/weekly-summary-190629/</url>
+    <url>//weekly-summary-190629.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　忽然觉得当咸鱼既容易又困难，只要找到某种自洽，并能说服自己。和朋友聊天问近况，他说頽了，放弃了。原因是看见未来无望，贫富阶级固定，咸鱼再难翻身。我想起另外一个朋友当咸鱼的理由是得过且过，活在当下，当前的快乐最重要。他们立足于现在和未来都给自己当咸鱼找到了理论支撑，这样没有心理压力的做咸鱼是容易的，但这些理由一点也都说服不了我，而在尝试做咸鱼失败之后我甚至可以立马找到理由开导自己，不一定每个人都有天赋做咸鱼，找到适合自己的方式生活就好。所以事情陷入僵局，但回到起点看，问题倒不是要不要做咸鱼，又或者是怎么才能做咸鱼的问题。而是如何心无旁骛的在自己选择的路上走，不再三心二意的左右顾盼，不再对自己没得到的东西报有念念不忘的遗憾。之前在微博上看到一句，大概意思是人要是没有回忆，就可以像一台完美的机器一样一直合理运作。总是在空闲的时候，在脑子里猝尔闪烁，仔细想想，或许可以。但如果真是那样，彼时的我可能也不会有此时这种想法。<br>　　新开了一本书《迁徙的间隙》，作者只比我大一岁，文字很有灵气，对事物的描写所选择切入的视角也很有意思，前卫，故事的内核有点晦涩，有些地方也有一些流于雕琢的痕迹，但即便这样，也让我很羡慕，书里的那种文字，是我一直在尝试但却一直没写出来的东西。不过我也不是很气馁，因为想写的东西还有很多很多，作者也让我看到了一个可能性，就是坚持写，不断耕耘，总会有开花结果的一天。<br>　　素描课已经学到三棱体的画法了，透视打调子越来越熟练，但是图形线条好像越画越不直了，所以接下来的重心是回过头继续练基本功。英语单词的第一轮复习大概这周末可以结束，极客时间上的课有些懈怠，本周只看了一两节，中午本来预计拿来刷题的时间也被我用来看小说，所以下周要加油了~<br>　　工作上重头内容都在星期一一口气解决了，其他几天做的事除了修改 bug，都是一些重复性很强的事，所以本周比较清闲，值得记录的是，我用 UITextField 写登录界面的输入框，设置 right view 分别是下拉的箭头和隐藏显示密码的按钮，有个问题就是他们的位置都显示在 textfield 的边缘，显得很怪异。然后我试了 UITextField 的拓展，试把 right view 的 UIButton 改用 UIiamgeview，试了改变 left view，content view，right view 的边距来改变 right view 的位置，都没有起作用。最后起作用的是，改变 right view 的大小，使设置 right view 的 button 内部图片居中，起到位置移动的效果。<br>　　另外一个问题是用 swiftScan 现成的轮子生成二维码图片，用他自带的方法在中心位置添加 logo，会导致 logo 图片模糊，然后我就手动修改了添加 logo 的方法，解决。
 　　
 　　</p>
@@ -3538,7 +3538,7 @@
   </entry>
   <entry>
     <title>每周总结 - 0729</title>
-    <url>/2019/07/29/weekly-summary-190729/</url>
+    <url>//weekly-summary-190729.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　小时候在酒桌上喝酒，总在大人们的撺掇向一些长辈敬酒，熟面孔多的时候也会童言无忌说上几句叔叔伯伯生意兴隆万事大吉，但生面孔多的时候心里也会有点害羞的不情愿，到了后来念书走上社会，面对学校老师职场前辈，起初也会有一些真心实意的感谢祝酒词。但是后来觥筹交错多了，渐渐习惯了这种场面，说不走心的祝福，妥协于气氛，绞尽脑汁，生编硬造一些词来祝酒，偶尔心里也会回忆起小时候被长辈逼迫下情不由衷的别扭。但时间长了，这种感觉也慢慢淡了。<br>　　我想走上社会以后的变化，可能就是由这些劝服自己开口讲话、劝服自己相信自己说的话的一个又一个瞬间所构成的，向外界的诱惑，向自己的欲望低头的那些瞬间，就好像温水煮青蛙，但一点一点把温度加高的人却是自己。坚持做自己真的是一件很难的事，就像一个学轮滑的新手，要在不断的摇摆中稳定自己，视线所及，还要注意前方是否有危险。总是想起那句：世界上只有一种真正的英雄主义，就是认清了生活的真相后还依然热爱它。做自己很难，认清做自己很难之后还可以继续坚持做自己更是难上加难。可能这是当代年轻人的通病吧，能清除精确的把握到自己的局限，但又不知道往哪里使劲可以跳出这个局限。在脑袋上绑头带给自己加油鼓劲，买几斤心灵鸡汤的书给自己喘口气，但如果这些是治标又治本的方法，也就不至于再发出这些疑问了。<br>　　跳过这个问题。本周工作上接手了一个新的项目，里面有用到跨平台技术，native，不过没空仔细研究，我负责的部分仍然是传统的 <code>OC</code> 代码，但可能是因为用到了 native 技术，所以项目的结构也和以往有些不同，有一点挑战性，但深入看了整个项目的代码以后，发现其实也万变不离其宗，虽然他重写了 <code>Appdelegate</code> 类，导致我在前期不知道根控制器被设置成了哪个，但是搜索 <code>applicationDidEnterBackground</code> 方法就立马找到了这个重写的类，但是对于这个重写以后的类没有 <code>.h</code> 文件，还是有点迷惑，可能是和他这个项目机制有关系。<br>　　另外有个体会就是，可能是经手的项目多了，经验上来了，以前遇到比较麻烦，看不懂的代码，第一反应是焦灼烦闷，但现在平静多了，可以保持正常水平去看问题，有时也能超水平发挥，举一反三的看，把其他项目都放在眼底下对比各自不同和相同部分，用为什么在 A 项目不出现问题，但在 B 项目会出现问题的思路去解决问题。<br>　　周末部门团建去山庄玩了，心情和风景都很不错。不过团建虽说是缓和工作压力，缓解部门同事平常工作时的紧张气氛，增进感情。但效果不是很好，之前讨厌的人还是一样惹人讨厌，而且其他的同事似乎也有同样的感觉，甚至比我有过之而无不及，而在这种情况下我就更加心安理得保持我的讨厌，不会再试图反思是不是自己太小家子气。<img src="https://s2.ax1x.com/2019/07/31/eY3kmn.jpg"><img src="https://s2.ax1x.com/2019/07/31/eY3iOs.jpg"><img src="https://s2.ax1x.com/2019/07/31/eY3Pyj.jpg"><img src="https://s2.ax1x.com/2019/07/31/eY3ClQ.jpg"><br>　　这周还去看了哪吒，非常不错，虽然剧情人物刻画的较其他剧情片都很脸谱化，但对于哪吒闹海本身的故事来说，算是跳出了自己的框架，取消了自刎情节，父子之间变得温情脉脉，取消了屠龙情节，敖丙哪吒之间变得温情脉脉。似乎唯一真正的大反派就只有一个申公豹，申公豹太惨了，同情申公豹。<br>　　以上。</p>
 ]]></content>
       <categories>
@@ -3553,7 +3553,7 @@
   </entry>
   <entry>
     <title>每周总结 - 0803</title>
-    <url>/2019/08/03/weekly-summary-190803/</url>
+    <url>//weekly-summary-190803.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　匆匆一周过去，回想起来，值得一提的也没有什么，有些做一天和尚撞一天钟的碌碌，但平静心情总结一下，虽然碌碌倒也不是无为。<br>　　先聊聊天气，本周阴天占比较多，可能是到了月末月初交接，股市大盘这几日也不断波动，阴晴不定。心情也时好时坏，说话的欲望被沉默吞并，鞋子在几场大雨里被反复浸成船，某天晚上下班，看见飞机穿过乌云，开着大灯，像吸尘器把乌云吸走，留下一块一块白色的光道，看起来就像 UFO 飞过。想起星空、宇宙和不明飞行物，心情似乎就好了一点。<br>　　上周工作量增多初见端倪，本周的端倪又多了一些，部门的项目慢慢多了起来，虽然总结工作内容也就是为了需求搭建功能和解决 bug，但量一多了，难免有些焦头烂额。想打个鸡蛋在额头上做荷包蛋——哈。<br>　　我有没有说过有时候想到一些东西，但最后总是发现别人早就已经有现成的理论学说在很早就已经出来了。如果没有，那我再说一遍，有时候我心血来潮想到一些我自以为特别的想法，比如成功学是用来淘汰社会上平庸但又野心勃勃的年轻人的。然后一翻书——忘记谁谁谁了，就说过差不多的话。除此以外，最近还发现，总是在一件事发生很久以后才想起来最好的应对方式——包括话语，态度，行为之类的应对。不过想想这可能是人类的通病，也可能是人们产生后悔的根源。也就释怀了一点点了。
 　　
 　　　　</p>
@@ -3570,7 +3570,7 @@
   </entry>
   <entry>
     <title>每周总结 - 0831</title>
-    <url>/2019/08/31/weekly-summary-190831/</url>
+    <url>//weekly-summary-190831.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　上个礼拜又没抽出空写周记，一转眼本周就过去了一半，这篇周记我是星期三开始写的，不知道结束会在星期几，写一篇周记时间周期横跨大半个礼拜，虽然感觉很惫懒，但从时间跨度上看，又是名副其实的“周记”了。<br>　　这个礼拜买了个键盘——罗技 k380，尝试在几个设备之间切换，连接，都很迅速，但按键的手感不是很清脆，有点粘滞， 就像吃东西梗着喉咙的感觉，但离噎着又很远。可能是没习惯吧。不过对于平常在 iPad 上码字勉强够用了。<br>　　新开了两本书《超新星纪元》和《只是为了好玩》，一本科幻小说，一本 Linux 之父的自传。前者主要内容是讲由于行星运动导致地球上的成年人都死亡，只剩下十三岁以下的小孩，而在这群小孩的手上开启了地球上的新纪元。后者只看了个序，不过第一章开头着重讲了他本人的长相，说自己长的如何如何奇怪等等，让我不禁觉得是不是有点刻意，想拐弯抹角的往“奇人必有异相”里靠，不过也可以理解，但凡伟人都多少有些自恋，哪怕平凡如我，早起照镜子也照到出门时手忙脚乱。虽然两本书一个是靠想象力，一个是记叙，但他们里面都有提到一个共通的东西，《超新星纪元》里面说的是孩子社会发展的原动力是玩，《只是为了好玩》里林纳斯解释生活的意思提出了三个层级的诉求，生存，秩序，娱乐。似乎关于这方面的思考，发展进步，生物进化，最后的结果都是为了更好的玩。一边觉得他们的想法有趣，一边有些感概，优秀的人总是能想到一块去。我作为一个后生晚辈，也情不自禁的想举手发言，前辈们，我。。我也觉得玩是人类的最终极的最伟大的诉求。<br>　　工作内容日益增多，有的内容对我有积极影响，有的则不然。周六开会听闻产品助理离职的事，心里没起太多波澜，部门 leader 顺势而为的借这件事敲打包括我在内的几名开发人员，虽然有些话我觉得有失偏颇，但如果不计较这个，对于可以增进改善我的建议，我觉得还是比较客观的。所以心里也没起太多波澜。倒是因为之前和产品助理的针锋相对，让我想到了一些影视小说作品里会出现的桥段，一直针锋相对的两个敌人在最后永别——现实中我们应该也不会再见了的关键时候，忽然相逢一笑泯恩仇，并为之前所有的恩怨争论由其冲突产生的毛刺最终消融为理解，而在关系上以另一种方式达成非常规的相知相识。戏剧化演绎到这，我就打住，没继续在脑子里演绎下去，回过头来又觉得自己颇有些可笑，可笑的原因模糊以蔽之，大概是人间不值得吧。<br>　　每天早上通勤路上背英语单词，虽然现在错误率在下降，但是感觉效果还是不太明显，想下一个阶段配合英文原著阅读学习，但不知道自己能够控制时间，专升本的课进入复习阶段，数据库老师给了一份试卷让周一到周五内完成，结果一直没抽出空。包括这篇博客，写到这里的时候已经星期天晚上了，明天又要开始新的一轮忙碌了。<br>　　刷微博看到一句诗，“人生天地间，忽如远行客。”，有朦胧的孤独感从诗的意境里透出来，百度搜全文看到下一句，“斗酒相娱乐，聊厚不为薄。”好吧，不为薄就不为薄，及时行乐就好。</p>
 ]]></content>
       <categories>
@@ -3585,7 +3585,7 @@
   </entry>
   <entry>
     <title>每周总结 - 0819</title>
-    <url>/2019/08/19/weekly-summary-190819/</url>
+    <url>//weekly-summary-190819.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　Yooo~今天终于挤出时间写周记了，上个礼拜落了一篇，就合在这里一块说了。<br>　　上上个礼拜看了徐浩峰的《刀背藏身》短篇集，很有古韵，他在后记里写：</p>
 <blockquote>
 <p>　　古人以减省来营造意境，说满、说显了，便无意境。营造意境是为了让人有更多体会，可惜今人拒绝体会，只求告知。</p>
@@ -3604,7 +3604,7 @@
   </entry>
   <entry>
     <title>巫师世界革命</title>
-    <url>/2018/11/22/wizard-world-revolution/</url>
+    <url>//wizard-world-revolution.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　上个礼拜去看了《神奇动物：格林德沃之罪》，和哈利波特系列比起来，精美壮观许多，如果不考虑人物关系，他更像后传，在内容上，延伸远多过补充。德普在这一部的戏份比上一部多，作为一个大反派，他的思想核心在所有的电影反派里也应该是数一数二站的住脚的了，用建立一个法师凌驾在麻瓜之上的阶级社会，来阻止预言中所看到二战的核弹爆炸，这让他的邪恶都蒙上一层睿智和远见的色彩，墓地里的会议，纯血法师整齐围成圈，恍如一个大豪门，魔法部的执行人员们从黑暗中走出来，都像在海上风雨飘摇的小舟。<br>　　<br>　　故事主线是克雷登斯的身世之谜，但直在最后解开谜底之前，我仍然对克雷登斯这一部分的人物关系感到有些混乱，可能是内容太多的缘故，让前一部看起来就像围棋开始的一步闲手，或是序章，所有的主要铺垫内容都放在这一部一口气给交待了。还在凡人和法师为什么不能恋爱的规则里疑问，克雷登斯就找到家族的女仆，就和魔法部的人起冲突，但魔法部的人怎么又是格林德沃的帮凶。才从下水道的囚禁，黑人原来是个坏人的恍然大悟出来，邓布利多和格林德沃的回忆怎么看起来 gaygay 的。又有新的华丽魔法和可爱动物让人眼花缭乱，只能有些泄气的承认，我大概可能不是 HP 宇宙的核心粉吧。<br>　　<br>　　看完缕清了所有人物关系，觉得有几处印象深刻，纽特和女巫姐姐从误会到重修旧好，火蜥蜴眼睛的比喻，笨拙可爱。女巫妹妹最后会跟随格林德沃一点也不奇怪，从讲故事上的手法来说，也是作为一个从中立阵营走向邪恶阵营的例子，举一反三的可以窥见其他法师们追随格林德沃的理由，但还是忍不住吐槽，为了爱情参加革命，因为革命而抛弃爱情这种桥段，原来魔法世界也不屡见不鲜。裘德洛演邓布利多，除了发际线比老邓布利多还要靠后，感觉像 BUG，其他没有任何毛病。克雷登斯最后落单的女随从，我觉得她在下一部的剧情应该会起到不小的作用。格林德沃预言中显示的坦克和核弹爆炸的蘑菇云，让我感觉一下子打穿了魔法世界和现实世界的壁垒，想到后面一切如预言显示的如期出现，不由得有些悲观的想，是不是魔法和想象力都不能阻止人类自我毁灭？<br>　　<br>　　最后，比起所有阴谋诡计，我还是比较喜欢作为点缀出现的神奇动物们。</p>
 ]]></content>
       <categories>
@@ -3617,7 +3617,7 @@
   </entry>
   <entry>
     <title>写作计划</title>
-    <url>/2017/12/27/writing-plan/</url>
+    <url>//writing-plan.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><em>断断续续的有一些写故事的灵感，但想到以后除了在备忘录敲几个关键字做记录，等到回头想起来，当时的创作冲动已经不在了，明白等到有完整的故事是遥遥无期的，又看了朱岳老师短篇集的《写作计划》——里面描述了一个写作计划者的计划写作日常，就想假装一个写作计划者写一个写作计划。区别在于，朱岳老师的写作计划大概是基于他本人旺盛想象力的炫技，而我充其量是对那些没有用上的点子感到可惜而废物利用。</em></p>
 <h1 id="计划1"><a href="#计划1" class="headerlink" title="计划1"></a>计划1</h1><p>　　写一个在不知名的岛屿上有一个王国，因为风调雨顺，国王和人民都衣食无忧，政治也特别开明，开明到每个人都可以竞选国王。竞选国王的标准是说出一句称得上名言的话。这个传统起源无从考察，有模糊记录说是某任国王想在这座小岛上发展出灿烂的文化，鼓励人们创作。<br>　　写作路线是先简单的描述一下小岛的创作黄金时代。写那时的人们说出了很多精彩的话——分别摘抄不同的名人名言，参考有柏拉图，亚里士多德，尼采，王尔德等，因其风格而分出不同的时期，记录演变过程，比如古典时期有：“尊重人不应该胜于尊重真理。”“但凡不能杀死你的，最终都会使你更强大。 ”“每一个不曾起舞的日子，都是对生命的辜负。”这时还是一些传统的格言，到流行时期，人们学会了讽刺：“报纸和文学的区别是，报纸没法读，而文学则没人读。”“摆脱诱惑的唯一方式是臣服于诱惑……我能抗拒一切，除了诱惑。 ”“时装是一种让人无法忍受的丑陋，所以我们必须每六个月换一次。”到了嬉皮士盛行的时期，人们开始嘲弄一些流于表面的事，“在教堂听讲经的时候我们应该保持肃静，打扰别人睡觉是很不礼貌的。”“女人是制造人类的工具，男人是使用工具的人类。 ”<br>　　然后简单写一个过渡时期，露出人们智慧被消耗完的端倪，写一些：“如果你想吃午饭，最好别忘记带上筷子。”“人们会在厕所摔跤，一定是因为他忘记摘下脑袋上的眼罩。”之类的话。<br>　　最后重点是当代选举，当所有的智慧都被花费干净，人们开始从技巧上花费心思。经过重重筛选，竞选国王的最后只剩下三位候选者。<br>　　候选者A是个游泳选手，他带来的是一口气说出一部荷马史诗，事实上之前有许多任国王登上王位，都是因为说出了荷马史诗里的一些片段，候选者A觉得当他一口气说完了一部荷马史诗，相当于重新演绎了整部荷马史诗，从许多片段脱离出来而达到了完整。<br>　　候选者B说的是“如果一个女人不能让她犯的错误变得迷人，她就只是一个雌性动物。”，当然如果仅仅是这一句话是不够的，因为之前已经有国王用过了，而他使用的技巧是放慢阅读速度，但他说完错误两个字时，来参与投票的选民已经从一夜的睡眠里醒了过来。他说完整段话，整整用了三天三夜，当然他不是纯粹的放慢速度，而是在一个字的发音上百转千回，如果有人留心记录可以发现他每一个词语分开都是一个单独的乐章，“如果”是巴赫的第一号无伴奏大提琴曲，“错误”是贝多芬的生命交响曲，“女人”两个字他则用上了探戈舞曲一步之遥。他试图用一种充满多样性的迟缓来让这句某个前任国王的墓志铭重焕光彩。<br>　　候选者C上台，情况已经对他相当不利了，前两名候选者已经把原本一天结束的大选拉长到了一个礼拜，除了卖香烟瓜子的小贩很高兴，选厅里充斥着嘴角起泡血丝爬满双眼的上火选民们，似乎在这种气氛下，选民和暴民也只有一线之隔。而候选手C说的话是：“理真重尊于胜该应不人重尊。”<br>　　最终人们一致推选C作为新国王，他们认为他把古典时期的名言倒过来讲创造了一种新的可能，而比起前两位的尝试，省时省力。<br>　　而这种可能的优点很快就在第二年选举体现了，之后出现了大量倒着说话的国王。在一年比一年欢快的选举日里，有少数人质疑，我们难道不是在原地踏步吗？但质疑声很快就被其他的欢呼声给淹没了。
 　　</p>
@@ -3634,7 +3634,7 @@
   </entry>
   <entry>
     <title>iOS - Xcode Plugin 调研和使用</title>
-    <url>/2019/07/17/xcode-plugin-research/</url>
+    <url>//xcode-plugin-research.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　Xcode 升级到 8.x 以上版本后为了提升安全性, 防止 <code>XcodeGhost</code> 事件的发生, 添加了代码签名机制, 所以以往我们那些用的很顺手的 Xcode 插件一下子统统都被打入冷宫。这种情况下，我们想要重新使用插件，我们应该怎么做呢？<br>　　首先我们要使用插件第一步是给 Xcode 重新签名, 在签名前建议备份一个纯净 Xcode 做 App 打包发布用(应用程序目录下复制一个即可)。</p>
 <h3 id="一、Xcode-重签名以使用插件"><a href="#一、Xcode-重签名以使用插件" class="headerlink" title="一、Xcode 重签名以使用插件"></a>一、Xcode 重签名以使用插件</h3><p>　　打开 Keychain Access 之后如图操作，选中 钥匙串访问-&gt;证书助理-&gt;创建证书:<br><img src="https://s2.ax1x.com/2019/07/17/Zqz7RI.jpg"><br><img src="https://s2.ax1x.com/2019/07/17/Zqz5IH.jpg"></p>
 <p>　　之后打开 终端&#x2F;Terminal，输入：</p>
@@ -3672,7 +3672,7 @@
   </entry>
   <entry>
     <title>运气不好的祥子的一生</title>
-    <url>/2019/11/16/xiangzi-and-his-misfortune/</url>
+    <url>//xiangzi-and-his-misfortune.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　上上个礼拜把读了十几年的《骆驼祥子》读完了，说读十几年的原因是因为第一次看《骆驼祥子》大概是我初中，老师让买了一套书，课外看，目的是为了提高阅读理解能力和作文水平。但当时我觉得不喜欢看文学名著，喜欢看小说，觉得文学名著太过严肃，有一张拒人于千里之外的旧学堂老先生凶巴巴的脸，整套书一共十二本，看完的好像只有鲁迅先生的《朝花夕拾》和一两本收录短篇故事的书，而祥子，总是看到祥子朝气逢勃拉着车子在北平窜来窜去的光景，我就抽身走人了，抽身的原因很简单，对于北京的想象和里面人们生活方式，当时我有我一套自己的想象，书里写的和我想象相差很远，所以就走了。<br>　　而重新捡起来看的原因，也很简单，起初是个巧合，因为好久没看书，翻开 kindle 看，前几本分别是《傻瓜式投资》、《软技能》、《退步集》、《骆驼祥子》，里面有故事情节又适合打发时间的好像只有《骆驼祥子》。<br>　　《骆驼祥子》的故事很简单，概述起来大概是讲还是军阀混战年代的北平，一个初入社会，叫祥子的年轻车夫，在攒出属于自己车的过程中，遇到了种种不幸，梦想破灭，人格也随之破产，最后活成浑浑噩噩苟且生活的行尸走肉的故事。<br>　　故事虽然一直都是这个故事，但现在看和以前看的心境完全不一样，在社会上打了几个滚的我，再去看祥子在刚入社会时，给自己打的算盘和不算远大的抱负，对我来说不再有雾里看花的隔阂，更多的是觉得，如果抛开因为时代和环境而产生的，具体到像攒一辆自己的车的这种事，祥子的所思所感，放在所有时代，对比所有时代的年轻人，包括二十一世纪现在的我的所思所想，其实一般无二，初出茅庐不怕虎，被雨打风吹后犹疑怨怼愤懑，最后因为个人际遇不同，有人跳出来后被当做励志的榜样，有人没跳出来被当做“二十岁就死了，但八十岁才被埋葬”，茶余饭后被提起，供人唏嘘的段子。祥子，祥子可能不到八十岁就会被埋葬掉吧。<br>　　和朋友聊天提起看完了这本书，他说了一句人人都是祥子。他大概是想说每个人在经历社会上的摸爬滚打之后，都会变成一种模样，即浑浑噩噩的样子。祥子的结局，有一部分是时代的必然性，所以是普遍如此，还是特定事件，值得商榷。在那之后我们又提到了电影《小丑》。<img src="https://s2.ax1x.com/2019/11/17/MsYf8x.jpg"><br>　　《小丑》的剧情就不展开讲了，总之还不错，推荐没看过的朋友可以去看看。<br>　　想想电影里的亚瑟和祥子是否存在一定相似性？祥子心心念念的车，是亚瑟扮成小丑，给人们带来笑声的梦想，亚瑟和祥子都被他们所面临的处境所伤害，受伤之后，亚瑟选择向伤害自己的人开枪，而祥子，因为很难说有某个清晰的、可以用来复仇的目标，最后他只好用钝刀挥向自己内心。<br>　　深究祥子或者亚瑟，何以成为他们本身，我尝试思考了以下两个问题：在同时代的人中，我想拥有他们同样遭遇的人肯定很多，但为什么只要祥子和亚瑟被选中，可以拥有他们的名字？祥子和亚瑟的结局是否拥有某种必然性？<br>　　为什么只有祥子和亚瑟拥有名字，其他遭受不幸的人们都在历史里模糊成某个群体，是祥子或者小丑存在某种值得书写的闪光点吗？关于祥子的答案，我想是否定的，作为《骆驼祥子》这个故事的男主角，他不存在，或者说不可能存在某种特别，相反，正因为他和当时普通的底层劳苦群众一般无二，所以才可以被当做一个例子，与其深究他和劳苦群众有哪里不同，不如直接说他是劳苦群众的一个代表。而亚瑟，亚瑟不是被选中的，他是自己跳出了的，之所以这样说是因为，如果去掉小丑这个辨识度极强的符号，亚瑟可能在每个时代都很多见，受压迫到歇斯底里后陷入疯狂的变态杀人狂，或是因为本身存粹的恶导致的无差别杀人。如果只是因为带着小丑面具杀人而被人记住，这种说法不免有点牵强，而事实上，亚瑟也不仅仅只是因为带着小丑的脸杀人而被人记住，他之所以得以被高举，是因为他杀人在群体围观之下被赋予某种意义，第一次在地铁开枪杀人，对于亚瑟本身来说，是失手和恐惧的混合——事后在厕所的舞蹈虽然可以解释成，他潜意识里本身就想杀人。但无论如何，都和被公众解释成是城市底层边缘人对精英阶层的一次控诉相去甚远，而亚瑟完成自己的蜕变，成为小丑在电视台的演讲，或许有那种意思，但在亚瑟这边，这个演讲，可能是对小丑自我的建立，一段初初登场的自我介绍，是一个开始的标志。而在群众眼里，因为经过舆论酝酿发酵，意义可能远不止于此，在地铁凶案的小丑，在众说纷纭的情况下，登台枪杀了主持人，洋洋洒洒发布了一段正中他们下怀的演讲，这对小丑自发组成的信徒们来说，这是一个集结号，一段对近期发生的所有事的结束陈词，一种思想成熟的标志。<br>　　祥子和亚瑟的结局是否拥有某种必然性？正如前文所述，祥子作为一个代表，他是存在一种必然性的，不在城外被军阀抢走车，也可能因为其他原因失去自己的车，没有被虎妞欺骗被迫结婚，也会因为其他的事情受到类似委屈等等，而亚瑟呢，如果他妈妈小时候没有虐待他导致他得精神病，如果他的同事没有两面三刀，如果那个主持人没有看轻他的梦想，是不是事情就会不一样？但除了他妈虐待他导致他得精神病这点，其他事其实在社会上也都很普遍，而得精神病的妈妈虐待自己孩子导致她孩子也患上精神病的这种事，如果把范围扩大，不止哥谭，我想偶然性也不是很小。那是不是有结论，哪怕没有名叫亚瑟这个小丑出现，也可能会有名叫杰克，或者露西的小丑。不过无论是祥子和亚瑟，预设条件，推导事情结果本身存在一定的不靠谱，所以我们只能通过结果本身去下定义，因为祥子有很多个，而小丑亚瑟只有一个，所以祥子的结局是存在必然性的，而小丑的产生是偶然性更多一点。<br>　　和朋友争论调侃小丑的主持人到底有没有错的时候，因为觉得其实主持人只是把嘲讽当做一个工作，甚至可能不存在任何恶意，虽然嘲笑别人可能不对，但因为嘲笑而收到子弹就太过分了吧。但另一边站在小丑的立场上，遭受如此多的不公平，选择复仇也是一种不得已的理所当然。所以我当时的回答是，只能说大家都运气不好吧。这个回答多少有点含糊其辞的成分，想想最近很多事，因为每次转换立场都觉得可以理解对方，而选择一个模棱两可的态度，这种态度多少有一点犬儒，所以我又深刻的想了想，决定给祥子和亚瑟一个坚定但坚决不是为了表明态度而煲鸡汤的态度：<br>　　祥子和亚瑟不仅是因为不幸，更多的是不公平，因为自己的付出没有得到预期的回报，勤勤恳恳拉车的祥子没有攒到自己梦想的新车，希望带给别人欢乐的亚瑟发现从头到尾自己都没得到过善待。面对不幸，我们仍然可以在种种不幸中保持着早期祥子热忱的心态，和亚瑟在公交车上逗小孩子笑的善良的脸。但面对不公呢，祥子和亚瑟大概是两个错误示范，就此沉沦和过激报复。因为不公的表现有很多，也没有万金油的解决方式，这里只能给一些我的建议，面对小事的不公平，豁达点用“就当是一种修行”的心态一笑了之，不豁达就一句“*他妈”了之，面对大事的不公平，如果不能依靠现有的社会机构解决，也绝不要采取会被现有社会机构解决的方式解决。</p>
 ]]></content>
       <categories>
@@ -3685,7 +3685,7 @@
   </entry>
   <entry>
     <title>焉识！焉识？</title>
-    <url>/2018/06/20/yansi-who-knows/</url>
+    <url>//yansi-who-knows.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　去年冯小刚的《芳华》上映，因为电影去看了原著小说，小说写的很好，看的见有女性细腻的心思在里面，但又不会显得格局小，聪明又不咄咄逼人，词条上搜索作者，严歌苓，照片上的人风姿卓卓，依稀可见年轻时候的好看样子。当时还在看龙应台的《目送》，虽然文笔不错，感情也很真挚，但抒情的方式总像八九十年代的武打片，走硬桥硬马的路子，缺乏灵活变通。可能是我们彼此之间有着一个时代的间隔，所以我不能理解，和彼不能被理解，都情有可原，不过一个刻板的老先生的印象还是被留在了我的脑海里，看网上的照片发现原来作者是女的，纠正之后是，一个刻板的老女人，后来又看了她在<a href="https://www.youtube.com/watch?v=ZV7Uz4DqWFI">香港大学的演讲</a>，刻板又变成了刻薄，此处按下不表。总之，才华和人都很有看头，是一件很难得的事。<br>　　看了《芳华》之后，一直想把她其他的书都给看了，不过被其他的事分了心，直到前几天才看完《陆犯焉识》。<br>　　书讲的是一个中国近代的知识分子陆焉识，出国留学，回国后当老师，被继母的安排下和她家里的表侄女缔结了封建时代的婚姻，开始在风情而精明的继母和温婉而坚韧的妻子夹缝间尴尬的家庭生活，之后解放后因为不谙世事的张扬激越而成为”反革命”，在漫长的分离中意识到让自己一直抵触的封建婚姻，在它的另一头站着的那个人——冯婉瑜，他是爱她的。而在平反后，久别重逢，冯婉喻失忆了。他像一个新朋友陪在她身边，照顾她，在冯婉喻去世后，他也离开了上海，离开了他的儿子女儿。<br>　　看完之后回来看书名，《陆犯焉识》，焉识既是男主角的名字，又是故事后半段剧情的呼应，冯婉喻失忆了，焉识偌大的活人站在她面前她也不认识，焉识，焉识，如何认识。小说作者用了双螺旋的手法，一边从陆焉识成为犯人劳改开始，一边从陆焉识童年开始，最后时间线两两相接，知道陆焉识何以成为犯人，平反之后的人情世事又何以得到当前布局。故事两面，一面粗粝蛮横，善恶模糊，一面是多姿多彩，夹杂当时战局时事和家长里短的琐碎，两面都好看。<br>　　有一些遗憾的是，陆焉识是如何从一个翩翩浊世佳公子变成冷酷谨慎的犯人老几的过程，作者没有细写，但凡文学作品里，这种人物发生巨大变化的过程，因为前面铺垫都有了，只要稍花心思就可以写的很精彩。但不写的原因，如果不是忘记写了，我想到的可能是，变化往往意味着需要否定自己从前一直信奉的东西，对于主人公——原型是作者的姥爷，可能作者出于私心的维护，不去写他如何否定自己，去接受了一种新的更为野蛮的生存法则的全部心理活动，把陆焉识人生里那样晦暗不明的部分选择性的藏了起来。<br>　　阅经千帆后经过不断反刍往事而爱上冯婉喻的陆焉识，对他们俩关系的总结是，冯婉喻是他寡味的开端，却是他完美的归宿。正如书里所说的，这种爱也是不对等的，因为他爱上婉瑜的过程里，二十年间可以接触的只有劳改的犯人，他可想可思的只有一人。相较之下，冯婉喻的源自旧社会里跟一个人就跟他一辈子的爱，虽然盲目的有些可笑，但在量在质上都胜出他大半截，毛姆《面纱》的那段经典对白放在这里大概可以改成这样：</p>
 <blockquote>
 <p>　　我知道你骄傲，自大，没有用场，然而我爱你。我知道你的企图、你的理想，你不爱我、想远远逃离，然而我爱你。我知道你只是怜悯我才施舍些许的温柔，然而我爱你。[^1]</p>

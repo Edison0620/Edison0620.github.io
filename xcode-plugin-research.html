@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.kaaaaai.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Xcode 升级到 8.x 以上版本后为了提升安全性, 防止 XcodeGhost 事件的发生, 添加了代码签名机制, 所以以往我们那些用的很顺手的 Xcode 插件一下子统统都被打入冷宫。这种情况下，我们想要重新使用插件，我们应该怎么做呢？　　首先我们要使用插件第一步是给 Xcode 重新签名, 在签名前建议备份一个纯净 Xcode 做 App 打包发布用(应用程序目录下复制一个即可)。 一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS - Xcode Plugin 调研和使用">
+<meta property="og:url" content="https://www.kaaaaai.cn/xcode-plugin-research.html">
+<meta property="og:site_name" content="壹拾肆">
+<meta property="og:description" content="Xcode 升级到 8.x 以上版本后为了提升安全性, 防止 XcodeGhost 事件的发生, 添加了代码签名机制, 所以以往我们那些用的很顺手的 Xcode 插件一下子统统都被打入冷宫。这种情况下，我们想要重新使用插件，我们应该怎么做呢？　　首先我们要使用插件第一步是给 Xcode 重新签名, 在签名前建议备份一个纯净 Xcode 做 App 打包发布用(应用程序目录下复制一个即可)。 一">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.ax1x.com/2019/07/17/Zqz7RI.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/07/17/Zqz5IH.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/07/17/ZqzTJA.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/07/17/Zqzoid.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/07/17/Zqz4de.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/07/17/ZqzHzt.jpg">
+<meta property="article:published_time" content="2019-07-17T09:24:52.000Z">
+<meta property="article:modified_time" content="2020-11-14T02:31:48.000Z">
+<meta property="article:author" content="Kaaaaai">
+<meta property="article:tag" content="EXP">
+<meta property="article:tag" content="iOS">
+<meta property="article:tag" content="Swift">
+<meta property="article:tag" content="Xcode">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/07/17/Zqz7RI.jpg">
+
+<link rel="canonical" href="https://www.kaaaaai.cn/xcode-plugin-research.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>iOS - Xcode Plugin 调研和使用 | 壹拾肆</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9578d14210d67becef48447e4f6b3f20";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">壹拾肆</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">闲言和碎语</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.kaaaaai.cn/xcode-plugin-research.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="Kaaaaai">
+      <meta itemprop="description" content="我独自一人/照顾着/历代的星辰">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="壹拾肆">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          iOS - Xcode Plugin 调研和使用
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-07-17 17:24:52" itemprop="dateCreated datePublished" datetime="2019-07-17T17:24:52+08:00">2019-07-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-14 10:31:48" itemprop="dateModified" datetime="2020-11-14T10:31:48+08:00">2020-11-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>　　Xcode 升级到 8.x 以上版本后为了提升安全性, 防止 <code>XcodeGhost</code> 事件的发生, 添加了代码签名机制, 所以以往我们那些用的很顺手的 Xcode 插件一下子统统都被打入冷宫。这种情况下，我们想要重新使用插件，我们应该怎么做呢？<br>　　首先我们要使用插件第一步是给 Xcode 重新签名, 在签名前建议备份一个纯净 Xcode 做 App 打包发布用(应用程序目录下复制一个即可)。</p>
+<h3 id="一、Xcode-重签名以使用插件"><a href="#一、Xcode-重签名以使用插件" class="headerlink" title="一、Xcode 重签名以使用插件"></a>一、Xcode 重签名以使用插件</h3><p>　　打开 Keychain Access 之后如图操作，选中 钥匙串访问-&gt;证书助理-&gt;创建证书:<br><img src="https://s2.ax1x.com/2019/07/17/Zqz7RI.jpg"><br><img src="https://s2.ax1x.com/2019/07/17/Zqz5IH.jpg"></p>
+<p>　　之后打开 终端&#x2F;Terminal，输入：</p>
+<figure class="highlight bash"><figcaption><span>Terminal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo codesigner -f -s XcodeSigner /Applications/Xcode.app</span><br></pre></td></tr></table></figure>
+<p>　　其中 <code>codesigner</code> 是上一步创建证书的名称，随后是要重签名使用插件的 Xcode 目录。</p>
+<p>　　经过一段漫长等待后, 重启 Xcode, 选择 LoadBundle。Xcode 已经可以使用插件啦。</p>
+<h3 id="二、插件使用总结"><a href="#二、插件使用总结" class="headerlink" title="二、插件使用总结"></a>二、插件使用总结</h3><p>　　随着 Xcode 的迭代，一部分插件实现的功能已经被 集成进 Xcode 里面了，比如很有名的注释插件 VVDocumenter，和一些代码补全插件等等。另一部分由于缺少维护和 Xcode 本身的机制，而导致插件使用不太方便，造成使用插件的投入成本大大增加。之前在为了给一个马甲包增加垃圾代码，我用上一段的方法成功安装使用过插件 <code>Alcatraz</code>，作为一个插件管理工具，它内部指向的其他插件已经很多不太兼容新版的 Xcode 了，而他本身最新的更新节点也停留在两年前的状态。而在重启 Xcode 后，安装的 <code>Alcatraz</code>，也消失不见了。而在最新的 Xcode10 上用上面那个方法尝试安装代码格式化插件 —— <a target="_blank" rel="noopener" href="https://github.com/V5zhou/ZZXcodeFormat">ZZXcodeFormat</a>，虽然重启应用后，也跳出了 <code>Load Bundle</code> 的提示框，也点击确定加载，但打开 Xcode 后却没在相应的位置找到插件使用项目。不确定是不是新版 Xcode 所影响导致的。但可以看到，在官方不支持的情况下，使用插件是一个耗时又耗力的事。<br>　　而在调研的过程中，我发现了一个使用苹果官方提供的插件机制（Xcode Source Editor Extension）编写的插件——<a target="_blank" rel="noopener" href="https://github.com/SSBun/FlyCoding">FlyCoding</a>，这个插件的主要功能是，通过特殊语法来快速的生成你想要的 Swfit &#x2F; Objective-C 代码，比如这句代码：</p>
+<figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pv.<span class="type">UIImageView</span></span><br></pre></td></tr></table></figure>
+<p>通过插件功能会变成这样的代码：</p>
+<figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">var</span> <span class="operator">&lt;</span>#name#<span class="operator">&gt;</span>: <span class="type">UIImageView</span></span><br></pre></td></tr></table></figure>
+<p>　　实际体验了一下，觉得有点鸡肋，虽然他可以提供一种便捷的方式解决需要重复编写大量 UI 空间和约束的代码的问题，但是使用它却需要记住另一种语法，而且这种语法只能对照 GitHub 仓库来实现，插件本身并不提供自动补全功能。<br>　　虽然这个插件不怎么实用，但通过这个插件让我了解到了苹果官方插件机制（Xcode Source Editor Extension）所能提供的功能，具体有以下：</p>
+<ul>
+<li>获取 Xcode 正在编辑的文本</li>
+<li>获取所有的选中区域</li>
+<li>替换 Xcode 正在编辑的文本</li>
+<li>选中 Xcode 正在编辑的文本</li>
+<li>在 Xcode 的 Editor 菜单里面给你的插件生成一个子菜单，用于调用插件</li>
+<li>可以在 Xcode 的 Key Binding 里面给插件分配一个快捷键</li>
+</ul>
+<h3 id="三、使用苹果官方所允许的插件"><a href="#三、使用苹果官方所允许的插件" class="headerlink" title="三、使用苹果官方所允许的插件"></a>三、使用苹果官方所允许的插件</h3><p>　　使用苹果官方所允许的插件主要有两种方式，一种是在苹果应用商店下载，Xcode 里有快捷入口<br><img src="https://s2.ax1x.com/2019/07/17/ZqzTJA.jpg"><br>　　点击可以直接进入。</p>
+<p>　　另一种方式是下载 GitHub 上别人分享的插件，举个例子，比如我现在安装一个代码格式化插件：<a target="_blank" rel="noopener" href="https://github.com/mapbox/XcodeClangFormat">XcodeClangFormat</a>。</p>
+<p>1、下载源码运行，或 dmg 安装包。<br>2、到 系统设置-&gt;插件 中打开。<br><img src="https://s2.ax1x.com/2019/07/17/Zqzoid.jpg"><br><img src="https://s2.ax1x.com/2019/07/17/Zqz4de.jpg"><br>3、然后进入 Xcode，你就可以看到插件了。<br><img src="https://s2.ax1x.com/2019/07/17/ZqzHzt.jpg"></p>
+<p><strong>推荐两个插件：</strong></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/qfish/XAlign">XAlign</a>：代码对齐插件，主要用于宏定义、属性群、代码内等号对齐三种代码对齐。<br><a target="_blank" rel="noopener" href="https://github.com/mapbox/XcodeClangFormat">XcodeClangFormat</a>：代码格式化插件，支持定义代码格式。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/EXP/" rel="tag"># EXP</a>
+              <a href="/tags/iOS/" rel="tag"># iOS</a>
+              <a href="/tags/Swift/" rel="tag"># Swift</a>
+              <a href="/tags/Xcode/" rel="tag"># Xcode</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/weekly-summary-190713.html" rel="prev" title="每周总结 - 0713">
+      <i class="fa fa-chevron-left"></i> 每周总结 - 0713
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/weekly-summary-190722.html" rel="next" title="每周总结 - 0722">
+      每周总结 - 0722 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81Xcode-%E9%87%8D%E7%AD%BE%E5%90%8D%E4%BB%A5%E4%BD%BF%E7%94%A8%E6%8F%92%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">一、Xcode 重签名以使用插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93"><span class="nav-number">2.</span> <span class="nav-text">二、插件使用总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E4%BD%BF%E7%94%A8%E8%8B%B9%E6%9E%9C%E5%AE%98%E6%96%B9%E6%89%80%E5%85%81%E8%AE%B8%E7%9A%84%E6%8F%92%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">三、使用苹果官方所允许的插件</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Kaaaaai"
+      src="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+  <p class="site-author-name" itemprop="name">Kaaaaai</p>
+  <div class="site-description" itemprop="description">我独自一人/照顾着/历代的星辰</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">97</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">67</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="sidebar-button motion-element"><i class="fa fa-comment"></i>
+    Chat
+  </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Kaaaaai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Kaaaaai" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/lvkaimeiyouhenshuai" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lvkaimeiyouhenshuai" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kaaaaai</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
