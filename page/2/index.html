@@ -14,10 +14,13 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.kaaaaai.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"www.kaaaaai.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="我独自一人&#x2F;照顾着&#x2F;历代的星辰">
@@ -28,7 +31,7 @@
 <meta property="og:description" content="我独自一人&#x2F;照顾着&#x2F;历代的星辰">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Kaaaaai">
-<meta property="article:tag" content="个人成长, 技术, 思考, 书籍, 电影">
+<meta property="article:tag" content="个人成长, 技术, 思考, 书籍, 电影, iOS, Android, 代码">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://www.kaaaaai.cn/page/2/">
@@ -46,6 +49,15 @@
 
   <title>壹拾肆</title>
   
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102185873-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-102185873-1');
+      }
+    </script>
 
 
   <script>
@@ -84,6 +96,7 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="壹拾肆" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -107,7 +120,7 @@
       <h1 class="site-title">壹拾肆</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
-      <p class="site-subtitle" itemprop="description">闲言和碎语</p>
+      <p class="site-subtitle" itemprop="description">有些安排是多余的 这片空旷对我有益</p>
   </div>
 
   <div class="site-nav-right">
@@ -188,6 +201,7 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
+  <div class="reading-progress-bar"></div>
 
 
     <main class="main">
@@ -239,6 +253,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/ios-some-question-about-bluetooth.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/ios-some-question-about-bluetooth.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>940</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -255,28 +297,14 @@
 <li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/onepixel/articles/7674659.html">十大经典排序算法（动图演示）</a></li>
 <li><a target="_blank" rel="noopener" href="https://daily.zhihu.com/story/9726758">为什么人会变成「工作狂」？这算不算一种上瘾行为？</a></li>
 </ul>
-<h2 id="一、计算蓝牙设备距离"><a href="#一、计算蓝牙设备距离" class="headerlink" title="一、计算蓝牙设备距离"></a>一、计算蓝牙设备距离</h2><p>被问到如何计算蓝牙设备距离的，之前有做过大概是通过设备信号量强弱通过计算，得出距离。这里总结一下。</p>
-<p>基于上述逻辑，我们只要通过系统接口能拿到设备的信号量就行，而这里有个值得注意的点在于，这个设备信号量其实是可以通过两种方式获取到的。</p>
-<ol>
-<li>利用 <code>CoreLocation.framework</code> 中的 <a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/corelocation/clbeacon#//apple_ref/occ/instp/CLBeacon/rssi"><code>iBeacon</code></a> 这个类，其中有 <code>RSSI</code> 值（接收信号强度），可以用来计算发射端和接收端间距离。</li>
-<li>通过 <code>Core Bluetooth</code> 的 <a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/corebluetooth/cbperipheral#//apple_ref/occ/instm/CBPeripheral"><code>CBPeripheral</code></a> 类中的 <code>readRSSI</code> 方法中读取到信号量。<br>如果你需要用蓝牙连接来控制设备，推荐使用第二种方法，如果需要长时间监听信号量，则可以配合定时器使用。</li>
-</ol>
-<p>通过 <code>rssi</code> 的计算距离公式具体如下：</p>
-<blockquote>
-<p>d &#x3D; 10^((abs(RSSI) - A) &#x2F; (10 * n))</p>
-</blockquote>
-<p>计算公式的代码实现：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="type">float</span>)calcDistByRSSI:(<span class="type">int</span>)rssi</span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> iRssi = abs(rssi);</span><br><span class="line">    <span class="type">float</span> power = (iRssi<span class="number">-59</span>)/(<span class="number">10</span>*<span class="number">2.0</span>);</span><br><span class="line">    <span class="keyword">return</span> pow(<span class="number">10</span>, power);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>其中：</p>
-<blockquote>
-<p>d - 计算所得距离<br>RSSI - 接收信号强度（负值）<br>A - 发射端和接收端相隔1米时的信号强度<br>n - 环境衰减因子</p>
-</blockquote>
-<p>其中 环境衰减因子 可以根据具体设备计算出来，比如多次测试，通过确定的距离值 d 反向计算出 n 的值，然后用平均数或中位数的取值法取一个合适的数值。</p>
-<h2 id="二、通过蓝牙设备在应用内实现直接拨打电话功能"><a href="#二、通过蓝牙设备在应用内实现直接拨打电话功能" class="headerlink" title="二、通过蓝牙设备在应用内实现直接拨打电话功能"></a>二、通过蓝牙设备在应用内实现直接拨打电话功能</h2><p>使用百度车载设备的时候发现他们可以直接在应用内发起系统拨打电话，众所周知，由于 iOS 系统限制，调用打电话方法时，都会弹出一个系统提示框，让用户确认。</p>
-<p>那么这个问题是如何解决的呢，网上找了一下，在这篇文章<a target="_blank" rel="noopener" href="https://historyzhang.github.io/2017/09/28/iOS%E6%8B%A8%E6%89%93%E7%94%B5%E8%AF%9D%E5%AF%B9%E8%AF%9D%E6%A1%86%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">iOS拨打电话对话框问题解决</a>里面得到了答案。</p>
-<p>里面使用的 <code>PBAP</code> 协议的 <code>AT Command</code> 来实现直接拨号功能。具体逻辑里面也写得很清晰。通俗的来说就是我们把号码发给蓝牙设备，由蓝牙设备发起拨打电话这个动作。唯一的限制就在于如果是纯 ble 设备就无法实现该功能。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/ios-some-question-about-bluetooth.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -339,6 +367,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/swift-toppop-upboxencapsulation.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/swift-toppop-upboxencapsulation.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -352,52 +408,15 @@
           <p>抽空把项目里的顶部弹出框封装了一下。效果大概是这个样子：<br><img src="https://i.loli.net/2020/08/04/9R7WuCT2b5ezKoN.gif"></p>
 <!--<img align="center" src="https://i.loli.net/2020/08/04/9R7WuCT2b5ezKoN.gif" width=375px height=677px/>-->
 
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p><strong>自定义弹出框：</strong></p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  KKHeadMessageView.swift</span></span><br><span class="line"><span class="comment">//  VoiceAssistant</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  Created by Kai Lv on 2020/7/29.</span></span><br><span class="line"><span class="comment">//  Copyright © 2020 Kaaaaai. All rights reserved.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"></span><br><span class="line"><span class="keyword">@objc</span> <span class="keyword">public</span> <span class="keyword">enum</span> <span class="title class_">MessageStyle</span>: <span class="title class_">Int</span>&#123;</span><br><span class="line">    <span class="keyword">case</span> none</span><br><span class="line">    <span class="keyword">case</span> success</span><br><span class="line">    <span class="keyword">case</span> error</span><br><span class="line">    <span class="keyword">case</span> warning</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">@objc</span> <span class="keyword">extension</span> <span class="title class_">KKHeadMessageView</span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> mv: <span class="type">KKHeadMessageView</span>?</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">@objc</span> <span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">func</span> <span class="title class_">showMessageView</span>(<span class="title class_">_</span> <span class="title class_">message</span>: <span class="title class_">String</span>) -&gt; ()&#123;</span><br><span class="line">        <span class="keyword">if</span> mv <span class="operator">!=</span> <span class="literal">nil</span> &#123;</span><br><span class="line">            mv<span class="operator">?</span>.removeFromSuperview()</span><br><span class="line">            mv <span class="operator">=</span> <span class="literal">nil</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        mv <span class="operator">=</span> <span class="type">KKHeadMessageView</span>.<span class="keyword">init</span>(message: message, style: .warning)</span><br><span class="line">        mv<span class="operator">!</span>.show()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">@objc</span> <span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">func</span> <span class="title class_">showMessageView</span>(<span class="title class_">_</span> <span class="title class_">message</span>: <span class="title class_">String</span>, <span class="title class_">style</span>:<span class="title class_">MessageStyle</span>) -&gt; ()&#123;</span><br><span class="line">        <span class="keyword">if</span> mv <span class="operator">!=</span> <span class="literal">nil</span> &#123;</span><br><span class="line">            mv<span class="operator">?</span>.removeFromSuperview()</span><br><span class="line">            mv <span class="operator">=</span> <span class="literal">nil</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        mv <span class="operator">=</span> <span class="type">KKHeadMessageView</span>.<span class="keyword">init</span>(message: message, style: style)</span><br><span class="line">        mv<span class="operator">!</span>.show()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@objc</span> <span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">KKHeadMessageView</span>: <span class="title class_">UIView</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">let</span> message: <span class="type">String</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> label_mes <span class="operator">=</span> <span class="type">UILabel</span>.<span class="keyword">init</span>()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> style: <span class="type">MessageStyle</span> <span class="operator">=</span> .none</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">let</span> successBackgroundColor: <span class="type">UIColor</span> <span class="operator">=</span> <span class="type">UIColor</span>(red: <span class="number">86.0</span><span class="operator">/</span><span class="number">255</span>, green: <span class="number">188</span><span class="operator">/</span><span class="number">255</span>, blue: <span class="number">138.0</span><span class="operator">/</span><span class="number">255</span>,  alpha: <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">let</span> warningBackgroundColor: <span class="type">UIColor</span> <span class="operator">=</span> <span class="type">UIColor</span>(red: <span class="number">242.0</span><span class="operator">/</span><span class="number">255</span>, green: <span class="number">153.0</span><span class="operator">/</span><span class="number">255</span>, blue: <span class="number">46.0</span><span class="operator">/</span><span class="number">255</span>,  alpha: <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">let</span> errorBackgroundColor: <span class="type">UIColor</span> <span class="operator">=</span> <span class="type">UIColor</span>(red: <span class="number">192.0</span><span class="operator">/</span><span class="number">255</span>, green: <span class="number">36.0</span><span class="operator">/</span><span class="number">255</span>, blue: <span class="number">37.0</span><span class="operator">/</span><span class="number">255</span>,  alpha: <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">let</span> noneBackgroundColor: <span class="type">UIColor</span> <span class="operator">=</span>  <span class="type">UIColor</span>(red: <span class="number">44.0</span><span class="operator">/</span><span class="number">255</span>,  green: <span class="number">187.0</span><span class="operator">/</span><span class="number">255</span>, blue: <span class="number">255.0</span><span class="operator">/</span><span class="number">255</span>, alpha: <span class="number">1</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">init</span>(<span class="params">message</span>: <span class="type">String</span>, <span class="params">style</span>: <span class="type">MessageStyle</span>)&#123;</span><br><span class="line">        <span class="keyword">self</span>.message <span class="operator">=</span> message</span><br><span class="line">        <span class="keyword">self</span>.style <span class="operator">=</span> style</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">super</span>.<span class="keyword">init</span>(frame: <span class="type">CGRect</span>(x: <span class="number">0</span>, y: <span class="operator">-</span><span class="number">49</span>, width: <span class="type">UIScreen</span>.main.bounds.size.width, height: <span class="number">48</span>))</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">switch</span> style &#123;</span><br><span class="line">        <span class="keyword">case</span> .success:</span><br><span class="line">            <span class="keyword">self</span>.backgroundColor <span class="operator">=</span> <span class="type">KKHeadMessageView</span>.successBackgroundColor</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">case</span> .warning:</span><br><span class="line">            <span class="keyword">self</span>.backgroundColor <span class="operator">=</span> <span class="type">KKHeadMessageView</span>.warningBackgroundColor</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">case</span> .error:</span><br><span class="line">            <span class="keyword">self</span>.backgroundColor <span class="operator">=</span> <span class="type">KKHeadMessageView</span>.errorBackgroundColor</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">case</span> .none:</span><br><span class="line">            <span class="keyword">self</span>.backgroundColor <span class="operator">=</span> <span class="type">KKHeadMessageView</span>.noneBackgroundColor</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> attributes <span class="operator">=</span> [<span class="type">NSAttributedString</span>.<span class="type">Key</span>.font : <span class="type">UIFont</span>.<span class="keyword">init</span>(name: <span class="string">&quot;PingFangSC-Medium&quot;</span>, size: <span class="number">14</span>)]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> textSize <span class="operator">=</span> <span class="keyword">self</span>.message.boundingRect(with: <span class="type">CGSize</span>(width: <span class="type">UIScreen</span>.main.bounds.size.width, height: <span class="type">CGFloat</span>.greatestFiniteMagnitude), options: <span class="type">NSStringDrawingOptions</span>.usesLineFragmentOrigin, attributes: attributes <span class="keyword">as</span> [<span class="type">NSAttributedString</span>.Key : <span class="keyword">Any</span>], context: <span class="literal">nil</span>).size</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> label_mes <span class="operator">=</span> <span class="type">UILabel</span>.<span class="keyword">init</span>(frame: <span class="type">CGRect</span>(x: <span class="number">10</span>, y: <span class="keyword">self</span>.frame.height <span class="operator">-</span> textSize.height <span class="operator">-</span> <span class="number">5</span>, width: textSize.width, height: textSize.height))</span><br><span class="line">        label_mes.font <span class="operator">=</span> <span class="type">UIFont</span>.<span class="keyword">init</span>(name: <span class="string">&quot;PingFangSC-Medium&quot;</span>, size: <span class="number">14</span>)</span><br><span class="line">        label_mes.textColor <span class="operator">=</span> .white</span><br><span class="line">        label_mes.text <span class="operator">=</span> message</span><br><span class="line">        <span class="keyword">self</span>.label_mes <span class="operator">=</span> label_mes</span><br><span class="line">        <span class="keyword">self</span>.addSubview(<span class="keyword">self</span>.label_mes)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">show</span>()&#123;</span><br><span class="line">        <span class="type">UIApplication</span>.shared.keyWindow<span class="operator">?</span>.addSubview(<span class="keyword">self</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> animations : () -&gt; () <span class="operator">=</span> &#123;</span><br><span class="line">            <span class="keyword">self</span>.frame.origin.y <span class="operator">=</span> <span class="operator">-</span><span class="number">4</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> completionAnimations : (<span class="type">Bool</span>) -&gt; () <span class="operator">=</span> &#123; finished <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">if</span> finished &#123;</span><br><span class="line">                <span class="type">UIView</span>.animate(withDuration: <span class="number">5</span>, delay: <span class="number">0</span>, usingSpringWithDamping: <span class="number">1</span>, initialSpringVelocity: <span class="number">5</span>, options: [.curveEaseInOut], animations: &#123;</span><br><span class="line">                    <span class="keyword">self</span>.frame.origin.y <span class="operator">=</span> <span class="operator">-</span><span class="number">49</span></span><br><span class="line">                &#125;)&#123;finished <span class="keyword">in</span></span><br><span class="line">                    <span class="keyword">self</span>.removeFromSuperview()</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="type">UIView</span>.animate(withDuration: <span class="number">1</span>, delay: <span class="number">0</span>, usingSpringWithDamping: <span class="number">10</span>, initialSpringVelocity: <span class="number">10</span>, options: [.curveEaseInOut], animations: animations, completion: completionAnimations)</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     NSCoding not supported. Use init(text, preferences, delegate) instead!</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">required</span> <span class="keyword">public</span> <span class="keyword">init?</span>(<span class="params">coder</span> <span class="params">aDecoder</span>: <span class="type">NSCoder</span>) &#123;</span><br><span class="line">        <span class="built_in">fatalError</span>(<span class="string">&quot;NSCoding not supported. Use init(text, preferences, delegate) instead!&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>调用方式：</strong></p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Swift 调用</span></span><br><span class="line">KKHeadMessageView.showMessageView(<span class="string">&quot;😊这是一个测试的弹窗。&quot;</span>, style: .success)</span><br><span class="line"></span><br><span class="line"><span class="comment">//OC 调用</span></span><br><span class="line">[KKHeadMessageView showMessageView:<span class="string">@&quot;😊这是一个测试的弹窗&quot;</span> style:MessageStyleNone];</span><br></pre></td></tr></table></figure>
-
-<h2 id="一些思考"><a href="#一些思考" class="headerlink" title="一些思考"></a>一些思考</h2><p>如上文所见，基本逻辑相对简单，首先编写一个继承自 <code>UIView</code> 的类，重写 <code>init</code> 方法用来自定义这个 <code>view</code>，为了方便调用，用拓展写了两个类方法 <code>showMessageView()</code>，让后通过定义的枚举来展示不同风格的提示框。虽然作为一个自定义 <code>View</code>，上面的代码可能不是最优写法，但勉强算最适合我当前项目的写法。</p>
-<p>也考虑到这个自定义 <code>View</code>，并不对多数人适用。所以想分享一下我在封装这个 <code>View</code> 时所做的一些思考，主要有两点：</p>
-<ul>
-<li>1.如何写好一个自定义 View？</li>
-<li>2.我们应该如何设定自定义 View 的调用方式？</li>
-</ul>
-<p>那么关于这两个问题的答案从哪里可以找到呢？其实总的来说也就是老生常谈的三个方向：</p>
-<ol>
-<li>官方文档。</li>
-<li>阅读源码。</li>
-<li>技术博客。</li>
-</ol>
-<p>展开来说，自定义 <code>View</code> 的官方文档，其实就是去看看 <code>UIButton</code>、<code>UIView</code> 官方是怎么写的。但因为苹果是不开源的，看不到——虽然网上也有反推的实现，但毕竟有作者个人风格，而且有些还是用 <code>C++</code> 实现的，要模仿着写比较费劲。所以这条先搁置。</p>
-<p>然后退而求其次，阅读 GitHub 上 Star 数量较多的自定义视图开源库，学学他们的写法。这里推荐两个库：</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/SwiftKickMobile/SwiftMessages">SwiftMessages</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/jdg/MBProgressHUD">MBProgressHUD</a></li>
-</ul>
-<p>在封装消息提示框的时候我也考虑过对外开放的接口做成 <code>MBProgressHUD</code> 中调用方法返回一个单例，或者是和 <code>SwiftMessages</code> 将视图定义和使用分开。但最终因为图省事就选了一个简单的方式。另外还想到一个把 <code>MessageView</code> 用枚举来定义，然后通过实现关联值方法来直接显示，如果换这种实现的话，上面的调用方式可能就会变成这样：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">KKHeadMessageView</span>.success.showMessageView(<span class="string">&quot;😊这是一个测试的弹窗。&quot;</span>)</span><br></pre></td></tr></table></figure>
-<p>看起来有点像工厂模式的产物😊。</p>
-<p>最后是技术博客。在 Google 上搜，一大推的教你怎么自定义 <code>View</code>，这里推荐两篇我觉得比较好的，有概念讲解，有源码示范，值得参考：</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://juejin.im/post/6844903686758481934">如何写好一个自定义View</a></li>
-<li><a target="_blank" rel="noopener" href="https://juejin.im/post/6844903878111002637">自定义View都写不好还做什么iOS开发</a></li>
-</ul>
-<p>最后还有几个小疑惑备注在这里：</p>
-<ol>
-<li>在自定义 <code>View</code> 中，我们通常在 <code>setSubUI</code> 方法里面设置子视图，在里面写一大堆类似于这种代码：<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> label_mes <span class="operator">=</span> <span class="type">UILabel</span>.<span class="keyword">init</span>(frame: <span class="type">CGRect</span>(x: <span class="number">10</span>, y: <span class="keyword">self</span>.frame.height <span class="operator">-</span> textSize.height <span class="operator">-</span> <span class="number">5</span>, width: textSize.width, height: textSize.height))</span><br><span class="line">        label_mes.font <span class="operator">=</span> <span class="type">UIFont</span>.<span class="keyword">init</span>(name: <span class="string">&quot;PingFangSC-Medium&quot;</span>, size: <span class="number">14</span>)</span><br><span class="line">label_mes.textColor <span class="operator">=</span> .white</span><br><span class="line">label_mes.text <span class="operator">=</span> message</span><br><span class="line"><span class="keyword">self</span>.label_mes <span class="operator">=</span> label_mes</span><br><span class="line"><span class="keyword">self</span>.addSubview(<span class="keyword">self</span>.label_mes)</span><br></pre></td></tr></table></figure>
- 在 <a target="_blank" rel="noopener" href="https://casatwy.com/iosying-yong-jia-gou-tan-viewceng-de-zu-zhi-he-diao-yong-fang-an.html">iOS应用架构谈 view层的组织和调用方案</a> 中看到说建议把这种初始化都丢进 <code>getter</code> 里面，而且 <strong>getter 和 setter 全部都放在最后</strong>。另外配合 <code>Swift</code> 中的 <code>extension</code> 可以让代码布局更好看，但也看到唐巧的<a target="_blank" rel="noopener" href="http://blog.devtang.com/2015/03/15/ios-dev-controversy-1/#%E7%9C%81%E5%BF%83%E7%9C%81%E4%BA%8B">iOS 开发中的争议（一）</a>中说：<blockquote>
-<p>在类中完全使用 _property 的方式来访问私有成员变量，是不会有内存管理上的问题的。但是使用 self.property 的方式来访问私有变量是不是也是一样不会有内存管理上的问题呢？确实也是，但是有一点需要注意：我们最好不要在 init 和 dealloc 中使用 self.property 的方式来访问成员变量。</p>
-</blockquote>
-</li>
-</ol>
-<p>  那么 <code>setSubUI</code> 的写法最优解是什么呢？</p>
-<ol start="2">
-<li>一个自定义 <code>View</code> 的展现形式通常有：<br>  1）外部初始化后，外部手动添加到视图，比如一些嵌入视图<br>  2）外部初始化后，自动添加到 <code>UIWindow</code> 或者当前显示 <code>Controller</code>，比如一些弹出框视图。<br>  3）也看到一自定义 View 会定义这种初始化方法<code>initWith:(NSString*)Message ToRootView:(UIView*)View</code>。外部传入父视图，然后自己在内部添加自己。<br>  以上三种方式，除了根据实际需求，就把自己添加到父视图上，还有什么更好的方式吗？</li>
-</ol>
-<p>以上。</p>
-
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/swift-toppop-upboxencapsulation.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -460,6 +479,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/a-person-abandoned-by-the-light.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/a-person-abandoned-by-the-light.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -472,20 +519,14 @@
       
           <p>看科幻小说常常会感到一种作为人类的自卑感，对于宇宙来说，我们只是其中数以亿计星球中的一个，即使拥有灿烂的文化和恢弘的历史，也一粒尘埃反射出的微弱光芒。</p>
 <p>而作为个体，虽然每个人都有自己引以为傲的事情，经历过的人和事、在事件中的感受，我们也因为所经历的这些事物成为了独一无二的个体。然而放在星空下，我们所珍视和热爱的，似乎也不太值得一提。甚至在灾难里，再深刻的痛苦也会失去他原来的分量。自卑感即源于此，个体只是历史的一个小注脚，而历史有只是宇宙中其中一个维度的部分片段，我们的所思所想所感，还存在什么意义吗？</p>
-<p>电影《被光抓走的人》讲述了一个城市被不明白光照射后，一些相亲相爱的人集体消失了。而剩下的人，则因为没有消失而在自己的故事里兜兜转转。而在这些人的故事里，电影摘取了四个不同人物的例子作为整个城市的切片展示。</p>
-<p><em>—❗️剧透警告—</em></p>
-<p>黄渤扮演的中年教师因为自己和爱人没消失，在同学面前粉饰自己，怀疑爱人婚外情，自己也在婚外情的边缘试探，最后幡然醒悟，和爱人一起做饭。<br>知性 OL 王珞丹因为爱人消失，因为想知道他是和谁一起消息的，因为在找寻的过程中更加了解了丈夫和自己，决定放弃找寻的时候，收到丈夫意外沉湖的消息，最终放下。<br>地痞混混王大锤因为自己发小消失，蹲点，找警察，最后在某个小区门口拿刀捅了疑似的凶手。<br>漂亮富家女在民政局楼顶遭遇父母消失，因为自己和男朋友都没消失而不相信爱情，最后在男朋友跳楼证明自己后又回心转意。</p>
-<p>几段故事里最饱满的是黄渤的故事，最喜欢的是大锤的故事。</p>
-<p>比起另外三个较为直白的故事，大锤的故事显得含蓄，也更加深沉。虽然科幻片已然被降维成都市情感片，但导演关注男女之间的爱恨纠葛之余，也不忘关注城市中少数群体的感情。同性恋这一群体虽然在现代社会，随着人们认知的发展已经不是一个闻虎色变的词汇，但被人们所接受的同性恋大概都是那些时髦的，帅气的。同性恋中绝大部分，我想应该都是像大锤这样，在市井之中生活，虽然模糊的可以感知到自己的情感，但这种事，不说周围人认知，哪怕是自己的认知，也仍然固守传统，爱，但不敢去爱。这种表现在电影里面展示出来显得更具人性。</p>
-<p>说黄渤的那段饱满也是一样的原因。在宾馆等女老师的时候，表现自己内心惶恐和不安时的做法是去洗了个澡。和女老师面对面坐着宾馆的床上时，终于决定坦诚面对自己，提到自己年轻时有过的阴暗想法，让我想起钱钟书先生说的：</p>
-<blockquote>
-<p>一个十八九岁没有女朋友的男孩子，往往心里藏的女人抵得上皇帝三十六宫的数目，心里的污秽有时过于公共厕所。</p>
-</blockquote>
-<p>是不是人到中年，总会直接或间接的承认自己曾经不光彩的心理以此来达到和展示自己比起过往更加成熟的目的。如果是这样，我打算现在就承认。</p>
-<p>回到故事，黄渤和女老师坦诚之后就回家和妻子一起做饭。整部影片也在黄渤和妻子默契做饭背景下停止。</p>
-<p>回到一开始我所提出的问题，《被光抓走的人》虽然不能给出一个答案，但却提供了一个看到问题的角度。就像电影里面虽然发生了重大的超自然事件，但里面所有的人，所面对的只是在这些事发生之后，他们自己的生活而已。宇宙和外星人离生活生活还有点距离。</p>
-<p>在未来还未到来，远方还没能抵达的时候，我们所能处理的就是眼前的一些琐事罢了。对宇宙和未来的想象有益思维锻炼，但如果为之烦恼，那和杞人忧天又有什么区别。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/a-person-abandoned-by-the-light.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -548,6 +589,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/oc-multi-delegate-implementation.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/oc-multi-delegate-implementation.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -559,32 +628,14 @@
 
       
           <h2 id="一、背景"><a href="#一、背景" class="headerlink" title="一、背景"></a>一、背景</h2><p>迭代项目的时候碰到一个问题， 原因是负责的内容有一项是封装各大 AI 开放平台的 SDK 集成到一个 SDK 里，然后输出统一的接口，目的是为了可以在不同的 AI 中快速切换并使用。但由于之前输出给了兄弟公司使用，他们在一个音乐 SDK 中用语音 SDK 实现语音点歌的功能。然后当我的主应用同时使用两个 SDK 时，由于音乐 SDK 中实现了语音 SDK 的代理，所以我在上层再初始化语音 SDK 设置代理就不起作用。</p>
-<h2 id="二、解决方式"><a href="#二、解决方式" class="headerlink" title="二、解决方式"></a>二、解决方式</h2><p>知道问题原因后，就比较容易解决了，具体有几种思路：</p>
-<ol>
-<li>打电话给兄弟公司的开发人员，你不要这样弄了，如果你非要这么弄，就暴露一个接口给我，让我选择是否要让你初始化。</li>
-<li>延迟上层语音 SDK 的初始化，不和你抢代理的设置，就不存在被抢夺这件事了。</li>
-<li>语音 SDK 实现多代理——既然你们都要实现我的代理方法，我就全部都给你们。</li>
-</ol>
-<p>作为一个有追求的开发仔，当然选择实现最高难度的自己实现多代理的方式——虽然由于时间关系，也用了第二种方式作为缓冲，然后也发现第二种方式存在一个问题，就是当网络较差的情况下，未能初始化成功，在初始化成功后，音乐 SDK 又会设置一次语音 SDK 的代理，又被抢回去了~</p>
-<h2 id="三、具体实现"><a href="#三、具体实现" class="headerlink" title="三、具体实现"></a>三、具体实现</h2><p>实现的过程中，以下几篇文章的内容给了我很大的帮助：</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/fed580fa45eb">iOS 如何实现多代理模式–OC</a></li>
-<li><a target="_blank" rel="noopener" href="https://juejin.im/post/5bd6842f6fb9a05d0045f925#heading-4">【OC梳理】多播代理</a></li>
-</ul>
-<p>两篇文章都讲的很细，所以对于有些细节就不展开讲了，只讲一下具体实现原理：</p>
-<ol>
-<li>首先理解代理模式。也就是由一个对象 A 通过他的<strong>唯一一个代理成员</strong>把消息发个对象 B。</li>
-<li>多代理就是在第一步的基础上，把对象 A 的代理成员从唯一一个，拓展为多个，消息接收者也从单一的 B，可以延伸为 B1、B2、B3…Bx。</li>
-</ol>
-<p>所以实现的时候很简单。</p>
-<h3 id="1-定义一个储存多个代理成员的数组："><a href="#1-定义一个储存多个代理成员的数组：" class="headerlink" title="1.定义一个储存多个代理成员的数组："></a>1.定义一个储存多个代理成员的数组：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@property (strong, nonatomic) NSPointerArray* delegates;</span><br><span class="line"></span><br><span class="line">-(NSPointerArray *)delegates&#123;</span><br><span class="line">    if (!_delegates) &#123;</span><br><span class="line">        _delegates = [[NSPointerArray alloc]init];</span><br><span class="line">    &#125;</span><br><span class="line">    return _delegates;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-重写代理的-set-方法"><a href="#2-重写代理的-set-方法" class="headerlink" title="2.重写代理的 set 方法"></a>2.重写代理的 set 方法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (void)setDelegate:(id&lt;ManagerDelegate&gt;)delegate&#123;</span><br><span class="line">    </span><br><span class="line">    for (id existDelegate in self.delegates) &#123;</span><br><span class="line">        if ([delegate isEqual:existDelegate]) &#123;</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    [_delegates addPointer:(__bridge void*)delegate];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-多代理响应"><a href="#3-多代理响应" class="headerlink" title="3.多代理响应"></a>3.多代理响应</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">- (void)asrResultIsTimeOut&#123;</span><br><span class="line">    if (self.currentCount != 0) &#123;</span><br><span class="line">        self.currentCount--;</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        [self.asrTimer invalidate];</span><br><span class="line">        self.asrTimer = nil;</span><br><span class="line">        for (id delegate in self.delegates) &#123;</span><br><span class="line">            if ([delegate respondsToSelector:@selector(asrManagerActiveError:)]) &#123;</span><br><span class="line">                [delegate asrManagerActiveError:NETWORKERROR];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">      //原始响应方法</span><br><span class="line">//        if ([self.asrDelegate respondsToSelector:@selector(asrManagerActiveError:)]) &#123;</span><br><span class="line">//            [self.asrDelegate asrManagerActiveError:TIMEOUT];</span><br><span class="line">//        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="四、拓展阅读"><a href="#四、拓展阅读" class="headerlink" title="四、拓展阅读"></a>四、拓展阅读</h2><p>在实现的过程中，我一开始用的是 <code>NSMutableArray</code>，因为使用运行也没有什么问题，但看到👆多代理文章里说，用 <code>NSPointerArray</code> 会好点，不增加成员的应用计数，相当于弱引用。听起来不错哦，但忽然之前想到一个问题，为什么 <code>delegate</code> 一一定要用 <code>weak</code> 引用呢，这个问题之前一直没仔细去思考过，像灯下黑，一直用的反倒忽略了。当下，想起来就去百度了一下。在这里看到：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/398472616435">iOS 代理为啥要用weak修饰? (刨根问底一)</a>——刨根问底的副标题深得我心~，里面有生动详细的例子说明，简单来说就是强引用会出现循环引用的问题。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/oc-multi-delegate-implementation.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -641,6 +692,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/my-aio-notion-workflow-setup.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/my-aio-notion-workflow-setup.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -652,43 +731,15 @@
 
       
           <p><img src="https://i.loli.net/2020/06/07/cSgrjKnkbB41AxI.jpg" alt="cSgrjKnkbB41AxI"></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h1><p>制造和使用工具，是人类和动物最本质的区别。而使用好的工具和使用好工具，又是效率高的人类和效率低的人类最本质的区别。如何使用好工具，是方法，是技巧，千人千面，可能同一个好的方法放到不同的人身上，效果却是迥然不同的。好的工具的定义也同理。但在我们最终找到适合我们的方法和工具之前，我们可以选择那些久经人们考验的一些工具和方法来尝试和体验。本文介绍的就是一个久（大概有那么一两年）经人们考验的笔记软件——Notion。</p>
-<h1 id="使用-Notion-之前"><a href="#使用-Notion-之前" class="headerlink" title="使用 Notion 之前"></a><strong>使用 Notion 之前</strong></h1><p>在使用 Notion 之前，我日常使用的工具大概有：苹果自带的便签、Sublime Text、MWeb、滴答清单。便签是用来记录琐碎的信息、想法，Sublime Text 用来浏览一些开发语言后缀的文件，MWeb 用来 Markdown 写作，滴答清单用来 GTD 管理和番茄计时。针对不同类型的事情，使用不同的工具去解决，在大部分情况下，体验还是不错的。但也存在一些局限，比如：</p>
-<ul>
-<li>当我处理一件任务，需要同时多个工具时，dock 栏挂了一大堆软件不说，在不同应用间切换也让我不能很好地集中注意力。</li>
-<li>当我想回溯一个任务的文件或者记录时，不太方便。</li>
-</ul>
-<p>原因是我会实际产生数据记录的有两个地方，一个是便签，一个是 MWeb 的 Library，后者因为软件属性的原因，不好做分类，文件数量一多起来检索困难，前者虽然可以做分类，而我虽然也在做分类上花了一些心思。<br><img src="https://i.loli.net/2020/06/07/mYiUI1ZtVN3nA4X.png" alt="mYiUI1ZtVN3nA4X"><br>但也会存在当数据记录一旦多起来就检索困难，在层级不深的界面预览查找，通常只能看到便签内容的前几行内容，因为没有文件名和标签这种概念，要用便签这个轻量级应用做知识管理还是有点强便签所难的。</p>
-<p>所以基于使用当前工具所发现的这两个局限，我倾向于找一个尽可能可以大一统的笔记&#x2F;GTD&#x2F;文档加工软件，并且在文件分类上最好能有一些自己的思考。在体验了 Bear、OneNote、印象笔记之后，最终我选择 Notion。</p>
-<h1 id="选择-Notion-的理由"><a href="#选择-Notion-的理由" class="headerlink" title="选择 Notion 的理由"></a><strong>选择 Notion 的理由</strong></h1><p>为什么在体验后筛选掉那些同样优秀的笔记软件而选择 notion，抛开高低优劣的比较不谈。这里只说 notion 吸引我的地方。</p>
-<p>比起 block 的使用便利性，和可以无限递增层级这两个特点。主要吸引我的其实是好看，通过各种不同类型的 block 组装来输出自己想要的东西，可以轻松的让输出结果很好看，稍微注意排版和颜色搭配的话，不过分的说，赏心悦目。甚至于有时候工作的间隙只是看着自己搭建的 GTD 界面就不自觉的感到被治愈。除了好看，所有二级目录都以瀑布流的形式汇集在一个界面，对于查找文件来说，也非常一目了然。</p>
-<p>其次是好玩，网上对 notion 的评价，看到一个很形象的比喻：像乐高积木。我很赞同，notion 除了像乐高积木一样可以不断堆叠出自己想要的东西，从某种方面也具备着和它相似的可以无限拓展的可能性。另外，使用不同 block 堆叠的整个过程，也显得非常 geek，而 geek 在我看来他的意思就是，玩一些有意思的东西。</p>
-<p>最后是好用。当然对于刚使用的人来说，是有一定上手难度的，但这些难度对于上手后可以提供的帮助也可以忽略不计。而具体是否好用，如何好用，我会在后文通过搭建我的工作流的例子来做展示。</p>
-<h1 id="使用-Notion-搭建我的工作流"><a href="#使用-Notion-搭建我的工作流" class="headerlink" title="使用 Notion 搭建我的工作流"></a><strong>使用 Notion 搭建我的工作流</strong></h1><p>搭建我的工作流之前，我稍微去了解了一下在 notion 上用的很多的 PARA 相关知识，在 B 站上看到一个 up 主列了一个比较直观的脑图，大体如下：<br><img src="https://i.loli.net/2020/06/07/5uWnINJeSMsA7UV.jpg" alt="5uWnINJeSMsA7UV"></p>
-<p>然后就把我以前记在便签内容，抽取了出来，分成了五个模块，分别是：</p>
-<ul>
-<li>Memo - 便签，用于快速记录笔记，和某个正在编辑的内容的快速链接地址</li>
-<li>Personal - 个人，如题图所见，用于保存年度目标，习惯养成，愿望清单，记录想看的书籍电影的马克清单，记录账号的通行证，“有待整理”则是一个方便拓展的接口，用于保存随手收藏的资源。</li>
-<li>Work - 工作，记录一些公司的信息，比如地址邮编，账号信息，客户信息，还有工作过程中产生的一些文件。</li>
-<li>Study - 学习，除了记录大学自考本科的一些信息，还有一些个人开发和学习中记录到的一些琐碎小知识，虽然前面按身份属性区分，Study 也可以归类到 Personal，但为了方便记录跟踪，所以就把学习抽取出来做单独一个模块。</li>
-<li>Archive - 归档，保存一些不经常用到资料，和用作展示的个人网站。</li>
-</ul>
-<p>有了这个初步结果，已经基本可以收纳我日常学习工作所产生的信息了。但基于 All-In-One 这一点，又看到 Youtube 上一个直播主的这个视频 - <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wtBSAwPSjoU">How I Use Notion ● June 2019</a>，于是就决定把我滴答清单的项目搬运到 Notion 来，除了在首页置顶显示方便跟踪以外，我在单个的项目中添加了以下下属性：<br><img src="https://i.loli.net/2020/06/07/G9ejc6uqBdUMoVz.png" alt="G9ejc6uqBdUMoVz"></p>
-<ul>
-<li>类型：区分工作和个人</li>
-<li>项目类型：二级分类，区分具体项目，学习也在这一级里面</li>
-<li>状态：主要有四种，预处理，进行中，暂停，已完成。日常工作中我通常把图标切成看板模式，进行中只挂一个任务，排除其他的干扰。通常的流程是 预处理 → 进行中 → 已完成。而暂停则可以在 预处理 和 进行中 两者间转换。</li>
-<li>Description：关于当前任务的描述，可选项</li>
-<li>文件：作用于属性名一致</li>
-<li>Mouths、Weeks、Weekday、isThisMouth、isThisWeek：都是为了从时间线查看任务信息，实际使用上用的比较多的是使用 isThisWeek 来过滤出一个只显示 本周任务 的表格，用于每个礼拜末的任务复盘。</li>
-<li>截止：和预期时间相关联，确保任务可以按时完成。</li>
-</ul>
-<p>除了以上属性，这个表格我也创建了一个快速笔记的模板，用于记录任务中琐碎，具有时效性的信息。而有意义的数据则记录到工作或者个人的数据库中，以快捷方式引用。</p>
-<p>至此，整个属于我的 Notion 工作流已经搭建完毕。当然有一些在规划时没想到的问题和后面新增的需求因为也要在实际使用中持续迭代，所以也创建了一个任务，用来持续更新我的 Notion 工作流。</p>
-<p>除了用作只是管理和 GTD，在深度使用 Notion 后我也用它搭建了我的第二个博客网站 - <a target="_blank" rel="noopener" href="https://notion.kaaaaai.cn/">背面-肆拾壹</a>，在 Study 中为我大学接下来的考试搭建了一个简单的学习复习跟踪和实行的表格。而 Notion 可以做到的远比我在这里分享的还要多得多。</p>
-<p>当然除了很多优点，notion 作为一个刚起步没几年的新生软件也有一些体验比较糟糕的地方，比如从其他地方复制文本过来，不会保留空行，导出的文件无论是选择 md 格式、cvs 格式还是 pdf 格式都不是很尽人意，支持导入的软件寥寥无几，还有因为是在线的应用，有时候打开加载比较慢，如果碰到网络差，你恰好要快速记录时，就比较容易着急上火，另外前一阵子被墙的新闻闹得沸沸扬扬，没有国内版本支持，也是比较硬伤的地方。</p>
-<p>最后，回到开始，制造和使用工具，是人类和动物最本质的区别。Notion 作为一个笔记工具，虽然强大，但工具只是工具。我们应该关注的是自我本身，关注如何通过工具创造出更有价值的内容。</p>
-
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/my-aio-notion-workflow-setup.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -751,6 +802,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/web-resolve-recirculation-errors.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/web-resolve-recirculation-errors.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>343</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -762,12 +841,14 @@
 
       
           <h2 id="问题表现"><a href="#问题表现" class="headerlink" title="问题表现"></a>问题表现</h2><p>博客网站更换了 DNS 解析的服务商，访问出现以下问题。<br><img src="https://gitee.com/woailvkai/Kaaaaai.tool.oss/raw/uPic/uPic/03oBxi-2020%2005%2030.jpg" alt="03oBxi-20200530"></p>
-<h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>主要是使用的 <code>DNS</code> 解析服务的 <code>SSL/TLS</code> 设置和 GitPage 的 <code>HTTPS</code> 设置冲突了。</p>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>解决方法很简单，主要就是保证网页和 <code>DNS</code> 解析服务的设置一致就好了。可以从两个方向解决。</p>
-<h3 id="一、CloudFlare-设置灵活，GitHub-取消-HTTPS"><a href="#一、CloudFlare-设置灵活，GitHub-取消-HTTPS" class="headerlink" title="一、CloudFlare 设置灵活，GitHub 取消 HTTPS"></a>一、CloudFlare 设置灵活，GitHub 取消 HTTPS</h3><p>进入 GitHub 的仓库，点击 <strong>Setting → Options</strong>，一路下拉到 GitHub Pages，把 Enforce HTTPS  取消勾选就好了。<br><img src="https://gitee.com/woailvkai/Kaaaaai.tool.oss/raw/uPic/uPic/OjCxmm-2020%2005%2030.jpg" alt="OjCxmm-20200530"></p>
-<h3 id="二、GitHub-设置-HTTPS，CloudFlare-设置-完全-模式"><a href="#二、GitHub-设置-HTTPS，CloudFlare-设置-完全-模式" class="headerlink" title="二、GitHub 设置 HTTPS，CloudFlare 设置 完全 模式"></a>二、GitHub 设置 HTTPS，CloudFlare 设置 完全 模式</h3><p><img src="https://gitee.com/woailvkai/Kaaaaai.tool.oss/raw/uPic/uPic/DdM9XQ-2020%2005%2030.jpg" alt="DdM9XQ-20200530"></p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>这里也推荐官方提供的解决方法-<a target="_blank" rel="noopener" href="https://support.cloudflare.com/hc/zh-cn/articles/115000219871-%E8%A7%A3%E5%86%B3%E9%87%8D%E5%AE%9A%E5%90%91%E5%BE%AA%E7%8E%AF%E9%94%99%E8%AF%AF" title="解决重定向循环错误">解决重定向循环错误</a>，其实和我上述所说的是一致的。对于有经验的话按照里面所说的解决应该是不难的，但是对于第一次碰到这种问题的人来说，可能有点抽象。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/web-resolve-recirculation-errors.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -830,6 +911,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/swift-optional-and-unwrapping-learning.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/swift-optional-and-unwrapping-learning.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -842,31 +951,15 @@
       
           <p>　　最近在优化一个项目的过程，过程中发现之前开发时由于刚接触 <code>Swift</code> 的原因，在 <code>Swift</code> 中的类里使用了很多 <code>OC</code> 的写法，比如字典数组对象会习惯性用 <code>NSDictionary</code>、<code>NSArray</code>来初始化，而不是用 <code>[KeyType: ValueType]()</code> 或是 <code>[SomeType]()</code> 这种类型来实例化变量。虽然在使用上没有什么问题，但看起来多少有点。。。不优雅。<br>　　当我把大部分类型都修改成 <code>Swift</code> 中的写法后（部分未修改是因为使用 <code>String</code> 类型来给文本做截取和富文本定义，实在不如 <code>NSString</code> 顺手，这种不顺手让我不由想起 Stack Overflow 上看到的一个评论：I thougt i already getting along well  with Swift.）发现，原来一些变量是否为空的判断中，使用 <code>Swift</code> 里的 <code>optional</code> 类型会方便很多。<br>　　比如解析一个 json 数据，如果层级多而且里面每个元素都是不确定的，那么可能就需要每个层级都判一次空。而如果使用 ? 来设置当前对象为可选值，只需要在最后一层实际使用到对象值时，判一次空就 OK 了。<br>　　对于 ? 和 ! 的区别和总结，网上有很多文章，在这里就不重复造轮子了。下面就对这个 <code>optional</code> 的自己两个疑问做个记录。
 　　</p>
-<h2 id="和-！-是表示两种不同的类型吗，一种是可以为空，一种不可以为空？"><a href="#和-！-是表示两种不同的类型吗，一种是可以为空，一种不可以为空？" class="headerlink" title="? 和 ！ 是表示两种不同的类型吗，一种是可以为空，一种不可以为空？"></a>? 和 ！ 是表示两种不同的类型吗，一种是可以为空，一种不可以为空？</h2><p>　　刚开始使用的时候没做深入了解，以为 <code>optional</code> 中的 ? 和 ! 和 <code>let</code> 声明不可变变量，<code>var</code> 声明可变变量。? 和 ! 是一组彼此相对只是含义不同的两个符号。但深入了解了一下，发现并不是这样，引用两段官方的文档：</p>
-<blockquote>
-<p>You use the Optional type whenever you use optional values, even if you never type the word Optional. Swift’s type system usually shows the wrapped type’s name with a trailing question mark (?) instead of showing the full type name. For example, if a variable has the type Int?, that’s just another way of writing Optional<Int>. The shortened form is preferred for ease of reading and writing code.</p>
-<p>The types of shortForm and longForm in the following code sample are the same:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let shortForm: Int? = Int(&quot;42&quot;)</span><br><span class="line">let longForm: Optional&lt;Int&gt; = Int(&quot;42&quot;)</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>　　这里的意思是说当你使用 <code>Optional</code> 类型时的值，即使在初始化时没有用“Optional”这个单词指定类型，在 Swift 中也可用 ? 代替。即 <code>Int?</code> 等于 <code>Optional&lt;Int&gt;</code>。那按照之前我的理解，是否 ! 也是某个 Not Optional 单词的代替？后面官方文档就有提到了：</p>
-<blockquote>
-<p>When you’re certain that an instance of Optional contains a value, you can unconditionally unwrap the value by using the forced unwrap operator (postfix !). For example, the result of the failable Int initializer is unconditionally unwrapped in the example below.</p>
-</blockquote>
-<p>　　意思是说 ! 是代表一种 <code>Unconditional Unwrapping</code> 的运算符，而并不是作为一种类型的表达。
-　　</p>
-<h2 id="关于-Unconditional-Unwrapping"><a href="#关于-Unconditional-Unwrapping" class="headerlink" title="关于 Unconditional Unwrapping"></a>关于 Unconditional Unwrapping</h2><p>　　<code>Unconditional Unwrapping</code> 怎么理解，直译的话叫<strong>无条件展开</strong>，专业术语叫<strong>强制拆包</strong>。为什么使用 <code>Optional</code> 类型会需要强制拆包，如果使用 ! 运算符意味着强制拆包，那不使用 ! 时，<code>Optional</code> 是否还会做拆包的处理呢？<br>　　仍然回到官方文档，有这句：</p>
-<blockquote>
-<p>The Optional type is an enumeration with two cases. Optional.none is equivalent to the nil literal.</p>
-</blockquote>
-<p>　　也就是说 <code>Optional</code> 是一个默认带有 <code>Optional.none</code> 枚举类型的包装。所以使用时我们必须按官方说的：</p>
-<blockquote>
-<p>You must unwrap the value of an Optional instance before you can use it in many contexts.</p>
-</blockquote>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>　　基于以上的学习和理解，我们可以来解读以下一些写法：</p>
-<figure class="highlight swift"><figcaption><span>初始化</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> value:<span class="type">NSString</span> <span class="operator">=</span> <span class="literal">nil</span> <span class="comment">//错误写法，未指定 Optional，所以不可以被赋值为空</span></span><br><span class="line"><span class="keyword">let</span> value:<span class="type">NSString</span>! <span class="comment">//如果后续未赋值而直接使用则会崩溃</span></span><br><span class="line"><span class="keyword">let</span> value:<span class="type">NSString</span>? <span class="operator">=</span> <span class="literal">nil</span> <span class="comment">//同下，如果后续 value 未被赋值，他会默认等于 nil</span></span><br><span class="line"><span class="keyword">let</span> value:<span class="type">NSString</span>?</span><br></pre></td></tr></table></figure>
-<figure class="highlight swift"><figcaption><span>转换类型</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> array:<span class="type">NSArray</span> <span class="operator">=</span> <span class="type">NSMutableArray</span>.<span class="keyword">init</span>(object: <span class="string">&quot;111&quot;</span>)</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">(111)</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="built_in">print</span>(array <span class="keyword">as!</span> <span class="type">NSMutableArray</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Optional(&lt;__NSArrayM 0x7b790430&gt;(111))</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="built_in">print</span>(array <span class="keyword">as?</span> <span class="type">NSMutableArray</span>)</span><br></pre></td></tr></table></figure>
-<figure class="highlight swift"><figcaption><span>方法定义</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//可传空值</span></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">buttonClick</span>(<span class="params">sender</span>: <span class="type">UIButton</span>?)&#123;</span><br><span class="line">    <span class="comment">//....    </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//不可传空值</span></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">buttonClick</span>(<span class="params">sender</span>: <span class="type">UIButton</span>)&#123;</span><br><span class="line">    <span class="comment">//....    </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fruitDic: [<span class="type">String</span>: <span class="type">String</span>] <span class="operator">=</span> [<span class="string">&quot;apple&quot;</span>:<span class="string">&quot;red&quot;</span>,<span class="string">&quot;banana&quot;</span>:<span class="string">&quot;yellow&quot;</span>]</span><br><span class="line"><span class="keyword">let</span> apple: <span class="type">String</span>! <span class="operator">=</span> fruitDic[<span class="string">&quot;apple&quot;</span>]<span class="operator">!</span> <span class="comment">// String! 可以直接写成 String，这里只是为了直观阅读</span></span><br><span class="line"><span class="keyword">let</span> banana: <span class="type">String</span>? <span class="operator">=</span> fruitDic[<span class="string">&quot;apple&quot;</span>]</span><br><span class="line"><span class="keyword">let</span> blueberry: <span class="type">String</span>! <span class="operator">=</span> fruitDic[<span class="string">&quot;blueberry&quot;</span>] <span class="operator">??</span> <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">let</span> orange: <span class="type">String</span>? <span class="operator">=</span> fruitDic[<span class="string">&quot;orange&quot;</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="和-！-是表示两种不同的类型吗，一种是可以为空，一种不可以为空？"><a href="#和-！-是表示两种不同的类型吗，一种是可以为空，一种不可以为空？" class="headerlink" title="? 和 ！ 是表示两种不同的类型吗，一种是可以为空，一种不可以为空？"></a>? 和 ！ 是表示两种不同的类型吗，一种是可以为空，一种不可以为空？</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/swift-optional-and-unwrapping-learning.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -929,6 +1022,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/literary-memoirs-reading-notes.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/literary-memoirs-reading-notes.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -939,109 +1060,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="《文学回忆录》"><a href="#《文学回忆录》" class="headerlink" title="《文学回忆录》"></a>《文学回忆录》</h2><div align = right> [木心](https://book.douban.com/subject/20440644/) </div>
-<div align = right> 97 条标注 </div> 
-
-<blockquote>
-<p>我觉得艺术、哲学、宗教，都是人类的自恋，都在适当保持距离时，才有美的可能、真的可能、善的可能。如果你把宗教当做哲学对待，就有了距离，看清宗教究竟是什么；如果你把哲学当做艺术对待，就有了距离，看清哲学究竟是什么；如果你把艺术当做宗教对待，就有了距离，看清艺术究竟是什么——我的意见是，将宗教作宗教来信，就迷惑了；将哲学作哲学来研究，就学究了；将艺术作艺术来玩弄，就玩世不恭了。原因，就在于太直接，是人的自我强求，正像那耳喀索斯要亲吻水中的影。</p>
-<p>凡是健全高尚的人，看悲剧，既骄傲又谦逊地想：事已如此，好自为之。一切伟大的思想来自悲观主义。真正伟大的人物都是一开始就悲观、绝望，置之死地而后生。</p>
-<p>毕竟我们曾在五年之中，写信、等信二百多次，一片诚心。</p>
-<p>佛家的慈悲、道家的虚纳（如婴、如水）都源于这种无抵抗的抵抗，以含垢忍辱占上风。吓倒你，不彻底的，使你惭愧而悔改，才是真的征服。</p>
-<p>伪善，以物质换赞谢。善，天堂成银行，上帝是行长，天使是出纳，人们来取善与善报——慈善家都是高利贷者。 善，因是无报偿的，才可爱；恶，因是无恶报的，才可恶。 在智慧层次上，宗教低于哲学；宗教的善有善报、恶有恶报，是低层次的，平民的，乡愿的。 善之可爱，即因无报偿。</p>
-<p>所有有趣的小孩子在学校走，突告母亲、姐姐送伞来，必羞臊，这是心理。小学，性质上就是伊甸园。儿童有儿童的浪漫主义，一时出现父母，拉回现世。天堂人间不能共存，世俗和理想难以沟通。</p>
-<p>为什么先知、宗教家、哲学家要用比喻？从西方史诗到中国《诗经》，充满比喻，几乎是靠比喻架构完成的。从前的政治家、大臣、纵横家，劝君，为使其听，用比喻；对下民说，知其不懂，也用比喻。 说明人类的智力还在低级阶段。 真的相爱的人，不语，一瞥，不需比喻。智者面对，相视而笑，也不用比喻。比喻，是不得已。</p>
-<p>一种圆融的刚执，一种崇高的温柔</p>
-<p>特洛那教众人学成，个个武艺高强。特洛那说：你们要报答，就把我的仇人掳来。之后是大战，直到终于把仇人掳了来。特洛那说：啊，你来了，我还像从前一样爱你。去吧。 古人可爱。动作之大！</p>
-<p>希望大家读《道德经》。有疑难，有问题，可以找我。电话是（718）5261357，<br>&#x2F;* 打不通了</p>
-<p>“《道德经》就是以一种令人费解的、似乎不合逻辑的风格写成的，它充满了迷人的矛盾，它那有力而富有诗意的语言，捕获了读者的心灵，使读者摆脱了习以为常的逻辑推理的轨道。”</p>
-<p>读陶诗，是享受，写得真朴素，真精致。不懂其精致，就难感知其朴素。不懂其朴素，就难感知其精致。他写得那么淡，淡得那么奢侈。</p>
-<p>他不是中国文学的塔尖。他在塔外散步。我走过的，还要走下去的，就是这样的意象和境界。“釆菊东篱下，悠然见风筝”，我就像脱线的风筝，线断了，还向上飞。陶先生问：“不愿做塔尖么？”我说：“生在西方，就做伊卡洛斯，生在中国，只好做做脱线的风筝。”</p>
-<p>我的大灵感呢？讲出来容易，写来难。不讲，写出来再讲。<br>&#x2F;* 是哪本书呢?</p>
-<p>中国诗的演变，脉络清晰。既是连贯呼应的，又是段落分明的——唐诗宋词，有一种精神上的亲戚关系。 唐是盛装，宋是便衣，元是裤衩背心。拿食物来比，唐诗是鸡鸭蹄膀，宋词是热炒冷盆，元曲是路边小摊的豆腐脑、脆麻花。</p>
-<p>如果抽掉杜甫的作品，一部《全唐诗》会不会有塌下来的样子。</p>
-<p>《红楼梦》中的诗，如水草。取出水，即不好。放在水中，好看。</p>
-<p>这几天在考虑，唐代诗人谁最有代表性？（“代表性”，是党的说法，奇怪）排下名来，只能是以下（硬硬心肠）：王勃、王之涣、王昌龄、高适、陈子昂、孟浩然、王维、崔颢、李白、杜甫、韩翃、孟郊、韩愈、刘禹锡、白居易、柳宗元、元稹、贾岛、李贺、杜牧、李商隐。</p>
-<p>我不过是一箭飞过空中， 落在地上找不到藏身之处。</p>
-<p>凡是纯真的悲哀者，我都尊敬。人从悲哀中落落大方走出来，就是艺术家。麦阿里并不是真的苦命。真的悲哀者，不是因为自己穷苦。哈姆雷特、释迦、叔本华，都不为自己悲哀。他们生活幸福。悲观，是一种远见。</p>
-<p>从前艺术家要么不创造形式，一旦创造，都严守格律。贝多芬之前的交响乐，从不破格，乖乖的。西方、中国，都如此，在格式里拼命翻跟斗，不想到跑出来。</p>
-<p>我和她乍相逢，记不真娇模样，我则索手抵着牙儿慢慢的想。</p>
-<p>抱着原谅的心情去看这些诗，很轻，很薄，半透明，纸的木的竹的。日本味。非唐非宋，也非近代中国的白话诗。平静，恬淡。</p>
-<p>不见哪儿有力度、深度，或有智慧出现。你要写却写不出来。真像他们的芥末、木拖鞋、纸灯笼。</p>
-<p>提到东方，日本可以看看。希望在座都去日本看看，看看日本芸芸众生如何芸芸。我是日本文艺的知音，知音，但不知心——他们没有多大的心。 日本对中国文化是一种误解。但这一误解，误解出自己的风格，误解得好。 老一辈人说，日本民族不得好死。但在死之前，可得好活。</p>
-<p>哦，上帝，你要救我就救我，你要毁灭我就毁灭我，但我时时刻刻把持住我的舵。</p>
-<p>《哈姆雷特》其中有个最坏的叔叔，他却不多写。后来我懂了，有个象征即可，不必多写。整个古堡阴沉，唯奥菲莉娅（Ophelia）的死是明艳的一笔，白色和绿色。</p>
-<p>我在狱中时，看见五十六个男人睡熟了，心想，好，大家统统释放了，出狱了——早晨醒来，大家又在牢里了。</p>
-<p>“每一行都要表现自己的性格。”</p>
-<p>真的智者、思想家，不能明争，懂得暗斗。</p>
-<p>我少年时家有后花园，每闻笛声传来，倍感孤独，满心欲念，所以爱这两句“良辰美景奈何天，赏心乐事谁家院”。</p>
-<p>通情达理而脾气很坏的人</p>
-<p>任性，要看任什么性。伟大的性，要任，大任特任。</p>
-<p>沈璟（1553—1610），他把武松弄了个老婆，好好一条汉子就此完了——武松好，好在单身。</p>
-<p>鲁迅他们一味反封建反礼教，大概不以为这是值得注意的命题。周作人算是爱读闲书的，可惜忙于小玩意小摆设，拣了芝麻，忘了西瓜。他们兄弟二人对中国有爱而不知怎样去爱，最后还是谈不上爱。</p>
-<p>历代红学家靠红学吃饭，鲁迅就挖苦过他们，鲁迅没有来得及论一论《红楼梦》——他不适宜做这件事，曹雪芹的“色”、“空”观念，鲁迅排斥的——只有王国维初步触到问题，因他用了叔本华、尼采的方法，但用得不熟练。看似哲学观点，还是佛学观点。</p>
-<p>“性”，通常是器官在活动，没有“人”。《金瓶梅》不然，器官生在身上，还是写成了人，几乎是性的陀思妥耶夫斯基——托尔斯泰，陀思妥耶夫斯基，完成了艺术，《金瓶梅》要靠你自己找出它的艺术。</p>
-<p>讽刺在艺术中的位置是什么？我认为：直接的、有具体对象的讽刺，是不艺术的。但丁、歌德，有过很多讽刺诗（歌德曾和席勒天天写讽刺诗），被遗忘了。但《神曲》、《浮士德》流传，伟大。 鲁迅的大量讽刺文，对象太具体，今日没有人看了。</p>
-<p>我们要有耐心读古人的东西，要体谅他们的好奇心，如鬼怪之类。现代人喜欢真实——在陀思妥耶夫斯基以前，以为已写得很真实了，到陀氏一出，啊！文学能那么真实！到普鲁斯特，更真实。</p>
-<p>文学不是描写真实，而是创造真实——真实是无法描写的。上帝是立体的艺术家，艺术家是平面的上帝。耶稣是半立体的，十字架只有正面才好看，侧面不好看，非得把耶稣钉上去才好看。</p>
-<p>斯塔尔夫人（认为歌德《浮士德》写得不好的就是她）高度雄辩，也大赏理査逊的小说，曾前往哭其坟，结果墓中是一位屠夫。</p>
-<p>少年人是脆弱的，因为纯洁。二十七岁、三十七岁、五十七岁，人就复杂了，知道如何对付自尊心，对付人生。</p>
-<p>我看不活，弃世，也是一种坚强。 我说过“以死殉道易，以不死殉道难”，说得太含糊。“殉”是动词，“道”是名词，“死”是助词。以死得道，是“殉”；不死而得道，也是“殉”；死而不得道，是“牺牲”；不死也不得道，是行尸走肉。牛羊死，有什么道不道。 然而以死殉道者看不起不死者，不死者又看不起死者……两者都没有得道。 真的以死而殉道，一定理解尊重那不死而殉道者；真得道而不死者，也一定理解死而殉道者。 这是对上帝说的，不必注。学生讲，可以注此一注。</p>
-<p>我说：“恋爱总是成功的。”为什么呢？你爱，那就成功了。歌德曾说：“假如我爱你，与你无涉。”全世界欣赏这句话。</p>
-<p>我从小讨厌徐志摩型的文人，细皮白肉，金丝边眼镜，忽而轻声细语，忽而哈哈大笑。所谓江南才子，最可厌——曹雪芹是北方人的血，又在南方生活过。他的颓废，是北派的颓废。我要继续写，是南派的颓废（江南，可分有骨的江南，如绍兴；无骨的江南，如苏州）。</p>
-<p>波德莱尔（Charles Baudelaire）不过是刘姥姥的海外亲戚。</p>
-<p>将来回国，想出两篇论文：《鲁迅论》，《曹雪芹论》。</p>
-<p>无知的人总是薄情的。无知的本质，就是薄情。</p>
-<p>鲁迅，是一个人物。他早期的思想宣言《摩罗诗力说》，就对拜伦大为赞扬，以为要救中国，必须提倡“恶魔精神”，可惜鲁迅先生的抱负只在反帝反封建，可惜他刚刚开始怀疑，就找到了信仰。</p>
-<p>老年人的仁慈是看清了种种天真。</p>
-<p>就此别了吧， 就是别了吧， 如果是永远也别了吧， 虽然我不原谅你， 也决不会背弃你， 就此别了吧，就是别了吧， 如果是永远也别了吧。</p>
-<p>没有长夜痛哭过的人，不足语人生。</p>
-<p>但这种伟大崇高的灵智境界，进去容易，出来很难。一进去，年轻人很容易把自己架空。艺术家不能这样凭着英雄气息成长的。一个人要成熟、成长、成功，其过程应该是不自觉、半自觉、自觉这样一个自然的过程。</p>
-<p>所谓民主，是得过且过的意思。一船，无船主，大家吵，吵到少数服从多数——民主。</p>
-<p>道德在土中，滋养花果——艺术品是土面上的花果。道德力量愈隐愈好。一点点透出来。</p>
-<p>现代文学，我以为好的作品将道德隐得更深，更不做是非黑白的评断。</p>
-<p>人有那么一种心理，痛悔，内疚，等等，放在心里深思即可。一出声，就俗了，就要别人听见——就居心不良。人要想博得人同情、叫好，就是犯罪的继续。</p>
-<p>我们的青春没有花朵，只有标语、口号、大字报。我们的青春在二次大战烽火中度过，在国共内战中度过。解放后，浪漫情怀被剥夺。我常常说浪漫情怀，意思是青年应该是这样的。我们没有像样的青春，至今恨恨不已。但可以安慰的，是死乞白赖拉到一点浪漫主义的尾巴，不是猪尾，是孔雀屏，有点光彩的。<br>&#x2F;* 那就是浪漫了</p>
-<p>年青人无私无畏，其实私得厉害、畏得厉害，只有那点东西，拿掉就没有了。年青人谈人生，谈世界，其实说的是自己。</p>
-<p>对年青人一生的转变有重要影响的事件，如下： 死亡，最亲爱的人的死亡。 爱情，得到或失去爱。 大病，病到几乎要死。 旅行，走到室外，有钱的旅行和无钱的流浪。<br>&#x2F;* 不觊觎死亡大病,听先生的,多恋爱,多走动。</p>
-<p>对年青人一生的转变有重要影响的事件，如下： 死亡，最亲爱的人的死亡。 爱情，得到或失去爱。 大病，病到几乎要死。 旅行，走到室外，有钱的旅行和无钱的流浪。</p>
-<p>当年的枕边书是《红楼梦》。</p>
-<p>一拿起都德的书，轻快，舒适，像赤了脚走在河滩的软泥上，感觉好像早该这样享受一下。</p>
-<p>以我的经验，“唯一恰当的词”，有两重心意：一，要最准确的。二，要最美妙的。准确而不美妙，不取，美妙而不准确，亦不取。</p>
-<p>不忘记少年时翻来覆去读《恶之花》和《巴黎的忧郁》的沉醉的夜晚。我家后园整垛墙，四月里都是蔷薇花，大捧小捧剪了来，插在瓶里，摆书桌上，然后读波德莱尔，不会吸鸦片，也够沉醉了。<br>&#x2F;* 听起来也让人沉醉</p>
-<p>所谓理想主义，要么是向未来看，要么，其实是向古代看。“现在”没有多大意思。<br>&#x2F;* 想起⟪午夜巴黎⟫了</p>
-<p>什么是悲观主义？我以为就是“透”观主义。不要着眼于“悲”，要着眼于“观”——万事万物都会过去的，人是要死的，欲望永远不能满足，太阳底下无新事……这就是悲观。悲观主义是一个态度，是一个勇敢的人的态度。</p>
-<p>尼采的《朝霞》、《艺术的启示》，特别是《查拉图斯特拉如是说》，是一流的艺术品。可惜我们不懂德文，听说尼采原文读起来铿锵有力，坠地作金石声，以后找个纯种的日耳曼男人朗读几段《查拉图斯特拉》听听。</p>
-<p>个人遭遇时代，有人手舞足蹈，有人直接介入。我以为，遭遇大事要先退开。退开，可以观察。谁投入呢？有的是。</p>
-<p>现在看，《少年维特之烦恼》站得住，《茵梦湖》已被忘记了。你们有机会遇到《茵梦湖》，不妨大略看看，借此知道“五四”时期年轻人的心态和取向。</p>
-<p>任何天才免不了模仿期（贝多芬的第一、第二交响乐，就明显地受莫扎特、海顿的影响），而天才的特征，又是不顾死活要找自己的风格。“风格”的定义，我最近想到的诠释是：“敏于受影响，烈于展个性，是谓风格。”</p>
-<p>三十而立，指的是选择对了。选择错了，是“三十而倒立”。</p>
-<p>一个天才的诞生，必然是战争。如果有人反对你，你应该说：“情况正常。”</p>
-<p>世界这只大船根本没有船长，有人毁坏，有人修补，但不问这船究竟航向哪里。可以预见，这船会爆炸，会沉没，沉没在宇宙里。</p>
-<p>永恒是长长的一连串现实，现实是短短的一小段永恒。</p>
-<p>柏格森（Bergson）认为，生命的冲动是宇宙万物的主宰。</p>
-<p>普鲁斯特《睡眠与记忆》，伍尔芙夫人《一间自己的屋子》，写得好极了，就是散文。</p>
-<p>痴心而保持明哲。</p>
-<p>穿裤子的云</p>
-<p>你小时可曾玩过枪 有木塞背带的枪 可曾弄坏扳机 如今我沉在遐想里 你和我一起哭吧 不要心肠太硬</p>
-<p>《査泰莱夫人的情人》</p>
-<p>鲁迅的世界观、宇宙观，有一度和佛教“touch”（触摸）了一下，就避开来。尼釆也碰过一下，避开来。他们都急着要去建立他们的人生观。</p>
-<p>“因为礼物太精美，使得接受的人不配。”</p>
-<p>幸与不幸，我们目睹了它的破灭。</p>
-<p>自然界没有金鱼。名目繁多的菊花，也是靠野菊一代代培植变种而来。原始的女性，很难看，腰粗、臀大，乳房像两个袋，和现代时装模特儿完全两码事。男人按照自己的审美观念，千年万年，调教改造女人，妆饰、美衣、香料……女性渐渐好看了，骄傲了。连曹雪芹先生也糊涂，说男人是泥做的，女人是水做的，其实女人是男人的手工艺品。</p>
-<p>尔曹身与名俱灭，不废江河万古流。</p>
-<p>走在正道上，眼睛看着邪道，此之谓博大精深。</p>
-<p>担当人性中最大的可能。</p>
-<p>梦中情人，还是不如真的情人，我要见那个真情人。</p>
-<p>《第二十二条军规》</p>
-<p>夫妻的意思，就是凭道义、义务，共同生活，是守约，不能去要求爱情。爱情，是青春、美貌、神秘。夫妻呢，是有福同享、有难同当。</p>
-<p>我少年时跟一个女孩子通信，因为写写文章，爱慕，通了三年多，后来一见面，从此不来往了。三年柏拉图。一见，一塌糊涂。勉强地吃饭，散步，勉强地有个月亮照着。</p>
-<p>多少可爱的人去杀了多少可爱的人。</p>
-<p>中国的公园，许多人在那里弄气功，抱住树，晃头——那是怕死，没有别的意思。穷凶极恶地怕死（说着，学抱树晃头的动作）。</p>
-<p>大人虎变，小人革面，君子豹变。<br>&#x2F;* 出处?</p>
-<p>生活是什么？生活是死前的一段过程。</p>
-<p>25-24A，82 Street Jackson Heights，NY 11372. （中译：纽约市，杰克逊高地，八十二街，邮编11372）</p>
-</blockquote>
-
+          <h2 id="《文学回忆录》"><a href="#《文学回忆录》" class="headerlink" title="《文学回忆录》"></a>《文学回忆录》</h2><div align="right"> [木心](https://book.douban.com/subject/20440644/) </div>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/literary-memoirs-reading-notes.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1104,6 +1131,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/ios-uitableview-shadow-rounded-corners-coexist.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/ios-uitableview-shadow-rounded-corners-coexist.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -1115,9 +1170,14 @@
 
       
           <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>给 <code>UITableView</code> 同时设置圆角和阴影时发现在视图上只会显示圆角，原因是因为当我们设置 <code>masksToBounds</code> 为 <code>YES</code> 允许圆角剪裁时，圆角以外的阴影也会一并被剪裁掉。在网上找了一下解决方法，<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/48b1a601febf">ios阴影圆角共存</a> 这篇文章提供了一个思路，就是把圆角和阴影放在不同的两个控件上实现，然后叠加到一块。基本思路是正确的，但实际操作发现在最后插入作为阴影层的 <code>CALayer</code>，调用的方法可能会照成层级有点混乱的问题。下面展示一下我解决这个问题的方法和用 Swift 实现的代码。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>上图，阴影设置的有点浅：<br><img src="https://s1.ax1x.com/2020/04/11/G7xnHA.jpg" alt="IMG_8947A00ED7B9-1"></p>
-<p>上代码：</p>
-<figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">        <span class="keyword">self</span>.view_navigation.frame <span class="operator">=</span> <span class="type">CGRectMake</span>(x: <span class="number">61</span>, y: <span class="number">15</span>, width: <span class="number">261</span>, height: <span class="type">CGFloat</span>(<span class="number">50</span> <span class="operator">*</span> (model.navigaArr.count <span class="operator">&lt;</span> <span class="number">5</span> <span class="operator">?</span> model.navigaArr.count : <span class="number">5</span>)))</span><br><span class="line">        <span class="keyword">self</span>.view_navigation.frame.origin.y <span class="operator">+=</span> <span class="keyword">self</span>.label_content.frame.height <span class="operator">+</span> <span class="keyword">self</span>.label_content.frame.origin.y</span><br><span class="line">        <span class="keyword">self</span>.view_navigation.layer.cornerRadius <span class="operator">=</span> <span class="number">14.0</span></span><br><span class="line">        <span class="keyword">self</span>.view_navigation.layer.masksToBounds <span class="operator">=</span> <span class="literal">true</span></span><br><span class="line">        <span class="keyword">self</span>.view_navigation.backgroundColor <span class="operator">=</span> <span class="type">UIColor</span>.white</span><br><span class="line">        <span class="keyword">self</span>.view_navigation.reloadData()</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//因为这个 UITableview 是嵌套在另一个 UITableview 上的，实际测试发现 CALayer 会重复被添加，解决方法是给 CALayer 设置一个标记位，然后每次刷新的时候遍历一遍删除，当然这种方法有点不太优雅，</span></span><br><span class="line"><span class="comment">//        if self.layer.sublayers?.count ?? 0 &gt; 0 &#123;</span></span><br><span class="line"><span class="comment">//            self.layer.sublayers?.forEach(&#123; (zerolayer) in</span></span><br><span class="line"><span class="comment">//                if zerolayer.name == &quot;layer_navigation&quot;&#123;</span></span><br><span class="line"><span class="comment">//                    zerolayer.removeFromSuperlayer()</span></span><br><span class="line"><span class="comment">//                &#125;</span></span><br><span class="line"><span class="comment">//            &#125;)</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> layer_navigation <span class="operator">=</span> <span class="type">CALayer</span>()</span><br><span class="line">        <span class="keyword">let</span> frame_navigation <span class="operator">=</span> <span class="keyword">self</span>.view_navigation.frame</span><br><span class="line">        layer_navigation.name <span class="operator">=</span> <span class="string">&quot;layer_navigation&quot;</span></span><br><span class="line">        layer_navigation.frame <span class="operator">=</span> frame_navigation</span><br><span class="line">        layer_navigation.cornerRadius <span class="operator">=</span> <span class="number">14.0</span></span><br><span class="line">        layer_navigation.backgroundColor <span class="operator">=</span> <span class="type">UIColor</span>.white.cgColor</span><br><span class="line">        layer_navigation.masksToBounds <span class="operator">=</span> <span class="literal">false</span></span><br><span class="line">        layer_navigation.shadowColor <span class="operator">=</span> <span class="type">UIColor</span>.rgbaColorFromHex(rgb: <span class="number">0x333333</span>, alpha: <span class="number">0.12</span>).cgColor</span><br><span class="line">        layer_navigation.shadowOffset <span class="operator">=</span> <span class="type">CGSize</span>(width: <span class="number">0</span>, height: <span class="number">2</span>)</span><br><span class="line">        layer_navigation.shadowOpacity <span class="operator">=</span> <span class="number">1</span></span><br><span class="line">        layer_navigation.shadowRadius <span class="operator">=</span> <span class="number">10</span></span><br><span class="line">        <span class="comment">//原 po 主方法：self.layer.insertSublayer(layer_navigation, below: self.view_navigation.layer)</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">self</span>.layer.insertSublayer(layer_navigation, at: <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/ios-uitableview-shadow-rounded-corners-coexist.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1180,6 +1240,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/god-will-rolls-the-dice-several-times.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/god-will-rolls-the-dice-several-times.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>760</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -1295,7 +1383,8 @@
       </div>
   </nav>
 </div>
-  <div class="sidebar-button motion-element"><i class="fa fa-comment"></i>
+  <div class="sidebar-button motion-element">
+    <a onclick="Chatra('openChat', true);"><i class="fa fa-comment"></i>
     Chat
   </a>
   </div>
@@ -1334,7 +1423,43 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Kaaaaai</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">233k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:31</span>
 </div>
+
+<!-- time -->
+  <div id="show-time">
+    <span id="span_dt_dt"></span>
+  </div>
+  <script>
+      function show_date_time() {
+        window.setTimeout("show_date_time()", 1000);
+        BirthDay = new Date("6/23/2017 19:37:01");
+        today = new Date();
+        //总时间
+        timeold = (today.getTime() - BirthDay.getTime());
+        sectimeold = timeold / 1000
+        secondsold = Math.floor(sectimeold);
+        msPerDay = 24 * 60 * 60 * 1000
+        e_daysold = timeold / msPerDay
+        daysold = Math.floor(e_daysold);
+        e_hrsold = (e_daysold - daysold) * 24;
+        hrsold = Math.floor(e_hrsold);
+        e_minsold = (e_hrsold - hrsold) * 60;
+        minsold = Math.floor((e_hrsold - hrsold) * 60);
+        seconds = Math.floor((e_minsold - minsold) * 60);
+        span_dt_dt.innerHTML = "已存活 " + daysold + " 天 " + hrsold + " 小时 " + minsold + " 分 " + seconds + " 秒";
+    }
+show_date_time();
+  </script>
 
         
 <div class="busuanzi-count">
@@ -1353,7 +1478,10 @@
   </div>
 
   
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
   <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 
@@ -1362,12 +1490,13 @@
 <script src="/js/motion.js"></script>
 
 
-<script src="/js/schemes/muse.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 
 
 <script src="/js/next-boot.js"></script>
 
 
+  <script defer src="/lib/three/three.min.js"></script>
 
 
   
@@ -1406,6 +1535,18 @@
 
 
 
+  <script>
+    (function(d, w, c) {
+      w.ChatraID = 'QXLRxXcsfrRJR2KTG';
+      var s = d.createElement('script');
+      w[c] = w[c] || function() {
+        (w[c].q = w[c].q || []).push(arguments);
+      };
+      s.async = true;
+      s.src = 'https://call.chatra.io/chatra.js';
+      if (d.head) d.head.appendChild(s);
+    })(document, window, 'Chatra');
+  </script>
 
 
 
@@ -1418,6 +1559,35 @@
   
 
   
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'fzf6cpurdF6t3abR8qK1Isi3-gzGzoHsz',
+      appKey     : 'mBMU4tntJKhBPKSpyDOWQYGy',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
 
 </body>
 </html>

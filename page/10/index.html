@@ -14,10 +14,13 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.kaaaaai.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"www.kaaaaai.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="我独自一人&#x2F;照顾着&#x2F;历代的星辰">
@@ -28,7 +31,7 @@
 <meta property="og:description" content="我独自一人&#x2F;照顾着&#x2F;历代的星辰">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Kaaaaai">
-<meta property="article:tag" content="个人成长, 技术, 思考, 书籍, 电影">
+<meta property="article:tag" content="个人成长, 技术, 思考, 书籍, 电影, iOS, Android, 代码">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://www.kaaaaai.cn/page/10/">
@@ -46,6 +49,15 @@
 
   <title>壹拾肆</title>
   
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102185873-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-102185873-1');
+      }
+    </script>
 
 
   <script>
@@ -84,6 +96,7 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="壹拾肆" type="application/atom+xml">
 <link rel="stylesheet" href="/assets/css/APlayer.min.css" class="aplayer-style-marker">
 <script src="/assets/js/APlayer.min.js" class="aplayer-script-marker"></script>
 </head>
@@ -109,7 +122,7 @@
       <h1 class="site-title">壹拾肆</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
-      <p class="site-subtitle" itemprop="description">闲言和碎语</p>
+      <p class="site-subtitle" itemprop="description">有些安排是多余的 这片空旷对我有益</p>
   </div>
 
   <div class="site-nav-right">
@@ -190,6 +203,7 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
+  <div class="reading-progress-bar"></div>
 
 
     <main class="main">
@@ -247,6 +261,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/android-call-the-system-to-send-text-messages-customize-the-number-and-text-message-content.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/android-call-the-system-to-send-text-messages-customize-the-number-and-text-message-content.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -259,22 +301,14 @@
       
           <p>&amp;#160; &amp;#160; &amp;#160; &amp;#160;开发需用使用到系统短信功能，昨天看了下文档，弄了一下午，现在已经得到我想要的效果，做个笔记记一下。具体有两种方法，一种需要跳到系统短信界面发送，可自带号码和短信内容参数，另一种可以直接在App内发送，并返回发送状态。两种方法都写在下面。</p>
 <p>&amp;#160; &amp;#160; &amp;#160; &amp;#160;<em>无论是哪种方法，都需要申请权限，在app&#x2F;src&#x2F;main&#x2F;AndroidManifest.xml文件内添加</em></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;uses-permission android:name=<span class="string">&quot;android.permission.SEND_SMS&quot;</span> /&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="跳到系统界面发送短信"><a href="#跳到系统界面发送短信" class="headerlink" title="跳到系统界面发送短信"></a>跳到系统界面发送短信</h2><h3 id="新建工具类"><a href="#新建工具类" class="headerlink" title="新建工具类"></a>新建工具类</h3><p>　　为了方便使用，我们定义一个工具类用来调用。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ContentUtil</span> &#123;</span><br><span class="line"> </span><br><span class="line">	    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">showToast</span><span class="params">(Context context, String msg)</span></span><br><span class="line">	    &#123;</span><br><span class="line">	        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();;</span><br><span class="line">	    &#125;</span><br><span class="line">	</span><br><span class="line">	    <span class="comment">/**</span></span><br><span class="line"><span class="comment">	     * 调用系统界面，给指定的号码发送短信，并附带短信内容</span></span><br><span class="line"><span class="comment">	     *</span></span><br><span class="line"><span class="comment">	     * <span class="doctag">@param</span> context</span></span><br><span class="line"><span class="comment">	     * <span class="doctag">@param</span> number</span></span><br><span class="line"><span class="comment">	     * <span class="doctag">@param</span> body</span></span><br><span class="line"><span class="comment">	     */</span></span><br><span class="line">	    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">sendSmsWithBody</span><span class="params">(Context context, String number, String body)</span> &#123;</span><br><span class="line">	        <span class="type">Intent</span> <span class="variable">sendIntent</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Intent</span>(Intent.ACTION_SENDTO);</span><br><span class="line">	        sendIntent.setData(Uri.parse(<span class="string">&quot;smsto:&quot;</span> + number));</span><br><span class="line">	        sendIntent.putExtra(<span class="string">&quot;sms_body&quot;</span>, body);</span><br><span class="line">	        context.startActivity(sendIntent);</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="xml-布局文件修改"><a href="#xml-布局文件修改" class="headerlink" title="xml 布局文件修改"></a>xml 布局文件修改</h3><p>　　这里我放了两个文本输入框，和一个发送按钮。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">\&lt;RelativeLayout xmlns:android=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span><br><span class="line">	    xmlns:tools=<span class="string">&quot;http://schemas.android.com/tools&quot;</span></span><br><span class="line">	    android:layout_width=<span class="string">&quot;match_parent&quot;</span></span><br><span class="line">	    android:layout_height=<span class="string">&quot;match_parent&quot;</span></span><br><span class="line">	    android:paddingBottom=<span class="string">&quot;@dimen/activity_vertical_margin&quot;</span></span><br><span class="line">	    android:paddingLeft=<span class="string">&quot;@dimen/activity_horizontal_margin&quot;</span></span><br><span class="line">	    android:paddingRight=<span class="string">&quot;@dimen/activity_horizontal_margin&quot;</span></span><br><span class="line">	    android:paddingTop=<span class="string">&quot;@dimen/activity_vertical_margin&quot;</span></span><br><span class="line">	    tools:context=<span class="string">&quot;.MessageActivity&quot;</span>&gt;</span><br><span class="line">	</span><br><span class="line">	    &lt;EditText</span><br><span class="line">	        android:id=<span class="string">&quot;@+id/phonenumber_edit&quot;</span></span><br><span class="line">	        android:layout_width=<span class="string">&quot;match_parent&quot;</span></span><br><span class="line">	        android:layout_height=<span class="string">&quot;wrap_content&quot;</span></span><br><span class="line">	        android:text=<span class="string">&quot;13879327137&quot;</span>/&gt;</span><br><span class="line">	</span><br><span class="line">	    &lt;EditText</span><br><span class="line">	        android:id=<span class="string">&quot;@+id/message_edit&quot;</span></span><br><span class="line">	        android:layout_width=<span class="string">&quot;match_parent&quot;</span></span><br><span class="line">	        android:layout_height=<span class="string">&quot;wrap_content&quot;</span></span><br><span class="line">	        android:layout_below=<span class="string">&quot;@id/phonenumber_edit&quot;</span></span><br><span class="line">	        android:text=<span class="string">&quot;你好吗？&quot;</span>/&gt;</span><br><span class="line">	</span><br><span class="line">	    &lt;Button</span><br><span class="line">	        android:id=<span class="string">&quot;@+id/message_btn&quot;</span></span><br><span class="line">	        android:layout_width=<span class="string">&quot;wrap_content&quot;</span></span><br><span class="line">	        android:layout_height=<span class="string">&quot;wrap_content&quot;</span></span><br><span class="line">	        android:layout_below=<span class="string">&quot;@+id/message_edit&quot;</span></span><br><span class="line">	        android:text=<span class="string">&quot;发送&quot;</span>/&gt;</span><br><span class="line">	&lt;/RelativeLayout&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Activity-活动文件修改"><a href="#Activity-活动文件修改" class="headerlink" title="Activity 活动文件修改"></a>Activity 活动文件修改</h3><p>方法实现</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MessageActivity</span> <span class="keyword">extends</span> <span class="title class_">Activity</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> EditText phoneNumedit;</span><br><span class="line">    <span class="keyword">private</span> EditText msgEdit;</span><br><span class="line">    <span class="keyword">private</span> Button msgBtn;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onCreate</span><span class="params">(Bundle savedInstanceState)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_message);</span><br><span class="line"></span><br><span class="line">        phoneNumedit=(EditText) findViewById(R.id.phonenumber_edit);</span><br><span class="line">        msgEdit=(EditText) findViewById(R.id.message_edit);</span><br><span class="line">        msgBtn=(Button)findViewById(R.id.message_btn);</span><br><span class="line">        msgBtn.setOnClickListener(<span class="keyword">new</span> <span class="title class_">View</span>.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onClick</span><span class="params">(View v)</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (msgEdit.getText().toString() != <span class="string">&quot;&quot;</span> &amp;&amp; phoneNumedit.getText().toString() != <span class="string">&quot;&quot;</span>) <span class="comment">//判断手机号和短信内容不为空</span></span><br><span class="line">                &#123;</span><br><span class="line">                    ContentUtil.sendSmsWithBody(MessageActivity.<span class="built_in">this</span>, phoneNumedit.getText().toString() , msgEdit.getText().toString());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>　　点击运行就可以看到效果了。</p>
-<h2 id="后台静默发短信"><a href="#后台静默发短信" class="headerlink" title="后台静默发短信"></a>后台静默发短信</h2><p>　　布局文件和上面的差不多，就是名字不一样。所以省略一下，下面是方法实现</p>
-<h3 id="Activity-活动文件修改-1"><a href="#Activity-活动文件修改-1" class="headerlink" title="Activity 活动文件修改"></a>Activity 活动文件修改</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Message_second</span> <span class="keyword">extends</span> <span class="title class_">AppCompatActivity</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> EditText phone_number_editText;</span><br><span class="line">    <span class="keyword">private</span> EditText sms_content_editText;</span><br><span class="line">    <span class="keyword">private</span> Button send_sms_button;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onCreate</span><span class="params">(Bundle savedInstanceState)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_message_second);</span><br><span class="line"></span><br><span class="line">        phone_number_editText = (EditText) findViewById(R.id.phone_number_editText);</span><br><span class="line">        sms_content_editText = (EditText) findViewById(R.id.sms_content_editText);</span><br><span class="line">        send_sms_button = (Button) findViewById(R.id.send_sms_button);</span><br><span class="line"></span><br><span class="line">        send_sms_button.setOnClickListener(<span class="keyword">new</span> <span class="title class_">View</span>.OnClickListener() &#123;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onClick</span><span class="params">(View arg0)</span> &#123;</span><br><span class="line">                <span class="type">String</span> <span class="variable">phone_number</span> <span class="operator">=</span> phone_number_editText.getText().toString().trim();</span><br><span class="line">                <span class="type">String</span> <span class="variable">sms_content</span> <span class="operator">=</span> sms_content_editText.getText().toString().trim();</span><br><span class="line">                <span class="keyword">if</span>(phone_number.equals(<span class="string">&quot;&quot;</span>)) &#123;</span><br><span class="line">                    Toast.makeText(Message_second.<span class="built_in">this</span>, R.string.str_remind_input_phone_number, Toast.LENGTH_LONG).show();</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="type">SmsManager</span> <span class="variable">smsManager</span> <span class="operator">=</span> SmsManager.getDefault();</span><br><span class="line">                    <span class="keyword">if</span>(sms_content.length() &gt; <span class="number">70</span>) &#123;</span><br><span class="line">                        List&lt;String&gt; contents = smsManager.divideMessage(sms_content);</span><br><span class="line">                        <span class="keyword">for</span>(String sms : contents) &#123;</span><br><span class="line">                            smsManager.sendTextMessage(phone_number, <span class="literal">null</span>, sms, <span class="literal">null</span>, <span class="literal">null</span>);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        smsManager.sendTextMessage(phone_number, <span class="literal">null</span>, sms_content, <span class="literal">null</span>, <span class="literal">null</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                    Toast.makeText(Message_second.<span class="built_in">this</span>, R.string.str_remind_sms_send_finish, Toast.LENGTH_SHORT).show();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="OVER"><a href="#OVER" class="headerlink" title="OVER"></a>OVER</h2><p>　　托谷歌的福，以上就是我半天的工作成果。其他时间需要做对短信内容进行AES加密，不过我还不怎么懂。稍微了解了一下发现很有意思的一点，寻常意义上的加密，是用通信双方约定好的密匙，然后对要传达的信息进行加密。但原来现在有很多加密方法，是把要送达的信息当做密匙用，而加密内容反而要双方约定好。从送信的动作传达信息，而不是通过信本身，这点我觉得很有意思。聪明人可真多啊~</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/android-call-the-system-to-send-text-messages-customize-the-number-and-text-message-content.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -337,6 +371,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/recent-reading-notes.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/recent-reading-notes.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -347,37 +409,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="《罗曼蒂克消亡史》"><a href="#《罗曼蒂克消亡史》" class="headerlink" title="《罗曼蒂克消亡史》"></a>《罗曼蒂克消亡史》</h2><div align = right>[程耳](https://www.amazon.cn/dp/B01N2UNFB6/ref=cm_sw_r_qz_2_dp_2unvzb8Y953A4)</div><div align = right>9 条标注，2 条笔记</div>
-
-
-<blockquote>
-<p>她读书不多，却自以为并不少，偏爱被廉价的诗意打动。同时她也没能碰到好老师，并不真正会读书，翻去再多的页码也没有用处，知识与视野都很局限。 </p>
-</blockquote>
-<blockquote>
-<p>她生在普通人家，父母都颇为急功近利，渴望改变。她从小的教训便仅限于不近人情的严苛，却不得要领。她在压抑中学会了忍耐与逃避，离有效的解决之道相去甚远。这使得胡小姐即使在成名之后也仍然时时拘谨、紧张刻板。谈吐之间既没有市井的灵活风趣，也没有她所期待或是她以为拥有的智慧，无知而刻板。<br>* 真是刻薄啊~</p>
-</blockquote>
-<blockquote>
-<p>但不会真的没有影响，而且不好的影响总在致命之处，比如她内心的懦弱。她在成名之后跟沪上著名的富二代同居数年，数年之中一定有过很多次机会，可惜她都没有抓住，最终也没有解决掉临门一脚。分手弄得满城风雨，她敏感脆弱，上海几乎待不下去。在最为孤独困苦的时候她回到家乡，回到父母家小住，是躲避也是想从家里得些安慰或启示。</p>
-</blockquote>
-<blockquote>
-<p>父母却都不是敏感的人，离世界比她更遥远，而且真正关心的无非是利害。他们缺少远见，拥有的只是丧失自信后的迂腐。</p>
-</blockquote>
-<blockquote>
-<p>再抬头望过去，静静地看着自己，她奇怪地感到从接了电话直到现在，担心突然减弱了，只剩下一种徒劳和对自己的厌恶——像是看到了小时候，土气和穷酸历历在目。</p>
-</blockquote>
-<blockquote>
-<p>她有时会想起在杜先生家的盥洗室，从镜子里瞥见自己的那一刻，一切早已铸就，往昔从未离她而去。</p>
-</blockquote>
-<blockquote>
-<p>他长得不算丑陋，力气又大，反复推搡纠缠之后，胸终于被他掏了出来，暴露在空气里，乳头瞬间变硬。羞耻感蹿升使她的反抗停顿了片刻。他抓住这片刻时机，捅了进去，把握野蛮与温柔的尺度，在激烈与平静间摇摆，很快占据主动，渐渐变得从容。<br>第一次总是这样的流程吧。久而久之，她也就伸出手来，即便不算抱住但至少是扶着或仅仅只是停留在他的腰或是背上。所谓爱情或爱情的错觉便从这去意不明的手开始萌发生长。<br>* 便从这目的明确的欲望开始</p>
-</blockquote>
-<blockquote>
-<p>他们在幽暗中聊天，一些不重要的话，说说停停，前言不搭后语，好像在等待什么也好像什么也没有等待。想不想跟我回去？我很便宜的，她突然说。他没有回答，他们陷入了沉默。</p>
-</blockquote>
-<blockquote>
-<p>她一步跨到床上，熟练地在他身上坐了下来。他感到床铺以及整个房间都在随着她震荡摇摆。为了不被迅速蔓延的快感过早击倒，他紧闭双唇，用舌尖顶住上颚，望着发黄以及发黑的天花板，就着裸露的白炽灯泡的光线，数墙上的裂纹。好像回到了小时候。</p>
-</blockquote>
-
+          <h2 id="《罗曼蒂克消亡史》"><a href="#《罗曼蒂克消亡史》" class="headerlink" title="《罗曼蒂克消亡史》"></a>《罗曼蒂克消亡史》</h2><div align="right">[程耳](https://www.amazon.cn/dp/B01N2UNFB6/ref=cm_sw_r_qz_2_dp_2unvzb8Y953A4)</div>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/recent-reading-notes.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -440,6 +480,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/fourthart.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/fourthart.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -454,8 +522,14 @@
 <blockquote>
 <p>“真正准备离开的人，只会挑一个风和日丽的下午，随意裹上一件外套出门，再也不会回来。真正要走的人是不会说再见的 ​。” </p>
 </blockquote>
-<p>&amp;#160; &amp;#160; &amp;#160; &amp;#160;不写后半句不会说再见做补充就更像了。<br>&amp;#160; &amp;#160; &amp;#160; &amp;#160;至于总是模仿别人，好不好我也说不上，莫言的魔幻现实学了马尔克斯大半，王小波的书也隐约有卡夫卡的影子。我当然不是在自比大师，只是大师都这么做了，我这么做也应该没什么坏处。现在比以前更敢于写作了，以前不敢的原因是写的糟糕，另外又怕给人留下印象，你天天写东西以后是不是要当个作家啊。因为知道自己没什么才华，所以没有底气接受这个印象。现在的专业、职业规划和写作都没什么关系，写作成了真正兴趣使然的事情，就无所畏惧了。<br>&amp;#160; &amp;#160; &amp;#160; &amp;#160;前阵子刚看完木心老先生的《文学回忆录》，写的很好。木心老先生的文风，下结论的时候诚恳果断，偶尔对自己的结论再做递进说明，比如，可爱，可爱的一塌糊涂。浪漫，浪漫的一塌糊涂。关联词用的少，说一句是一句，很有底气。<br>&amp;#160; &amp;#160; &amp;#160; &amp;#160;先生说自己和陶潜相似，喜欢写风，文笔、格调都有风的特征。所以我模仿他的时候总对自己说，要像风一点要轻盈一些。<br>&amp;#160; &amp;#160; &amp;#160; &amp;#160;不过这篇学的并不是很好。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/fourthart.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -518,6 +592,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/eat-a-burger-with-chopped-green-onion-and-sugar.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/eat-a-burger-with-chopped-green-onion-and-sugar.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>716</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -592,6 +694,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/firstart.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/firstart.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>7</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -667,6 +797,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/hello-edison-s-world.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/hello-edison-s-world.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>532</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -679,27 +837,17 @@
       
           <p>&amp;#160; &amp;#160; &amp;#160; &amp;#160;哈哈哈我终于解决了部署时出现的 cannot find module、local hexo not found in finder 等问题用<code>github</code>仓库做服务器弄好了基于<code>Node.js</code>的静态博客<code>Hexo</code>我的独立博客了不过，会不会写东西就不知道喽~~~~</p>
 
-        <div id="aplayer-xuEulZWp" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-pEDYmxKk" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
-        <script>
-          var ap = new APlayer({
-            element: document.getElementById("aplayer-xuEulZWp"),
-            narrow: false,
-            autoplay: true,
-            showlrc: false,
-            music: {
-              title: "Let's Dance",
-              author: "David Bowie",
-              url: "http://os1i62usc.bkt.clouddn.com/David%20Bowie%20-%20Let%27s%20Dance.mp3",
-              pic: "http://os1i62usc.bkt.clouddn.com/Let%27s%20Dance_icon.png",
-              lrc: ""
-            }
-          });
-          window.aplayers || (window.aplayers = []);
-          window.aplayers.push(ap);
-        </script>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/hello-edison-s-world.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -762,6 +910,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/hello-world.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/hello-world.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>367</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -773,19 +949,15 @@
 
       
           <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/deployment.html">Deployment</a></p>
-
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/hello-world.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -889,7 +1061,8 @@
       </div>
   </nav>
 </div>
-  <div class="sidebar-button motion-element"><i class="fa fa-comment"></i>
+  <div class="sidebar-button motion-element">
+    <a onclick="Chatra('openChat', true);"><i class="fa fa-comment"></i>
     Chat
   </a>
   </div>
@@ -928,7 +1101,43 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Kaaaaai</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">233k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:31</span>
 </div>
+
+<!-- time -->
+  <div id="show-time">
+    <span id="span_dt_dt"></span>
+  </div>
+  <script>
+      function show_date_time() {
+        window.setTimeout("show_date_time()", 1000);
+        BirthDay = new Date("6/23/2017 19:37:01");
+        today = new Date();
+        //总时间
+        timeold = (today.getTime() - BirthDay.getTime());
+        sectimeold = timeold / 1000
+        secondsold = Math.floor(sectimeold);
+        msPerDay = 24 * 60 * 60 * 1000
+        e_daysold = timeold / msPerDay
+        daysold = Math.floor(e_daysold);
+        e_hrsold = (e_daysold - daysold) * 24;
+        hrsold = Math.floor(e_hrsold);
+        e_minsold = (e_hrsold - hrsold) * 60;
+        minsold = Math.floor((e_hrsold - hrsold) * 60);
+        seconds = Math.floor((e_minsold - minsold) * 60);
+        span_dt_dt.innerHTML = "已存活 " + daysold + " 天 " + hrsold + " 小时 " + minsold + " 分 " + seconds + " 秒";
+    }
+show_date_time();
+  </script>
 
         
 <div class="busuanzi-count">
@@ -947,7 +1156,10 @@
   </div>
 
   
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
   <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 
@@ -956,12 +1168,13 @@
 <script src="/js/motion.js"></script>
 
 
-<script src="/js/schemes/muse.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 
 
 <script src="/js/next-boot.js"></script>
 
 
+  <script defer src="/lib/three/three.min.js"></script>
 
 
   
@@ -1000,6 +1213,18 @@
 
 
 
+  <script>
+    (function(d, w, c) {
+      w.ChatraID = 'QXLRxXcsfrRJR2KTG';
+      var s = d.createElement('script');
+      w[c] = w[c] || function() {
+        (w[c].q = w[c].q || []).push(arguments);
+      };
+      s.async = true;
+      s.src = 'https://call.chatra.io/chatra.js';
+      if (d.head) d.head.appendChild(s);
+    })(document, window, 'Chatra');
+  </script>
 
 
 
@@ -1012,6 +1237,35 @@
   
 
   
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'fzf6cpurdF6t3abR8qK1Isi3-gzGzoHsz',
+      appKey     : 'mBMU4tntJKhBPKSpyDOWQYGy',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
 
 </body>
 </html>

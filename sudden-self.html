@@ -14,10 +14,13 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.kaaaaai.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"www.kaaaaai.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="傍晚朋友打电话过来，叫我一起吃晚饭，我有些困说不想去，太累了。他重复，来嘛，我请客的。我笑了一下，不再坚持。骑自行车去吧，好像楼下有辆摩拜。 　　路边有一个女孩，我想看清她长相，她抬头看过来，她和我对视了一会，我把目光轻巧的抽了回来。有个朋友总和我说他一个理论，他把和人对视看做一种比赛。一定不能认输，要看的对方先避开你才行。我觉得那种胜负太刻意了，有时候避开也不见得是输。　　你以为我在看你吗，">
@@ -48,6 +51,15 @@
 
   <title>突然的自我 | 壹拾肆</title>
   
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102185873-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-102185873-1');
+      }
+    </script>
 
 
   <script>
@@ -86,6 +98,7 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="壹拾肆" type="application/atom+xml">
 <link rel="stylesheet" href="/assets/css/APlayer.min.css" class="aplayer-style-marker">
 <script src="/assets/js/APlayer.min.js" class="aplayer-script-marker"></script>
 </head>
@@ -111,7 +124,7 @@
       <h1 class="site-title">壹拾肆</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
-      <p class="site-subtitle" itemprop="description">闲言和碎语</p>
+      <p class="site-subtitle" itemprop="description">有些安排是多余的 这片空旷对我有益</p>
   </div>
 
   <div class="site-nav-right">
@@ -192,6 +205,7 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
+  <div class="reading-progress-bar"></div>
 
 
     <main class="main">
@@ -249,6 +263,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/sudden-self.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/sudden-self.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -261,12 +303,12 @@
       
         <p>　　傍晚朋友打电话过来，叫我一起吃晚饭，我有些困说不想去，太累了。他重复，来嘛，我请客的。我笑了一下，不再坚持。骑自行车去吧，好像楼下有辆摩拜。<br> 　　路边有一个女孩，我想看清她长相，她抬头看过来，她和我对视了一会，我把目光轻巧的抽了回来。有个朋友总和我说他一个理论，他把和人对视看做一种比赛。一定不能认输，要看的对方先避开你才行。我觉得那种胜负太刻意了，有时候避开也不见得是输。<br>　　你以为我在看你吗，一点也没有。路上一辆警车把一辆巡逻摩托车撞倒了，副驾驶下来了一个人，他挺直了腰，指挥起了因为这个小车祸有点紊乱的交通。我骑车上了过河桥。<br> 　　有点挤。是因为刚刚的车祸吗？天气可真热啊。桥下的河堤有一个男人，那个河堤我之前都没有见过有人走下去。那个男人刚挂了电话，背着手看河，过了一会，在那个方寸里踱起了步，悠闲的快没了形状。那么悠闲的男人，那么平静的河流。<br>　　我下桥的时候，回头看了一眼那个男人，他已经融化在岸边，变成一滩平静的水洼。我想那么年轻就能成为自己想成为的事物可真好啊——水洼是河流的幼年。<br>　　在骑进一条窄巷前，又接到朋友电话，你还来不来啊，我们可先吃了。旁边一个小声音，都快吃完了。<br>　　那等我待会给你们上饭后甜点吧。挂了电话，车铃因为经过一个坑响了声，叮铃~铃。刚刚出来门好像只锁了一下，早上洗头发的时候好像用的是那瓶新的洗发水，旧的还有多少，丢了吧，和那瓶过期的花露水一起丢了好了。<br>　　接下来是一条窄巷，一只大熊牵着一只小熊，小熊走路的节奏是冲刺的跑一阵，再挂在大熊的手上走不动一阵。起初我不知道，以为他们是在匀速走，我贴近，想从旁边绕过去，小熊停下，我急刹车，没有绕过去。大熊说，你看你不好好走路，后边的叔叔都过不去了。我又刹了一下车。我倒像蹒跚学步的小孩了。我从旁边绕过去，歪头说，不是叔叔，是哥哥。但又全然不是因为计较年龄才说的。<br>　　夏日傍晚的小巷里，一只大熊牵着一只小熊一起呆住。谁看见，食欲都会变得旺盛起来。<br>　　差不多到了。我把单车停好。坐电梯，进了饭店，正找他们坐哪呢，天花板上传来一个声音，你怎么才来啊，我们都快吃完了。朋友喝醉了，飘在天花板上，还有一些我不认识的陌生人，也醉眼朦胧的飘在上面。我问他，他们呢，哪个房间。哝哝就那里。我牵着他散了的鞋带，带着他往里走。<br>　　诶我说，你们怎么都不照顾一下他，他都飘到大厅去了。房间里还有两个人，说请我吃饭的朋友，正准备夹菜。他喝醉了，拉不住啊。拉不住在天花板喃喃，放开我，我要去救紫霞仙子。<br>　　我们都笑了，不一会，就融化在了房间里。</p>
 
-        <div id="aplayer-UnoDcuAs" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-mYAiEYRf" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-UnoDcuAs"),
+            element: document.getElementById("aplayer-mYAiEYRf"),
             narrow: false,
             autoplay: true,
             showlrc: false,
@@ -286,6 +328,42 @@
     
     
     
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Kaaaaai
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.kaaaaai.cn/sudden-self.html" title="突然的自我">https://www.kaaaaai.cn/sudden-self.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
 
       <footer class="post-footer">
           <div class="post-tags">
@@ -298,12 +376,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/android-call-the-system-to-send-text-messages-customize-the-number-and-text-message-content.html" rel="prev" title="Android - 调用系统发短信功能，自定义号码和短信内容">
-      <i class="fa fa-chevron-left"></i> Android - 调用系统发短信功能，自定义号码和短信内容
+    <a href="/political-attitudes-and-attitudes-towards-politics.html" rel="prev" title="我的政治态度和我谈论政治的态度">
+      <i class="fa fa-chevron-left"></i> 我的政治态度和我谈论政治的态度
     </a></div>
       <div class="post-nav-item">
-    <a href="/political-attitudes-and-attitudes-towards-politics.html" rel="next" title="我的政治态度和我谈论政治的态度">
-      我的政治态度和我谈论政治的态度 <i class="fa fa-chevron-right"></i>
+    <a href="/android-call-the-system-to-send-text-messages-customize-the-number-and-text-message-content.html" rel="next" title="Android - 调用系统发短信功能，自定义号码和短信内容">
+      Android - 调用系统发短信功能，自定义号码和短信内容 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -317,6 +395,7 @@
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -396,7 +475,8 @@
       </div>
   </nav>
 </div>
-  <div class="sidebar-button motion-element"><i class="fa fa-comment"></i>
+  <div class="sidebar-button motion-element">
+    <a onclick="Chatra('openChat', true);"><i class="fa fa-comment"></i>
     Chat
   </a>
   </div>
@@ -435,7 +515,43 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Kaaaaai</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">233k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:31</span>
 </div>
+
+<!-- time -->
+  <div id="show-time">
+    <span id="span_dt_dt"></span>
+  </div>
+  <script>
+      function show_date_time() {
+        window.setTimeout("show_date_time()", 1000);
+        BirthDay = new Date("6/23/2017 19:37:01");
+        today = new Date();
+        //总时间
+        timeold = (today.getTime() - BirthDay.getTime());
+        sectimeold = timeold / 1000
+        secondsold = Math.floor(sectimeold);
+        msPerDay = 24 * 60 * 60 * 1000
+        e_daysold = timeold / msPerDay
+        daysold = Math.floor(e_daysold);
+        e_hrsold = (e_daysold - daysold) * 24;
+        hrsold = Math.floor(e_hrsold);
+        e_minsold = (e_hrsold - hrsold) * 60;
+        minsold = Math.floor((e_hrsold - hrsold) * 60);
+        seconds = Math.floor((e_minsold - minsold) * 60);
+        span_dt_dt.innerHTML = "已存活 " + daysold + " 天 " + hrsold + " 小时 " + minsold + " 分 " + seconds + " 秒";
+    }
+show_date_time();
+  </script>
 
         
 <div class="busuanzi-count">
@@ -454,7 +570,10 @@
   </div>
 
   
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
   <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 
@@ -463,12 +582,13 @@
 <script src="/js/motion.js"></script>
 
 
-<script src="/js/schemes/muse.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 
 
 <script src="/js/next-boot.js"></script>
 
 
+  <script defer src="/lib/three/three.min.js"></script>
 
 
   
@@ -507,6 +627,18 @@
 
 
 
+  <script>
+    (function(d, w, c) {
+      w.ChatraID = 'QXLRxXcsfrRJR2KTG';
+      var s = d.createElement('script');
+      w[c] = w[c] || function() {
+        (w[c].q = w[c].q || []).push(arguments);
+      };
+      s.async = true;
+      s.src = 'https://call.chatra.io/chatra.js';
+      if (d.head) d.head.appendChild(s);
+    })(document, window, 'Chatra');
+  </script>
 
 
 
@@ -519,6 +651,35 @@
   
 
   
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'fzf6cpurdF6t3abR8qK1Isi3-gzGzoHsz',
+      appKey     : 'mBMU4tntJKhBPKSpyDOWQYGy',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
 
 </body>
 </html>

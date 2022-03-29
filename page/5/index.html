@@ -14,10 +14,13 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.kaaaaai.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"www.kaaaaai.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="我独自一人&#x2F;照顾着&#x2F;历代的星辰">
@@ -28,7 +31,7 @@
 <meta property="og:description" content="我独自一人&#x2F;照顾着&#x2F;历代的星辰">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Kaaaaai">
-<meta property="article:tag" content="个人成长, 技术, 思考, 书籍, 电影">
+<meta property="article:tag" content="个人成长, 技术, 思考, 书籍, 电影, iOS, Android, 代码">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://www.kaaaaai.cn/page/5/">
@@ -46,6 +49,15 @@
 
   <title>壹拾肆</title>
   
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102185873-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-102185873-1');
+      }
+    </script>
 
 
   <script>
@@ -84,6 +96,7 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="壹拾肆" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -107,7 +120,7 @@
       <h1 class="site-title">壹拾肆</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
-      <p class="site-subtitle" itemprop="description">闲言和碎语</p>
+      <p class="site-subtitle" itemprop="description">有些安排是多余的 这片空旷对我有益</p>
   </div>
 
   <div class="site-nav-right">
@@ -188,6 +201,7 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
+  <div class="reading-progress-bar"></div>
 
 
     <main class="main">
@@ -245,6 +259,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/weekly-summary-190803.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/weekly-summary-190803.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>530</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -321,6 +363,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/weekly-summary-190729.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/weekly-summary-190729.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -395,6 +465,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/automatically-generates-annotation-documents.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/automatically-generates-annotation-documents.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -406,60 +504,14 @@
 
       
           <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>自动生成注释文档有三种方式:</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="http://www.stack.nl/~dimitri/doxygen/index.html">docxygen</a></li>
-<li><a target="_blank" rel="noopener" href="http://developer.apple.com/opensource/tools/headerdoc.html">headdoc</a></li>
-<li><a target="_blank" rel="noopener" href="http://gentlebytes.com/appledoc/">appledoc</a></li>
-</ul>
-<p><strong>docxygen</strong><br>docxygen 感觉是这 3 个工具中支持语言最多的，可以配置的地方也比较多。我大概看了一下文档，觉得还是比较复杂，而且默认生成的风格与苹果的风格不一致。就去看后面 2 个工具的介绍了。另外，它虽然是开源软件，但是没有将源码放到 github 上让我感觉这个工具的开发活跃度是不是不够。</p>
-<p><strong>headerdoc</strong><br>headerdoc 是 xcode 自带的文档生成工具。在安装完 xcode 后，就可以用命令行：headdoc2html + 源文件名 来生成对应的文档。我个人试用了一下，还是比较方便的，不过headerdoc的注释生成规则比较特别，只生成以 &#x2F;*! *&#x2F; 的格式的注释。还有一个缺点是每个类文件对应一个注释文件，没有汇总的文件，这点感觉有点不爽。</p>
-<p><strong>appledoc</strong><br>appledoc 是在 stackoverflow 上被大家推荐的一个注释工具。比起以上两个工具，他的优点有：<br>它默认生成的文档风格和苹果的官方文档是一致的，而 doxygen 需要另外配置。<br>appledoc 就是用 objective-c 生成的，必要的时候调试和改动也比较方便。<br>可以生成 docset，并且集成到 xcode 中。这一点是很赞的，相当于在源码中按住 option 再单击就可以调出相应方法的帮助。<br>appledoc 源码在 github 上，而 doxygen 在 svn 上。我个人比较偏激地认为比较活跃的开源项目都应该在 github 上。<br>相对于 headerdoc，它没有特殊的注释要求，可以用&#x2F;** <em>&#x2F; 的格式，也可以兼容&#x2F;</em>! *&#x2F;的格式的注释，并且生成的注释有汇总页面。</p>
-<h2 id="appledoc-的安装"><a href="#appledoc-的安装" class="headerlink" title="appledoc 的安装"></a>appledoc 的安装</h2><p>那么简单介绍一下如何安装 appledoc，安装非常简单，只需要 2 步：</p>
-<figure class="highlight bash"><figcaption><span>Terminal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git://github.com/tomaz/appledoc.git</span><br><span class="line"><span class="built_in">cd</span> appledoc</span><br><span class="line">sudo sh install-appledoc.sh</span><br></pre></td></tr></table></figure>
-<p>当出现 INSTALL SUCCEEDED 时说明成功了，你也可以用 appledoc –version 查看验证下。如果可以正常执行下面指令则证明安装成功，否则需要查看报错说明。</p>
-<figure class="highlight bash"><figcaption><span>Terminal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看版本号</span></span><br><span class="line">$ appledoc --version</span><br><span class="line"><span class="comment"># 查看更多文档信息</span></span><br><span class="line">$ appledoc --<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://s2.ax1x.com/2019/07/26/enQnXj.jpg"></p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>1、使用终端进入代码目录<br>直接拖拽我们的工程文件夹到终端，然后按回车键<br>或者使用 cd+”项目名字目录”，然后按回车键<br>以上两种方法都可以进入到我们的工程根目录<br>2、指令用法及参数说明</p>
-<figure class="highlight bash"><figcaption><span>Terminal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 参考指令写法1(不生成docset文件)</span></span><br><span class="line">$ appledoc --no-create-docset --output ./doc --project-name <span class="string">&quot;QQ&quot;</span> --company-id <span class="string">&quot;com.tencent.QQ&quot;</span> --project-company <span class="string">&quot;Tencent Inc.&quot;</span> /Users/superdanny/Desktop/QQ-Project/QQ/Views</span><br><span class="line"><span class="comment"># 参考指令写法2(不生成docset文件，参数使用“=”等号写法)</span></span><br><span class="line">$ appledoc --no-create-docset --output=<span class="string">&quot;./doc&quot;</span> --project-name=<span class="string">&quot;QQ&quot;</span> --company-id=<span class="string">&quot;com.tencent.QQ&quot;</span> --project-company=<span class="string">&quot;Tencent Inc.&quot;</span> /Users/superdanny/Desktop/QQ-Project/QQ/Views</span><br><span class="line"><span class="comment"># 参考指令写法3(生成docset文件并指定生成路径)</span></span><br><span class="line">$ appledoc --output ./doc --project-name <span class="string">&quot;QQ&quot;</span> --company-id <span class="string">&quot;com.tencent.QQ&quot;</span> --project-company <span class="string">&quot;Tencent Inc.&quot;</span> /Users/superdanny/Desktop/QQ-Project/QQ/Views --docset-install-path ./doc</span><br><span class="line"><span class="comment"># 以上都是扫描指定目录下的文件，如果想扫描当前目录所有文件，只需要将指定目录换成&quot;.&quot;即可</span></span><br><span class="line">$ appledoc --no-create-docset --output=<span class="string">&quot;./doc&quot;</span> --project-name=<span class="string">&quot;QQ&quot;</span> --company-id=<span class="string">&quot;com.tencent.QQ&quot;</span> --project-company=<span class="string">&quot;Tencent Inc.&quot;</span> .</span><br></pre></td></tr></table></figure>
-<p><strong>参数说明</strong></p>
-<table>
-<thead>
-<tr>
-<th align="center">参数</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">–no-create-docset</td>
-<td align="center">(选填参数)只生成html，不生成docset文件。如果需要生成，则去掉该参数即可</td>
-</tr>
-<tr>
-<td align="center">–output</td>
-<td align="center">(必填参数)生成结果输出路径，如“.&#x2F;doc”，会在工程目录下创建一个doc文件夹存放生成的文档。当然你可以指定一个完整的目录路径存放生成的文档</td>
-</tr>
-<tr>
-<td align="center">–project-name</td>
-<td align="center">(必填参数)工程名字，如“QQ”</td>
-</tr>
-<tr>
-<td align="center">–project-company</td>
-<td align="center">(必填参数)公司名字，如“Tencent Inc.”</td>
-</tr>
-<tr>
-<td align="center">–company-id</td>
-<td align="center">(选填参数)公司ID，如“com.tencent.QQ”，会生成文件名为companyID.projectName.docset的docset文件。如果不设置，则文件名为com.companyname.projectname.projectName.docset</td>
-</tr>
-<tr>
-<td align="center">–docset-install-path</td>
-<td align="center">(选填参数)生成docset文件的目录。如果此目录不设置，默认会在~&#x2F;Library&#x2F;Developer&#x2F;Shared&#x2F;Documentation&#x2F;DocSets&#x2F;目录生成</td>
-</tr>
-<tr>
-<td align="center">&#x2F;Users&#x2F;superdanny&#x2F;Desktop&#x2F;QQ-Project&#x2F;QQ&#x2F;Views</td>
-<td align="center">扫描对应路径下的类，如果想扫描当前目录所有文件，则将此路径换成.即可</td>
-</tr>
-</tbody></table>
-<p>如果是生成 docset 文件，则 <code>--output</code> 参数对应的目录会生成一个 docset-installed.txt 文件，里面记录 docset 存放的目录。<br>如果是不生成 docset 文件，则 <code>--output</code> 参数对应的目录会生成html文件。直接打开 index.html 文件即可查看。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/automatically-generates-annotation-documents.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -522,6 +574,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/weekly-summary-190722.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/weekly-summary-190722.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>637</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -597,6 +677,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/xcode-plugin-research.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/xcode-plugin-research.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -608,30 +716,15 @@
 
       
           <p>　　Xcode 升级到 8.x 以上版本后为了提升安全性, 防止 <code>XcodeGhost</code> 事件的发生, 添加了代码签名机制, 所以以往我们那些用的很顺手的 Xcode 插件一下子统统都被打入冷宫。这种情况下，我们想要重新使用插件，我们应该怎么做呢？<br>　　首先我们要使用插件第一步是给 Xcode 重新签名, 在签名前建议备份一个纯净 Xcode 做 App 打包发布用(应用程序目录下复制一个即可)。</p>
-<h3 id="一、Xcode-重签名以使用插件"><a href="#一、Xcode-重签名以使用插件" class="headerlink" title="一、Xcode 重签名以使用插件"></a>一、Xcode 重签名以使用插件</h3><p>　　打开 Keychain Access 之后如图操作，选中 钥匙串访问-&gt;证书助理-&gt;创建证书:<br><img src="https://s2.ax1x.com/2019/07/17/Zqz7RI.jpg"><br><img src="https://s2.ax1x.com/2019/07/17/Zqz5IH.jpg"></p>
-<p>　　之后打开 终端&#x2F;Terminal，输入：</p>
-<figure class="highlight bash"><figcaption><span>Terminal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo codesigner -f -s XcodeSigner /Applications/Xcode.app</span><br></pre></td></tr></table></figure>
-<p>　　其中 <code>codesigner</code> 是上一步创建证书的名称，随后是要重签名使用插件的 Xcode 目录。</p>
-<p>　　经过一段漫长等待后, 重启 Xcode, 选择 LoadBundle。Xcode 已经可以使用插件啦。</p>
-<h3 id="二、插件使用总结"><a href="#二、插件使用总结" class="headerlink" title="二、插件使用总结"></a>二、插件使用总结</h3><p>　　随着 Xcode 的迭代，一部分插件实现的功能已经被 集成进 Xcode 里面了，比如很有名的注释插件 VVDocumenter，和一些代码补全插件等等。另一部分由于缺少维护和 Xcode 本身的机制，而导致插件使用不太方便，造成使用插件的投入成本大大增加。之前在为了给一个马甲包增加垃圾代码，我用上一段的方法成功安装使用过插件 <code>Alcatraz</code>，作为一个插件管理工具，它内部指向的其他插件已经很多不太兼容新版的 Xcode 了，而他本身最新的更新节点也停留在两年前的状态。而在重启 Xcode 后，安装的 <code>Alcatraz</code>，也消失不见了。而在最新的 Xcode10 上用上面那个方法尝试安装代码格式化插件 —— <a target="_blank" rel="noopener" href="https://github.com/V5zhou/ZZXcodeFormat">ZZXcodeFormat</a>，虽然重启应用后，也跳出了 <code>Load Bundle</code> 的提示框，也点击确定加载，但打开 Xcode 后却没在相应的位置找到插件使用项目。不确定是不是新版 Xcode 所影响导致的。但可以看到，在官方不支持的情况下，使用插件是一个耗时又耗力的事。<br>　　而在调研的过程中，我发现了一个使用苹果官方提供的插件机制（Xcode Source Editor Extension）编写的插件——<a target="_blank" rel="noopener" href="https://github.com/SSBun/FlyCoding">FlyCoding</a>，这个插件的主要功能是，通过特殊语法来快速的生成你想要的 Swfit &#x2F; Objective-C 代码，比如这句代码：</p>
-<figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pv.<span class="type">UIImageView</span></span><br></pre></td></tr></table></figure>
-<p>通过插件功能会变成这样的代码：</p>
-<figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">var</span> <span class="operator">&lt;</span>#name#<span class="operator">&gt;</span>: <span class="type">UIImageView</span></span><br></pre></td></tr></table></figure>
-<p>　　实际体验了一下，觉得有点鸡肋，虽然他可以提供一种便捷的方式解决需要重复编写大量 UI 空间和约束的代码的问题，但是使用它却需要记住另一种语法，而且这种语法只能对照 GitHub 仓库来实现，插件本身并不提供自动补全功能。<br>　　虽然这个插件不怎么实用，但通过这个插件让我了解到了苹果官方插件机制（Xcode Source Editor Extension）所能提供的功能，具体有以下：</p>
-<ul>
-<li>获取 Xcode 正在编辑的文本</li>
-<li>获取所有的选中区域</li>
-<li>替换 Xcode 正在编辑的文本</li>
-<li>选中 Xcode 正在编辑的文本</li>
-<li>在 Xcode 的 Editor 菜单里面给你的插件生成一个子菜单，用于调用插件</li>
-<li>可以在 Xcode 的 Key Binding 里面给插件分配一个快捷键</li>
-</ul>
-<h3 id="三、使用苹果官方所允许的插件"><a href="#三、使用苹果官方所允许的插件" class="headerlink" title="三、使用苹果官方所允许的插件"></a>三、使用苹果官方所允许的插件</h3><p>　　使用苹果官方所允许的插件主要有两种方式，一种是在苹果应用商店下载，Xcode 里有快捷入口<br><img src="https://s2.ax1x.com/2019/07/17/ZqzTJA.jpg"><br>　　点击可以直接进入。</p>
-<p>　　另一种方式是下载 GitHub 上别人分享的插件，举个例子，比如我现在安装一个代码格式化插件：<a target="_blank" rel="noopener" href="https://github.com/mapbox/XcodeClangFormat">XcodeClangFormat</a>。</p>
-<p>1、下载源码运行，或 dmg 安装包。<br>2、到 系统设置-&gt;插件 中打开。<br><img src="https://s2.ax1x.com/2019/07/17/Zqzoid.jpg"><br><img src="https://s2.ax1x.com/2019/07/17/Zqz4de.jpg"><br>3、然后进入 Xcode，你就可以看到插件了。<br><img src="https://s2.ax1x.com/2019/07/17/ZqzHzt.jpg"></p>
-<p><strong>推荐两个插件：</strong></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/qfish/XAlign">XAlign</a>：代码对齐插件，主要用于宏定义、属性群、代码内等号对齐三种代码对齐。<br><a target="_blank" rel="noopener" href="https://github.com/mapbox/XcodeClangFormat">XcodeClangFormat</a>：代码格式化插件，支持定义代码格式。</p>
-
+<h3 id="一、Xcode-重签名以使用插件"><a href="#一、Xcode-重签名以使用插件" class="headerlink" title="一、Xcode 重签名以使用插件"></a>一、Xcode 重签名以使用插件</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/xcode-plugin-research.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -694,6 +787,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/weekly-summary-190713.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/weekly-summary-190713.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>886</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -769,6 +890,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/weekly-summary-190706.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/weekly-summary-190706.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -843,6 +992,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/weekly-summary-190629.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/weekly-summary-190629.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -919,6 +1096,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/weekly-summary-190622.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/weekly-summary-190622.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -931,12 +1136,14 @@
       
           <p>　　上周博客落了一篇，说起来其实上周还没有本周忙，上周主要是测试兄弟公司开发的语音库，和针对新项目给出一个开发周期的预估，虽然一周都不是很忙，但是最后一天因为很久之前的老项目出了问题，需要维护，所以就没有抽出时间来写博客了。<br>　　本周主要在弄一个儿童绘本读物的 App，因为主要的几个页面，需求里都是用现成的内容 <code>SDK</code> 和 <code>h5</code> 实现，所以我的工作还是比较轻松的，因为这个原因也让我有空对自己的知识进行一个归纳整理，包括对一些模棱两可的知识点的提炼。<br>　　比如在新项目里的内容 <code>SDK</code> 的调用，他初始化之后，可以获取到一个控制器，在我的项目中使用，我是直接封装进 <code>tabbar</code> 中，类似于这样使用：</p>
 <figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> v1 <span class="operator">=</span> <span class="type">XYSDK</span>.obtainRootNavigationRootViewController() <span class="comment">//SDK 获取到的控制器</span></span><br><span class="line">v2.tabBarItem <span class="operator">=</span> <span class="type">ESTabBarItem</span>.<span class="keyword">init</span>(<span class="type">XYBasicContentView</span>(),title: <span class="string">&quot;听听&quot;</span>, image: <span class="type">UIImage</span>(named: <span class="string">&quot;icon_gang&quot;</span>), selectedImage: <span class="type">UIImage</span>(named: <span class="string">&quot;&quot;</span>)) <span class="comment">//定义 tabbarItem 显示文字和图片</span></span><br><span class="line"><span class="keyword">let</span> n1 <span class="operator">=</span> <span class="type">UINavigationController</span>.<span class="keyword">init</span>(rootViewController: v1)</span><br><span class="line"><span class="keyword">let</span> v2 <span class="operator">=</span> <span class="type">UIViewController</span>()</span><br><span class="line"><span class="keyword">let</span> n2 <span class="operator">=</span> <span class="type">UINavigationController</span>.<span class="keyword">init</span>(rootViewController: v2)</span><br><span class="line"><span class="operator">.....</span></span><br><span class="line"><span class="keyword">let</span> n5 <span class="operator">=</span> <span class="type">UINavigationController</span>.<span class="keyword">init</span>(rootViewController: v4)</span><br><span class="line">tabBarController.viewControllers <span class="operator">=</span> [n1, n2, n3, n4]</span><br></pre></td></tr></table></figure>
-<p>　　但是有个问题就是 <code>tabbar</code> 的文字不显示为我设置的“看看”，而是显示为 SDK 内部自定义 “推荐”，放在之前我可能会抓耳挠腮的在 <code>tabbar</code> 的显示问题是不断尝试，但是基于对控制器的层级理解，我创建了一个集成于 <code>UIViewController</code> 的控制器界面，并在 <code>viewDidLoad</code> 中写入一下代码：</p>
-<figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> musicVC <span class="operator">=</span> <span class="type">XYDMSDK</span>.obtainRootNavigationRootViewController()</span><br><span class="line"><span class="keyword">self</span>.addChild(musicVC<span class="operator">!</span>)</span><br><span class="line"><span class="keyword">self</span>.view.addSubview(musicVC<span class="operator">!</span>.view)</span><br></pre></td></tr></table></figure>
-<p>　　这段代码的含义也就是把一个控制器包装到另一个控制器内部，然后 <code>SDK</code> 获取到的控制器就不会对 <code>tabbar</code> 造成什么影响了。<br>　　除了对问题有了更灵活的解决以外，在新的项目中也尝试使用新的技术，和之前没用到的东西，比如 <code>autolayout</code> 布局，和 <code>UIStackView</code>，<code>Swift</code>中 <code>autolayout</code> 布局我是用现成的框架 <code>Snap</code> 实现的，简单易上手。上下左右的约束设置也很好理解，按 X 轴 Y 轴，从左到右，从上到下，为正，当使用 <code>make.right.equalToSuperview()</code> 时，如果想设置，离父视图的右边距为 27，那么按照刚才的理解也就是，父视图的边缘位置往回（左）走 27 个小格，也就是：<code>make.right.equalToSuperview().offset(-27)</code>，如果写成 <code>.offset(27)</code>，那此时 <code>make</code> 的这个视图右边缘是处在父视图再往右 27 个小格的位置。这是基本使用。有一点值得注意的是，当使用 <code>autolayout</code> 布局时，你要获取到视图的 <code>frame</code>，需要在获取之前调用<code>self.view.layoutIfNeeded()</code>去强制更新下布局才可以获取到不为空的布局参数。<br>　　关于 <code>stackView</code> 的使用，这几天使用的感受是他就像一个内部封装了 autolayout 布局的视图，只要我们给好约束，内部视图就会按照比例显示，这种特性可以应用在当页面有很多重复性的布局，但用 <code>UIcollectionview</code> 或 <code>UItableview</code> 解决的效果又不是很理想的情况下使用。<br>　　关于技术的学习，还有就是在看业内大佬戴铭老师在极客时间上的课了。除了引导语，本周就看了两篇，第一篇讲整体框架，提到一个 iOS 开发的知识体系，并给出了思维导图：<br>　　<img src="https://s2.ax1x.com/2019/06/22/Zpg42t.jpg"><br>　　对于我来说大概可以起到一个查缺补漏的作用，因为之前都是面向工作内容开发，不明白哪里补哪里，杂食性的学习习惯导致知识体系臃肿但并不健壮。这个导图很直观的列出了各个部分需要了解的内容，也在这个基础上给出了深入学习的分支。虽说尽信书不如无书，但在这个阶段的我还是需要多信信书的。而且戴铭老师在文章里的有个观点我觉得很好，大概是说现在互联网时代，新技术层出不穷的冒出来，但其实技术的本质都是殊途同归的，就像从天津去北京，选择坐车还是坐飞机，目的都是一致的。只要能在一门技术上深耕，学的明白透彻，那再去学其他的技术，就很容易触类旁通，举一反三的拿下了。<br>　　另外一篇是讲怎么优化 app 启动时间的。概不累述<br>　　接下来可以解释本周为什么很忙了，除了业内的学习，业外时间我报的专升本课程上个礼拜去上课，发现落了几节课之后老师都快把书讲完了，数据库老师布置课堂习题做的时候，我心里不断被黑人问号脸刷左心室左心房右心室右心房。所以这个礼拜就把重点稍稍往自己的学习上倾斜了一点，早上背单词，中午午休前刷题，晚上回去除了一两天的健身跑步以外，继续我之前的素描课程，618 剁手买了个 iPad，也就顺便再加了一个手绘教程。最近也小有成果~<br>　　<img src="https://s2.ax1x.com/2019/06/22/ZpRQXV.jpg"><img src="https://s2.ax1x.com/2019/06/22/ZpRM60.jpg"><img src="https://s2.ax1x.com/2019/06/22/ZpWAjx.png"><br>　　算起来工作以后我似乎比在学校里勤勉很多，但这种改变的本质并不是那种以前我没得选，现在我想做个好人的洗心革面，而是更多的是出来工作后的焦虑所导致我不得不去做一点什么来抵抗这种焦虑，或者说让自己忙起来而不去焦虑。或许我下一个学习内容可以尝试看心理学领域~　　
-　　
-　　</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/weekly-summary-190622.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -999,6 +1206,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/weekly-summary-190601.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/weekly-summary-190601.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -1011,7 +1246,14 @@
       
           <p>　　上周去旅游，就没空写周记，旅游的心情和工作的心情全然不同，虽然一直在走马观花，但回想起来也有些琐碎的事情可以摘出来谈一下。<br>　　<br>　　跟着旅行团去了大皇宫，去了玉佛寺，去最高大楼吃了自助餐，去看了成人表演，去了海边，去了天上，去体验了互相泼水的风俗活动，热闹好玩有意思。美中不足的是，行程太满，让人疲惫，旅游路线几乎和其他好多团重叠，几乎每个景区入目满眼的都是中国人，甚至在一些景区，除了我们一行人以外，其他的都是六十岁起步的大叔大妈。想象中的异域情调几乎都只在 711 便利店里体验到。<br><img src="https://s2.ax1x.com/2019/05/31/VlQir9.jpg"><img src="https://s2.ax1x.com/2019/05/31/VlQFbR.jpg"><img src="https://s2.ax1x.com/2019/05/31/VlQAV1.jpg"><br><img src="https://s2.ax1x.com/2019/05/31/VlQEUx.jpg"><img src="https://s2.ax1x.com/2019/05/31/VlQPKJ.jpg"><img src="https://s2.ax1x.com/2019/05/31/VlQV56.jpg"></p>
 <p>　　所以在旅游的间隙我总是想，有时候去另一个城市或者国家旅游，其实并不需要去很多的景点，拍很多照片，买很多纪念品，只需要找一间不那么破烂的房子，每天日出晚归，体验一下他们的日常就行了。<br>　　<br>　　对于这种流水线式的旅游模式，我在玉佛寺出来碰到的一个穿着鲜艳，气势咄咄的老太太大概可以上一个声情并茂的最好注脚，她在一只脚踏出寺庙门口的时候，回头看了一眼，脸上说不清是愤愤不平还是埋怨，说了句，这都是走马观花。整个旅游过程中最让我感到不适的是观看成人表演到高潮部分，我从不标榜自己是个正人君子，甚至为了防止被人指为面冷心热的闷骚，我在互动环节选择单刀直入，稍稍落于我一个同伴在第二个上了台，在她白花花的胸脯上摸了一把并合照，在后来另一个人下台强硬坐在我身上并合照的行为我也表现出十分配合的态度，但最后许多人上台密密麻麻的围成一个圈，中间宽敞的地方空出来由表演者挑人出来和他们互动，互动内容基本往下三路靠，眼看着我平时的熟人尖叫甩动着手臂进入一种狂热的状态，我忽然产生了一点生理上的不适。于是我就从舞台上退了下来。<br>　　<br>　　当时从舞台上下来，我脑子里想到的是王小波先生书里的一句：一切都无可救药的走向庸俗。当精神鸦片猛嘬了两口，感觉自己不再有同流合污的丑陋。但转而立马回头想到，当我试图用一种鄙弃的态度以保持我精神上的超然物外时，这时的我是不是表现出了另一种丑陋。如果不是，那是解释成既做婊子又立牌坊的不要脸，还是只是像旧时士大夫在出淤泥而不染的路上偶尔没能把持住自己但最终悬崖勒马的庆幸。我不能对自己狠下心来评判，也不想无谓抬高自己，最终没得到答案，但经过这一轮思辨之后，我状态明显好了很多。后来坐在位置上，台上穿着暴露的人再来想拉我上去，我也只是摆摆手，你们玩吧，我上去见识过了。——说这句话的时候，我忽然觉得在刚两种极端自我认知里，这句话的态度倒可以当做中肯的平均值。<br>　　<br>　　虽然说旅行是个认识自己认识别人的过程，但除了隐约知道自己能接受和不能接受的事物在某方面的边界在哪，在旅途中对其他人的旧有印象并没有任何改变。回来后一连几天都提不起精神，但是班还是要上，这几天发现心灵鸡汤也是有些用处的，就像上班的时候精神不好影响到心情也不好，但中间没由来想到某些成功人士分享的经验：每天给自己一个傻笑，早上刷牙的时候就冲着镜子里一脸颓废的自己笑了一下，心情竟也出奇的好了一些。不过这也说明了人受外部因素影响比在内部自我调节要见效更快，再怎么哄自己知足常乐，平凡挺好也没有立马中五百万大奖狂喜后的平静更有质感。穿一件新衣服远比睡一个懒觉更显得有精神。<br>　　<br>　　本周回来后的工作都比较轻松，但技术上碰到了一个难点，用 <code>runloop</code> 机制检测 app 卡顿。虽然看了很多网上的教程，心里也有了一个模棱两可的概念，但是深入理解总有一些隔靴挠痒的感觉，<code>runloop</code> 的运行周期不像 <code>viewcontroller</code> 的生命周期那么容易理解，不是按顺序来的，而是在激活后达到某个调节又会折回去开始另一个流程，当我最终把整个流程不加理解的硬记下来，落实到具体的代码时又让我一脸懵逼，中间又有工作上的事打断扰乱思绪，所以最后都没有展开深入的理解完。另外的工作都算是基本操作，整合新的语音 <code>SDK</code> 到原来应用，修复 app <code>bug</code>，和人配合制定蓝牙设备命令，额外的就是中移动的项目，有时需要回答当前负责人的一些问题，幸运的是之前注释写的比较细，他找到问题代码的位置，基本可以根据注释推进，但也有一个问题就是，我发现——可能是人的共性，当我回答问题响应的比较快和回答内容比较详细，多次之后，他会有一种问问题的惯性，甚至在一些简单的问题上不做思考就把问题丢给我。在这个礼拜最后一次的问题中我有和他说这个问题。<br>　　<br>　　这个礼拜也终于把《邻人之妻》看完了，新开一本《繁花》，是因为听说王家卫要拍以这本书为剧本的电影才看的，现在大概看了一章，特点是通篇都用沪语对话，你做什么事体，你有什么事体，从文字就可以想象到书里人说上海话的氛围。从初见端倪的剧情看，大概想到王家卫为什么会选这本书拍电影了，基本上感觉和《花样年华》是一个调调，饮食男女，你侬我侬的。虽然《花样年华》好看，但再来一部差不多口味的，却没有太多新鲜劲了。希望墨镜王可以在自己的基础上推陈出新，再接再厉，再创高峰。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/weekly-summary-190601.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1115,7 +1357,8 @@
       </div>
   </nav>
 </div>
-  <div class="sidebar-button motion-element"><i class="fa fa-comment"></i>
+  <div class="sidebar-button motion-element">
+    <a onclick="Chatra('openChat', true);"><i class="fa fa-comment"></i>
     Chat
   </a>
   </div>
@@ -1154,7 +1397,43 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Kaaaaai</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">233k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:31</span>
 </div>
+
+<!-- time -->
+  <div id="show-time">
+    <span id="span_dt_dt"></span>
+  </div>
+  <script>
+      function show_date_time() {
+        window.setTimeout("show_date_time()", 1000);
+        BirthDay = new Date("6/23/2017 19:37:01");
+        today = new Date();
+        //总时间
+        timeold = (today.getTime() - BirthDay.getTime());
+        sectimeold = timeold / 1000
+        secondsold = Math.floor(sectimeold);
+        msPerDay = 24 * 60 * 60 * 1000
+        e_daysold = timeold / msPerDay
+        daysold = Math.floor(e_daysold);
+        e_hrsold = (e_daysold - daysold) * 24;
+        hrsold = Math.floor(e_hrsold);
+        e_minsold = (e_hrsold - hrsold) * 60;
+        minsold = Math.floor((e_hrsold - hrsold) * 60);
+        seconds = Math.floor((e_minsold - minsold) * 60);
+        span_dt_dt.innerHTML = "已存活 " + daysold + " 天 " + hrsold + " 小时 " + minsold + " 分 " + seconds + " 秒";
+    }
+show_date_time();
+  </script>
 
         
 <div class="busuanzi-count">
@@ -1173,7 +1452,10 @@
   </div>
 
   
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
   <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 
@@ -1182,12 +1464,13 @@
 <script src="/js/motion.js"></script>
 
 
-<script src="/js/schemes/muse.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 
 
 <script src="/js/next-boot.js"></script>
 
 
+  <script defer src="/lib/three/three.min.js"></script>
 
 
   
@@ -1226,6 +1509,18 @@
 
 
 
+  <script>
+    (function(d, w, c) {
+      w.ChatraID = 'QXLRxXcsfrRJR2KTG';
+      var s = d.createElement('script');
+      w[c] = w[c] || function() {
+        (w[c].q = w[c].q || []).push(arguments);
+      };
+      s.async = true;
+      s.src = 'https://call.chatra.io/chatra.js';
+      if (d.head) d.head.appendChild(s);
+    })(document, window, 'Chatra');
+  </script>
 
 
 
@@ -1238,6 +1533,35 @@
   
 
   
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'fzf6cpurdF6t3abR8qK1Isi3-gzGzoHsz',
+      appKey     : 'mBMU4tntJKhBPKSpyDOWQYGy',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
 
 </body>
 </html>

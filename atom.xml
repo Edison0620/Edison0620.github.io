@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>壹拾肆</title>
+  <icon>https://www.kaaaaai.cn/icon.png</icon>
+  <subtitle>有些安排是多余的 这片空旷对我有益</subtitle>
+  <link href="https://www.kaaaaai.cn/atom.xml" rel="self"/>
+  
+  <link href="https://www.kaaaaai.cn/"/>
+  <updated>2021-02-22T08:25:58.000Z</updated>
+  <id>https://www.kaaaaai.cn/</id>
+  
+  <author>
+    <name>Kaaaaai</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>翻译：Why use dependency injection</title>
+    <link href="https://www.kaaaaai.cn/translation-why-use-dependency-injection.html"/>
+    <id>https://www.kaaaaai.cn/translation-why-use-dependency-injection.html</id>
+    <published>2021-02-22T01:37:05.000Z</published>
+    <updated>2021-02-22T08:25:58.000Z</updated>
+    
+    
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;原文来自：&lt;a href=&quot;https://github.com/uber/needle/blob/master/WHY_DI.md&quot;&gt;Why use dependency injection&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;第一次翻译，如有问题还请留言指出。&lt;br&gt;E-mail：&lt;a href=&quot;mailto:&amp;#114;&amp;#111;&amp;#111;&amp;#116;&amp;#64;&amp;#x6b;&amp;#x61;&amp;#97;&amp;#x61;&amp;#x61;&amp;#97;&amp;#x69;&amp;#x2e;&amp;#x63;&amp;#110;&quot;&gt;&amp;#114;&amp;#111;&amp;#111;&amp;#116;&amp;#64;&amp;#x6b;&amp;#x61;&amp;#97;&amp;#x61;&amp;#x61;&amp;#97;&amp;#x69;&amp;#x2e;&amp;#x63;&amp;#110;&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="EXP" scheme="https://www.kaaaaai.cn/tags/EXP/"/>
+    
+    <category term="GitHub" scheme="https://www.kaaaaai.cn/tags/GitHub/"/>
+    
+    <category term="Translation" scheme="https://www.kaaaaai.cn/tags/Translation/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>是时候维护一个属于自己的开源库了</title>
+    <link href="https://www.kaaaaai.cn/its-time-to-build-an-open-source-library.html"/>
+    <id>https://www.kaaaaai.cn/its-time-to-build-an-open-source-library.html</id>
+    <published>2020-11-21T01:37:05.000Z</published>
+    <updated>2020-11-28T01:41:36.000Z</updated>
+    
+    
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;使用 GitHub 很久，除了无脑 star、fork 大神们的仓库、输出一些学习代码以外，对于 GitHub 本身的贡献似乎寥寥。&lt;a href=&quot;https://archiveprogram.github.com/arctic-vault/&quot;&gt;&lt;strong&gt;Arctic Code Vault Contributor&lt;/strong&gt;&lt;/a&gt; 的勋章我受之有愧。如果你也有和我类似的想法，那么，是时候可以尝试一下维护一个自己的开源库了。&lt;/p&gt;
+&lt;p&gt;维护一个开源库，听起来很简单，但是真正要开始动手，似乎颇有些千头万绪，无从下手。那让我们来捋一捋，首先我们碰到的第一个问题可能是：我们可以去维护一个怎样的开源库？&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="EXP" scheme="https://www.kaaaaai.cn/tags/EXP/"/>
+    
+    <category term="OpenSource" scheme="https://www.kaaaaai.cn/tags/OpenSource/"/>
+    
+    <category term="GitHub" scheme="https://www.kaaaaai.cn/tags/GitHub/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS 端豆瓣开源许可提到的库</title>
+    <link href="https://www.kaaaaai.cn/ios-douban-open-source-license-mentioned-in-the-library.html"/>
+    <id>https://www.kaaaaai.cn/ios-douban-open-source-license-mentioned-in-the-library.html</id>
+    <published>2020-10-31T03:24:52.000Z</published>
+    <updated>2020-11-05T01:51:55.000Z</updated>
+    
+    
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;在网上看到一篇&lt;a href=&quot;https://juejin.im/post/6844903749949865991&quot;&gt;豆瓣开源许可-android&lt;/a&gt;的文章，列举了一些 &lt;code&gt;Android&lt;/code&gt; 端豆瓣开源许可中所提到的第三方框架，出于好奇心理在网上搜索了一下想看下有没有 &lt;code&gt;iOS&lt;/code&gt; 版本。结果是没有的，于是索性就自己动手整理了一份：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/nanopb/nanopb&quot;&gt;nanopb &amp;#x2F; nanopb：具有较小代码量的协议缓冲区&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/airbnb/lottie-ios&quot;&gt;airbnb &amp;#x2F; lottie-ios：一个 iOS 库，用于本地渲染 After Effects 矢量动画&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/jspahrsummers/libextobjc&quot;&gt;jspahrsummers &amp;#x2F; libextobjc：一个 Coca Library，用于扩展 Objective-C 编程语言的动态性&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ibireme/YYCache&quot;&gt;ibireme &amp;#x2F; YYCache：iOS 的高性能缓存框架&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/TTTAttributedLabel/TTTAttributedLabel&quot;&gt;TTTAttributedLabel &amp;#x2F; TTTAttributedLabel：UILabel 的替代品，支持属性，数据检测器，链接等&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/glaszig/SZTextView&quot;&gt;glaszig &amp;#x2F; SZTextView：替代 UITextView 的替代方案，为您提供：占位符。&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ZipArchive/ZipArchive&quot;&gt;ZipArchive &amp;#x2F; ZipArchive：ZipArchive 是用于在 iOS，macOS 和 tvOS 上压缩和解压缩文件的简单实用程序类。&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/soffes/SAMKeychain&quot;&gt;soffes &amp;#x2F; SAMKeychain：适用于 Mac 和 iOS 的钥匙串的简单 Objective-C 包装器&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ReactiveCocoa/ReactiveObjC&quot;&gt;ReactiveCocoa &amp;#x2F; ReactiveObjC：2.x ReactiveCocoa Objective-C API：函数式响应式编程&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/tonymillion/Reachability&quot;&gt;tonymillion&amp;#x2F;Reachability：网络可用性&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/PureLayout/PureLayout&quot;&gt;PureLayout &amp;#x2F; PureLayout：适用于 iOS 和 OS X Auto Layout 的终极 API —极其简单，功能强大。 与Objective-C 和 Swift 兼容。&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/google/promises&quot;&gt;google &amp;#x2F; promises：Promises是一个现代框架，可为 Swift 和 Objective-C 提供同步结构，以方便编写异步代码。&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/shramos/polymorph&quot;&gt;shramos &amp;#x2F; polymorph：Polymorph是一种实时网络数据包处理框架，几乎支持所有现有协议，是一种工具，它允许在实时拦截的网络数据包上执行Python代码，从而有助于即时修改网络流量。&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/muZZkat/NMRangeSlider&quot;&gt;muZZkat &amp;#x2F; NMRangeSlider：UISlider，适用于 iOS 的自定义范围滑块&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/novastone-media/MQTT-Client-Framework&quot;&gt;novastone-media &amp;#x2F; MQTT-Client-Framework：iOS，macOS，tvOS 本机 ObjectiveC MQTT 客户端框架，消息推送&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Tencent/MLeaksFinder&quot;&gt;Tencent&amp;#x2F; MLeaksFinder：在开发时查找 iOS 应用中的内存泄漏。&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChangbaDevs/KTVHTTPCache&quot;&gt;ChangbaDevs &amp;#x2F; KTVHTTPCache：一个功能强大的媒体缓存框架。&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChangbaDevs/KTVCocoaHTTPServer&quot;&gt;ChangbaDevs&amp;#x2F;KTVCocoaHTTPServer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/HisaMasa/JYSlideSegmentController&quot;&gt;HisaMasa &amp;#x2F; JYSlideSegmentController：JYSlideSegmentController 是一个视图控制器容器，就像 UITabBarController 一样，具有平滑的手势。&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;截图&lt;br&gt;  &lt;img src=&quot;https://i.loli.net/2020/11/01/R9dt1mfbHzTZJEB.jpg&quot; alt=&quot;R9dt1mfbHzTZJEB&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/futuretap/InAppSettingsKit&quot;&gt;futuretap &amp;#x2F; InAppSettingsKit：此 iOS 框架允许将设置设置为应用程序内设置，而不是将其设置为设置应用程序。&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ikesyo/Himotoki&quot;&gt;ikesyo &amp;#x2F; Himotoki：一种完全由 Swift 编写的类型安全的 JSON 解码库&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ishkawa/APIKit&quot;&gt;ishkawa &amp;#x2F; APIKit：类型安全的网络抽象层，将请求类型与响应类型相关联。&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/SDWebImage/SDWebImage&quot;&gt;SDWebImage &amp;#x2F; SDWebImage：具有缓存支持的异步图像下载器，作为 UIImageView Category&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/SDWebImage/SDWebImageWebPCoder&quot;&gt;SDWebImage &amp;#x2F; SDWebImageWebPCoder：用于 SDWebImage 的 WebP 编码器插件，请使用libwebp&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/webmproject/libwebp&quot;&gt;webmproject &amp;#x2F; libwebp：WebP编解码器：用于以WebP格式编码和解码图像的库&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/AFNetworking/AFNetworking&quot;&gt;AFNetworking &amp;#x2F; AFNetworking：一个适用于 iOS，macOS，watchOS 和 tvOS 的令人愉悦的网络框架。&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/akkyie/AKPickerView&quot;&gt;akkyie &amp;#x2F; AKPickerView：一个简单但可自定义的水平选择器视图。&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;Swift 版本：&lt;a href=&quot;https://github.com/Akkyie/AKPickerView-Swift&quot;&gt;akkyie &amp;#x2F; AKPickerView-Swift：一个简单但可自定义的水平选择器视图。&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/BlocksKit/BlocksKit&quot;&gt;BlocksKit &amp;#x2F; BlocksKit：您一直希望拥有的 Objective-C block 实现。&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/robbiehanson/CocoaAsyncSocket&quot;&gt;robbiehanson &amp;#x2F; CocoaAsyncSocket：适用于 Mac 和 iOS 的异步 socket 网络库&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/CocoaLumberjack/CocoaLumberjack&quot;&gt;CocoaLumberjack &amp;#x2F; CocoaLumberjack：适用于 Mac 和 iOS 的快速，简单，功能强大且灵活的日志记录框架&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/douban/DOUSNSSharing&quot;&gt;douban &amp;#x2F; DOUSNSSharing：SNS OAuth 2 绑定和共享&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/devicekit/DeviceKit&quot;&gt;devicekit &amp;#x2F; DeviceKit：DeviceKit 是 UIDevice 的值类型替换。&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/facebook/FBRetainCycleDetector&quot;&gt;facebook &amp;#x2F; FBRetainCycleDetector：iOS 库，可帮助检测运行时中的保留周期。&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ccgus/fmdb&quot;&gt;ccgus &amp;#x2F; fmdb：这是一个围绕SQLite的Objective-C包装器。&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/foursquare/FSQCollectionViewAlignedLayout&quot;&gt;foursquare &amp;#x2F; FSQCollectionViewAlignedLayout：FSQCollectionViewAlignedLayout 是一种通用的集合视图布局，旨在非常灵活和可配置。 目的是使每次 UICollectionViewFlowLayout 不适合其视图的用户都不必编写自己的自定义布局类。&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://firebase.google.com/&quot;&gt;Firebase&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://firebase.google.com/docs/reference/android/com/google/firebase/analytics/FirebaseAnalytics&quot;&gt;FirebaseAnalytics&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://firebase.google.com/docs/reference/ios/firebasecore/api/reference/Classes&quot;&gt;FirebaseCore&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://cocoapods.org/pods/FirebaseCoreDiagnostics&quot;&gt;FirebaseCoreDiagnostics&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://firebase.google.com/docs/crashlytics&quot;&gt;Firebase Crashlytics&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://firebase.google.com/docs/reference/android/com/google/firebase/installations/FirebaseInstallations&quot;&gt;FirebaseInstallations&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/FormatterKit/FormatterKit&quot;&gt;FormatterKit &amp;#x2F; FormatterKit：&lt;code&gt;stringWithFormat：&lt;/code&gt;用于复杂的黑客集&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://cocoapods.org/pods/GoogleDataTransport&quot;&gt;GoogleDataTransport&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://firebase.google.com/docs/reference/android/com/google/android/gms/measurement/AppMeasurement&quot;&gt;AppMeasurement&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/HeshamMegid/HMSegmentedControl&quot;&gt;HeshamMegid &amp;#x2F; HMSegmentedControl：UISegmentedControl 的高度可定制的替代品。&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="EXP" scheme="https://www.kaaaaai.cn/tags/EXP/"/>
+    
+    <category term="iOS" scheme="https://www.kaaaaai.cn/tags/iOS/"/>
+    
+    <category term="OpenSource" scheme="https://www.kaaaaai.cn/tags/OpenSource/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>推荐几个播客节目</title>
+    <link href="https://www.kaaaaai.cn/recommend-a-few-podcasts.html"/>
+    <id>https://www.kaaaaai.cn/recommend-a-few-podcasts.html</id>
+    <published>2020-10-26T05:24:52.000Z</published>
+    <updated>2020-11-22T01:44:11.000Z</updated>
+    
+    
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;因为最近有点用眼过度，所以在空闲时间想找一件尽量可以不用到眼睛又能涨知识的事情做。我先想到的其实是听书和听线上的付费课程。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;听书&lt;/strong&gt;不太习惯，原因是许多原本通过看书看到的书面语，从看到变为听到，在从声音转换成画面的这个过渡里，总会有因为追不上朗读者稳定而平均的朗读速度而造成的空白。有时思绪想在某些段落稍作停留，有时又因为对当前段落的后续发展有了预见性的推测，想快点赶往下一章节，总之因为听书的方式相比较看书，缺乏一种主动可控的速度变换，而经常有一种错位的感觉。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="工具" scheme="https://www.kaaaaai.cn/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="播客" scheme="https://www.kaaaaai.cn/tags/%E6%92%AD%E5%AE%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS 自动化打包上传 AppleStore、fir.im，并发邮件通知测试人员</title>
+    <link href="https://www.kaaaaai.cn/ios-automated-packaging-complicated-by-mail.html"/>
+    <id>https://www.kaaaaai.cn/ios-automated-packaging-complicated-by-mail.html</id>
+    <published>2020-10-19T03:24:52.000Z</published>
+    <updated>2020-11-22T07:22:49.000Z</updated>
+    
+    
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2020/10/19/XKmLbdSTGNoWYZl.png&quot; alt=&quot;Exp-w1832&quot;&gt;&lt;/p&gt;
+&lt;p&gt;从上图可以看出使用自动化出包，可以优化掉好几个需要人工介入的步骤，优化开发流程，节省开发者的时间。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="EXP" scheme="https://www.kaaaaai.cn/tags/EXP/"/>
+    
+    <category term="iOS" scheme="https://www.kaaaaai.cn/tags/iOS/"/>
+    
+    <category term="Xcode" scheme="https://www.kaaaaai.cn/tags/Xcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>业余剪辑自我修养</title>
+    <link href="https://www.kaaaaai.cn/amateur-clipsself-improvement.html"/>
+    <id>https://www.kaaaaai.cn/amateur-clipsself-improvement.html</id>
+    <published>2020-10-02T01:24:52.000Z</published>
+    <updated>2020-10-25T13:31:55.000Z</updated>
+    
+    
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;陆陆续续的剪了不少视频，在过程中也有一点收获，遂做个笔记，也做分享。&lt;/p&gt;
+&lt;h2 id=&quot;剪辑软件的选择&quot;&gt;&lt;a href=&quot;#剪辑软件的选择&quot; class=&quot;headerlink&quot; title=&quot;剪辑软件的选择&quot;&gt;&lt;/a&gt;剪辑软件的选择&lt;/h2&gt;</summary>
+    
+    
+    
+    <category term="工具" scheme="https://www.kaaaaai.cn/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="EXP" scheme="https://www.kaaaaai.cn/tags/EXP/"/>
+    
+    <category term="视频剪辑" scheme="https://www.kaaaaai.cn/tags/%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91/"/>
+    
+    <category term="Premiere Pro" scheme="https://www.kaaaaai.cn/tags/Premiere-Pro/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>技术调研模板</title>
+    <link href="https://www.kaaaaai.cn/technology-research-template.html"/>
+    <id>https://www.kaaaaai.cn/technology-research-template.html</id>
+    <published>2020-09-30T01:24:52.000Z</published>
+    <updated>2020-09-30T02:42:14.000Z</updated>
+    
+    
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;&lt;em&gt;部门小伙伴在做技术调研的时候，因为信息展示的格式不统一，或者没有注意在调研过程中抓取一些关键信息做展示和对比，为了方便，总结了一份技术调研模板，以供参考。&lt;/em&gt;&lt;/p&gt;
+&lt;h1 id=&quot;标题&quot;&gt;&lt;a href=&quot;#标题&quot; class=&quot;headerlink&quot; title=&quot;标题&quot;&gt;&lt;/a&gt;&lt;strong&gt;标题&lt;/strong&gt;&lt;/h1&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="EXP" scheme="https://www.kaaaaai.cn/tags/EXP/"/>
+    
+    <category term="Technology" scheme="https://www.kaaaaai.cn/tags/Technology/"/>
+    
+    <category term="Template" scheme="https://www.kaaaaai.cn/tags/Template/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>有关熵减-时间旅行的冷门问题</title>
+    <link href="https://www.kaaaaai.cn/frequently-asked-questions-about-time-travel-by-entropy-reduction.html"/>
+    <id>https://www.kaaaaai.cn/frequently-asked-questions-about-time-travel-by-entropy-reduction.html</id>
+    <published>2020-09-20T02:13:52.000Z</published>
+    <updated>2022-03-26T02:55:39.053Z</updated>
+    
+    
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2020/09/20/xD3d8Jgfup2WEKF.jpg&quot;&gt;&lt;/p&gt;
+&lt;!--&lt;img align=&quot;center&quot; src=&quot;https://i.loli.net/2020/09/20/xD3d8Jgfup2WEKF.jpg&quot; width=375px/&gt;--&gt;
+
+&lt;p&gt;上个礼拜去看了电影《信条》，综合来说给我感觉是瑜不掩瑕。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="旁白" scheme="https://www.kaaaaai.cn/categories/%E6%97%81%E7%99%BD/"/>
+    
+    
+    <category term="随笔" scheme="https://www.kaaaaai.cn/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+    <category term="电影" scheme="https://www.kaaaaai.cn/tags/%E7%94%B5%E5%BD%B1/"/>
+    
+    <category term="观后感" scheme="https://www.kaaaaai.cn/tags/%E8%A7%82%E5%90%8E%E6%84%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Swift - 权限请求封装</title>
+    <link href="https://www.kaaaaai.cn/swift-permission-request-tools.html"/>
+    <id>https://www.kaaaaai.cn/swift-permission-request-tools.html</id>
+    <published>2020-09-12T02:24:52.000Z</published>
+    <updated>2020-11-25T05:49:09.000Z</updated>
+    
+    
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;img align=&quot;center&quot; src=&quot;https://i.loli.net/2020/09/12/VLyFtvB4AJTErjU.gif&quot; width=&quot;375px&quot; height=&quot;677px/&quot;&gt;
+
+
+&lt;p&gt;注意到工程里面关于权限请求这块的逻辑没有很好地管理起来，一些是用 OC 的工具类，一些是用 Swift 代码在一些 &lt;code&gt;ViewController&lt;/code&gt; 里面单独调用，不能复用，就想封装一个 Swift 版关于权限请求的工具类，虽然这个需求在 GitHub 上搜索也有很多现成的轮子，但使用起来感觉太重，而且有些久不维护，Swift 版本更新的又快，有些接口就不好使了，索性就自己封装一个。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="EXP" scheme="https://www.kaaaaai.cn/tags/EXP/"/>
+    
+    <category term="iOS" scheme="https://www.kaaaaai.cn/tags/iOS/"/>
+    
+    <category term="Swift" scheme="https://www.kaaaaai.cn/tags/Swift/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS - HMAC 加密算法和一个 MD5 加密的问题</title>
+    <link href="https://www.kaaaaai.cn/ios-hmac-encryption-and-an-md5-problem.html"/>
+    <id>https://www.kaaaaai.cn/ios-hmac-encryption-and-an-md5-problem.html</id>
+    <published>2020-09-06T02:24:52.000Z</published>
+    <updated>2020-09-12T03:54:35.000Z</updated>
+    
+    
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;h2 id=&quot;最近阅读&quot;&gt;&lt;a href=&quot;#最近阅读&quot; class=&quot;headerlink&quot; title=&quot;最近阅读&quot;&gt;&lt;/a&gt;最近阅读&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://swift.gg/2016/06/17/when-to-use-mutating-functions-in-swift-structs/&quot;&gt;Swift 结构体何时使用 mutating 函数&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://juejin.im/post/6862898534857834510&quot;&gt;2020 年疫情之下 iOS 面试题总结篇&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://blog.csdn.net/tianhai110/article/details/6339565&quot;&gt;UML类图几种关系的总结&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="EXP" scheme="https://www.kaaaaai.cn/tags/EXP/"/>
+    
+    <category term="iOS" scheme="https://www.kaaaaai.cn/tags/iOS/"/>
+    
+    <category term="OC" scheme="https://www.kaaaaai.cn/tags/OC/"/>
+    
+    <category term="Swift" scheme="https://www.kaaaaai.cn/tags/Swift/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS - 一些蓝牙问题的解决</title>
+    <link href="https://www.kaaaaai.cn/ios-some-question-about-bluetooth.html"/>
+    <id>https://www.kaaaaai.cn/ios-some-question-about-bluetooth.html</id>
+    <published>2020-08-15T02:24:52.000Z</published>
+    <updated>2020-08-15T04:44:19.000Z</updated>
+    
+    
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;h2 id=&quot;最近阅读&quot;&gt;&lt;a href=&quot;#最近阅读&quot; class=&quot;headerlink&quot; title=&quot;最近阅读&quot;&gt;&lt;/a&gt;最近阅读&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/44030213/whats-the-swift-best-practice-for-reusable-uialertcontroller-configuration-via-e&quot;&gt;通过枚举在 Swift 中实现 UIAlertController 的复用性&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s/FShd9WAMQdWU9Mp6eZR4rA&quot;&gt;一文看破Swift枚举本质&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.cnblogs.com/onepixel/articles/7674659.html&quot;&gt;十大经典排序算法（动图演示）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://daily.zhihu.com/story/9726758&quot;&gt;为什么人会变成「工作狂」？这算不算一种上瘾行为？&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="EXP" scheme="https://www.kaaaaai.cn/tags/EXP/"/>
+    
+    <category term="iOS" scheme="https://www.kaaaaai.cn/tags/iOS/"/>
+    
+    <category term="OC" scheme="https://www.kaaaaai.cn/tags/OC/"/>
+    
+    <category term="Swift" scheme="https://www.kaaaaai.cn/tags/Swift/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Swift - 顶部弹出框封装</title>
+    <link href="https://www.kaaaaai.cn/swift-toppop-upboxencapsulation.html"/>
+    <id>https://www.kaaaaai.cn/swift-toppop-upboxencapsulation.html</id>
+    <published>2020-08-04T05:24:52.000Z</published>
+    <updated>2022-03-26T02:55:38.437Z</updated>
+    
+    
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;抽空把项目里的顶部弹出框封装了一下。效果大概是这个样子：&lt;br&gt;&lt;img src=&quot;https://i.loli.net/2020/08/04/9R7WuCT2b5ezKoN.gif&quot;&gt;&lt;/p&gt;
+&lt;!--&lt;img align=&quot;center&quot; src=&quot;https://i.loli.net/2020/08/04/9R7WuCT2b5ezKoN.gif&quot; width=375px height=677px/&gt;--&gt;
+
+&lt;h2 id=&quot;代码&quot;&gt;&lt;a href=&quot;#代码&quot; class=&quot;headerlink&quot; title=&quot;代码&quot;&gt;&lt;/a&gt;代码&lt;/h2&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="EXP" scheme="https://www.kaaaaai.cn/tags/EXP/"/>
+    
+    <category term="iOS" scheme="https://www.kaaaaai.cn/tags/iOS/"/>
+    
+    <category term="Swift" scheme="https://www.kaaaaai.cn/tags/Swift/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>被光放弃的人</title>
+    <link href="https://www.kaaaaai.cn/a-person-abandoned-by-the-light.html"/>
+    <id>https://www.kaaaaai.cn/a-person-abandoned-by-the-light.html</id>
+    <published>2020-07-18T02:13:52.000Z</published>
+    <updated>2020-11-01T02:30:18.000Z</updated>
+    
+    
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;看科幻小说常常会感到一种作为人类的自卑感，对于宇宙来说，我们只是其中数以亿计星球中的一个，即使拥有灿烂的文化和恢弘的历史，也一粒尘埃反射出的微弱光芒。&lt;/p&gt;
+&lt;p&gt;而作为个体，虽然每个人都有自己引以为傲的事情，经历过的人和事、在事件中的感受，我们也因为所经历的这些事物成为了独一无二的个体。然而放在星空下，我们所珍视和热爱的，似乎也不太值得一提。甚至在灾难里，再深刻的痛苦也会失去他原来的分量。自卑感即源于此，个体只是历史的一个小注脚，而历史有只是宇宙中其中一个维度的部分片段，我们的所思所想所感，还存在什么意义吗？&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="旁白" scheme="https://www.kaaaaai.cn/categories/%E6%97%81%E7%99%BD/"/>
+    
+    
+    <category term="随笔" scheme="https://www.kaaaaai.cn/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+    <category term="电影" scheme="https://www.kaaaaai.cn/tags/%E7%94%B5%E5%BD%B1/"/>
+    
+    <category term="观后感" scheme="https://www.kaaaaai.cn/tags/%E8%A7%82%E5%90%8E%E6%84%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>OC - 多代理的实现</title>
+    <link href="https://www.kaaaaai.cn/oc-multi-delegate-implementation.html"/>
+    <id>https://www.kaaaaai.cn/oc-multi-delegate-implementation.html</id>
+    <published>2020-07-16T05:24:52.000Z</published>
+    <updated>2020-11-05T02:18:20.000Z</updated>
+    
+    
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;h2 id=&quot;一、背景&quot;&gt;&lt;a href=&quot;#一、背景&quot; class=&quot;headerlink&quot; title=&quot;一、背景&quot;&gt;&lt;/a&gt;一、背景&lt;/h2&gt;&lt;p&gt;迭代项目的时候碰到一个问题， 原因是负责的内容有一项是封装各大 AI 开放平台的 SDK 集成到一个 SDK 里，然后输出统一的接口，目的是为了可以在不同的 AI 中快速切换并使用。但由于之前输出给了兄弟公司使用，他们在一个音乐 SDK 中用语音 SDK 实现语音点歌的功能。然后当我的主应用同时使用两个 SDK 时，由于音乐 SDK 中实现了语音 SDK 的代理，所以我在上层再初始化语音 SDK 设置代理就不起作用。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="EXP" scheme="https://www.kaaaaai.cn/tags/EXP/"/>
+    
+    <category term="iOS" scheme="https://www.kaaaaai.cn/tags/iOS/"/>
+    
+    <category term="OC" scheme="https://www.kaaaaai.cn/tags/OC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我的 AIO-notion 工作流搭建</title>
+    <link href="https://www.kaaaaai.cn/my-aio-notion-workflow-setup.html"/>
+    <id>https://www.kaaaaai.cn/my-aio-notion-workflow-setup.html</id>
+    <published>2020-06-07T05:24:52.000Z</published>
+    <updated>2020-06-07T07:35:22.000Z</updated>
+    
+    
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2020/06/07/cSgrjKnkbB41AxI.jpg&quot; alt=&quot;cSgrjKnkbB41AxI&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;&lt;strong&gt;前言&lt;/strong&gt;&lt;/h1&gt;</summary>
+    
+    
+    
+    <category term="工具" scheme="https://www.kaaaaai.cn/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="时间管理" scheme="https://www.kaaaaai.cn/tags/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/"/>
+    
+    <category term="笔记软件" scheme="https://www.kaaaaai.cn/tags/%E7%AC%94%E8%AE%B0%E8%BD%AF%E4%BB%B6/"/>
+    
+    <category term="Notion" scheme="https://www.kaaaaai.cn/tags/Notion/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>解决使用 GitPage 重定向多次问题</title>
+    <link href="https://www.kaaaaai.cn/web-resolve-recirculation-errors.html"/>
+    <id>https://www.kaaaaai.cn/web-resolve-recirculation-errors.html</id>
+    <published>2020-05-30T09:24:52.000Z</published>
+    <updated>2020-11-05T02:16:41.000Z</updated>
+    
+    
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;h2 id=&quot;问题表现&quot;&gt;&lt;a href=&quot;#问题表现&quot; class=&quot;headerlink&quot; title=&quot;问题表现&quot;&gt;&lt;/a&gt;问题表现&lt;/h2&gt;&lt;p&gt;博客网站更换了 DNS 解析的服务商，访问出现以下问题。&lt;br&gt;&lt;img src=&quot;https://gitee.com/woailvkai/Kaaaaai.tool.oss/raw/uPic/uPic/03oBxi-2020%2005%2030.jpg&quot; alt=&quot;03oBxi-20200530&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="EXP" scheme="https://www.kaaaaai.cn/tags/EXP/"/>
+    
+    <category term="Web" scheme="https://www.kaaaaai.cn/tags/Web/"/>
+    
+    <category term="Https" scheme="https://www.kaaaaai.cn/tags/Https/"/>
+    
+    <category term="DNS 解析" scheme="https://www.kaaaaai.cn/tags/DNS-%E8%A7%A3%E6%9E%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Swift - ?和!的学习</title>
+    <link href="https://www.kaaaaai.cn/swift-optional-and-unwrapping-learning.html"/>
+    <id>https://www.kaaaaai.cn/swift-optional-and-unwrapping-learning.html</id>
+    <published>2020-04-24T09:24:52.000Z</published>
+    <updated>2020-11-21T02:09:49.000Z</updated>
+    
+    
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;　　最近在优化一个项目的过程，过程中发现之前开发时由于刚接触 &lt;code&gt;Swift&lt;/code&gt; 的原因，在 &lt;code&gt;Swift&lt;/code&gt; 中的类里使用了很多 &lt;code&gt;OC&lt;/code&gt; 的写法，比如字典数组对象会习惯性用 &lt;code&gt;NSDictionary&lt;/code&gt;、&lt;code&gt;NSArray&lt;/code&gt;来初始化，而不是用 &lt;code&gt;[KeyType: ValueType]()&lt;/code&gt; 或是 &lt;code&gt;[SomeType]()&lt;/code&gt; 这种类型来实例化变量。虽然在使用上没有什么问题，但看起来多少有点。。。不优雅。&lt;br&gt;　　当我把大部分类型都修改成 &lt;code&gt;Swift&lt;/code&gt; 中的写法后（部分未修改是因为使用 &lt;code&gt;String&lt;/code&gt; 类型来给文本做截取和富文本定义，实在不如 &lt;code&gt;NSString&lt;/code&gt; 顺手，这种不顺手让我不由想起 Stack Overflow 上看到的一个评论：I thougt i already getting along well  with Swift.）发现，原来一些变量是否为空的判断中，使用 &lt;code&gt;Swift&lt;/code&gt; 里的 &lt;code&gt;optional&lt;/code&gt; 类型会方便很多。&lt;br&gt;　　比如解析一个 json 数据，如果层级多而且里面每个元素都是不确定的，那么可能就需要每个层级都判一次空。而如果使用 ? 来设置当前对象为可选值，只需要在最后一层实际使用到对象值时，判一次空就 OK 了。&lt;br&gt;　　对于 ? 和 ! 的区别和总结，网上有很多文章，在这里就不重复造轮子了。下面就对这个 &lt;code&gt;optional&lt;/code&gt; 的自己两个疑问做个记录。
+　　&lt;/p&gt;
+&lt;h2 id=&quot;和-！-是表示两种不同的类型吗，一种是可以为空，一种不可以为空？&quot;&gt;&lt;a href=&quot;#和-！-是表示两种不同的类型吗，一种是可以为空，一种不可以为空？&quot; class=&quot;headerlink&quot; title=&quot;? 和 ！ 是表示两种不同的类型吗，一种是可以为空，一种不可以为空？&quot;&gt;&lt;/a&gt;? 和 ！ 是表示两种不同的类型吗，一种是可以为空，一种不可以为空？&lt;/h2&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="EXP" scheme="https://www.kaaaaai.cn/tags/EXP/"/>
+    
+    <category term="iOS" scheme="https://www.kaaaaai.cn/tags/iOS/"/>
+    
+    <category term="Swift" scheme="https://www.kaaaaai.cn/tags/Swift/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《文学回忆录》读书笔记</title>
+    <link href="https://www.kaaaaai.cn/literary-memoirs-reading-notes.html"/>
+    <id>https://www.kaaaaai.cn/literary-memoirs-reading-notes.html</id>
+    <published>2020-04-18T05:00:52.000Z</published>
+    <updated>2020-11-05T02:21:02.000Z</updated>
+    
+    
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;h2 id=&quot;《文学回忆录》&quot;&gt;&lt;a href=&quot;#《文学回忆录》&quot; class=&quot;headerlink&quot; title=&quot;《文学回忆录》&quot;&gt;&lt;/a&gt;《文学回忆录》&lt;/h2&gt;&lt;div align=&quot;right&quot;&gt; [木心](https://book.douban.com/subject/20440644/) &lt;/div&gt;</summary>
+    
+    
+    
+    <category term="剪报" scheme="https://www.kaaaaai.cn/categories/%E5%89%AA%E6%8A%A5/"/>
+    
+    
+    <category term="读书笔记" scheme="https://www.kaaaaai.cn/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="中国近代文学" scheme="https://www.kaaaaai.cn/tags/%E4%B8%AD%E5%9B%BD%E8%BF%91%E4%BB%A3%E6%96%87%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS - UITableview 阴影圆角共存</title>
+    <link href="https://www.kaaaaai.cn/ios-uitableview-shadow-rounded-corners-coexist.html"/>
+    <id>https://www.kaaaaai.cn/ios-uitableview-shadow-rounded-corners-coexist.html</id>
+    <published>2020-04-11T02:24:52.000Z</published>
+    <updated>2020-11-22T01:44:11.000Z</updated>
+    
+    
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;给 &lt;code&gt;UITableView&lt;/code&gt; 同时设置圆角和阴影时发现在视图上只会显示圆角，原因是因为当我们设置 &lt;code&gt;masksToBounds&lt;/code&gt; 为 &lt;code&gt;YES&lt;/code&gt; 允许圆角剪裁时，圆角以外的阴影也会一并被剪裁掉。在网上找了一下解决方法，&lt;a href=&quot;https://www.jianshu.com/p/48b1a601febf&quot;&gt;ios阴影圆角共存&lt;/a&gt; 这篇文章提供了一个思路，就是把圆角和阴影放在不同的两个控件上实现，然后叠加到一块。基本思路是正确的，但实际操作发现在最后插入作为阴影层的 &lt;code&gt;CALayer&lt;/code&gt;，调用的方法可能会照成层级有点混乱的问题。下面展示一下我解决这个问题的方法和用 Swift 实现的代码。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="EXP" scheme="https://www.kaaaaai.cn/tags/EXP/"/>
+    
+    <category term="iOS" scheme="https://www.kaaaaai.cn/tags/iOS/"/>
+    
+    <category term="Swift" scheme="https://www.kaaaaai.cn/tags/Swift/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>上帝会掷几次骰子</title>
+    <link href="https://www.kaaaaai.cn/god-will-rolls-the-dice-several-times.html"/>
+    <id>https://www.kaaaaai.cn/god-will-rolls-the-dice-several-times.html</id>
+    <published>2020-04-04T02:13:52.000Z</published>
+    <updated>2020-11-22T01:38:52.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="旁白" scheme="https://www.kaaaaai.cn/categories/%E6%97%81%E7%99%BD/"/>
+    
+    
+    <category term="随笔" scheme="https://www.kaaaaai.cn/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+    <category term="读后感" scheme="https://www.kaaaaai.cn/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/"/>
+    
+  </entry>
+  
+</feed>

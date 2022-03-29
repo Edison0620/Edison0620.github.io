@@ -14,10 +14,13 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.kaaaaai.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"www.kaaaaai.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="我独自一人&#x2F;照顾着&#x2F;历代的星辰">
@@ -28,7 +31,7 @@
 <meta property="og:description" content="我独自一人&#x2F;照顾着&#x2F;历代的星辰">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Kaaaaai">
-<meta property="article:tag" content="个人成长, 技术, 思考, 书籍, 电影">
+<meta property="article:tag" content="个人成长, 技术, 思考, 书籍, 电影, iOS, Android, 代码">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://www.kaaaaai.cn/page/8/">
@@ -46,6 +49,15 @@
 
   <title>壹拾肆</title>
   
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102185873-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-102185873-1');
+      }
+    </script>
 
 
   <script>
@@ -84,6 +96,7 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="壹拾肆" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -107,7 +120,7 @@
       <h1 class="site-title">壹拾肆</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
-      <p class="site-subtitle" itemprop="description">闲言和碎语</p>
+      <p class="site-subtitle" itemprop="description">有些安排是多余的 这片空旷对我有益</p>
   </div>
 
   <div class="site-nav-right">
@@ -188,6 +201,7 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
+  <div class="reading-progress-bar"></div>
 
 
     <main class="main">
@@ -245,6 +259,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/028.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/028.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>8.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>7 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -256,28 +298,15 @@
 
       
           <p>*　　由于公司的一个项目屡次出现 <code>Guideline 4.3 - Design</code> 审核被拒问题，想着能最大程度的解决这种问题出现，就去了解了一下怎么给项目增加垃圾代码以通过审核，这里给大家推荐两种。*</p>
-<h1 id="一、用-Python-生成垃圾文件"><a href="#一、用-Python-生成垃圾文件" class="headerlink" title="一、用 Python 生成垃圾文件"></a>一、用 Python 生成垃圾文件</h1><h2 id="1-第一步-首先生成一个500位的数组-驼峰类型的元素-用作文件名-eg-AsdfdfGsd"><a href="#1-第一步-首先生成一个500位的数组-驼峰类型的元素-用作文件名-eg-AsdfdfGsd" class="headerlink" title="1.第一步:首先生成一个500位的数组 驼峰类型的元素 用作文件名 eg:AsdfdfGsd"></a>1.第一步:首先生成一个500位的数组 驼峰类型的元素 用作文件名 eg:AsdfdfGsd</h2><figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line"></span><br><span class="line">first = <span class="string">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;</span></span><br><span class="line"></span><br><span class="line">second = <span class="string">&quot;abcdefghijklmnopqrstuvwxyz&quot;</span></span><br><span class="line"></span><br><span class="line">number = <span class="string">&quot;345&quot;</span></span><br><span class="line"></span><br><span class="line">index = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">array = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">500</span>):</span><br><span class="line"></span><br><span class="line">    final=(random.choice(first))</span><br><span class="line"></span><br><span class="line">    index = random.randint(<span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(index):</span><br><span class="line"></span><br><span class="line">        final+=(random.choice(second))</span><br><span class="line"></span><br><span class="line">    final += (random.choice(first))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(index):</span><br><span class="line"></span><br><span class="line">        final+=(random.choice(second))</span><br><span class="line"></span><br><span class="line">    array.append(final)</span><br><span class="line">    </span><br><span class="line"><span class="built_in">print</span> (array)</span><br></pre></td></tr></table></figure>
-
-<p>PS.如果是直接复制粘贴，不要忘记 <code>Python</code> 变态的首行缩进。</p>
-<h2 id="2-第二步-用上边生成的数组来创建对应的-h-和-m-文件"><a href="#2-第二步-用上边生成的数组来创建对应的-h-和-m-文件" class="headerlink" title="2.第二步: 用上边生成的数组来创建对应的 .h 和 .m 文件"></a>2.第二步: 用上边生成的数组来创建对应的 <code>.h</code> 和 <code>.m</code> 文件</h2><figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line"></span><br><span class="line"><span class="comment">#创建.h文件</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">text_createH</span>(<span class="params">fileNmae,msg,msg1,propertyNumber,methodArray,msg3</span>):</span><br><span class="line"></span><br><span class="line">    full_path = <span class="string">&#x27;/Users/zhoujinglin/Desktop/python-H-M/&#x27;</span> + fileNmae + <span class="string">&#x27;.h&#x27;</span></span><br><span class="line"></span><br><span class="line">    file = <span class="built_in">open</span>(full_path, <span class="string">&#x27;w&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    file.write(<span class="string">&#x27;//\n//  &#x27;</span>+fileNmae+<span class="string">&#x27;.h\n//  SajiaoShopping\n\n//  Created by Kaaaaai bo on 18/06/28.\n//  Copyright ©  2018年 Kaaaaai. All rights reserved.\n//\n\n&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    file.write(msg)</span><br><span class="line"></span><br><span class="line">    file.write(msg1)</span><br><span class="line"></span><br><span class="line">    propryNameArray = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,propertyNumber):</span><br><span class="line"></span><br><span class="line">        propryNameArray.append(random.choice(array))</span><br><span class="line"></span><br><span class="line">    propryNameArray = <span class="built_in">list</span>(<span class="built_in">set</span>(propryNameArray))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> propertyName <span class="keyword">in</span> propryNameArray:</span><br><span class="line">        file.write(<span class="string">&#x27;@property(nonatomic,strong)&#x27;</span>+random.choice(classArray)+<span class="string">&#x27; * &#x27;</span>+propertyName+<span class="string">&#x27;;\n&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    file.write(<span class="string">&#x27;\n\n&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> methodName <span class="keyword">in</span> methodArray:</span><br><span class="line"></span><br><span class="line">        file.write(<span class="string">&#x27;- (void)pushTo&#x27;</span>+methodName+<span class="string">&#x27;VC:(NSDictionary *)info;\n&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    file.write(msg3)</span><br><span class="line"></span><br><span class="line">    file.close()</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Done&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#创建.m文件</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">text_createM</span>(<span class="params">fileNmae,msg,msg1,methodArray,msg3</span>):</span><br><span class="line"></span><br><span class="line">    full_path = <span class="string">&#x27;/Users/zhoujinglin/Desktop/python-H-M/&#x27;</span> + fileNmae + <span class="string">&#x27;.m&#x27;</span></span><br><span class="line"></span><br><span class="line">    file = <span class="built_in">open</span>(full_path, <span class="string">&#x27;w&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    file.write(<span class="string">&#x27;//\n//  &#x27;</span>+fileNmae+<span class="string">&#x27;.m\n//  SajiaoShopping\n\n//  Created by Kaaaaai bo on 18/06/28.\n//  Copyright ©  2017年 Kaaaaai. All rights reserved.\n//\n\n&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    file.write(msg)</span><br><span class="line"></span><br><span class="line">    file.write(msg1)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> methodName <span class="keyword">in</span> methodArray:</span><br><span class="line"></span><br><span class="line">        file.write(<span class="string">&#x27;- (void)pushTo&#x27;</span>+methodName+<span class="string">&#x27;VC:(NSDictionary *)info\n&#123;\n\n  NSMutableArray *array = [NSMutableArray array];\n&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        number = random.randint(<span class="number">3</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,number):</span><br><span class="line"></span><br><span class="line">            file.write(<span class="string">&#x27;  [array addObject:@&quot;&#x27;</span>+random.choice(array)+<span class="string">&#x27;&quot;];\n&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        file.write(<span class="string">&#x27;\n&#125;\n\n&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    file.write(msg3)</span><br><span class="line"></span><br><span class="line">    file.close()</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Done&#x27;</span>)</span><br><span class="line"></span><br><span class="line">classArray = [<span class="string">&#x27;NSString&#x27;</span>,<span class="string">&#x27;UILabel&#x27;</span>,<span class="string">&#x27;NSDictionary&#x27;</span>,<span class="string">&#x27;NSData&#x27;</span>,<span class="string">&#x27;UIScrollView&#x27;</span>,<span class="string">&#x27;UIView&#x27;</span>]</span><br><span class="line"></span><br><span class="line">array = [<span class="string">&#x27;HwxrFvrj&#x27;</span>, <span class="string">&#x27;QnzduQbtdd&#x27;</span>, <span class="string">&#x27;PvcrwLtqhf&#x27;</span>, <span class="string">&#x27;UvdhDbjn&#x27;</span>, <span class="string">&#x27;SuntmyTxvyzg&#x27;</span>, <span class="string">&#x27;CvlxwBipbp&#x27;</span>, <span class="string">&#x27;GzrdyzIbimvz&#x27;</span>, <span class="string">&#x27;CqsjqMmgsp&#x27;</span>, <span class="string">&#x27;OxaaeuWjhasc&#x27;</span>, <span class="string">&#x27;NjiardRvwgbi&#x27;</span>, <span class="string">&#x27;NcculmLtpljq&#x27;</span>, <span class="string">&#x27;ApoqQrll&#x27;</span>, <span class="string">&#x27;GkgokDyvjb&#x27;</span>, <span class="string">&#x27;EblldkVouplj&#x27;</span>, <span class="string">&#x27;KfdrFvnw&#x27;</span>, <span class="string">&#x27;SfhyhObftc&#x27;</span>, <span class="string">&#x27;SmruByoc&#x27;</span>, <span class="string">&#x27;YzcccvXmpmit&#x27;</span>, <span class="string">&#x27;OmqvaHpxat&#x27;</span>, <span class="string">&#x27;XzytsUyvyd&#x27;</span>, <span class="string">&#x27;MjforNnnyi&#x27;</span>, <span class="string">&#x27;ZvjhuIdogs&#x27;</span>, <span class="string">&#x27;BzfrxzSeahxc&#x27;</span>, <span class="string">&#x27;PycycwFjtpny&#x27;</span>, <span class="string">&#x27;XvngtoSedljr&#x27;</span>, <span class="string">&#x27;DktiaCbucd&#x27;</span>, <span class="string">&#x27;AqbplNuodc&#x27;</span>, <span class="string">&#x27;MzkvgZuala&#x27;</span>, <span class="string">&#x27;KdwzIoej&#x27;</span>, <span class="string">&#x27;AaynatUpqcfd&#x27;</span>, <span class="string">&#x27;IyvwhZvtjc&#x27;</span>, <span class="string">&#x27;UmijGmsy&#x27;</span>, <span class="string">&#x27;AoayndXxghym&#x27;</span>]</span><br><span class="line"></span><br><span class="line">array = <span class="built_in">list</span>(<span class="built_in">set</span>(array))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> array:</span><br><span class="line"></span><br><span class="line">    number = random.randint(<span class="number">3</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    methodArray = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">5</span>):</span><br><span class="line"></span><br><span class="line">        methodArray.append(random.choice(array))</span><br><span class="line"></span><br><span class="line">    methodArray = <span class="built_in">list</span>(<span class="built_in">set</span>(methodArray))<span class="comment">#数组去重</span></span><br><span class="line"></span><br><span class="line">    text_createH(name+<span class="string">&#x27;ViewController&#x27;</span>, <span class="string">&#x27;#import &lt;UIKit/UIKit.h&gt;\n&#x27;</span>,<span class="string">&#x27;@interface &#x27;</span>+name+ <span class="string">&#x27;ViewController:&#x27;</span>+ <span class="string">&#x27;UIViewController\n\n&#x27;</span>,number,methodArray,<span class="string">&#x27;\n\n@end&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    text_createM(name+<span class="string">&#x27;ViewController&#x27;</span>, <span class="string">&#x27;#import &quot;&#x27;</span>+name+<span class="string">&#x27;ViewController.h&quot;\n\n&#x27;</span> <span class="string">&#x27;@interface &#x27;</span>+ name+<span class="string">&#x27;ViewController()\n\n @end\n\n&#x27;</span>,<span class="string">&#x27;@implementation &#x27;</span>+name+<span class="string">&#x27;ViewController\n\n- (void)viewDidLoad &#123; \n\n [super viewDidLoad];\n\n&#125;\n\n&#x27;</span>,methodArray,<span class="string">&#x27;\n\n@end&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<h1 id="二、用造好的轮子直接生成"><a href="#二、用造好的轮子直接生成" class="headerlink" title="二、用造好的轮子直接生成"></a>二、用造好的轮子直接生成</h1><p><a target="_blank" rel="noopener" href="https://github.com/klaus01/KLGenerateSpamCode">KLGenerateSpamCode 垃圾代码生成器</a></p>
-<p>这个项目不仅可以生成垃圾代码，还可以自动化修改类名前缀，详细包含功能如下：</p>
-<blockquote>
-<p><strong>主要功能：</strong><br>修改工程名<br>修改类名前缀<br>扫描工程中的代码，生成同等数量的 <code>Category</code> 文件，文件中及是同等方法数量的垃圾代码。<br>修改 <code>xxx.xcassets</code> 文件夹中的 <code>png</code> 资源文件名。<br>删除代码中的所有注释和空行。</p>
-</blockquote>
-<p>使用时值得注意的有两点，一个是，他生成垃圾代码会遍历你所有的类名，然后生成无用的打印类，而实际使用时，我们并不需要增加如此多的代码，可以选择性的导入相关的 <code>.m</code> 和 <code>.h</code> 文件；另一个是在配置文件中的这个属性</p>
-<blockquote>
-<ul>
-<li><code>ignoreDirNames</code> [忽略文件夹名称字符串] 忽略这些文件夹，对-<code>modifyClassNamePrefix</code> 和 - <code>spamCodeOut</code> 参数有效。目前只会忽略源码文件夹绝对路径下一级的这些目录。如：&#x2F;p&#x2F;s - <code>ignoreDirNames categorys</code>，那么 <code>/p/s/categorys</code> 会被忽略，但 <code>/p/s/viewControllers/categorys</code> 不会忽略。</li>
-</ul>
-</blockquote>
-<p>因为他设定逻辑的原因，所以你可能要重复添加文件夹路径。这里我们需要做的是，到项目内部的<code>main</code> 方法里，添加判断，比如在这个方法可以添加判断，如果文件路径包含你想跳过的字符，直接 <code>return</code> ，就不用那么费劲了。</p>
-<figure class="highlight objectivec"><figcaption><span>Objective-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> modifyClassNamePrefix(<span class="built_in">NSMutableString</span> *projectContent, <span class="built_in">NSString</span> *sourceCodeDir, <span class="built_in">NSArray</span>&lt;<span class="built_in">NSString</span> *&gt; *ignoreDirNames, <span class="built_in">NSString</span> *oldName, <span class="built_in">NSString</span> *newName) &#123;</span><br><span class="line">    <span class="built_in">NSFileManager</span> *fm = [<span class="built_in">NSFileManager</span> defaultManager];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 遍历源代码文件 h 与 m 配对，swift</span></span><br><span class="line">    <span class="built_in">NSArray</span>&lt;<span class="built_in">NSString</span> *&gt; *files = [fm contentsOfDirectoryAtPath:sourceCodeDir error:<span class="literal">nil</span>];</span><br><span class="line">    <span class="type">BOOL</span> isDirectory;</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">NSString</span> *filePath <span class="keyword">in</span> files) &#123;</span><br><span class="line">        <span class="built_in">NSString</span> *path = [sourceCodeDir stringByAppendingPathComponent:filePath];</span><br><span class="line">        <span class="keyword">if</span> ([fm fileExistsAtPath:path isDirectory:&amp;isDirectory] &amp;&amp; isDirectory) &#123;</span><br><span class="line">            <span class="keyword">if</span> (![ignoreDirNames containsObject:filePath]) &#123;</span><br><span class="line">                modifyClassNamePrefix(projectContent, path, ignoreDirNames, oldName, newName);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">NSString</span> *fileName = filePath.lastPathComponent.stringByDeletingPathExtension;</span><br><span class="line">        <span class="built_in">NSString</span> *fileExtension = filePath.pathExtension;</span><br><span class="line">        <span class="built_in">NSString</span> *newClassName;</span><br><span class="line">        <span class="keyword">if</span> ([fileName hasPrefix:oldName]) &#123;</span><br><span class="line">            newClassName = [newName stringByAppendingString:[fileName substringFromIndex:oldName.length]];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            newClassName = [newName stringByAppendingString:fileName];</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 文件名 Const.ext &gt; DDConst.ext</span></span><br><span class="line">        <span class="keyword">if</span> ([fileExtension isEqualToString:<span class="string">@&quot;h&quot;</span>]) &#123;</span><br><span class="line">            <span class="built_in">NSString</span> *mFileName = [fileName stringByAppendingPathExtension:<span class="string">@&quot;m&quot;</span>];</span><br><span class="line">            <span class="keyword">if</span> ([files containsObject:mFileName]) &#123;</span><br><span class="line">                <span class="built_in">NSString</span> *oldFilePath = [[sourceCodeDir stringByAppendingPathComponent:fileName] stringByAppendingPathExtension:<span class="string">@&quot;h&quot;</span>];</span><br><span class="line">                <span class="built_in">NSString</span> *newFilePath = [[sourceCodeDir stringByAppendingPathComponent:newClassName] stringByAppendingPathExtension:<span class="string">@&quot;h&quot;</span>];</span><br><span class="line">                renameFile(oldFilePath, newFilePath);</span><br><span class="line">                oldFilePath = [[sourceCodeDir stringByAppendingPathComponent:fileName] stringByAppendingPathExtension:<span class="string">@&quot;m&quot;</span>];</span><br><span class="line">                newFilePath = [[sourceCodeDir stringByAppendingPathComponent:newClassName] stringByAppendingPathExtension:<span class="string">@&quot;m&quot;</span>];</span><br><span class="line">                renameFile(oldFilePath, newFilePath);</span><br><span class="line">                oldFilePath = [[sourceCodeDir stringByAppendingPathComponent:fileName] stringByAppendingPathExtension:<span class="string">@&quot;xib&quot;</span>];</span><br><span class="line">                <span class="keyword">if</span> ([fm fileExistsAtPath:oldFilePath]) &#123;</span><br><span class="line">                    newFilePath = [[sourceCodeDir stringByAppendingPathComponent:newClassName] stringByAppendingPathExtension:<span class="string">@&quot;xib&quot;</span>];</span><br><span class="line">                    renameFile(oldFilePath, newFilePath);</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">@autoreleasepool</span> &#123;</span><br><span class="line">                    modifyFilesClassName(gSourceCodeDir, fileName, newClassName);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> ([fileExtension isEqualToString:<span class="string">@&quot;swift&quot;</span>]) &#123;</span><br><span class="line">            <span class="built_in">NSString</span> *oldFilePath = [[sourceCodeDir stringByAppendingPathComponent:fileName] stringByAppendingPathExtension:<span class="string">@&quot;swift&quot;</span>];</span><br><span class="line">            <span class="built_in">NSString</span> *newFilePath = [[sourceCodeDir stringByAppendingPathComponent:newClassName] stringByAppendingPathExtension:<span class="string">@&quot;swift&quot;</span>];</span><br><span class="line">            renameFile(oldFilePath, newFilePath);</span><br><span class="line">            oldFilePath = [[sourceCodeDir stringByAppendingPathComponent:fileName] stringByAppendingPathExtension:<span class="string">@&quot;xib&quot;</span>];</span><br><span class="line">            <span class="keyword">if</span> ([fm fileExistsAtPath:oldFilePath]) &#123;</span><br><span class="line">                newFilePath = [[sourceCodeDir stringByAppendingPathComponent:newClassName] stringByAppendingPathExtension:<span class="string">@&quot;xib&quot;</span>];</span><br><span class="line">                renameFile(oldFilePath, newFilePath);</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">@autoreleasepool</span> &#123;</span><br><span class="line">                modifyFilesClassName(gSourceCodeDir, fileName.stringByDeletingPathExtension, newClassName);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 修改工程文件中的文件名</span></span><br><span class="line">        <span class="built_in">NSString</span> *regularExpression = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@&quot;\\b%@\\b&quot;</span>, fileName];</span><br><span class="line">        regularReplacement(projectContent, regularExpression, newClassName);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
+<h1 id="一、用-Python-生成垃圾文件"><a href="#一、用-Python-生成垃圾文件" class="headerlink" title="一、用 Python 生成垃圾文件"></a>一、用 Python 生成垃圾文件</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/028.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -340,6 +369,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/yansi-who-knows.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/yansi-who-knows.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -354,8 +411,14 @@
 <blockquote>
 <p>　　我知道你骄傲，自大，没有用场，然而我爱你。我知道你的企图、你的理想，你不爱我、想远远逃离，然而我爱你。我知道你只是怜悯我才施舍些许的温柔，然而我爱你。[^1]</p>
 </blockquote>
-<p>　　当然冯婉喻没有这样的见地，她怎么可能有，她第一次见面就被他的潇洒样子迷得神魂颠倒了。这些话只是我作为局外人打抱不平的一些牢骚。虽然一开始我是站焉识的。后面婉瑜失忆，他一直陪伴左右，仿佛补上婚前的一段自由恋爱，作者这么安排大概也是为了看起来像是一种补偿，直到婉瑜撒手人世，终无亏欠。<br>　　从主线出来，细枝末节也有很多可看的地方，被继母说没有用场——有本事但不同人事的陆焉识，他的儿子终于有了用场，终成俗庸小市民。他的女儿是精英分子，才貌俱佳，但最终也在成为大龄剩女后胡乱选择了一个配偶，也混入芸芸众生的平庸面孔之中。陆焉识最后的离开和他的子女们活的不太清爽也有很大的关系。<br>　　张艺谋拍了小说的电影版《归来》，看了一遍，觉得一般，没像《活着》把整个故事展开，而是截取了一小段——陆焉识平反回来，陪在冯婉喻身边。比小说逊色很多，把一篇长篇故事缩水成了一个小品。不过影片开始，陆焉识越狱出来，在火车站上和冯婉喻互相呼喊着想拥抱对方，但一直被政府人员拦下，这个桥段仍然触动到了我。<br>　　整本书看完印象深刻的除了他们的爱情，还有中国的政治。文革，是不会原谅的。<br>　　　　<br>[^1]: 原文：我知道你愚蠢、轻佻、头脑空虚，然而我爱你。我知道你的企图、你的理想，你势利、庸俗，然而我爱你。我知道你是个二流货色，然而我爱你。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/yansi-who-knows.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -418,6 +481,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/ios-develop-tips-2.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/ios-develop-tips-2.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -429,35 +520,15 @@
 
       
           <p>*　　一直有把 iOS 开发里用到的一些边边角角的小技巧写成一个集合的想法，但一直没有付诸实践。刚好备忘录里的零零碎碎记的东西够凑成一篇东西来，就把之前的一篇 <a href="http://www.kaaaaai.cn/eleventh">OC 笔记 - 一些小技巧和问题处理的集合</a> 给改了名，加上现在的第二篇，打算以后写成一个系列。长路漫漫，与诸君共勉。*</p>
-<h2 id="一、打印bool值"><a href="#一、打印bool值" class="headerlink" title="一、打印bool值"></a>一、打印bool值</h2><figure class="highlight objectivec"><figcaption><span>Objective-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Bool _YESorNO = <span class="literal">YES</span>;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@&quot;BOOL--YESorNO--&gt;%@&quot;</span>,_YESorNO?<span class="string">@&quot;YES&quot;</span>:<span class="string">@&quot;NO&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<h2 id="二、判断系统语言"><a href="#二、判断系统语言" class="headerlink" title="二、判断系统语言"></a>二、判断系统语言</h2><figure class="highlight objectivec"><figcaption><span>Objective-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSUserDefaults</span> * defaults = [<span class="built_in">NSUserDefaults</span> standardUserDefaults];</span><br><span class="line"><span class="built_in">NSArray</span> * allLanguages = [defaults objectForKey:<span class="string">@&quot;AppleLanguages&quot;</span>];</span><br><span class="line"><span class="built_in">NSString</span> * preferredLang = [allLanguages objectAtIndex:<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@&quot;当前语言:%@&quot;</span>, allLanguages); </span><br><span class="line">       </span><br><span class="line"><span class="keyword">if</span> ([preferredLang rangeOfString:<span class="string">@&quot;en&quot;</span>].location != <span class="built_in">NSNotFound</span>) &#123;</span><br><span class="line"><span class="comment">//如果是英文，做相关处理</span></span><br><span class="line">   ...</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>([preferredLang rangeOfString:<span class="string">@&quot;zh-Hans&quot;</span>].location != <span class="built_in">NSNotFound</span>)&#123;</span><br><span class="line"><span class="comment">//如果是中文，做相关处理</span></span><br><span class="line">   ...         </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="三、检测数据类型"><a href="#三、检测数据类型" class="headerlink" title="三、检测数据类型"></a>三、检测数据类型</h2><figure class="highlight objectivec"><figcaption><span>Objective-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> myObject = <span class="number">10</span>;</span><br><span class="line">[myObject isKindOfClass:[<span class="built_in">NSString</span> <span class="keyword">class</span>]]</span><br></pre></td></tr></table></figure>
-
-<h2 id="四、获取NSString字符串字节长度"><a href="#四、获取NSString字符串字节长度" class="headerlink" title="四、获取NSString字符串字节长度"></a>四、获取NSString字符串字节长度</h2><figure class="highlight objectivec"><figcaption><span>Objective-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="type">int</span>)convertToInt:(<span class="built_in">NSString</span>*)strtemp</span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> strlength = <span class="number">0</span>;</span><br><span class="line">    <span class="type">char</span>* p = (<span class="type">char</span>*)[strtemp cStringUsingEncoding:<span class="built_in">NSUnicodeStringEncoding</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span> ; i&lt;[strtemp lengthOfBytesUsingEncoding:<span class="built_in">NSUnicodeStringEncoding</span>] ;i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (*p) &#123;</span><br><span class="line">            p++;</span><br><span class="line">            strlength++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            p++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> strlength;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>使用方式</p>
-<figure class="highlight objectivec"><figcaption><span>Objective-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *tempStr = <span class="string">@&quot;Hello World！&quot;</span></span><br><span class="line">Int strLength = [<span class="keyword">self</span> convertToInt:tempStr];</span><br></pre></td></tr></table></figure>
-
-<h2 id="五、更新-tableView-并滚动到固定下标位置"><a href="#五、更新-tableView-并滚动到固定下标位置" class="headerlink" title="五、更新 tableView 并滚动到固定下标位置"></a>五、更新 tableView 并滚动到固定下标位置</h2><p>在更新 <code>tableView</code> 时，调用此方法</p>
-<figure class="highlight objectivec"><figcaption><span>Objective-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-(<span class="type">void</span>)updateTableView&#123;</span><br><span class="line">    <span class="built_in">NSIndexPath</span>* path=[<span class="built_in">NSIndexPath</span> indexPathForRow:<span class="keyword">self</span>.talkArr.count<span class="number">-1</span> inSection:<span class="number">0</span>];</span><br><span class="line">    [<span class="keyword">self</span>.talkView insertRowsAtIndexPaths:@[path] withRowAnimation:<span class="built_in">UITableViewRowAnimationTop</span>];</span><br><span class="line">    [<span class="keyword">self</span>.talkView scrollToRowAtIndexPath:path atScrollPosition:<span class="built_in">UITableViewScrollPositionBottom</span> animated:<span class="literal">YES</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="六、iOS-解决-NSData-转-NSString-后字符为空"><a href="#六、iOS-解决-NSData-转-NSString-后字符为空" class="headerlink" title="六、iOS 解决 NSData 转 NSString 后字符为空"></a>六、iOS 解决 NSData 转 NSString 后字符为空</h2><p>iOS 中，将 <code>NSData</code> 转 <code>NSString</code> 的一般方法为</p>
-<figure class="highlight objectivec"><figcaption><span>Objective-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[<span class="built_in">NSString</span> alloc] initWithData:data encoding:<span class="built_in">NSUTF8StringEncoding</span>];</span><br></pre></td></tr></table></figure>
-
-<p>但是当 <code>data</code> 中包含 00 时，所获得的新字符就会为 <code>nil</code>，这时我们应该这样转</p>
-<figure class="highlight objectivec"><figcaption><span>Objective-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="built_in">NSString</span> stringWithUTF8String:[data bytes]];</span><br></pre></td></tr></table></figure>
-
-<h2 id="七、判断一个-view-是否为另一个-view-的子视图"><a href="#七、判断一个-view-是否为另一个-view-的子视图" class="headerlink" title="七、判断一个 view 是否为另一个 view 的子视图"></a>七、判断一个 view 是否为另一个 view 的子视图</h2><figure class="highlight objectivec"><figcaption><span>Objective-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">BOOL</span> isSubView = [myView isDescendantOfView:<span class="keyword">self</span>.view];</span><br></pre></td></tr></table></figure>
-
-<h2 id="八、cell-添加-button-后通过-button-获取到-cell"><a href="#八、cell-添加-button-后通过-button-获取到-cell" class="headerlink" title="八、cell 添加 button 后通过 button 获取到 cell"></a>八、cell 添加 button 后通过 button 获取到 cell</h2><p>首先给 <code>Button</code> 添加点击方法</p>
-<figure class="highlight objectivec"><figcaption><span>Objective-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[cell.btn addTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(cellBtnClicked:event:) forControlEvents:<span class="built_in">UIControlEventTouchUpInside</span>];</span><br></pre></td></tr></table></figure>
-
-<p>在点击方法里实现</p>
-<figure class="highlight objectivec"><figcaption><span>Objective-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-(<span class="type">void</span>)didClickButton:(<span class="built_in">UIButton</span> *)button  </span><br><span class="line">&#123;  </span><br><span class="line">      Mycell *cell = (Mycell *)button.superview.superview;  </span><br><span class="line">    <span class="built_in">NSIndexPath</span> *indexPath = [<span class="keyword">self</span>.tableView indexPathForCell:cell];  </span><br><span class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;index of current cell:%ld&quot;</span>, indexPath.row);  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
-
-
+<h2 id="一、打印bool值"><a href="#一、打印bool值" class="headerlink" title="一、打印bool值"></a>一、打印bool值</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/ios-develop-tips-2.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -520,6 +591,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/025.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/025.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -530,40 +629,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="《少年巴比伦》"><a href="#《少年巴比伦》" class="headerlink" title="《少年巴比伦》"></a>《少年巴比伦》</h2><div align = right> [路内](https://www.amazon.cn/dp/B00XOIYY9S/ref=sr_1_2?ie=UTF8&qid=1522639554&sr=8-2&keywords=%E5%B0%91%E5%B9%B4%E5%B7%B4%E6%AF%94%E4%BC%A6) </div><div align = right> 5 条标注 </div> 
-
-
-<p id="div-border-left-green">  我曾经对她说过,将来我再遇见你,一定会毫不犹豫地喊你的名字,因为有情有义,不能装作从来没认识你.你在河流中看到岸上的我,这种短暂的相遇,你可以认为是一种告白,我在这个世界上无处可去所以又撞见了你。
-
-<p>  那天我在吵吵闹闹的牛扒城，用很低的声音说，白蓝，我爱你。但那地方太吵，连我自己都听不清。说完这句话，她没有任何反应，我想放亮嗓子再大声说一次，但我又觉得，这件事情连做两次是很傻逼的，第一次是为了爱她，第二次纯粹只是为了让她听见。我就当自己什么都没说过。</p>
-<p>  人活在世界上，找不到所爱的人，尚且能爱爱这个世界，可是找不到所恨的人，要去空泛地恨这个世界，这件事太荒谬。</p>
-<p>  所谓有出息，这是一个很虚幻的词，我不知道什么叫有出息，但我知道什么叫没出息，并且知道，没出息的人不可爱。但是，我活了二十岁，仍然有人长久地爱着我，也有些人短暂地爱过我，这些我都不会忘记。</p>
-<p>  我说，很长一段日子，我都认为自己无人可爱，所以只能爱你。我为这种爱情而羞愧，但在这样的旅程中我无法为自己的羞愧之心承担责任，假如无路可走，那不是罪过。但我也不想睁着无辜的双眼看着你，你既不在此岸也不在彼岸，你在河流之中。大多数人的年轻时代都被毁于某种东西。像我这样，自认为一开始就毁了，其实是一种错觉，我同样被时间洗得皱巴巴的，在三十岁以后，晾在我的小说中。<br>   我说，我不再为这种爱情而羞愧，在我三十岁以后回忆它，就像一颗子弹射穿了我的脑袋，可惜你看不到我脑浆进裂的样子了。</p>
-</p>
-
-<h2 id="《追随她的旅程》"><a href="#《追随她的旅程》" class="headerlink" title="《追随她的旅程》"></a>《追随她的旅程》</h2><div align = right> [路内](https://www.amazon.cn/dp/B00XMOZT2K/ref=pd_sim_351_6?_encoding=UTF8&psc=1&refRID=9PFF31YNNA4NQD7XAPN7) </div><div align = right> 5 条标注 </div> 
-
-
-<p id="div-border-left-green">  很多年以来我一直想说，这个新村就是我十八岁时最靓丽的风景线。我知道这个比喻很俗气，可是在我十八岁的时候，那个破破烂烂的新村，靠近粮仓和公路，几幢筒子楼，种着稀稀拉拉的香樟树，我们隔着运河远眺新村楼顶的水箱，在炎夏的烈日中那一片灰色的水泥房子始终散发着女孩子身上的香味。它是我在戴城唯一能够看到的风景线。
-
-<p>  爱情对我来说，就像一把菜刀，明明是应该用来烹饪的，我却用它来砍了人</p>
-<p>  对不起什么呢？像一名歌者在台上唱错了歌词，那样的抱歉。而我仍然要对你的抱歉还以掌声。</p>
-<p>  你是怎么从喜欢一个人变成喜欢另一个人的呢？这件事是否就像上学念书一样，读完了这学期，就是下学期。如此简单？还是像一个人死了又投生人间，接受轮回之苦。如此艰难？还是像旅途上经过的车站，所有的车站都要离我而去，除了终点以外。如此惆怅？还是像一幕电影，连终点都没有，只是看到一个又一个的角色在眼前晃动，最后灯光亮起，我一个人回家。如此悲伤？</p>
-<p>  于小齐说：“不会打架的人，每次都说自己运气不好。” 我说：“是啊，不会谈恋爱的人，每次都说自己遇人不淑。”</p>
-</p>
-
-<h2 id="《天使坠落在哪里》"><a href="#《天使坠落在哪里》" class="headerlink" title="《天使坠落在哪里》"></a>《天使坠落在哪里》</h2><div align = right> [路内](https://www.amazon.cn/dp/B00JTR30IE/ref=pd_sim_351_1?_encoding=UTF8&psc=1&refRID=0376CV7TF5CPWP7AJFGX) </div><div align = right> 6 条标注 </div> 
-
-<p id="div-border-left-green">  我们一起看新闻，一个单亲下岗家庭的少年，十五岁就肩负起了生活的重担，靠擦皮鞋和捡破烂养活了微有残疾的爸爸，我们都很感动，想要一个这样的儿子。
-
-<p>  “猜”是一种生活方式，而“猜准”是一种生活能力。</p>
-<p>  一九八四年夏天，班上坏孩子欺负他，把他衣服扒了，肚子上画了个王八，他跳起来要拼命。那种不堪矬逼羞辱的尊严，至今传为美谈。到了一九九三年，我去化工学院找他玩，他正在和人打牌，也是夏天，光着膀子，肚子上画了六个王八还在乐。这时我意识到他已经成长为另一个人了。</p>
-<p>  厂医姐姐离开以后，每个下雪的日子，我都会想念她。因为她说自己最爱下雪天，还编了一堆诗意的理由，比如说世界因此改变了，比如说丑陋的东西都被遮蔽了。这种屁话使她看起来像个少女。</p>
-<p>  反正我们见不得沉默的人，觉得那是一种被压迫过的痕迹，如果你始终沉默，你就始终会遇到压迫。</p>
-<p>  别怂，世上最怂的就是让大家评理。</p>
-</p>
-
-
+          <h2 id="《少年巴比伦》"><a href="#《少年巴比伦》" class="headerlink" title="《少年巴比伦》"></a>《少年巴比伦》</h2><div align="right"> [路内](https://www.amazon.cn/dp/B00XOIYY9S/ref=sr_1_2?ie=UTF8&qid=1522639554&sr=8-2&keywords=%E5%B0%91%E5%B9%B4%E5%B7%B4%E6%AF%94%E4%BC%A6) </div>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/025.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -626,6 +700,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/impromptu-late-spring.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/impromptu-late-spring.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -638,14 +740,15 @@
       
           <p>　　穿了好几个礼拜的短袖，以为已经到夏天了，这几天的气温骤降才发现春天还没有完全离场，它在这个以小长假开头的四月用尽最后一点力气试图让人们感知到它的存在，它的顽固让街上出现短袖和羽绒袄同时存在的矛盾又喜感的场面，又有大风把陌生路人的一板正经吹走——他们似乎也感到被风吹得七零八散的头发看起来很喜感，抢在别人取笑他们之前先绷不住笑了。城市因为天气的无常，让久居里面的人也忽然的对它感到一丝陌生。像被邀请到一场莫名其妙的派对，人们因为摸不着头脑，而主动向人释放初来乍到的善意，整座城市，一派和气。<br>　　春天即将过去，春天我都干了些什么？似乎什么都没干，但掰开揉碎似乎也有那么一些事情，和菩萨求了支上上签，和几乎不打算联系的朋友完成继初次认识以后的第二次关系破冰，换了份工作，和一个网友恢复通信，认识了一个很像老朋友的新朋友，看了几本书和几场电影。
 　　</p>
-<h1 id="一、和善男信女们一起"><a href="#一、和善男信女们一起" class="headerlink" title="一、和善男信女们一起"></a>一、和善男信女们一起</h1><p>　　<br>　　在旺季的大雄宝殿里，你会时刻有一种恍惚感，不只是因为香火熏着你的眼睛，而是整个大殿，被缭绕烟雾，绰绰人影和闪烁的烛火交相辉映，会让你有一丝远离人世的超脱感涌上心头，但就一会功夫，大殿外的鞭炮和所有善男信女们祈愿的声音又会让你知道，此刻，正是你离人间烟火距离最近又最远的时候。<br>　　和家人坐缆车上山，缆车在离山顶还有一段距离的位置停下。虽然现代科技让我们在朝圣的路上超了近道，但毕竟是去看菩萨，最后一段的“心诚则灵”，都要全凭自己。<br>　　去大殿的路上经过一座小庙，左右两边各立着两个尊者。表妹问我，哥哥，这些是什么神仙，他们都拜，我们要不要拜啊？我看了看我妈和我小姨在那双手合十念念有词，十分庄重。就低头和她说，不用了，这里都是些小角色，我们上山拜大个的。表妹哈哈大笑，拿着我的话和大人们说，他们也都会心一笑。<br>　　到了山顶，进殿点香，因为要给好多菩萨上香，每个人手里都拿着五六十根香，所以点香的时候很容易把整把香烧着，有的人看火灭不掉就把所有香丢掉，地上七零八散的散落了好多香，旁边有道士在劝阻，不用点那么多，可以去里面再点，每个人点三根就好了。但拦不住虔诚到红了眼的人们。我把香上的火刚扇灭，看我妈的香也在起火就把她的香拿了过来，走到一边，试图也把它弄灭。<br>　　拜菩萨的顺序，长辈们心里都有底，知道哪位菩萨要先来，哪位菩萨可以暂时放在一边，而到最后，怎么也不会冷落任何一位。我们小辈就随波逐流，见佛就拜。见到的有灶神，有弥勒佛，有送子送财送姻缘菩萨，有天王罗汉洋洋洒洒数十座，有老相识也有新面孔，我都没有厚此薄彼，迎面赶上，纳头便拜，偶尔福至心灵，就在心里念上一句，希望明年能如何如何。不过起身的时候总也免不了在心里嘀咕上一句，到底有没有菩萨？<br>　　最后长辈们让我们自己去找菩萨求根签，求签是怎么回事呢？大雄宝殿的中心位置，有很多蒲团，围绕着蒲团散落了一地的签，人们随手拿起一根，再拿两个贝壳形状的竹片往地上投掷，如果三次都是一正一反就说明这根签是给你的。听我妈说明怎么求签后，我算了一下，投掷一次出现正反的可能性大概是三分之一，投掷两次都是正反的可能性大概是九分之一，投掷三次都出现正反的可能性大概是二十七分之一。也就是说，如果说宗教是人们对生活、世界乃至宇宙里未知部分的一种推测结果，满天神佛就可能是那散落在从零到一里面的无限个概率，二十七分之一，这个概率代表了其中一位在派签的菩萨。这真是一个忙碌的概率。<br>　　在抽签大厅放眼望去，七八十个人头不断起伏涌动，人们快速的捡起继而投掷竹片，发现竹片两个面都一样就立马丢掉手中的签低头再捡一根，那种有些火急火燎的神态和盲目感让这些信徒看起来像在牌桌上一掷千金的赌徒，我想如果能听见人的心里话，他们里面大部分人可能都在说：快给我快给我，快给我啊。<br>　　我找了一个空地跪下， 挑了两块顺眼的竹片，慢条斯理的拿起一根签，投掷，正反，投掷，正反，投掷，正正。去你妈的。<br>　　事实证明我一开始的有条不紊，只是我刻意的想和周围人区别开来的一点做无用功，在久没有抽到签后，我也渐渐的和周围人一个神态，只是机械盲目的从地上捡签，投掷竹片，心里念，快给我快给我，快给我啊。直到有些意兴阑珊的时候，终于抽到了那根属于我的签。<br>　　然后根据签上的数字拿签文，再去找道士解签，老道士慈眉善目，他按签文上的字和我们说了一些模棱两可的话，在某个停顿间，我妈心照不宣在他面前的抽屉里放下香油钱。<br>　　吃了顿味道尚可的斋饭我们就下山了。坐在缆车上，我又回头看了看山顶的大雄宝殿，它仍旧被烟雾环绕着，没有了庙里喧嚣的声音，从远处看，它也真有几分仙家福地的气象。回过神来，忽然觉得，我们和菩萨离得最近的时候，大概是在那座小庙里开菩萨玩笑的时候。
-　　
-　　</p>
-<h1 id="二、做不成睡在风里的无脚鸟"><a href="#二、做不成睡在风里的无脚鸟" class="headerlink" title="二、做不成睡在风里的无脚鸟"></a>二、做不成睡在风里的无脚鸟</h1><p>　　春节后又无所事事了一阵也终于去投简历找工作了。每次找到工作的过程都大同小异，一开始都雄心壮志，觉得我什么都不缺，但哪里都可能缺一个我。然后经过几次失败的面试，开始认清自己，又经历几次失败，开始怀疑自己，然后又是失败，开始自暴自弃，随性发挥的时候，工作的事反而成了。<br>　　面试了一个半礼拜，就像参加一场大型考试，连续的做了好几日笔试试卷，还有一次面试还给安排了机试。面试的公司也千奇百怪，其中最古怪的还是有一家做共享单车做到公司就剩三个人了，问我有没有兴趣当合伙人。可能是合伙人这个名头，这顶帽子一下子扣下来，让初出牛犊的我觉得有些晕晕乎乎的，认真考虑了一下，又抬头看了看这顶帽子，破烂邋遢，想来遮风挡雨应该一样都不行，就委婉的说对共享单车这个行业没什么兴趣。<br>　　又有一次笔试，我和一个女生坐一张桌子，桌子小，两人挨着做试卷，一开始我没发现她和我是一样的试卷，后来她先发现了，挑了挑眉，然后礼貌的朝我笑笑，捂住了答案。我一阵瞠目，想了想就大大咧咧的把试卷朝她那推了推。后来面试完觉得当时貌似大方的举动其实是一种揶揄和挤兑。就想和她照个面打声招呼，就当做刚刚无礼的寥寥歉意。但她比我先面试完，已经早早离开。<br>　　在不知道她已经离开的时候，我也面试完，面试官叫我在接待室里先等等。大概是和人事科的人谈话，虽然关着门，但他们的说话声还是从门外传了过来。<br>　　“怎么样啊，这个？”<br>　　“是真材实料，就是基础有点差。”<br>　　前半句让我有些欣慰，这些天面试题没白背，后半句又让我有些懊悔面试题没多背背。<br>　　“那怎么办啊，这是今天最后一个了。”<br>　　“要我说今天来面试的人里随便挑，哪一个都成。”<br>　　“那这个，他怎么会基础差呢，学校里不是学这个的吗？”<br>　　“和学校没关系，学校也不教这个，这种基础全看各人。”<br>　　“哦，这样啊。”<br>　　后面他们又说了一些无关紧要的事，我没注意听。过了一会就有人进来，领我出去，和我说那今天的面试就到这里，后续有通知他们再联系我。<br>　　好的。我轻快的回答了她。但心里有些沮丧，从刚在门外的谈话听得出来他们是可以立马做出决定的，是我没有做到能让他们立马下决定的程度，这让我在心里反复的苛责自己，我在心里摔碎两百二十四个盘子，直到离开面试的大厦，烦闷和郁郁仍然挥之不去。<br>　　去坐地铁的路上，我骑单车在车道上漫无目的的左右摇摆，旁边穿过去一骑电瓶车的白背心老头，冲我大喊：靓仔，你到底左边走还是右边走啊。虽然心情不好，但听到问话我还是忍不住和他开起了玩笑，回他：两边都走喽。他超我两个车轮距离，仍旧大喊，语气像把紧攥着的拳头放在空中挥舞：“两边都走，我都没得走啦。”我不禁莞尔。老头一会功夫就骑得没影，我的坏心情似乎也跟着老头不翼而飞了。<br>　　我爱老头。
-　　</p>
-<h1 id="三、久违的老朋友和网友和可能在哪见过但久违的新朋友"><a href="#三、久违的老朋友和网友和可能在哪见过但久违的新朋友" class="headerlink" title="三、久违的老朋友和网友和可能在哪见过但久违的新朋友"></a>三、久违的老朋友和网友和可能在哪见过但久违的新朋友</h1><pre><code>  被标记为&quot;Don&#39;t push!&quot;。
-</code></pre>
-
+<h1 id="一、和善男信女们一起"><a href="#一、和善男信女们一起" class="headerlink" title="一、和善男信女们一起"></a>一、和善男信女们一起</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/impromptu-late-spring.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -708,6 +811,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/as-the-boat.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/as-the-boat.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -719,9 +850,14 @@
 
       
           <h2 id="13号的梦"><a href="#13号的梦" class="headerlink" title="13号的梦"></a>13号的梦</h2><p>　　当我躺在床上，伸展四肢，感受着头皮所有的毛囊都在放松，向着枕头方向缓慢流淌的时候，一只猫从我下体处爬了出来，我有点迷糊，我可是个男的啊，怎么还事生产了呢？<br>　　而且，还是一只猫。<br>　　在我纠结我是怎么生下猫的时候，另一猫又爬出来，在我的身体其他部位，陆陆续续的开始爬出各种各样的动物，我的胸口跳出两只羊，我的小腿钻出两只犀牛，我的胳肢窝迈出了两只鸵鸟。我见过的，我没见过的，最后两个人类一男一女从我的肚脐里爬了出来，他们站起身，我才看到是两个肌肉健硕的成年人。<br>　　海浪拍打着我的床沿，我听见他们在讨论把我拆掉做成遮风挡雨的房子。我感觉到他们诞生的地方在一点点消失，我的小腿，我的阴茎，我的胸膛。只剩下头颅的时候，听见男声问：还要继续拆吗？<br>　　女声斩钉截铁：动手吧。<br>　　<br>　　我大汗淋漓的醒了过来。</p>
-<p>　　</p>
-<h2 id="15-号的梦"><a href="#15-号的梦" class="headerlink" title="15 号的梦"></a>15 号的梦</h2><p>　　我和两个陌生人，叫他们 A 和 B 好了。大概是一个网络游戏的场景，我们待在一个新手区，准确的来说，我们在一个房子里——新手房，房子外面守着一个十级的人类反派Boss。可能这是个武侠类的游戏，我们都宽袍大袖，手拿宝剑。<br>　　我们要做的事是完成新手试炼，杀死外面那个 Boss 或者从他手底下逃走，进入下一个区域。<br>　　A 想到一个让我们逃跑的计划，就是他先冲出去，他速度快，带着 Boss 在房子外面绕圈圈，而我和B则抓住他们跑到房子周长二分之一的位置时候开始跑向下一个区域，等我们离开房子，他再跑一又二分之一圈，就开始追上我们，一起到下一个区域。<br>　　按计划展开了。我们跑出房间，通往下一个区域的是一条笔直向上、一眼望不到头的大理石阶梯。我们施展着类似周星驰电影《功夫》里和包租婆赛跑姿势的轻功，在阶梯上飞驰。<br>　　A 很快就追了上来，后面不远就是那个大 Boss。我们眼神交换，意味不言自明：接下来该怎么办？<br>　　B 说：要不然，你再去拖住他。<br>　　我们都清楚在这丝毫没有辗转腾挪余地的阶梯上，再去拖住他，意味着什么。也清楚B把话说出口，对 A 意味着什么。<br>　　A 面无表情，向我挑了挑眉。好像在说：你呢，你怎么想。<br>　　因为心里被恐惧占了一大半，在 B 说出那个主意时，我心里竟涌出松了口气的欣喜。但当我面临要做出让队友去送死的选择，我手心发汗，不知所措，有些难为情，想告诉他要不然试一下吧，但在心里挣扎了一会，最后还是泄气的摇了摇头。<br>　　A 点了点头，不再说话。一阵剑光。<br>　　我又回到了那个新手房，B说我们都被杀了，回档到了这里。他问 A，要不要再试试那个计划。<br>　　A 说不用了，你们先等上一阵。<br>　　可能是一盏茶的时间，也可能过了很久，A 什么话也没交代，径直推开门走了出去。<br>　　很快外面传来了剑刃交击的声音，声音不绝于耳。又过了一会，外面传来一声清啸，之后便什么声音都没有了。<br>　　我们从门缝悄悄的往外看，鲜血流淌了一地，没看见 A 的身影，Boss 仍在不远处守着房子。<br>　　B退回来问：你说 A 是死了，还是已经走了？<br>　　我摇摇头没有说话，被要永远困在这里的预感击溃，我蜷缩在房子的角落，试图躲进黑暗里。<br>　　<br>　　后来我就醒了，想继续睡过去，继续做那个梦，但没有成功。我也没有机会告诉 B，如果 A 死了，我们可以在房子里看到回档的他，如果 A 走了，那么 Boss 应该是死的，但 Boss 活着，而且他手里的那柄剑是 A 的。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/as-the-boat.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -784,6 +920,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/the-first-report-of-the-newcomer.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/the-first-report-of-the-newcomer.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -858,6 +1022,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/three-fragments-of-poetry.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/three-fragments-of-poetry.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -868,35 +1060,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="《大海上的柠檬》"><a href="#《大海上的柠檬》" class="headerlink" title="《大海上的柠檬》"></a>《大海上的柠檬》</h1><div align = right> [姚风](https://www.amazon.cn/dp/B01GJKHX40/ref=cm_sw_r_qz_2_dp_2unvzb8Y953A4) </div>
-<div align = right> 6 个片段 </div> 
-
-<p><strong>炙热的石头</strong></p>
-<p>大约在夏天<br>你给我一块烤热的石头<br>我把它放在左手<br>又把它放在右手<br>日子翻来覆去<br>石头渐渐地凉了<br>我的手收藏了所有的阴影</p>
-<hr>
-<p><strong>诗人的午餐</strong></p>
-<p>*在法罗， 我们坐在大海边<br>我们用诗句歌颂大海<br>我们用牙齿<br>把 一条大鱼剔成大海的胸针</p>
-<hr>
-<p><strong>景山</strong></p>
-<p>夕阳向西山滑去<br>暮色使宫殿渐渐远离<br>游人纷纷下山<br>丁香在山坡独自开放<br>暗香浮动<br>引我凭栏眺望<br>日出日落，千篇一律<br>如朝代更迭<br>无非揭竿而起<br>无非腐败堕落<br>无非再揭竿而起<br>我兴味索然<br>更想知道巍峨宫殿，三千粉黛<br>美丽的人民<br>如何度过<br>她们绝经前后的人生</p>
-<hr>
-<p><strong>镜子</strong></p>
-<p>*树枝在镜子里摇晃<br>我看见了远方和风<br>我还看见，我的五官日渐消瘦<br>而孤独增长了身高<br>但我还没有积攒足够的孤独<br>还没有力量打碎镜子<br>找到深藏镜中的你</p>
-<hr>
-<p><strong>大海上的柠檬</strong></p>
-<p>我要了一杯红茶，你拿来柠檬<br>问我要不要加糖<br>我不喜欢加糖，但喜欢柠檬<br>在阿尔加维， 我们坐在树下喝茶<br>树结满了柠檬和鸟鸣<br>水太蓝，你把一个柠檬扔进了大海<br>此刻，只有风坐在我的身旁<br>不停扯我的衣衫<br>树叶喧哗，如波浪翻卷<br>我看见，一个柠檬向我漂来<br>整个大海<br>没有加糖，只有柠檬<br>只有一个柠檬</p>
-<hr>
-<p><strong>诗歌</strong></p>
-<p>诗歌<br>无法阻止一辆坦克<br>但可以把坦克手<br>培养成一名诗人<br>他跳出那一堆钢铁<br>坐到树下<br>若有所思地写下<br>如下的句子：<br>春天还没有来<br>一只小鸟<br>落在绿色的炮筒上<br>……</p>
-<h1 id="《永居异乡》"><a href="#《永居异乡》" class="headerlink" title="《永居异乡》"></a>《永居异乡》</h1><div align = right> [欧阳昱](https://www.amazon.cn/dp/B01GJKHXA4/ref=cm_sw_r_qz_2_dp_2unvzb8Y953A4) </div><div align = right> 1 个片段 </div> 
-
-<p><strong>假如</strong></p>
-<p>假如明天就死<br>你想做点什么<br>在天上挖个洞<br>种下一棵诗<br>假如明天就死<br>你想做点什么<br>把国家从脑中挖出<br>作为器官，捐给无国可归者<br>假如明天就死<br>你还想做点什么<br>活摘今天的阳具<br>做明天的装置展出<br>假如明天就死<br>你还有什么想做<br>找上帝开具结婚证<br>跟死亡永结连理</p>
-<h1 id="《每一首都是情歌》"><a href="#《每一首都是情歌》" class="headerlink" title="《每一首都是情歌》"></a>《每一首都是情歌》</h1><div align = right> [王小龙](https://www.amazon.cn/dp/B01GNVYL40/ref=cm_sw_r_qz_2_dp_2unvzb8Y953A4) </div><div align = right> 1 个片段 </div> 
-
-<p><strong>鼓浪屿</strong></p>
-<p>我要在夜半偷偷砍断所有的缆绳<br>放你逃走，鼓浪屿<br>逃得很远很远<br>让你去优美地流浪<br>月亮们找不到你<br>每个夜晚你都在另一个地方梦呓<br>把凤凰花瓣撒满海上<br>我们将永远站在岸上<br>一次次睡去一次次醒来<br>活着活着然后无奈地死去<br>八月的阳光下狗在咻咻奔走<br>公共汽车太挤<br>冬天太冷<br>钱太少<br>而你依然优美地流浪<br>从终日半合的百叶窗里<br>以少女的琴声召唤上一 世纪<br>哦日光岩下的三角梅<br>哦月光漫上了台阶<br>这时攀缘而上的常春藤一起松开<br>白鲸浮出水面<br>兵舰们围绕着你<br>这个世界上的兵舰<br>假如只是为了检阅<br>为了漂亮地穿过波浪<br>那么你垂悬在古榕树上的梦<br>会是多么真实令人神往我们将永远站在岸上</p>
-
+          <h1 id="《大海上的柠檬》"><a href="#《大海上的柠檬》" class="headerlink" title="《大海上的柠檬》"></a>《大海上的柠檬》</h1><div align="right"> [姚风](https://www.amazon.cn/dp/B01GJKHX40/ref=cm_sw_r_qz_2_dp_2unvzb8Y953A4) </div>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/three-fragments-of-poetry.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -959,6 +1131,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/writing-plan.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/writing-plan.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -970,10 +1170,15 @@
 
       
           <p><em>断断续续的有一些写故事的灵感，但想到以后除了在备忘录敲几个关键字做记录，等到回头想起来，当时的创作冲动已经不在了，明白等到有完整的故事是遥遥无期的，又看了朱岳老师短篇集的《写作计划》——里面描述了一个写作计划者的计划写作日常，就想假装一个写作计划者写一个写作计划。区别在于，朱岳老师的写作计划大概是基于他本人旺盛想象力的炫技，而我充其量是对那些没有用上的点子感到可惜而废物利用。</em></p>
-<h1 id="计划1"><a href="#计划1" class="headerlink" title="计划1"></a>计划1</h1><p>　　写一个在不知名的岛屿上有一个王国，因为风调雨顺，国王和人民都衣食无忧，政治也特别开明，开明到每个人都可以竞选国王。竞选国王的标准是说出一句称得上名言的话。这个传统起源无从考察，有模糊记录说是某任国王想在这座小岛上发展出灿烂的文化，鼓励人们创作。<br>　　写作路线是先简单的描述一下小岛的创作黄金时代。写那时的人们说出了很多精彩的话——分别摘抄不同的名人名言，参考有柏拉图，亚里士多德，尼采，王尔德等，因其风格而分出不同的时期，记录演变过程，比如古典时期有：“尊重人不应该胜于尊重真理。”“但凡不能杀死你的，最终都会使你更强大。 ”“每一个不曾起舞的日子，都是对生命的辜负。”这时还是一些传统的格言，到流行时期，人们学会了讽刺：“报纸和文学的区别是，报纸没法读，而文学则没人读。”“摆脱诱惑的唯一方式是臣服于诱惑……我能抗拒一切，除了诱惑。 ”“时装是一种让人无法忍受的丑陋，所以我们必须每六个月换一次。”到了嬉皮士盛行的时期，人们开始嘲弄一些流于表面的事，“在教堂听讲经的时候我们应该保持肃静，打扰别人睡觉是很不礼貌的。”“女人是制造人类的工具，男人是使用工具的人类。 ”<br>　　然后简单写一个过渡时期，露出人们智慧被消耗完的端倪，写一些：“如果你想吃午饭，最好别忘记带上筷子。”“人们会在厕所摔跤，一定是因为他忘记摘下脑袋上的眼罩。”之类的话。<br>　　最后重点是当代选举，当所有的智慧都被花费干净，人们开始从技巧上花费心思。经过重重筛选，竞选国王的最后只剩下三位候选者。<br>　　候选者A是个游泳选手，他带来的是一口气说出一部荷马史诗，事实上之前有许多任国王登上王位，都是因为说出了荷马史诗里的一些片段，候选者A觉得当他一口气说完了一部荷马史诗，相当于重新演绎了整部荷马史诗，从许多片段脱离出来而达到了完整。<br>　　候选者B说的是“如果一个女人不能让她犯的错误变得迷人，她就只是一个雌性动物。”，当然如果仅仅是这一句话是不够的，因为之前已经有国王用过了，而他使用的技巧是放慢阅读速度，但他说完错误两个字时，来参与投票的选民已经从一夜的睡眠里醒了过来。他说完整段话，整整用了三天三夜，当然他不是纯粹的放慢速度，而是在一个字的发音上百转千回，如果有人留心记录可以发现他每一个词语分开都是一个单独的乐章，“如果”是巴赫的第一号无伴奏大提琴曲，“错误”是贝多芬的生命交响曲，“女人”两个字他则用上了探戈舞曲一步之遥。他试图用一种充满多样性的迟缓来让这句某个前任国王的墓志铭重焕光彩。<br>　　候选者C上台，情况已经对他相当不利了，前两名候选者已经把原本一天结束的大选拉长到了一个礼拜，除了卖香烟瓜子的小贩很高兴，选厅里充斥着嘴角起泡血丝爬满双眼的上火选民们，似乎在这种气氛下，选民和暴民也只有一线之隔。而候选手C说的话是：“理真重尊于胜该应不人重尊。”<br>　　最终人们一致推选C作为新国王，他们认为他把古典时期的名言倒过来讲创造了一种新的可能，而比起前两位的尝试，省时省力。<br>　　而这种可能的优点很快就在第二年选举体现了，之后出现了大量倒着说话的国王。在一年比一年欢快的选举日里，有少数人质疑，我们难道不是在原地踏步吗？但质疑声很快就被其他的欢呼声给淹没了。
-　　</p>
-<h1 id="计划2"><a href="#计划2" class="headerlink" title="计划2"></a>计划2</h1><p>　　第二个故事的灵感来至于《返老还童》和《杀死一只知更鸟》，故事是以一个快退休的十七岁法官的视角开始，他们的城市规定所有初生的婴儿必须送入市政厅培训，在三岁的时候根据个人喜好分配进不同的政府部门，到十八岁成年离开政府，学习，或者进入社会工作。只有这样的制度才能保证政府机构杜绝官僚主义和人浮于事。<br>　　十七岁法官所遇到的问题是，眼前他的案子是城市规划局的副局长贪污，资料显示，他现在十岁，已经在城市规划局干了七年了，兢兢业业，没出过任何错，年年评先进都有他的提名，但在上个礼拜的早上有人匿名举报他收了某个人一架玩具飞机，而且之后也确实在他办公室的保险柜发现了这架玩具飞机。按资料的前半段说，他应该会像很多其他的模范干部一样，到任期满，离职，找个好大学或者好待遇的基层工作享受退休生活才对。为什么会贪污？<br>　　而且这次贪污还引发了一次大规模的社会舆论：未成年人组成的政府是否还拥有公信力。而一些政府部门的表现更加扩大了群众的怀疑，比如公安部和司法部部长在一次公开会面里谈论了这个案子，除了表明公事公办的态度，向群众证明未成年人政府的可靠，在谈话之余，似乎也隐隐透露出夹心糖果和巧克力蛋糕对于自己存在着一些无法抵挡的诱惑力。<br>　　中间巴拉巴拉写一大段整个案件起因发展，和审理经过。<br>　　最后证明是被诬陷的，是一有组织成年人团伙试图颠覆未成年人政权所做的一连串有组织的栽赃陷害。案件总算告一段落，而这之前社会上长期存在着的，对未成年人执政的疑虑和怨气，也都因为这个案子，被摆到桌面上，并随着案子进度一点点被打消掉。其乐融融的未成年人和成年人们决定把案件审理结束那一天定为未成年人的假期。至此，每年的六一，如果你有幸去到这座城市，你会发现所有的政府机构都空无一人，而如果你问起，那里的居民则会告诉你，今天是官员们玩玩具飞机的日子。</p>
-
+<h1 id="计划1"><a href="#计划1" class="headerlink" title="计划1"></a>计划1</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/writing-plan.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1036,6 +1241,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/dreaming-about-you-and-me.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/dreaming-about-you-and-me.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>858</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -1151,7 +1384,8 @@
       </div>
   </nav>
 </div>
-  <div class="sidebar-button motion-element"><i class="fa fa-comment"></i>
+  <div class="sidebar-button motion-element">
+    <a onclick="Chatra('openChat', true);"><i class="fa fa-comment"></i>
     Chat
   </a>
   </div>
@@ -1190,7 +1424,43 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Kaaaaai</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">233k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:31</span>
 </div>
+
+<!-- time -->
+  <div id="show-time">
+    <span id="span_dt_dt"></span>
+  </div>
+  <script>
+      function show_date_time() {
+        window.setTimeout("show_date_time()", 1000);
+        BirthDay = new Date("6/23/2017 19:37:01");
+        today = new Date();
+        //总时间
+        timeold = (today.getTime() - BirthDay.getTime());
+        sectimeold = timeold / 1000
+        secondsold = Math.floor(sectimeold);
+        msPerDay = 24 * 60 * 60 * 1000
+        e_daysold = timeold / msPerDay
+        daysold = Math.floor(e_daysold);
+        e_hrsold = (e_daysold - daysold) * 24;
+        hrsold = Math.floor(e_hrsold);
+        e_minsold = (e_hrsold - hrsold) * 60;
+        minsold = Math.floor((e_hrsold - hrsold) * 60);
+        seconds = Math.floor((e_minsold - minsold) * 60);
+        span_dt_dt.innerHTML = "已存活 " + daysold + " 天 " + hrsold + " 小时 " + minsold + " 分 " + seconds + " 秒";
+    }
+show_date_time();
+  </script>
 
         
 <div class="busuanzi-count">
@@ -1209,7 +1479,10 @@
   </div>
 
   
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
   <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 
@@ -1218,12 +1491,13 @@
 <script src="/js/motion.js"></script>
 
 
-<script src="/js/schemes/muse.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 
 
 <script src="/js/next-boot.js"></script>
 
 
+  <script defer src="/lib/three/three.min.js"></script>
 
 
   
@@ -1262,6 +1536,18 @@
 
 
 
+  <script>
+    (function(d, w, c) {
+      w.ChatraID = 'QXLRxXcsfrRJR2KTG';
+      var s = d.createElement('script');
+      w[c] = w[c] || function() {
+        (w[c].q = w[c].q || []).push(arguments);
+      };
+      s.async = true;
+      s.src = 'https://call.chatra.io/chatra.js';
+      if (d.head) d.head.appendChild(s);
+    })(document, window, 'Chatra');
+  </script>
 
 
 
@@ -1274,6 +1560,35 @@
   
 
   
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'fzf6cpurdF6t3abR8qK1Isi3-gzGzoHsz',
+      appKey     : 'mBMU4tntJKhBPKSpyDOWQYGy',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
 
 </body>
 </html>

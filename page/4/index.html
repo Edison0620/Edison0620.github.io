@@ -14,10 +14,13 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.kaaaaai.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"www.kaaaaai.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="我独自一人&#x2F;照顾着&#x2F;历代的星辰">
@@ -28,7 +31,7 @@
 <meta property="og:description" content="我独自一人&#x2F;照顾着&#x2F;历代的星辰">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Kaaaaai">
-<meta property="article:tag" content="个人成长, 技术, 思考, 书籍, 电影">
+<meta property="article:tag" content="个人成长, 技术, 思考, 书籍, 电影, iOS, Android, 代码">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://www.kaaaaai.cn/page/4/">
@@ -46,6 +49,15 @@
 
   <title>壹拾肆</title>
   
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102185873-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-102185873-1');
+      }
+    </script>
 
 
   <script>
@@ -84,6 +96,7 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="壹拾肆" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -107,7 +120,7 @@
       <h1 class="site-title">壹拾肆</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
-      <p class="site-subtitle" itemprop="description">闲言和碎语</p>
+      <p class="site-subtitle" itemprop="description">有些安排是多余的 这片空旷对我有益</p>
   </div>
 
   <div class="site-nav-right">
@@ -188,6 +201,7 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
+  <div class="reading-progress-bar"></div>
 
 
     <main class="main">
@@ -245,6 +259,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/xiangzi-and-his-misfortune.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/xiangzi-and-his-misfortune.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -319,6 +361,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/how-to-fix-warnings-about-unsafe-sites.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/how-to-fix-warnings-about-unsafe-sites.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -393,6 +463,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/ios-naming-rules-and-annotation-specifications.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/ios-naming-rules-and-annotation-specifications.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>6.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -407,90 +505,14 @@
 <blockquote>
 <p>iOS 命名两大原则是:可读性高和防止命名冲突(通过加前缀来保证). Objective-C 的命名通常都比较长, 名称遵循<strong>驼峰式命名法</strong>. 一个好的命名标准很简单, 就是做到在开发者一看到名字时, 就能够懂得它的含义和使用方法. 另外, 每个模块都要加上自己的前缀, 前缀在编程接口中非常重要, 可以区分软件的功能范畴并防止不同文件或者类之间命名发生冲突, 比如相册模块(PhotoGallery)的代码都以 PG 作为前缀: PGAlbumViewController, PGDataManager.</p>
 </blockquote>
-<h2 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h2><h3 id="类名（class）"><a href="#类名（class）" class="headerlink" title="类名（class）"></a>类名（class）</h3><p>1.避免潜在的命名冲突，设置 Class Prefix<br><img src="https://s2.ax1x.com/2019/10/31/KoJDjx.jpg"><br>设置整个项目的统一类名前缀。 由于苹果公司保留使用”两个字母前缀”的所有权，所以项目里的前缀应取三个字母为宜。</p>
-<p>2.类名的命名采用 <strong>大驼峰命名法</strong> 即每个单词的首字母大写。</p>
-<h3 id="类别-Category"><a href="#类别-Category" class="headerlink" title="类别 (Category)"></a>类别 (Category)</h3><p>如下：类别名添加 大写前缀 KL ， 方法名添加 小写前缀 kl 。</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSObject</span>+KLNetworkingMethods.h</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NSObject</span> (<span class="title">KLNetworkingMethods</span>)</span></span><br><span class="line"></span><br><span class="line">- (<span class="type">BOOL</span>)kl_isEmptyObject;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-<h3 id="委托-Delegate"><a href="#委托-Delegate" class="headerlink" title="委托 (Delegate)"></a>委托 (Delegate)</h3><p>第一个参数是触发委托的对象<br>第一个关键词是触发对象的类名<br>除非该方法只有一个参数</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 第一个关键词为触发委托的类名</span></span><br><span class="line">- (<span class="built_in">NSInteger</span>)tableView:(<span class="built_in">UITableView</span> *)tableView numberOfRowsInSection:(<span class="built_in">NSInteger</span>)section;  </span><br><span class="line"></span><br><span class="line"><span class="comment">// 当只有一个&quot;sender&quot;参数时可以省略类名</span></span><br><span class="line">- (<span class="type">BOOL</span>)applicationOpenUntitledFile:(<span class="built_in">NSApplication</span> *)sender;</span><br></pre></td></tr></table></figure>
-<p>根据委托方法触发的时机和目的，使用 should,will,did 等关键词</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="type">void</span>)browserDidScroll:(<span class="built_in">NSBrowser</span> *)sender;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSUndoManager</span> *)windowWillReturnUndoManager:(<span class="built_in">NSWindow</span> *)window;、</span><br><span class="line"></span><br><span class="line">- (<span class="type">BOOL</span>)windowShouldClose:(<span class="type">id</span>)sender;</span><br></pre></td></tr></table></figure>
-
-<h3 id="通知-Notification"><a href="#通知-Notification" class="headerlink" title="通知 (Notification)"></a>通知 (Notification)</h3><p>通知常用于在模块间传递消息，所以通知要尽可能地表示出发生的事件，通知的命名范式是：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[触发通知的类名] + [Did | Will] + [动作] + Notification</span><br></pre></td></tr></table></figure>
-<p>比如：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSApplicationDidBecomeActiveNotification</span></span><br><span class="line"><span class="built_in">UIKeyboardWillShowNotification</span></span><br><span class="line"><span class="built_in">NSUserDefaultsDidChangeNotification</span></span><br><span class="line"><span class="built_in">UITextFieldTextDidBeginEditingNotification</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="常量或者宏"><a href="#常量或者宏" class="headerlink" title="常量或者宏"></a>常量或者宏</h3><p>常量：<code>k</code> 为前缀，后续遵循 驼峰命名法，<code>kConstantName</code></p>
-<p>宏：全部使用大写字母加下划线的形式，<code>MACORS_NAME</code></p>
-<h3 id="方法-Methods"><a href="#方法-Methods" class="headerlink" title="方法(Methods)"></a>方法(Methods)</h3><p>命名采用 <strong>小驼峰命名法</strong> 即首个单词全部用小写字母，后续的单词首字母大写。<br>方法名中不应该有标点符号(包括下划线)，除了以下的情况：</p>
-<ul>
-<li>可以用带下划线的小写前缀来命名私有方法或者类别中的方法</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="type">void</span>)kl_setControls</span><br></pre></td></tr></table></figure>
-<p>如果方法表示让对象执行一个动作，使用动词打头来命名，注意不要使用 <code>do</code>，<code>does</code> 这种多余的关键字，动词本身的暗示就足够了：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//正确，使用属性名来命名方法</span></span><br><span class="line">- (<span class="built_in">NSSize</span>)cellSize;</span><br><span class="line"></span><br><span class="line"><span class="comment">//错误，添加了多余的动词前缀</span></span><br><span class="line">- (<span class="built_in">NSSize</span>)calcCellSize;</span><br><span class="line">- (<span class="built_in">NSSize</span>)getCellSize;</span><br></pre></td></tr></table></figure>
-<p>对于有多个参数的方法，务必在每一个参数前都添加关键词，关键词应当清晰说明参数的作用：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//正确，保证每个参数都有关键词修饰</span></span><br><span class="line">- (<span class="type">void</span>)sendAction:(SEL)aSelector toObject:(<span class="type">id</span>)anObject forAllCells:(<span class="type">BOOL</span>)flag;</span><br><span class="line"></span><br><span class="line"><span class="comment">//错误，遗漏关键词</span></span><br><span class="line">- (<span class="type">void</span>)sendAction:(SEL)aSelector :(<span class="type">id</span>)anObject :(<span class="type">BOOL</span>)flag;</span><br><span class="line"></span><br><span class="line"><span class="comment">//正确</span></span><br><span class="line">- (<span class="type">id</span>)viewWithTag:(<span class="built_in">NSInteger</span>)aTag;</span><br><span class="line"></span><br><span class="line"><span class="comment">//错误，关键词的作用不清晰</span></span><br><span class="line">- (<span class="type">id</span>)taggedView:(<span class="type">int</span>)aTag;</span><br></pre></td></tr></table></figure>
-<p>不要用 <code>and</code> 来连接两个参数，通常 <code>and</code> 用来表示方法执行了两个相对独立的操作（从设计上来说，这时候应该拆分成两个独立的方法）：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//错误，不要使用&quot;and&quot;来连接参数</span></span><br><span class="line">- (<span class="type">int</span>)runModalForDirectory:(<span class="built_in">NSString</span> *)path andFile:(<span class="built_in">NSString</span> *)name andTypes:(<span class="built_in">NSArray</span> *)fileTypes;</span><br><span class="line"></span><br><span class="line"><span class="comment">//正确，使用&quot;and&quot;来表示两个相对独立的操作</span></span><br><span class="line">- (<span class="type">BOOL</span>)openFile:(<span class="built_in">NSString</span> *)fullPath withApplication:(<span class="built_in">NSString</span> *)appName andDeactivate:(<span class="type">BOOL</span>)flag;</span><br></pre></td></tr></table></figure>
-<p>方法的参数命名也有一些需要注意的地方:</p>
-<ul>
-<li>和方法名类似，参数的第一个字母小写，后面的每一个单词首字母大写</li>
-<li>不要再方法名中使用类似 <code>pointer</code>,<code>ptr</code> 这样的字眼去表示指针，参数本身的类型足以说明</li>
-<li>不要使用只有一两个字母的参数名</li>
-<li>不要使用简写，拼出完整的单词</li>
-</ul>
-<h3 id="存取方法（Accessor-Methods）"><a href="#存取方法（Accessor-Methods）" class="headerlink" title="存取方法（Accessor Methods）"></a>存取方法（Accessor Methods）</h3><p>存取方法是指用来获取和设置类属性值的方法，属性的不同类型，对应着不同的存取方法规范：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//属性是一个名词时的存取方法范式</span></span><br><span class="line">- (type)noun;</span><br><span class="line">- (<span class="type">void</span>)setNoun:(type)aNoun;</span><br><span class="line"><span class="comment">//栗子</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)title;</span><br><span class="line">- (<span class="type">void</span>)setTitle:(<span class="built_in">NSString</span> *)aTitle;</span><br><span class="line"></span><br><span class="line"><span class="comment">//属性是一个形容词时存取方法的范式</span></span><br><span class="line">- (<span class="type">BOOL</span>)isAdjective;</span><br><span class="line">- (<span class="type">void</span>)setAdjective:(<span class="type">BOOL</span>)flag;</span><br><span class="line"><span class="comment">//栗子</span></span><br><span class="line">- (<span class="type">BOOL</span>)isEditable;</span><br><span class="line">- (<span class="type">void</span>)setEditable:(<span class="type">BOOL</span>)flag;</span><br><span class="line"></span><br><span class="line"><span class="comment">//属性是一个动词时存取方法的范式</span></span><br><span class="line">- (<span class="type">BOOL</span>)verbObject;</span><br><span class="line">- (<span class="type">void</span>)setVerbObject:(<span class="type">BOOL</span>)flag;</span><br><span class="line"><span class="comment">//栗子</span></span><br><span class="line">- (<span class="type">BOOL</span>)showsAlpha;</span><br><span class="line">- (<span class="type">void</span>)setShowsAlpha:(<span class="type">BOOL</span>)flag;</span><br></pre></td></tr></table></figure>
-<p>命名存取方法时不要将动词转化为被动形式来使用：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//正确</span></span><br><span class="line">- (<span class="type">void</span>)setAcceptsGlyphInfo:(<span class="type">BOOL</span>)flag;</span><br><span class="line">- (<span class="type">BOOL</span>)acceptsGlyphInfo;</span><br><span class="line"></span><br><span class="line"><span class="comment">//错误，不要使用动词的被动形式</span></span><br><span class="line">- (<span class="type">void</span>)setGlyphInfoAccepted:(<span class="type">BOOL</span>)flag;</span><br><span class="line">- (<span class="type">BOOL</span>)glyphInfoAccepted;</span><br></pre></td></tr></table></figure>
-<p>可以使用 <code>can</code>,<code>should</code>,<code>will</code> 等词来协助表达存取方法的意思，但不要使用 <code>do</code>,和 <code>does</code>：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//正确</span></span><br><span class="line">- (<span class="type">void</span>)setCanHide:(<span class="type">BOOL</span>)flag;</span><br><span class="line">- (<span class="type">BOOL</span>)canHide;</span><br><span class="line">- (<span class="type">void</span>)setShouldCloseDocument:(<span class="type">BOOL</span>)flag;</span><br><span class="line">- (<span class="type">BOOL</span>)shouldCloseDocument;</span><br><span class="line"></span><br><span class="line"><span class="comment">//错误，不要使用&quot;do&quot;或者&quot;does&quot;</span></span><br><span class="line">- (<span class="type">void</span>)setDoesAcceptGlyphInfo:(<span class="type">BOOL</span>)flag;</span><br><span class="line">- (<span class="type">BOOL</span>)doesAcceptGlyphInfo;</span><br></pre></td></tr></table></figure>
-<p>为什么 Objective-C 中不适用 <code>get</code> 前缀来表示属性获取方法？因为 <code>get</code> 在 Objective-C 中通常只用来表示从函数指针返回值的函数：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//三个参数都是作为函数的返回值来使用的，这样的函数名可以使用&quot;get&quot;前缀</span></span><br><span class="line">- (<span class="type">void</span>)getLineDash:(<span class="type">float</span> *)pattern count:(<span class="type">int</span> *)count phase:(<span class="type">float</span> *)phase;</span><br></pre></td></tr></table></figure>
-
-<h3 id="集合操作类方法（Collection-Methods）"><a href="#集合操作类方法（Collection-Methods）" class="headerlink" title="集合操作类方法（Collection Methods）"></a>集合操作类方法（Collection Methods）</h3><p>有些对象管理着一系列其它对象或者元素的集合，需要使用类似“增删查改”的方法来对集合进行操作，这些方法的命名范式一般为：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//集合操作范式</span></span><br><span class="line">- (<span class="type">void</span>)addElement:(elementType)anObj;</span><br><span class="line">- (<span class="type">void</span>)removeElement:(elementType)anObj;</span><br><span class="line">- (<span class="built_in">NSArray</span> *)elements;</span><br><span class="line"></span><br><span class="line"><span class="comment">//栗子</span></span><br><span class="line">- (<span class="type">void</span>)addLayoutManager:(<span class="built_in">NSLayoutManager</span> *)obj;</span><br><span class="line">- (<span class="type">void</span>)removeLayoutManager:(<span class="built_in">NSLayoutManager</span> *)obj;</span><br><span class="line">- (<span class="built_in">NSArray</span> *)layoutManagers;</span><br></pre></td></tr></table></figure>
-<p>注意，如果返回的集合是无序的，使用 <code>NSSet</code> 来代替 <code>NSArray</code>。如果需要将元素插入到特定的位置，使用类似于这样的命名：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="type">void</span>)insertLayoutManager:(<span class="built_in">NSLayoutManager</span> *)obj atIndex:(<span class="type">int</span>)index;</span><br><span class="line">- (<span class="type">void</span>)removeLayoutManagerAtIndex:(<span class="type">int</span>)index;</span><br></pre></td></tr></table></figure>
-<p>如果管理的集合元素中有指向管理对象的指针，要设置成 <code>weak</code> 类型以防止引用循环。<br>下面是 SDK 中 <code>NSWindow</code> 类的集合操作方法：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="type">void</span>)addChildWindow:(<span class="built_in">NSWindow</span> *)childWin ordered:(<span class="built_in">NSWindowOrderingMode</span>)place;</span><br><span class="line">- (<span class="type">void</span>)removeChildWindow:(<span class="built_in">NSWindow</span> *)childWin;</span><br><span class="line">- (<span class="built_in">NSArray</span> *)childWindows;</span><br><span class="line">- (<span class="built_in">NSWindow</span> *)parentWindow;</span><br><span class="line">- (<span class="type">void</span>)setParentWindow:(<span class="built_in">NSWindow</span> *)window;</span><br></pre></td></tr></table></figure>
-<h3 id="命名属性和实例变量（Properties-amp-Instance-Variables）"><a href="#命名属性和实例变量（Properties-amp-Instance-Variables）" class="headerlink" title="命名属性和实例变量（Properties&amp;Instance Variables）"></a>命名属性和实例变量（Properties&amp;Instance Variables）</h3><p>属性和对象的存取方法相关联，属性的第一个字母小写，后续单词首字母大写，不必添加前缀。属性按功能命名成名词或者动词：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//名词属性</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>) <span class="built_in">NSString</span> *title;</span><br><span class="line"></span><br><span class="line"><span class="comment">//动词属性</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>) <span class="type">BOOL</span> showsAlpha;</span><br></pre></td></tr></table></figure>
-<p>属性也可以命名成形容词，这时候通常会指定一个带有 <code>is</code> 前缀的 get 方法来提高可读性：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>, <span class="keyword">getter</span>=isEditable) <span class="type">BOOL</span> editable;</span><br><span class="line">复制代码命名实例变量，在变量名前加上_前缀（有些有历史的代码会将_放在后面），其它和命名属性一样：</span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">MyClass</span> </span>&#123;</span><br><span class="line">    <span class="type">BOOL</span> _showsTitle;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>一般来说，类需要对使用者隐藏数据存储的细节，所以不要将实例方法定义成公共可访问的接口，可以使用 <code>@private</code>，<code>@protected</code> 前缀。<br>按苹果的说法，不建议在除了 <code>init</code> 和 <code>dealloc</code> 方法以外的地方直接访问实例变量，但很多人认为直接访问会让代码更加清晰可读，只在需要计算或者执行操作的时候才使用存取方法访问，我就是这种习惯，所以这里不作要求。</p>
-<h3 id="命名常量（Constants）"><a href="#命名常量（Constants）" class="headerlink" title="命名常量（Constants）"></a>命名常量（Constants）</h3><p>如果要定义一组相关的常量，尽量使用枚举类型（enumerations），枚举类型的命名规则和函数的命名规则相同。<br>建议使用 <code>NS_ENUM</code> 和 <code>NS_OPTIONS</code> 宏来定义枚举类型，参见官方的 <code>Adopting Modern Objective-C</code> 一文：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义一个枚举</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSInteger</span>, <span class="built_in">NSMatrixMode</span>) &#123;</span><br><span class="line">    <span class="built_in">NSRadioModeMatrix</span>,</span><br><span class="line">    <span class="built_in">NSHighlightModeMatrix</span>,</span><br><span class="line">    <span class="built_in">NSListModeMatrix</span>,</span><br><span class="line">    <span class="built_in">NSTrackModeMatrix</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>定义 bit map：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="built_in">NS_OPTIONS</span>(<span class="built_in">NSUInteger</span>, <span class="built_in">NSWindowMask</span>) &#123;</span><br><span class="line">    <span class="built_in">NSBorderlessWindowMask</span>      = <span class="number">0</span>,</span><br><span class="line">    <span class="built_in">NSTitledWindowMask</span>          = <span class="number">1</span> &lt;&lt; <span class="number">0</span>,</span><br><span class="line">    <span class="built_in">NSClosableWindowMask</span>        = <span class="number">1</span> &lt;&lt; <span class="number">1</span>,</span><br><span class="line">    <span class="built_in">NSMiniaturizableWindowMask</span>  = <span class="number">1</span> &lt;&lt; <span class="number">2</span>,</span><br><span class="line">    <span class="built_in">NSResizableWindowMask</span>       = <span class="number">1</span> &lt;&lt; <span class="number">3</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>使用 <code>const</code> 定义浮点型或者单个的整数型常量，如果要定义一组相关的整数常量，应该优先使用枚举。常量的命名规范和函数相同：<br>&#96;&#96;objc<br>const float NSLightGray;</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">复制代码不要使用 `#define` 宏来定义常量，如果是整型常量，尽量使用枚举，浮点型常量，使用 `const` 定义。`#define` 通常用来给编译器决定是否编译某块代码，比如常用的：</span><br><span class="line">```objc</span><br><span class="line">#ifdef DEBUG</span><br></pre></td></tr></table></figure>
-<p>码注意到一般由编译器定义的宏会在前后都有一个<code>__</code>，比如 *<code>__MACH__</code>*。</p>
-<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><h3 id="文件注释"><a href="#文件注释" class="headerlink" title="文件注释"></a>文件注释</h3><p>每一个文件都 必须 写文件注释，文件注释最基本的应包含</p>
-<ul>
-<li>文件名称</li>
-<li>作者信息(姓名、邮箱、Github等)</li>
-<li>文件的描述，及其作用</li>
-<li>版本信息</li>
-</ul>
-<p>最基础的文件注释栗子🌰</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*******************************************************************************</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    File name:     AppDelegate.h</span></span><br><span class="line"><span class="comment">    Author:        Ferryman (Li KaiLong)</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment">    Description:</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment">    History:</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment"> ********************************************************************************/</span></span><br></pre></td></tr></table></figure>
-<p>复制代码在 <strong>Xcode</strong> 里，创建的新文件都有默认的文件注释，可通过 Xcode 9 的 自定义文本宏 新特性统一添加我们的文件注释模块，保持整个工程统一的文件注释风格。 <strong>重要！很重要！！ 非常重要！！！</strong></p>
-<h3 id="代码注释"><a href="#代码注释" class="headerlink" title="代码注释"></a>代码注释</h3><p>“自解释”（self-documenting）的代码是我们应该做到的，但仍然需要详细的注释来说明参数的意义、返回值、功能以及可能的副作用。<br>方法、类、协议、类别的定义都需要注释，推荐采用 Apple 的标准注释风格，好处是可以在引用的地方 <strong>option + 鼠标左键</strong> 自动弹出注释，非常方便。<br>生成注释格式的方法采用 <strong>Xcode</strong> 自带的注释快捷键功能</p>
-<ul>
-<li><p>单行注释：在需要注释的地方按 command + &#x2F;</p>
-</li>
-<li><p>标注：    在属性或者方法名的上面(空白) 的地方按 command + option + &#x2F;<br><img src="https://s2.ax1x.com/2019/10/31/KoJBg1.jpg"><br>特别注意：</p>
-</li>
-<li><p>协议、委托的注释要明确说明其被触发的条件</p>
-</li>
-<li><p>如果在注释中要引用参数名或者方法函数名，使用||将参数或者方法括起来以避免歧义：</p>
-</li>
-</ul>
-<p><strong>定义在头文件里的接口方法、属性必须要有注释！</strong></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/ios-naming-rules-and-annotation-specifications.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -553,6 +575,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/ios-xcode-setup-code-snippet.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/ios-xcode-setup-code-snippet.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -564,46 +614,15 @@
 
       
           <p><em>为了提高编程的效率，有时候也要用上一些捷径。代码片段就是我们可以用上的捷径之一。</em></p>
-<h2 id="一、创建代码片段"><a href="#一、创建代码片段" class="headerlink" title="一、创建代码片段"></a>一、创建代码片段</h2><p>以 <code>Strong</code> 为例：<br>1、在书写 <code>@property</code> 属性的地方写下如下语句：</p>
-<figure class="highlight objc"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) &lt;#Class#&gt; *&lt;<span class="meta">#object#&gt;;</span></span><br></pre></td></tr></table></figure>
-<p>2、选中上述语句，右键点击弹窗中的“Create Code Snippet”<br><img src="https://s2.ax1x.com/2019/09/27/uKdXrt.jpg"><br>3、弹出代码片段编辑窗口，如下图所示：<br><img src="https://s2.ax1x.com/2019/09/27/uKdOKI.jpg"><br>图中从上到下的含义依次是：</p>
-<ol>
-<li>Title：标题</li>
-<li>Summary：描述文字</li>
-<li>代码块区域</li>
-<li>Language：可以在哪些语言中使用该代码片段</li>
-<li>Platform：可以使用代码片段的平台，有 All&#x2F;iOS&#x2F;macOS&#x2F;tvOS&#x2F;watchOS 五个选项</li>
-<li>Completion：敲出代码片段的快捷方式，例：@ps</li>
-<li>Availbability：可以在哪些文件中使用当前代码片段，比如全部位置，头文件中，.m文件中，声明位置，实现位置等，当然可以添加多个支持的位置。</li>
-</ol>
-<p>一切设置完成以后，点击该菜单右下角的Done按钮，新建工作结束。</p>
-<h2 id="二、常用代码块"><a href="#二、常用代码块" class="headerlink" title="二、常用代码块"></a>二、常用代码块</h2><p>1、strong：</p>
-<figure class="highlight objc"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) &lt;#Class#&gt; *&lt;<span class="meta">#object#&gt;;</span></span><br></pre></td></tr></table></figure>
-<p>2、weak：</p>
-<figure class="highlight objc"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">weak</span>) &lt;#Class#&gt; *&lt;<span class="meta">#object#&gt;;</span></span><br></pre></td></tr></table></figure>
-<p>3、copy：</p>
-<figure class="highlight objc"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *&lt;<span class="meta">#string#&gt;;</span></span><br></pre></td></tr></table></figure>
-<p>4、assign：</p>
-<figure class="highlight objc"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) &lt;#Class#&gt; &lt;<span class="meta">#property#&gt;;</span></span><br></pre></td></tr></table></figure>
-<p>5、delegate：</p>
-<figure class="highlight objc"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">weak</span>) <span class="type">id</span>&lt;&lt;<span class="meta">#protocol#&gt;&gt; <span class="string">&lt;#delegate#&gt;;</span></span></span><br></pre></td></tr></table></figure>
-<p>6、block：</p>
-<figure class="highlight objc"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) &lt;#Block#&gt; &lt;<span class="meta">#block#&gt;;</span></span><br></pre></td></tr></table></figure>
-<p>7、mark：</p>
-<figure class="highlight objc"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> mark - <span class="string">&lt;#mark#&gt;</span></span></span><br></pre></td></tr></table></figure>
-<p>8、ReUseCell：</p>
-<figure class="highlight objc"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="built_in">NSString</span> **cellID = &lt;#cellID#&gt;;</span><br><span class="line">&lt;#Class#&gt; *cell = [tableView dequeueReusableCellWithIdentifier:cellID];</span><br><span class="line"><span class="keyword">if</span>(cell == <span class="literal">nil</span>) &#123;</span><br><span class="line">cell = [[&lt;#Class#&gt; alloc] initWithStyle:<span class="built_in">UITableViewCellStyleDefault</span>      reuseIdentifier:cellID];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> cell;</span><br></pre></td></tr></table></figure>
-<p>9、button:</p>
-<figure class="highlight objc"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIButton</span> *btn = [<span class="built_in">UIButton</span> buttonWithType:<span class="built_in">UIButtonTypeCustom</span>];</span><br><span class="line">btn.frame = <span class="built_in">CGRectMake</span>(&lt;##&gt;, &lt;##&gt;, &lt;##&gt;, &lt;##&gt;);</span><br><span class="line">btn.backgroundColor = [<span class="built_in">UIColor</span> clearColor];</span><br><span class="line">[btn addTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(clicked:) forControlEvents:<span class="built_in">UIControlEventTouchUpInside</span>];</span><br><span class="line">[<span class="keyword">self</span>.view addSubview:btn];</span><br></pre></td></tr></table></figure>
-<p>10、MainGCD：</p>
-<figure class="highlight objc"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">&lt;<span class="meta">#code#&gt;</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>11、AfterGCD：</p>
-<figure class="highlight objc"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(&lt;#delayInSeconds#&gt; * <span class="built_in">NSEC_PER_SEC</span>)), dispatch_get_main_queue(), ^&#123;</span><br><span class="line">&lt;<span class="meta">#code to be executed after a specified delay#&gt;</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>12、OnceGCD：</p>
-<figure class="highlight objc"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken;</span><br><span class="line"><span class="built_in">dispatch_once</span>(&amp;onceToken, ^&#123;</span><br><span class="line">&lt;<span class="meta">#code to be executed once#&gt;</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>13、Screen Size</p>
-<figure class="highlight objc"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> SCREEN_WIDTH        ([UIScreen mainScreen].bounds.size.width)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> SCREEN_HEIGHT       ([UIScreen mainScreen].bounds.size.height)</span></span><br></pre></td></tr></table></figure>
-
+<h2 id="一、创建代码片段"><a href="#一、创建代码片段" class="headerlink" title="一、创建代码片段"></a>一、创建代码片段</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/ios-xcode-setup-code-snippet.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -666,6 +685,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/ios-fastlane-snapshot.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/ios-fastlane-snapshot.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -677,39 +724,14 @@
 
       
           <h2 id="First-at-all"><a href="#First-at-all" class="headerlink" title="First at all"></a>First at all</h2><p>　　首先先介绍一下 fastlane 是干嘛用的：</p>
-<blockquote>
-<p>Fastlane 是一套使用 Ruby 写的自动化工具集，旨在简化 Android 和 iOS 的部署过程，自动化你的工作流。它可以简化一些乏味、单调、重复的工作，像截图、代码签名以及发布 App。</p>
-</blockquote>
-<p>　　然后这篇文章主要介绍的是 fastlane 里面其中一个工具——snapshot，我们可以用它来给应用进行自动化截图。</p>
-<p>附上官方文档地址：<a target="_blank" rel="noopener" href="https://docs.fastlane.tools/getting-started/ios/screenshots/">https://docs.fastlane.tools/getting-started/ios/screenshots/</a></p>
-<h2 id="Just-to-try"><a href="#Just-to-try" class="headerlink" title="Just to try"></a>Just to try</h2><p>　　好了，接下来进入手把手教学阶段。这里的教学前提是你已经安装好了 fastlane 或者 snapshot。没安装好也没关系，打开终端输入以下代码进行安装：</p>
-<figure class="highlight bash"><figcaption><span>Terminal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　sudo gem install snapshot</span><br></pre></td></tr></table></figure>
-<p>如果遇到这个问题：</p>
-<div class="note danger">
-            <p>You don’t have write permissions for the &#x2F;usr&#x2F;bin directory.</p>
-          </div>
-<p>可以尝试加上安装路径</p>
-<figure class="highlight bash"><figcaption><span>Terminal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install -n /usr/local/bin fastlane</span><br></pre></td></tr></table></figure>
-<p>成功安装完以后。以一个新工程为例子，首先我们需要给他增加一个 UI Testing Target</p>
-<h3 id="1、增加-UI-Testing-Target"><a href="#1、增加-UI-Testing-Target" class="headerlink" title="1、增加 UI Testing Target"></a>1、增加 UI Testing Target</h3><p>选择 <strong>Xcode</strong> 顶部菜单栏中的 <strong>File</strong> –&gt; <strong>New</strong> –&gt; **Target…**，在弹出框中选择 <code>iOS UI Testing Target</code><br><img src="https://s2.ax1x.com/2019/09/16/nfAyWT.jpg"><br>名字随意，其他默认。然后点击工程，添加一个新的 <code>scheme</code><br><img src="https://s2.ax1x.com/2019/09/16/nfAROJ.jpg"><br>在弹出框中选择你新添加的 <code>Target</code><br><img src="https://s2.ax1x.com/2019/09/16/nfAcSU.jpg"></p>
-<h3 id="2、编辑-UI-Testing-Target"><a href="#2、编辑-UI-Testing-Target" class="headerlink" title="2、编辑 UI Testing Target"></a>2、编辑 UI Testing Target</h3><p>注意勾选你的 <code>UI Testing Target</code>，然后点击 <code>Edit Scheme</code><br><img src="https://s2.ax1x.com/2019/09/16/nfA2y4.jpg"><br><strong>然后在弹出框中，勾选 <code>Build</code> 中的 <code>Run</code>和 <code>Shard</code></strong><br><img src="https://s2.ax1x.com/2019/09/16/nfAfm9.jpg"></p>
-<h3 id="3、给工程加入-snapshot"><a href="#3、给工程加入-snapshot" class="headerlink" title="3、给工程加入 snapshot"></a>3、给工程加入 snapshot</h3><p>打开终端，切到工程目录底下，输入一下命令：</p>
-<figure class="highlight bash"><figcaption><span>Terminal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastlane snapshot init</span><br></pre></td></tr></table></figure>
-<p>成功后工程目录会多出两个文件<br><img src="https://s2.ax1x.com/2019/09/16/nfA4T1.jpg"><br><code>SnapshotHelper.swift</code> 文件需要我们添加到项目中使用，注意选中的<code>Target</code> 是前面创建的 UITest Target。如果是 <code>OC</code> 项目，文件拖入时会自动提醒是否创建桥接文件，选择“YES”就行了。</p>
-<p><code>Snapfile</code> 是截图配置文件，可以在里面设置需要截图的设备和语言。 </p>
-<h3 id="4、在工程中使用-snapshot"><a href="#4、在工程中使用-snapshot" class="headerlink" title="4、在工程中使用 snapshot"></a>4、在工程中使用 snapshot</h3><p>当确认了 <code>UI Testing Target</code> 的设置没问题，<code>snapshot</code> 的引用文件在工程中，配置文件也没问题后，我们下一步就可以开始在工程中初始化 <code>snapshot</code> 和调用他的截图方法了。</p>
-<p>首先，我们需要在 <code>setUp</code> 方法中初始化，值得一提的是官方文档和网上搜索到的技术博客中 OC 的初始化方法：<code>[Snapshot setupSnapshot:app];</code>，在 <code>snapshot</code> 中的源码好像已经找不到了，现在的初始化方法如下</p>
-<figure class="highlight objc"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">XCUIApplication</span> *app = [[<span class="built_in">XCUIApplication</span> alloc]init];</span><br><span class="line">[Snapshot setupSnapshot:app waitForAnimations:<span class="literal">YES</span>];</span><br><span class="line">[app launch];</span><br></pre></td></tr></table></figure>
-
-<p>然后在 <code>testExample</code> 方法中实现截图方法</p>
-<figure class="highlight objc"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> <span class="built_in">XCUIApplication</span> *app = [[<span class="built_in">XCUIApplication</span> alloc] init];</span><br><span class="line"></span><br><span class="line"><span class="comment">//截图 - 首頁</span></span><br><span class="line">[Snapshot snapshot:<span class="string">@&quot;0main&quot;</span> timeWaitingForIdle:<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//截图 - 点击方法</span></span><br><span class="line"><span class="built_in">XCUIElement</span> *openButton = app.buttons[<span class="string">@&quot;Open&quot;</span>];</span><br><span class="line">[openButton tap];</span><br><span class="line">[Snapshot snapshot:<span class="string">@&quot;1filter&quot;</span> timeWaitingForIdle:<span class="number">10</span>];  </span><br></pre></td></tr></table></figure>
-<p>这里需要强调的一点是 <code>XCUIElement *openButton = app.buttons[@&quot;Open&quot;];</code> 这句里的 “Open”，是怎么来的，他是根据我们创建控件时所设置的 <code>accessibilityIdentifier</code> 的值来的。</p>
-<figure class="highlight objc"><figcaption><span>Object-c</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIButton</span> *btnOne = [[<span class="built_in">UIButton</span> alloc]initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="keyword">self</span>.view.frame.size.width / <span class="number">2</span>, <span class="keyword">self</span>.view.frame.size.width / <span class="number">2</span>)];</span><br><span class="line">[btnOne addTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(jumpToAlibabba) forControlEvents:<span class="built_in">UIControlEventTouchUpInside</span>];</span><br><span class="line">[btnOne setAccessibilityIdentifier:<span class="string">@&quot;Open&quot;</span>];</span><br><span class="line">[<span class="keyword">self</span>.view addSubview:btnOne];</span><br></pre></td></tr></table></figure>
-<p>完成这一步，剩下需要做的就不多了。</p>
-<h3 id="5、获取自动化截图结果"><a href="#5、获取自动化截图结果" class="headerlink" title="5、获取自动化截图结果"></a>5、获取自动化截图结果</h3><p>同样打开终端，切到项目路径，运行</p>
-<figure class="highlight bash"><figcaption><span>Terminal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastlane snapshot</span><br></pre></td></tr></table></figure>
-<p>然后会出现一连串的打印<br><img src="https://s2.ax1x.com/2019/09/16/nfAIFx.jpg"><br>运行结束以后，成功的话会生成了一个 html 文件和一组截图，html 页面会自己打开。<br><img src="https://s2.ax1x.com/2019/09/16/nfATfK.jpg"><br>不过显示的效果有点不太友好~<br>以上。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/ios-fastlane-snapshot.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -772,6 +794,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/weekly-summary-190831.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/weekly-summary-190831.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -846,6 +896,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/about-what-do-you-like.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/about-what-do-you-like.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -920,6 +998,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/weekly-summary-190819.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/weekly-summary-190819.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>857</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -934,8 +1040,14 @@
 <blockquote>
 <p>　　古人以减省来营造意境，说满、说显了，便无意境。营造意境是为了让人有更多体会，可惜今人拒绝体会，只求告知。</p>
 </blockquote>
-<p>　　回过头看，这又好像是对他这本书自己写作脉络的总结。之前看徐浩峰的电影《师傅》，里面廖凡对宋佳表白说：“自十五岁起，每日挥刀五百下，这个数字约束住了我，不会胡思乱想。从今日起，我以你为约束。”一板一眼，真切实在。在书里也有给我同样印象的话，就是一个八岁小孩收养了一个女婴，小孩和女婴都长大了，爷爷装糊涂，想成就他们的好事，当人点明事实时，当时的对话是：“沈飞雪默然，片刻找回话：‘鬼都知道你喜欢她。’孔鼎义：‘喜欢跟喜欢不一样。这辈子第一眼见她，她四岁。善举，要善始善终。’”<br>　　我想这又是另一种和同类武侠小说区别开来的特点，不止有减省，还有坚持。<br>　　上个礼拜追了一部番，《月色真美》，很单纯的初中生恋爱番，有很多感同身受的片段，想起以前念书时的恋爱，唉那真是<del>，算了，人生已是风雨，往事还是不用再提了。<br>　　上周一的时候和部门测试发生了一个正面冲突，虽然事前事后我都明白，我本可以不如此，但有时候被零零碎碎的小动作膈应的真让人火大，虽然我一直努力克制自己不发火，因为觉得发火面目可憎，另外是因为觉得自己不应该被这些事情分散注意力，目标是星辰大海，脚底下的几个石子是在不需要去计较，但又想想菩萨慈悲，也有金刚怒目，我怼她，和我要做个好人并不冲突。再者关系又不是什么很好，凭什么总是要我让步，争锋相对虽说是小孩气脾气，我偏要意气用事一回。<br>　　不过事后除了原本就觉得没必要，还觉得真的很没劲，争锋相对最后浪费的其实是我的时间。本来不去理她，多余的时间，说不定我的周记就不用拖到这个礼拜写了。唉</del>，keep down and carry on 啊。<br>　　周末都去图书馆学习功课了，数据关于 SQL 这一章可以说是我最近看的最认真的内容了。游泳好像到了瓶颈期，怎么游都是那几下，打算看一下游泳视频学习一下。<br>　　其他的想不到了。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/weekly-summary-190819.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -998,6 +1110,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/ios-runtime-study.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/ios-runtime-study.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>6.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -1010,42 +1150,14 @@
       
           <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>　　在维护一个项目时碰见一个问题，调用了一个方法后不起作用，这种问题一般有两个解决思路，一个是看方法有没有起作用，另一个是看是不是其他的方法打断了这个方法，比如设置 UIButton 的隐藏，但在另一个地方，又把它设置成显示了。这种问题在工程里通过调试代码一般都很好解决。<br>　　但是当它发生在我调用了一个 SDK 方法不起作用时，按照上文的思路，一查看是否是 SDK 方法的问题，这个除了向 SDK 提供人员反应没有其他更好的解决方法了，二是查看是否其他地方也调用了这个方法，使用了不同的参数导致本次的调用失效了。如果这个方法调用的少，可以全局搜索，然后注释掉方法，但是如果之前项目不是你开发的，你只是后期切入进来，同时代码结构一时半会还不能很好把握到，总之想快速利落的排除问题，这时你可以考虑用 Runtime 的特性，把 SDK 里的方法用自己写的替换掉。<br>　　先老调重弹一遍，什么是 Runtime？
 　　</p>
-<h2 id="二、概念"><a href="#二、概念" class="headerlink" title="二、概念"></a>二、概念</h2><p>　　Objective-C是动态语言，它将很多静态语言在编译和链接时做的事放到了运行时，这个运行时系统就是 Runtime。<br>Runtime 其实就是一个库，它基本上是用 C 和汇编写的一套 API，这个库使C语言有了面向对象的能力。<br>静态语言：在编译的时候会决定调用哪个函数。<br>动态语言（OC）：在运行的时候根据函数的名称找到对应的函数来调用。</p>
-<p>　　然后还有一些需要了解的基本概念：</p>
-<ul>
-<li><strong>isa</strong>：OC 中，类和类的实例在本质上没有区别，都是对象，任何对象都有isa 指针，它指向类或元类。</li>
-<li><strong>SEL</strong>：SEL（又叫选择器）是方法的 selector 的指针。方法的 selector 表示运行时方法的名字。OC在编译时，会依据每一个方法的名字、参数，生成一个唯一的整型标识(Int类型的地址)，这个标识就是 SEL。</li>
-<li><strong>IMP</strong>：IMP 是一个函数指针，指向方法最终实现的首地址。SEL 就是为了查找方法的最终实现IMP。</li>
-<li><strong>Method</strong>：用于表示类定义中的方法，它的结构体中包含一个 SEL 和 IMP，相当于在 SEL 和 IMP 之间作了一个映射。</li>
-<li><strong>消息机制</strong>：任何方法的调用本质就是发送一个消息。编译器会将消息表达式[receiver message]转化为一个消息函数 objc_msgSend(receiver, selector)。</li>
-<li><strong>Runtime 的使用</strong>：获取属性列表，获取成员变量列表，获得方法列表，获取协议列表，方法交换（黑魔法），动态的添加方法，调用私有方法，为分类添加属性。</li>
-</ul>
-<h2 id="三、应用场景"><a href="#三、应用场景" class="headerlink" title="三、应用场景"></a>三、应用场景</h2><ul>
-<li>关联对象(Objective-C Associated Objects)给分类增加属性</li>
-<li>方法交换 &#x2F; 黑魔法(Method Swizzling)</li>
-<li>实现 NSCoding 的自动归档和自动解档</li>
-<li>实现字典和模型的自动转换(MJExtension)</li>
-</ul>
-<p>　　这里介绍前两种。
-　　</p>
-<h3 id="1、关联对象-Objective-C-Associated-Objects-给分类增加属性"><a href="#1、关联对象-Objective-C-Associated-Objects-给分类增加属性" class="headerlink" title="1、关联对象(Objective-C Associated Objects)给分类增加属性"></a>1、关联对象(Objective-C Associated Objects)给分类增加属性</h3><p>我们都是知道分类是不能自定义属性和变量的。下面通过关联对象实现给分类添加属性。</p>
-<p>关联对象 Runtime提 供了下面几个接口：</p>
-<figure class="highlight objectivec"><figcaption><span>Objective-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 关联对象</span></span><br><span class="line"><span class="type">void</span> objc_setAssociatedObject(<span class="type">id</span> object, <span class="keyword">const</span> <span class="type">void</span> *key, <span class="type">id</span> value, objc_AssociationPolicy policy)</span><br><span class="line"><span class="comment">// 获取关联的对象</span></span><br><span class="line"><span class="type">id</span> objc_getAssociatedObject(<span class="type">id</span> object, <span class="keyword">const</span> <span class="type">void</span> *key)</span><br><span class="line"><span class="comment">// 移除关联的对象</span></span><br><span class="line"><span class="type">void</span> objc_removeAssociatedObjects(<span class="type">id</span> object)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 参数解释</span></span><br><span class="line"><span class="comment">// id object：被关联的对象</span></span><br><span class="line"><span class="comment">// const void *key：关联的 key，要求唯一</span></span><br><span class="line"><span class="comment">// id value：关联的对象</span></span><br><span class="line"><span class="comment">// objc_AssociationPolicy policy：内存管理的策略</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>例子：</strong></p>
-<figure class="highlight objectivec"><figcaption><span>Objective-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">///-----------------------</span></span><br><span class="line"><span class="comment">/// NSObject+BRModel.h</span></span><br><span class="line"><span class="comment">///-----------------------</span></span><br><span class="line"><span class="meta">#import <span class="string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NSObject</span> (<span class="title">BRModel</span>)</span></span><br><span class="line"><span class="comment">/** 1.获取类的属性列表数组 */</span></span><br><span class="line">+ (<span class="built_in">NSArray</span> *)br_objectProperties;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** 2.字典转模型：给定一个字典，返回 self 类对应的模型对象 */</span></span><br><span class="line">+ (<span class="keyword">instancetype</span>)br_objectWithDictionary:(<span class="built_in">NSDictionary</span> *)dict;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">///-----------------------</span></span><br><span class="line"><span class="comment">/// NSObject+BRModel.m</span></span><br><span class="line"><span class="comment">///-----------------------</span></span><br><span class="line"><span class="meta">#import <span class="string">&quot;NSObject+BRModel.h&quot;</span></span></span><br><span class="line"><span class="meta">#import <span class="string">&lt;objc/runtime.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="type">char</span> *kPropertyListKey = <span class="string">&quot;kPropertyListKey&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSObject</span> (<span class="title">BRModel</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/// 所有字典转模型框架的核心算法（这里只是实现简单的字典转模型。扩展：要考虑字典的嵌套）</span></span><br><span class="line"><span class="comment">/// 在字典转模型框架中，如果字典嵌套层次结构非常深，框架由于利用递归实现转换，内存消耗大，执行性能不好！</span></span><br><span class="line"><span class="comment">/// YYModel 因为功能简单（在功能上做了取舍，满足大多数情况下使用），所以速度快！</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1.动态（通过 Runtime 形式）获取类的属性列表</span></span><br><span class="line">+ (<span class="built_in">NSArray</span> *)br_objectProperties &#123;</span><br><span class="line">    <span class="comment">/// 1.利用“关联对象”获取属性的值，如果有，直接返回！(这里获取对象类似于懒加载，只不过分类里面不能创建属性，用“关联对象”来替代)</span></span><br><span class="line">    <span class="comment">/// 这里使用“关联对象”其目的是提高效率（懒加载思想）！</span></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *  获取关联对象（相当于属性的 getter 方法）</span></span><br><span class="line"><span class="comment">     *  参数1：对象</span></span><br><span class="line"><span class="comment">     *  参数2：动态添加属性的 key（相当于属性名）</span></span><br><span class="line"><span class="comment">     *  返回值：动态添加的“属性值”</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="built_in">NSArray</span> *pList = objc_getAssociatedObject(<span class="keyword">self</span>, kPropertyListKey);</span><br><span class="line">    <span class="keyword">if</span> (pList != <span class="literal">nil</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> pList;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *  调用运行时方法，获取类的属性列表</span></span><br><span class="line"><span class="comment">     *  class_copyPropertyList():   获取类的 属性 列表方法</span></span><br><span class="line"><span class="comment">     *  class_copyIvarList():       获取类的 成员变量 列表方法</span></span><br><span class="line"><span class="comment">     *  class_copyMethodList():     获取类的 方法 列表方法</span></span><br><span class="line"><span class="comment">     *  class_copyProtocolList():   获取类的 协议 列表方法</span></span><br><span class="line"><span class="comment">     *  参数1：要获取的类</span></span><br><span class="line"><span class="comment">     *  参数2：类属性的个数指针（&amp;属性个数）</span></span><br><span class="line"><span class="comment">     *  返回值：所有属性的数组</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="type">unsigned</span> <span class="type">int</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 获取属性数组（这里 objc_property_t 接收的是数组，需要带 *）</span></span><br><span class="line">    objc_property_t *properties = class_copyPropertyList([<span class="keyword">self</span> <span class="keyword">class</span>], &amp;count);</span><br><span class="line">    <span class="built_in">NSMutableArray</span> *propertyNameArr = [[<span class="built_in">NSMutableArray</span> alloc]init];</span><br><span class="line">    <span class="comment">// 遍历属性数组</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">unsigned</span> <span class="type">int</span> i = <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line">        <span class="comment">// 1&gt; 获取属性(C 语言中的结构体指针，通常不需要带 *)</span></span><br><span class="line">        objc_property_t property = properties[i];</span><br><span class="line">        <span class="comment">// 2&gt; 从 property 中获取属性的名称（即C语言字符串）</span></span><br><span class="line">        <span class="keyword">const</span> <span class="type">char</span> *cName = property_getName(property);</span><br><span class="line">        <span class="comment">// 将C语言字符串转成 OC 字符串</span></span><br><span class="line">        <span class="built_in">NSString</span> *name = [<span class="built_in">NSString</span> stringWithCString:cName encoding:<span class="built_in">NSUTF8StringEncoding</span>];</span><br><span class="line">        <span class="comment">// 3&gt; 添加 OC 属性名到数组</span></span><br><span class="line">        [propertyNameArr addObject:name];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 释放数组（C 语言中用到了包含 create/copy/...的方法，都需要释放内存）</span></span><br><span class="line">    free(properties);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *  2.利用“关联对象”保存属性的值</span></span><br><span class="line"><span class="comment">     *  参数1：self 对象</span></span><br><span class="line"><span class="comment">     *  参数2：动态添加属性的 key（相当于属性名）</span></span><br><span class="line"><span class="comment">     *  参数3：动态添加属性的值</span></span><br><span class="line"><span class="comment">     *  参数4：对象的引用关系（类似于属性中的 nonatomic,assign/copy/retain）</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    objc_setAssociatedObject(<span class="keyword">self</span>, kPropertyListKey, [propertyNameArr <span class="keyword">copy</span>], OBJC_ASSOCIATION_RETAIN_NONATOMIC);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> [propertyNameArr <span class="keyword">copy</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.字典转模型：给定一个字典，返回 self 类对应的模型对象</span></span><br><span class="line">+ (<span class="keyword">instancetype</span>)br_objectWithDictionary:(<span class="built_in">NSDictionary</span> *)dict &#123;</span><br><span class="line">    <span class="type">id</span> object = [[<span class="keyword">self</span> alloc]init];</span><br><span class="line">    <span class="comment">// 获取当前对象的属性列表</span></span><br><span class="line">    <span class="comment">// 优化：使用关联对象 pList 的值保存起来，不用每次都去获取</span></span><br><span class="line">    <span class="built_in">NSArray</span> *pList = [<span class="keyword">self</span> br_objectProperties];</span><br><span class="line">    <span class="comment">// 1&gt; 遍历属性数组</span></span><br><span class="line">    [pList enumerateObjectsUsingBlock:^(<span class="type">id</span>  _Nonnull pName, <span class="built_in">NSUInteger</span> idx, <span class="type">BOOL</span> * _Nonnull stop) &#123;</span><br><span class="line">        <span class="type">id</span> pValue = [dict objectForKey:pName];</span><br><span class="line">        <span class="comment">// 使用 KVC 给对象属性赋值</span></span><br><span class="line">        [object setValue:pValue forKey:pName];</span><br><span class="line">    &#125;];</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    // 2&gt; 遍历字典</span></span><br><span class="line"><span class="comment">    [dict enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull value, BOOL * _Nonnull stop) &#123;</span></span><br><span class="line"><span class="comment">        if ([pList containsObject:key]) &#123;</span></span><br><span class="line"><span class="comment">            // 使用KVC给对象属性赋值</span></span><br><span class="line"><span class="comment">            [object setValue:value forKey:key];</span></span><br><span class="line"><span class="comment">        &#125;</span></span><br><span class="line"><span class="comment">    &#125;];</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">    <span class="keyword">return</span> object;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="2、方法交换（黑魔法）"><a href="#2、方法交换（黑魔法）" class="headerlink" title="2、方法交换（黑魔法）"></a>2、方法交换（黑魔法）</h3><p>下面就是 runtime 的重头戏了，被称作黑魔法的方法交换 Swizzling。交换方法是在 method_exchangeImplementations 里发生的。</p>
-<p>使用 Swizzling 的过程中要注意两个问题：</p>
-<p>Swizzling 要在 +load 方法中执行</p>
-<p>运行时会自动调用每个类的两个方法，+load 与 +initialize。</p>
-<p>+load 会在 main 函数之前调用，并且一定会调用。</p>
-<p>+initialize 是在第一次调用类方法或实例方法之前被调用，有可能一直不被调用。</p>
-<p>一般使用 Swizzling 是为了影响全局，所以为了方法交换一定成功，Swizzling 要放在 +load 中执行。</p>
-<p>Swizzling 要在 dispatch_once 中执行</p>
-<p>Swzzling 是为了影响全局，所以只让它执行一次就可以了，所以要放在 dispatch_once 中。</p>
-<p>例子：</p>
-<figure class="highlight objectivec"><figcaption><span>Objective-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">///-----------------------</span></span><br><span class="line"><span class="comment">/// UIImageView+BRAdd.h</span></span><br><span class="line"><span class="comment">///-----------------------</span></span><br><span class="line"><span class="meta">#import <span class="string">&lt;UIKit/UIKit.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">UIImageView</span> (<span class="title">BRAdd</span>)</span></span><br><span class="line">- (<span class="type">void</span>)br_setImage:(<span class="built_in">UIImage</span> *)image;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">///-----------------------</span></span><br><span class="line"><span class="comment">/// UIImageView+BRAdd.m</span></span><br><span class="line"><span class="comment">///-----------------------</span></span><br><span class="line"><span class="meta">#import <span class="string">&quot;UIImageView+BRAdd.h&quot;</span></span></span><br><span class="line"><span class="meta">#import <span class="string">&lt;objc/runtime.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">UIImageView</span> (<span class="title">BRAdd</span>)</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  load 方法 会在类第一次加载的时候（类被加载到运行时的时候）被调用</span></span><br><span class="line"><span class="comment"> *  调用的时间比较靠前，适合在这个方法里做方法交换</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">+ (<span class="type">void</span>)load &#123;</span><br><span class="line">    <span class="comment">// 方法交换应该被保证，在程序中只会执行一次</span></span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken;</span><br><span class="line">    <span class="built_in">dispatch_once</span>(&amp;onceToken, ^&#123;</span><br><span class="line">        <span class="comment">// 1.获取 UIImageView 类的实例方法 setImage:</span></span><br><span class="line">        Method originalMethod = class_getInstanceMethod([<span class="keyword">self</span> <span class="keyword">class</span>], <span class="keyword">@selector</span>(setImage:));</span><br><span class="line">        <span class="comment">// 2.获取 UIImageView 类的实例方法 br_setImage: （这个方法本身定义在分类中，所以能获取到）</span></span><br><span class="line">        Method swizzledMethod = class_getInstanceMethod([<span class="keyword">self</span> <span class="keyword">class</span>], <span class="keyword">@selector</span>(br_setImage:));</span><br><span class="line">        <span class="comment">// 3.交换方法 setImage: 和 br_setImage:</span></span><br><span class="line">        method_exchangeImplementations(originalMethod, swizzledMethod);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 当在其它位置调用 setImage: 方法时，就会自动调用 br_setImage: 方法</span></span><br><span class="line">- (<span class="type">void</span>)br_setImage:(<span class="built_in">UIImage</span> *)image &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;%s&quot;</span>, __FUNCTION__);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 在这里我们可以添加自己想添加的内容...</span></span><br><span class="line">    <span class="comment">// 调整图片大小：生成一张和 imageView 一样大的图片</span></span><br><span class="line">    <span class="built_in">UIImage</span> *newImage = [<span class="keyword">self</span> newImage:image size:<span class="keyword">self</span>.bounds.size];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 调用系统默认的 setImage:方法</span></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *  注意：交换了方法（互换身份），这时候调用自己，看起来像是死循环，但是其实自己的实现已经被替换了</span></span><br><span class="line"><span class="comment">     *  调用系统的 setImage:方法时，会执行 br_setImage:方法</span></span><br><span class="line"><span class="comment">     *  调用 br_setImage:方法时，会执行系统的 setImage:方法（要注意区分！）</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    [<span class="keyword">self</span> br_setImage:newImage];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 重新生成指定大小的图片</span></span><br><span class="line">- (<span class="built_in">UIImage</span> *)newImage:(<span class="built_in">UIImage</span> *)image size:(<span class="built_in">CGSize</span>)size &#123;</span><br><span class="line">    <span class="built_in">UIGraphicsBeginImageContextWithOptions</span>(size, <span class="literal">YES</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="comment">// 重新绘制图片</span></span><br><span class="line">    [image drawInRect:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, size.width, size.height)];</span><br><span class="line">    <span class="comment">// 取得结果</span></span><br><span class="line">    <span class="built_in">UIImage</span> *newImage = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</span><br><span class="line">    <span class="comment">// 关闭上下文</span></span><br><span class="line">    <span class="built_in">UIGraphicsEndImageContext</span>();</span><br><span class="line">    <span class="keyword">return</span> newImage;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 扩展：方法交换还有不少应用场景，比如记录页面被点开的次数：只要在 UIViewController 的分类的 +load 中交换 viewDidAppear 方法，在交换的方法中添加记录代码就可以了。</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/ios-runtime-study.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1108,6 +1220,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/ios-utf8-to-chinese.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/ios-utf8-to-chinese.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -1121,9 +1261,14 @@
           <p>　　下午在测试一个语音 SDK 的时候，发现打印出来字典里的中文汉字都显示为 UTF-8 的字符，百度了一下解决办法，发现大都是用给 <code>NSArray</code> 和 <code>NSDictionary</code> 创建分类的方法解决的，但是很多文章可能是写的匆忙，或者是复制粘贴的，不够美观和一目了然。而且创建分类的方式，对比我以前用小码哥的一个类来说，多了一个 <code>.h</code> 文件，不够精简。所以就做个笔记，留作备用。<br>　　首先新建一个 OC 的 <code>.m</code> 文件，不知道怎么新建也可以直接，创建普通的 <code>UIVIew</code> 的类，把 <code>.h</code> 删除，把 <code>.m</code> 所有除注释以外代码删除，修改成如下文所示一致就好。
 　　</p>
 <figure class="highlight objectivec"><figcaption><span>Objective-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSDictionary</span> (<span class="title">Log</span>)</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)descriptionWithLocale:(<span class="type">id</span>)locale</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSMutableString</span> *string = [<span class="built_in">NSMutableString</span> string];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 开头有个&#123;</span></span><br><span class="line">    [string appendString:<span class="string">@&quot;&#123;\n&quot;</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 遍历所有的键值对</span></span><br><span class="line">    [<span class="keyword">self</span> enumerateKeysAndObjectsUsingBlock:^(<span class="type">id</span> key, <span class="type">id</span> obj, <span class="type">BOOL</span> *stop) &#123;</span><br><span class="line">        [string appendFormat:<span class="string">@&quot;\t%@&quot;</span>, key];</span><br><span class="line">        [string appendString:<span class="string">@&quot; : &quot;</span>];</span><br><span class="line">        [string appendFormat:<span class="string">@&quot;%@,\n&quot;</span>, obj];</span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 结尾有个&#125;</span></span><br><span class="line">    [string appendString:<span class="string">@&quot;&#125;&quot;</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 查找最后一个逗号</span></span><br><span class="line">    <span class="built_in">NSRange</span> range = [string rangeOfString:<span class="string">@&quot;,&quot;</span> options:<span class="built_in">NSBackwardsSearch</span>];</span><br><span class="line">    <span class="keyword">if</span> (range.location != <span class="built_in">NSNotFound</span>)</span><br><span class="line">    [string deleteCharactersInRange:range];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> string;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSArray</span> (<span class="title">Log</span>)</span></span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSString</span> *)descriptionWithLocale:(<span class="type">id</span>)locale</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSMutableString</span> *string = [<span class="built_in">NSMutableString</span> string];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 开头有个[</span></span><br><span class="line">    [string appendString:<span class="string">@&quot;[\n&quot;</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 遍历所有的元素</span></span><br><span class="line">    [<span class="keyword">self</span> enumerateObjectsUsingBlock:^(<span class="type">id</span> obj, <span class="built_in">NSUInteger</span> idx, <span class="type">BOOL</span> *stop) &#123;</span><br><span class="line">        [string appendFormat:<span class="string">@&quot;\t%@,\n&quot;</span>, obj];</span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 结尾有个]</span></span><br><span class="line">    [string appendString:<span class="string">@&quot;]&quot;</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 查找最后一个逗号</span></span><br><span class="line">    <span class="built_in">NSRange</span> range = [string rangeOfString:<span class="string">@&quot;,&quot;</span> options:<span class="built_in">NSBackwardsSearch</span>];</span><br><span class="line">    <span class="keyword">if</span> (range.location != <span class="built_in">NSNotFound</span>)</span><br><span class="line">    [string deleteCharactersInRange:range];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> string;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-
-<p>GitHub 地址：<a target="_blank" rel="noopener" href="https://github.com/kaaaaai/Code-Fragmentation/blob/master/CodeFragmentation/CodeFragmentation/Other/Foundation%2BLog.m">NSDictionary+Log.m</a></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/ios-utf8-to-chinese.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1227,7 +1372,8 @@
       </div>
   </nav>
 </div>
-  <div class="sidebar-button motion-element"><i class="fa fa-comment"></i>
+  <div class="sidebar-button motion-element">
+    <a onclick="Chatra('openChat', true);"><i class="fa fa-comment"></i>
     Chat
   </a>
   </div>
@@ -1266,7 +1412,43 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Kaaaaai</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">233k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:31</span>
 </div>
+
+<!-- time -->
+  <div id="show-time">
+    <span id="span_dt_dt"></span>
+  </div>
+  <script>
+      function show_date_time() {
+        window.setTimeout("show_date_time()", 1000);
+        BirthDay = new Date("6/23/2017 19:37:01");
+        today = new Date();
+        //总时间
+        timeold = (today.getTime() - BirthDay.getTime());
+        sectimeold = timeold / 1000
+        secondsold = Math.floor(sectimeold);
+        msPerDay = 24 * 60 * 60 * 1000
+        e_daysold = timeold / msPerDay
+        daysold = Math.floor(e_daysold);
+        e_hrsold = (e_daysold - daysold) * 24;
+        hrsold = Math.floor(e_hrsold);
+        e_minsold = (e_hrsold - hrsold) * 60;
+        minsold = Math.floor((e_hrsold - hrsold) * 60);
+        seconds = Math.floor((e_minsold - minsold) * 60);
+        span_dt_dt.innerHTML = "已存活 " + daysold + " 天 " + hrsold + " 小时 " + minsold + " 分 " + seconds + " 秒";
+    }
+show_date_time();
+  </script>
 
         
 <div class="busuanzi-count">
@@ -1285,7 +1467,10 @@
   </div>
 
   
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
   <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 
@@ -1294,12 +1479,13 @@
 <script src="/js/motion.js"></script>
 
 
-<script src="/js/schemes/muse.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 
 
 <script src="/js/next-boot.js"></script>
 
 
+  <script defer src="/lib/three/three.min.js"></script>
 
 
   
@@ -1338,6 +1524,18 @@
 
 
 
+  <script>
+    (function(d, w, c) {
+      w.ChatraID = 'QXLRxXcsfrRJR2KTG';
+      var s = d.createElement('script');
+      w[c] = w[c] || function() {
+        (w[c].q = w[c].q || []).push(arguments);
+      };
+      s.async = true;
+      s.src = 'https://call.chatra.io/chatra.js';
+      if (d.head) d.head.appendChild(s);
+    })(document, window, 'Chatra');
+  </script>
 
 
 
@@ -1350,6 +1548,35 @@
   
 
   
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'fzf6cpurdF6t3abR8qK1Isi3-gzGzoHsz',
+      appKey     : 'mBMU4tntJKhBPKSpyDOWQYGy',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
 
 </body>
 </html>

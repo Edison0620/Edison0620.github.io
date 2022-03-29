@@ -14,10 +14,13 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.kaaaaai.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"www.kaaaaai.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="我独自一人&#x2F;照顾着&#x2F;历代的星辰">
@@ -28,7 +31,7 @@
 <meta property="og:description" content="我独自一人&#x2F;照顾着&#x2F;历代的星辰">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Kaaaaai">
-<meta property="article:tag" content="个人成长, 技术, 思考, 书籍, 电影">
+<meta property="article:tag" content="个人成长, 技术, 思考, 书籍, 电影, iOS, Android, 代码">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://www.kaaaaai.cn/page/7/">
@@ -46,6 +49,15 @@
 
   <title>壹拾肆</title>
   
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102185873-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-102185873-1');
+      }
+    </script>
 
 
   <script>
@@ -84,6 +96,7 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="壹拾肆" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -107,7 +120,7 @@
       <h1 class="site-title">壹拾肆</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
-      <p class="site-subtitle" itemprop="description">闲言和碎语</p>
+      <p class="site-subtitle" itemprop="description">有些安排是多余的 这片空旷对我有益</p>
   </div>
 
   <div class="site-nav-right">
@@ -188,6 +201,7 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
+  <div class="reading-progress-bar"></div>
 
 
     <main class="main">
@@ -245,6 +259,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/after-reading-wangsuo.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/after-reading-wangsuo.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -259,16 +301,14 @@
 <blockquote>
 <p>　　那些一本正经的道德君子和实开家们就一定比用放荡的方式逃避两旁的人生活得更有意义。我只是想说，我是个世俗观念很强的人。我很在乎面子、名利以及在别人眼中的价值。和不想从年轻时就鬼混一生。我不是亿万富翁颓废的继承者，我的野心和自尊使我不甘沦落，我要有我的那一席之地。我没有可供挥霍的资本，我必须像个初到一大城市的究光蛋在新社会里一点点积聚起自己的财富。所以你可以得出结论：我决意告别放荡的生活不是出于顿悟、悔过，仅是一贯的自私个性必定使然。</p>
 </blockquote>
-<p>　　虽然有看的见的诚恳，但以王朔的聪明也定然可以料到把自己放低诚恳交待自己，这种混不吝磊落的做法容易博得人好感，这是一种讨巧式的坦白。在王朔的故事里，许多以“我”第一人称为视角的故事里，多多少少有这样的自述，所以在看书的时候很多时候我总是能感受到都溢出来的王朔的自我。如果说一个好的作家是在作品把自我消去，那王朔在这点上恰好走了相反的路。<br>　　陈述自己如果解释成是王朔对自己的态度，那书里穿插的大量对话，大概可以解读成对外，对世界的态度，对精英主义的消解，对父权的反抗等等，王朔很会写对话，除了那些刻意隐射的对话，也有许多有趣的：</p>
-<blockquote>
-<p>　　“你们的女的就这点叫我瞧不上，见个人就把心掏出来一份换一份农贸市场卖菜的似的，人家要不换或挑挑你们就不干了。” “什么叫我们女的是农贸市场小贩？”夏青嗓门也拨高了，”你们男的才是呢，人家来转转，你们就吆喝着非拉着人家买，人家真买了就缺斤短两坑人家。”<br>　　李江云笑着对懵了头的新娘说：“还没明白，他们胡扯呢。”“你结婚了么？”吴胖子一本正经地问李江云。 “没有。”李江云笑着看看他，又看看我们，撇了下嘴。 “该结了。”吴胖子语重心长。“挺大年细了，就说有几分姿色吧，也没几天了。”“谢谢，我已经了，不用你操心。”李江云笑。 “那就更好了。”吴胖子说，“那就该考虑找个性了。婚已经结了，该尽的义务已经尽了，该排除其它顾虑找个光自己喜欢的人了。”“你倒什么话都有的接。”</p>
-</blockquote>
-<p>　　侧面看得出王朔本人能侃的结论，又看圆桌派，马未都说王朔称赞阿城是全北京最会侃的人。似乎在他们的圈子里，有一种侃者为王的氛围。马未都说的另一件事也让我印象深刻，他说王朔有种能把过去的场景用文字复现的能力，有的时候你看他写的再回头想发生的事，可能当时都没注意到还有这样的细节。这我是信的，就像陈丹青说他看到一个人就会在心里进行侧写，这作为一种职业本能存在是合理的。但他又说王朔小说里所有的事都是真实发生的，这点我就有些疑问，除了对话里老扯名人名言，觉得正常人哪能这么讲话，还有的就是有些故事委实太过离奇，比如《浮出海面》中的“我”向警察自首交待自己臆想出来的杀死初恋的犯罪，还有其他故事里伪装死亡的朋友们，把妻子送给别人然后永远离开的“我”——这里有段精彩的对白：</p>
-<blockquote>
-<p>　　“你开了一个无可挑剔的头，发展的也很顺畅，但你不能适可而止。你过分沉湎于诗意之中，过于重视所谓完美感受，这种诗意和完美感受被张到极限，你便失去了弹性和向纵深发展的势头而陷于滞。同时，过于浓郁的诗意必导致纯洁意识的增强。就是说你为自己设置了屏障，把你的意图和关系的范围限制的在了精神追求的圈子里。这样，当你试图冲破她时便会引起她极大的震惊、失望和反感，继而是愤怒的拒绝对坚决的抵抗——是你把她推到了超凡脱俗的境界与尘世欢乐绝了缘。”<br>“我懂了。”关山平沮丧地说，“我给自己铺了条通向天国的路，走在这种路上想上床当然是亵渎。你为我现在还是希望过渡回来吗？”<br>“智取已经失败只有强攻了。”</p>
-</blockquote>
-<p>　　虽然种种离奇，不过因为无证可考的原因，也只能叹服，可能奇人必有奇事。<br>　　最后回来说下标题，标题源自《过把瘾就死》，看王朔的小说是会上瘾的，因为没看完，所以只算半把瘾。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/after-reading-wangsuo.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -331,6 +371,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/veteran_science_fiction.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/veteran_science_fiction.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>896</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -345,11 +413,14 @@
 <blockquote>
 <p>　　如果我们把“他们从此幸福地生活在一起”这个古老的童话故事的结尾理解为，“在随后的五十年里他们的感觉和结婚前一日完全一样”，那么，这个结尾讲述的可能是一件从未真实，也永远不会真实，倘若真实便令人非常讨厌的事。</p>
 </blockquote>
-<p>　　或是像周星驰某部电影里借角色口说的：无谓重复自己。<br>　　<br>　　<img src="https://s1.ax1x.com/2018/11/29/FeugbV.jpg" alt="星爷低头都那么帅"><br>　　<br>　　我觉得电影人都应该有这种避免重复自己或是重复他人的自觉，以上。
-　　
-　　</p>
-<p>　</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/veteran_science_fiction.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -412,6 +483,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/wizard-world-revolution.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/wizard-world-revolution.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>876</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -486,6 +585,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/python-study-notes.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/python-study-notes.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -497,128 +624,15 @@
 
       
           <p>学习地址：<a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000">Python 教程</a><br>其他：<a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#abs">官网-函数列表</a></p>
-<h2 id="一、基础笔记"><a href="#一、基础笔记" class="headerlink" title="一、基础笔记"></a>一、基础笔记</h2><h3 id="列表：list"><a href="#列表：list" class="headerlink" title="列表：list"></a>列表：list</h3><p>用 <code>len()</code> 函数可以获得 <code>list</code> 元素的个数：</p>
-<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">len</span>(classmates)</span><br></pre></td></tr></table></figure>
-
-<p><code>list</code> 是一个可变的有序表，所以，可以往 <code>list</code> 中追加元素到末尾：</p>
-<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>classmates.append(<span class="string">&#x27;Adam&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>要删除 <code>list</code> 末尾的元素，用 <code>pop()</code> 方法。要删除指定位置的元素，用 <code>pop(i)</code> 方法，其中 i 是索引位置。</p>
-<h3 id="循环：for-和-while"><a href="#循环：for-和-while" class="headerlink" title="循环：for 和 while"></a>循环：for 和 while</h3><p>for 循环：<code>range()</code> 函数，可以生成一个整数序列，再通过 <code>list()</code> 函数可以转换为list。</p>
-<p>while 循环：<code>continue</code> 语句，跳过当前的这次循环，直接开始下一次循环。<code>break</code> 语句可以提前退出循环。</p>
-<h3 id="dict"><a href="#dict" class="headerlink" title="dict"></a>dict</h3><p>通过 <code>in</code> 判断 <code>key</code> 是否存在：</p>
-<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">&#x27;Thomas&#x27;</span> <span class="keyword">in</span> d</span><br></pre></td></tr></table></figure>
-
-<p>通过 <code>dict</code> 提供的 <code>get()</code> 方法，如果 <code>key</code> 不存在，可以返回 <code>None</code>，或者自己指定的 <code>value</code>：</p>
-<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>d.get(<span class="string">&#x27;Thomas&#x27;</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d.get(<span class="string">&#x27;Thomas&#x27;</span>, -<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-
-<p>要删除一个 <code>key</code> ，用 <code>pop(key)</code> 方法，对应的 <code>value</code> 也会从 <code>dict</code> 中删除：</p>
-<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>d.pop(<span class="string">&#x27;Bob&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="set"><a href="#set" class="headerlink" title="set"></a>set</h3><p><code>set</code> 和 <code>dict</code> 类似，也是一组 <code>key</code> 的集合，但不存储 <code>value</code>。由于 <code>key</code> 不能重复，所以，在 <code>set</code> 中，没有重复的 <code>key</code> 。</p>
-<p>通过 <code>add(key)</code> 方法可以添加元素到 <code>set</code> 中，可以重复添加，但不会有效果，通过 <code>remove(key)</code> 方法可以删除元素。</p>
-<h3 id="参数组合"><a href="#参数组合" class="headerlink" title="参数组合"></a>参数组合</h3><p>在 <code>Python</code> 中定义函数，可以用必选参数、默认参数、可变参数、关键字参数和命名关键字参数，这5种参数都可以组合使用。但是请注意，参数定义的顺序必须是：必选参数、默认参数、可变参数、命名关键字参数和关键字参数。</p>
-<h3 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h3><p>取前 3 个元素，用一行代码就可以完成切片：</p>
-<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>L[<span class="number">0</span>:<span class="number">3</span>]</span><br></pre></td></tr></table></figure>
-
-<p><code>Python</code> 支持 <code>L[-1]</code> 取倒数第一个元素，那么它同样支持倒数切片，试试：</p>
-<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>L[-<span class="number">2</span>:]</span><br><span class="line">[<span class="string">&#x27;Bob&#x27;</span>, <span class="string">&#x27;Jack&#x27;</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>L[-<span class="number">2</span>:-<span class="number">1</span>]</span><br><span class="line">[<span class="string">&#x27;Bob&#x27;</span>]</span><br></pre></td></tr></table></figure>
-
-<p>所有数，每5个取一个：</p>
-<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>L[::<span class="number">5</span>]</span><br></pre></td></tr></table></figure>
-
-<h3 id="列表生成式"><a href="#列表生成式" class="headerlink" title="列表生成式"></a>列表生成式</h3><p>列表生成式即 List Comprehensions，是 <code>Python</code> 内置的非常简单却强大的可以用来创建 <code>list</code> 的生成式。</p>
-<p>举个例子，要生成 list [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]可以用 <code>list(range(1, 11))</code>：</p>
-<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">1</span>, <span class="number">11</span>))</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>]</span><br></pre></td></tr></table></figure>
-
-<p>但如果要生成[1x1, 2x2, 3x3, …, 10x10]怎么做？方法一是循环：</p>
-<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>L = []</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">11</span>):</span><br><span class="line"><span class="meta">... </span>   L.append(x * x)</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>L</span><br><span class="line">[<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>, <span class="number">36</span>, <span class="number">49</span>, <span class="number">64</span>, <span class="number">81</span>, <span class="number">100</span>]</span><br></pre></td></tr></table></figure>
-
-<p>但是循环太繁琐，而列表生成式则可以用一行语句代替循环生成上面的 <code>list</code>：</p>
-<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>[x * x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">11</span>)]</span><br><span class="line">[<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>, <span class="number">36</span>, <span class="number">49</span>, <span class="number">64</span>, <span class="number">81</span>, <span class="number">100</span>]</span><br></pre></td></tr></table></figure>
-
-<p>写列表生成式时，把要生成的元素x * x放到前面，后面跟for循环，就可以把list创建出来，十分有用，多写几次，很快就可以熟悉这种语法。</p>
-<p>for循环后面还可以加上if判断，这样我们就可以筛选出仅偶数的平方：</p>
-<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>[x * x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">11</span>) <span class="keyword">if</span> x % <span class="number">2</span> == <span class="number">0</span>]</span><br><span class="line">[<span class="number">4</span>, <span class="number">16</span>, <span class="number">36</span>, <span class="number">64</span>, <span class="number">100</span>]</span><br></pre></td></tr></table></figure>
-
-<p>还可以使用两层循环，可以生成全排列：</p>
-<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>[m + n <span class="keyword">for</span> m <span class="keyword">in</span> <span class="string">&#x27;ABC&#x27;</span> <span class="keyword">for</span> n <span class="keyword">in</span> <span class="string">&#x27;XYZ&#x27;</span>]</span><br><span class="line">[<span class="string">&#x27;AX&#x27;</span>, <span class="string">&#x27;AY&#x27;</span>, <span class="string">&#x27;AZ&#x27;</span>, <span class="string">&#x27;BX&#x27;</span>, <span class="string">&#x27;BY&#x27;</span>, <span class="string">&#x27;BZ&#x27;</span>, <span class="string">&#x27;CX&#x27;</span>, <span class="string">&#x27;CY&#x27;</span>, <span class="string">&#x27;CZ&#x27;</span>]</span><br></pre></td></tr></table></figure>
-
-<h2 id="二、函数式编程"><a href="#二、函数式编程" class="headerlink" title="二、函数式编程"></a>二、函数式编程</h2><p><code>map</code> 函数：接收一个函数和一个序列，并把传入的函数作用于每个元素</p>
-<p><code>reduce</code> 函数：把一个函数作用在一个序列[x1, x2, x3, …]上，这个函数必须接收两个参数，<code>reduce</code> 把结果继续和序列的下一个元素做累积计算，其效果就是：</p>
-<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reduce(f, [x1, x2, x3, x4]) = f(f(f(x1, x2), x3), x4)</span><br></pre></td></tr></table></figure>
-
-<p><code>fiter</code>函数：和 <code>map</code> 类似，区别是会根据返回值是 <code>True</code> 和 <code>False</code> 决定保留还是丢弃该元素</p>
-<p><code>sorted</code>函数：排序函数，可通过key实现自定义排序。可传入第三个参数 <code>reverse=True</code>，要进行反向排序，不必改动 <code>key</code> 函数。</p>
-<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sorted</span>([<span class="string">&#x27;bob&#x27;</span>, <span class="string">&#x27;about&#x27;</span>, <span class="string">&#x27;Zoo&#x27;</span>, <span class="string">&#x27;Credit&#x27;</span>], key=<span class="built_in">str</span>.lower, reverse=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
-
-<p>匿名函数：lambda x: x * x实际上就是：<br> <figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> x * x</span><br></pre></td></tr></table></figure><br>关键字 <code>lambda</code> 表示匿名函数，冒号前面的 <code>x</code> 表示函数参数。</p>
-<p>装饰器——？：需要再进一步了解。</p>
-<p>偏函数：<code>functools.partial</code> 就是帮助我们创建一个偏函数的，不需要我们自己定义 <code>int2()</code>，可以直接使用下面的代码创建一个新的函数 <code>int2</code>：</p>
-<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> functools</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>int2 = functools.partial(<span class="built_in">int</span>, base=<span class="number">2</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>int2(<span class="string">&#x27;1000000&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>定义：对原函数的默认参数进行改造，为我所用</li>
-<li>方式：<code>max8=functools.partial(max,8)</code>(当然要先导入 <code>functools</code> 包)</li>
-<li>新知：<code>int</code> 居然这么强，<code>int(&#39;1234234&#39;,2)</code></li>
-</ol>
-<h2 id="三、调试"><a href="#三、调试" class="headerlink" title="三、调试"></a>三、调试</h2><p>程序能一次写完并正常运行的概率很小，基本不超过 1%。总会有各种各样的 <code>bug</code> 需要修正。有的 <code>bug</code> 很简单，看看错误信息就知道，有的 <code>bug</code> 很复杂，我们需要知道出错时，哪些变量的值是正确的，哪些变量的值是错误的，因此，需要一整套调试程序的手段来修复 <code>bug</code>。<br>第一种方法简单直接粗暴有效，就是用 <code>print()</code> 把可能有问题的变量打印出来看看：</p>
-<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">foo</span>(<span class="params">s</span>):</span><br><span class="line">    n = <span class="built_in">int</span>(s)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;&gt;&gt;&gt; n = %d&#x27;</span> % n)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">10</span> / n</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    foo(<span class="string">&#x27;0&#x27;</span>)</span><br><span class="line"></span><br><span class="line">main()</span><br></pre></td></tr></table></figure>
-
-<p>执行后在输出中查找打印的变量值：</p>
-<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ python ~/documents/err.py</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>n = <span class="number">0</span></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  ...</span><br><span class="line">ZeroDivisionError: integer division <span class="keyword">or</span> modulo by zero</span><br></pre></td></tr></table></figure>
-
-<p>用 <code>print()</code> 最大的坏处是将来还得删掉它，想想程序里到处都是 <code>print()</code>，运行结果也会包含很多垃圾信息。所以，我们又有第二种方法。</p>
-<h3 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h3><p>凡是用 <code>print()</code> 来辅助查看的地方，都可以用断言（assert）来替代：</p>
-<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">foo</span>(<span class="params">s</span>):</span><br><span class="line">    n = <span class="built_in">int</span>(s)</span><br><span class="line">    <span class="keyword">assert</span> n != <span class="number">0</span>, <span class="string">&#x27;n is zero!&#x27;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">10</span> / n</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    foo(<span class="string">&#x27;0&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p><code>assert</code> 的意思是，表达式 <code>n != 0</code> 应该是 <code>True</code>，否则，根据程序运行的逻辑，后面的代码肯定会出错。<br>如果断言失败，<code>assert</code> 语句本身就会抛出</p>
-<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">AssertionError：</span><br><span class="line">$ python ~/documents/err.py</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  ...</span><br><span class="line">AssertionError: n <span class="keyword">is</span> zero!</span><br></pre></td></tr></table></figure>
-
-<p>程序中如果到处充斥着 <code>assert</code>，和 <code>print()</code> 相比也好不到哪去。不过，启动 <code>Python</code> 解释器时可以用 -O 参数来关闭<code>assert</code>：</p>
-<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ python -O err.py</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  ...</span><br><span class="line">ZeroDivisionError: division by zero</span><br></pre></td></tr></table></figure>
-
-<p>关闭后，你可以把所有的 <code>assert</code> 语句当成<code>pass</code> 来看。</p>
-<h3 id="logging"><a href="#logging" class="headerlink" title="logging"></a>logging</h3><p>把 <code>print()</code> 替换为 <code>logging</code> 是第3种方式，和 <code>assert</code> 比，<code>logging</code> 不会抛出错误，而且可以输出到文件：</p>
-<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"></span><br><span class="line">s = <span class="string">&#x27;0&#x27;</span></span><br><span class="line">n = <span class="built_in">int</span>(s)</span><br><span class="line">logging.info(<span class="string">&#x27;n = %d&#x27;</span> % n)</span><br><span class="line"><span class="built_in">print</span>(<span class="number">10</span> / n)</span><br></pre></td></tr></table></figure>
-
-<p><code>logging.info()</code> 就可以输出一段文本。运行，发现除了 <code>ZeroDivisionError</code>，没有任何信息。怎么回事？<br>别急，在 <code>import logging</code> 之后添加一行配置再试试：</p>
-<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line">logging.basicConfig(level=logging.INFO)</span><br></pre></td></tr></table></figure>
-
-<p>看到输出了：</p>
-<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ python err.py</span><br><span class="line">INFO:root:n = <span class="number">0</span></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">&quot;err.py&quot;</span>, line <span class="number">8</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    <span class="built_in">print</span>(<span class="number">10</span> / n)</span><br><span class="line">ZeroDivisionError: division by zero</span><br></pre></td></tr></table></figure>
-
-<p>这就是 <code>logging</code> 的好处，它允许你指定记录信息的级别，有 <code>debug</code>，<code>info</code>，<code>warning</code>，<code>error</code> 等几个级别，当我们指定 <code>level=INFO</code> 时，<code>logging.debug</code> 就不起作用了。同理，指定 <code>level=WARNING</code> 后，<code>debug</code> 和 <code>info</code> 就不起作用了。这样一来，你可以放心地输出不同级别的信息，也不用删除，最后统一控制输出哪个级别的信息。<br><code>logging</code> 的另一个好处是通过简单的配置，一条语句可以同时输出到不同的地方，比如<code>console</code> 和文件。</p>
-<h3 id="pdb"><a href="#pdb" class="headerlink" title="pdb"></a>pdb</h3><p>第4种方式是启动 <code>Python</code> 的调试器 <code>pdb</code>，让程序以单步方式运行，可以随时查看运行状态。我们先准备好程序：</p>
-<figure class="highlight python"><figcaption><span>Python err.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&#x27;0&#x27;</span></span><br><span class="line">n = <span class="built_in">int</span>(s)</span><br><span class="line"><span class="built_in">print</span>(<span class="number">10</span> / n)</span><br></pre></td></tr></table></figure>
-
-<p>然后启动：</p>
-<figure class="highlight bash"><figcaption><span>终端</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ python -m pdb err.py</span><br><span class="line">&gt; /Users/michael/Github/learn-python3/samples/debug/err.py(2)&lt;module&gt;()</span><br><span class="line">-&gt; s = <span class="string">&#x27;0&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>以参数 <code>-m pdb</code> 启动后，<code>pdb</code> 定位到下一步要执行的代码<code>-&gt; s = &#39;0&#39;</code>。输入命令 <code>l</code> 来查看代码：</p>
-<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(Pdb) l</span><br><span class="line">  <span class="number">1</span>     <span class="comment"># err.py</span></span><br><span class="line">  <span class="number">2</span>  -&gt; s = <span class="string">&#x27;0&#x27;</span></span><br><span class="line">  <span class="number">3</span>     n = <span class="built_in">int</span>(s)</span><br><span class="line">  <span class="number">4</span>     <span class="built_in">print</span>(<span class="number">10</span> / n)</span><br></pre></td></tr></table></figure>
-<p>输入命令n可以单步执行代码：</p>
-<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(Pdb) n</span><br><span class="line">&gt; /Users/michael/Github/learn-python3/samples/debug/err.py(<span class="number">3</span>)&lt;module&gt;()</span><br><span class="line">-&gt; n = <span class="built_in">int</span>(s)</span><br><span class="line">(Pdb) n</span><br><span class="line">&gt; /Users/michael/Github/learn-python3/samples/debug/err.py(<span class="number">4</span>)&lt;module&gt;()</span><br><span class="line">-&gt; <span class="built_in">print</span>(<span class="number">10</span> / n)</span><br></pre></td></tr></table></figure>
-
-<p>任何时候都可以输入命令p 变量名来查看变量：</p>
-<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(Pdb) p s</span><br><span class="line"><span class="string">&#x27;0&#x27;</span></span><br><span class="line">(Pdb) p n</span><br><span class="line"><span class="number">0</span></span><br></pre></td></tr></table></figure>
-
-<p>输入命令q结束调试，退出程序：</p>
-<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(Pdb) q</span><br></pre></td></tr></table></figure>
-
-<p>这种通过 <code>pdb</code> 在命令行调试的方法理论上是万能的，但实在是太麻烦了，如果有一千行代码，要运行到第 999 行得敲多少命令啊。还好，我们还有另一种调试方法。</p>
-<figure class="highlight python"><figcaption><span>Python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pdb.set_trace()</span><br></pre></td></tr></table></figure>
-
-<p>这个方法也是用 <code>pdb</code>，但是不需要单步执行，我们只需要 <code>import pdb</code>，然后，在可能出错的地方放一个 <code>pdb.set_trace()</code>，就可以设置一个断点：</p>
-<figure class="highlight python"><figcaption><span>Python err.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pdb</span><br><span class="line"></span><br><span class="line">s = <span class="string">&#x27;0&#x27;</span></span><br><span class="line">n = <span class="built_in">int</span>(s)</span><br><span class="line">pdb.set_trace() <span class="comment"># 运行到这里会自动暂停</span></span><br><span class="line"><span class="built_in">print</span>(<span class="number">10</span> / n)</span><br></pre></td></tr></table></figure>
-
-<p>运行代码，程序会自动在 <code>pdb.set_trace()</code> 暂停并进入 <code>pdb</code> 调试环境，可以用命令 <code>p</code> 查看变量，或者用命令 <code>c</code> 继续运行：</p>
-<figure class="highlight bash"><figcaption><span>终端</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ python err.py </span><br><span class="line">&gt; /Users/michael/Github/learn-python3/samples/debug/err.py(7)&lt;module&gt;()</span><br><span class="line">-&gt; <span class="built_in">print</span>(10 / n)</span><br><span class="line">(Pdb) p n</span><br><span class="line">0</span><br><span class="line">(Pdb) c</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">&quot;err.py&quot;</span>, line 7, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    <span class="built_in">print</span>(10 / n)</span><br><span class="line">ZeroDivisionError: division by zero</span><br></pre></td></tr></table></figure>
-
-<p>这个方式比直接启动 <code>pdb</code> 单步调试效率要高很多，但也高不到哪去。</p>
-<h3 id="IDE"><a href="#IDE" class="headerlink" title="IDE"></a>IDE</h3><p>如果要比较爽地设置断点、单步执行，就需要一个支持调试功能的 <code>IDE</code>。目前比较好的 <code>Python IDE</code> 有：<br><a target="_blank" rel="noopener" href="https://code.visualstudio.com/">Visual Studio Code</a>：需要安装<code>Python</code> 插件。<br><a target="_blank" rel="noopener" href="http://www.jetbrains.com/pycharm/">PyCharm</a>。<br>另外，<code>Eclipse</code> 加上 <code>pydev</code> 插件也可以调试 <code>Python</code> 程序。</p>
-<p><strong>小结：</strong>写程序最痛苦的事情莫过于调试，程序往往会以你意想不到的流程来运行，你期待执行的语句其实根本没有执行，这时候，就需要调试了。<br>虽然用 <code>IDE</code> 调试起来比较方便，但是最后你会发现，<code>logging</code> 才是终极武器。</p>
-
+<h2 id="一、基础笔记"><a href="#一、基础笔记" class="headerlink" title="一、基础笔记"></a>一、基础笔记</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/python-study-notes.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -681,6 +695,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/other-fragment-about-huan.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/other-fragment-about-huan.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -695,7 +737,14 @@
 它们停下来，有些东西却永远留在身外继续疾驰。</blockquote>
 
 <p>　　这是《动物集》里的一段话，我很喜欢。因为把他从小说里摘出来放在某本诗集里，也丝毫没有违和感，充满想象力和诗意。作者是胡安.何塞.阿雷奥拉，墨西哥人，名字有些绕口，不过比起人名本身就可以搭成迷宫的俄罗斯人也还算好。然后因为这本书我又买了他的另一本书《寓言集》。<br>　　最近读完。相比之下，更喜欢的还是《动物集》，虽然《寓言集》也不乏灵光闪现的片段，比如《独角犀》《一个被驯化的女人》，但有几篇比如模仿购物宣广告的文章，现在看不免有些俗气，借由商品简介来讽刺人类的劣根性，虽然把人类的丑陋都精确的说到点上了，但总有些在讽刺人上用力过度的感觉，显得小气。最好的是《铁路扳道工》，有一些科幻的元素，底下放着对体制的讽刺，买了固定站点的票，却不一定在固定站点停靠，驶往深渊的铁道，因为火车翻车便建起的小镇，充满荒诞又值得深思的细节。<br>　　再说其他有印象的几篇，《山震》没怎么看懂，如果是讽刺人们以讹传讹，太浅且无趣。《尘世生活费》不带批判性的看，有趣，但仍然流于表面，少了几分蕴藉之美。<br>　　《上帝的沉默》里和上帝的通信，让我想到了 C.S.路易斯的《返璞归真》，循循善诱的态度，最后上帝的回信，劝诫朴实真诚，只是和我印象里圣经中上帝的口气有所出入，也因为这个想到，即便只存在一个上帝，但不同人口里传出来的上帝应该都不是同一个。或者说，每个人都有自己的上帝。<br>　　《声誉》是我第二喜欢的故事，从小事——公交车让位，讽刺人们为声誉所累，太过于在意别人的眼光而一次又一次做出违背自己内心的选择。比起前阵子很火的《无声告白》里写的在别人的期待中活着，最终无以为继选择自杀，讲的其实是同一回事，主动被动的区别。不过少了很多苦大仇深，俏皮又不乏冷峻。<br>　　《乡下人》和《奇异的毫克》是两个很相似的故事，写的都是人们的虚妄和盲目不自知。《奇异的毫克》描写的主体是蚂蚁，群居性的人类确实有一些蚁群的特征。<br>　　《夏娃》重写了夏娃和亚当的相识追逐相爱，故事的气质给我感觉是从一个史诗孵化出了另一个史诗。但仔细想又有一些不太贴切，史诗太过庞大。精确一点是，在另一部圣经里当做开头，也不违和。<br>　　《那波尼德斯》复现了古巴比伦巨大石碑在由那波尼德斯主观驱动下的整个产生过程。诞生始于一种偏执，毁灭也始于一种偏执。<br>　　《给一个补坏鞋子的鞋匠的信》我十分怀疑是作者的鞋子被补坏后的游戏之作，哪怕把一些不满和碎碎念用修辞比喻包装起来也不是很好看。但假设作者想说的对象，不止是鞋匠，因为一些建议放在其他职业身上也同样合适，把立意拔高展开，这么看这篇寓言被放在书的最后，似乎也有他一定的道理。<br>　　整本书读完和反刍完，给我整体的印象还是不错的。就仍有些疑问，为什么这种风格的寓言短篇总是会有一遭没一遭的脑子里闪过博尔赫斯的名字，寓言这种类型是不是必须要有所寓意才能称为寓言，可不可以写一个他的寓意本身就是寓言的寓言故事。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/other-fragment-about-huan.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -758,6 +807,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/chinese-text-layout-study.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/chinese-text-layout-study.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -770,20 +847,14 @@
       
           <p>*　　偶尔在知乎、少数派或其他社区资讯网站上看文章，会发现有的文章看起来很舒服，有的感觉怪怪的，变扭。细究之下，大概就是排版的原因。那么如何学习好的排版呢，再细究，发现里面的学问也有不少，如何分段落，如何引用图片，以及句子段落本身的排版。刻意去看了下<a target="_blank" rel="noopener" href="https://github.com/mzlogin/chinese-copywriting-guidelines">中文文案排版指北</a>，这里介绍了一些中文文案，中英文排版约定俗成的标准，而且许多网站也都引入了这些标准。值得学习，那现在就一起来看看。*</p>
 <p>　　第一部分讲空格，引言有这么一段：</p>
-<blockquote>
-<p>「有研究显示，打字的时候不喜欢在中文和英文之间加空格的人，感情路都走得很辛苦，有七成的比例会在 34 岁的时候跟自己不爱的人结婚，而其余三成的人最后只能把遗产留给自己的猫。毕竟爱情跟书写都需要适时地留白。</p>
-<p>与大家共勉之。」——<a target="_blank" rel="noopener" href="https://github.com/vinta/pangu.js">vinta&#x2F;paranoid-auto-spacing</a></p>
-</blockquote>
-<p>　　我刻意去搜索了这句话是出自哪个研究，但发现这段话除了出现在所有介绍排版的文章里以外，再没有第二个地方引用他，他的真实性值得商榷。另外也忍不住让人较真，我不加空格就爱情不行了吗，不加空格就运气不好了吗，大字不识白首偕老的人比比皆是，哼。<br>　　考虑到他的初衷是给人警醒作用，虽然仍旧觉得从中文和英文之间是否加空格延伸到爱情幸福有点小题大做，但还是可以勉强接受到的。不过也难免会想：第一个把两者混为一谈的可能还有些俏皮似的聪明，后面跟风的只能是泛泛了。<br>　　OK，回归正题，第一部分讲的是中文和英文，中文和数字需要加空格，数字与单位之间，全角标点与其他字符之间不加空格。只记个标题基本就可以掌握，平常我为了加强记忆，在用社交软件和人聊天的时候也会强迫自己遵循这个标准。和以前背英语单词，在周遭事物都贴上英文名，潜移默化一个道理。<br>　　第二部分是讲标点符号的使用，有时在聊天中我们为了加强语气，会重复使用某个感叹号或者问号，也有碰见重复使用逗号的朋友，这个部分就说到这种情况：</p>
-<blockquote>
-<p><strong>不重复使用标点符号</strong></p>
-<p>正确：<br>　　德国队竟然战胜了巴西队！<br>　　她竟然对你说「喵」？！</p>
-</blockquote>
-<blockquote>
-<p>错误：<br>　　德国队竟然战胜了巴西队！！<br>　　德国队竟然战胜了巴西队！！！！！！！！<br>　　她竟然对你说「喵」？？！！<br>　　她竟然对你说「喵」？！？！？？！！</p>
-</blockquote>
-<p>　　但我仍然有个疑问，就是这里是正常的文本处理，那如果遇到双引号以内，人物对话时呢，该怎么处理。打算之后在其他使用这些规范的网站多注意这点。<br>　　第三部分全角和半角，这个在实际使用上会有点别扭，应为总是要在全角和半角来回切换，先前的文章中我唯一用到全角的就是文章段落头部两个空格，全角的空格会大一点，排版会好看，但每次使用完总得切回来，不然涉及到英文、数字就会自动的在首尾加上空格。<br>　　第四部分是容易错误的点，是讲关于名词正确的大小写和地道的缩写的，我也总在这上面犯一些错误。这种错误是低级的，犯这种错误也是低级的。在这点上我反而更相信：在书写上会犯低级错误的人，感情路都走得很辛苦，有七成的比例会在 34 岁的时候跟自己不爱的人结婚，而其余三成的人最后只能把遗产留给自己的猫。毕竟爱情跟书写都需要避免犯低级错误。<br>　　最后一部分就是按个人喜好选择，在链接之前是否增加空格，简体中文是或否使用直接引号。<br>　　中英文排版的学习就基本告一段落，但还有许多需要注意的，比如在简书上，我发现他们的文章习惯性的每个自然段都会追加空行，而微信公众号则发现极少出现一个自然段有很长的文字，而且图文并茂也是非常重要的一点，甚至是在知乎和微信都关注了的，我觉得很有古代文人气质的张佳玮，也无能免俗的会给自己的文章配上图，靠纯文字来说服人似乎已经是一件很困难的事，看图说话仿佛大势所趋。孰好孰坏先放在一遍，尝试一下先。<br>　　以上。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/chinese-text-layout-study.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -846,6 +917,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/outside-the-straw-house.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/outside-the-straw-house.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -858,9 +957,14 @@
       
           <p>　　看了曹文轩的《草房子》，内容讲的是发生桑桑这个小主人公周围的事，有孩子的故事，也有大人的故事。<br>　　<br>　　叙事口吻平淡朴实，像静谧的流水，又像傍晚从远处村庄传来带着泥土气息的风，让人也不由自主的想起自己的童年时光，就好像成年后在某个瞬间想起小时候放学经过正开饭的陌生人家闻到饭菜的味道，那个瞬间中所处的情景和记忆中的画面，便重叠串在一起。这本书也有类似的力量。<br>　　<br>　　书里写了许多大概每个人童年都会发生的事情，一个让人印象深刻的漂亮女孩，一个早早退学的朋友，一个在学校里因为彼此都很优秀而暗地里较真的小伙伴，还有因为人小所以身不由己的当了大人的传声筒，卷进大人们的爱情故事里。甚至是每个人都可能生过的一场发生在童年无可避免的大病。</p>
 <p>　　在那个大人的爱情故事里出现的男主人公，是桑桑的老师，那个老师是个很特别的人，会在节日庆典组织学生排练舞蹈，会在河边吹笛子吹出悠扬的曲子，穿白衬衫，皮鞋，英俊潇洒。在那种封闭的小村庄里，那样的人似乎很少，但又似乎每个村子都会有那么一两个那样的人。<br>　　<br>　　我童年记忆里像那样代表性的人大概是我的小学语文老师，爱扎羊角辫和马尾，都很好看。有时会提着一桶衣服穿过两三条街道，到我们家旁边的那条河洗衣服，我有时候会站在家门口偷看，看她把衣服放在河里，攥着一角轻轻摆动，涤荡干净。她夏天爱穿裙子，快分开的那个夏天，她总喜欢穿的是一条淡绿色的裙子，常常在我们早读的时候站在教室外的阳台上，发呆，眺望远方，有风的时候，裙子会轻轻扬起来。以致于在我反复回忆起这段记忆的时候，有时候想不起老师的样子，但裙子的颜色却越发鲜艳起来。</p>
-<p>　　沉浸在回忆里的抒情往往用力过度。以致于后来喜欢上的女孩子，总是因为她们举手投足和记忆里的某些印象相似，像女老师，像裙子，像河流。我被彻底击中被俘获。<br>　　<br>　　看完之后除了把故事情节和自己的童年记忆一一比对，另一方面觉得有点可惜，这本书要是早点看就好了。这种可惜，并不是因为它优秀的让人觉得相见恨晚——虽然它也很优秀，而是我觉得这类记录童年的书应该在人生的各个不同阶段都看一遍，童年的时候看，少年的时候再看，青年、壮年、老年。就好像在不同阶段留了一个标记，在之后的漫长岁月里总还可以时不时的回头，哦，那会看这本书的时候，我好像还是一个人在异地他乡为了那样那样而做着这样这样的。借助外物达到不忘初心的方式，这也算一个。</p>
-<p>　　看过的另一本和这个类似的书是《城南旧事》，幸运的是这本书很早就看过了，因为小学有篇课文叫，爸爸的花儿落了。当时就去找原著看了，英子，疯女人秀珍，兰姨娘，四眼狗德先叔，都鲜活的常驻在记忆里。每当我被生活琐事搅扰的焦头烂额的时候都会拿出来看一看。比任何开解的话语都有效。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/outside-the-straw-house.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -923,6 +1027,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/platypus-philosophy.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/platypus-philosophy.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -997,6 +1129,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/farewell-to-the-darkness.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/farewell-to-the-darkness.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -1007,20 +1167,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="《刺杀骑士团长》"><a href="#《刺杀骑士团长》" class="headerlink" title="《刺杀骑士团长》"></a>《刺杀骑士团长》</h2><div align = right> [村上春树](https://www.amazon.cn/dp/B079FLYB49/ref=sr_1_1?ie=UTF8&qid=1532067759&sr=8-1&keywords=%E5%88%BA%E6%9D%80%E9%AA%91%E5%A3%AB%E5%9B%A2%E9%95%BF) </div><div align = right> 10 条标注 </div> 
-
-
-<p id="div-border-left-green">　　我是这样认为的，需要大刀阔斧转型的时期，无论谁的人生中恐怕都是有的。一旦那个临界点来了，就必须迅速抓住它的尾巴，死死地紧抓不放，再不松手。世上有抓得住那个点的人，有抓不住的人。
-
-<p>　　后来回头看去,觉得我们的人生委实匪夷所思,充满难以置信的荒唐的偶然和无法预测的曲折进程。然而,在那些已然实际出现的节点上,很多时候哪怕再小心翼翼地环顾四周,也可能找不出任何匪夷所思的元素。闪入我们眼帘的,恐怕只是在没有接缝的日常生活中发生的再正常不过的正常事情。或许完全不合情理。可是,事物是否合乎情理,那需要时间冲洗才能真正看到清楚</p>
-<p>　　我无论如何不能设想我们正式解除夫妻关系而后也保持朋友关系。我们通过长达六年的婚姻生活共同拥有了许许多多的东西——许多时间，许多感情，许多话语和许多沉默，许多犹豫和许多判断，许多信守和许多达观，许多愉悦和许多单调。当然，相互守口如瓶而作为秘密藏在心底的事项也应有若干。但是，甚至连那种秘而不宣的隐秘感觉，我们也能设法使之共有。那里存在唯独时间才能培育的“场的重量”。我们让身体同那样的重力一拍即合，在其微妙的平衡中朝夕相处。那里还存在几条我们特有的“地方性法规”。不可能将这些归零，不可能将那里有过的重力平衡和地方性法规抽空而单纯成为“好友”。</p>
-<p>　　真相有时带给人的是何等深刻的孤独。比起毫无动摇的真相，我选择有动摇余地的可能性，我选择在这样的动摇中终其一生。<br>　　<br>　　无论怎么挣扎，人也要为与生俱来的东西所大大左右。<br>　　<br>　　既有时间夺走的东西，又有时间给予的东西，把时间拉向自己这边是一项重要的工作。</p>
-<p>　　抛弃类似自我的东西，在人生某一时期也是有意义的。<br>　　<br>　　陀思妥耶夫斯基的小说里边，有很多人物为了证明自己是独立于神和世俗社会的自由人而做傻事。噢，当时的俄国也许并没傻成那个样子。</p>
-<p>　　人生中会有好几件不能很好解释的事，也会有好几件不应该解释的事。尤其在一旦解释就会彻底失去某种至关重要东西的情况下</p>
-<p>　　历史之中，就那样搁置在黑暗中为好的事件多得要命。正确知识未必使人丰富。客观未必凌驾于主观之上。事实未必吹灭妄想。</p>
-</p>
-
-
+          <h2 id="《刺杀骑士团长》"><a href="#《刺杀骑士团长》" class="headerlink" title="《刺杀骑士团长》"></a>《刺杀骑士团长》</h2><div align="right"> [村上春树](https://www.amazon.cn/dp/B079FLYB49/ref=sr_1_1?ie=UTF8&qid=1532067759&sr=8-1&keywords=%E5%88%BA%E6%9D%80%E9%AA%91%E5%A3%AB%E5%9B%A2%E9%95%BF) </div>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/farewell-to-the-darkness.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1083,6 +1238,34 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/be-a-man.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/be-a-man.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -1097,12 +1280,14 @@
 <blockquote>
 <p>　　该打的仗我已经打过了，该跑的路我也跑到了尽头，老子信的道老子自己来守，背叛、争抢、没有底线，想把老子变成一只动物，no，没戏，老子宁可做一辈子披荆斩刺的小丑，也绝不会变成你们这种人渣的样子，游戏是你们的，规则，老子自己来定。</p>
 </blockquote>
-<p>　　热血沸腾。在我以为他在经历了一场深刻的背叛之后会选择从此当个坏人，然而他没有，反而对自己所信仰的事物更加坚定了。就在他转角出来，那段台词念到一半，我忽然明白他是怎么想的时候，甚至有些感动起来。可能是身上还有一部分属于中二少年的东西被唤醒。除了觉得这段台词和为信念坚守自己酷毙了，冷静后搜索知道台词出处来自圣经<a href="%E3%80%8A%E6%8F%90%E6%91%A9%E5%A4%AA%E5%90%8E%E4%B9%A6%E3%80%8B%E7%AB%A0%E5%9B%9B%EF%BC%9A%E9%82%A3%E7%BE%8E%E5%A5%BD%E7%9A%84%E4%BB%97%E6%88%91%E5%B7%B2%E7%BB%8F%E6%89%93%E8%BF%87%E4%BA%86%EF%BC%8C%E5%BD%93%E8%B7%91%E7%9A%84%E8%B7%AF%E6%88%91%E5%B7%B2%E7%BB%8F%E8%B7%91%E5%B0%BD%E4%BA%86%EF%BC%8C%E6%89%80%E4%BF%A1%E7%9A%84%E9%81%93%E6%88%91%E5%B7%B2%E7%BB%8F%E5%AE%88%E4%BD%8F%E4%BA%86%E3%80%82%E4%BB%8E%E6%AD%A4%E4%BB%A5%E5%90%8E%EF%BC%8C%E6%9C%89%E5%85%AC%E4%B9%89%E7%9A%84%E5%86%A0%E5%86%95%E4%B8%BA%E6%88%91%E5%AD%98%E7%95%99%EF%BC%8C%E5%B0%B1%E6%98%AF%E6%8C%89%E7%9D%80%E5%85%AC%E4%B9%89%E5%AE%A1%E5%88%A4%E7%9A%84%E4%B8%BB%E5%88%B0%E4%BA%86%E9%82%A3%E6%97%A5%E8%A6%81%E8%B5%90%E7%BB%99%E6%88%91%E7%9A%84%EF%BC%9B%E4%B8%8D%E4%BD%86%E8%B5%90%E7%BB%99%E6%88%91%EF%BC%8C%E4%B9%9F%E8%B5%90%E7%BB%99%E5%87%A1%E7%88%B1%E6%85%95%E4%BB%96%E6%98%BE%E7%8E%B0%E7%9A%84%E4%BA%BA%E3%80%82">^1</a>，还让我想到我和朋友很久以前谈论的一个话题。<br>　　为什么坏人放下屠刀，立地就能成佛，而好人就要经过九九八十一难才能成佛。<br>　　朋友对此表示十分愤慨。而我觉得理所当然。正如《动》里的郑开司，在经历了船上发生的一系列事情仍然能坚守自己，甚至不是坚守，而是从以前自己含糊的态度一脚踏出一个新的自己，我始终认为，只有切实的感受过恶的善才是真正的善。不然在优渥环境里成长出的与世无争的善，只是空中阁楼。保持一颗赤子之心很难，少年人见识了世间险恶，在人情世故里打滚，有的虽然变得油腻、难看，但也值得被体谅和同情，选择不跨出那一步，固步自封，善良热忱的脸虽然依旧如新、好看但着实没什么夸耀的。当然对于那些我们爱的人，我们也大可以不用那么严格的送上刘瑜式的祝福：</p>
-<blockquote>
-<p>愿你有好运气，如果没有，愿你在不幸中学会慈悲。<br>愿你被很多人爱，如果没有，愿你在寂寞中学会宽容。</p>
-</blockquote>
-<p>　　而从技术上讲。两部电影都没有国产片水和拖沓的毛病，好吧，《动》前面有一点拖沓。《药神》里有些情节的处理不算太好，在通篇的不落俗套里落了俗套，比如徐峥想把患白血病女儿的妈妈给睡了，脱完衣服，女儿出现，他冷静和推门离开；黄毛开车从码头成功逃脱后回头，货车出现，他被撞和去世，还有后面给很多人发有药的QQ消息，闪过很多画面，最后定格在希望两个字上，甚至让我不由得感受到冯小刚《唐山大地震》里，片尾女主角推着自行车经过纪念碑缅怀先人的气氛，庄严煽情。这些类似的俗套在其他影视作品里屡见不鲜，这里也这么用那么一下，让我感觉，就好像炒一锅好菜，快大功告成放调料的时候，手下重了。我试着去理解，从另一面想，这可能是导演刻意选择的结果，用人们所熟悉的桥段来让人提高他们的接受力，另一个也能快速代入感情，进入下一个场景。《动》前面家长里短的剧情铺垫虽然有国产片拖沓的影子，但整体节奏都十分紧凑，安排的几个配角也有各尽其用，有着一定的分量。看评论有说到特技的滥用，但我觉得正是这些特技让人不时可以打破次元壁，放松一下自己。毕竟这是一部漫改的作品，如果太一板正经了，那漫改又有什么意义。<br>　　以上，就是我最近看的两篇不错的电影的一点蹩脚感想。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/be-a-man.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1206,7 +1391,8 @@
       </div>
   </nav>
 </div>
-  <div class="sidebar-button motion-element"><i class="fa fa-comment"></i>
+  <div class="sidebar-button motion-element">
+    <a onclick="Chatra('openChat', true);"><i class="fa fa-comment"></i>
     Chat
   </a>
   </div>
@@ -1245,7 +1431,43 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Kaaaaai</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">233k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:31</span>
 </div>
+
+<!-- time -->
+  <div id="show-time">
+    <span id="span_dt_dt"></span>
+  </div>
+  <script>
+      function show_date_time() {
+        window.setTimeout("show_date_time()", 1000);
+        BirthDay = new Date("6/23/2017 19:37:01");
+        today = new Date();
+        //总时间
+        timeold = (today.getTime() - BirthDay.getTime());
+        sectimeold = timeold / 1000
+        secondsold = Math.floor(sectimeold);
+        msPerDay = 24 * 60 * 60 * 1000
+        e_daysold = timeold / msPerDay
+        daysold = Math.floor(e_daysold);
+        e_hrsold = (e_daysold - daysold) * 24;
+        hrsold = Math.floor(e_hrsold);
+        e_minsold = (e_hrsold - hrsold) * 60;
+        minsold = Math.floor((e_hrsold - hrsold) * 60);
+        seconds = Math.floor((e_minsold - minsold) * 60);
+        span_dt_dt.innerHTML = "已存活 " + daysold + " 天 " + hrsold + " 小时 " + minsold + " 分 " + seconds + " 秒";
+    }
+show_date_time();
+  </script>
 
         
 <div class="busuanzi-count">
@@ -1264,7 +1486,10 @@
   </div>
 
   
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
   <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 
@@ -1273,12 +1498,13 @@
 <script src="/js/motion.js"></script>
 
 
-<script src="/js/schemes/muse.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 
 
 <script src="/js/next-boot.js"></script>
 
 
+  <script defer src="/lib/three/three.min.js"></script>
 
 
   
@@ -1317,6 +1543,18 @@
 
 
 
+  <script>
+    (function(d, w, c) {
+      w.ChatraID = 'QXLRxXcsfrRJR2KTG';
+      var s = d.createElement('script');
+      w[c] = w[c] || function() {
+        (w[c].q = w[c].q || []).push(arguments);
+      };
+      s.async = true;
+      s.src = 'https://call.chatra.io/chatra.js';
+      if (d.head) d.head.appendChild(s);
+    })(document, window, 'Chatra');
+  </script>
 
 
 
@@ -1329,6 +1567,35 @@
   
 
   
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'fzf6cpurdF6t3abR8qK1Isi3-gzGzoHsz',
+      appKey     : 'mBMU4tntJKhBPKSpyDOWQYGy',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
 
 </body>
 </html>
