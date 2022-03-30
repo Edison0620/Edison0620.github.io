@@ -20,7 +20,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.kaaaaai.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"www.kaaaaai.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta property="og:type" content="website">
@@ -195,10 +195,6 @@
     </header>
 
     
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
   <div class="reading-progress-bar"></div>
 
 
@@ -290,7 +286,7 @@
 
       
           <p>原文来自：<a target="_blank" rel="noopener" href="https://github.com/uber/needle/blob/master/WHY_DI.md">Why use dependency injection</a></p>
-<p>第一次翻译，如有问题还请留言指出。<br>E-mail：<a href="mailto:&#114;&#x6f;&#111;&#x74;&#x40;&#107;&#x61;&#x61;&#97;&#97;&#97;&#105;&#x2e;&#99;&#110;">&#114;&#x6f;&#111;&#x74;&#x40;&#107;&#x61;&#x61;&#97;&#97;&#97;&#105;&#x2e;&#99;&#110;</a></p>
+<p>第一次翻译，如有问题还请留言指出。<br>E-mail：<a href="mailto:&#114;&#111;&#111;&#x74;&#x40;&#107;&#x61;&#97;&#x61;&#x61;&#x61;&#105;&#x2e;&#99;&#110;">&#114;&#111;&#111;&#x74;&#x40;&#107;&#x61;&#97;&#x61;&#x61;&#x61;&#105;&#x2e;&#99;&#110;</a></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/translation-why-use-dependency-injection.html#more" rel="contents">
@@ -458,7 +454,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-05 09:51:55" itemprop="dateModified" datetime="2020-11-05T09:51:55+08:00">2020-11-05</time>
+                <time title="修改时间：2022-03-30 10:56:57" itemprop="dateModified" datetime="2022-03-30T10:56:57+08:00">2022-03-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -509,63 +505,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>在网上看到一篇<a target="_blank" rel="noopener" href="https://juejin.im/post/6844903749949865991">豆瓣开源许可-android</a>的文章，列举了一些 <code>Android</code> 端豆瓣开源许可中所提到的第三方框架，出于好奇心理在网上搜索了一下想看下有没有 <code>iOS</code> 版本。结果是没有的，于是索性就自己动手整理了一份：</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://github.com/nanopb/nanopb">nanopb &#x2F; nanopb：具有较小代码量的协议缓冲区</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/airbnb/lottie-ios">airbnb &#x2F; lottie-ios：一个 iOS 库，用于本地渲染 After Effects 矢量动画</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/jspahrsummers/libextobjc">jspahrsummers &#x2F; libextobjc：一个 Coca Library，用于扩展 Objective-C 编程语言的动态性</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/ibireme/YYCache">ibireme &#x2F; YYCache：iOS 的高性能缓存框架</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/TTTAttributedLabel/TTTAttributedLabel">TTTAttributedLabel &#x2F; TTTAttributedLabel：UILabel 的替代品，支持属性，数据检测器，链接等</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/glaszig/SZTextView">glaszig &#x2F; SZTextView：替代 UITextView 的替代方案，为您提供：占位符。</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/ZipArchive/ZipArchive">ZipArchive &#x2F; ZipArchive：ZipArchive 是用于在 iOS，macOS 和 tvOS 上压缩和解压缩文件的简单实用程序类。</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/soffes/SAMKeychain">soffes &#x2F; SAMKeychain：适用于 Mac 和 iOS 的钥匙串的简单 Objective-C 包装器</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/ReactiveCocoa/ReactiveObjC">ReactiveCocoa &#x2F; ReactiveObjC：2.x ReactiveCocoa Objective-C API：函数式响应式编程</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/tonymillion/Reachability">tonymillion&#x2F;Reachability：网络可用性</a> </li>
-<li><a target="_blank" rel="noopener" href="https://github.com/PureLayout/PureLayout">PureLayout &#x2F; PureLayout：适用于 iOS 和 OS X Auto Layout 的终极 API —极其简单，功能强大。 与Objective-C 和 Swift 兼容。</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/google/promises">google &#x2F; promises：Promises是一个现代框架，可为 Swift 和 Objective-C 提供同步结构，以方便编写异步代码。</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/shramos/polymorph">shramos &#x2F; polymorph：Polymorph是一种实时网络数据包处理框架，几乎支持所有现有协议，是一种工具，它允许在实时拦截的网络数据包上执行Python代码，从而有助于即时修改网络流量。</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/muZZkat/NMRangeSlider">muZZkat &#x2F; NMRangeSlider：UISlider，适用于 iOS 的自定义范围滑块</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/novastone-media/MQTT-Client-Framework">novastone-media &#x2F; MQTT-Client-Framework：iOS，macOS，tvOS 本机 ObjectiveC MQTT 客户端框架，消息推送</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/Tencent/MLeaksFinder">Tencent&#x2F; MLeaksFinder：在开发时查找 iOS 应用中的内存泄漏。</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/ChangbaDevs/KTVHTTPCache">ChangbaDevs &#x2F; KTVHTTPCache：一个功能强大的媒体缓存框架。</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/ChangbaDevs/KTVCocoaHTTPServer">ChangbaDevs&#x2F;KTVCocoaHTTPServer</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/HisaMasa/JYSlideSegmentController">HisaMasa &#x2F; JYSlideSegmentController：JYSlideSegmentController 是一个视图控制器容器，就像 UITabBarController 一样，具有平滑的手势。</a><ul>
-<li>截图<br>  <img src="https://i.loli.net/2020/11/01/R9dt1mfbHzTZJEB.jpg" alt="R9dt1mfbHzTZJEB"></li>
-</ul>
-</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/futuretap/InAppSettingsKit">futuretap &#x2F; InAppSettingsKit：此 iOS 框架允许将设置设置为应用程序内设置，而不是将其设置为设置应用程序。</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/ikesyo/Himotoki">ikesyo &#x2F; Himotoki：一种完全由 Swift 编写的类型安全的 JSON 解码库</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/ishkawa/APIKit">ishkawa &#x2F; APIKit：类型安全的网络抽象层，将请求类型与响应类型相关联。</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/SDWebImage/SDWebImage">SDWebImage &#x2F; SDWebImage：具有缓存支持的异步图像下载器，作为 UIImageView Category</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/SDWebImage/SDWebImageWebPCoder">SDWebImage &#x2F; SDWebImageWebPCoder：用于 SDWebImage 的 WebP 编码器插件，请使用libwebp</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/webmproject/libwebp">webmproject &#x2F; libwebp：WebP编解码器：用于以WebP格式编码和解码图像的库</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/AFNetworking/AFNetworking">AFNetworking &#x2F; AFNetworking：一个适用于 iOS，macOS，watchOS 和 tvOS 的令人愉悦的网络框架。</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/akkyie/AKPickerView">akkyie &#x2F; AKPickerView：一个简单但可自定义的水平选择器视图。</a><ul>
-<li>Swift 版本：<a target="_blank" rel="noopener" href="https://github.com/Akkyie/AKPickerView-Swift">akkyie &#x2F; AKPickerView-Swift：一个简单但可自定义的水平选择器视图。</a></li>
-</ul>
-</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/BlocksKit/BlocksKit">BlocksKit &#x2F; BlocksKit：您一直希望拥有的 Objective-C block 实现。</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/robbiehanson/CocoaAsyncSocket">robbiehanson &#x2F; CocoaAsyncSocket：适用于 Mac 和 iOS 的异步 socket 网络库</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/CocoaLumberjack/CocoaLumberjack">CocoaLumberjack &#x2F; CocoaLumberjack：适用于 Mac 和 iOS 的快速，简单，功能强大且灵活的日志记录框架</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/douban/DOUSNSSharing">douban &#x2F; DOUSNSSharing：SNS OAuth 2 绑定和共享</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/devicekit/DeviceKit">devicekit &#x2F; DeviceKit：DeviceKit 是 UIDevice 的值类型替换。</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/facebook/FBRetainCycleDetector">facebook &#x2F; FBRetainCycleDetector：iOS 库，可帮助检测运行时中的保留周期。</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/ccgus/fmdb">ccgus &#x2F; fmdb：这是一个围绕SQLite的Objective-C包装器。</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/foursquare/FSQCollectionViewAlignedLayout">foursquare &#x2F; FSQCollectionViewAlignedLayout：FSQCollectionViewAlignedLayout 是一种通用的集合视图布局，旨在非常灵活和可配置。 目的是使每次 UICollectionViewFlowLayout 不适合其视图的用户都不必编写自己的自定义布局类。</a></li>
-<li><a target="_blank" rel="noopener" href="https://firebase.google.com/">Firebase</a></li>
-<li><a target="_blank" rel="noopener" href="https://firebase.google.com/docs/reference/android/com/google/firebase/analytics/FirebaseAnalytics">FirebaseAnalytics</a></li>
-<li><a target="_blank" rel="noopener" href="https://firebase.google.com/docs/reference/ios/firebasecore/api/reference/Classes">FirebaseCore</a></li>
-<li><a target="_blank" rel="noopener" href="https://cocoapods.org/pods/FirebaseCoreDiagnostics">FirebaseCoreDiagnostics</a></li>
-<li><a target="_blank" rel="noopener" href="https://firebase.google.com/docs/crashlytics">Firebase Crashlytics</a></li>
-<li><a target="_blank" rel="noopener" href="https://firebase.google.com/docs/reference/android/com/google/firebase/installations/FirebaseInstallations">FirebaseInstallations</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/FormatterKit/FormatterKit">FormatterKit &#x2F; FormatterKit：<code>stringWithFormat：</code>用于复杂的黑客集</a></li>
-<li><a target="_blank" rel="noopener" href="https://cocoapods.org/pods/GoogleDataTransport">GoogleDataTransport</a></li>
-<li><a target="_blank" rel="noopener" href="https://firebase.google.com/docs/reference/android/com/google/android/gms/measurement/AppMeasurement">AppMeasurement</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/HeshamMegid/HMSegmentedControl">HeshamMegid &#x2F; HMSegmentedControl：UISegmentedControl 的高度可定制的替代品。</a></li>
-</ol>
+          <p>在网上看到一篇[豆瓣开源许可-android](https://juejin.im/post/6844903749949865991)的文章，列举了一些 `Android` 端豆瓣开源许可中所提到的第三方框架...</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/ios-douban-open-source-license-mentioned-in-the-library.html#more" rel="contents">
+              <a class="btn" href="/ios-douban-open-source-license-mentioned-in-the-library.html">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1465,6 +1408,10 @@
 
 
       </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
 
     </div>
   </aside>

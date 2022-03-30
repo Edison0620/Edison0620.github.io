@@ -25,7 +25,7 @@
     
     
     <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;原文来自：&lt;a href=&quot;https://github.com/uber/needle/blob/master/WHY_DI.md&quot;&gt;Why use dependency injection&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;第一次翻译，如有问题还请留言指出。&lt;br&gt;E-mail：&lt;a href=&quot;mailto:&amp;#114;&amp;#x6f;&amp;#111;&amp;#x74;&amp;#x40;&amp;#107;&amp;#x61;&amp;#x61;&amp;#97;&amp;#97;&amp;#97;&amp;#105;&amp;#x2e;&amp;#99;&amp;#110;&quot;&gt;&amp;#114;&amp;#x6f;&amp;#111;&amp;#x74;&amp;#x40;&amp;#107;&amp;#x61;&amp;#x61;&amp;#97;&amp;#97;&amp;#97;&amp;#105;&amp;#x2e;&amp;#99;&amp;#110;&lt;/a&gt;&lt;/p&gt;</summary>
+&lt;p&gt;第一次翻译，如有问题还请留言指出。&lt;br&gt;E-mail：&lt;a href=&quot;mailto:&amp;#114;&amp;#111;&amp;#111;&amp;#x74;&amp;#x40;&amp;#107;&amp;#x61;&amp;#97;&amp;#x61;&amp;#x61;&amp;#x61;&amp;#105;&amp;#x2e;&amp;#99;&amp;#110;&quot;&gt;&amp;#114;&amp;#111;&amp;#111;&amp;#x74;&amp;#x40;&amp;#107;&amp;#x61;&amp;#97;&amp;#x61;&amp;#x61;&amp;#x61;&amp;#105;&amp;#x2e;&amp;#99;&amp;#110;&lt;/a&gt;&lt;/p&gt;</summary>
     
     
     
@@ -69,63 +69,10 @@
     <link href="https://www.kaaaaai.cn/ios-douban-open-source-license-mentioned-in-the-library.html"/>
     <id>https://www.kaaaaai.cn/ios-douban-open-source-license-mentioned-in-the-library.html</id>
     <published>2020-10-31T03:24:52.000Z</published>
-    <updated>2020-11-05T01:51:55.000Z</updated>
+    <updated>2022-03-30T02:56:57.396Z</updated>
     
     
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;在网上看到一篇&lt;a href=&quot;https://juejin.im/post/6844903749949865991&quot;&gt;豆瓣开源许可-android&lt;/a&gt;的文章，列举了一些 &lt;code&gt;Android&lt;/code&gt; 端豆瓣开源许可中所提到的第三方框架，出于好奇心理在网上搜索了一下想看下有没有 &lt;code&gt;iOS&lt;/code&gt; 版本。结果是没有的，于是索性就自己动手整理了一份：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/nanopb/nanopb&quot;&gt;nanopb &amp;#x2F; nanopb：具有较小代码量的协议缓冲区&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/airbnb/lottie-ios&quot;&gt;airbnb &amp;#x2F; lottie-ios：一个 iOS 库，用于本地渲染 After Effects 矢量动画&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/jspahrsummers/libextobjc&quot;&gt;jspahrsummers &amp;#x2F; libextobjc：一个 Coca Library，用于扩展 Objective-C 编程语言的动态性&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/ibireme/YYCache&quot;&gt;ibireme &amp;#x2F; YYCache：iOS 的高性能缓存框架&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/TTTAttributedLabel/TTTAttributedLabel&quot;&gt;TTTAttributedLabel &amp;#x2F; TTTAttributedLabel：UILabel 的替代品，支持属性，数据检测器，链接等&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/glaszig/SZTextView&quot;&gt;glaszig &amp;#x2F; SZTextView：替代 UITextView 的替代方案，为您提供：占位符。&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/ZipArchive/ZipArchive&quot;&gt;ZipArchive &amp;#x2F; ZipArchive：ZipArchive 是用于在 iOS，macOS 和 tvOS 上压缩和解压缩文件的简单实用程序类。&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/soffes/SAMKeychain&quot;&gt;soffes &amp;#x2F; SAMKeychain：适用于 Mac 和 iOS 的钥匙串的简单 Objective-C 包装器&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/ReactiveCocoa/ReactiveObjC&quot;&gt;ReactiveCocoa &amp;#x2F; ReactiveObjC：2.x ReactiveCocoa Objective-C API：函数式响应式编程&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/tonymillion/Reachability&quot;&gt;tonymillion&amp;#x2F;Reachability：网络可用性&lt;/a&gt; &lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/PureLayout/PureLayout&quot;&gt;PureLayout &amp;#x2F; PureLayout：适用于 iOS 和 OS X Auto Layout 的终极 API —极其简单，功能强大。 与Objective-C 和 Swift 兼容。&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/google/promises&quot;&gt;google &amp;#x2F; promises：Promises是一个现代框架，可为 Swift 和 Objective-C 提供同步结构，以方便编写异步代码。&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/shramos/polymorph&quot;&gt;shramos &amp;#x2F; polymorph：Polymorph是一种实时网络数据包处理框架，几乎支持所有现有协议，是一种工具，它允许在实时拦截的网络数据包上执行Python代码，从而有助于即时修改网络流量。&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/muZZkat/NMRangeSlider&quot;&gt;muZZkat &amp;#x2F; NMRangeSlider：UISlider，适用于 iOS 的自定义范围滑块&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/novastone-media/MQTT-Client-Framework&quot;&gt;novastone-media &amp;#x2F; MQTT-Client-Framework：iOS，macOS，tvOS 本机 ObjectiveC MQTT 客户端框架，消息推送&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/Tencent/MLeaksFinder&quot;&gt;Tencent&amp;#x2F; MLeaksFinder：在开发时查找 iOS 应用中的内存泄漏。&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/ChangbaDevs/KTVHTTPCache&quot;&gt;ChangbaDevs &amp;#x2F; KTVHTTPCache：一个功能强大的媒体缓存框架。&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/ChangbaDevs/KTVCocoaHTTPServer&quot;&gt;ChangbaDevs&amp;#x2F;KTVCocoaHTTPServer&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/HisaMasa/JYSlideSegmentController&quot;&gt;HisaMasa &amp;#x2F; JYSlideSegmentController：JYSlideSegmentController 是一个视图控制器容器，就像 UITabBarController 一样，具有平滑的手势。&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;截图&lt;br&gt;  &lt;img src=&quot;https://i.loli.net/2020/11/01/R9dt1mfbHzTZJEB.jpg&quot; alt=&quot;R9dt1mfbHzTZJEB&quot;&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/futuretap/InAppSettingsKit&quot;&gt;futuretap &amp;#x2F; InAppSettingsKit：此 iOS 框架允许将设置设置为应用程序内设置，而不是将其设置为设置应用程序。&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/ikesyo/Himotoki&quot;&gt;ikesyo &amp;#x2F; Himotoki：一种完全由 Swift 编写的类型安全的 JSON 解码库&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/ishkawa/APIKit&quot;&gt;ishkawa &amp;#x2F; APIKit：类型安全的网络抽象层，将请求类型与响应类型相关联。&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/SDWebImage/SDWebImage&quot;&gt;SDWebImage &amp;#x2F; SDWebImage：具有缓存支持的异步图像下载器，作为 UIImageView Category&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/SDWebImage/SDWebImageWebPCoder&quot;&gt;SDWebImage &amp;#x2F; SDWebImageWebPCoder：用于 SDWebImage 的 WebP 编码器插件，请使用libwebp&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/webmproject/libwebp&quot;&gt;webmproject &amp;#x2F; libwebp：WebP编解码器：用于以WebP格式编码和解码图像的库&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/AFNetworking/AFNetworking&quot;&gt;AFNetworking &amp;#x2F; AFNetworking：一个适用于 iOS，macOS，watchOS 和 tvOS 的令人愉悦的网络框架。&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/akkyie/AKPickerView&quot;&gt;akkyie &amp;#x2F; AKPickerView：一个简单但可自定义的水平选择器视图。&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;Swift 版本：&lt;a href=&quot;https://github.com/Akkyie/AKPickerView-Swift&quot;&gt;akkyie &amp;#x2F; AKPickerView-Swift：一个简单但可自定义的水平选择器视图。&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/BlocksKit/BlocksKit&quot;&gt;BlocksKit &amp;#x2F; BlocksKit：您一直希望拥有的 Objective-C block 实现。&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/robbiehanson/CocoaAsyncSocket&quot;&gt;robbiehanson &amp;#x2F; CocoaAsyncSocket：适用于 Mac 和 iOS 的异步 socket 网络库&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/CocoaLumberjack/CocoaLumberjack&quot;&gt;CocoaLumberjack &amp;#x2F; CocoaLumberjack：适用于 Mac 和 iOS 的快速，简单，功能强大且灵活的日志记录框架&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/douban/DOUSNSSharing&quot;&gt;douban &amp;#x2F; DOUSNSSharing：SNS OAuth 2 绑定和共享&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/devicekit/DeviceKit&quot;&gt;devicekit &amp;#x2F; DeviceKit：DeviceKit 是 UIDevice 的值类型替换。&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/facebook/FBRetainCycleDetector&quot;&gt;facebook &amp;#x2F; FBRetainCycleDetector：iOS 库，可帮助检测运行时中的保留周期。&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/ccgus/fmdb&quot;&gt;ccgus &amp;#x2F; fmdb：这是一个围绕SQLite的Objective-C包装器。&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/foursquare/FSQCollectionViewAlignedLayout&quot;&gt;foursquare &amp;#x2F; FSQCollectionViewAlignedLayout：FSQCollectionViewAlignedLayout 是一种通用的集合视图布局，旨在非常灵活和可配置。 目的是使每次 UICollectionViewFlowLayout 不适合其视图的用户都不必编写自己的自定义布局类。&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://firebase.google.com/&quot;&gt;Firebase&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://firebase.google.com/docs/reference/android/com/google/firebase/analytics/FirebaseAnalytics&quot;&gt;FirebaseAnalytics&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://firebase.google.com/docs/reference/ios/firebasecore/api/reference/Classes&quot;&gt;FirebaseCore&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://cocoapods.org/pods/FirebaseCoreDiagnostics&quot;&gt;FirebaseCoreDiagnostics&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://firebase.google.com/docs/crashlytics&quot;&gt;Firebase Crashlytics&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://firebase.google.com/docs/reference/android/com/google/firebase/installations/FirebaseInstallations&quot;&gt;FirebaseInstallations&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/FormatterKit/FormatterKit&quot;&gt;FormatterKit &amp;#x2F; FormatterKit：&lt;code&gt;stringWithFormat：&lt;/code&gt;用于复杂的黑客集&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://cocoapods.org/pods/GoogleDataTransport&quot;&gt;GoogleDataTransport&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://firebase.google.com/docs/reference/android/com/google/android/gms/measurement/AppMeasurement&quot;&gt;AppMeasurement&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/HeshamMegid/HMSegmentedControl&quot;&gt;HeshamMegid &amp;#x2F; HMSegmentedControl：UISegmentedControl 的高度可定制的替代品。&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</summary>
+    <summary type="html">在网上看到一篇[豆瓣开源许可-android](https://juejin.im/post/6844903749949865991)的文章，列举了一些 `Android` 端豆瓣开源许可中所提到的第三方框架...</summary>
     
     
     
