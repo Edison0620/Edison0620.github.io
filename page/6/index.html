@@ -209,6 +209,108 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.kaaaaai.cn/weekly-summary-190518.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="Kaaaaai">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="壹拾肆">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/weekly-summary-190518.html" class="post-title-link" itemprop="url">每周总结 - 0518</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-05-11 10:13:52" itemprop="dateCreated datePublished" datetime="2019-05-11T10:13:52+08:00">2019-05-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-05 10:16:56" itemprop="dateModified" datetime="2020-11-05T10:16:56+08:00">2020-11-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/weekly-summary-190518.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/weekly-summary-190518.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>882</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>　　本周买了画板，画纸和一大堆铅笔，打算就着 B 站的素描入门视频学习画画，练习了一两天线条，小臂和胳膊的肌肉持续酸痛，一个现在已经不联系的朋友之前回答我如何不费劲的练肌肉，说学画画。之前以为他是开玩笑，现在看果然如此。<br>　　周一花了半天结束交接了上个项目，本周主要工作是封装兄弟公司的语音 SDK 到原来我们集成了腾讯，百度，讯飞，阿里语音的 SDK 中，新的语音 SDK 从逻辑可以看到封装者的思路，基本上是想把我们需要做的都做了，只暴露出实现功能需要调用的接口，虽然使用时清晰直观，但对于我需要二次分装不算友好，比如各个阶段的状态返回，开始录音结束录音，开始识别语音，和语音回馈，我只好作比较粗糙的处理，比如在调用开始录音方法时，主动调开始录音状态的回调，因为监听不到停止，但在他返回的一个枚举方法里有开始识别的状态，我就在这里放了停止录音的回调。<br>　　虽然这个方法可以让我二次封装正常进行，但是在实际体验上，仍可以预估到可能发生的问题，比如本地音乐在播放的时候，启用录音，语音助手在播报时，播放本地音乐等等，一些场景交错下的体验问题。这让我反过来想封装一个框架，我们真正应该思考的是什么？简单便捷，还是复杂详细但面面俱到，参考官方暴露出来的框架和回想过往开发，我想这个问题应该是没有标准答案的，不同的产品有不同的需求，因为哪怕官方的框架，我也遇到过需要用 oc 运行时态的特点来替换系统方法来实现需求的问题。所以没有十全十美的框架，好的框架需要的是与时俱进，不断迭代和维护。另一方面也可以从这点上看出开源的优势。<br>　　另外还有关于这方面的内容就是发现了一个这个仓库：<a target="_blank" rel="noopener" href="https://github.com/SunshineBrother/JHBlog">iOS开发：我的初级到中级的晋级之路</a>。里面介绍底层的相关知识很详细，还有完整的工程源码，我打算每天看一篇有关底层的文章。在掘金上看了一篇关于大佬面试的文章，里面针对三年经验的一些技术问题，有些我知其然而不知其所以然，算下看我做 iOS 开发也接近三年，但前期没太注意技术累积——虽然也有一部分是中间分心去弄安卓开发，导致现在每次提升一个方向的知识，总要从底层一步一步看上来，很麻烦，而且也因为这点导致在工作岗位上的处境也有些尴尬。<br>　　以上。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://www.kaaaaai.cn/weekly-summary-190511.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -321,108 +423,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.kaaaaai.cn/weekly-summary-190518.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
-      <meta itemprop="name" content="Kaaaaai">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="壹拾肆">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/weekly-summary-190518.html" class="post-title-link" itemprop="url">每周总结 - 0518</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-05-11 10:13:52" itemprop="dateCreated datePublished" datetime="2019-05-11T10:13:52+08:00">2019-05-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-05 10:16:56" itemprop="dateModified" datetime="2020-11-05T10:16:56+08:00">2020-11-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/weekly-summary-190518.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/weekly-summary-190518.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>882</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>　　本周买了画板，画纸和一大堆铅笔，打算就着 B 站的素描入门视频学习画画，练习了一两天线条，小臂和胳膊的肌肉持续酸痛，一个现在已经不联系的朋友之前回答我如何不费劲的练肌肉，说学画画。之前以为他是开玩笑，现在看果然如此。<br>　　周一花了半天结束交接了上个项目，本周主要工作是封装兄弟公司的语音 SDK 到原来我们集成了腾讯，百度，讯飞，阿里语音的 SDK 中，新的语音 SDK 从逻辑可以看到封装者的思路，基本上是想把我们需要做的都做了，只暴露出实现功能需要调用的接口，虽然使用时清晰直观，但对于我需要二次分装不算友好，比如各个阶段的状态返回，开始录音结束录音，开始识别语音，和语音回馈，我只好作比较粗糙的处理，比如在调用开始录音方法时，主动调开始录音状态的回调，因为监听不到停止，但在他返回的一个枚举方法里有开始识别的状态，我就在这里放了停止录音的回调。<br>　　虽然这个方法可以让我二次封装正常进行，但是在实际体验上，仍可以预估到可能发生的问题，比如本地音乐在播放的时候，启用录音，语音助手在播报时，播放本地音乐等等，一些场景交错下的体验问题。这让我反过来想封装一个框架，我们真正应该思考的是什么？简单便捷，还是复杂详细但面面俱到，参考官方暴露出来的框架和回想过往开发，我想这个问题应该是没有标准答案的，不同的产品有不同的需求，因为哪怕官方的框架，我也遇到过需要用 oc 运行时态的特点来替换系统方法来实现需求的问题。所以没有十全十美的框架，好的框架需要的是与时俱进，不断迭代和维护。另一方面也可以从这点上看出开源的优势。<br>　　另外还有关于这方面的内容就是发现了一个这个仓库：<a target="_blank" rel="noopener" href="https://github.com/SunshineBrother/JHBlog">iOS开发：我的初级到中级的晋级之路</a>。里面介绍底层的相关知识很详细，还有完整的工程源码，我打算每天看一篇有关底层的文章。在掘金上看了一篇关于大佬面试的文章，里面针对三年经验的一些技术问题，有些我知其然而不知其所以然，算下看我做 iOS 开发也接近三年，但前期没太注意技术累积——虽然也有一部分是中间分心去弄安卓开发，导致现在每次提升一个方向的知识，总要从底层一步一步看上来，很麻烦，而且也因为这点导致在工作岗位上的处境也有些尴尬。<br>　　以上。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://www.kaaaaai.cn/forever-and-solongmyson.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -454,7 +454,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-22 16:27:01" itemprop="dateModified" datetime="2020-11-22T16:27:01+08:00">2020-11-22</time>
+                <time title="修改时间：2022-04-02 13:44:09" itemprop="dateModified" datetime="2022-04-02T13:44:09+08:00">2022-04-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -505,13 +505,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>　　前段时间去看了王小帅的电影《地久天长》，还不错，但低于期待值。本以为剧情片既然有剪成三小时时长的底气，也应该用有可能输于但不输很多同样时长像《牯岭街少年杀人事件》、《美国往事》等电影的精彩，但很显然电影只具备和他们同样的长度，并没有同样的深度。<br>　　电影前半段的起手很好，包括互文的叙事中出现两次抱着溺水的儿子冲向医院，堕胎争议时王景春被推靠在贴着红色主题壁画墙上无力的垂下身子，或隐晦或明显的在表达导演的一些小心思，有意思也可以从这些细节看出一个导演的基本素养。在这种铺垫下，剧情最后三分之一的绝症死亡，旧友重逢，游子归来的桥段就有些落于俗套，强行追求大团圆结局，给人有一种他像在迎合什么，虽然压中了符合普罗大众价值观的主题，却没有很好的压中符合自己本身的主题。<br>　　就这点而言，韩寒的新片《飞驰人生》，虽然有整场都在强行幽默，以及沈腾老师上蹿下跳费老大劲也没把他这个角色人物圆回来的尴尬，但在结局选择让车冲出悬崖这段，还是有些不落于熟套的让人眼前一亮。可能就像他写的书，短小精悍，总能在点题的时候给人记忆的点。<br>　　而那个小孩送他们夫妇两回去在老房子道歉时，插入的回放是早已原谅的剧情，从逻辑上很难与王景春夫妇背井离乡，和朋友断绝来往这段自洽起来，就好像口是心非，你说你已经原谅我们儿子了，还叫我们不要在他面前提这事，可是为什么又要离开我们，去那么远，而且再也没有音信。<br>　　综上，大概给个三点五分，情真意切是不错，但最后又有些耍小聪明似得把本来突出的特点给平衡回去了。<br>　　看完电影又过了几天，恰好看好王小波也有一本书叫做《地久天长》，是他早期的短篇小说集，说是集子，也就两个故事，还有一篇是他的朋友回忆他的，因为感觉他朋友回忆时态度不那么诚恳，略过不提。主要讲《绿毛水怪》和《地久天长》。<br>　　比起很早之前看《黄金时代》觉得晦涩难懂，看这本的时候，很容易就因为里面的情节产生共鸣，心潮涌动，《绿毛水怪》讲的是“我”和青梅竹马的女孩的故事，虽然剧情放在今天看可能只是一个男女主角因缘巧合彼此错过抱憾一生的烂俗故事。但不同的是，这个故事他是借着书中人的口述说了，可能这种处理本身就是对预期的质疑的回应。除此之外在剧情的设置上，结尾女主角变成了绿毛水怪，等候男主角，男主角未履约，以此结局。也为故事增添玄奇色彩。而《地久天长》，毋庸置疑的，他是比《绿毛水怪》更出色的故事，故事里我、大许和小红三人像友情又像爱情的关系，真挚浪漫到近乎乌托邦，虽然美好到不真实，但我愿意相信，这世上存在着这样一种关系，超越肉体和性，没有占有欲和嫉妒存在，单只是纯粹的爱。<br>　　《地久天长》的最后，小红死了。我想小波先生这样安排故事结局的目的，应该不仅仅是为了让故事有个结局，可能还以此想说一点其他的，比如美好总是短暂易碎的，比如悲剧将人生的有价值的东西毁灭给人看。他安排了小红的死亡，看上去像是一种对美好的扼杀，但我更愿意理解成是一种保存。这种保存不会因为来日方长而变质，还会因为日子渐渐过去在回忆里耀耀生辉。另外藉由小红的死，我又想起王朔的《空中小姐》，里面的女主人公最后也死了，也同样也在女主角爱到最真挚纯粹的时刻死去。他们的这种一致，让我觉得似乎对于英雄易老，美人迟暮的担忧存在于所有同阶段的年轻人心中。当然也不排除这只是一种普遍的戏剧技巧，就像欧里庇得斯戏剧中的解围之神，功夫里的如来神掌，天龙八部里的扫地僧。<br>　　最后放一段《地久天长》里我印象深刻的描述：</p>
-<blockquote>
-<p>　　人可以在那么年轻时就那么美，那么成熟，那么可爱。她常说她喜欢一切好人。她还说她根本分不清友谊和爱的界限在哪里。我回想起来，她绝对温存，绝对可爱，生机勃勃，全无畏惧而且自信。我从她身上感到一种永存的精神，超过平庸生活里的一切。 你不管叫别人做什么事，不光是为了他好，还要让他乐意。这是爱的艺术。</p>
-</blockquote>
+          <p>前段时间去看了王小帅的电影《地久天长》，还不错，但低于期待值。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/forever-and-solongmyson.html#more" rel="contents">
+              <a class="btn" href="/forever-and-solongmyson.html">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1419,7 +1416,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:31</span>
+    <span title="站点阅读时长">3:32</span>
 </div>
 
 <!-- time -->

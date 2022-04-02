@@ -25,7 +25,7 @@
     
     
     <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;原文来自：&lt;a href=&quot;https://github.com/uber/needle/blob/master/WHY_DI.md&quot;&gt;Why use dependency injection&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;第一次翻译，如有问题还请留言指出。&lt;br&gt;E-mail：&lt;a href=&quot;mailto:&amp;#114;&amp;#111;&amp;#111;&amp;#x74;&amp;#x40;&amp;#107;&amp;#x61;&amp;#97;&amp;#x61;&amp;#x61;&amp;#x61;&amp;#105;&amp;#x2e;&amp;#99;&amp;#110;&quot;&gt;&amp;#114;&amp;#111;&amp;#111;&amp;#x74;&amp;#x40;&amp;#107;&amp;#x61;&amp;#97;&amp;#x61;&amp;#x61;&amp;#x61;&amp;#105;&amp;#x2e;&amp;#99;&amp;#110;&lt;/a&gt;&lt;/p&gt;</summary>
+&lt;p&gt;第一次翻译，如有问题还请留言指出。&lt;br&gt;E-mail：&lt;a href=&quot;mailto:&amp;#x72;&amp;#111;&amp;#111;&amp;#116;&amp;#x40;&amp;#107;&amp;#x61;&amp;#97;&amp;#x61;&amp;#97;&amp;#x61;&amp;#x69;&amp;#x2e;&amp;#99;&amp;#x6e;&quot;&gt;&amp;#x72;&amp;#111;&amp;#111;&amp;#116;&amp;#x40;&amp;#107;&amp;#x61;&amp;#97;&amp;#x61;&amp;#97;&amp;#x61;&amp;#x69;&amp;#x2e;&amp;#99;&amp;#x6e;&lt;/a&gt;&lt;/p&gt;</summary>
     
     
     
@@ -160,7 +160,7 @@
     <link href="https://www.kaaaaai.cn/technology-research-template.html"/>
     <id>https://www.kaaaaai.cn/technology-research-template.html</id>
     <published>2020-09-30T01:24:52.000Z</published>
-    <updated>2022-03-30T03:23:51.163Z</updated>
+    <updated>2022-03-30T03:25:39.841Z</updated>
     
     
     <summary type="html">部门小伙伴在做技术调研的时候，因为信息展示的格式不统一，或者没有注意在调研过程中抓取一些关键信息做展示和对比，为了方便，总结了一份技术调研模板，以供参考。</summary>
@@ -183,7 +183,7 @@
     <link href="https://www.kaaaaai.cn/frequently-asked-questions-about-time-travel-by-entropy-reduction.html"/>
     <id>https://www.kaaaaai.cn/frequently-asked-questions-about-time-travel-by-entropy-reduction.html</id>
     <published>2020-09-20T02:13:52.000Z</published>
-    <updated>2022-03-30T03:21:07.629Z</updated>
+    <updated>2022-04-02T01:47:43.290Z</updated>
     
     
     <summary type="html">上个礼拜去看了电影《信条》，综合来说给我感觉是瑜不掩瑕。</summary>
@@ -206,13 +206,11 @@
     <link href="https://www.kaaaaai.cn/swift-permission-request-tools.html"/>
     <id>https://www.kaaaaai.cn/swift-permission-request-tools.html</id>
     <published>2020-09-12T02:24:52.000Z</published>
-    <updated>2020-11-25T05:49:09.000Z</updated>
+    <updated>2022-04-02T01:50:12.888Z</updated>
     
     
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;img align=&quot;center&quot; src=&quot;https://i.loli.net/2020/09/12/VLyFtvB4AJTErjU.gif&quot; width=&quot;375px&quot; height=&quot;677px/&quot;&gt;
-
-
-&lt;p&gt;注意到工程里面关于权限请求这块的逻辑没有很好地管理起来，一些是用 OC 的工具类，一些是用 Swift 代码在一些 &lt;code&gt;ViewController&lt;/code&gt; 里面单独调用，不能复用，就想封装一个 Swift 版关于权限请求的工具类，虽然这个需求在 GitHub 上搜索也有很多现成的轮子，但使用起来感觉太重，而且有些久不维护，Swift 版本更新的又快，有些接口就不好使了，索性就自己封装一个。&lt;/p&gt;</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;注意到工程里面关于权限请求这块的逻辑没有很好地管理起来，一些是用 OC 的工具类，一些是用 Swift 代码在一些 &lt;code&gt;ViewController&lt;/code&gt; 里面单独调用，不能复用，就想封装一个 Swift 版关于权限请求的工具类，虽然这个需求在 GitHub 上搜索也有很多现成的轮子，但使用起来感觉太重，而且有些久不维护，Swift 版本更新的又快，有些接口就不好使了，索性就自己封装一个。&lt;/p&gt;
+&lt;p&gt;一开始的思路也是想通过枚举来创建不同权限字段，通过静态方法来实现请求，但是蓝牙权限和定位权限需要实例化对象，设置代理。当使用 &lt;code&gt;static&lt;/code&gt; 关键字来创建蓝牙和定位对象，当应用内有其他的业务也要使用蓝牙和定位对象时，代理响应就会有点问题。后面索性就用单例方法创建一个整体的权限管理对象，然后创建类方法，在类方法中自己调用自己。&lt;/p&gt;</summary>
     
     
     
@@ -291,13 +289,10 @@
     <link href="https://www.kaaaaai.cn/swift-toppop-upboxencapsulation.html"/>
     <id>https://www.kaaaaai.cn/swift-toppop-upboxencapsulation.html</id>
     <published>2020-08-04T05:24:52.000Z</published>
-    <updated>2022-03-26T02:55:38.437Z</updated>
+    <updated>2022-04-02T01:51:11.820Z</updated>
     
     
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;抽空把项目里的顶部弹出框封装了一下。效果大概是这个样子：&lt;br&gt;&lt;img src=&quot;https://i.loli.net/2020/08/04/9R7WuCT2b5ezKoN.gif&quot;&gt;&lt;/p&gt;
-&lt;!--&lt;img align=&quot;center&quot; src=&quot;https://i.loli.net/2020/08/04/9R7WuCT2b5ezKoN.gif&quot; width=375px height=677px/&gt;--&gt;
-
-&lt;h2 id=&quot;代码&quot;&gt;&lt;a href=&quot;#代码&quot; class=&quot;headerlink&quot; title=&quot;代码&quot;&gt;&lt;/a&gt;代码&lt;/h2&gt;</summary>
+    <summary type="html">抽空把项目里的顶部弹出框封装了一下。</summary>
     
     
     
@@ -361,14 +356,13 @@
   
   <entry>
     <title>我的 AIO-notion 工作流搭建</title>
-    <link href="https://www.kaaaaai.cn/my-aio-notion-workflow-setup.html"/>
-    <id>https://www.kaaaaai.cn/my-aio-notion-workflow-setup.html</id>
+    <link href="https://www.kaaaaai.cn/about-my-notion-workflow.html"/>
+    <id>https://www.kaaaaai.cn/about-my-notion-workflow.html</id>
     <published>2020-06-07T05:24:52.000Z</published>
-    <updated>2020-06-07T07:35:22.000Z</updated>
+    <updated>2022-04-02T01:54:46.084Z</updated>
     
     
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2020/06/07/cSgrjKnkbB41AxI.jpg&quot; alt=&quot;cSgrjKnkbB41AxI&quot;&gt;&lt;/p&gt;
-&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;&lt;strong&gt;前言&lt;/strong&gt;&lt;/h1&gt;</summary>
+    <summary type="html">本文介绍的就是一个久（大概有那么一两年）经人们考验的笔记软件——Notion。</summary>
     
     
     
@@ -388,10 +382,10 @@
     <link href="https://www.kaaaaai.cn/web-resolve-recirculation-errors.html"/>
     <id>https://www.kaaaaai.cn/web-resolve-recirculation-errors.html</id>
     <published>2020-05-30T09:24:52.000Z</published>
-    <updated>2020-11-05T02:16:41.000Z</updated>
+    <updated>2022-04-02T02:03:35.566Z</updated>
     
     
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;h2 id=&quot;问题表现&quot;&gt;&lt;a href=&quot;#问题表现&quot; class=&quot;headerlink&quot; title=&quot;问题表现&quot;&gt;&lt;/a&gt;问题表现&lt;/h2&gt;&lt;p&gt;博客网站更换了 DNS 解析的服务商，访问出现以下问题。&lt;br&gt;&lt;img src=&quot;https://gitee.com/woailvkai/Kaaaaai.tool.oss/raw/uPic/uPic/03oBxi-2020%2005%2030.jpg&quot; alt=&quot;03oBxi-20200530&quot;&gt;&lt;/p&gt;</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;h2 id=&quot;问题表现&quot;&gt;&lt;a href=&quot;#问题表现&quot; class=&quot;headerlink&quot; title=&quot;问题表现&quot;&gt;&lt;/a&gt;问题表现&lt;/h2&gt;&lt;p&gt;博客网站更换了 DNS 解析的服务商，访问出现以下问题。&lt;br&gt;&lt;img src=&quot;https://s2.loli.net/2022/04/02/QRqexU16yVaWFuY.jpg&quot; alt=&quot;03oBxi-20200530&quot;&gt;&lt;/p&gt;</summary>
     
     
     
