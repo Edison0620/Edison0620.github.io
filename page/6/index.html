@@ -209,108 +209,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.kaaaaai.cn/weekly-summary-190518.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
-      <meta itemprop="name" content="Kaaaaai">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="壹拾肆">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/weekly-summary-190518.html" class="post-title-link" itemprop="url">每周总结 - 0518</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-05-11 10:13:52" itemprop="dateCreated datePublished" datetime="2019-05-11T10:13:52+08:00">2019-05-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-05 10:16:56" itemprop="dateModified" datetime="2020-11-05T10:16:56+08:00">2020-11-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/weekly-summary-190518.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/weekly-summary-190518.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>882</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>　　本周买了画板，画纸和一大堆铅笔，打算就着 B 站的素描入门视频学习画画，练习了一两天线条，小臂和胳膊的肌肉持续酸痛，一个现在已经不联系的朋友之前回答我如何不费劲的练肌肉，说学画画。之前以为他是开玩笑，现在看果然如此。<br>　　周一花了半天结束交接了上个项目，本周主要工作是封装兄弟公司的语音 SDK 到原来我们集成了腾讯，百度，讯飞，阿里语音的 SDK 中，新的语音 SDK 从逻辑可以看到封装者的思路，基本上是想把我们需要做的都做了，只暴露出实现功能需要调用的接口，虽然使用时清晰直观，但对于我需要二次分装不算友好，比如各个阶段的状态返回，开始录音结束录音，开始识别语音，和语音回馈，我只好作比较粗糙的处理，比如在调用开始录音方法时，主动调开始录音状态的回调，因为监听不到停止，但在他返回的一个枚举方法里有开始识别的状态，我就在这里放了停止录音的回调。<br>　　虽然这个方法可以让我二次封装正常进行，但是在实际体验上，仍可以预估到可能发生的问题，比如本地音乐在播放的时候，启用录音，语音助手在播报时，播放本地音乐等等，一些场景交错下的体验问题。这让我反过来想封装一个框架，我们真正应该思考的是什么？简单便捷，还是复杂详细但面面俱到，参考官方暴露出来的框架和回想过往开发，我想这个问题应该是没有标准答案的，不同的产品有不同的需求，因为哪怕官方的框架，我也遇到过需要用 oc 运行时态的特点来替换系统方法来实现需求的问题。所以没有十全十美的框架，好的框架需要的是与时俱进，不断迭代和维护。另一方面也可以从这点上看出开源的优势。<br>　　另外还有关于这方面的内容就是发现了一个这个仓库：<a target="_blank" rel="noopener" href="https://github.com/SunshineBrother/JHBlog">iOS开发：我的初级到中级的晋级之路</a>。里面介绍底层的相关知识很详细，还有完整的工程源码，我打算每天看一篇有关底层的文章。在掘金上看了一篇关于大佬面试的文章，里面针对三年经验的一些技术问题，有些我知其然而不知其所以然，算下看我做 iOS 开发也接近三年，但前期没太注意技术累积——虽然也有一部分是中间分心去弄安卓开发，导致现在每次提升一个方向的知识，总要从底层一步一步看上来，很麻烦，而且也因为这点导致在工作岗位上的处境也有些尴尬。<br>　　以上。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://www.kaaaaai.cn/weekly-summary-190511.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -405,6 +303,108 @@
             </div>
           <!--/noindex-->
         
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.kaaaaai.cn/weekly-summary-190518.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="Kaaaaai">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="壹拾肆">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/weekly-summary-190518.html" class="post-title-link" itemprop="url">每周总结 - 0518</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-05-11 10:13:52" itemprop="dateCreated datePublished" datetime="2019-05-11T10:13:52+08:00">2019-05-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-05 10:16:56" itemprop="dateModified" datetime="2020-11-05T10:16:56+08:00">2020-11-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/weekly-summary-190518.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/weekly-summary-190518.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>882</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>　　本周买了画板，画纸和一大堆铅笔，打算就着 B 站的素描入门视频学习画画，练习了一两天线条，小臂和胳膊的肌肉持续酸痛，一个现在已经不联系的朋友之前回答我如何不费劲的练肌肉，说学画画。之前以为他是开玩笑，现在看果然如此。<br>　　周一花了半天结束交接了上个项目，本周主要工作是封装兄弟公司的语音 SDK 到原来我们集成了腾讯，百度，讯飞，阿里语音的 SDK 中，新的语音 SDK 从逻辑可以看到封装者的思路，基本上是想把我们需要做的都做了，只暴露出实现功能需要调用的接口，虽然使用时清晰直观，但对于我需要二次分装不算友好，比如各个阶段的状态返回，开始录音结束录音，开始识别语音，和语音回馈，我只好作比较粗糙的处理，比如在调用开始录音方法时，主动调开始录音状态的回调，因为监听不到停止，但在他返回的一个枚举方法里有开始识别的状态，我就在这里放了停止录音的回调。<br>　　虽然这个方法可以让我二次封装正常进行，但是在实际体验上，仍可以预估到可能发生的问题，比如本地音乐在播放的时候，启用录音，语音助手在播报时，播放本地音乐等等，一些场景交错下的体验问题。这让我反过来想封装一个框架，我们真正应该思考的是什么？简单便捷，还是复杂详细但面面俱到，参考官方暴露出来的框架和回想过往开发，我想这个问题应该是没有标准答案的，不同的产品有不同的需求，因为哪怕官方的框架，我也遇到过需要用 oc 运行时态的特点来替换系统方法来实现需求的问题。所以没有十全十美的框架，好的框架需要的是与时俱进，不断迭代和维护。另一方面也可以从这点上看出开源的优势。<br>　　另外还有关于这方面的内容就是发现了一个这个仓库：<a target="_blank" rel="noopener" href="https://github.com/SunshineBrother/JHBlog">iOS开发：我的初级到中级的晋级之路</a>。里面介绍底层的相关知识很详细，还有完整的工程源码，我打算每天看一篇有关底层的文章。在掘金上看了一篇关于大佬面试的文章，里面针对三年经验的一些技术问题，有些我知其然而不知其所以然，算下看我做 iOS 开发也接近三年，但前期没太注意技术累积——虽然也有一部分是中间分心去弄安卓开发，导致现在每次提升一个方向的知识，总要从底层一步一步看上来，很麻烦，而且也因为这点导致在工作岗位上的处境也有些尴尬。<br>　　以上。</p>
+
       
     </div>
 
@@ -869,7 +869,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-26 10:47:09" itemprop="dateModified" datetime="2022-03-26T10:47:09+08:00">2022-03-26</time>
+                <time title="修改时间：2022-04-06 18:10:14" itemprop="dateModified" datetime="2022-04-06T18:10:14+08:00">2022-04-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -920,7 +920,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>　　行百里者半九十，新年过来就一头扎进工作，晕头转向直到现在，让我这才走了十里路的人看着剩下的九十里，都有了些望洋兴叹的惆怅。所以趁现在有空，休息一下，回顾一下。<br>　　过年照旧仍去上山烧香拜了佛，不同的是，今年没抽到上上签，而是中上签。不过也说不清是好是坏，表哥去年抽到中下签，我和表弟抽的是上上签和上中签，但去年反倒是他订婚成了家先。因为这个今年过年在外游荡的人就剩我和表弟两了。眼看过去吃了饭就撒手啥也不管变成一个抢着洗碗做家务事的人，我和表弟某个晚上吃了夜宵在大街上忽然感慨，以后就剩我们两相依为命啦。<br>　　凡事都说物是人非太不客观，就好像我表哥变了一些，而我们上山烧香拜佛，山也并非一成不变。上山变得更容易了，可以坐改装成游览车的金杯到山脚，再从山脚坐缆车到山顶。我们选择在坐缆车前走一小段路，路不是去年的那条，而是换成一条有些曲折，两边拨地而起了不少新建仿古建筑的坎坷小路，前两天下过雨，路上有些积水。一个拐角之后，迎面看到一个牌子，小吃街。穿过小街随便抬头看了各个店铺贴在门上墙上的菜单，个个都是 5A 级景区的价格，到了街尾，表弟拿着手机对着一个菜单拍了个照，说下次要和别人炫耀下我们这消费也是相当高的。![](<a target="_blank" rel="noopener" href="https://s2.ax1x.com/2019/03/14/AAj9un.md.jpg">https://s2.ax1x.com/2019/03/14/AAj9un.md.jpg</a> 售票大厅里的陌生人们)　　我们买了票就坐缆车上山了，点香抽签解签，一如故往。庙里的变化是，今年对香客们的香做了限制，每人都只能拿三支香拜，所以不会再出现点香的时候把香点着整把香丢掉的事，庙里也不会总是烟雾缭绕的熏人眼睛。<br>　　整座庙的前半部分由两栋相连的屋子组成，中间有一个小阶梯，下去是条小巷，巷里紧紧贴着一个小卖铺，外面卖着零食小吃，里面卖的都是宗教用品，开过光的手串护身符，问了一下价格，略显粗糙的开光手串一百五，粗糙的开光手串一百，还没确定要不要图个吉利买一串就已经先生怯意，表弟说外面也就卖个二三十，我说要不然怎么说宗教是门大生意。Jesus is a big business。我在心里补充，来了个饶舌。回去的时候因为有点晚，路程又远，就和姨姨他们去了她婆婆家吃饭，吃饭的时候姨夫说让我喝点酒，整个新年的所有饭局我对喝酒都抱着一种可喝可不喝的态度，但总是看长辈各种推辞，觉得即社会又好笑。就学着印象里的神情，一半严肃一半玩笑的向姨夫摆手，摆手：“不喝不喝，待会还要开车。”姨夫冷不丁的懵了一会，随后恍然大笑，你哪开了车啊。<br>　　上香的事告一段落，新年另一件事就是和以前朋友见面，往年没约上的朋友，今年照旧因为各种琐事没有约上，见上的朋友也都是往年见过面的，也算是一期一会。小插曲是，和朋友见面的时候，看见了一个很久没联系的女性朋友，当初没联系，起因是她，结果是我赌气，到现在三四年没说过几句话，也一直没见过面。许久不见，样子似乎变了一些，成熟盖过稚气，穿过人群和她对视了一眼，我看到她眼里似乎有些久别重逢的惊喜，我不知道我当时的表情是怎样的，似乎是客气又克制的点头、抿嘴示意，然后没有寒暄，就扭头走了。现在回头看，好像在她面前，我又表现得有点小家子气，一如往昔。<br>　　后来和朋友们看完电影出来，又看到了她。我想既然老天爷都想让我和她冰释前嫌，那我也就不坚持了。但她又好像是报复似的，只是和我朋友寒暄了几句，等我走近，朝我点了点头就走了。<br>　　再后来回去，想了想，用“看你有没有换号码”的蹩脚理由给她打了个电话，聊了很久，总算是奠定了中美关系走向正常化的基础。<br>　　除了这些以外，有印象的还有，叔叔表哥说要给我介绍女朋友，一个拿着对方姐姐的照片说让我先看看，另一个在 KTV 的时候直接让我和他旁边的女孩视频了，放着我在这头，不管不顾的和那人对起话来，看看我这侄子帅吧。感觉有点胖。胖啊，不会，他就这个脸型。除了觉得颇有喜感，也被我两个亲人过于耿直的方式给唬得无可奈何。叔叔今年倒是没有给我上中国传统美德普及课了，不过去外公家时，今年瘦了两大圈的姐夫在晚饭后和我们这些年轻人上心灵鸡汤课，一脸朝气逢勃的和我们说自己老了，让我们努力，说年轻人不要怕失败，年轻人最不应该害怕的就是失败。我在心里想，年轻人不怕失败固然是可以轻易做到的，不过是一头热血，不管不顾找个方向往前使劲罢了。但失败的后果，却往往需要年轻人的家人一起承担，这样的后果，一个年轻人最多可以承受几次呢？<br>　　忽然想不到说什么结尾了，觉得这段比较应景。</p>
+          <p>　　行百里者半九十，新年过来就一头扎进工作，晕头转向直到现在，让我这才走了十里路的人看着剩下的九十里，都有了些望洋兴叹的惆怅。所以趁现在有空，休息一下，回顾一下。<br>　　<br>　　过年照旧仍去上山烧香拜了佛，不同的是，今年没抽到上上签，而是中上签。不过也说不清是好是坏，表哥去年抽到中下签，我和表弟抽的是上上签和上中签，但去年反倒是他订婚成了家先。因为这个今年过年在外游荡的人就剩我和表弟两了。眼看过去吃了饭就撒手啥也不管变成一个抢着洗碗做家务事的人，我和表弟某个晚上吃了夜宵在大街上忽然感慨，以后就剩我们两相依为命啦。<br>　　<br>　　凡事都说物是人非太不客观，就好像我表哥变了一些，而我们上山烧香拜佛，山也并非一成不变。上山变得更容易了，可以坐改装成游览车的金杯到山脚，再从山脚坐缆车到山顶。我们选择在坐缆车前走一小段路，路不是去年的那条，而是换成一条有些曲折，两边拨地而起了不少新建仿古建筑的坎坷小路，前两天下过雨，路上有些积水。一个拐角之后，迎面看到一个牌子，小吃街。穿过小街随便抬头看了各个店铺贴在门上墙上的菜单，个个都是 5A 级景区的价格，到了街尾，表弟拿着手机对着一个菜单拍了个照，说下次要和别人炫耀下我们这消费也是相当高的。<br>　　<img src="https://s2.ax1x.com/2019/03/14/AAj9un.md.jpg" alt="售票大厅里的陌生人们">　<br>　　我们买了票就坐缆车上山了，点香抽签解签，一如故往。庙里的变化是，今年对香客们的香做了限制，每人都只能拿三支香拜，所以不会再出现点香的时候把香点着整把香丢掉的事，庙里也不会总是烟雾缭绕的熏人眼睛。<br>　　<br>　　整座庙的前半部分由两栋相连的屋子组成，中间有一个小阶梯，下去是条小巷，巷里紧紧贴着一个小卖铺，外面卖着零食小吃，里面卖的都是宗教用品，开过光的手串护身符，问了一下价格，略显粗糙的开光手串一百五，粗糙的开光手串一百，还没确定要不要图个吉利买一串就已经先生怯意，表弟说外面也就卖个二三十，我说要不然怎么说宗教是门大生意。Jesus is a big business。我在心里补充，来了个饶舌。回去的时候因为有点晚，路程又远，就和姨姨他们去了她婆婆家吃饭，吃饭的时候姨夫说让我喝点酒，整个新年的所有饭局我对喝酒都抱着一种可喝可不喝的态度，但总是看长辈各种推辞，觉得即社会又好笑。就学着印象里的神情，一半严肃一半玩笑的向姨夫摆手，摆手：“不喝不喝，待会还要开车。”姨夫冷不丁的懵了一会，随后恍然大笑，你哪开了车啊。<br>　　<br>　　上香的事告一段落，新年另一件事就是和以前朋友见面，往年没约上的朋友，今年照旧因为各种琐事没有约上，见上的朋友也都是往年见过面的，也算是一期一会。小插曲是，和朋友见面的时候，看见了一个很久没联系的女性朋友，当初没联系，起因是她，结果是我赌气，到现在三四年没说过几句话，也一直没见过面。许久不见，样子似乎变了一些，成熟盖过稚气，穿过人群和她对视了一眼，我看到她眼里似乎有些久别重逢的惊喜，我不知道我当时的表情是怎样的，似乎是客气又克制的点头、抿嘴示意，然后没有寒暄，就扭头走了。现在回头看，好像在她面前，我又表现得有点小家子气，一如往昔。<br>　　<br>　　后来和朋友们看完电影出来，又看到了她。我想既然老天爷都想让我和她冰释前嫌，那我也就不坚持了。但她又好像是报复似的，只是和我朋友寒暄了几句，等我走近，朝我点了点头就走了。<br>　　<br>　　再后来回去，想了想，用“看你有没有换号码”的蹩脚理由给她打了个电话，聊了很久，总算是奠定了中美关系走向正常化的基础。<br>　　<br>　　除了这些以外，有印象的还有，叔叔表哥说要给我介绍女朋友，一个拿着对方姐姐的照片说让我先看看，另一个在 KTV 的时候直接让我和他旁边的女孩视频了，放着我在这头，不管不顾的和那人对起话来，看看我这侄子帅吧。感觉有点胖。胖啊，不会，他就这个脸型。除了觉得颇有喜感，也被我两个亲人过于耿直的方式给唬得无可奈何。叔叔今年倒是没有给我上中国传统美德普及课了，不过去外公家时，今年瘦了两大圈的姐夫在晚饭后和我们这些年轻人上心灵鸡汤课，一脸朝气逢勃的和我们说自己老了，让我们努力，说年轻人不要怕失败，年轻人最不应该害怕的就是失败。我在心里想，年轻人不怕失败固然是可以轻易做到的，不过是一头热血，不管不顾找个方向往前使劲罢了。但失败的后果，却往往需要年轻人的家人一起承担，这样的后果，一个年轻人最多可以承受几次呢？<br>　　<br>　　忽然想不到说什么结尾了，觉得这段比较应景。</p>
 <blockquote>
 <p>　　那一天我二十一岁，在我一生的黄金时代。我有好多奢望。我想爱，想吃，还想在一瞬间变成天上半明半暗的云。后来我才知道，生活就是个缓慢受锤的过程，人一天天老下去，奢望也一天天消失，最后变得像挨了锤的牛一样。可是我过二十一岁生日时没有预见到这一点。我觉得自己会永远生猛下去，什么也锤不了我。</p>
 </blockquote>
@@ -1091,7 +1091,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-22 16:27:01" itemprop="dateModified" datetime="2020-11-22T16:27:01+08:00">2020-11-22</time>
+                <time title="修改时间：2022-04-06 18:08:47" itemprop="dateModified" datetime="2022-04-06T18:08:47+08:00">2022-04-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1142,11 +1142,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>　　问朋友今年用什么字总结，他说，一。意思大概是一年都在原地踏步，年头年尾的状态没什么区别。我没有回他。<br>　　今年换了一份新的工作，状况比去年的好上很多，去年没来得及和朋友说的展望词，今年恰好可以作为总结——“木”：总算是从原来的处境脱身出来，另外也存了一些小钱。比起工作和休息，我反倒喜欢找工作，坐着公交地铁在城市里穿来穿去的感觉，固然傍晚回家会有点风尘仆仆的疲惫，甚至某天面试很糟糕的时候，看着车水马龙的城市，想到万家灯火，何处有我那盏，会有点泄气。但那时候觉得很自由，而且目的是为了找工作，并不是漫无目的的奔波，自由，且自由得很踏实。<br>　　和一个女性朋友说起我找工作就当观光的事，她说我很乐观。我收下了她的称赞，也很乐意把我好的一面给她看，她离我很远，那会找工作，蓦然间看到一个很像她的人，便和她说了一声， 还说了电影里看到和她气质很像的人，后来我们有一阵子联系很频繁，说了很多琐事，互相交换了烦恼，我忘记，我们说了那么多，我有没有告诉她我很想她。再后来就没有联系了。<br>　　疏于和旧日朋友联系这大概是我今年不好的变化吧。到现在我也还没问我那位朋友 2019 年的展望词是什么。另一位朋友常打电话过来聊天，我也大部分时间都以一种不耐烦，拒绝配合的态度应付，当然一部分也有他太啰嗦的缘故，但我想按着我去年心态好的时候，大概会以一种朋友在胡闹，我除了原谅还能有什么办法的态度和他愉快的聊下去。和他有一段以最近书店里出的新书都没法看，老书才是经典的观点开始的对话，后面我说他是不是有些焦虑，对自己或者出来以后有很多怀才不遇的感慨，他犹豫着点头说是。现在回过头去看，他变得啰嗦是因为焦虑的缘故，我对人对事的不耐烦又何尝不是。<br>　　找到工作后生活就规律了很多，新公司的同事们都很友好，也在去年的基础上学了点新的东西。和公司旅游的时候惊讶的发现上司是个塞尔达粉，后来我们就交换游戏机玩，n3ds 和 ps4 让我废寝忘食。上半年的学习计划到了下半年流产也大半是因为这个原因。夏天的时候去学了游泳，从在心里说服自己克服恐惧，到在水里站起来还能游一个来回，整个过程让我感觉很有成就感。<br>　　今年看的书没有去年多，去电影院倒是比去年多多了，《江湖儿女》里有个地方让我印象深刻，斌哥还是出租车公司老总的时候，走路上被小年轻用钢管敲断了小腿，疼半天只是冲车子消失的地方喊了句，不至于吧。但后面中风偏瘫的时候却因为小弟的小弟先上主食后上菜说他没有规矩而大发雷霆把桌子翻了。境遇让人的心态变好又变坏，之前有些悲观，把自己个性签名写，心由境生。现在看起来像个黑色幽默——不由得想起我对自己其他的悲观的预见性结论了。<br>　　今年作为从去年的困境脱离的过渡期，好和不好都有一些，勉强给自己的表现打个及格分。来年的展望词是林，希望明年可以存更多的钱，多吃蔬菜，减轻体重，可以有“阵阵晚风吹动着松涛，只有青山藏在白云间”的心态，可以境由心生。
-　
-　　
-　</p>
-
+          <p>问朋友今年用什么字总结，他说，一。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/happy-new-year-2019.html">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1411,12 +1415,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">233k</span>
+    <span title="站点总字数">232k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:32</span>
+    <span title="站点阅读时长">3:31</span>
 </div>
 
 <!-- time -->
