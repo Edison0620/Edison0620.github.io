@@ -24,7 +24,7 @@
   </script>
 
   <meta name="description" content="抽空把项目里的顶部弹出框封装了一下。">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Swift - 顶部弹出框封装">
 <meta property="og:url" content="https://www.kaaaaai.cn/swift-toppop-upboxencapsulation.html">
 <meta property="og:site_name" content="壹拾肆">
@@ -49,7 +49,7 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
@@ -262,13 +262,6 @@
             </span>
 
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
   
   <span class="post-meta-item">
     
@@ -366,7 +359,7 @@
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/automatically-generates-annotation-documents.html" rel="bookmark">iOS - Xcode 自动生成注释文档</a></div>
+      <div class="popular-posts-title"><a href="/swift-permission-request-tools.html" rel="bookmark">Swift - 权限请求封装</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/ios-hmac-encryption-and-an-md5-problem.html" rel="bookmark">iOS - HMAC 加密算法和一个 MD5 加密的问题</a></div>
@@ -375,10 +368,10 @@
       <div class="popular-posts-title"><a href="/ios-some-question-about-bluetooth.html" rel="bookmark">iOS - 一些蓝牙问题的解决</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/ios-uitableview-shadow-rounded-corners-coexist.html" rel="bookmark">iOS - UITableview 阴影圆角共存</a></div>
+      <div class="popular-posts-title"><a href="/swift-optional-and-unwrapping-learning.html" rel="bookmark">Swift - ?和!的学习</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/swift-optional-and-unwrapping-learning.html" rel="bookmark">Swift - ?和!的学习</a></div>
+      <div class="popular-posts-title"><a href="/ios-uitableview-shadow-rounded-corners-coexist.html" rel="bookmark">iOS - UITableview 阴影圆角共存</a></div>
     </li>
   </ul>
 
@@ -412,6 +405,16 @@
 
 
         
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/a-person-abandoned-by-the-light.html" rel="prev" title="被光放弃的人">
+      <i class="fa fa-chevron-left"></i> 被光放弃的人
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/ios-some-question-about-bluetooth.html" rel="next" title="iOS - 一些蓝牙问题的解决">
+      iOS - 一些蓝牙问题的解决 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
     
   </article>
@@ -563,7 +566,7 @@
     <span title="站点阅读时长">3:31</span>
 </div>
 
-<!-- time -->
+  <!-- time -->
   <div id="show-time">
     <span id="span_dt_dt"></span>
   </div>
@@ -586,30 +589,10 @@
         seconds = Math.floor((e_minsold - minsold) * 60);
         span_dt_dt.innerHTML = "已存活 " + daysold + " 天 " + hrsold + " 小时 " + minsold + " 分 " + seconds + " 秒";
     }
-show_date_time();
+    show_date_time();
   </script>
 
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
 
 
 
@@ -717,10 +700,10 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
     new Valine({
       el         : '#valine-comments',
       verify     : false,
-      notify     : false,
+      notify     : true,
       appId      : 'fzf6cpurdF6t3abR8qK1Isi3-gzGzoHsz',
       appKey     : 'mBMU4tntJKhBPKSpyDOWQYGy',
-      placeholder: "Just go go",
+      placeholder: "江南无所有，聊赠一枝春？",
       avatar     : 'mm',
       meta       : guest,
       pageSize   : '10' || 10,

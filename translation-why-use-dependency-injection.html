@@ -23,12 +23,12 @@
     var CONFIG = {"hostname":"www.kaaaaai.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="原文来自：Why use dependency injection 第一次翻译，如有问题还请留言指出。E-mail：&amp;#x72;&amp;#x6f;&amp;#111;&amp;#116;&amp;#x40;&amp;#107;&amp;#97;&amp;#97;&amp;#x61;&amp;#97;&amp;#x61;&amp;#105;&amp;#x2e;&amp;#99;&amp;#x6e;">
-<meta property="og:type" content="website">
+  <meta name="description" content="原文来自：Why use dependency injection 第一次翻译，如有问题还请留言指出。E-mail：&amp;#114;&amp;#111;&amp;#x6f;&amp;#116;&amp;#64;&amp;#107;&amp;#x61;&amp;#97;&amp;#97;&amp;#x61;&amp;#97;&amp;#105;&amp;#x2e;&amp;#x63;&amp;#110;">
+<meta property="og:type" content="article">
 <meta property="og:title" content="翻译：Why use dependency injection">
 <meta property="og:url" content="https://www.kaaaaai.cn/translation-why-use-dependency-injection.html">
 <meta property="og:site_name" content="壹拾肆">
-<meta property="og:description" content="原文来自：Why use dependency injection 第一次翻译，如有问题还请留言指出。E-mail：&amp;#x72;&amp;#x6f;&amp;#111;&amp;#116;&amp;#x40;&amp;#107;&amp;#97;&amp;#97;&amp;#x61;&amp;#97;&amp;#x61;&amp;#105;&amp;#x2e;&amp;#99;&amp;#x6e;">
+<meta property="og:description" content="原文来自：Why use dependency injection 第一次翻译，如有问题还请留言指出。E-mail：&amp;#114;&amp;#111;&amp;#x6f;&amp;#116;&amp;#64;&amp;#107;&amp;#x61;&amp;#97;&amp;#97;&amp;#x61;&amp;#97;&amp;#105;&amp;#x2e;&amp;#x63;&amp;#110;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-02-22T01:37:05.000Z">
 <meta property="article:modified_time" content="2021-02-22T08:25:58.000Z">
@@ -46,7 +46,7 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
@@ -253,13 +253,6 @@
             </span>
 
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
   
   <span class="post-meta-item">
     
@@ -299,7 +292,7 @@
 
       
         <p>原文来自：<a target="_blank" rel="noopener" href="https://github.com/uber/needle/blob/master/WHY_DI.md">Why use dependency injection</a></p>
-<p>第一次翻译，如有问题还请留言指出。<br>E-mail：<a href="mailto:&#x72;&#x6f;&#111;&#116;&#x40;&#107;&#97;&#97;&#x61;&#97;&#x61;&#105;&#x2e;&#99;&#x6e;">&#x72;&#x6f;&#111;&#116;&#x40;&#107;&#97;&#97;&#x61;&#97;&#x61;&#105;&#x2e;&#99;&#x6e;</a></p>
+<p>第一次翻译，如有问题还请留言指出。<br>E-mail：<a href="mailto:&#114;&#111;&#x6f;&#116;&#64;&#107;&#x61;&#97;&#97;&#x61;&#97;&#105;&#x2e;&#x63;&#110;">&#114;&#111;&#x6f;&#116;&#64;&#107;&#x61;&#97;&#97;&#x61;&#97;&#105;&#x2e;&#x63;&#110;</a></p>
 <hr>
 <h2 id="为什么使用依赖注入？"><a href="#为什么使用依赖注入？" class="headerlink" title="为什么使用依赖注入？"></a>为什么使用依赖注入？</h2><p>本文档介绍了依赖注入的基本知识；它是什么；以及为什么把它加入进你的应用开发中会是个好的模式？下文将用 DI 这个术语作为依赖注入（dependency injection）的简称。</p>
 <h3 id="一个真实的例子来说明"><a href="#一个真实的例子来说明" class="headerlink" title="一个真实的例子来说明"></a>一个真实的例子来说明</h3><p>与其用抽象的语言描述这个模式，不如用一个简单的基于视图控制器的例子来理解它。如果你对抽象描述感兴趣，维基百科有一篇很棒的<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Dependency_injection">文章</a>。</p>
@@ -333,16 +326,16 @@
       <div class="popular-posts-title"><a href="/its-time-to-build-an-open-source-library.html" rel="bookmark">是时候维护一个属于自己的开源库了</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/add-junk-code-to-ios-vest-project.html" rel="bookmark">给你的 iOS 马甲项目增加一点垃圾代码</a></div>
+      <div class="popular-posts-title"><a href="/ios-douban-open-source-license-mentioned-in-the-library.html" rel="bookmark">iOS 端豆瓣开源许可提到的库</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/ios-automated-packaging-complicated-by-mail.html" rel="bookmark">iOS 自动化打包上传 AppleStore、fir.im，并发邮件通知测试人员</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/amateur-clipsself-improvement.html" rel="bookmark">业余剪辑自我修养</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/android-call-the-system-to-send-text-messages-customize-the-number-and-text-message-content.html" rel="bookmark">Android - 调用系统发短信功能，自定义号码和短信内容</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/android-learning-audio-ocus.html" rel="bookmark">Android - 音频焦点学习</a></div>
+      <div class="popular-posts-title"><a href="/technology-research-template.html" rel="bookmark">技术调研模板</a></div>
     </li>
   </ul>
 
@@ -376,6 +369,13 @@
 
 
         
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/its-time-to-build-an-open-source-library.html" rel="prev" title="是时候维护一个属于自己的开源库了">
+      <i class="fa fa-chevron-left"></i> 是时候维护一个属于自己的开源库了
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
       </footer>
     
   </article>
@@ -527,7 +527,7 @@
     <span title="站点阅读时长">3:31</span>
 </div>
 
-<!-- time -->
+  <!-- time -->
   <div id="show-time">
     <span id="span_dt_dt"></span>
   </div>
@@ -550,30 +550,10 @@
         seconds = Math.floor((e_minsold - minsold) * 60);
         span_dt_dt.innerHTML = "已存活 " + daysold + " 天 " + hrsold + " 小时 " + minsold + " 分 " + seconds + " 秒";
     }
-show_date_time();
+    show_date_time();
   </script>
 
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
 
 
 
@@ -681,10 +661,10 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
     new Valine({
       el         : '#valine-comments',
       verify     : false,
-      notify     : false,
+      notify     : true,
       appId      : 'fzf6cpurdF6t3abR8qK1Isi3-gzGzoHsz',
       appKey     : 'mBMU4tntJKhBPKSpyDOWQYGy',
-      placeholder: "Just go go",
+      placeholder: "江南无所有，聊赠一枝春？",
       avatar     : 'mm',
       meta       : guest,
       pageSize   : '10' || 10,

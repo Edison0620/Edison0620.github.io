@@ -24,7 +24,7 @@
   </script>
 
   <meta name="description" content="前一阵子公司网站的访问出了一点问题，每次访问的时候都会弹出一个警告页面，类似于这种　　由于之前也没碰过这种问题，只能简单粗暴的归纳出两个方向：　　１.可能是域名原因　　２.可能是服务器原因　　后来问题已经解决的时候看网上分享的资料知道还有一种可能就是，网站本身没问题，之所以出现这个警告页面是因为被运营商 HTTP 或 DNS 劫持了。　　这里刷一条给我们提供域名服务的服务商——时代互联的差评，">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:title" content="如何解决网站访问时弹出“您要访问的网站包含恶意软件”的页面">
 <meta property="og:url" content="https://www.kaaaaai.cn/how-to-fix-warnings-about-unsafe-sites.html">
 <meta property="og:site_name" content="壹拾肆">
@@ -49,7 +49,7 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
@@ -262,13 +262,6 @@
             </span>
 
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
   
   <span class="post-meta-item">
     
@@ -318,19 +311,19 @@
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/add-junk-code-to-ios-vest-project.html" rel="bookmark">给你的 iOS 马甲项目增加一点垃圾代码</a></div>
+      <div class="popular-posts-title"><a href="/translation-why-use-dependency-injection.html" rel="bookmark">翻译：Why use dependency injection</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/its-time-to-build-an-open-source-library.html" rel="bookmark">是时候维护一个属于自己的开源库了</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/ios-douban-open-source-license-mentioned-in-the-library.html" rel="bookmark">iOS 端豆瓣开源许可提到的库</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/ios-automated-packaging-complicated-by-mail.html" rel="bookmark">iOS 自动化打包上传 AppleStore、fir.im，并发邮件通知测试人员</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/amateur-clipsself-improvement.html" rel="bookmark">业余剪辑自我修养</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/android-call-the-system-to-send-text-messages-customize-the-number-and-text-message-content.html" rel="bookmark">Android - 调用系统发短信功能，自定义号码和短信内容</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/android-learning-audio-ocus.html" rel="bookmark">Android - 音频焦点学习</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/android-more-than-seekbar-slider-dynamic-change.html" rel="bookmark">Android - 动态改变 seekbar 滑块大小和其他</a></div>
     </li>
   </ul>
 
@@ -364,6 +357,16 @@
 
 
         
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/ios-naming-rules-and-annotation-specifications.html" rel="prev" title="iOS - 类、属性、方法、枚举等命名规则和注释规范">
+      <i class="fa fa-chevron-left"></i> iOS - 类、属性、方法、枚举等命名规则和注释规范
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/xiangzi-and-his-misfortune.html" rel="next" title="运气不好的祥子的一生">
+      运气不好的祥子的一生 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
     
   </article>
@@ -514,7 +517,7 @@
     <span title="站点阅读时长">3:31</span>
 </div>
 
-<!-- time -->
+  <!-- time -->
   <div id="show-time">
     <span id="span_dt_dt"></span>
   </div>
@@ -537,30 +540,10 @@
         seconds = Math.floor((e_minsold - minsold) * 60);
         span_dt_dt.innerHTML = "已存活 " + daysold + " 天 " + hrsold + " 小时 " + minsold + " 分 " + seconds + " 秒";
     }
-show_date_time();
+    show_date_time();
   </script>
 
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
 
 
 
@@ -668,10 +651,10 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
     new Valine({
       el         : '#valine-comments',
       verify     : false,
-      notify     : false,
+      notify     : true,
       appId      : 'fzf6cpurdF6t3abR8qK1Isi3-gzGzoHsz',
       appKey     : 'mBMU4tntJKhBPKSpyDOWQYGy',
-      placeholder: "Just go go",
+      placeholder: "江南无所有，聊赠一枝春？",
       avatar     : 'mm',
       meta       : guest,
       pageSize   : '10' || 10,

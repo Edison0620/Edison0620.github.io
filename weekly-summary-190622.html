@@ -24,7 +24,7 @@
   </script>
 
   <meta name="description" content="上周博客落了一篇，说起来其实上周还没有本周忙，上周主要是测试兄弟公司开发的语音库，和针对新项目给出一个开发周期的预估，虽然一周都不是很忙，但是最后一天因为很久之前的老项目出了问题，需要维护，所以就没有抽出时间来写博客了。　　本周主要在弄一个儿童绘本读物的 App，因为主要的几个页面，需求里都是用现成的内容 SDK 和 h5 实现，所以我的工作还是比较轻松的，因为这个原因也让我有空对自己的知识进">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:title" content="每周总结 - 0622">
 <meta property="og:url" content="https://www.kaaaaai.cn/weekly-summary-190622.html">
 <meta property="og:site_name" content="壹拾肆">
@@ -52,7 +52,7 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
@@ -265,13 +265,6 @@
             </span>
 
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
   
   <span class="post-meta-item">
     
@@ -327,19 +320,19 @@
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/weekly-summary-190418.html" rel="bookmark">每周工作学习总结 - 0418</a></div>
+      <div class="popular-posts-title"><a href="/weekly-summary-190831.html" rel="bookmark">每周总结 - 0831</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/weekly-summary-190428.html" rel="bookmark">每周总结 - 0428</a></div>
+      <div class="popular-posts-title"><a href="/weekly-summary-190819.html" rel="bookmark">每周总结 - 0819</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/weekly-summary-190511.html" rel="bookmark">每周总结 - 0511</a></div>
+      <div class="popular-posts-title"><a href="/weekly-summary-190803.html" rel="bookmark">每周总结 - 0803</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/weekly-summary-190518.html" rel="bookmark">每周总结 - 0518</a></div>
+      <div class="popular-posts-title"><a href="/weekly-summary-190729.html" rel="bookmark">每周总结 - 0729</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/weekly-summary-190601.html" rel="bookmark">每周总结 - 0601</a></div>
+      <div class="popular-posts-title"><a href="/weekly-summary-190722.html" rel="bookmark">每周总结 - 0722</a></div>
     </li>
   </ul>
 
@@ -374,6 +367,16 @@
 
 
         
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/weekly-summary-190601.html" rel="prev" title="每周总结 - 0601">
+      <i class="fa fa-chevron-left"></i> 每周总结 - 0601
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/weekly-summary-190629.html" rel="next" title="每周总结 - 0629">
+      每周总结 - 0629 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
     
   </article>
@@ -524,7 +527,7 @@
     <span title="站点阅读时长">3:31</span>
 </div>
 
-<!-- time -->
+  <!-- time -->
   <div id="show-time">
     <span id="span_dt_dt"></span>
   </div>
@@ -547,30 +550,10 @@
         seconds = Math.floor((e_minsold - minsold) * 60);
         span_dt_dt.innerHTML = "已存活 " + daysold + " 天 " + hrsold + " 小时 " + minsold + " 分 " + seconds + " 秒";
     }
-show_date_time();
+    show_date_time();
   </script>
 
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
 
 
 
@@ -678,10 +661,10 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
     new Valine({
       el         : '#valine-comments',
       verify     : false,
-      notify     : false,
+      notify     : true,
       appId      : 'fzf6cpurdF6t3abR8qK1Isi3-gzGzoHsz',
       appKey     : 'mBMU4tntJKhBPKSpyDOWQYGy',
-      placeholder: "Just go go",
+      placeholder: "江南无所有，聊赠一枝春？",
       avatar     : 'mm',
       meta       : guest,
       pageSize   : '10' || 10,

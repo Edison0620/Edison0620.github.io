@@ -24,7 +24,7 @@
   </script>
 
   <meta name="description" content="看了曹文轩的《草房子》，内容讲的是发生桑桑这个小主人公周围的事，有孩子的故事，也有大人的故事。　　　　叙事口吻平淡朴实，像静谧的流水，又像傍晚从远处村庄传来带着泥土气息的风，让人也不由自主的想起自己的童年时光，就好像成年后在某个瞬间想起小时候放学经过正开饭的陌生人家闻到饭菜的味道，那个瞬间中所处的情景和记忆中的画面，便重叠串在一起。这本书也有类似的力量。　　　　书里写了许多大概每个人童年都会发">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:title" content="在草房子外">
 <meta property="og:url" content="https://www.kaaaaai.cn/outside-the-straw-house.html">
 <meta property="og:site_name" content="壹拾肆">
@@ -45,7 +45,7 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
@@ -258,13 +258,6 @@
             </span>
 
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
   
   <span class="post-meta-item">
     
@@ -317,19 +310,19 @@
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/after-reading-wangsuo.html" rel="bookmark">半把瘾</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/chicken-soup-from-inference-writer.html" rel="bookmark">推理小说家煲的鸡汤</a></div>
+      <div class="popular-posts-title"><a href="/god-will-rolls-the-dice-several-times.html" rel="bookmark">上帝会掷几次骰子</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/gangster-and-litchi.html" rel="bookmark">黑帮老大和荔枝</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/god-will-rolls-the-dice-several-times.html" rel="bookmark">上帝会掷几次骰子</a></div>
+      <div class="popular-posts-title"><a href="/chicken-soup-from-inference-writer.html" rel="bookmark">推理小说家煲的鸡汤</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/other-fragment-about-huan.html" rel="bookmark">胡安另一些片段</a></div>
+      <div class="popular-posts-title"><a href="/xiangzi-and-his-misfortune.html" rel="bookmark">运气不好的祥子的一生</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/after-reading-wangsuo.html" rel="bookmark">半把瘾</a></div>
     </li>
   </ul>
 
@@ -362,6 +355,16 @@
 
 
         
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/platypus-philosophy.html" rel="prev" title="唯“鸭嘴兽”主义哲学">
+      <i class="fa fa-chevron-left"></i> 唯“鸭嘴兽”主义哲学
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/chinese-text-layout-study.html" rel="next" title="中文文案排版学习">
+      中文文案排版学习 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
     
   </article>
@@ -512,7 +515,7 @@
     <span title="站点阅读时长">3:31</span>
 </div>
 
-<!-- time -->
+  <!-- time -->
   <div id="show-time">
     <span id="span_dt_dt"></span>
   </div>
@@ -535,30 +538,10 @@
         seconds = Math.floor((e_minsold - minsold) * 60);
         span_dt_dt.innerHTML = "已存活 " + daysold + " 天 " + hrsold + " 小时 " + minsold + " 分 " + seconds + " 秒";
     }
-show_date_time();
+    show_date_time();
   </script>
 
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
 
 
 
@@ -666,10 +649,10 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
     new Valine({
       el         : '#valine-comments',
       verify     : false,
-      notify     : false,
+      notify     : true,
       appId      : 'fzf6cpurdF6t3abR8qK1Isi3-gzGzoHsz',
       appKey     : 'mBMU4tntJKhBPKSpyDOWQYGy',
-      placeholder: "Just go go",
+      placeholder: "江南无所有，聊赠一枝春？",
       avatar     : 'mm',
       meta       : guest,
       pageSize   : '10' || 10,

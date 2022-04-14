@@ -24,7 +24,7 @@
   </script>
 
   <meta name="description" content="为了让网站看起来充实一点，我最近都想把日记都搬到这上面来写。之前看太宰治不成熟，虽然仍旧是摆弄消极情绪但技巧上却用力过度的处女作，忽然原谅他是看到书里一句，“怀着美好的情感，人往往做出低劣的作品”。真的是让人原谅他到想和他抱头痛哭。这也大概是我最近的状态吧。   我经常看一本书，看久了，写字时的语气就会下意识的模仿作者，特别专心致志的时候，连心里话也下意识的用那个语气。">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:title" content="今日文风：东北偏北一级微风">
 <meta property="og:url" content="https://www.kaaaaai.cn/fourthart.html">
 <meta property="og:site_name" content="壹拾肆">
@@ -44,7 +44,7 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
@@ -257,13 +257,6 @@
             </span>
 
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
   
   <span class="post-meta-item">
     
@@ -327,19 +320,19 @@
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/sun-sleeping-in-the-forest.html" rel="bookmark">林中落日</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/on-the-road.html" rel="bookmark">在路上</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/impromptu-late-spring.html" rel="bookmark">春末即兴</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/as-the-boat.html" rel="bookmark">成舟</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/dreaming-about-you-and-me.html" rel="bookmark">关于我和你的梦</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/eat-a-burger-with-chopped-green-onion-and-sugar.html" rel="bookmark">今天中午吃汉堡，加点葱花加点糖</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/firstart.html" rel="bookmark">欸，下午放学前记得帮我把要给前面那个女孩的情书写好</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/hello-edison-s-world.html" rel="bookmark">Here is Kai's World</a></div>
     </li>
   </ul>
 
@@ -371,6 +364,16 @@
 
 
         
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/eat-a-burger-with-chopped-green-onion-and-sugar.html" rel="prev" title="今天中午吃汉堡，加点葱花加点糖">
+      <i class="fa fa-chevron-left"></i> 今天中午吃汉堡，加点葱花加点糖
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/recent-reading-notes.html" rel="next" title="最近的读书笔记">
+      最近的读书笔记 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
     
   </article>
@@ -521,7 +524,7 @@
     <span title="站点阅读时长">3:31</span>
 </div>
 
-<!-- time -->
+  <!-- time -->
   <div id="show-time">
     <span id="span_dt_dt"></span>
   </div>
@@ -544,30 +547,10 @@
         seconds = Math.floor((e_minsold - minsold) * 60);
         span_dt_dt.innerHTML = "已存活 " + daysold + " 天 " + hrsold + " 小时 " + minsold + " 分 " + seconds + " 秒";
     }
-show_date_time();
+    show_date_time();
   </script>
 
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
 
 
 
@@ -675,10 +658,10 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
     new Valine({
       el         : '#valine-comments',
       verify     : false,
-      notify     : false,
+      notify     : true,
       appId      : 'fzf6cpurdF6t3abR8qK1Isi3-gzGzoHsz',
       appKey     : 'mBMU4tntJKhBPKSpyDOWQYGy',
-      placeholder: "Just go go",
+      placeholder: "江南无所有，聊赠一枝春？",
       avatar     : 'mm',
       meta       : guest,
       pageSize   : '10' || 10,

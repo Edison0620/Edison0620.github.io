@@ -24,7 +24,7 @@
   </script>
 
   <meta name="description" content="最近在项目中使用了 Git Submodule 的功能，好处是如果是自己开发的封装库，比较方便调试，push 时可以同时上传项目和库的修改，别人通过主仓库地址下载工程的时候速度也会快上一些。　　Git Submodule 的使用可以通过终端命令来操作（Git Submoudle 使用完整教程），或者通过 Git 第三方可视化客户端直接操作。本文展示的是通过 Git 第三方客户端 Sourcet">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Git - Submodule 使用简单教程">
 <meta property="og:url" content="https://www.kaaaaai.cn/git-submodule.html">
 <meta property="og:site_name" content="壹拾肆">
@@ -53,7 +53,7 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
@@ -266,13 +266,6 @@
             </span>
 
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
   
   <span class="post-meta-item">
     
@@ -336,19 +329,19 @@
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/add-junk-code-to-ios-vest-project.html" rel="bookmark">给你的 iOS 马甲项目增加一点垃圾代码</a></div>
+      <div class="popular-posts-title"><a href="/translation-why-use-dependency-injection.html" rel="bookmark">翻译：Why use dependency injection</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/its-time-to-build-an-open-source-library.html" rel="bookmark">是时候维护一个属于自己的开源库了</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/ios-douban-open-source-license-mentioned-in-the-library.html" rel="bookmark">iOS 端豆瓣开源许可提到的库</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/ios-automated-packaging-complicated-by-mail.html" rel="bookmark">iOS 自动化打包上传 AppleStore、fir.im，并发邮件通知测试人员</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/amateur-clipsself-improvement.html" rel="bookmark">业余剪辑自我修养</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/android-call-the-system-to-send-text-messages-customize-the-number-and-text-message-content.html" rel="bookmark">Android - 调用系统发短信功能，自定义号码和短信内容</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/android-learning-audio-ocus.html" rel="bookmark">Android - 音频焦点学习</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/android-more-than-seekbar-slider-dynamic-change.html" rel="bookmark">Android - 动态改变 seekbar 滑块大小和其他</a></div>
     </li>
   </ul>
 
@@ -382,6 +375,16 @@
 
 
         
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/i-can't-stay-here-to-love-you.html" rel="prev" title="我不能留在这里爱你">
+      <i class="fa fa-chevron-left"></i> 我不能留在这里爱你
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/everyone-love-gtd.html" rel="next" title="社畜都爱 GTD">
+      社畜都爱 GTD <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
     
   </article>
@@ -533,7 +536,7 @@
     <span title="站点阅读时长">3:31</span>
 </div>
 
-<!-- time -->
+  <!-- time -->
   <div id="show-time">
     <span id="span_dt_dt"></span>
   </div>
@@ -556,30 +559,10 @@
         seconds = Math.floor((e_minsold - minsold) * 60);
         span_dt_dt.innerHTML = "已存活 " + daysold + " 天 " + hrsold + " 小时 " + minsold + " 分 " + seconds + " 秒";
     }
-show_date_time();
+    show_date_time();
   </script>
 
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
 
 
 
@@ -687,10 +670,10 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
     new Valine({
       el         : '#valine-comments',
       verify     : false,
-      notify     : false,
+      notify     : true,
       appId      : 'fzf6cpurdF6t3abR8qK1Isi3-gzGzoHsz',
       appKey     : 'mBMU4tntJKhBPKSpyDOWQYGy',
-      placeholder: "Just go go",
+      placeholder: "江南无所有，聊赠一枝春？",
       avatar     : 'mm',
       meta       : guest,
       pageSize   : '10' || 10,
