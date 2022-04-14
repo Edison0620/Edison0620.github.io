@@ -24,7 +24,7 @@
   </script>
 
   <meta name="description" content="从上图可以看出使用自动化出包，可以优化掉好几个需要人工介入的步骤，优化开发流程，节省开发者的时间。">
-<meta property="og:type" content="article">
+<meta property="og:type" content="website">
 <meta property="og:title" content="iOS 自动化打包上传 AppleStore、fir.im，并发邮件通知测试人员">
 <meta property="og:url" content="https://www.kaaaaai.cn/ios-automated-packaging-complicated-by-mail.html">
 <meta property="og:site_name" content="壹拾肆">
@@ -48,7 +48,7 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : true,
+    isPost : false,
     lang   : 'zh-CN'
   };
 </script>
@@ -261,6 +261,13 @@
             </span>
 
           
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
   <span class="post-meta-item">
     
@@ -334,6 +341,26 @@
     
     
     
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/automatically-generates-annotation-documents.html" rel="bookmark">iOS - Xcode 自动生成注释文档</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/ios-preliminary-study-of-symbolic-breakpoints.html" rel="bookmark">iOS - 初探符号断点调试</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/ios-xcode-setup-code-snippet.html" rel="bookmark">iOS - Xcode 设置代码片段</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/xcode-plugin-research.html" rel="bookmark">iOS - Xcode Plugin 调研和使用</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/add-junk-code-to-ios-vest-project.html" rel="bookmark">给你的 iOS 马甲项目增加一点垃圾代码</a></div>
+    </li>
+  </ul>
+
         
 
 <div>
@@ -364,16 +391,6 @@
 
 
         
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/recommend-a-few-podcasts.html" rel="prev" title="推荐几个播客节目">
-      <i class="fa fa-chevron-left"></i> 推荐几个播客节目
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/amateur-clipsself-improvement.html" rel="next" title="业余剪辑自我修养">
-      业余剪辑自我修养 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
       </footer>
     
   </article>
@@ -554,6 +571,23 @@ show_date_time();
         
 <div class="busuanzi-count">
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
 </div>
 
 

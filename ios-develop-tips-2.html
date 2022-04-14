@@ -24,7 +24,7 @@
   </script>
 
   <meta name="description" content="*　　一直有把 iOS 开发里用到的一些边边角角的小技巧写成一个集合的想法，但一直没有付诸实践。刚好备忘录里的零零碎碎记的东西够凑成一篇东西来，就把之前的一篇 OC 笔记 - 一些小技巧和问题处理的集合 给改了名，加上现在的第二篇，打算以后写成一个系列。长路漫漫，与诸君共勉。* 一、打印bool值">
-<meta property="og:type" content="article">
+<meta property="og:type" content="website">
 <meta property="og:title" content="iOS 开发里的那些散手（二）">
 <meta property="og:url" content="https://www.kaaaaai.cn/ios-develop-tips-2.html">
 <meta property="og:site_name" content="壹拾肆">
@@ -46,7 +46,7 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : true,
+    isPost : false,
     lang   : 'zh-CN'
   };
 </script>
@@ -259,6 +259,13 @@
             </span>
 
           
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
   <span class="post-meta-item">
     
@@ -332,6 +339,26 @@
     
     
     
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/add-junk-code-to-ios-vest-project.html" rel="bookmark">给你的 iOS 马甲项目增加一点垃圾代码</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/ios-develop-tips-1.html" rel="bookmark">iOS开发里的那些散手（一）</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/ios-fastlane-snapshot.html" rel="bookmark">iOS - 使用 fastlane snapshot 自动化截图</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/ios-hmac-encryption-and-an-md5-problem.html" rel="bookmark">iOS - HMAC 加密算法和一个 MD5 加密的问题</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/ios-preliminary-study-of-symbolic-breakpoints.html" rel="bookmark">iOS - 初探符号断点调试</a></div>
+    </li>
+  </ul>
+
         
 
 <div>
@@ -362,16 +389,6 @@
 
 
         
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/yansi-who-knows.html" rel="prev" title="焉识！焉识？">
-      <i class="fa fa-chevron-left"></i> 焉识！焉识？
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/three-books-thick-with-nostalgia.html" rel="next" title="他三本书厚的怀念">
-      他三本书厚的怀念 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
       </footer>
     
   </article>
@@ -552,6 +569,23 @@ show_date_time();
         
 <div class="busuanzi-count">
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
 </div>
 
 

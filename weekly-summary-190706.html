@@ -24,7 +24,7 @@
   </script>
 
   <meta name="description" content="每次有一些模棱两可想法的时候，都会在互联网上看到别人已经成体系的理论。这让我觉得虽然沙雕网友遍地走，睿智网友也不少。　　本周依旧，忙碌的部分集中在头部，后半段的时候主要的都是一些琐碎的事，不过周四的时候针对当前项目的一个 bug，重写了部分逻辑。让我对加载 h5 页面的控件多了一些认识，还有手势响应链的理解，比如当前页面如果同时有侧滑返回手势和页面右滑手势时，两者在响应的优先级上，侧滑手势作为">
-<meta property="og:type" content="article">
+<meta property="og:type" content="website">
 <meta property="og:title" content="每周总结 - 0706">
 <meta property="og:url" content="https://www.kaaaaai.cn/weekly-summary-190706.html">
 <meta property="og:site_name" content="壹拾肆">
@@ -47,7 +47,7 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : true,
+    isPost : false,
     lang   : 'zh-CN'
   };
 </script>
@@ -260,6 +260,13 @@
             </span>
 
           
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
   <span class="post-meta-item">
     
@@ -305,6 +312,26 @@
     
     
     
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/weekly-summary-190418.html" rel="bookmark">每周工作学习总结 - 0418</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/weekly-summary-190428.html" rel="bookmark">每周总结 - 0428</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/weekly-summary-190511.html" rel="bookmark">每周总结 - 0511</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/weekly-summary-190518.html" rel="bookmark">每周总结 - 0518</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/weekly-summary-190601.html" rel="bookmark">每周总结 - 0601</a></div>
+    </li>
+  </ul>
+
         
 
 <div>
@@ -336,16 +363,6 @@
 
 
         
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/weekly-summary-190713.html" rel="prev" title="每周总结 - 0713">
-      <i class="fa fa-chevron-left"></i> 每周总结 - 0713
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/weekly-summary-190629.html" rel="next" title="每周总结 - 0629">
-      每周总结 - 0629 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
       </footer>
     
   </article>
@@ -525,6 +542,23 @@ show_date_time();
         
 <div class="busuanzi-count">
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
 </div>
 
 

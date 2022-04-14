@@ -24,7 +24,7 @@
   </script>
 
   <meta name="description" content="前言　　在做项目下拉栏音量条拖动的时候，产品提了一个新需求，想拖动的时候让滑块选中时变大，未选中时就正常大小，这个需求如果在 iOS 项目，我会选择监听手势方法，监听按下和松开的时机，改变滑块的大小。在 Android 中我想应该也有类似的方法，但实际在网上搜索资料，发现问题简单，但找解决问题的方式非常困难，具体困难点在于，无法找到精确到“动态改变 seekbar 滑块大小”这个需求具体实现的文章">
-<meta property="og:type" content="article">
+<meta property="og:type" content="website">
 <meta property="og:title" content="Android - 动态改变 seekbar 滑块大小和其他">
 <meta property="og:url" content="https://www.kaaaaai.cn/android-more-than-seekbar-slider-dynamic-change.html">
 <meta property="og:site_name" content="壹拾肆">
@@ -46,7 +46,7 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : true,
+    isPost : false,
     lang   : 'zh-CN'
   };
 </script>
@@ -259,6 +259,13 @@
             </span>
 
           
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
   <span class="post-meta-item">
     
@@ -321,6 +328,26 @@
     
     
     
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/android-call-the-system-to-send-text-messages-customize-the-number-and-text-message-content.html" rel="bookmark">Android - 调用系统发短信功能，自定义号码和短信内容</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/android-learning-audio-ocus.html" rel="bookmark">Android - 音频焦点学习</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/add-junk-code-to-ios-vest-project.html" rel="bookmark">给你的 iOS 马甲项目增加一点垃圾代码</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/amateur-clipsself-improvement.html" rel="bookmark">业余剪辑自我修养</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/automatically-generates-annotation-documents.html" rel="bookmark">iOS - Xcode 自动生成注释文档</a></div>
+    </li>
+  </ul>
+
         
 
 <div>
@@ -351,16 +378,6 @@
 
 
         
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/android-learning-audio-ocus.html" rel="prev" title="Android - 音频焦点学习">
-      <i class="fa fa-chevron-left"></i> Android - 音频焦点学习
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/xiangzi-and-his-misfortune.html" rel="next" title="运气不好的祥子的一生">
-      运气不好的祥子的一生 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
       </footer>
     
   </article>
@@ -541,6 +558,23 @@ show_date_time();
         
 <div class="busuanzi-count">
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
 </div>
 
 

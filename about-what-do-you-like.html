@@ -24,7 +24,7 @@
   </script>
 
   <meta name="description" content="最近刷知乎的频率上升，刷的多了之后隐隐感觉到知乎在内容显示上有一些变化，我想可能是它的推荐算法有些不一样了。这种不一样让我想起抖音，我偶尔也会刷一下抖音，频率大概一个月一两次左右，主要目的是看看朋友们的近况，刚下抖音的时候也有过一阵上瘾期，有刷抖音的朋友都很明白他推荐算法的强大，一个视频十几秒，不占用时间，能无限往下翻，虽然一个视频很短，但不知不觉就让人耗费了一两个小时，有隐性的成瘾机制。后来">
-<meta property="og:type" content="article">
+<meta property="og:type" content="website">
 <meta property="og:title" content="关于“猜你喜欢”的思考">
 <meta property="og:url" content="https://www.kaaaaai.cn/about-what-do-you-like.html">
 <meta property="og:site_name" content="壹拾肆">
@@ -45,7 +45,7 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : true,
+    isPost : false,
     lang   : 'zh-CN'
   };
 </script>
@@ -258,6 +258,13 @@
             </span>
 
           
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
   <span class="post-meta-item">
     
@@ -303,6 +310,14 @@
     
     
     
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/everyone-love-gtd.html" rel="bookmark">社畜都爱 GTD</a></div>
+    </li>
+  </ul>
+
         
 
 <div>
@@ -332,16 +347,6 @@
 
 
         
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/weekly-summary-190831.html" rel="prev" title="每周总结 - 0831">
-      <i class="fa fa-chevron-left"></i> 每周总结 - 0831
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/weekly-summary-190819.html" rel="next" title="每周总结 - 0819">
-      每周总结 - 0819 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
       </footer>
     
   </article>
@@ -521,6 +526,23 @@ show_date_time();
         
 <div class="busuanzi-count">
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
 </div>
 
 

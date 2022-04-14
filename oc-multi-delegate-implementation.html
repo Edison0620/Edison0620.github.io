@@ -24,7 +24,7 @@
   </script>
 
   <meta name="description" content="一、背景迭代项目的时候碰到一个问题， 原因是负责的内容有一项是封装各大 AI 开放平台的 SDK 集成到一个 SDK 里，然后输出统一的接口，目的是为了可以在不同的 AI 中快速切换并使用。但由于之前输出给了兄弟公司使用，他们在一个音乐 SDK 中用语音 SDK 实现语音点歌的功能。然后当我的主应用同时使用两个 SDK 时，由于音乐 SDK 中实现了语音 SDK 的代理，所以我在上层再初始化语音">
-<meta property="og:type" content="article">
+<meta property="og:type" content="website">
 <meta property="og:title" content="OC - 多代理的实现">
 <meta property="og:url" content="https://www.kaaaaai.cn/oc-multi-delegate-implementation.html">
 <meta property="og:site_name" content="壹拾肆">
@@ -46,7 +46,7 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : true,
+    isPost : false,
     lang   : 'zh-CN'
   };
 </script>
@@ -259,6 +259,13 @@
             </span>
 
           
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
   <span class="post-meta-item">
     
@@ -329,6 +336,26 @@
     
     
     
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/add-junk-code-to-ios-vest-project.html" rel="bookmark">给你的 iOS 马甲项目增加一点垃圾代码</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/ios-develop-tips-1.html" rel="bookmark">iOS开发里的那些散手（一）</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/ios-develop-tips-2.html" rel="bookmark">iOS 开发里的那些散手（二）</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/ios-fastlane-snapshot.html" rel="bookmark">iOS - 使用 fastlane snapshot 自动化截图</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/ios-hmac-encryption-and-an-md5-problem.html" rel="bookmark">iOS - HMAC 加密算法和一个 MD5 加密的问题</a></div>
+    </li>
+  </ul>
+
         
 
 <div>
@@ -359,16 +386,6 @@
 
 
         
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/a-person-abandoned-by-the-light.html" rel="prev" title="被光放弃的人">
-      <i class="fa fa-chevron-left"></i> 被光放弃的人
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/about-my-notion-workflow.html" rel="next" title="我的 AIO-notion 工作流搭建">
-      我的 AIO-notion 工作流搭建 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
       </footer>
     
   </article>
@@ -549,6 +566,23 @@ show_date_time();
         
 <div class="busuanzi-count">
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
 </div>
 
 

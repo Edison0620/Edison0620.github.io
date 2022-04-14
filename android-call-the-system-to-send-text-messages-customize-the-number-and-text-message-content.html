@@ -24,7 +24,7 @@
   </script>
 
   <meta name="description" content="开发需用使用到系统短信功能，昨天看了下文档，弄了一下午，现在已经得到我想要的效果，做个笔记记一下。具体有两种方法，一种需要跳到系统短信界面发送，可自带号码和短信内容参数，另一种可以直接在App内发送，并返回发送状态。两种方法都写在下面。   无论是哪种方法，都需要申请权限，在app&#x2F;src&#x2F;main&#x2F;AndroidManifest.xml文件内添加">
-<meta property="og:type" content="article">
+<meta property="og:type" content="website">
 <meta property="og:title" content="Android - 调用系统发短信功能，自定义号码和短信内容">
 <meta property="og:url" content="https://www.kaaaaai.cn/android-call-the-system-to-send-text-messages-customize-the-number-and-text-message-content.html">
 <meta property="og:site_name" content="壹拾肆">
@@ -45,7 +45,7 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : true,
+    isPost : false,
     lang   : 'zh-CN'
   };
 </script>
@@ -258,6 +258,13 @@
             </span>
 
           
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
   <span class="post-meta-item">
     
@@ -319,6 +326,26 @@
     
     
     
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/android-learning-audio-ocus.html" rel="bookmark">Android - 音频焦点学习</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/android-more-than-seekbar-slider-dynamic-change.html" rel="bookmark">Android - 动态改变 seekbar 滑块大小和其他</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/add-junk-code-to-ios-vest-project.html" rel="bookmark">给你的 iOS 马甲项目增加一点垃圾代码</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/amateur-clipsself-improvement.html" rel="bookmark">业余剪辑自我修养</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/automatically-generates-annotation-documents.html" rel="bookmark">iOS - Xcode 自动生成注释文档</a></div>
+    </li>
+  </ul>
+
         
 
 <div>
@@ -348,16 +375,6 @@
 
 
         
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/sudden-self.html" rel="prev" title="突然的自我">
-      <i class="fa fa-chevron-left"></i> 突然的自我
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/recent-reading-notes.html" rel="next" title="最近的读书笔记">
-      最近的读书笔记 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
       </footer>
     
   </article>
@@ -538,6 +555,23 @@ show_date_time();
         
 <div class="busuanzi-count">
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
 </div>
 
 

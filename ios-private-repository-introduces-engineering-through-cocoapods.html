@@ -24,7 +24,7 @@
   </script>
 
   <meta name="description" content="Spec Repo(配置仓库)的概念　　CocoaPods 对于一名 iOS 开发来说再熟悉不过了，它的工作原理就是在 GitHub 上面有个 Spec Repo，它里面包括成千上万的后缀名为 .podspec 的文件。我们在项目中集成第三方库(如 SDWebImage )的时候其实就是通过 CocoaPods的 Spec Repo 去找到我们需要的开源项目的 .podspec 文件，然后在 .p">
-<meta property="og:type" content="article">
+<meta property="og:type" content="website">
 <meta property="og:title" content="iOS - 私有仓库通过 CocoaPods 引入工程">
 <meta property="og:url" content="https://www.kaaaaai.cn/ios-private-repository-introduces-engineering-through-cocoapods.html">
 <meta property="og:site_name" content="壹拾肆">
@@ -52,7 +52,7 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : true,
+    isPost : false,
     lang   : 'zh-CN'
   };
 </script>
@@ -265,6 +265,13 @@
             </span>
 
           
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
   <span class="post-meta-item">
     
@@ -348,6 +355,26 @@
     
     
     
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/add-junk-code-to-ios-vest-project.html" rel="bookmark">给你的 iOS 马甲项目增加一点垃圾代码</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/ios-develop-tips-1.html" rel="bookmark">iOS开发里的那些散手（一）</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/ios-develop-tips-2.html" rel="bookmark">iOS 开发里的那些散手（二）</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/ios-fastlane-snapshot.html" rel="bookmark">iOS - 使用 fastlane snapshot 自动化截图</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/ios-hmac-encryption-and-an-md5-problem.html" rel="bookmark">iOS - HMAC 加密算法和一个 MD5 加密的问题</a></div>
+    </li>
+  </ul>
+
         
 
 <div>
@@ -379,16 +406,6 @@
 
 
         
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/gangster-and-litchi.html" rel="prev" title="黑帮老大和荔枝">
-      <i class="fa fa-chevron-left"></i> 黑帮老大和荔枝
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/sun-sleeping-in-the-forest.html" rel="next" title="林中落日">
-      林中落日 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
       </footer>
     
   </article>
@@ -569,6 +586,23 @@ show_date_time();
         
 <div class="busuanzi-count">
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
 </div>
 
 

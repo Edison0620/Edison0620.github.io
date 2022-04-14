@@ -24,7 +24,7 @@
   </script>
 
   <meta name="description" content="本文介绍的就是一个久（大概有那么一两年）经人们考验的笔记软件——Notion。">
-<meta property="og:type" content="article">
+<meta property="og:type" content="website">
 <meta property="og:title" content="我的 AIO-notion 工作流搭建">
 <meta property="og:url" content="https://www.kaaaaai.cn/about-my-notion-workflow.html">
 <meta property="og:site_name" content="壹拾肆">
@@ -51,7 +51,7 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : true,
+    isPost : false,
     lang   : 'zh-CN'
   };
 </script>
@@ -264,6 +264,13 @@
             </span>
 
           
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
   <span class="post-meta-item">
     
@@ -346,6 +353,14 @@
     
     
     
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/everyone-love-gtd.html" rel="bookmark">社畜都爱 GTD</a></div>
+    </li>
+  </ul>
+
         
 
 <div>
@@ -376,16 +391,6 @@
 
 
         
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/oc-multi-delegate-implementation.html" rel="prev" title="OC - 多代理的实现">
-      <i class="fa fa-chevron-left"></i> OC - 多代理的实现
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/web-resolve-recirculation-errors.html" rel="next" title="解决使用 GitPage 重定向多次问题">
-      解决使用 GitPage 重定向多次问题 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
       </footer>
     
   </article>
@@ -566,6 +571,23 @@ show_date_time();
         
 <div class="busuanzi-count">
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
 </div>
 
 
