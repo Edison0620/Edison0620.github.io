@@ -4,7 +4,7 @@
     <title>翻译：Why use dependency injection</title>
     <url>//translation-why-use-dependency-injection.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>原文来自：<a href="https://github.com/uber/needle/blob/master/WHY_DI.md">Why use dependency injection</a></p>
-<p>第一次翻译，如有问题还请留言指出。<br>E-mail：<a href="mailto:&#114;&#111;&#x6f;&#116;&#64;&#107;&#x61;&#97;&#97;&#x61;&#97;&#105;&#x2e;&#x63;&#110;">&#114;&#111;&#x6f;&#116;&#64;&#107;&#x61;&#97;&#97;&#x61;&#97;&#105;&#x2e;&#x63;&#110;</a></p>
+<p>第一次翻译，如有问题还请留言指出。<br>E-mail：<a href="mailto:&#114;&#111;&#111;&#x74;&#x40;&#107;&#97;&#97;&#97;&#97;&#97;&#x69;&#46;&#x63;&#x6e;">&#114;&#111;&#111;&#x74;&#x40;&#107;&#97;&#97;&#97;&#97;&#97;&#x69;&#46;&#x63;&#x6e;</a></p>
 <hr>
 <h2 id="为什么使用依赖注入？"><a href="#为什么使用依赖注入？" class="headerlink" title="为什么使用依赖注入？"></a>为什么使用依赖注入？</h2><p>本文档介绍了依赖注入的基本知识；它是什么；以及为什么把它加入进你的应用开发中会是个好的模式？下文将用 DI 这个术语作为依赖注入（dependency injection）的简称。</p>
 <h3 id="一个真实的例子来说明"><a href="#一个真实的例子来说明" class="headerlink" title="一个真实的例子来说明"></a>一个真实的例子来说明</h3><p>与其用抽象的语言描述这个模式，不如用一个简单的基于视图控制器的例子来理解它。如果你对抽象描述感兴趣，维基百科有一篇很棒的<a href="https://en.wikipedia.org/wiki/Dependency_injection">文章</a>。</p>
@@ -3341,8 +3341,7 @@
     <url>//teenages-like-you-and-me.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　看了《濑户内海》。之前一直分不清电影名字是叫濑户内海，濑内户海，还是濑海内户,电影很好看，隆重的交响乐式的配乐也非常好，一个半小时完全不过瘾。主演们都不是很好看的人，对内海的第一印象甚至觉得他像个中年大叔，但十分意外，他们都给人感觉少年气十足。</p>
 <p>　　电影百分之九十的时间都停在一个画面，都只是两个人的对话，但一点都不让人乏味，就像是看过去自己的日常，他们关心的事和谈论的问题，也都是过去学生时代和同学会谈论的内容，很有亲切感。印象深刻的一个情节是，濑户喜欢的女生喜欢内海，但内海并没有表现出喜欢她的样子，在影片快要结束的时候，那个女生在好像受到内海间接的拒绝的时候，发了一条短信给濑户，内海他讨厌我。濑户第一反应是敲出了“但我喜欢你啊”这几个字，虽然他是没有心机的下意识行为，但这种在女孩子失落的时候的表白，比任何形式的安慰都好，哪怕仍然是被拒绝，也会给自己加很多印象分，对增进关系有极大好处。</p>
-<p>　　此时画面一转，那个女孩和内海对峙的镜头。女孩收到了濑户的短信，里面写的是，</p>
-<p><img src="http://os1i62usc.bkt.clouddn.com/%E6%BF%91%E6%88%B7%E5%86%85%E6%B5%B7%E6%88%AA%E5%9B%BE.jpg" alt="濑户内海"></p>
+<p>　　此时画面一转，那个女孩和内海对峙的镜头。女孩收到了濑户的短信，里面写的是，<br><img src="https://s2.loli.net/2022/04/14/sfI2mn9iOaBbUWQ.jpg"></p>
 <p>　　放在古惑仔电影里，这大概就是他们口里的义气吧。不过这种挣扎之后的温柔，显得更加深沉和真挚一些。同时也让我因为刚才十足理智的分析而感到一些脸红，这大概就是，小孩子才分对错，成年人只看利弊吧。</p>
 <p>　　后来又想，喜欢这类电影的都会是什么年龄段的人？我想可能成年人会更多一点。如果是在电影里那个年龄，十七八岁的少年大概是看不下去这类亢长没有休止的对话，因为拥有那样的对话，和用那种对话打发时间本就是他们的日常，比起在大荧幕看自己平常的生活，他们应该更喜欢看到超级英雄，爆炸和拯救的画面吧。我忽然想到高三有一阵子，夏天晚上熄灯后和同学在阳台上对着一排排寝室楼长叹，人生真是寂寞如雪啊。现在想起来，那时候的心情也不是真的因为寂寞，倒有些像濑户和内海坐在石阶上面对着河流打发时间的心情,对着成排熄了灯，因为月光辉映而在黑暗里露出模糊轮廓的宿舍楼，总是想抒发一些无所事事的感慨。如果不是寂寞如雪这个词感觉厉害一点，换成谁知盘中餐，粒粒皆辛苦啊。其实也可以。</p>
 <p>　　看豆瓣的一条短评不禁会心一笑：男孩子们都是傻逼。</p>
@@ -3518,12 +3517,12 @@
     <url>//sudden-self.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　傍晚朋友打电话过来，叫我一起吃晚饭，我有些困说不想去，太累了。他重复，来嘛，我请客的。我笑了一下，不再坚持。骑自行车去吧，好像楼下有辆摩拜。<br> 　　路边有一个女孩，我想看清她长相，她抬头看过来，她和我对视了一会，我把目光轻巧的抽了回来。有个朋友总和我说他一个理论，他把和人对视看做一种比赛。一定不能认输，要看的对方先避开你才行。我觉得那种胜负太刻意了，有时候避开也不见得是输。<br>　　你以为我在看你吗，一点也没有。路上一辆警车把一辆巡逻摩托车撞倒了，副驾驶下来了一个人，他挺直了腰，指挥起了因为这个小车祸有点紊乱的交通。我骑车上了过河桥。<br> 　　有点挤。是因为刚刚的车祸吗？天气可真热啊。桥下的河堤有一个男人，那个河堤我之前都没有见过有人走下去。那个男人刚挂了电话，背着手看河，过了一会，在那个方寸里踱起了步，悠闲的快没了形状。那么悠闲的男人，那么平静的河流。<br>　　我下桥的时候，回头看了一眼那个男人，他已经融化在岸边，变成一滩平静的水洼。我想那么年轻就能成为自己想成为的事物可真好啊——水洼是河流的幼年。<br>　　在骑进一条窄巷前，又接到朋友电话，你还来不来啊，我们可先吃了。旁边一个小声音，都快吃完了。<br>　　那等我待会给你们上饭后甜点吧。挂了电话，车铃因为经过一个坑响了声，叮铃~铃。刚刚出来门好像只锁了一下，早上洗头发的时候好像用的是那瓶新的洗发水，旧的还有多少，丢了吧，和那瓶过期的花露水一起丢了好了。<br>　　接下来是一条窄巷，一只大熊牵着一只小熊，小熊走路的节奏是冲刺的跑一阵，再挂在大熊的手上走不动一阵。起初我不知道，以为他们是在匀速走，我贴近，想从旁边绕过去，小熊停下，我急刹车，没有绕过去。大熊说，你看你不好好走路，后边的叔叔都过不去了。我又刹了一下车。我倒像蹒跚学步的小孩了。我从旁边绕过去，歪头说，不是叔叔，是哥哥。但又全然不是因为计较年龄才说的。<br>　　夏日傍晚的小巷里，一只大熊牵着一只小熊一起呆住。谁看见，食欲都会变得旺盛起来。<br>　　差不多到了。我把单车停好。坐电梯，进了饭店，正找他们坐哪呢，天花板上传来一个声音，你怎么才来啊，我们都快吃完了。朋友喝醉了，飘在天花板上，还有一些我不认识的陌生人，也醉眼朦胧的飘在上面。我问他，他们呢，哪个房间。哝哝就那里。我牵着他散了的鞋带，带着他往里走。<br>　　诶我说，你们怎么都不照顾一下他，他都飘到大厅去了。房间里还有两个人，说请我吃饭的朋友，正准备夹菜。他喝醉了，拉不住啊。拉不住在天花板喃喃，放开我，我要去救紫霞仙子。<br>　　我们都笑了，不一会，就融化在了房间里。</p>
 
-        <div id="aplayer-QkZFubyt" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-CkBhKdzz" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-QkZFubyt"),
+            element: document.getElementById("aplayer-CkBhKdzz"),
             narrow: false,
             autoplay: true,
             showlrc: false,
@@ -3672,12 +3671,12 @@
     <url>//hello-edison-s-world.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>  哈哈哈我终于解决了部署时出现的 cannot find module、local hexo not found in finder 等问题用<code>github</code>仓库做服务器弄好了基于<code>Node.js</code>的静态博客<code>Hexo</code>我的独立博客了不过，会不会写东西就不知道喽~~~~</p>
 
-        <div id="aplayer-VZoIDafu" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-mdWgINtV" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-VZoIDafu"),
+            element: document.getElementById("aplayer-mdWgINtV"),
             narrow: false,
             autoplay: true,
             showlrc: false,
@@ -3685,7 +3684,7 @@
               title: "Let's Dance",
               author: "David Bowie",
               url: "http://os1i62usc.bkt.clouddn.com/David%20Bowie%20-%20Let%27s%20Dance.mp3",
-              pic: "http://os1i62usc.bkt.clouddn.com/Let%27s%20Dance_icon.png",
+              pic: "https://s2.loli.net/2022/04/14/V6YcJQaBp8EWPTl.png",
               lrc: ""
             }
           });
