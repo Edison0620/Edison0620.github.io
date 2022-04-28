@@ -12,7 +12,7 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic|ZCOOL QingKe HuangYou:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
   <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
@@ -20,22 +20,20 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.kaaaaai.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"www.kaaaaai.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"appID":"HJCW1XGADA","apiKey":"bca13105be1a68b949b665f85a2ee25a","indexName":"KaiBlog","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="本文介绍的就是一个久（大概有那么一两年）经人们考验的笔记软件——Notion。">
-<meta property="og:type" content="article">
+  <meta property="og:type" content="article">
 <meta property="og:title" content="我的 AIO-notion 工作流搭建">
 <meta property="og:url" content="https://www.kaaaaai.cn/about-my-notion-workflow.html">
 <meta property="og:site_name" content="壹拾肆">
-<meta property="og:description" content="本文介绍的就是一个久（大概有那么一两年）经人们考验的笔记软件——Notion。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.loli.net/2020/06/07/cSgrjKnkbB41AxI.jpg">
 <meta property="og:image" content="https://i.loli.net/2020/06/07/mYiUI1ZtVN3nA4X.png">
 <meta property="og:image" content="https://i.loli.net/2020/06/07/5uWnINJeSMsA7UV.jpg">
 <meta property="og:image" content="https://i.loli.net/2020/06/07/G9ejc6uqBdUMoVz.png">
 <meta property="article:published_time" content="2020-06-07T05:24:52.000Z">
-<meta property="article:modified_time" content="2022-04-02T01:54:46.084Z">
+<meta property="article:modified_time" content="2022-04-26T01:51:43.376Z">
 <meta property="article:author" content="Kaaaaai">
 <meta property="article:tag" content="时间管理">
 <meta property="article:tag" content="笔记软件">
@@ -59,7 +57,7 @@
   <title>我的 AIO-notion 工作流搭建 | 壹拾肆</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102185873-1"></script>
-    <script>
+    <script data-pjax>
       if (CONFIG.hostname === location.hostname) {
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -69,7 +67,7 @@
     </script>
 
 
-  <script>
+  <script data-pjax>
     var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
@@ -246,13 +244,6 @@
 
               <time title="创建时间：2020-06-07 13:24:52" itemprop="dateCreated datePublished" datetime="2020-06-07T13:24:52+08:00">2020-06-07</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-02 09:54:46" itemprop="dateModified" datetime="2022-04-02T09:54:46+08:00">2022-04-02</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -292,7 +283,6 @@
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               <span>2 分钟</span>
             </span>
-            <div class="post-description">本文介绍的就是一个久（大概有那么一两年）经人们考验的笔记软件——Notion。</div>
 
         </div>
       </header>
@@ -303,20 +293,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><img src="https://i.loli.net/2020/06/07/cSgrjKnkbB41AxI.jpg" alt="cSgrjKnkbB41AxI"></p>
+        <p><img src="/images/loading-style-3.gif" data-original="https://i.loli.net/2020/06/07/cSgrjKnkbB41AxI.jpg" alt="cSgrjKnkbB41AxI"></p>
+<span id="more"></span>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h1><p>制造和使用工具，是人类和动物最本质的区别。而使用好的工具和使用好工具，又是效率高的人类和效率低的人类最本质的区别。如何使用好工具，是方法，是技巧，千人千面，可能同一个好的方法放到不同的人身上，效果却是迥然不同的。好的工具的定义也同理。但在我们最终找到适合我们的方法和工具之前，我们可以选择那些久经人们考验的一些工具和方法来尝试和体验。本文介绍的就是一个久（大概有那么一两年）经人们考验的笔记软件——Notion。</p>
 <h1 id="使用-Notion-之前"><a href="#使用-Notion-之前" class="headerlink" title="使用 Notion 之前"></a><strong>使用 Notion 之前</strong></h1><p>在使用 Notion 之前，我日常使用的工具大概有：苹果自带的便签、Sublime Text、MWeb、滴答清单。便签是用来记录琐碎的信息、想法，Sublime Text 用来浏览一些开发语言后缀的文件，MWeb 用来 Markdown 写作，滴答清单用来 GTD 管理和番茄计时。针对不同类型的事情，使用不同的工具去解决，在大部分情况下，体验还是不错的。但也存在一些局限，比如：</p>
 <ul>
 <li>当我处理一件任务，需要同时多个工具时，dock 栏挂了一大堆软件不说，在不同应用间切换也让我不能很好地集中注意力。</li>
 <li>当我想回溯一个任务的文件或者记录时，不太方便。</li>
 </ul>
-<p>原因是我会实际产生数据记录的有两个地方，一个是便签，一个是 MWeb 的 Library，后者因为软件属性的原因，不好做分类，文件数量一多起来检索困难，前者虽然可以做分类，而我虽然也在做分类上花了一些心思。<br><img src="https://i.loli.net/2020/06/07/mYiUI1ZtVN3nA4X.png" alt="mYiUI1ZtVN3nA4X"><br>但也会存在当数据记录一旦多起来就检索困难，在层级不深的界面预览查找，通常只能看到便签内容的前几行内容，因为没有文件名和标签这种概念，要用便签这个轻量级应用做知识管理还是有点强便签所难的。</p>
+<p>原因是我会实际产生数据记录的有两个地方，一个是便签，一个是 MWeb 的 Library，后者因为软件属性的原因，不好做分类，文件数量一多起来检索困难，前者虽然可以做分类，而我虽然也在做分类上花了一些心思。<br><img src="/images/loading-style-3.gif" data-original="https://i.loli.net/2020/06/07/mYiUI1ZtVN3nA4X.png" alt="mYiUI1ZtVN3nA4X"><br>但也会存在当数据记录一旦多起来就检索困难，在层级不深的界面预览查找，通常只能看到便签内容的前几行内容，因为没有文件名和标签这种概念，要用便签这个轻量级应用做知识管理还是有点强便签所难的。</p>
 <p>所以基于使用当前工具所发现的这两个局限，我倾向于找一个尽可能可以大一统的笔记&#x2F;GTD&#x2F;文档加工软件，并且在文件分类上最好能有一些自己的思考。在体验了 Bear、OneNote、印象笔记之后，最终我选择 Notion。</p>
 <h1 id="选择-Notion-的理由"><a href="#选择-Notion-的理由" class="headerlink" title="选择 Notion 的理由"></a><strong>选择 Notion 的理由</strong></h1><p>为什么在体验后筛选掉那些同样优秀的笔记软件而选择 notion，抛开高低优劣的比较不谈。这里只说 notion 吸引我的地方。</p>
 <p>比起 block 的使用便利性，和可以无限递增层级这两个特点。主要吸引我的其实是好看，通过各种不同类型的 block 组装来输出自己想要的东西，可以轻松的让输出结果很好看，稍微注意排版和颜色搭配的话，不过分的说，赏心悦目。甚至于有时候工作的间隙只是看着自己搭建的 GTD 界面就不自觉的感到被治愈。除了好看，所有二级目录都以瀑布流的形式汇集在一个界面，对于查找文件来说，也非常一目了然。</p>
 <p>其次是好玩，网上对 notion 的评价，看到一个很形象的比喻：像乐高积木。我很赞同，notion 除了像乐高积木一样可以不断堆叠出自己想要的东西，从某种方面也具备着和它相似的可以无限拓展的可能性。另外，使用不同 block 堆叠的整个过程，也显得非常 geek，而 geek 在我看来他的意思就是，玩一些有意思的东西。</p>
 <p>最后是好用。当然对于刚使用的人来说，是有一定上手难度的，但这些难度对于上手后可以提供的帮助也可以忽略不计。而具体是否好用，如何好用，我会在后文通过搭建我的工作流的例子来做展示。</p>
-<h1 id="使用-Notion-搭建我的工作流"><a href="#使用-Notion-搭建我的工作流" class="headerlink" title="使用 Notion 搭建我的工作流"></a><strong>使用 Notion 搭建我的工作流</strong></h1><p>搭建我的工作流之前，我稍微去了解了一下在 notion 上用的很多的 PARA 相关知识，在 B 站上看到一个 up 主列了一个比较直观的脑图，大体如下：<br><img src="https://i.loli.net/2020/06/07/5uWnINJeSMsA7UV.jpg" alt="5uWnINJeSMsA7UV"></p>
+<h1 id="使用-Notion-搭建我的工作流"><a href="#使用-Notion-搭建我的工作流" class="headerlink" title="使用 Notion 搭建我的工作流"></a><strong>使用 Notion 搭建我的工作流</strong></h1><p>搭建我的工作流之前，我稍微去了解了一下在 notion 上用的很多的 PARA 相关知识，在 B 站上看到一个 up 主列了一个比较直观的脑图，大体如下：<br><img src="/images/loading-style-3.gif" data-original="https://i.loli.net/2020/06/07/5uWnINJeSMsA7UV.jpg" alt="5uWnINJeSMsA7UV"></p>
 <p>然后就把我以前记在便签内容，抽取了出来，分成了五个模块，分别是：</p>
 <ul>
 <li>Memo - 便签，用于快速记录笔记，和某个正在编辑的内容的快速链接地址</li>
@@ -325,7 +316,7 @@
 <li>Study - 学习，除了记录大学自考本科的一些信息，还有一些个人开发和学习中记录到的一些琐碎小知识，虽然前面按身份属性区分，Study 也可以归类到 Personal，但为了方便记录跟踪，所以就把学习抽取出来做单独一个模块。</li>
 <li>Archive - 归档，保存一些不经常用到资料，和用作展示的个人网站。</li>
 </ul>
-<p>有了这个初步结果，已经基本可以收纳我日常学习工作所产生的信息了。但基于 All-In-One 这一点，又看到 Youtube 上一个直播主的这个视频 - <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wtBSAwPSjoU">How I Use Notion ● June 2019</a>，于是就决定把我滴答清单的项目搬运到 Notion 来，除了在首页置顶显示方便跟踪以外，我在单个的项目中添加了以下下属性：<br><img src="https://i.loli.net/2020/06/07/G9ejc6uqBdUMoVz.png" alt="G9ejc6uqBdUMoVz"></p>
+<p>有了这个初步结果，已经基本可以收纳我日常学习工作所产生的信息了。但基于 All-In-One 这一点，又看到 Youtube 上一个直播主的这个视频 - <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wtBSAwPSjoU">How I Use Notion ● June 2019</a>，于是就决定把我滴答清单的项目搬运到 Notion 来，除了在首页置顶显示方便跟踪以外，我在单个的项目中添加了以下下属性：<br><img src="/images/loading-style-3.gif" data-original="https://i.loli.net/2020/06/07/G9ejc6uqBdUMoVz.png" alt="G9ejc6uqBdUMoVz"></p>
 <ul>
 <li>类型：区分工作和个人</li>
 <li>项目类型：二级分类，区分具体项目，学习也在这一级里面</li>
@@ -463,29 +454,6 @@
   <p class="site-author-name" itemprop="name">Kaaaaai</p>
   <div class="site-description" itemprop="description"></div>
 </div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">97</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">7</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">67</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
   <div class="sidebar-button motion-element">
     <a onclick="Chatra('openChat', true);"><i class="fa fa-comment"></i>
     Chat
@@ -590,6 +558,7 @@
   
   <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
   <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
@@ -605,12 +574,71 @@
 
 <script src="/js/next-boot.js"></script>
 
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
 
   <script defer src="/lib/three/three.min.js"></script>
 
 
   
-  <script>
+  <script data-pjax>
     (function(){
       var canonicalURL, curProtocol;
       //Get the <link> tag
@@ -666,6 +694,7 @@
 
 
 
+    <div id="pjax">
   
 
   
@@ -699,5 +728,12 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
 });
 </script>
 
-</body>
+    </div>
+<script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 </html>

@@ -12,7 +12,7 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic|ZCOOL QingKe HuangYou:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
   <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
@@ -20,7 +20,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.kaaaaai.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"www.kaaaaai.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"appID":"HJCW1XGADA","apiKey":"bca13105be1a68b949b665f85a2ee25a","indexName":"KaiBlog","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta property="og:type" content="website">
@@ -48,7 +48,7 @@
   <title>壹拾肆</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102185873-1"></script>
-    <script>
+    <script data-pjax>
       if (CONFIG.hostname === location.hostname) {
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -58,7 +58,7 @@
     </script>
 
 
-  <script>
+  <script data-pjax>
     var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
@@ -232,9 +232,8 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-08-15 10:24:52 / 修改时间：12:44:19" itemprop="dateCreated datePublished" datetime="2020-08-15T10:24:52+08:00">2020-08-15</time>
+              <time title="创建时间：2020-08-15 10:24:52" itemprop="dateCreated datePublished" datetime="2020-08-15T10:24:52+08:00">2020-08-15</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -343,13 +342,6 @@
 
               <time title="创建时间：2020-08-04 13:24:52" itemprop="dateCreated datePublished" datetime="2020-08-04T13:24:52+08:00">2020-08-04</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-02 09:51:11" itemprop="dateModified" datetime="2022-04-02T09:51:11+08:00">2022-04-02</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -402,7 +394,7 @@
           <p>抽空把项目里的顶部弹出框封装了一下。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/swift-toppop-upboxencapsulation.html">
+              <a class="btn" href="/swift-toppop-upboxencapsulation.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -452,13 +444,6 @@
 
               <time title="创建时间：2020-07-18 10:13:52" itemprop="dateCreated datePublished" datetime="2020-07-18T10:13:52+08:00">2020-07-18</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-01 10:30:18" itemprop="dateModified" datetime="2020-11-01T10:30:18+08:00">2020-11-01</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -562,13 +547,6 @@
 
               <time title="创建时间：2020-07-16 13:24:52" itemprop="dateCreated datePublished" datetime="2020-07-16T13:24:52+08:00">2020-07-16</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-05 10:18:20" itemprop="dateModified" datetime="2020-11-05T10:18:20+08:00">2020-11-05</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -671,13 +649,6 @@
 
               <time title="创建时间：2020-06-07 13:24:52" itemprop="dateCreated datePublished" datetime="2020-06-07T13:24:52+08:00">2020-06-07</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-02 09:54:46" itemprop="dateModified" datetime="2022-04-02T09:54:46+08:00">2022-04-02</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -727,10 +698,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>本文介绍的就是一个久（大概有那么一两年）经人们考验的笔记软件——Notion。</p>
+          <p><img src="/images/loading-style-3.gif" data-original="https://i.loli.net/2020/06/07/cSgrjKnkbB41AxI.jpg" alt="cSgrjKnkbB41AxI"></p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/about-my-notion-workflow.html">
+              <a class="btn" href="/about-my-notion-workflow.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -780,13 +751,6 @@
 
               <time title="创建时间：2020-05-30 17:24:52" itemprop="dateCreated datePublished" datetime="2020-05-30T17:24:52+08:00">2020-05-30</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-02 10:03:35" itemprop="dateModified" datetime="2022-04-02T10:03:35+08:00">2022-04-02</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -836,7 +800,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="问题表现"><a href="#问题表现" class="headerlink" title="问题表现"></a>问题表现</h2><p>博客网站更换了 DNS 解析的服务商，访问出现以下问题。<br><img src="https://s2.loli.net/2022/04/02/QRqexU16yVaWFuY.jpg" alt="03oBxi-20200530"></p>
+          <h2 id="问题表现"><a href="#问题表现" class="headerlink" title="问题表现"></a>问题表现</h2><p>博客网站更换了 DNS 解析的服务商，访问出现以下问题。<br><img src="/images/loading-style-3.gif" data-original="https://s2.loli.net/2022/04/02/QRqexU16yVaWFuY.jpg" alt="03oBxi-20200530"></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/web-resolve-recirculation-errors.html#more" rel="contents">
@@ -889,13 +853,6 @@
 
               <time title="创建时间：2020-04-24 17:24:52" itemprop="dateCreated datePublished" datetime="2020-04-24T17:24:52+08:00">2020-04-24</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-21 10:09:49" itemprop="dateModified" datetime="2020-11-21T10:09:49+08:00">2020-11-21</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -1000,13 +957,6 @@
 
               <time title="创建时间：2020-04-18 13:00:52" itemprop="dateCreated datePublished" datetime="2020-04-18T13:00:52+08:00">2020-04-18</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-05 10:21:02" itemprop="dateModified" datetime="2020-11-05T10:21:02+08:00">2020-11-05</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -1109,13 +1059,6 @@
 
               <time title="创建时间：2020-04-11 10:24:52" itemprop="dateCreated datePublished" datetime="2020-04-11T10:24:52+08:00">2020-04-11</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-22 09:44:11" itemprop="dateModified" datetime="2020-11-22T09:44:11+08:00">2020-11-22</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -1218,13 +1161,6 @@
 
               <time title="创建时间：2020-04-04 10:13:52" itemprop="dateCreated datePublished" datetime="2020-04-04T10:13:52+08:00">2020-04-04</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-22 09:38:52" itemprop="dateModified" datetime="2020-11-22T09:38:52+08:00">2020-11-22</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -1274,8 +1210,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>　　看了一本图说量子物理学史的书，《上帝的骰子》，书名来自于爱因斯坦的一句话：上帝不会掷骰子。去年也有一本书很火叫《量子物理史話：上帝掷骰子嗎？》，不说大家为什么都一窝蜂的抓着骰子不放，从这些现象我们可以看出，量子的不确定性的迷人魅力让许多人趋之如骛。<br>　　《上帝的骰子》从量子物理的诞生引发争端开始，到贝尔不等式宣告近代量子物理的确立结束，中间穿插着近代物理学家的轶事和量子力学的知识点，基于人物引出理论，由时间线描述整个量子力学的演化过程，结构上还算井井有条，错落有致。但由于是一本入门书，不能讲的太深，这点就先天不足，然后所采取的叙述方式是用漫画这种形式，虽然生动形象，但总觉得有注水的嫌疑。前面讲量子物理学发展时还好，因为有干货，以物理学家对话的小剧场形式注水，勉强可以接受。但最后用了一整个大章用图解的形式来讲量子物理的应用，在我看来虽然不是画蛇添足，但也是一种可以让人一眼看穿的、并不高明的小聪明。<br>　　常言与人交往，切忌交浅言深。我补充一句，写读书评论，切忌学浅言深。回到内容本身，关于量子力学和量子力学史，可以让我评论的其实不多，限于认识，脱口而出的只有——牛逼，当贝尔不等式终结一切，我囫囵吃进几个认识：量子是纠缠的，宇宙是由无数个连续的不确定性所组成的。除此之外还有什么呢？在微观上，当代的技已尽于此，在宏观上，人类逃离地心引力仍然很费劲。对宇宙的认识除了依靠物理学家们的研究，作为时代里微不足道注脚的普通人，似乎只能依靠想象来填充关于宇宙的其他细枝末节，如此，宇宙、量子等等的一切对于我们普通人的意义在哪？<br>　　我想每个人都有自己的答案，虽然我也可以像之前一样，一字一句把我心里的答案通过推导的方式，摆出来给人看。但对于宇宙的答案，我想不给比给要好的多，不是因为害怕浅薄，浅薄没什么好怕的。只是觉得唯有无限才能回答无限。</p>
-
+          <p>　　看了一本图说量子物理学史的书，《上帝的骰子》，书名来自于爱因斯坦的一句话：上帝不会掷骰子。去年也有一本书很火叫《量子物理史話：上帝掷骰子嗎？》，不说大家为什么都一窝蜂的抓着骰子不放，从这些现象我们可以看出，量子的不确定性的迷人魅力让许多人趋之如骛。<br>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/god-will-rolls-the-dice-several-times.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1355,29 +1298,6 @@
       src="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
   <p class="site-author-name" itemprop="name">Kaaaaai</p>
   <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">97</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">7</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">67</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
 </div>
   <div class="sidebar-button motion-element">
     <a onclick="Chatra('openChat', true);"><i class="fa fa-comment"></i>
@@ -1483,6 +1403,7 @@
   
   <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
   <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
@@ -1498,12 +1419,71 @@
 
 <script src="/js/next-boot.js"></script>
 
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
 
   <script defer src="/lib/three/three.min.js"></script>
 
 
   
-  <script>
+  <script data-pjax>
     (function(){
       var canonicalURL, curProtocol;
       //Get the <link> tag
@@ -1559,6 +1539,7 @@
 
 
 
+    <div id="pjax">
   
 
   
@@ -1592,5 +1573,12 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
 });
 </script>
 
-</body>
+    </div>
+<script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 </html>

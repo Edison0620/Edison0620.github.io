@@ -12,7 +12,7 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic|ZCOOL QingKe HuangYou:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
   <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
@@ -20,7 +20,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.kaaaaai.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"www.kaaaaai.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"appID":"HJCW1XGADA","apiKey":"bca13105be1a68b949b665f85a2ee25a","indexName":"KaiBlog","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="抽空把项目里的顶部弹出框封装了一下。">
@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://i.loli.net/2020/08/04/9R7WuCT2b5ezKoN.gif">
 <meta property="og:image" content="https://i.loli.net/2020/08/04/9R7WuCT2b5ezKoN.gif">
 <meta property="article:published_time" content="2020-08-04T05:24:52.000Z">
-<meta property="article:modified_time" content="2022-04-02T01:51:11.820Z">
+<meta property="article:modified_time" content="2022-04-26T01:51:43.360Z">
 <meta property="article:author" content="Kaaaaai">
 <meta property="article:tag" content="EXP">
 <meta property="article:tag" content="iOS">
@@ -57,7 +57,7 @@
   <title>Swift - 顶部弹出框封装 | 壹拾肆</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102185873-1"></script>
-    <script>
+    <script data-pjax>
       if (CONFIG.hostname === location.hostname) {
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -67,7 +67,7 @@
     </script>
 
 
-  <script>
+  <script data-pjax>
     var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
@@ -244,13 +244,6 @@
 
               <time title="创建时间：2020-08-04 13:24:52" itemprop="dateCreated datePublished" datetime="2020-08-04T13:24:52+08:00">2020-08-04</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-02 09:51:11" itemprop="dateModified" datetime="2022-04-02T09:51:11+08:00">2022-04-02</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -290,7 +283,6 @@
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               <span>5 分钟</span>
             </span>
-            <div class="post-description">抽空把项目里的顶部弹出框封装了一下。</div>
 
         </div>
       </header>
@@ -301,8 +293,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>抽空把项目里的顶部弹出框封装了一下。效果大概是这个样子：<br><img src="https://i.loli.net/2020/08/04/9R7WuCT2b5ezKoN.gif"></p>
-<!--<img align="center" src="https://i.loli.net/2020/08/04/9R7WuCT2b5ezKoN.gif" width=375px height=677px/>-->
+        <p>抽空把项目里的顶部弹出框封装了一下。</p>
+<span id="more"></span>
+<p>效果大概是这个样子：<br><img src="/images/loading-style-3.gif" data-original="https://i.loli.net/2020/08/04/9R7WuCT2b5ezKoN.gif"></p>
+<!--<img align="center" src="/images/loading-style-3.gif" data-original="https://i.loli.net/2020/08/04/9R7WuCT2b5ezKoN.gif" width=375px height=677px/>-->
 
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p><strong>自定义弹出框：</strong></p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  KKHeadMessageView.swift</span></span><br><span class="line"><span class="comment">//  VoiceAssistant</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  Created by Kai Lv on 2020/7/29.</span></span><br><span class="line"><span class="comment">//  Copyright © 2020 Kaaaaai. All rights reserved.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"></span><br><span class="line"><span class="keyword">@objc</span> <span class="keyword">public</span> <span class="keyword">enum</span> <span class="title class_">MessageStyle</span>: <span class="title class_">Int</span>&#123;</span><br><span class="line">    <span class="keyword">case</span> none</span><br><span class="line">    <span class="keyword">case</span> success</span><br><span class="line">    <span class="keyword">case</span> error</span><br><span class="line">    <span class="keyword">case</span> warning</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">@objc</span> <span class="keyword">extension</span> <span class="title class_">KKHeadMessageView</span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> mv: <span class="type">KKHeadMessageView</span>?</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">@objc</span> <span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">func</span> <span class="title class_">showMessageView</span>(<span class="title class_">_</span> <span class="title class_">message</span>: <span class="title class_">String</span>) -&gt; ()&#123;</span><br><span class="line">        <span class="keyword">if</span> mv <span class="operator">!=</span> <span class="literal">nil</span> &#123;</span><br><span class="line">            mv<span class="operator">?</span>.removeFromSuperview()</span><br><span class="line">            mv <span class="operator">=</span> <span class="literal">nil</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        mv <span class="operator">=</span> <span class="type">KKHeadMessageView</span>.<span class="keyword">init</span>(message: message, style: .warning)</span><br><span class="line">        mv<span class="operator">!</span>.show()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">@objc</span> <span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">func</span> <span class="title class_">showMessageView</span>(<span class="title class_">_</span> <span class="title class_">message</span>: <span class="title class_">String</span>, <span class="title class_">style</span>:<span class="title class_">MessageStyle</span>) -&gt; ()&#123;</span><br><span class="line">        <span class="keyword">if</span> mv <span class="operator">!=</span> <span class="literal">nil</span> &#123;</span><br><span class="line">            mv<span class="operator">?</span>.removeFromSuperview()</span><br><span class="line">            mv <span class="operator">=</span> <span class="literal">nil</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        mv <span class="operator">=</span> <span class="type">KKHeadMessageView</span>.<span class="keyword">init</span>(message: message, style: style)</span><br><span class="line">        mv<span class="operator">!</span>.show()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@objc</span> <span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">KKHeadMessageView</span>: <span class="title class_">UIView</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">let</span> message: <span class="type">String</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> label_mes <span class="operator">=</span> <span class="type">UILabel</span>.<span class="keyword">init</span>()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> style: <span class="type">MessageStyle</span> <span class="operator">=</span> .none</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">let</span> successBackgroundColor: <span class="type">UIColor</span> <span class="operator">=</span> <span class="type">UIColor</span>(red: <span class="number">86.0</span><span class="operator">/</span><span class="number">255</span>, green: <span class="number">188</span><span class="operator">/</span><span class="number">255</span>, blue: <span class="number">138.0</span><span class="operator">/</span><span class="number">255</span>,  alpha: <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">let</span> warningBackgroundColor: <span class="type">UIColor</span> <span class="operator">=</span> <span class="type">UIColor</span>(red: <span class="number">242.0</span><span class="operator">/</span><span class="number">255</span>, green: <span class="number">153.0</span><span class="operator">/</span><span class="number">255</span>, blue: <span class="number">46.0</span><span class="operator">/</span><span class="number">255</span>,  alpha: <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">let</span> errorBackgroundColor: <span class="type">UIColor</span> <span class="operator">=</span> <span class="type">UIColor</span>(red: <span class="number">192.0</span><span class="operator">/</span><span class="number">255</span>, green: <span class="number">36.0</span><span class="operator">/</span><span class="number">255</span>, blue: <span class="number">37.0</span><span class="operator">/</span><span class="number">255</span>,  alpha: <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">let</span> noneBackgroundColor: <span class="type">UIColor</span> <span class="operator">=</span>  <span class="type">UIColor</span>(red: <span class="number">44.0</span><span class="operator">/</span><span class="number">255</span>,  green: <span class="number">187.0</span><span class="operator">/</span><span class="number">255</span>, blue: <span class="number">255.0</span><span class="operator">/</span><span class="number">255</span>, alpha: <span class="number">1</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">init</span>(<span class="params">message</span>: <span class="type">String</span>, <span class="params">style</span>: <span class="type">MessageStyle</span>)&#123;</span><br><span class="line">        <span class="keyword">self</span>.message <span class="operator">=</span> message</span><br><span class="line">        <span class="keyword">self</span>.style <span class="operator">=</span> style</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">super</span>.<span class="keyword">init</span>(frame: <span class="type">CGRect</span>(x: <span class="number">0</span>, y: <span class="operator">-</span><span class="number">49</span>, width: <span class="type">UIScreen</span>.main.bounds.size.width, height: <span class="number">48</span>))</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">switch</span> style &#123;</span><br><span class="line">        <span class="keyword">case</span> .success:</span><br><span class="line">            <span class="keyword">self</span>.backgroundColor <span class="operator">=</span> <span class="type">KKHeadMessageView</span>.successBackgroundColor</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">case</span> .warning:</span><br><span class="line">            <span class="keyword">self</span>.backgroundColor <span class="operator">=</span> <span class="type">KKHeadMessageView</span>.warningBackgroundColor</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">case</span> .error:</span><br><span class="line">            <span class="keyword">self</span>.backgroundColor <span class="operator">=</span> <span class="type">KKHeadMessageView</span>.errorBackgroundColor</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">case</span> .none:</span><br><span class="line">            <span class="keyword">self</span>.backgroundColor <span class="operator">=</span> <span class="type">KKHeadMessageView</span>.noneBackgroundColor</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> attributes <span class="operator">=</span> [<span class="type">NSAttributedString</span>.<span class="type">Key</span>.font : <span class="type">UIFont</span>.<span class="keyword">init</span>(name: <span class="string">&quot;PingFangSC-Medium&quot;</span>, size: <span class="number">14</span>)]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> textSize <span class="operator">=</span> <span class="keyword">self</span>.message.boundingRect(with: <span class="type">CGSize</span>(width: <span class="type">UIScreen</span>.main.bounds.size.width, height: <span class="type">CGFloat</span>.greatestFiniteMagnitude), options: <span class="type">NSStringDrawingOptions</span>.usesLineFragmentOrigin, attributes: attributes <span class="keyword">as</span> [<span class="type">NSAttributedString</span>.Key : <span class="keyword">Any</span>], context: <span class="literal">nil</span>).size</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> label_mes <span class="operator">=</span> <span class="type">UILabel</span>.<span class="keyword">init</span>(frame: <span class="type">CGRect</span>(x: <span class="number">10</span>, y: <span class="keyword">self</span>.frame.height <span class="operator">-</span> textSize.height <span class="operator">-</span> <span class="number">5</span>, width: textSize.width, height: textSize.height))</span><br><span class="line">        label_mes.font <span class="operator">=</span> <span class="type">UIFont</span>.<span class="keyword">init</span>(name: <span class="string">&quot;PingFangSC-Medium&quot;</span>, size: <span class="number">14</span>)</span><br><span class="line">        label_mes.textColor <span class="operator">=</span> .white</span><br><span class="line">        label_mes.text <span class="operator">=</span> message</span><br><span class="line">        <span class="keyword">self</span>.label_mes <span class="operator">=</span> label_mes</span><br><span class="line">        <span class="keyword">self</span>.addSubview(<span class="keyword">self</span>.label_mes)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">show</span>()&#123;</span><br><span class="line">        <span class="type">UIApplication</span>.shared.keyWindow<span class="operator">?</span>.addSubview(<span class="keyword">self</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> animations : () -&gt; () <span class="operator">=</span> &#123;</span><br><span class="line">            <span class="keyword">self</span>.frame.origin.y <span class="operator">=</span> <span class="operator">-</span><span class="number">4</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> completionAnimations : (<span class="type">Bool</span>) -&gt; () <span class="operator">=</span> &#123; finished <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">if</span> finished &#123;</span><br><span class="line">                <span class="type">UIView</span>.animate(withDuration: <span class="number">5</span>, delay: <span class="number">0</span>, usingSpringWithDamping: <span class="number">1</span>, initialSpringVelocity: <span class="number">5</span>, options: [.curveEaseInOut], animations: &#123;</span><br><span class="line">                    <span class="keyword">self</span>.frame.origin.y <span class="operator">=</span> <span class="operator">-</span><span class="number">49</span></span><br><span class="line">                &#125;)&#123;finished <span class="keyword">in</span></span><br><span class="line">                    <span class="keyword">self</span>.removeFromSuperview()</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="type">UIView</span>.animate(withDuration: <span class="number">1</span>, delay: <span class="number">0</span>, usingSpringWithDamping: <span class="number">10</span>, initialSpringVelocity: <span class="number">10</span>, options: [.curveEaseInOut], animations: animations, completion: completionAnimations)</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     NSCoding not supported. Use init(text, preferences, delegate) instead!</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">required</span> <span class="keyword">public</span> <span class="keyword">init?</span>(<span class="params">coder</span> <span class="params">aDecoder</span>: <span class="type">NSCoder</span>) &#123;</span><br><span class="line">        <span class="built_in">fatalError</span>(<span class="string">&quot;NSCoding not supported. Use init(text, preferences, delegate) instead!&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -484,29 +478,6 @@
   <p class="site-author-name" itemprop="name">Kaaaaai</p>
   <div class="site-description" itemprop="description"></div>
 </div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">97</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">7</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">67</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
   <div class="sidebar-button motion-element">
     <a onclick="Chatra('openChat', true);"><i class="fa fa-comment"></i>
     Chat
@@ -611,6 +582,7 @@
   
   <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
   <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
@@ -626,12 +598,71 @@
 
 <script src="/js/next-boot.js"></script>
 
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
 
   <script defer src="/lib/three/three.min.js"></script>
 
 
   
-  <script>
+  <script data-pjax>
     (function(){
       var canonicalURL, curProtocol;
       //Get the <link> tag
@@ -687,6 +718,7 @@
 
 
 
+    <div id="pjax">
   
 
   
@@ -720,5 +752,12 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
 });
 </script>
 
-</body>
+    </div>
+<script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 </html>
