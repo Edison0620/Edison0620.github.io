@@ -1289,7 +1289,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff8fff;
+  background: #c60421;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2786,12 +2786,19 @@ ul.breadcrumb li + li:last-child {
   }
 }
 /* 自定义的引用样式 */
-.blockquote.question {
+blockquote.question {
   color: #555;
   border-left: 4px solid #1098ad;
   background-color: #e3f2fd;
   margin-bottom: 20px;
 }
+/*body {
+      background: url(https://images.unsplash.com/photo-1502154024274-8cd40923ba51?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600);//自己喜欢的图片地址
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: 50% 50%;
+}*/
 /* sidebar-标题背景 */
 .site-brand-container {
   background: url("https://s2.loli.net/2022/04/27/wie1BDr4kExIcAH.gif");
