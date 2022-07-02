@@ -434,15 +434,6 @@
   </url>
   
   <url>
-    <loc>https://www.kaaaaai.cn/weekly-summary-190418.html</loc>
-    
-    <lastmod>2020-11-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.kaaaaai.cn/veteran_science_fiction.html</loc>
     
     <lastmod>2020-11-22</lastmod>
@@ -452,7 +443,25 @@
   </url>
   
   <url>
+    <loc>https://www.kaaaaai.cn/weekly-summary-190418.html</loc>
+    
+    <lastmod>2020-11-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.kaaaaai.cn/wizard-world-revolution.html</loc>
+    
+    <lastmod>2020-11-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/add-junk-code-to-ios-vest-project.html</loc>
     
     <lastmod>2020-11-22</lastmod>
     
@@ -479,15 +488,6 @@
   </url>
   
   <url>
-    <loc>https://www.kaaaaai.cn/add-junk-code-to-ios-vest-project.html</loc>
-    
-    <lastmod>2020-11-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.kaaaaai.cn/farewell-to-the-darkness.html</loc>
     
     <lastmod>2020-11-22</lastmod>
@@ -497,7 +497,16 @@
   </url>
   
   <url>
-    <loc>https://www.kaaaaai.cn/yansi-who-knows.html</loc>
+    <loc>https://www.kaaaaai.cn/firstart.html</loc>
+    
+    <lastmod>2020-11-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/hello-world.html</loc>
     
     <lastmod>2020-11-22</lastmod>
     
@@ -533,16 +542,7 @@
   </url>
   
   <url>
-    <loc>https://www.kaaaaai.cn/firstart.html</loc>
-    
-    <lastmod>2020-11-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.kaaaaai.cn/hello-world.html</loc>
+    <loc>https://www.kaaaaai.cn/yansi-who-knows.html</loc>
     
     <lastmod>2020-11-22</lastmod>
     
@@ -578,6 +578,15 @@
   </url>
   
   <url>
+    <loc>https://www.kaaaaai.cn/automatically-generates-annotation-documents.html</loc>
+    
+    <lastmod>2020-11-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.kaaaaai.cn/ios-preliminary-study-of-symbolic-breakpoints.html</loc>
     
     <lastmod>2020-11-22</lastmod>
@@ -596,7 +605,7 @@
   </url>
   
   <url>
-    <loc>https://www.kaaaaai.cn/automatically-generates-annotation-documents.html</loc>
+    <loc>https://www.kaaaaai.cn/about-what-do-you-like.html</loc>
     
     <lastmod>2020-11-22</lastmod>
     
@@ -632,24 +641,6 @@
   </url>
   
   <url>
-    <loc>https://www.kaaaaai.cn/ios-xcode-setup-code-snippet.html</loc>
-    
-    <lastmod>2020-11-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.kaaaaai.cn/about-what-do-you-like.html</loc>
-    
-    <lastmod>2020-11-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.kaaaaai.cn/ios-runtime-study.html</loc>
     
     <lastmod>2020-11-22</lastmod>
@@ -668,9 +659,9 @@
   </url>
   
   <url>
-    <loc>https://www.kaaaaai.cn/python-study-notes.html</loc>
+    <loc>https://www.kaaaaai.cn/ios-xcode-setup-code-snippet.html</loc>
     
-    <lastmod>2020-11-21</lastmod>
+    <lastmod>2020-11-22</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -680,6 +671,24 @@
     <loc>https://www.kaaaaai.cn/evolution.html</loc>
     
     <lastmod>2020-11-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/python-study-notes.html</loc>
+    
+    <lastmod>2020-11-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/unreasonable-guess.html</loc>
+    
+    <lastmod>2020-11-14</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -704,15 +713,6 @@
   </url>
   
   <url>
-    <loc>https://www.kaaaaai.cn/unreasonable-guess.html</loc>
-    
-    <lastmod>2020-11-14</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.kaaaaai.cn/be-a-man.html</loc>
     
     <lastmod>2020-11-05</lastmod>
@@ -722,16 +722,7 @@
   </url>
   
   <url>
-    <loc>https://www.kaaaaai.cn/weekly-summary-190819.html</loc>
-    
-    <lastmod>2020-11-05</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.kaaaaai.cn/weekly-summary-190803.html</loc>
+    <loc>https://www.kaaaaai.cn/weekly-summary-190713.html</loc>
     
     <lastmod>2020-11-05</lastmod>
     
@@ -749,7 +740,16 @@
   </url>
   
   <url>
-    <loc>https://www.kaaaaai.cn/weekly-summary-190713.html</loc>
+    <loc>https://www.kaaaaai.cn/weekly-summary-190803.html</loc>
+    
+    <lastmod>2020-11-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/weekly-summary-190819.html</loc>
     
     <lastmod>2020-11-05</lastmod>
     
@@ -776,7 +776,7 @@
   </url>
   
   <url>
-    <loc>https://www.kaaaaai.cn/weekly-summary-190706.html</loc>
+    <loc>https://www.kaaaaai.cn/weekly-summary-190428.html</loc>
     
     <lastmod>2020-11-05</lastmod>
     
@@ -794,7 +794,7 @@
   </url>
   
   <url>
-    <loc>https://www.kaaaaai.cn/weekly-summary-190428.html</loc>
+    <loc>https://www.kaaaaai.cn/weekly-summary-190706.html</loc>
     
     <lastmod>2020-11-05</lastmod>
     
