@@ -2,9 +2,11 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.1.0">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.1.0">
+
+
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
@@ -12,18 +14,17 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-<link rel="stylesheet" href="https://fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic|ZCOOL QingKe HuangYou:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
-  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
-  <script src="/lib/pace/pace.min.js"></script>
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic%7CZCOOL+QingKe+HuangYou:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.kaaaaai.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"appID":"HJCW1XGADA","apiKey":"bca13105be1a68b949b665f85a2ee25a","indexName":"KaiBlog","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-  <meta name="description" content="First at all　　首先先介绍一下 fastlane 是干嘛用的：">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.kaaaaai.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="First at all　　首先先介绍一下 fastlane 是干嘛用的：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS - 使用 fastlane snapshot 自动化截图">
 <meta property="og:url" content="https://www.kaaaaai.cn/ios-fastlane-snapshot.html">
@@ -39,7 +40,7 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/09/16/nfAIFx.jpg">
 <meta property="og:image" content="https://s2.ax1x.com/2019/09/16/nfATfK.jpg">
 <meta property="article:published_time" content="2019-09-16T03:24:52.000Z">
-<meta property="article:modified_time" content="2020-11-22T01:35:35.000Z">
+<meta property="article:modified_time" content="2022-07-01T09:06:39.564Z">
 <meta property="article:author" content="Kaaaaai">
 <meta property="article:tag" content="EXP">
 <meta property="article:tag" content="iOS">
@@ -47,91 +48,52 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://s2.ax1x.com/2019/09/16/nfAyWT.jpg">
 
+
 <link rel="canonical" href="https://www.kaaaaai.cn/ios-fastlane-snapshot.html">
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
-</script>
 
-  <title>iOS - 使用 fastlane snapshot 自动化截图 | 壹拾肆</title>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.kaaaaai.cn/ios-fastlane-snapshot.html","path":"/ios-fastlane-snapshot.html","title":"iOS - 使用 fastlane snapshot 自动化截图"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>iOS - 使用 fastlane snapshot 自动化截图 | 壹拾肆</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102185873-1"></script>
-    <script data-pjax>
-      if (CONFIG.hostname === location.hostname) {
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'UA-102185873-1');
-      }
-    </script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-102185873-1","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
 
-
-  <script data-pjax>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?9578d14210d67becef48447e4f6b3f20";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?9578d14210d67becef48447e4f6b3f20"></script>
 
 
 
-
+<link rel="dns-prefetch" href="https://waline-server-kaaaaai.vercel.app">
   <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
 <link rel="alternate" href="/atom.xml" title="壹拾肆" type="application/atom+xml">
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
+  <main class="main">
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
   <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">壹拾肆</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
+      <p class="site-title">壹拾肆</p>
+      <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">有些安排是多余的 这片空旷对我有益</p>
   </div>
@@ -145,34 +107,8 @@
 
 
 
-
 <nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
-
-  </li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -183,23 +119,22 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
+    <div class="popup search-popup"><div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
   </div>
 </div>
 
@@ -207,245 +142,18 @@
   </div>
 
 </div>
-    </header>
-
-    
-  <div class="reading-progress-bar"></div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content post posts-expand">
-            
-
-    
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.kaaaaai.cn/ios-fastlane-snapshot.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
-      <meta itemprop="name" content="Kaaaaai">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="壹拾肆">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          iOS - 使用 fastlane snapshot 自动化截图
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-09-16 11:24:52" itemprop="dateCreated datePublished" datetime="2019-09-16T11:24:52+08:00">2019-09-16</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/ios-fastlane-snapshot.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/ios-fastlane-snapshot.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <h2 id="First-at-all"><a href="#First-at-all" class="headerlink" title="First at all"></a>First at all</h2><p>　　首先先介绍一下 fastlane 是干嘛用的：</p>
-<blockquote>
-<p>Fastlane 是一套使用 Ruby 写的自动化工具集，旨在简化 Android 和 iOS 的部署过程，自动化你的工作流。它可以简化一些乏味、单调、重复的工作，像截图、代码签名以及发布 App。</p>
-</blockquote>
-<p>　　然后这篇文章主要介绍的是 fastlane 里面其中一个工具——snapshot，我们可以用它来给应用进行自动化截图。</p>
-<p>附上官方文档地址：<a target="_blank" rel="noopener" href="https://docs.fastlane.tools/getting-started/ios/screenshots/">https://docs.fastlane.tools/getting-started/ios/screenshots/</a></p>
-<h2 id="Just-to-try"><a href="#Just-to-try" class="headerlink" title="Just to try"></a>Just to try</h2><p>　　好了，接下来进入手把手教学阶段。这里的教学前提是你已经安装好了 fastlane 或者 snapshot。没安装好也没关系，打开终端输入以下代码进行安装：</p>
-<figure class="highlight bash"><figcaption><span>Terminal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　sudo gem install snapshot</span><br></pre></td></tr></table></figure>
-<p>如果遇到这个问题：</p>
-<div class="note danger">
-            <p>You don’t have write permissions for the &#x2F;usr&#x2F;bin directory.</p>
-          </div>
-<p>可以尝试加上安装路径</p>
-<figure class="highlight bash"><figcaption><span>Terminal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install -n /usr/local/bin fastlane</span><br></pre></td></tr></table></figure>
-<p>成功安装完以后。以一个新工程为例子，首先我们需要给他增加一个 UI Testing Target</p>
-<h3 id="1、增加-UI-Testing-Target"><a href="#1、增加-UI-Testing-Target" class="headerlink" title="1、增加 UI Testing Target"></a>1、增加 UI Testing Target</h3><p>选择 <strong>Xcode</strong> 顶部菜单栏中的 <strong>File</strong> –&gt; <strong>New</strong> –&gt; **Target…**，在弹出框中选择 <code>iOS UI Testing Target</code><br><img src="/images/loading-style-3.gif" data-original="https://s2.ax1x.com/2019/09/16/nfAyWT.jpg"><br>名字随意，其他默认。然后点击工程，添加一个新的 <code>scheme</code><br><img src="/images/loading-style-3.gif" data-original="https://s2.ax1x.com/2019/09/16/nfAROJ.jpg"><br>在弹出框中选择你新添加的 <code>Target</code><br><img src="/images/loading-style-3.gif" data-original="https://s2.ax1x.com/2019/09/16/nfAcSU.jpg"></p>
-<h3 id="2、编辑-UI-Testing-Target"><a href="#2、编辑-UI-Testing-Target" class="headerlink" title="2、编辑 UI Testing Target"></a>2、编辑 UI Testing Target</h3><p>注意勾选你的 <code>UI Testing Target</code>，然后点击 <code>Edit Scheme</code><br><img src="/images/loading-style-3.gif" data-original="https://s2.ax1x.com/2019/09/16/nfA2y4.jpg"><br><strong>然后在弹出框中，勾选 <code>Build</code> 中的 <code>Run</code>和 <code>Shard</code></strong><br><img src="/images/loading-style-3.gif" data-original="https://s2.ax1x.com/2019/09/16/nfAfm9.jpg"></p>
-<h3 id="3、给工程加入-snapshot"><a href="#3、给工程加入-snapshot" class="headerlink" title="3、给工程加入 snapshot"></a>3、给工程加入 snapshot</h3><p>打开终端，切到工程目录底下，输入一下命令：</p>
-<figure class="highlight bash"><figcaption><span>Terminal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastlane snapshot init</span><br></pre></td></tr></table></figure>
-<p>成功后工程目录会多出两个文件<br><img src="/images/loading-style-3.gif" data-original="https://s2.ax1x.com/2019/09/16/nfA4T1.jpg"><br><code>SnapshotHelper.swift</code> 文件需要我们添加到项目中使用，注意选中的<code>Target</code> 是前面创建的 UITest Target。如果是 <code>OC</code> 项目，文件拖入时会自动提醒是否创建桥接文件，选择“YES”就行了。</p>
-<p><code>Snapfile</code> 是截图配置文件，可以在里面设置需要截图的设备和语言。 </p>
-<h3 id="4、在工程中使用-snapshot"><a href="#4、在工程中使用-snapshot" class="headerlink" title="4、在工程中使用 snapshot"></a>4、在工程中使用 snapshot</h3><p>当确认了 <code>UI Testing Target</code> 的设置没问题，<code>snapshot</code> 的引用文件在工程中，配置文件也没问题后，我们下一步就可以开始在工程中初始化 <code>snapshot</code> 和调用他的截图方法了。</p>
-<p>首先，我们需要在 <code>setUp</code> 方法中初始化，值得一提的是官方文档和网上搜索到的技术博客中 OC 的初始化方法：<code>[Snapshot setupSnapshot:app];</code>，在 <code>snapshot</code> 中的源码好像已经找不到了，现在的初始化方法如下</p>
-<figure class="highlight objc"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">XCUIApplication</span> *app = [[<span class="built_in">XCUIApplication</span> alloc]init];</span><br><span class="line">[Snapshot setupSnapshot:app waitForAnimations:<span class="literal">YES</span>];</span><br><span class="line">[app launch];</span><br></pre></td></tr></table></figure>
-
-<p>然后在 <code>testExample</code> 方法中实现截图方法</p>
-<figure class="highlight objc"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> <span class="built_in">XCUIApplication</span> *app = [[<span class="built_in">XCUIApplication</span> alloc] init];</span><br><span class="line"></span><br><span class="line"><span class="comment">//截图 - 首頁</span></span><br><span class="line">[Snapshot snapshot:<span class="string">@&quot;0main&quot;</span> timeWaitingForIdle:<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//截图 - 点击方法</span></span><br><span class="line"><span class="built_in">XCUIElement</span> *openButton = app.buttons[<span class="string">@&quot;Open&quot;</span>];</span><br><span class="line">[openButton tap];</span><br><span class="line">[Snapshot snapshot:<span class="string">@&quot;1filter&quot;</span> timeWaitingForIdle:<span class="number">10</span>];  </span><br></pre></td></tr></table></figure>
-<p>这里需要强调的一点是 <code>XCUIElement *openButton = app.buttons[@&quot;Open&quot;];</code> 这句里的 “Open”，是怎么来的，他是根据我们创建控件时所设置的 <code>accessibilityIdentifier</code> 的值来的。</p>
-<figure class="highlight objc"><figcaption><span>Object-c</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIButton</span> *btnOne = [[<span class="built_in">UIButton</span> alloc]initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="keyword">self</span>.view.frame.size.width / <span class="number">2</span>, <span class="keyword">self</span>.view.frame.size.width / <span class="number">2</span>)];</span><br><span class="line">[btnOne addTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(jumpToAlibabba) forControlEvents:<span class="built_in">UIControlEventTouchUpInside</span>];</span><br><span class="line">[btnOne setAccessibilityIdentifier:<span class="string">@&quot;Open&quot;</span>];</span><br><span class="line">[<span class="keyword">self</span>.view addSubview:btnOne];</span><br></pre></td></tr></table></figure>
-<p>完成这一步，剩下需要做的就不多了。</p>
-<h3 id="5、获取自动化截图结果"><a href="#5、获取自动化截图结果" class="headerlink" title="5、获取自动化截图结果"></a>5、获取自动化截图结果</h3><p>同样打开终端，切到项目路径，运行</p>
-<figure class="highlight bash"><figcaption><span>Terminal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastlane snapshot</span><br></pre></td></tr></table></figure>
-<p>然后会出现一连串的打印<br><img src="/images/loading-style-3.gif" data-original="https://s2.ax1x.com/2019/09/16/nfAIFx.jpg"><br>运行结束以后，成功的话会生成了一个 html 文件和一组截图，html 页面会自己打开。<br><img src="/images/loading-style-3.gif" data-original="https://s2.ax1x.com/2019/09/16/nfATfK.jpg"><br>不过显示的效果有点不太友好~<br>以上。</p>
-
-    </div>
-
-    
-    
-    
-      
-  <div class="popular-posts-header">相关文章</div>
-  <ul class="popular-posts">
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/ios-hmac-encryption-and-an-md5-problem.html" rel="bookmark">iOS - HMAC 加密算法和一个 MD5 加密的问题</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/ios-some-question-about-bluetooth.html" rel="bookmark">iOS - 一些蓝牙问题的解决</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/oc-multi-delegate-implementation.html" rel="bookmark">OC - 多代理的实现</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/ios-preliminary-study-of-symbolic-breakpoints.html" rel="bookmark">iOS - 初探符号断点调试</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/ios-private-repository-introduces-engineering-through-cocoapods.html" rel="bookmark">iOS - 私有仓库通过 CocoaPods 引入工程</a></div>
-    </li>
-  </ul>
-
         
-
-<div>
-<ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>本文作者： </strong>Kaaaaai
-  </li>
-  <li class="post-copyright-link">
-    <strong>本文链接：</strong>
-    <a href="https://www.kaaaaai.cn/ios-fastlane-snapshot.html" title="iOS - 使用 fastlane snapshot 自动化截图">https://www.kaaaaai.cn/ios-fastlane-snapshot.html</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
-  </li>
-</ul>
-</div>
-
-
-      <footer class="post-footer">
-          
-          <div class="post-tags">
-              <a href="/tags/EXP/" rel="tag"><i class="fa fa-tag"></i> EXP</a>
-              <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
-              <a href="/tags/OC/" rel="tag"><i class="fa fa-tag"></i> OC</a>
-          </div>
-
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/weekly-summary-190831.html" rel="prev" title="每周总结 - 0831">
-      <i class="fa fa-chevron-left"></i> 每周总结 - 0831
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/ios-xcode-setup-code-snippet.html" rel="next" title="iOS - Xcode 设置代码片段">
-      iOS - Xcode 设置代码片段 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
   
-  
-  
-
-
-
-          </div>
-          
-    <div class="comments" id="valine-comments"></div>
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
   </div>
 
   <aside class="sidebar">
-    <div class="sidebar-inner">
 
-      <ul class="sidebar-nav motion-element">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
         </li>
@@ -454,25 +162,41 @@
         </li>
       </ul>
 
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#First-at-all"><span class="nav-number">1.</span> <span class="nav-text">First at all</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Just-to-try"><span class="nav-number">2.</span> <span class="nav-text">Just to try</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E5%A2%9E%E5%8A%A0-UI-Testing-Target"><span class="nav-number">2.1.</span> <span class="nav-text">1、增加 UI Testing Target</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E7%BC%96%E8%BE%91-UI-Testing-Target"><span class="nav-number">2.2.</span> <span class="nav-text">2、编辑 UI Testing Target</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E7%BB%99%E5%B7%A5%E7%A8%8B%E5%8A%A0%E5%85%A5-snapshot"><span class="nav-number">2.3.</span> <span class="nav-text">3、给工程加入 snapshot</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E5%9C%A8%E5%B7%A5%E7%A8%8B%E4%B8%AD%E4%BD%BF%E7%94%A8-snapshot"><span class="nav-number">2.4.</span> <span class="nav-text">4、在工程中使用 snapshot</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%E3%80%81%E8%8E%B7%E5%8F%96%E8%87%AA%E5%8A%A8%E5%8C%96%E6%88%AA%E5%9B%BE%E7%BB%93%E6%9E%9C"><span class="nav-number">2.5.</span> <span class="nav-text">5、获取自动化截图结果</span></a></li></ol></li></ol></div>
-      </div>
-      <!--/noindex-->
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#First-at-all"><span class="nav-number">1.</span> <span class="nav-text">First at all</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Just-to-try"><span class="nav-number">2.</span> <span class="nav-text">Just to try</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E5%A2%9E%E5%8A%A0-UI-Testing-Target"><span class="nav-number">2.1.</span> <span class="nav-text">1、增加 UI Testing Target</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E7%BC%96%E8%BE%91-UI-Testing-Target"><span class="nav-number">2.2.</span> <span class="nav-text">2、编辑 UI Testing Target</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E7%BB%99%E5%B7%A5%E7%A8%8B%E5%8A%A0%E5%85%A5-snapshot"><span class="nav-number">2.3.</span> <span class="nav-text">3、给工程加入 snapshot</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E5%9C%A8%E5%B7%A5%E7%A8%8B%E4%B8%AD%E4%BD%BF%E7%94%A8-snapshot"><span class="nav-number">2.4.</span> <span class="nav-text">4、在工程中使用 snapshot</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%E3%80%81%E8%8E%B7%E5%8F%96%E8%87%AA%E5%8A%A8%E5%8C%96%E6%88%AA%E5%9B%BE%E7%BB%93%E6%9E%9C"><span class="nav-number">2.5.</span> <span class="nav-text">5、获取自动化截图结果</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
 
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="Kaaaaai"
       src="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
   <p class="site-author-name" itemprop="name">Kaaaaai</p>
-  <div class="site-description" itemprop="description"></div>
+  <div class="site-description" itemprop="description">🐨🐨</div>
 </div>
-  <div class="sidebar-button motion-element">
-    <a onclick="Chatra('openChat', true);"><i class="fa fa-comment"></i>
-    Chat
-  </a>
-  </div>
-  <div class="links-of-author motion-element">
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">97</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">67</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
       <span class="links-of-author-item">
         <a href="https://github.com/Kaaaaai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Kaaaaai" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
@@ -486,49 +210,240 @@
 
 
 
+        </div>
       </div>
+
       
-<!-- 网易云歌曲 -->
+    <!-- 网易云歌曲 -->
     <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=421203025&auto=1&height=66"></iframe>
-        <div class="back-to-top motion-element">
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
           <i class="fa fa-arrow-up"></i>
           <span>0%</span>
         </div>
-
     </div>
   </aside>
-  <div id="sidebar-dimmer"></div>
+  <div class="sidebar-dimmer"></div>
 
 
-      </div>
-    </main>
+    </header>
 
-    <footer class="footer">
-      <div class="footer-inner">
+    
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.kaaaaai.cn/ios-fastlane-snapshot.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="Kaaaaai">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="壹拾肆">
+      <meta itemprop="description" content="🐨🐨">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="iOS - 使用 fastlane snapshot 自动化截图 | 壹拾肆">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          iOS - 使用 fastlane snapshot 自动化截图
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-09-16 11:24:52" itemprop="dateCreated datePublished" datetime="2019-09-16T11:24:52+08:00">2019-09-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/ios-fastlane-snapshot.html#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/ios-fastlane-snapshot.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="First-at-all"><a href="#First-at-all" class="headerlink" title="First at all"></a>First at all</h2><p>　　首先先介绍一下 fastlane 是干嘛用的：</p>
+<blockquote>
+<p>Fastlane 是一套使用 Ruby 写的自动化工具集，旨在简化 Android 和 iOS 的部署过程，自动化你的工作流。它可以简化一些乏味、单调、重复的工作，像截图、代码签名以及发布 App。</p>
+</blockquote>
+<p>　　然后这篇文章主要介绍的是 fastlane 里面其中一个工具——snapshot，我们可以用它来给应用进行自动化截图。</p>
+<p>附上官方文档地址：<a target="_blank" rel="noopener" href="https://docs.fastlane.tools/getting-started/ios/screenshots/">https://docs.fastlane.tools/getting-started/ios/screenshots/</a></p>
+<h2 id="Just-to-try"><a href="#Just-to-try" class="headerlink" title="Just to try"></a>Just to try</h2><p>　　好了，接下来进入手把手教学阶段。这里的教学前提是你已经安装好了 fastlane 或者 snapshot。没安装好也没关系，打开终端输入以下代码进行安装：</p>
+<figure class="highlight bash"><figcaption><span>Terminal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　sudo gem install snapshot</span><br></pre></td></tr></table></figure>
+<p>如果遇到这个问题：</p>
+<div class="note danger"><p>You don’t have write permissions for the &#x2F;usr&#x2F;bin directory.</p>
+</div>
+<p>可以尝试加上安装路径</p>
+<figure class="highlight bash"><figcaption><span>Terminal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install -n /usr/local/bin fastlane</span><br></pre></td></tr></table></figure>
+<p>成功安装完以后。以一个新工程为例子，首先我们需要给他增加一个 UI Testing Target</p>
+<h3 id="1、增加-UI-Testing-Target"><a href="#1、增加-UI-Testing-Target" class="headerlink" title="1、增加 UI Testing Target"></a>1、增加 UI Testing Target</h3><p>选择 <strong>Xcode</strong> 顶部菜单栏中的 <strong>File</strong> –&gt; <strong>New</strong> –&gt; **Target…**，在弹出框中选择 <code>iOS UI Testing Target</code><br><img data-src="/images/loading-style-3.gif" data-original="https://s2.ax1x.com/2019/09/16/nfAyWT.jpg"><br>名字随意，其他默认。然后点击工程，添加一个新的 <code>scheme</code><br><img data-src="/images/loading-style-3.gif" data-original="https://s2.ax1x.com/2019/09/16/nfAROJ.jpg"><br>在弹出框中选择你新添加的 <code>Target</code><br><img data-src="/images/loading-style-3.gif" data-original="https://s2.ax1x.com/2019/09/16/nfAcSU.jpg"></p>
+<h3 id="2、编辑-UI-Testing-Target"><a href="#2、编辑-UI-Testing-Target" class="headerlink" title="2、编辑 UI Testing Target"></a>2、编辑 UI Testing Target</h3><p>注意勾选你的 <code>UI Testing Target</code>，然后点击 <code>Edit Scheme</code><br><img data-src="/images/loading-style-3.gif" data-original="https://s2.ax1x.com/2019/09/16/nfA2y4.jpg"><br><strong>然后在弹出框中，勾选 <code>Build</code> 中的 <code>Run</code>和 <code>Shard</code></strong><br><img data-src="/images/loading-style-3.gif" data-original="https://s2.ax1x.com/2019/09/16/nfAfm9.jpg"></p>
+<h3 id="3、给工程加入-snapshot"><a href="#3、给工程加入-snapshot" class="headerlink" title="3、给工程加入 snapshot"></a>3、给工程加入 snapshot</h3><p>打开终端，切到工程目录底下，输入一下命令：</p>
+<figure class="highlight bash"><figcaption><span>Terminal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastlane snapshot init</span><br></pre></td></tr></table></figure>
+<p>成功后工程目录会多出两个文件<br><img data-src="/images/loading-style-3.gif" data-original="https://s2.ax1x.com/2019/09/16/nfA4T1.jpg"><br><code>SnapshotHelper.swift</code> 文件需要我们添加到项目中使用，注意选中的<code>Target</code> 是前面创建的 UITest Target。如果是 <code>OC</code> 项目，文件拖入时会自动提醒是否创建桥接文件，选择“YES”就行了。</p>
+<p><code>Snapfile</code> 是截图配置文件，可以在里面设置需要截图的设备和语言。 </p>
+<h3 id="4、在工程中使用-snapshot"><a href="#4、在工程中使用-snapshot" class="headerlink" title="4、在工程中使用 snapshot"></a>4、在工程中使用 snapshot</h3><p>当确认了 <code>UI Testing Target</code> 的设置没问题，<code>snapshot</code> 的引用文件在工程中，配置文件也没问题后，我们下一步就可以开始在工程中初始化 <code>snapshot</code> 和调用他的截图方法了。</p>
+<p>首先，我们需要在 <code>setUp</code> 方法中初始化，值得一提的是官方文档和网上搜索到的技术博客中 OC 的初始化方法：<code>[Snapshot setupSnapshot:app];</code>，在 <code>snapshot</code> 中的源码好像已经找不到了，现在的初始化方法如下</p>
+<figure class="highlight objc"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">XCUIApplication</span> *app = [[<span class="built_in">XCUIApplication</span> alloc]init];</span><br><span class="line">[Snapshot setupSnapshot:app waitForAnimations:<span class="literal">YES</span>];</span><br><span class="line">[app launch];</span><br></pre></td></tr></table></figure>
+
+<p>然后在 <code>testExample</code> 方法中实现截图方法</p>
+<figure class="highlight objc"><figcaption><span>Object-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> <span class="built_in">XCUIApplication</span> *app = [[<span class="built_in">XCUIApplication</span> alloc] init];</span><br><span class="line"></span><br><span class="line"><span class="comment">//截图 - 首頁</span></span><br><span class="line">[Snapshot snapshot:<span class="string">@&quot;0main&quot;</span> timeWaitingForIdle:<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//截图 - 点击方法</span></span><br><span class="line"><span class="built_in">XCUIElement</span> *openButton = app.buttons[<span class="string">@&quot;Open&quot;</span>];</span><br><span class="line">[openButton tap];</span><br><span class="line">[Snapshot snapshot:<span class="string">@&quot;1filter&quot;</span> timeWaitingForIdle:<span class="number">10</span>];  </span><br></pre></td></tr></table></figure>
+<p>这里需要强调的一点是 <code>XCUIElement *openButton = app.buttons[@&quot;Open&quot;];</code> 这句里的 “Open”，是怎么来的，他是根据我们创建控件时所设置的 <code>accessibilityIdentifier</code> 的值来的。</p>
+<figure class="highlight objc"><figcaption><span>Object-c</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIButton</span> *btnOne = [[<span class="built_in">UIButton</span> alloc]initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="keyword">self</span>.view.frame.size.width / <span class="number">2</span>, <span class="keyword">self</span>.view.frame.size.width / <span class="number">2</span>)];</span><br><span class="line">[btnOne addTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(jumpToAlibabba) forControlEvents:<span class="built_in">UIControlEventTouchUpInside</span>];</span><br><span class="line">[btnOne setAccessibilityIdentifier:<span class="string">@&quot;Open&quot;</span>];</span><br><span class="line">[<span class="keyword">self</span>.view addSubview:btnOne];</span><br></pre></td></tr></table></figure>
+<p>完成这一步，剩下需要做的就不多了。</p>
+<h3 id="5、获取自动化截图结果"><a href="#5、获取自动化截图结果" class="headerlink" title="5、获取自动化截图结果"></a>5、获取自动化截图结果</h3><p>同样打开终端，切到项目路径，运行</p>
+<figure class="highlight bash"><figcaption><span>Terminal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastlane snapshot</span><br></pre></td></tr></table></figure>
+<p>然后会出现一连串的打印<br><img data-src="/images/loading-style-3.gif" data-original="https://s2.ax1x.com/2019/09/16/nfAIFx.jpg"><br>运行结束以后，成功的话会生成了一个 html 文件和一组截图，html 页面会自己打开。<br><img data-src="/images/loading-style-3.gif" data-original="https://s2.ax1x.com/2019/09/16/nfATfK.jpg"><br>不过显示的效果有点不太友好~<br>以上。</p>
+
+    </div>
+
+    
+    
+    
+      
+
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Kaaaaai
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://www.kaaaaai.cn/ios-fastlane-snapshot.html" title="iOS - 使用 fastlane snapshot 自动化截图">https://www.kaaaaai.cn/ios-fastlane-snapshot.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/EXP/" rel="tag"><i class="fa fa-tag"></i> EXP</a>
+              <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
+              <a href="/tags/OC/" rel="tag"><i class="fa fa-tag"></i> OC</a>
+          </div>
+
         
 
-        
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/weekly-summary-190831.html" rel="prev" title="每周总结 - 0831">
+                  <i class="fa fa-chevron-left"></i> 每周总结 - 0831
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/ios-xcode-setup-code-snippet.html" rel="next" title="iOS - Xcode 设置代码片段">
+                  iOS - Xcode 设置代码片段 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
 
 <div class="copyright">
-  
   &copy; 
   <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Kaaaaai</span>
-    <span class="post-meta-divider">|</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
     <span class="post-meta-item-icon">
-      <i class="fa fa-chart-area"></i>
+      <i class="fa fa-chart-line"></i>
     </span>
     <span title="站点总字数">232k</span>
-    <span class="post-meta-divider">|</span>
+  </span>
+  <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span title="站点阅读时长">3:31</span>
+  </span>
 </div>
-
   <!-- time -->
   <div id="show-time">
     <span id="span_dt_dt"></span>
@@ -555,193 +470,47 @@
     show_date_time();
   </script>
 
-        
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
-
-  
-  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/pjax/pjax.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
-  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-  <script>
-var pjax = new Pjax({
-  selectors: [
-    'head title',
-    '#page-configurations',
-    '.content-wrap',
-    '.post-toc-wrap',
-    '.languages',
-    '#pjax'
-  ],
-  switches: {
-    '.post-toc-wrap': Pjax.switches.innerHTML
-  },
-  analytics: false,
-  cacheBust: false,
-  scrollTo : !CONFIG.bookmark.enable
-});
-
-window.addEventListener('pjax:success', () => {
-  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
-    var code = element.text || element.textContent || element.innerHTML || '';
-    var parent = element.parentNode;
-    parent.removeChild(element);
-    var script = document.createElement('script');
-    if (element.id) {
-      script.id = element.id;
-    }
-    if (element.className) {
-      script.className = element.className;
-    }
-    if (element.type) {
-      script.type = element.type;
-    }
-    if (element.src) {
-      script.src = element.src;
-      // Force synchronous loading of peripheral JS.
-      script.async = false;
-    }
-    if (element.dataset.pjax !== undefined) {
-      script.dataset.pjax = '';
-    }
-    if (code !== '') {
-      script.appendChild(document.createTextNode(code));
-    }
-    parent.appendChild(script);
-  });
-  NexT.boot.refresh();
-  // Define Motion Sequence & Bootstrap Motion.
-  if (CONFIG.motion.enable) {
-    NexT.motion.integrator
-      .init()
-      .add(NexT.motion.middleWares.subMenu)
-      .add(NexT.motion.middleWares.postList)
-      .bootstrap();
-  }
-  NexT.utils.updateSidebarPosition();
-});
-</script>
-
-
-  <script defer src="/lib/three/three.min.js"></script>
-
-
-  
-  <script data-pjax>
-    (function(){
-      var canonicalURL, curProtocol;
-      //Get the <link> tag
-      var x=document.getElementsByTagName("link");
-		//Find the last canonical URL
-		if(x.length > 0){
-			for (i=0;i<x.length;i++){
-				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
-					canonicalURL=x[i].href;
-				}
-			}
-		}
-    //Get protocol
-	    if (!canonicalURL){
-	    	curProtocol = window.location.protocol.split(':')[0];
-	    }
-	    else{
-	    	curProtocol = canonicalURL.split(':')[0];
-	    }
-      //Get current URL if the canonical URL does not exist
-	    if (!canonicalURL) canonicalURL = window.location.href;
-	    //Assign script content. Replace current URL with the canonical URL
-      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
-  </script>
-
-
-
-
-  
-<script src="/js/local-search.js"></script>
-
-
-
-
-  <script>
-    (function(d, w, c) {
-      w.ChatraID = 'QXLRxXcsfrRJR2KTG';
-      var s = d.createElement('script');
-      w[c] = w[c] || function() {
-        (w[c].q = w[c].q || []).push(arguments);
-      };
-      s.async = true;
-      s.src = 'https://call.chatra.io/chatra.js';
-      if (d.head) d.head.appendChild(s);
-    })(document, window, 'Chatra');
-  </script>
-
-
-
-
-
-
-
-
-
-    <div id="pjax">
-  
-
-  
-
-
-<script>
-NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
-  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
-    var GUEST = ['nick', 'mail', 'link'];
-    var guest = 'nick,mail,link';
-    guest = guest.split(',').filter(item => {
-      return GUEST.includes(item);
-    });
-    new Valine({
-      el         : '#valine-comments',
-      verify     : false,
-      notify     : true,
-      appId      : 'fzf6cpurdF6t3abR8qK1Isi3-gzGzoHsz',
-      appKey     : 'mBMU4tntJKhBPKSpyDOWQYGy',
-      placeholder: "江南无所有，聊赠一枝春？",
-      avatar     : 'mm',
-      meta       : guest,
-      pageSize   : '10' || 10,
-      visitor    : false,
-      lang       : '' || 'zh-cn',
-      path       : location.pathname,
-      recordIP   : false,
-      serverURLs : ''
-    });
-  }, window.Valine);
-});
-</script>
-
     </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+<script class="next-config" data-name="chatra" type="application/json">{"enable":true,"async":true,"id":"QXLRxXcsfrRJR2KTG"}</script>
+<script src="/js/third-party/chat/chatra.js"></script>
+<script async src="https://call.chatra.io/chatra.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://waline-server-kaaaaai.vercel.app","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"placeholder":"请文明评论呀","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"visitor":false,"comment_count":true,"requiredFields":[],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","el":"#waline","comment":true,"path":"/ios-fastlane-snapshot.html"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
 <script>
             window.imageLazyLoadSetting = {
                 isSPA: true,

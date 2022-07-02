@@ -2,9 +2,11 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.1.0">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.1.0">
+
+
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
@@ -12,111 +14,73 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-<link rel="stylesheet" href="https://fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic|ZCOOL QingKe HuangYou:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
-  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
-  <script src="/lib/pace/pace.min.js"></script>
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic%7CZCOOL+QingKe+HuangYou:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.kaaaaai.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"appID":"HJCW1XGADA","apiKey":"bca13105be1a68b949b665f85a2ee25a","indexName":"KaiBlog","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-  <meta property="og:type" content="website">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.kaaaaai.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="🐨🐨">
+<meta property="og:type" content="website">
 <meta property="og:title" content="壹拾肆">
 <meta property="og:url" content="https://www.kaaaaai.cn/page/4/index.html">
 <meta property="og:site_name" content="壹拾肆">
+<meta property="og:description" content="🐨🐨">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Kaaaaai">
-<meta property="article:tag" content="个人成长, 技术, 思考, 书籍, 电影, iOS, Android, 代码">
+<meta property="article:tag" content="个人, 成长, 技术, 思考, 书籍, 电影, iOS, Android, 代码">
 <meta name="twitter:card" content="summary">
+
 
 <link rel="canonical" href="https://www.kaaaaai.cn/page/4/">
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : true,
-    isPost : false,
-    lang   : 'zh-CN'
-  };
-</script>
 
-  <title>壹拾肆</title>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"page/4/index.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>壹拾肆</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102185873-1"></script>
-    <script data-pjax>
-      if (CONFIG.hostname === location.hostname) {
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'UA-102185873-1');
-      }
-    </script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-102185873-1","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
 
-
-  <script data-pjax>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?9578d14210d67becef48447e4f6b3f20";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?9578d14210d67becef48447e4f6b3f20"></script>
 
 
 
-
+<link rel="dns-prefetch" href="https://waline-server-kaaaaai.vercel.app">
   <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
 <link rel="alternate" href="/atom.xml" title="壹拾肆" type="application/atom+xml">
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
+  <main class="main">
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
   <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
+      <i class="logo-line"></i>
       <h1 class="site-title">壹拾肆</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">有些安排是多余的 这片空旷对我有益</p>
   </div>
@@ -130,34 +94,8 @@
 
 
 
-
 <nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
-
-  </li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -168,23 +106,22 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
+    <div class="popup search-popup"><div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
   </div>
 </div>
 
@@ -192,88 +129,180 @@
   </div>
 
 </div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Kaaaaai"
+      src="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+  <p class="site-author-name" itemprop="name">Kaaaaai</p>
+  <div class="site-description" itemprop="description">🐨🐨</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">97</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">67</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Kaaaaai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Kaaaaai" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:root@kaaaaai.cn" title="E-Mail → mailto:root@kaaaaai.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/edisonlllllk" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;edisonlllllk" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+
+      
+    <!-- 网易云歌曲 -->
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=421203025&auto=1&height=66"></iframe>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
     </header>
 
     
   <div class="reading-progress-bar"></div>
 
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
 
-          <div class="content index posts-expand">
-            
-      
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://www.kaaaaai.cn/xiangzi-and-his-misfortune.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
       <meta itemprop="name" content="Kaaaaai">
-      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="壹拾肆">
+      <meta itemprop="description" content="🐨🐨">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 壹拾肆">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/xiangzi-and-his-misfortune.html" class="post-title-link" itemprop="url">运气不好的祥子的一生</a>
+          <a href="/xiangzi-and-his-misfortune.html" class="post-title-link" itemprop="url">运气不好的祥子的一生</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-11-16 10:13:52" itemprop="dateCreated datePublished" datetime="2019-11-16T10:13:52+08:00">2019-11-16</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%97%81%E7%99%BD/" itemprop="url" rel="index"><span itemprop="name">旁白</span></a>
-                </span>
-            </span>
+      <time title="创建时间：2019-11-16 10:13:52" itemprop="dateCreated datePublished" datetime="2019-11-16T10:13:52+08:00">2019-11-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%97%81%E7%99%BD/" itemprop="url" rel="index"><span itemprop="name">旁白</span></a>
+        </span>
+    </span>
 
-          
+  
   
   <span class="post-meta-item">
     
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/xiangzi-and-his-misfortune.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/xiangzi-and-his-misfortune.html" itemprop="commentCount"></span>
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/xiangzi-and-his-misfortune.html#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/xiangzi-and-his-misfortune.html" itemprop="commentCount"></span>
     </a>
   </span>
   
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.8k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.8k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
 
         </div>
       </header>
@@ -282,9 +311,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
-          <p>　　上上个礼拜把读了十几年的《骆驼祥子》读完了，说读十几年的原因是因为第一次看《骆驼祥子》大概是我初中，老师让买了一套书，课外看，目的是为了提高阅读理解能力和作文水平。但当时我觉得不喜欢看文学名著，喜欢看小说，觉得文学名著太过严肃，有一张拒人于千里之外的旧学堂老先生凶巴巴的脸，整套书一共十二本，看完的好像只有鲁迅先生的《朝花夕拾》和一两本收录短篇故事的书，而祥子，总是看到祥子朝气逢勃拉着车子在北平窜来窜去的光景，我就抽身走人了，抽身的原因很简单，对于北京的想象和里面人们生活方式，当时我有我一套自己的想象，书里写的和我想象相差很远，所以就走了。<br>　　而重新捡起来看的原因，也很简单，起初是个巧合，因为好久没看书，翻开 kindle 看，前几本分别是《傻瓜式投资》、《软技能》、《退步集》、《骆驼祥子》，里面有故事情节又适合打发时间的好像只有《骆驼祥子》。<br>　　《骆驼祥子》的故事很简单，概述起来大概是讲还是军阀混战年代的北平，一个初入社会，叫祥子的年轻车夫，在攒出属于自己车的过程中，遇到了种种不幸，梦想破灭，人格也随之破产，最后活成浑浑噩噩苟且生活的行尸走肉的故事。<br>　　故事虽然一直都是这个故事，但现在看和以前看的心境完全不一样，在社会上打了几个滚的我，再去看祥子在刚入社会时，给自己打的算盘和不算远大的抱负，对我来说不再有雾里看花的隔阂，更多的是觉得，如果抛开因为时代和环境而产生的，具体到像攒一辆自己的车的这种事，祥子的所思所感，放在所有时代，对比所有时代的年轻人，包括二十一世纪现在的我的所思所想，其实一般无二，初出茅庐不怕虎，被雨打风吹后犹疑怨怼愤懑，最后因为个人际遇不同，有人跳出来后被当做励志的榜样，有人没跳出来被当做“二十岁就死了，但八十岁才被埋葬”，茶余饭后被提起，供人唏嘘的段子。祥子，祥子可能不到八十岁就会被埋葬掉吧。<br>　　和朋友聊天提起看完了这本书，他说了一句人人都是祥子。他大概是想说每个人在经历社会上的摸爬滚打之后，都会变成一种模样，即浑浑噩噩的样子。祥子的结局，有一部分是时代的必然性，所以是普遍如此，还是特定事件，值得商榷。在那之后我们又提到了电影《小丑》。<img src="/images/loading-style-3.gif" data-original="https://s2.ax1x.com/2019/11/17/MsYf8x.jpg"><br>　　《小丑》的剧情就不展开讲了，总之还不错，推荐没看过的朋友可以去看看。<br>　　想想电影里的亚瑟和祥子是否存在一定相似性？祥子心心念念的车，是亚瑟扮成小丑，给人们带来笑声的梦想，亚瑟和祥子都被他们所面临的处境所伤害，受伤之后，亚瑟选择向伤害自己的人开枪，而祥子，因为很难说有某个清晰的、可以用来复仇的目标，最后他只好用钝刀挥向自己内心。<br>　　深究祥子或者亚瑟，何以成为他们本身，我尝试思考了以下两个问题：在同时代的人中，我想拥有他们同样遭遇的人肯定很多，但为什么只要祥子和亚瑟被选中，可以拥有他们的名字？祥子和亚瑟的结局是否拥有某种必然性？<br>　　为什么只有祥子和亚瑟拥有名字，其他遭受不幸的人们都在历史里模糊成某个群体，是祥子或者小丑存在某种值得书写的闪光点吗？关于祥子的答案，我想是否定的，作为《骆驼祥子》这个故事的男主角，他不存在，或者说不可能存在某种特别，相反，正因为他和当时普通的底层劳苦群众一般无二，所以才可以被当做一个例子，与其深究他和劳苦群众有哪里不同，不如直接说他是劳苦群众的一个代表。而亚瑟，亚瑟不是被选中的，他是自己跳出了的，之所以这样说是因为，如果去掉小丑这个辨识度极强的符号，亚瑟可能在每个时代都很多见，受压迫到歇斯底里后陷入疯狂的变态杀人狂，或是因为本身存粹的恶导致的无差别杀人。如果只是因为带着小丑面具杀人而被人记住，这种说法不免有点牵强，而事实上，亚瑟也不仅仅只是因为带着小丑的脸杀人而被人记住，他之所以得以被高举，是因为他杀人在群体围观之下被赋予某种意义，第一次在地铁开枪杀人，对于亚瑟本身来说，是失手和恐惧的混合——事后在厕所的舞蹈虽然可以解释成，他潜意识里本身就想杀人。但无论如何，都和被公众解释成是城市底层边缘人对精英阶层的一次控诉相去甚远，而亚瑟完成自己的蜕变，成为小丑在电视台的演讲，或许有那种意思，但在亚瑟这边，这个演讲，可能是对小丑自我的建立，一段初初登场的自我介绍，是一个开始的标志。而在群众眼里，因为经过舆论酝酿发酵，意义可能远不止于此，在地铁凶案的小丑，在众说纷纭的情况下，登台枪杀了主持人，洋洋洒洒发布了一段正中他们下怀的演讲，这对小丑自发组成的信徒们来说，这是一个集结号，一段对近期发生的所有事的结束陈词，一种思想成熟的标志。<br>　　祥子和亚瑟的结局是否拥有某种必然性？正如前文所述，祥子作为一个代表，他是存在一种必然性的，不在城外被军阀抢走车，也可能因为其他原因失去自己的车，没有被虎妞欺骗被迫结婚，也会因为其他的事情受到类似委屈等等，而亚瑟呢，如果他妈妈小时候没有虐待他导致他得精神病，如果他的同事没有两面三刀，如果那个主持人没有看轻他的梦想，是不是事情就会不一样？但除了他妈虐待他导致他得精神病这点，其他事其实在社会上也都很普遍，而得精神病的妈妈虐待自己孩子导致她孩子也患上精神病的这种事，如果把范围扩大，不止哥谭，我想偶然性也不是很小。那是不是有结论，哪怕没有名叫亚瑟这个小丑出现，也可能会有名叫杰克，或者露西的小丑。不过无论是祥子和亚瑟，预设条件，推导事情结果本身存在一定的不靠谱，所以我们只能通过结果本身去下定义，因为祥子有很多个，而小丑亚瑟只有一个，所以祥子的结局是存在必然性的，而小丑的产生是偶然性更多一点。<br>　　和朋友争论调侃小丑的主持人到底有没有错的时候，因为觉得其实主持人只是把嘲讽当做一个工作，甚至可能不存在任何恶意，虽然嘲笑别人可能不对，但因为嘲笑而收到子弹就太过分了吧。但另一边站在小丑的立场上，遭受如此多的不公平，选择复仇也是一种不得已的理所当然。所以我当时的回答是，只能说大家都运气不好吧。这个回答多少有点含糊其辞的成分，想想最近很多事，因为每次转换立场都觉得可以理解对方，而选择一个模棱两可的态度，这种态度多少有一点犬儒，所以我又深刻的想了想，决定给祥子和亚瑟一个坚定但坚决不是为了表明态度而煲鸡汤的态度：<br>　　祥子和亚瑟不仅是因为不幸，更多的是不公平，因为自己的付出没有得到预期的回报，勤勤恳恳拉车的祥子没有攒到自己梦想的新车，希望带给别人欢乐的亚瑟发现从头到尾自己都没得到过善待。面对不幸，我们仍然可以在种种不幸中保持着早期祥子热忱的心态，和亚瑟在公交车上逗小孩子笑的善良的脸。但面对不公呢，祥子和亚瑟大概是两个错误示范，就此沉沦和过激报复。因为不公的表现有很多，也没有万金油的解决方式，这里只能给一些我的建议，面对小事的不公平，豁达点用“就当是一种修行”的心态一笑了之，不豁达就一句“*他妈”了之，面对大事的不公平，如果不能依靠现有的社会机构解决，也绝不要采取会被现有社会机构解决的方式解决。</p>
+          <p>　　上上个礼拜把读了十几年的《骆驼祥子》读完了，说读十几年的原因是因为第一次看《骆驼祥子》大概是我初中，老师让买了一套书，课外看，目的是为了提高阅读理解能力和作文水平。但当时我觉得不喜欢看文学名著，喜欢看小说，觉得文学名著太过严肃，有一张拒人于千里之外的旧学堂老先生凶巴巴的脸，整套书一共十二本，看完的好像只有鲁迅先生的《朝花夕拾》和一两本收录短篇故事的书，而祥子，总是看到祥子朝气逢勃拉着车子在北平窜来窜去的光景，我就抽身走人了，抽身的原因很简单，对于北京的想象和里面人们生活方式，当时我有我一套自己的想象，书里写的和我想象相差很远，所以就走了。<br>　　而重新捡起来看的原因，也很简单，起初是个巧合，因为好久没看书，翻开 kindle 看，前几本分别是《傻瓜式投资》、《软技能》、《退步集》、《骆驼祥子》，里面有故事情节又适合打发时间的好像只有《骆驼祥子》。<br>　　《骆驼祥子》的故事很简单，概述起来大概是讲还是军阀混战年代的北平，一个初入社会，叫祥子的年轻车夫，在攒出属于自己车的过程中，遇到了种种不幸，梦想破灭，人格也随之破产，最后活成浑浑噩噩苟且生活的行尸走肉的故事。<br>　　故事虽然一直都是这个故事，但现在看和以前看的心境完全不一样，在社会上打了几个滚的我，再去看祥子在刚入社会时，给自己打的算盘和不算远大的抱负，对我来说不再有雾里看花的隔阂，更多的是觉得，如果抛开因为时代和环境而产生的，具体到像攒一辆自己的车的这种事，祥子的所思所感，放在所有时代，对比所有时代的年轻人，包括二十一世纪现在的我的所思所想，其实一般无二，初出茅庐不怕虎，被雨打风吹后犹疑怨怼愤懑，最后因为个人际遇不同，有人跳出来后被当做励志的榜样，有人没跳出来被当做“二十岁就死了，但八十岁才被埋葬”，茶余饭后被提起，供人唏嘘的段子。祥子，祥子可能不到八十岁就会被埋葬掉吧。<br>　　和朋友聊天提起看完了这本书，他说了一句人人都是祥子。他大概是想说每个人在经历社会上的摸爬滚打之后，都会变成一种模样，即浑浑噩噩的样子。祥子的结局，有一部分是时代的必然性，所以是普遍如此，还是特定事件，值得商榷。在那之后我们又提到了电影《小丑》。<img data-src="/images/loading-style-3.gif" data-original="https://s2.ax1x.com/2019/11/17/MsYf8x.jpg"><br>　　《小丑》的剧情就不展开讲了，总之还不错，推荐没看过的朋友可以去看看。<br>　　想想电影里的亚瑟和祥子是否存在一定相似性？祥子心心念念的车，是亚瑟扮成小丑，给人们带来笑声的梦想，亚瑟和祥子都被他们所面临的处境所伤害，受伤之后，亚瑟选择向伤害自己的人开枪，而祥子，因为很难说有某个清晰的、可以用来复仇的目标，最后他只好用钝刀挥向自己内心。<br>　　深究祥子或者亚瑟，何以成为他们本身，我尝试思考了以下两个问题：在同时代的人中，我想拥有他们同样遭遇的人肯定很多，但为什么只要祥子和亚瑟被选中，可以拥有他们的名字？祥子和亚瑟的结局是否拥有某种必然性？<br>　　为什么只有祥子和亚瑟拥有名字，其他遭受不幸的人们都在历史里模糊成某个群体，是祥子或者小丑存在某种值得书写的闪光点吗？关于祥子的答案，我想是否定的，作为《骆驼祥子》这个故事的男主角，他不存在，或者说不可能存在某种特别，相反，正因为他和当时普通的底层劳苦群众一般无二，所以才可以被当做一个例子，与其深究他和劳苦群众有哪里不同，不如直接说他是劳苦群众的一个代表。而亚瑟，亚瑟不是被选中的，他是自己跳出了的，之所以这样说是因为，如果去掉小丑这个辨识度极强的符号，亚瑟可能在每个时代都很多见，受压迫到歇斯底里后陷入疯狂的变态杀人狂，或是因为本身存粹的恶导致的无差别杀人。如果只是因为带着小丑面具杀人而被人记住，这种说法不免有点牵强，而事实上，亚瑟也不仅仅只是因为带着小丑的脸杀人而被人记住，他之所以得以被高举，是因为他杀人在群体围观之下被赋予某种意义，第一次在地铁开枪杀人，对于亚瑟本身来说，是失手和恐惧的混合——事后在厕所的舞蹈虽然可以解释成，他潜意识里本身就想杀人。但无论如何，都和被公众解释成是城市底层边缘人对精英阶层的一次控诉相去甚远，而亚瑟完成自己的蜕变，成为小丑在电视台的演讲，或许有那种意思，但在亚瑟这边，这个演讲，可能是对小丑自我的建立，一段初初登场的自我介绍，是一个开始的标志。而在群众眼里，因为经过舆论酝酿发酵，意义可能远不止于此，在地铁凶案的小丑，在众说纷纭的情况下，登台枪杀了主持人，洋洋洒洒发布了一段正中他们下怀的演讲，这对小丑自发组成的信徒们来说，这是一个集结号，一段对近期发生的所有事的结束陈词，一种思想成熟的标志。<br>　　祥子和亚瑟的结局是否拥有某种必然性？正如前文所述，祥子作为一个代表，他是存在一种必然性的，不在城外被军阀抢走车，也可能因为其他原因失去自己的车，没有被虎妞欺骗被迫结婚，也会因为其他的事情受到类似委屈等等，而亚瑟呢，如果他妈妈小时候没有虐待他导致他得精神病，如果他的同事没有两面三刀，如果那个主持人没有看轻他的梦想，是不是事情就会不一样？但除了他妈虐待他导致他得精神病这点，其他事其实在社会上也都很普遍，而得精神病的妈妈虐待自己孩子导致她孩子也患上精神病的这种事，如果把范围扩大，不止哥谭，我想偶然性也不是很小。那是不是有结论，哪怕没有名叫亚瑟这个小丑出现，也可能会有名叫杰克，或者露西的小丑。不过无论是祥子和亚瑟，预设条件，推导事情结果本身存在一定的不靠谱，所以我们只能通过结果本身去下定义，因为祥子有很多个，而小丑亚瑟只有一个，所以祥子的结局是存在必然性的，而小丑的产生是偶然性更多一点。<br>　　和朋友争论调侃小丑的主持人到底有没有错的时候，因为觉得其实主持人只是把嘲讽当做一个工作，甚至可能不存在任何恶意，虽然嘲笑别人可能不对，但因为嘲笑而收到子弹就太过分了吧。但另一边站在小丑的立场上，遭受如此多的不公平，选择复仇也是一种不得已的理所当然。所以我当时的回答是，只能说大家都运气不好吧。这个回答多少有点含糊其辞的成分，想想最近很多事，因为每次转换立场都觉得可以理解对方，而选择一个模棱两可的态度，这种态度多少有一点犬儒，所以我又深刻的想了想，决定给祥子和亚瑟一个坚定但坚决不是为了表明态度而煲鸡汤的态度：<br>　　祥子和亚瑟不仅是因为不幸，更多的是不公平，因为自己的付出没有得到预期的回报，勤勤恳恳拉车的祥子没有攒到自己梦想的新车，希望带给别人欢乐的亚瑟发现从头到尾自己都没得到过善待。面对不幸，我们仍然可以在种种不幸中保持着早期祥子热忱的心态，和亚瑟在公交车上逗小孩子笑的善良的脸。但面对不公呢，祥子和亚瑟大概是两个错误示范，就此沉沦和过激报复。因为不公的表现有很多，也没有万金油的解决方式，这里只能给一些我的建议，面对小事的不公平，豁达点用“就当是一种修行”的心态一笑了之，不豁达就一句“*他妈”了之，面对大事的不公平，如果不能依靠现有的社会机构解决，也绝不要采取会被现有社会机构解决的方式解决。</p>
 
       
     </div>
@@ -292,83 +319,97 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://www.kaaaaai.cn/how-to-fix-warnings-about-unsafe-sites.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
       <meta itemprop="name" content="Kaaaaai">
-      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="壹拾肆">
+      <meta itemprop="description" content="🐨🐨">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 壹拾肆">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/how-to-fix-warnings-about-unsafe-sites.html" class="post-title-link" itemprop="url">如何解决网站访问时弹出“您要访问的网站包含恶意软件”的页面</a>
+          <a href="/how-to-fix-warnings-about-unsafe-sites.html" class="post-title-link" itemprop="url">如何解决网站访问时弹出“您要访问的网站包含恶意软件”的页面</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-11-07 15:00:52" itemprop="dateCreated datePublished" datetime="2019-11-07T15:00:52+08:00">2019-11-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-            </span>
+      <time title="创建时间：2019-11-07 15:00:52" itemprop="dateCreated datePublished" datetime="2019-11-07T15:00:52+08:00">2019-11-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+        </span>
+    </span>
 
-          
+  
   
   <span class="post-meta-item">
     
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/how-to-fix-warnings-about-unsafe-sites.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/how-to-fix-warnings-about-unsafe-sites.html" itemprop="commentCount"></span>
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/how-to-fix-warnings-about-unsafe-sites.html#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/how-to-fix-warnings-about-unsafe-sites.html" itemprop="commentCount"></span>
     </a>
   </span>
   
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
 
         </div>
       </header>
@@ -377,9 +418,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
-          <p>　　前一阵子公司网站的访问出了一点问题，每次访问的时候都会弹出一个警告页面，类似于这种<img src="/images/loading-style-3.gif" data-original="https://s2.ax1x.com/2019/11/07/MACQ0A.png"><br>　　由于之前也没碰过这种问题，只能简单粗暴的归纳出两个方向：<br>　　１.可能是域名原因<br>　　２.可能是服务器原因<br>　　后来问题已经解决的时候看网上分享的资料知道还有一种可能就是，网站本身没问题，之所以出现这个警告页面是因为被运营商 HTTP 或 DNS 劫持了。<br>　　这里刷一条给我们提供域名服务的服务商——<a target="_blank" rel="noopener" href="http://now.cn/">时代互联</a>的差评，在解决这个问题的过程中，联系我们账号底下的客服和电话客服，大概联系了不下十次，都没能解决问题，其中有几次，不仅没能帮我解决问题，还用一种推卸责任和不耐烦的态度把我怼的差点憋不住气的跳脚。<br>　　不仅态度有问题，而且他们的工作人员对自己那块的业务好像也不太熟练。因为怀疑网站网站报警告问题，可能和域名服务商的服务可能存在某些问题，所以预期的解决方案中也有一项是迁移域名，迁移域名的话需要通过手机或者邮箱验证，而手机和邮箱这些信息，由于公司人员变动，需要修改。基于这点我问他们工作人员，在修改信息页面中的一个需要勾选的选项，“修改信息之后的 <strong>720</strong> 天内不能迁移域名”，和接我电话的工作人员再三确认，是不是必须勾选，不勾选会不会有问题，告知我可以不用勾选，并且确认不勾选不会造成什么问题。结果最后我确认修改信息的时候，发现那个选项不勾选竟然不能到下一步。。。<br>　　回归正题，当域名问题不能再域名服务商那边解决时，我开始尝试定位到底是域名还是服务器的问题，具体方式：<br>　　1.把我们的域名指向到另一个服务器，如果仍然报警告，那就是域名问题<br>　　2.用其他的域名指向当前服务器，如果仍然报警告，那就是服务器问题<br>　　测试结果出来后，基本可以定位是域名问题，然后让后台的同事帮了一下忙，安装了一个在腾讯云申请的免费 SSL 证书（这个好像也能解决上述所说的未发现的被劫持问题），但仍然无效，打电话给域名服务商，他说肯定是 SSL 证书不起作用或者是根本就没用，没办法，我只好追着皮球到了腾讯云客服人员那，幸运的是，大厂不愧为大厂，服务完全没有可比性，只是提交了怀疑 SSL 证书可能没生效的工单，对方就帮我检测了我的网站是否有异常，以及用不同浏览器测试，得出 QQ 浏览器访问正常，可能需要向谷歌站长平台提供申述。不过因为在此之前，我就在一个网站申述平台提了一个申述：<a target="_blank" rel="noopener" href="https://www.stopbadware.org/">StopBadware</a>，因为申述通过但网站访问仍然异常。所以带着将信将疑的态度，又重新激活腾讯问题的工单，然后过了一个上午就接到腾讯云平台技术人员的电话，非常耐心的给我解释了他们所做的所有尝试，最后得出结果，只能去<a target="_blank" rel="noopener" href="https://www.google.com/webmasters/tools/home?hl=zh-CN">谷歌站长平台</a>注册，申述试试看了。<br>　　在谷歌站长平台添加了网站之后，立马有个警告消息提醒我，我们公司的网站存在一些问题，不加思索，我反手就是一个申述，第二天收到邮件，有点出乎意料，竟然没有通过，仔细看邮件描述，推测问题可能出在我们的网站因为提供了很多安卓 apk 的下载，而有一部分 apk 之前在 Google 应用市场因为添加了<strong>有风险的广告 SDK 被下架了</strong>，然后谷歌站长平台也默认这些 apk 存在一定风险。再次提交申述之前，让安卓的同事提供了去除广告 SDK 的 apk 替换掉服务器里的文件，果然，第二天收到邮件，审核通过了。<br>　　<img src="/images/loading-style-3.gif" data-original="https://s2.ax1x.com/2019/11/07/MAClTI.jpg"><br>　　这次网站申述的经历给我有两个体会，一个是，只要死磕到底，就一定能让周润发翻译出什么他妈的叫他妈的惊喜。另一个是互联网服务一定要选大厂，盘靓活好态度也呱呱叫。</p>
+          <p>　　前一阵子公司网站的访问出了一点问题，每次访问的时候都会弹出一个警告页面，类似于这种<img data-src="/images/loading-style-3.gif" data-original="https://s2.ax1x.com/2019/11/07/MACQ0A.png"><br>　　由于之前也没碰过这种问题，只能简单粗暴的归纳出两个方向：<br>　　１.可能是域名原因<br>　　２.可能是服务器原因<br>　　后来问题已经解决的时候看网上分享的资料知道还有一种可能就是，网站本身没问题，之所以出现这个警告页面是因为被运营商 HTTP 或 DNS 劫持了。<br>　　这里刷一条给我们提供域名服务的服务商——<a target="_blank" rel="noopener" href="http://now.cn/">时代互联</a>的差评，在解决这个问题的过程中，联系我们账号底下的客服和电话客服，大概联系了不下十次，都没能解决问题，其中有几次，不仅没能帮我解决问题，还用一种推卸责任和不耐烦的态度把我怼的差点憋不住气的跳脚。<br>　　不仅态度有问题，而且他们的工作人员对自己那块的业务好像也不太熟练。因为怀疑网站网站报警告问题，可能和域名服务商的服务可能存在某些问题，所以预期的解决方案中也有一项是迁移域名，迁移域名的话需要通过手机或者邮箱验证，而手机和邮箱这些信息，由于公司人员变动，需要修改。基于这点我问他们工作人员，在修改信息页面中的一个需要勾选的选项，“修改信息之后的 <strong>720</strong> 天内不能迁移域名”，和接我电话的工作人员再三确认，是不是必须勾选，不勾选会不会有问题，告知我可以不用勾选，并且确认不勾选不会造成什么问题。结果最后我确认修改信息的时候，发现那个选项不勾选竟然不能到下一步。。。<br>　　回归正题，当域名问题不能再域名服务商那边解决时，我开始尝试定位到底是域名还是服务器的问题，具体方式：<br>　　1.把我们的域名指向到另一个服务器，如果仍然报警告，那就是域名问题<br>　　2.用其他的域名指向当前服务器，如果仍然报警告，那就是服务器问题<br>　　测试结果出来后，基本可以定位是域名问题，然后让后台的同事帮了一下忙，安装了一个在腾讯云申请的免费 SSL 证书（这个好像也能解决上述所说的未发现的被劫持问题），但仍然无效，打电话给域名服务商，他说肯定是 SSL 证书不起作用或者是根本就没用，没办法，我只好追着皮球到了腾讯云客服人员那，幸运的是，大厂不愧为大厂，服务完全没有可比性，只是提交了怀疑 SSL 证书可能没生效的工单，对方就帮我检测了我的网站是否有异常，以及用不同浏览器测试，得出 QQ 浏览器访问正常，可能需要向谷歌站长平台提供申述。不过因为在此之前，我就在一个网站申述平台提了一个申述：<a target="_blank" rel="noopener" href="https://www.stopbadware.org/">StopBadware</a>，因为申述通过但网站访问仍然异常。所以带着将信将疑的态度，又重新激活腾讯问题的工单，然后过了一个上午就接到腾讯云平台技术人员的电话，非常耐心的给我解释了他们所做的所有尝试，最后得出结果，只能去<a target="_blank" rel="noopener" href="https://www.google.com/webmasters/tools/home?hl=zh-CN">谷歌站长平台</a>注册，申述试试看了。<br>　　在谷歌站长平台添加了网站之后，立马有个警告消息提醒我，我们公司的网站存在一些问题，不加思索，我反手就是一个申述，第二天收到邮件，有点出乎意料，竟然没有通过，仔细看邮件描述，推测问题可能出在我们的网站因为提供了很多安卓 apk 的下载，而有一部分 apk 之前在 Google 应用市场因为添加了<strong>有风险的广告 SDK 被下架了</strong>，然后谷歌站长平台也默认这些 apk 存在一定风险。再次提交申述之前，让安卓的同事提供了去除广告 SDK 的 apk 替换掉服务器里的文件，果然，第二天收到邮件，审核通过了。<br>　　<img data-src="/images/loading-style-3.gif" data-original="https://s2.ax1x.com/2019/11/07/MAClTI.jpg"><br>　　这次网站申述的经历给我有两个体会，一个是，只要死磕到底，就一定能让周润发翻译出什么他妈的叫他妈的惊喜。另一个是互联网服务一定要选大厂，盘靓活好态度也呱呱叫。</p>
 
       
     </div>
@@ -387,83 +426,97 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://www.kaaaaai.cn/ios-naming-rules-and-annotation-specifications.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
       <meta itemprop="name" content="Kaaaaai">
-      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="壹拾肆">
+      <meta itemprop="description" content="🐨🐨">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 壹拾肆">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/ios-naming-rules-and-annotation-specifications.html" class="post-title-link" itemprop="url">iOS - 类、属性、方法、枚举等命名规则和注释规范</a>
+          <a href="/ios-naming-rules-and-annotation-specifications.html" class="post-title-link" itemprop="url">iOS - 类、属性、方法、枚举等命名规则和注释规范</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-10-31 15:00:52" itemprop="dateCreated datePublished" datetime="2019-10-31T15:00:52+08:00">2019-10-31</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-            </span>
+      <time title="创建时间：2019-10-31 15:00:52" itemprop="dateCreated datePublished" datetime="2019-10-31T15:00:52+08:00">2019-10-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+        </span>
+    </span>
 
-          
+  
   
   <span class="post-meta-item">
     
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/ios-naming-rules-and-annotation-specifications.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/ios-naming-rules-and-annotation-specifications.html" itemprop="commentCount"></span>
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/ios-naming-rules-and-annotation-specifications.html#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/ios-naming-rules-and-annotation-specifications.html" itemprop="commentCount"></span>
     </a>
   </span>
   
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>6.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>6 分钟</span>
-            </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>6.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
 
         </div>
       </header>
@@ -472,8 +525,6 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <p>iOS开发者规范:以苹果开发者中心规范(<a target="_blank" rel="noopener" href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingBasics.html#//apple_ref/doc/uid/20001281-BBCHBFAH">Coding Guidelines for Cocoa</a>)为标准，添加部分规范。</p>
 <blockquote>
 <p>iOS 命名两大原则是:可读性高和防止命名冲突(通过加前缀来保证). Objective-C 的命名通常都比较长, 名称遵循<strong>驼峰式命名法</strong>. 一个好的命名标准很简单, 就是做到在开发者一看到名字时, 就能够懂得它的含义和使用方法. 另外, 每个模块都要加上自己的前缀, 前缀在编程接口中非常重要, 可以区分软件的功能范畴并防止不同文件或者类之间命名发生冲突, 比如相册模块(PhotoGallery)的代码都以 PG 作为前缀: PGAlbumViewController, PGDataManager.</p>
@@ -492,83 +543,97 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://www.kaaaaai.cn/ios-xcode-setup-code-snippet.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
       <meta itemprop="name" content="Kaaaaai">
-      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="壹拾肆">
+      <meta itemprop="description" content="🐨🐨">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 壹拾肆">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/ios-xcode-setup-code-snippet.html" class="post-title-link" itemprop="url">iOS - Xcode 设置代码片段</a>
+          <a href="/ios-xcode-setup-code-snippet.html" class="post-title-link" itemprop="url">iOS - Xcode 设置代码片段</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-09-27 16:24:52" itemprop="dateCreated datePublished" datetime="2019-09-27T16:24:52+08:00">2019-09-27</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-            </span>
+      <time title="创建时间：2019-09-27 16:24:52" itemprop="dateCreated datePublished" datetime="2019-09-27T16:24:52+08:00">2019-09-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+        </span>
+    </span>
 
-          
+  
   
   <span class="post-meta-item">
     
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/ios-xcode-setup-code-snippet.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/ios-xcode-setup-code-snippet.html" itemprop="commentCount"></span>
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/ios-xcode-setup-code-snippet.html#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/ios-xcode-setup-code-snippet.html" itemprop="commentCount"></span>
     </a>
   </span>
   
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
 
         </div>
       </header>
@@ -577,8 +642,6 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <p><em>为了提高编程的效率，有时候也要用上一些捷径。代码片段就是我们可以用上的捷径之一。</em></p>
 <h2 id="一、创建代码片段"><a href="#一、创建代码片段" class="headerlink" title="一、创建代码片段"></a>一、创建代码片段</h2>
           <!--noindex-->
@@ -595,83 +658,97 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://www.kaaaaai.cn/ios-fastlane-snapshot.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
       <meta itemprop="name" content="Kaaaaai">
-      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="壹拾肆">
+      <meta itemprop="description" content="🐨🐨">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 壹拾肆">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/ios-fastlane-snapshot.html" class="post-title-link" itemprop="url">iOS - 使用 fastlane snapshot 自动化截图</a>
+          <a href="/ios-fastlane-snapshot.html" class="post-title-link" itemprop="url">iOS - 使用 fastlane snapshot 自动化截图</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-09-16 11:24:52" itemprop="dateCreated datePublished" datetime="2019-09-16T11:24:52+08:00">2019-09-16</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-            </span>
+      <time title="创建时间：2019-09-16 11:24:52" itemprop="dateCreated datePublished" datetime="2019-09-16T11:24:52+08:00">2019-09-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+        </span>
+    </span>
 
-          
+  
   
   <span class="post-meta-item">
     
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/ios-fastlane-snapshot.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/ios-fastlane-snapshot.html" itemprop="commentCount"></span>
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/ios-fastlane-snapshot.html#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/ios-fastlane-snapshot.html" itemprop="commentCount"></span>
     </a>
   </span>
   
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
 
         </div>
       </header>
@@ -680,8 +757,6 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <h2 id="First-at-all"><a href="#First-at-all" class="headerlink" title="First at all"></a>First at all</h2><p>　　首先先介绍一下 fastlane 是干嘛用的：</p>
           <!--noindex-->
             <div class="post-button">
@@ -697,83 +772,97 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://www.kaaaaai.cn/weekly-summary-190831.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
       <meta itemprop="name" content="Kaaaaai">
-      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="壹拾肆">
+      <meta itemprop="description" content="🐨🐨">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 壹拾肆">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/weekly-summary-190831.html" class="post-title-link" itemprop="url">每周总结 - 0831</a>
+          <a href="/weekly-summary-190831.html" class="post-title-link" itemprop="url">每周总结 - 0831</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-08-31 22:13:52" itemprop="dateCreated datePublished" datetime="2019-08-31T22:13:52+08:00">2019-08-31</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-            </span>
+      <time title="创建时间：2019-08-31 22:13:52" itemprop="dateCreated datePublished" datetime="2019-08-31T22:13:52+08:00">2019-08-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+        </span>
+    </span>
 
-          
+  
   
   <span class="post-meta-item">
     
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/weekly-summary-190831.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/weekly-summary-190831.html" itemprop="commentCount"></span>
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/weekly-summary-190831.html#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/weekly-summary-190831.html" itemprop="commentCount"></span>
     </a>
   </span>
   
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
 
         </div>
       </header>
@@ -782,8 +871,6 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <p>　　上个礼拜又没抽出空写周记，一转眼本周就过去了一半，这篇周记我是星期三开始写的，不知道结束会在星期几，写一篇周记时间周期横跨大半个礼拜，虽然感觉很惫懒，但从时间跨度上看，又是名副其实的“周记”了。<br>　　这个礼拜买了个键盘——罗技 k380，尝试在几个设备之间切换，连接，都很迅速，但按键的手感不是很清脆，有点粘滞， 就像吃东西梗着喉咙的感觉，但离噎着又很远。可能是没习惯吧。不过对于平常在 iPad 上码字勉强够用了。<br>　　新开了两本书《超新星纪元》和《只是为了好玩》，一本科幻小说，一本 Linux 之父的自传。前者主要内容是讲由于行星运动导致地球上的成年人都死亡，只剩下十三岁以下的小孩，而在这群小孩的手上开启了地球上的新纪元。后者只看了个序，不过第一章开头着重讲了他本人的长相，说自己长的如何如何奇怪等等，让我不禁觉得是不是有点刻意，想拐弯抹角的往“奇人必有异相”里靠，不过也可以理解，但凡伟人都多少有些自恋，哪怕平凡如我，早起照镜子也照到出门时手忙脚乱。虽然两本书一个是靠想象力，一个是记叙，但他们里面都有提到一个共通的东西，《超新星纪元》里面说的是孩子社会发展的原动力是玩，《只是为了好玩》里林纳斯解释生活的意思提出了三个层级的诉求，生存，秩序，娱乐。似乎关于这方面的思考，发展进步，生物进化，最后的结果都是为了更好的玩。一边觉得他们的想法有趣，一边有些感概，优秀的人总是能想到一块去。我作为一个后生晚辈，也情不自禁的想举手发言，前辈们，我。。我也觉得玩是人类的最终极的最伟大的诉求。<br>　　工作内容日益增多，有的内容对我有积极影响，有的则不然。周六开会听闻产品助理离职的事，心里没起太多波澜，部门 leader 顺势而为的借这件事敲打包括我在内的几名开发人员，虽然有些话我觉得有失偏颇，但如果不计较这个，对于可以增进改善我的建议，我觉得还是比较客观的。所以心里也没起太多波澜。倒是因为之前和产品助理的针锋相对，让我想到了一些影视小说作品里会出现的桥段，一直针锋相对的两个敌人在最后永别——现实中我们应该也不会再见了的关键时候，忽然相逢一笑泯恩仇，并为之前所有的恩怨争论由其冲突产生的毛刺最终消融为理解，而在关系上以另一种方式达成非常规的相知相识。戏剧化演绎到这，我就打住，没继续在脑子里演绎下去，回过头来又觉得自己颇有些可笑，可笑的原因模糊以蔽之，大概是人间不值得吧。<br>　　每天早上通勤路上背英语单词，虽然现在错误率在下降，但是感觉效果还是不太明显，想下一个阶段配合英文原著阅读学习，但不知道自己能够控制时间，专升本的课进入复习阶段，数据库老师给了一份试卷让周一到周五内完成，结果一直没抽出空。包括这篇博客，写到这里的时候已经星期天晚上了，明天又要开始新的一轮忙碌了。<br>　　刷微博看到一句诗，“人生天地间，忽如远行客。”，有朦胧的孤独感从诗的意境里透出来，百度搜全文看到下一句，“斗酒相娱乐，聊厚不为薄。”好吧，不为薄就不为薄，及时行乐就好。</p>
 
       
@@ -792,83 +879,97 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://www.kaaaaai.cn/about-what-do-you-like.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
       <meta itemprop="name" content="Kaaaaai">
-      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="壹拾肆">
+      <meta itemprop="description" content="🐨🐨">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 壹拾肆">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/about-what-do-you-like.html" class="post-title-link" itemprop="url">关于“猜你喜欢”的思考</a>
+          <a href="/about-what-do-you-like.html" class="post-title-link" itemprop="url">关于“猜你喜欢”的思考</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-08-22 10:24:52" itemprop="dateCreated datePublished" datetime="2019-08-22T10:24:52+08:00">2019-08-22</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%9D%82%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">杂论</span></a>
-                </span>
-            </span>
+      <time title="创建时间：2019-08-22 10:24:52" itemprop="dateCreated datePublished" datetime="2019-08-22T10:24:52+08:00">2019-08-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%9D%82%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">杂论</span></a>
+        </span>
+    </span>
 
-          
+  
   
   <span class="post-meta-item">
     
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/about-what-do-you-like.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/about-what-do-you-like.html" itemprop="commentCount"></span>
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/about-what-do-you-like.html#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/about-what-do-you-like.html" itemprop="commentCount"></span>
     </a>
   </span>
   
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
 
         </div>
       </header>
@@ -877,8 +978,6 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <p>　　最近刷知乎的频率上升，刷的多了之后隐隐感觉到知乎在内容显示上有一些变化，我想可能是它的推荐算法有些不一样了。这种不一样让我想起抖音，我偶尔也会刷一下抖音，频率大概一个月一两次左右，主要目的是看看朋友们的近况，刚下抖音的时候也有过一阵上瘾期，有刷抖音的朋友都很明白他推荐算法的强大，一个视频十几秒，不占用时间，能无限往下翻，虽然一个视频很短，但不知不觉就让人耗费了一两个小时，有隐性的成瘾机制。后来也是因为这个，导致我戒断抖音的，因为太消耗时间了，而且事后心里总有一种不踏实的感觉，就好像放暑假愉快的玩了两个月，一回头发现一无所获，作业一大堆没写的感觉，也可以简单归纳为放纵后的空虚。最近的知乎也给我这种感觉。<br>　　其实除了这些资讯娱乐类的应用，还有很多应用都有这种推荐机制，比如购物应用，淘宝，你在搜索框搜索了某个产品后，接下来几天，他的顶部滚动条，和往下滑的猜你喜欢，一定会存在类似的产品，或者是和产品配套的周边产品，比如你搜 苹果手机，隔天可能就给你推荐苹果手机壳，更过分一点的就是你在某个搜索引擎上搜索，想了解产品相关的信息，然后打开购物应用，就发现里面已经开始推荐你搜索过的产品了。不过这是他们内部的交易，又是另一件事了。<br>　　猜你喜欢这种产品功能，应用极为广泛。包括不止互联网行业，很多传统行业，其实也有做类似的方式，最宽泛的例子，就是当某个行业要出一款新产品的时候，首先会做市场调查，然后确认目标受众，而这个目标受众的反向概念，其实就是为这个群体做一个猜他们喜欢的产品。<br>　　而猜你喜欢的好处也是显而易见的，对于企业来说，可以提升用户粘性，刺激用户消费，有利于开拓新用户等等。对于用户来说，看资讯买东西看到的都是自己感兴趣的东西，可以更好更快地找到自己想要的东西，省时省力。<br>　　但就像前面说的，猜你喜欢也存在着一些缺点。就像你可能在某个投资公司或者投资理财顾问留过号码，之后总有一阵子会频繁的收到好多金融公司的电话，问你杭州地铁口的公寓要不要了解一下。我之前因为学历提升的问题，在某个机构留了一个电话，还是几年前留的，后来每年九月三月学校开学的点，就总有教育机构打电话过来询问我有没有这方面的意向。这种打扰其实是很不好的，而在应用里这种打扰就表现成，很多时候你可能只是想了解一下某方面的信息，但之后就不断收到这类信息。<br>　　我之前因为买了 iPad，想知道有什么应用可以提高 iPad 的生产力，就在知乎上搜索相似问题，搜到了，最后也得到了满意结果。以为事情就此告一段落了。但没想到之后打开他还是给我推送相关内容，而且还是在我没关注这个问题的情况下。而我也因为总有答案是我没看过的，会点开看一遍，正中他们的下怀。但新出现的答案对我有没有帮助呢，答案是否定的。因为 iPad 上有用的应用就那么些，所以很多答案给我推荐的应用重复率很高。我只是看他们在一个结果上的不同解法而已，最终我没有得到新的东西，但时间和精力却被消耗掉了。<br>　　当然你可能会说，是自制力的问题。对于不想再看的东西不看就好喽，但如果真能做到这种地步，抖音这类的应用就不会红红火火的走到现在了，毕竟这个内容也确实是你自己感兴趣的，而且你能克制住自己不看这一类的信息，但还有另一类的信息在等着你，总有一个内容会抓住你的注意力。就像我的知乎上有 iPad 应用的答案推荐，也有“女生什么样的身材算是身材好？”这类的答案推荐，虽然看小姐姐很好，但是在看小姐姐的事上花太多时间就不是很好了。<br>　　当然你还可能会说，那就统统不看喽，把应用卸载掉。这个很好做到，但是结合实际看，其实也有一些问题，我们是社会性的生物，需要和人沟通，和人沟通的核心是信息交换，当我们主动接切断自己的信息来源，我们如何保持和人无代沟的沟通？哪怕你性格孤僻，你也总要生活，总要去了解社会上的各种信息，以掌握如何更好生活的方式，买东西对比不同产品，评测看不看？对比价格优惠，电商网站活动看不看？投资理财更不用说了。<br>　　信息推荐相似度高同质化严重，造成精力耗费是猜你喜欢的一个问题。还有另一个我想说的是，应用的推荐机制虽然给人推荐了很多信息，扩展知识面，但其实因为是按需分配，它在不断推荐的过程中，其实他也在用我们喜欢的信息给我们建造了一个坚硬的认知壁垒。<br>　　为什么这么说呢？我记得我刚开始使用知乎的时候，那时还没有现在的去中心化概念，我看到的内容都是我关注的大 V 们关注、点赞的内容和自己关注的问题内容，当我还在上高中的收，限于见识，我还只是想看看有没有什么好书推荐，有没有什么段子可以解闷，所以关注的都是那类的信息，忽然有一天我看到我关注的一个大 V 点赞了一个修建一个穿透地球的电梯会是怎样，点进去看，里面的答题人真的很认真在用物理知识和地理知识去解释这个问题，列公式上图片做图解，就好像身体力行的告诉我说天马行空的脑洞也可以用一板一眼的数学思维去解答，让我这个知乎萌新好像被反向的按了一下“F5”键，但现在的知乎却很少再给我这种感觉，乏善可称更多了一些。抖音的例子就不举了，情况也大致如此。<br>　　信息时代，我们每天接收的信息看似很多，但其实很多信息是垃圾信息，有些有很强的时效性，有些只是别人输出观点的变体，而更多的是重复信息。我们在享受信息时代的便利，也要警惕信息时代给我们的负面影响，不要让信息主宰我们。<br>　　忽然想起现在在生活里越来越被弱化的存在——电视，他也同样作为信息来源渠道，虽然可能有些东西在电视上是被美化杯筛选后的结果，但是我更喜欢他把各种各样的东西就放在那，放在不同的频道里，等你自己去切台的特点。还记得小学放假在家找电视台动画片看不小心点到 CCTV-10 探索频道，第一次看人文科学的节目被刷新三观的感觉，我觉得一个好的产品应该多给人带来这种感觉。在保留更多的选择权的情况下，加一点点猜你喜欢。</p>
 
       
@@ -887,83 +986,97 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://www.kaaaaai.cn/weekly-summary-190819.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
       <meta itemprop="name" content="Kaaaaai">
-      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="壹拾肆">
+      <meta itemprop="description" content="🐨🐨">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 壹拾肆">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/weekly-summary-190819.html" class="post-title-link" itemprop="url">每周总结 - 0819</a>
+          <a href="/weekly-summary-190819.html" class="post-title-link" itemprop="url">每周总结 - 0819</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-08-19 10:13:52" itemprop="dateCreated datePublished" datetime="2019-08-19T10:13:52+08:00">2019-08-19</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-            </span>
+      <time title="创建时间：2019-08-19 10:13:52" itemprop="dateCreated datePublished" datetime="2019-08-19T10:13:52+08:00">2019-08-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+        </span>
+    </span>
 
-          
+  
   
   <span class="post-meta-item">
     
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/weekly-summary-190819.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/weekly-summary-190819.html" itemprop="commentCount"></span>
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/weekly-summary-190819.html#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/weekly-summary-190819.html" itemprop="commentCount"></span>
     </a>
   </span>
   
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>857</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>857</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
 
         </div>
       </header>
@@ -972,8 +1085,6 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <p>　　Yooo~今天终于挤出时间写周记了，上个礼拜落了一篇，就合在这里一块说了。<br>　　上上个礼拜看了徐浩峰的《刀背藏身》短篇集，很有古韵，他在后记里写：</p>
 <blockquote>
 <p>　　古人以减省来营造意境，说满、说显了，便无意境。营造意境是为了让人有更多体会，可惜今人拒绝体会，只求告知。</p>
@@ -992,83 +1103,97 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://www.kaaaaai.cn/ios-runtime-study.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
       <meta itemprop="name" content="Kaaaaai">
-      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="壹拾肆">
+      <meta itemprop="description" content="🐨🐨">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 壹拾肆">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/ios-runtime-study.html" class="post-title-link" itemprop="url">iOS - Runtime 学习</a>
+          <a href="/ios-runtime-study.html" class="post-title-link" itemprop="url">iOS - Runtime 学习</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-08-16 10:24:52" itemprop="dateCreated datePublished" datetime="2019-08-16T10:24:52+08:00">2019-08-16</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-            </span>
+      <time title="创建时间：2019-08-16 10:24:52" itemprop="dateCreated datePublished" datetime="2019-08-16T10:24:52+08:00">2019-08-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+        </span>
+    </span>
 
-          
+  
   
   <span class="post-meta-item">
     
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/ios-runtime-study.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/ios-runtime-study.html" itemprop="commentCount"></span>
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/ios-runtime-study.html#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/ios-runtime-study.html" itemprop="commentCount"></span>
     </a>
   </span>
   
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>6.7k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>6 分钟</span>
-            </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>6.7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
 
         </div>
       </header>
@@ -1077,8 +1202,6 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>　　在维护一个项目时碰见一个问题，调用了一个方法后不起作用，这种问题一般有两个解决思路，一个是看方法有没有起作用，另一个是看是不是其他的方法打断了这个方法，比如设置 UIButton 的隐藏，但在另一个地方，又把它设置成显示了。这种问题在工程里通过调试代码一般都很好解决。<br>　　但是当它发生在我调用了一个 SDK 方法不起作用时，按照上文的思路，一查看是否是 SDK 方法的问题，这个除了向 SDK 提供人员反应没有其他更好的解决方法了，二是查看是否其他地方也调用了这个方法，使用了不同的参数导致本次的调用失效了。如果这个方法调用的少，可以全局搜索，然后注释掉方法，但是如果之前项目不是你开发的，你只是后期切入进来，同时代码结构一时半会还不能很好把握到，总之想快速利落的排除问题，这时你可以考虑用 Runtime 的特性，把 SDK 里的方法用自己写的替换掉。<br>　　先老调重弹一遍，什么是 Runtime？
 　　</p>
           <!--noindex-->
@@ -1095,83 +1218,97 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://www.kaaaaai.cn/ios-utf8-to-chinese.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
       <meta itemprop="name" content="Kaaaaai">
-      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="壹拾肆">
+      <meta itemprop="description" content="🐨🐨">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 壹拾肆">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/ios-utf8-to-chinese.html" class="post-title-link" itemprop="url">iOS - 如何把 Xcode 打印出来的 UTF-8 格式字符变成汉字？</a>
+          <a href="/ios-utf8-to-chinese.html" class="post-title-link" itemprop="url">iOS - 如何把 Xcode 打印出来的 UTF-8 格式字符变成汉字？</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-08-07 10:24:52" itemprop="dateCreated datePublished" datetime="2019-08-07T10:24:52+08:00">2019-08-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-            </span>
+      <time title="创建时间：2019-08-07 10:24:52" itemprop="dateCreated datePublished" datetime="2019-08-07T10:24:52+08:00">2019-08-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+        </span>
+    </span>
 
-          
+  
   
   <span class="post-meta-item">
     
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/ios-utf8-to-chinese.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/ios-utf8-to-chinese.html" itemprop="commentCount"></span>
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/ios-utf8-to-chinese.html#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/ios-utf8-to-chinese.html" itemprop="commentCount"></span>
     </a>
   </span>
   
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
 
         </div>
       </header>
@@ -1180,8 +1317,6 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <p>　　下午在测试一个语音 SDK 的时候，发现打印出来字典里的中文汉字都显示为 UTF-8 的字符，百度了一下解决办法，发现大都是用给 <code>NSArray</code> 和 <code>NSDictionary</code> 创建分类的方法解决的，但是很多文章可能是写的匆忙，或者是复制粘贴的，不够美观和一目了然。而且创建分类的方式，对比我以前用小码哥的一个类来说，多了一个 <code>.h</code> 文件，不够精简。所以就做个笔记，留作备用。<br>　　首先新建一个 OC 的 <code>.m</code> 文件，不知道怎么新建也可以直接，创建普通的 <code>UIVIew</code> 的类，把 <code>.h</code> 删除，把 <code>.m</code> 所有除注释以外代码删除，修改成如下文所示一致就好。
 　　</p>
 <figure class="highlight objectivec"><figcaption><span>Objective-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSDictionary</span> (<span class="title">Log</span>)</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)descriptionWithLocale:(<span class="type">id</span>)locale</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSMutableString</span> *string = [<span class="built_in">NSMutableString</span> string];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 开头有个&#123;</span></span><br><span class="line">    [string appendString:<span class="string">@&quot;&#123;\n&quot;</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 遍历所有的键值对</span></span><br><span class="line">    [<span class="keyword">self</span> enumerateKeysAndObjectsUsingBlock:^(<span class="type">id</span> key, <span class="type">id</span> obj, <span class="type">BOOL</span> *stop) &#123;</span><br><span class="line">        [string appendFormat:<span class="string">@&quot;\t%@&quot;</span>, key];</span><br><span class="line">        [string appendString:<span class="string">@&quot; : &quot;</span>];</span><br><span class="line">        [string appendFormat:<span class="string">@&quot;%@,\n&quot;</span>, obj];</span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 结尾有个&#125;</span></span><br><span class="line">    [string appendString:<span class="string">@&quot;&#125;&quot;</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 查找最后一个逗号</span></span><br><span class="line">    <span class="built_in">NSRange</span> range = [string rangeOfString:<span class="string">@&quot;,&quot;</span> options:<span class="built_in">NSBackwardsSearch</span>];</span><br><span class="line">    <span class="keyword">if</span> (range.location != <span class="built_in">NSNotFound</span>)</span><br><span class="line">    [string deleteCharactersInRange:range];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> string;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSArray</span> (<span class="title">Log</span>)</span></span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSString</span> *)descriptionWithLocale:(<span class="type">id</span>)locale</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSMutableString</span> *string = [<span class="built_in">NSMutableString</span> string];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 开头有个[</span></span><br><span class="line">    [string appendString:<span class="string">@&quot;[\n&quot;</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 遍历所有的元素</span></span><br><span class="line">    [<span class="keyword">self</span> enumerateObjectsUsingBlock:^(<span class="type">id</span> obj, <span class="built_in">NSUInteger</span> idx, <span class="type">BOOL</span> *stop) &#123;</span><br><span class="line">        [string appendFormat:<span class="string">@&quot;\t%@,\n&quot;</span>, obj];</span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 结尾有个]</span></span><br><span class="line">    [string appendString:<span class="string">@&quot;]&quot;</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 查找最后一个逗号</span></span><br><span class="line">    <span class="built_in">NSRange</span> range = [string rangeOfString:<span class="string">@&quot;,&quot;</span> options:<span class="built_in">NSBackwardsSearch</span>];</span><br><span class="line">    <span class="keyword">if</span> (range.location != <span class="built_in">NSNotFound</span>)</span><br><span class="line">    [string deleteCharactersInRange:range];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> string;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
@@ -1199,142 +1334,50 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
-  
-  
+</div>
 
 
-  
+
+
   <nav class="pagination">
     <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Kaaaaai"
-      src="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
-  <p class="site-author-name" itemprop="name">Kaaaaai</p>
-  <div class="site-description" itemprop="description"></div>
 </div>
-  <div class="sidebar-button motion-element">
-    <a onclick="Chatra('openChat', true);"><i class="fa fa-comment"></i>
-    Chat
-  </a>
-  </div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/Kaaaaai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Kaaaaai" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:root@kaaaaai.cn" title="E-Mail → mailto:root@kaaaaai.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://www.instagram.com/edisonlllllk" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;edisonlllllk" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
-      </span>
-  </div>
+  </main>
 
+  <footer class="footer">
+    <div class="footer-inner">
 
-
-      </div>
-      
-<!-- 网易云歌曲 -->
-    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=421203025&auto=1&height=66"></iframe>
-        <div class="back-to-top motion-element">
-          <i class="fa fa-arrow-up"></i>
-          <span>0%</span>
-        </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
 
 <div class="copyright">
-  
   &copy; 
   <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Kaaaaai</span>
-    <span class="post-meta-divider">|</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
     <span class="post-meta-item-icon">
-      <i class="fa fa-chart-area"></i>
+      <i class="fa fa-chart-line"></i>
     </span>
     <span title="站点总字数">232k</span>
-    <span class="post-meta-divider">|</span>
+  </span>
+  <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span title="站点阅读时长">3:31</span>
+  </span>
 </div>
-
   <!-- time -->
   <div id="show-time">
     <span id="span_dt_dt"></span>
@@ -1361,193 +1404,47 @@
     show_date_time();
   </script>
 
-        
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
-
-  
-  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/pjax/pjax.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
-  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-  <script>
-var pjax = new Pjax({
-  selectors: [
-    'head title',
-    '#page-configurations',
-    '.content-wrap',
-    '.post-toc-wrap',
-    '.languages',
-    '#pjax'
-  ],
-  switches: {
-    '.post-toc-wrap': Pjax.switches.innerHTML
-  },
-  analytics: false,
-  cacheBust: false,
-  scrollTo : !CONFIG.bookmark.enable
-});
-
-window.addEventListener('pjax:success', () => {
-  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
-    var code = element.text || element.textContent || element.innerHTML || '';
-    var parent = element.parentNode;
-    parent.removeChild(element);
-    var script = document.createElement('script');
-    if (element.id) {
-      script.id = element.id;
-    }
-    if (element.className) {
-      script.className = element.className;
-    }
-    if (element.type) {
-      script.type = element.type;
-    }
-    if (element.src) {
-      script.src = element.src;
-      // Force synchronous loading of peripheral JS.
-      script.async = false;
-    }
-    if (element.dataset.pjax !== undefined) {
-      script.dataset.pjax = '';
-    }
-    if (code !== '') {
-      script.appendChild(document.createTextNode(code));
-    }
-    parent.appendChild(script);
-  });
-  NexT.boot.refresh();
-  // Define Motion Sequence & Bootstrap Motion.
-  if (CONFIG.motion.enable) {
-    NexT.motion.integrator
-      .init()
-      .add(NexT.motion.middleWares.subMenu)
-      .add(NexT.motion.middleWares.postList)
-      .bootstrap();
-  }
-  NexT.utils.updateSidebarPosition();
-});
-</script>
-
-
-  <script defer src="/lib/three/three.min.js"></script>
-
-
-  
-  <script data-pjax>
-    (function(){
-      var canonicalURL, curProtocol;
-      //Get the <link> tag
-      var x=document.getElementsByTagName("link");
-		//Find the last canonical URL
-		if(x.length > 0){
-			for (i=0;i<x.length;i++){
-				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
-					canonicalURL=x[i].href;
-				}
-			}
-		}
-    //Get protocol
-	    if (!canonicalURL){
-	    	curProtocol = window.location.protocol.split(':')[0];
-	    }
-	    else{
-	    	curProtocol = canonicalURL.split(':')[0];
-	    }
-      //Get current URL if the canonical URL does not exist
-	    if (!canonicalURL) canonicalURL = window.location.href;
-	    //Assign script content. Replace current URL with the canonical URL
-      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
-  </script>
-
-
-
-
-  
-<script src="/js/local-search.js"></script>
-
-
-
-
-  <script>
-    (function(d, w, c) {
-      w.ChatraID = 'QXLRxXcsfrRJR2KTG';
-      var s = d.createElement('script');
-      w[c] = w[c] || function() {
-        (w[c].q = w[c].q || []).push(arguments);
-      };
-      s.async = true;
-      s.src = 'https://call.chatra.io/chatra.js';
-      if (d.head) d.head.appendChild(s);
-    })(document, window, 'Chatra');
-  </script>
-
-
-
-
-
-
-
-
-
-    <div id="pjax">
-  
-
-  
-
-
-<script>
-NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
-  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
-    var GUEST = ['nick', 'mail', 'link'];
-    var guest = 'nick,mail,link';
-    guest = guest.split(',').filter(item => {
-      return GUEST.includes(item);
-    });
-    new Valine({
-      el         : '#valine-comments',
-      verify     : false,
-      notify     : true,
-      appId      : 'fzf6cpurdF6t3abR8qK1Isi3-gzGzoHsz',
-      appKey     : 'mBMU4tntJKhBPKSpyDOWQYGy',
-      placeholder: "江南无所有，聊赠一枝春？",
-      avatar     : 'mm',
-      meta       : guest,
-      pageSize   : '10' || 10,
-      visitor    : false,
-      lang       : '' || 'zh-cn',
-      path       : location.pathname,
-      recordIP   : false,
-      serverURLs : ''
-    });
-  }, window.Valine);
-});
-</script>
-
     </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+<script class="next-config" data-name="chatra" type="application/json">{"enable":true,"async":true,"id":"QXLRxXcsfrRJR2KTG"}</script>
+<script src="/js/third-party/chat/chatra.js"></script>
+<script async src="https://call.chatra.io/chatra.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://waline-server-kaaaaai.vercel.app","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"placeholder":"请文明评论呀","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"visitor":false,"comment_count":true,"requiredFields":[],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","el":"#waline","comment":true,"path":"/page/4/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
 <script>
             window.imageLazyLoadSetting = {
                 isSPA: true,

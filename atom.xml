@@ -25,7 +25,7 @@
     
     
     <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;原文来自：&lt;a href=&quot;https://github.com/uber/needle/blob/master/WHY_DI.md&quot;&gt;Why use dependency injection&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;第一次翻译，如有问题还请留言指出。&lt;br&gt;E-mail：&lt;a href=&quot;mailto:&amp;#x72;&amp;#x6f;&amp;#x6f;&amp;#116;&amp;#x40;&amp;#x6b;&amp;#x61;&amp;#x61;&amp;#97;&amp;#x61;&amp;#97;&amp;#105;&amp;#x2e;&amp;#x63;&amp;#x6e;&quot;&gt;&amp;#x72;&amp;#x6f;&amp;#x6f;&amp;#116;&amp;#x40;&amp;#x6b;&amp;#x61;&amp;#x61;&amp;#97;&amp;#x61;&amp;#97;&amp;#105;&amp;#x2e;&amp;#x63;&amp;#x6e;&lt;/a&gt;&lt;/p&gt;</summary>
+&lt;p&gt;第一次翻译，如有问题还请留言指出。&lt;br&gt;E-mail：&lt;a href=&quot;mailto:&amp;#114;&amp;#111;&amp;#111;&amp;#x74;&amp;#64;&amp;#x6b;&amp;#x61;&amp;#x61;&amp;#x61;&amp;#97;&amp;#x61;&amp;#105;&amp;#x2e;&amp;#99;&amp;#110;&quot;&gt;&amp;#114;&amp;#111;&amp;#111;&amp;#x74;&amp;#64;&amp;#x6b;&amp;#x61;&amp;#x61;&amp;#x61;&amp;#97;&amp;#x61;&amp;#105;&amp;#x2e;&amp;#99;&amp;#110;&lt;/a&gt;&lt;/p&gt;</summary>
     
     
     
@@ -115,7 +115,7 @@
     <updated>2022-04-25T09:10:56.299Z</updated>
     
     
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2020/10/19/XKmLbdSTGNoWYZl.png&quot; alt=&quot;workflow&quot;&gt;&lt;/p&gt;
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;&lt;img data-src=&quot;https://i.loli.net/2020/10/19/XKmLbdSTGNoWYZl.png&quot; alt=&quot;workflow&quot;&gt;&lt;/p&gt;
 &lt;p&gt;从上图可以看出使用自动化出包，可以优化掉好几个需要人工介入的步骤，优化开发流程，节省开发者的时间。&lt;/p&gt;</summary>
     
     
@@ -385,7 +385,7 @@
     <updated>2022-04-02T02:03:35.566Z</updated>
     
     
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;h2 id=&quot;问题表现&quot;&gt;&lt;a href=&quot;#问题表现&quot; class=&quot;headerlink&quot; title=&quot;问题表现&quot;&gt;&lt;/a&gt;问题表现&lt;/h2&gt;&lt;p&gt;博客网站更换了 DNS 解析的服务商，访问出现以下问题。&lt;br&gt;&lt;img src=&quot;https://s2.loli.net/2022/04/02/QRqexU16yVaWFuY.jpg&quot; alt=&quot;03oBxi-20200530&quot;&gt;&lt;/p&gt;</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;h2 id=&quot;问题表现&quot;&gt;&lt;a href=&quot;#问题表现&quot; class=&quot;headerlink&quot; title=&quot;问题表现&quot;&gt;&lt;/a&gt;问题表现&lt;/h2&gt;&lt;p&gt;博客网站更换了 DNS 解析的服务商，访问出现以下问题。&lt;br&gt;&lt;img data-src=&quot;https://s2.loli.net/2022/04/02/QRqexU16yVaWFuY.jpg&quot; alt=&quot;03oBxi-20200530&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -407,7 +407,7 @@
     <link href="https://www.kaaaaai.cn/swift-optional-and-unwrapping-learning.html"/>
     <id>https://www.kaaaaai.cn/swift-optional-and-unwrapping-learning.html</id>
     <published>2020-04-24T09:24:52.000Z</published>
-    <updated>2020-11-21T02:09:49.000Z</updated>
+    <updated>2022-04-29T01:56:54.092Z</updated>
     
     
     <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;　　最近在优化一个项目的过程，过程中发现之前开发时由于刚接触 &lt;code&gt;Swift&lt;/code&gt; 的原因，在 &lt;code&gt;Swift&lt;/code&gt; 中的类里使用了很多 &lt;code&gt;OC&lt;/code&gt; 的写法，比如字典数组对象会习惯性用 &lt;code&gt;NSDictionary&lt;/code&gt;、&lt;code&gt;NSArray&lt;/code&gt;来初始化，而不是用 &lt;code&gt;[KeyType: ValueType]()&lt;/code&gt; 或是 &lt;code&gt;[SomeType]()&lt;/code&gt; 这种类型来实例化变量。虽然在使用上没有什么问题，但看起来多少有点。。。不优雅。&lt;br&gt;　　当我把大部分类型都修改成 &lt;code&gt;Swift&lt;/code&gt; 中的写法后（部分未修改是因为使用 &lt;code&gt;String&lt;/code&gt; 类型来给文本做截取和富文本定义，实在不如 &lt;code&gt;NSString&lt;/code&gt; 顺手，这种不顺手让我不由想起 Stack Overflow 上看到的一个评论：I thougt i already getting along well  with Swift.）发现，原来一些变量是否为空的判断中，使用 &lt;code&gt;Swift&lt;/code&gt; 里的 &lt;code&gt;optional&lt;/code&gt; 类型会方便很多。&lt;br&gt;　　比如解析一个 json 数据，如果层级多而且里面每个元素都是不确定的，那么可能就需要每个层级都判一次空。而如果使用 ? 来设置当前对象为可选值，只需要在最后一层实际使用到对象值时，判一次空就 OK 了。&lt;br&gt;　　对于 ? 和 ! 的区别和总结，网上有很多文章，在这里就不重复造轮子了。下面就对这个 &lt;code&gt;optional&lt;/code&gt; 的自己两个疑问做个记录。
