@@ -221,7 +221,7 @@ body {
   background: var(--body-bg-color);
   box-sizing: border-box;
   color: var(--text-color);
-  font-family: Lato, "Noto Serif SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: Lato, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 0.875em;
   line-height: 2;
   min-height: 100%;
@@ -234,7 +234,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: ZCOOL QingKe HuangYou, Lato, "Noto Serif SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: ZCOOL QingKe HuangYou, Lato, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-weight: bold;
   line-height: 1.5;
   margin: 30px 0 15px;
@@ -1242,7 +1242,7 @@ header.header {
   color: var(--brand-hover-color);
 }
 .site-title {
-  font-family: ZCOOL QingKe HuangYou, Lato, "Noto Serif SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: ZCOOL QingKe HuangYou, Lato, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 2em;
   font-weight: normal;
   line-height: 1.5;
@@ -1907,7 +1907,7 @@ header.header {
   width: 4px;
 }
 .post-body {
-  font-family: Lato, "Noto Serif SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: Lato, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   overflow-wrap: break-word;
 }
 @media (min-width: 1200px) {
@@ -2094,7 +2094,7 @@ header.header {
 }
 .posts-expand .post-meta-container {
   color: #999;
-  font-family: Lato, "Noto Serif SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: Lato, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 0.75em;
   margin-top: 3px;
 }
@@ -2244,6 +2244,10 @@ header.header {
 }
 .post-reward div span {
   display: block;
+}
+.post-reward div:hover span {
+  animation: next-roll 0.1s infinite linear;
+  pointer-events: none;
 }
 .post-reward img {
   display: inline-block;
@@ -2998,12 +3002,44 @@ mark.search-keyword {
   }
 }
 /* 自定义的引用样式 */
-blockquote.question {
+blockquote {
   color: #555;
-  border-left: 4px solid #1098ad;
-  background-color: #e3f2fd;
+  border: 1px dashed #adadad;
+  border-left: 4px solid #333;
+/*background-color: rgb(227, 242, 253);*/
   margin-bottom: 20px;
+  padding: 10px 15px;
 }
+/*.post-body a::after {
+    content: "\f08e";
+    font: normal normal normal 10px/1 FontAwesome;
+    right: 40%;
+    color: #656565;
+    margin-left: 4px;
+    display: inline-block;
+}*/
+/* 滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background-color: rgba(160,160,160,0.3);
+  border-radius: 2em;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #555;
+  background-image: -webkit-linear-gradient(45deg, rgba(255,255,255,0.4) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.4) 75%, transparent 75%, transparent);
+  border-radius: 2em;
+}
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+::-moz-selection {
+  color: #fff;
+  background-color: #555;
+}
+/*添加背景图片*/
 body {
   background: url("https://s2.loli.net/2022/07/01/IGf6eZacYiElpx4.jpg");
   background-size: cover;
@@ -3017,23 +3053,22 @@ body {
   background-position: 70% 20%;
   background-size: cover;
 }
+/* 图片显示 */
 .main img {
   max-height: 667px;
 /*margin: auto;
     display: block;
     box-shadow: 0 0 2px 3px #ddd;*/
 }
+/*TOC目录全部展开*/
 .post-toc.nav.nav-child {
   display: block;
 }
+/*TOC目录不显示三级以上目录*/
 .nav-level-3.nav-child {
   display: none;
 }
-/*.back-to-top:hover {
-    color: rgb(136, 255, 13);
-    background-color: rgba(0, 0, 0, 0.75); //black
-}
-*/
+/*文章代码块顶部样式*/
 .highlight figcaption {
   margin: 0em;
   padding: 0.5em;
@@ -3043,6 +3078,7 @@ body {
 .highlight figcaption a {
   color: #5073b8;
 }
+/*代码块复制按钮*/
 .highlight {
   position: relative;
 }
@@ -3082,27 +3118,49 @@ code {
   background: #f9f2f4;
   border: 1px solid #d6d6d6;
 }
+/*[Read More]按钮样式: 黑底绿字*/
 /*.post-button .btn:hover {
     
     color: rgb(136, 255, 13) ;
     background-color: rgba(0, 0, 0, 0.75); //black
 }*/
+/*页面底部页码*/
 .pagination .page-number.current {
   border-radius: 100%;
   background-color: rgba(100,100,100,0.75);
 }
+/*页面底部页码, 去除鼠标置于上方时，数字上方的线*/
 /*.pagination .prev, .pagination .next, .pagination .page-number {
     margin-bottom: 10px;
     border: none;
     color: rgb(1, 1, 1);
 }
 */
+/*页面底部页码，鼠标置于上方，黑底绿字*/
 /*.page-number:hover,.page-number:active{
     color: rgb(136, 255, 13);
     border-radius: 100%;
     //background-color: rgba(255, 0, 100, 0.75); //品红
     background-color: rgba(0, 0, 0, 0.75); //black
 }*/
+/*底部 license 风格*/
+.post-copyright ul {
+  position: relative;
+  background: #f5f5f5;
+  color: var(--f);
+  overflow: hidden;
+  display: block;
+}
+.post-copyright ul:after {
+  position: absolute;
+  background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 496 512'%3E%3Cpath fill='%234a4a4a' d='M245.8 214.9l-33.2 17.3c-9.4-19.6-25.2-20-27.4-20-22.2 0-33.3 14.6-33.3 43.9 0 23.5 9.2 43.8 33.3 43.8 14.4 0 24.6-7 30.5-21.3l30.6 15.5a73.2 73.2 0 01-65.1 39c-22.6 0-74-10.3-74-77 0-58.7 43-77 72.6-77 30.8-.1 52.7 11.9 66 35.8zm143 0l-32.7 17.3c-9.5-19.8-25.7-20-27.9-20-22.1 0-33.2 14.6-33.2 43.9 0 23.5 9.2 43.8 33.2 43.8 14.5 0 24.7-7 30.5-21.3l31 15.5c-2 3.8-21.3 39-65 39-22.7 0-74-9.9-74-77 0-58.7 43-77 72.6-77C354 179 376 191 389 214.8zM247.7 8C104.7 8 0 123 0 256c0 138.4 113.6 248 247.6 248C377.5 504 496 403 496 256 496 118 389.4 8 247.6 8zm.8 450.8c-112.5 0-203.7-93-203.7-202.8 0-105.5 85.5-203.3 203.8-203.3A201.7 201.7 0 01451.3 256c0 121.7-99.7 202.9-202.9 202.9z'/%3E%3C/svg%3E");
+  content: ' ';
+  height: 200px;
+  width: 200px;
+  right: -40px;
+  top: -45px;
+  opacity: 0.1;
+}
 /* bb样式 */
 div.timenode {
   position: relative;
