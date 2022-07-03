@@ -2880,11 +2880,11 @@ mark.search-keyword {
 /* 自定义的引用样式 */
 blockquote {
   color: #555;
-  border: 1px dashed #adadad;
-  border-left: 4px solid #333;
-/*background-color: rgb(227, 242, 253);*/
+/*border: 1px dashed #adadad;*/
+  border-left: 4px solid #355c7d;
   margin-bottom: 20px;
-  padding: 10px 15px;
+/*padding: 10px 15px;*/
+/*margin: 10px 20px;*/
 }
 .post-body a[target][rel][href]::after {
   content: "\f08e";

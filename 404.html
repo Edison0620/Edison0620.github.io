@@ -11,8 +11,10 @@
     var totalCount = 11;
     function ChangeIt()
     {
-        var num = Math.ceil( Math.random() * totalCount );
-        document.body.background = 'http://os1i62usc.bkt.clouddn.com/'+num+'.gif';
+        var gifs = ["https://s2.loli.net/2022/04/14/7HTpnoZOQVYx1wJ.gif","https://s2.loli.net/2022/04/14/GNf39kHleJTpWOM.gif","https://s2.loli.net/2022/04/14/iUds96crpAFHKGD.gif","https://s2.loli.net/2022/04/14/zoUa49BM2tdpTyv.gif","https://s2.loli.net/2022/04/14/s6GqBj9QHUP72rZ.gif","https://s2.loli.net/2022/04/14/4lPshypkUjmcoFq.gif","https://s2.loli.net/2022/04/14/Y71IL5bmsTcir2y.gif","https://s2.loli.net/2022/04/14/SDcldCPs43JMFtK.gif","https://s2.loli.net/2022/04/14/HkvJNRAjgqK8pLc.gif","https://s2.loli.net/2022/04/14/vFMXyOnKb9I5WZ3.gif"];
+        var num = Math.ceil( Math.random() * (gifs.length - 1) );
+        var gif = gifs[num];
+        document.body.background = gif;
     document.body.style.backgroundRepeat = "repeat";// Background repeat
     }
     window.onload = ChangeIt;
@@ -123,7 +125,7 @@
     <div class="error-content">
         
     <h1>Opes… 有个坏消息要告诉你~</h1>
-    <p>这个页面似乎不存在哦。是你迷路了，还是服务器在打瞌睡？要不然你再试一次。或者，让我带你<a href="https://www.kaaaaai.cn/">回去</a>~</p>
+    <p>这个页面似乎不存在。是你迷路了，还是服务器在打瞌睡？要不然你再试一次。或者，让我带你<a href="https://www.kaaaaai.cn/">回去</a>~</p>
 
     </div>
 </div>

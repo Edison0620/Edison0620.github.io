@@ -25,7 +25,7 @@
     
     
     <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;原文来自：&lt;a href=&quot;https://github.com/uber/needle/blob/master/WHY_DI.md&quot;&gt;Why use dependency injection&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;第一次翻译，如有问题还请留言指出。&lt;br&gt;E-mail：&lt;a href=&quot;mailto:&amp;#114;&amp;#x6f;&amp;#111;&amp;#x74;&amp;#64;&amp;#x6b;&amp;#97;&amp;#97;&amp;#97;&amp;#97;&amp;#97;&amp;#105;&amp;#46;&amp;#x63;&amp;#110;&quot;&gt;&amp;#114;&amp;#x6f;&amp;#111;&amp;#x74;&amp;#64;&amp;#x6b;&amp;#97;&amp;#97;&amp;#97;&amp;#97;&amp;#97;&amp;#105;&amp;#46;&amp;#x63;&amp;#110;&lt;/a&gt;&lt;/p&gt;</summary>
+&lt;p&gt;第一次翻译，如有问题还请留言指出。&lt;br&gt;E-mail：&lt;a href=&quot;mailto:&amp;#114;&amp;#x6f;&amp;#x6f;&amp;#116;&amp;#64;&amp;#107;&amp;#x61;&amp;#97;&amp;#97;&amp;#x61;&amp;#x61;&amp;#x69;&amp;#x2e;&amp;#x63;&amp;#110;&quot;&gt;&amp;#114;&amp;#x6f;&amp;#x6f;&amp;#116;&amp;#64;&amp;#107;&amp;#x61;&amp;#97;&amp;#97;&amp;#x61;&amp;#x61;&amp;#x69;&amp;#x2e;&amp;#x63;&amp;#110;&lt;/a&gt;&lt;/p&gt;</summary>
     
     
     
@@ -45,7 +45,7 @@
     <link href="https://www.kaaaaai.cn/its-time-to-build-an-open-source-library.html"/>
     <id>https://www.kaaaaai.cn/its-time-to-build-an-open-source-library.html</id>
     <published>2020-11-21T01:37:05.000Z</published>
-    <updated>2020-11-28T01:41:36.000Z</updated>
+    <updated>2022-07-02T14:40:41.861Z</updated>
     
     
     <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;使用 GitHub 很久，除了无脑 star、fork 大神们的仓库、输出一些学习代码以外，对于 GitHub 本身的贡献似乎寥寥。&lt;a href=&quot;https://archiveprogram.github.com/arctic-vault/&quot;&gt;&lt;strong&gt;Arctic Code Vault Contributor&lt;/strong&gt;&lt;/a&gt; 的勋章我受之有愧。如果你也有和我类似的想法，那么，是时候可以尝试一下维护一个自己的开源库了。&lt;/p&gt;
@@ -493,3 +493,4 @@
   </entry>
   
 </feed>
+>
