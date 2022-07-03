@@ -2916,13 +2916,13 @@ blockquote {
   background-color: #555;
 }
 /*添加背景图片*/
-/*body {
-      background: url(https://s2.loli.net/2022/07/01/IGf6eZacYiElpx4.jpg);//自己喜欢的图片地址
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-position: 50% 50%;
-}*/
+body {
+  background: url("https://s2.loli.net/2022/07/03/s4fiAydvGaWXLUn.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 50%;
+}
 /* sidebar-标题背景 */
 .site-brand-container {
   background: url("https://s2.loli.net/2022/04/27/wie1BDr4kExIcAH.gif");
