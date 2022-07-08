@@ -1,5 +1,5 @@
 :root {
-  --body-bg-color: #eee;
+  --body-bg-color: transparent;
   --content-bg-color: #fff;
   --card-bg-color: #f5f5f5;
   --text-color: #555;
@@ -833,6 +833,15 @@ pre code {
 .post-body .note img:last-child {
   margin-bottom: 0;
 }
+.post-body .note:not(.no-icon) {
+  padding-left: 2.5em;
+}
+.post-body .note:not(.no-icon)::before {
+  font-size: 1.5em;
+  left: 0.3em;
+  position: absolute;
+  top: calc(50% - 1em);
+}
 .post-body .note.default {
   background: #f7f7f7;
   border-left-color: #777;
@@ -842,6 +851,12 @@ pre code {
 .post-body .note.default h4,
 .post-body .note.default h5,
 .post-body .note.default h6 {
+  color: #777;
+}
+.post-body .note.default:not(.no-icon)::before {
+  content: '\f0a9';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
   color: #777;
 }
 .post-body .note.primary {
@@ -855,6 +870,12 @@ pre code {
 .post-body .note.primary h6 {
   color: #6f42c1;
 }
+.post-body .note.primary:not(.no-icon)::before {
+  content: '\f055';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: #6f42c1;
+}
 .post-body .note.info {
   background: #eef7fa;
   border-left-color: #428bca;
@@ -864,6 +885,12 @@ pre code {
 .post-body .note.info h4,
 .post-body .note.info h5,
 .post-body .note.info h6 {
+  color: #428bca;
+}
+.post-body .note.info:not(.no-icon)::before {
+  content: '\f05a';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
   color: #428bca;
 }
 .post-body .note.success {
@@ -877,6 +904,12 @@ pre code {
 .post-body .note.success h6 {
   color: #5cb85c;
 }
+.post-body .note.success:not(.no-icon)::before {
+  content: '\f058';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: #5cb85c;
+}
 .post-body .note.warning {
   background: #fdf8ea;
   border-left-color: #f0ad4e;
@@ -888,6 +921,12 @@ pre code {
 .post-body .note.warning h6 {
   color: #f0ad4e;
 }
+.post-body .note.warning:not(.no-icon)::before {
+  content: '\f06a';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: #f0ad4e;
+}
 .post-body .note.danger {
   background: #fcf1f2;
   border-left-color: #d9534f;
@@ -897,6 +936,12 @@ pre code {
 .post-body .note.danger h4,
 .post-body .note.danger h5,
 .post-body .note.danger h6 {
+  color: #d9534f;
+}
+.post-body .note.danger:not(.no-icon)::before {
+  content: '\f056';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
   color: #d9534f;
 }
 .post-body .tabs {
@@ -2563,7 +2608,7 @@ mark.search-keyword {
 }
 .header-inner {
   background: var(--content-bg-color);
-  border-radius: 6px;
+  border-radius: 6px 6px 6px 6px;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
   width: 240px;
 }
@@ -2597,7 +2642,7 @@ mark.search-keyword {
   }
 }
 .main-inner {
-  border-radius: 6px;
+  border-radius: 6px 6px 6px 6px;
   box-sizing: border-box;
   width: calc(100% - 252px);
 }
@@ -2739,7 +2784,7 @@ mark.search-keyword {
 }
 .sidebar-inner {
   background: var(--content-bg-color);
-  border-radius: 6px;
+  border-radius: 6px 6px 6px 6px;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
   box-sizing: border-box;
   color: var(--text-color);
@@ -2801,7 +2846,7 @@ mark.search-keyword {
 .main-inner > .comments,
 .main-inner > .pagination {
   background: var(--content-bg-color);
-  border-radius: 6px;
+  border-radius: 6px 6px 6px 6px;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
 }
 .main-inner > .sub-menu:not(:first-child):not(.sub-menu),
@@ -2809,7 +2854,7 @@ mark.search-keyword {
 .main-inner > .tabs-comment:not(:first-child):not(.sub-menu),
 .main-inner > .comments:not(:first-child):not(.sub-menu),
 .main-inner > .pagination:not(:first-child):not(.sub-menu) {
-  border-radius: 6px;
+  border-radius: 6px 6px 6px 6px;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
   margin-top: 12px;
 }
@@ -2844,10 +2889,10 @@ mark.search-keyword {
 }
 .post-body h1,
 .post-body h2 {
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid transparent;
 }
 .post-body h3 {
-  border-bottom: 1px dotted #eee;
+  border-bottom: 1px dotted transparent;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .main-inner {
@@ -2877,21 +2922,56 @@ mark.search-keyword {
     padding: 10px 12px;
   }
 }
+.headband {
+  height: 3px;
+  opacity: 0;
+  margin-top: 10px;
+}
+/*添加背景图片*/
+body {
+/*https://s2.loli.net/2022/07/07/Tn26Kxe4vzVWpFD.png*/
+/*https://s2.loli.net/2022/07/07/TdCYRhj9oQBIVW5.jpg*/
+  background: url("https://s2.loli.net/2022/07/07/TdCYRhj9oQBIVW5.jpg");
+/*background-size: cover;*/
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+/*background-position: 50% 50%;*/
+}
 /* 自定义的引用样式 */
 blockquote {
   color: #555;
-/*border: 1px dashed #adadad;*/
+  background: #d6dee5;
   border-left: 4px solid #355c7d;
   margin-bottom: 20px;
-/*padding: 10px 15px;*/
-/*margin: 10px 20px;*/
+  margin-top: 10px;
+  border-radius: 4px;
+  box-shadow: 0 0 2px 3px #d6dee5;
 }
-.post-body a[target][rel][href]::after {
+/* 选中链接带阴影 */
+/*.post-body a[target][rel][href]:hover {
+  background: #656565;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #656565, 0 0 25px #656565, 0 0 50px #656565,
+    0 0 100px #656565;
+  padding-left: 5px;
+}
+
+.post-body a[target][rel][href]:hover:after  {
+  background: #656565;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #656565, 0 0 25px #656565, 0 0 50px #656565,
+    0 0 100px #656565;
+  padding-right: 5px;
+}*/
+.post-body a[target][rel][href]:after {
   content: "\f08e";
   font: normal normal normal 10px/1 FontAwesome;
   right: 40%;
   color: #656565;
-  margin-left: 4px;
+  margin-left: 5px;
+  margin-right: 5px;
   display: inline-block;
 }
 /* 滚动条 */
@@ -2914,14 +2994,6 @@ blockquote {
 ::-moz-selection {
   color: #fff;
   background-color: #555;
-}
-/*添加背景图片*/
-body {
-  background: url("https://s2.loli.net/2022/07/03/s4fiAydvGaWXLUn.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: 50% 50%;
 }
 /* sidebar-标题背景 */
 .site-brand-container {
@@ -2997,7 +3069,6 @@ code {
 }
 /*[Read More]按钮样式: 黑底绿字*/
 /*.post-button .btn:hover {
-    
     color: rgb(136, 255, 13) ;
     background-color: rgba(0, 0, 0, 0.75); //black
 }*/

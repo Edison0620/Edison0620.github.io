@@ -25,7 +25,7 @@
     
     
     <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;原文来自：&lt;a href=&quot;https://github.com/uber/needle/blob/master/WHY_DI.md&quot;&gt;Why use dependency injection&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;第一次翻译，如有问题还请留言指出。&lt;br&gt;E-mail：&lt;a href=&quot;mailto:&amp;#114;&amp;#111;&amp;#x6f;&amp;#x74;&amp;#x40;&amp;#x6b;&amp;#97;&amp;#97;&amp;#x61;&amp;#x61;&amp;#97;&amp;#105;&amp;#x2e;&amp;#x63;&amp;#110;&quot;&gt;&amp;#114;&amp;#111;&amp;#x6f;&amp;#x74;&amp;#x40;&amp;#x6b;&amp;#97;&amp;#97;&amp;#x61;&amp;#x61;&amp;#97;&amp;#105;&amp;#x2e;&amp;#x63;&amp;#110;&lt;/a&gt;&lt;/p&gt;</summary>
+&lt;p&gt;第一次翻译，如有问题还请留言指出。&lt;br&gt;E-mail：&lt;a href=&quot;mailto:&amp;#x72;&amp;#x6f;&amp;#111;&amp;#116;&amp;#x40;&amp;#x6b;&amp;#97;&amp;#97;&amp;#x61;&amp;#x61;&amp;#97;&amp;#x69;&amp;#46;&amp;#99;&amp;#110;&quot;&gt;&amp;#x72;&amp;#x6f;&amp;#111;&amp;#116;&amp;#x40;&amp;#x6b;&amp;#97;&amp;#97;&amp;#x61;&amp;#x61;&amp;#97;&amp;#x69;&amp;#46;&amp;#99;&amp;#110;&lt;/a&gt;&lt;/p&gt;</summary>
     
     
     
@@ -45,7 +45,7 @@
     <link href="https://www.kaaaaai.cn/its-time-to-build-an-open-source-library.html"/>
     <id>https://www.kaaaaai.cn/its-time-to-build-an-open-source-library.html</id>
     <published>2020-11-21T01:37:05.000Z</published>
-    <updated>2022-07-02T14:40:41.861Z</updated>
+    <updated>2022-07-07T10:32:25.136Z</updated>
     
     
     <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;使用 GitHub 很久，除了无脑 star、fork 大神们的仓库、输出一些学习代码以外，对于 GitHub 本身的贡献似乎寥寥。&lt;a href=&quot;https://archiveprogram.github.com/arctic-vault/&quot;&gt;&lt;strong&gt;Arctic Code Vault Contributor&lt;/strong&gt;&lt;/a&gt; 的勋章我受之有愧。如果你也有和我类似的想法，那么，是时候可以尝试一下维护一个自己的开源库了。&lt;/p&gt;
@@ -152,52 +152,6 @@
     <category term="视频剪辑" scheme="https://www.kaaaaai.cn/tags/%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91/"/>
     
     <category term="Premiere Pro" scheme="https://www.kaaaaai.cn/tags/Premiere-Pro/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>技术调研模板</title>
-    <link href="https://www.kaaaaai.cn/technology-research-template.html"/>
-    <id>https://www.kaaaaai.cn/technology-research-template.html</id>
-    <published>2020-09-30T01:24:52.000Z</published>
-    <updated>2022-04-26T01:49:28.858Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;em&gt;部门小伙伴在做技术调研的时候，因为信息展示的格式不统一，或者没有注意在调研过程中抓取一些关键信息做展示和对比，为了方便，总结了一份技术调研模板，以供参考。&lt;/em&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="EXP" scheme="https://www.kaaaaai.cn/tags/EXP/"/>
-    
-    <category term="Technology" scheme="https://www.kaaaaai.cn/tags/Technology/"/>
-    
-    <category term="Template" scheme="https://www.kaaaaai.cn/tags/Template/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>有关熵减-时间旅行的冷门问题</title>
-    <link href="https://www.kaaaaai.cn/frequently-asked-questions-about-time-travel-by-entropy-reduction.html"/>
-    <id>https://www.kaaaaai.cn/frequently-asked-questions-about-time-travel-by-entropy-reduction.html</id>
-    <published>2020-09-20T02:13:52.000Z</published>
-    <updated>2022-04-26T02:24:36.709Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;上个礼拜去看了电影《信条》，综合来说给我感觉，瑜不掩瑕。&lt;br&gt;&lt;img align=&quot;center&quot; src=&quot;https://i.loli.net/2020/09/20/xD3d8Jgfup2WEKF.jpg&quot; width=375px/&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="旁白" scheme="https://www.kaaaaai.cn/categories/%E6%97%81%E7%99%BD/"/>
-    
-    
-    <category term="随笔" scheme="https://www.kaaaaai.cn/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-    <category term="电影" scheme="https://www.kaaaaai.cn/tags/%E7%94%B5%E5%BD%B1/"/>
-    
-    <category term="观后感" scheme="https://www.kaaaaai.cn/tags/%E8%A7%82%E5%90%8E%E6%84%9F/"/>
     
   </entry>
   
@@ -312,11 +266,11 @@
     <link href="https://www.kaaaaai.cn/a-person-abandoned-by-the-light.html"/>
     <id>https://www.kaaaaai.cn/a-person-abandoned-by-the-light.html</id>
     <published>2020-07-18T02:13:52.000Z</published>
-    <updated>2020-11-01T02:30:18.000Z</updated>
+    <updated>2022-07-07T06:09:15.090Z</updated>
     
     
     <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;看科幻小说常常会感到一种作为人类的自卑感，对于宇宙来说，我们只是其中数以亿计星球中的一个，即使拥有灿烂的文化和恢弘的历史，也一粒尘埃反射出的微弱光芒。&lt;/p&gt;
-&lt;p&gt;而作为个体，虽然每个人都有自己引以为傲的事情，经历过的人和事、在事件中的感受，我们也因为所经历的这些事物成为了独一无二的个体。然而放在星空下，我们所珍视和热爱的，似乎也不太值得一提。甚至在灾难里，再深刻的痛苦也会失去他原来的分量。自卑感即源于此，个体只是历史的一个小注脚，而历史有只是宇宙中其中一个维度的部分片段，我们的所思所想所感，还存在什么意义吗？&lt;/p&gt;</summary>
+&lt;p&gt;而作为个体，虽然每个人都有自己引以为傲的事情，经历过的人和事、在事件中的感受，我们也因为这些而变得与众不同。然而目光宇宙，时间、空间，都能比量出我们的不值一提。甚至可能只是一场灾难，我们日常曾以为很深刻的痛苦也会立马失去他原来的分量。&lt;/p&gt;</summary>
     
     
     
@@ -359,7 +313,7 @@
     <link href="https://www.kaaaaai.cn/about-my-notion-workflow.html"/>
     <id>https://www.kaaaaai.cn/about-my-notion-workflow.html</id>
     <published>2020-06-07T05:24:52.000Z</published>
-    <updated>2022-04-26T01:51:43.376Z</updated>
+    <updated>2022-07-04T10:16:32.206Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2020/06/07/cSgrjKnkbB41AxI.jpg&quot; alt=&quot;cSgrjKnkbB41AxI&quot;&gt;&lt;/p&gt;</summary>
@@ -492,6 +446,51 @@
     
   </entry>
   
-</feed>
- 
+  <entry>
+    <title>社畜都爱 GTD</title>
+    <link href="https://www.kaaaaai.cn/everyone-love-gtd.html"/>
+    <id>https://www.kaaaaai.cn/everyone-love-gtd.html</id>
+    <published>2020-03-22T02:24:52.000Z</published>
+    <updated>2022-03-26T02:55:37.791Z</updated>
+    
+    
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;&lt;img data-src=&quot;https://s1.ax1x.com/2020/03/21/8hSBZR.jpg&quot;&gt;&lt;/p&gt;
+&lt;p&gt;　　用了很久 GTD 工具，才知道它的全拼是 Getting Things done（把事情做好），而不是 Get to do（快去做）。虽然意思差不多，但是情绪上好像一个是在昂首挺胸向前迈进，另一个是无可奈何负重前行。看过关于很多关于时间管理的文章，每个作者侧重点和方向不同，都给我带来一定的收获。虽然在用心程度，耕耘深度都不如写文章的大佬们，但还是想写一下自己从接触到使用那么久以来的心得。&lt;br&gt;　　看到题目“社畜都爱 GTD”，可能有朋友就会跳出来这样反驳：我承认我是个社畜，但我不爱 GTD，我甚至不知道 GTD。或是这样反驳：我每天从八百平方米的卧室起来，在高大的落地窗前喝咖啡欣赏清晨的阳光，我不是个社畜，但我也爱 GTD 啊。虽然后面的杠法难度有点高，但这两个争议对于我的题目来说也确实存在，不过不去钻牛角尖，通过这两个争议我们可以延伸出两个问题：&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="工具" scheme="https://www.kaaaaai.cn/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="时间管理" scheme="https://www.kaaaaai.cn/tags/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/"/>
+    
+    <category term="产品思考" scheme="https://www.kaaaaai.cn/tags/%E4%BA%A7%E5%93%81%E6%80%9D%E8%80%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git - Submodule 使用简单教程</title>
+    <link href="https://www.kaaaaai.cn/git-submodule.html"/>
+    <id>https://www.kaaaaai.cn/git-submodule.html</id>
+    <published>2020-03-14T03:24:52.000Z</published>
+    <updated>2020-11-22T01:38:52.000Z</updated>
+    
+    
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;　　最近在项目中使用了 &lt;code&gt;Git Submodule&lt;/code&gt; 的功能，好处是如果是自己开发的封装库，比较方便调试，push 时可以同时上传项目和库的修改，别人通过主仓库地址下载工程的时候速度也会快上一些。&lt;br&gt;　　&lt;code&gt;Git Submodule&lt;/code&gt; 的使用可以通过终端命令来操作（&lt;a href=&quot;https://tnie.github.io/2018/04/02/git_submodule/&quot;&gt;Git Submoudle 使用完整教程&lt;/a&gt;），或者通过 &lt;code&gt;Git&lt;/code&gt; 第三方可视化客户端直接操作。本文展示的是通过 &lt;code&gt;Git&lt;/code&gt; 第三方客户端 Sourcetree 来实现这个功能的。
+　　&lt;/p&gt;
+&lt;h2 id=&quot;一、通过-Sourcetree-使用-Git-Submodule&quot;&gt;&lt;a href=&quot;#一、通过-Sourcetree-使用-Git-Submodule&quot; class=&quot;headerlink&quot; title=&quot;一、通过 Sourcetree 使用 Git Submodule&quot;&gt;&lt;/a&gt;一、通过 Sourcetree 使用 Git Submodule&lt;/h2&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="EXP" scheme="https://www.kaaaaai.cn/tags/EXP/"/>
+    
+    <category term="Git" scheme="https://www.kaaaaai.cn/tags/Git/"/>
+    
+    <category term="Sourcetree" scheme="https://www.kaaaaai.cn/tags/Sourcetree/"/>
+    
+  </entry>
+  
 </feed>
