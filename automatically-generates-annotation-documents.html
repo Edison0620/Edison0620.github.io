@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-bounce.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.kaaaaai.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
@@ -61,6 +61,7 @@
 
 
 <link rel="dns-prefetch" href="https://waline-server-kaaaaai.vercel.app"> <script type="text/javascript" src="/js/link-highlight.js"></script>
+
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -226,7 +227,6 @@
     </header>
 
     
-  <div class="reading-progress-bar"></div>
 
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
@@ -392,6 +392,23 @@
     
     
       
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+        <div class="popular-posts-date">2019-07-17</div>
+      <div class="popular-posts-title"><a href="/xcode-plugin-research.html" rel="bookmark">iOS - Xcode Plugin 调研和使用</a></div>
+        <div class="popular-posts-excerpt"><p><p>　　Xcode 升级到 8.x 以上版本后为了提升安全性, 防止 <code>XcodeGhost</code> 事件的发生, 添加了代码签名机制, 所以以往我们那些用的很顺手的 Xcode 插件一下子统统都被打入冷宫。这种情况下，我们想要重新使用插件，我们应该怎么做呢？<br>　　首先我们要使用插件第一步是给 Xcode 重新签名, 在签名前建议备份一个纯净 Xcode 做 App 打包发布用(应用程序目录下复制一个即可)。</p>
+<h3 id="一、Xcode-重签名以使用插件"><a href="#一、Xcode-重签名以使用插件" class="headerlink" title="一、Xcode 重签名以使用插件"></a>一、Xcode 重签名以使用插件</h3></p></div>
+    </li>
+    <li class="popular-posts-item">
+        <div class="popular-posts-date">2019-05-11</div>
+      <div class="popular-posts-title"><a href="/weekly-summary-190511.html" rel="bookmark">每周总结 - 0511</a></div>
+        <div class="popular-posts-excerpt"><p><p> 　　项目最后的交接工作，我被派到了中移动总部进行封闭开发，暂时作为 iOS 方面的项目管理和推进，就之前来说，这个礼拜我负责的内容多了一些，除了我本身的代码维护以外，对外要处理项目的交接工作，对内要分配测试人员测试出的 bug，和一些缺失内容，优化内容的推进。一个礼拜下来，有一些收获。<br> 　　之前看知乎上一个问题，是有什么是当上管理层才会想的事？虽然我还没有到那个地步，但是管理项目给我的一些体验让我觉得似乎可以把握到一些管理层的想法，比如很多时候我们觉得领导只看结果不问过程有点不可理喻，但是从另一方面来看这其实只是因为需要对接的内容太多，不问过程只看结果，可以最大程度的排除其他因素的干扰。另一个是就是个人的主观动能性，这阵子做项目管理的时候，我总是会因为分配下去的任务而收到关于很多任务的疑问，比如新增一项需求的时候，开发人员会询问关于这个功能在不同场景下需要表现成怎样，在一些无法实现的地方又应该怎样规避。在管理角度看，这些当然是合理的，但提问的时机太零碎了，容易被分散注意力，另一个是有些场景虽然没有给出标准，但其实可以横向参考其他类似的功能来实现需求，这时候提问并不是必要的，所缺乏的只是一点主动去思考，或者说是虽然想到了第一步，即会产生这个问题，但可能是某种局限导致开发人员没有往下一步怎么解决这个问题，我之前也存在过类似问题。切成开发人员角度，规避这些问题，一个是整理问题，统一解决，另一个是解决问题的方法，虽然可以思考怎么解决，但是如果解决方法最终没有通过产品的审核，那之前针对问题的解决也都白费劲，所以最好的应对方法是，发现问题，可以附上一条或两条解决方案，一并提交。我想这些经验对于以后我做个人开发或者管理都会有帮助。<br> 　　这个礼拜接触到的新技术是使用 OC&#x2F;Swift 自动生成文档的轮子：</p>
+<blockquote>
+<p> 　　OC 自动生成代码文档：<a target="_blank" rel="noopener" href="https://blog.csdn.net/u011374880/article/details/82143782">appledoc</a><br> 　　swift 自动生成代码文档：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/b0d77877bafe">jazzy</a></p>
+</blockquote></p></div>
+    </li>
+  </ul>
 
 
     <footer class="post-footer">
@@ -483,7 +500,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:25</span>
+    <span title="站点阅读时长">3:24</span>
   </span>
 </div>
 <div class="busuanzi-count">

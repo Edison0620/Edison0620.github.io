@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-bounce.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.kaaaaai.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
@@ -58,10 +58,13 @@
 
 
 <link rel="dns-prefetch" href="https://waline-server-kaaaaai.vercel.app"> <script type="text/javascript" src="/js/link-highlight.js"></script>
+
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
 <link rel="alternate" href="/atom.xml" title="壹拾肆" type="application/atom+xml">
+<link rel="stylesheet" href="/assets/css/APlayer.min.css" class="aplayer-style-marker">
+<script src="/assets/js/APlayer.min.js" class="aplayer-script-marker"></script>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
@@ -222,7 +225,6 @@
     </header>
 
     
-  <div class="reading-progress-bar"></div>
 
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
@@ -339,6 +341,40 @@
     
     
       
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+        <div class="popular-posts-date">2020-05-30</div>
+      <div class="popular-posts-title"><a href="/web-resolve-recirculation-errors.html" rel="bookmark">解决使用 GitPage 重定向多次问题</a></div>
+        <div class="popular-posts-excerpt"><p><h2 id="问题表现"><a href="#问题表现" class="headerlink" title="问题表现"></a>问题表现</h2><p>博客网站更换了 DNS 解析的服务商，访问出现以下问题。<br><img data-src="/images/loading-style-3.gif" data-original="https://s2.loli.net/2022/04/02/QRqexU16yVaWFuY.jpg" alt="03oBxi-20200530"></p></p></div>
+    </li>
+    <li class="popular-posts-item">
+        <div class="popular-posts-date">2017-06-23</div>
+      <div class="popular-posts-title"><a href="/hello-edison-s-world.html" rel="bookmark">Here is Kai's World</a></div>
+        <div class="popular-posts-excerpt"><p><p>  哈哈哈我终于解决了部署时出现的 cannot find module、local hexo not found in finder 等问题用<code>github</code>仓库做服务器弄好了基于<code>Node.js</code>的静态博客<code>Hexo</code>我的独立博客了不过，会不会写东西就不知道喽~~~~</p>
+
+        <div id="aplayer-zPVXpfOq" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+            <pre class="aplayer-lrc-content"></pre>
+        </div></p></div>
+    </li>
+    <li class="popular-posts-item">
+        <div class="popular-posts-date">2020-02-29</div>
+      <div class="popular-posts-title"><a href="/ios-preliminary-study-of-symbolic-breakpoints.html" rel="bookmark">iOS - 初探符号断点调试</a></div>
+        <div class="popular-posts-excerpt"><p><p><em>在调试一个项目中包含库工程的工程时发现，平常在代码视图左侧点击添加断点调试，忽然发现不起作用了，然后尝试使用了一些不同的方法去解决，虽然最后仍然是通过开关机，重启 Xcode 的方式解决问题的，但那些尝试也在过程中期起到了排除问题的作用，记录一下其中用到的符号断点的用法。</em></p>
+<h2 id="一、介绍"><a href="#一、介绍" class="headerlink" title="一、介绍"></a>一、介绍</h2></p></div>
+    </li>
+    <li class="popular-posts-item">
+        <div class="popular-posts-date">2020-11-21</div>
+      <div class="popular-posts-title"><a href="/its-time-to-build-an-open-source-library.html" rel="bookmark">是时候维护一个属于自己的开源库了</a></div>
+        <div class="popular-posts-excerpt"><p><p>使用 GitHub 很久，除了无脑 star、fork 大神们的仓库、输出一些学习代码以外，对于 GitHub 本身的贡献似乎寥寥。<a target="_blank" rel="noopener" href="https://archiveprogram.github.com/arctic-vault/"><strong>Arctic Code Vault Contributor</strong></a> 的勋章我受之有愧。如果你也有和我类似的想法，那么，是时候可以尝试一下维护一个自己的开源库了。</p>
+<p>维护一个开源库，听起来很简单，但是真正要开始动手，似乎颇有些千头万绪，无从下手。那让我们来捋一捋，首先我们碰到的第一个问题可能是：我们可以去维护一个怎样的开源库？</p></p></div>
+    </li>
+    <li class="popular-posts-item">
+        <div class="popular-posts-date">2020-08-04</div>
+      <div class="popular-posts-title"><a href="/swift-toppop-upboxencapsulation.html" rel="bookmark">Swift - 顶部弹出框封装</a></div>
+        <div class="popular-posts-excerpt"><p><p>抽空把项目里的顶部弹出框封装了一下。</p></p></div>
+    </li>
+  </ul>
 
 
     <footer class="post-footer">
@@ -429,7 +465,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:25</span>
+    <span title="站点阅读时长">3:24</span>
   </span>
 </div>
 <div class="busuanzi-count">

@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-bounce.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.kaaaaai.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
@@ -66,10 +66,13 @@
 
 
 <link rel="dns-prefetch" href="https://waline-server-kaaaaai.vercel.app"> <script type="text/javascript" src="/js/link-highlight.js"></script>
+
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
 <link rel="alternate" href="/atom.xml" title="壹拾肆" type="application/atom+xml">
+<link rel="stylesheet" href="/assets/css/APlayer.min.css" class="aplayer-style-marker">
+<script src="/assets/js/APlayer.min.js" class="aplayer-script-marker"></script>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
@@ -231,7 +234,6 @@
     </header>
 
     
-  <div class="reading-progress-bar"></div>
 
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
@@ -364,6 +366,43 @@
     
     
       
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+        <div class="popular-posts-date">2019-08-07</div>
+      <div class="popular-posts-title"><a href="/ios-utf8-to-chinese.html" rel="bookmark">iOS - 如何把 Xcode 打印出来的 UTF-8 格式字符变成汉字？</a></div>
+        <div class="popular-posts-excerpt"><p><p>　　下午在测试一个语音 SDK 的时候，发现打印出来字典里的中文汉字都显示为 UTF-8 的字符，百度了一下解决办法，发现大都是用给 <code>NSArray</code> 和 <code>NSDictionary</code> 创建分类的方法解决的，但是很多文章可能是写的匆忙，或者是复制粘贴的，不够美观和一目了然。而且创建分类的方式，对比我以前用小码哥的一个类来说，多了一个 <code>.h</code> 文件，不够精简。所以就做个笔记，留作备用。<br>　　首先新建一个 OC 的 <code>.m</code> 文件，不知道怎么新建也可以直接，创建普通的 <code>UIVIew</code> 的类，把 <code>.h</code> 删除，把 <code>.m</code> 所有除注释以外代码删除，修改成如下文所示一致就好。
+　　</p>
+<figure class="highlight objectivec"><figcaption><span>Objective-C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSDictionary</span> (<span class="title">Log</span>)</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)descriptionWithLocale:(<span class="type">id</span>)locale</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSMutableString</span> *string = [<span class="built_in">NSMutableString</span> string];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 开头有个&#123;</span></span><br><span class="line">    [string appendString:<span class="string">@&quot;&#123;\n&quot;</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 遍历所有的键值对</span></span><br><span class="line">    [<span class="keyword">self</span> enumerateKeysAndObjectsUsingBlock:^(<span class="type">id</span> key, <span class="type">id</span> obj, <span class="type">BOOL</span> *stop) &#123;</span><br><span class="line">        [string appendFormat:<span class="string">@&quot;\t%@&quot;</span>, key];</span><br><span class="line">        [string appendString:<span class="string">@&quot; : &quot;</span>];</span><br><span class="line">        [string appendFormat:<span class="string">@&quot;%@,\n&quot;</span>, obj];</span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 结尾有个&#125;</span></span><br><span class="line">    [string appendString:<span class="string">@&quot;&#125;&quot;</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 查找最后一个逗号</span></span><br><span class="line">    <span class="built_in">NSRange</span> range = [string rangeOfString:<span class="string">@&quot;,&quot;</span> options:<span class="built_in">NSBackwardsSearch</span>];</span><br><span class="line">    <span class="keyword">if</span> (range.location != <span class="built_in">NSNotFound</span>)</span><br><span class="line">    [string deleteCharactersInRange:range];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> string;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSArray</span> (<span class="title">Log</span>)</span></span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSString</span> *)descriptionWithLocale:(<span class="type">id</span>)locale</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSMutableString</span> *string = [<span class="built_in">NSMutableString</span> string];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 开头有个[</span></span><br><span class="line">    [string appendString:<span class="string">@&quot;[\n&quot;</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 遍历所有的元素</span></span><br><span class="line">    [<span class="keyword">self</span> enumerateObjectsUsingBlock:^(<span class="type">id</span> obj, <span class="built_in">NSUInteger</span> idx, <span class="type">BOOL</span> *stop) &#123;</span><br><span class="line">        [string appendFormat:<span class="string">@&quot;\t%@,\n&quot;</span>, obj];</span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 结尾有个]</span></span><br><span class="line">    [string appendString:<span class="string">@&quot;]&quot;</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 查找最后一个逗号</span></span><br><span class="line">    <span class="built_in">NSRange</span> range = [string rangeOfString:<span class="string">@&quot;,&quot;</span> options:<span class="built_in">NSBackwardsSearch</span>];</span><br><span class="line">    <span class="keyword">if</span> (range.location != <span class="built_in">NSNotFound</span>)</span><br><span class="line">    [string deleteCharactersInRange:range];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> string;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure></p></div>
+    </li>
+    <li class="popular-posts-item">
+        <div class="popular-posts-date">2017-06-23</div>
+      <div class="popular-posts-title"><a href="/hello-edison-s-world.html" rel="bookmark">Here is Kai's World</a></div>
+        <div class="popular-posts-excerpt"><p><p>  哈哈哈我终于解决了部署时出现的 cannot find module、local hexo not found in finder 等问题用<code>github</code>仓库做服务器弄好了基于<code>Node.js</code>的静态博客<code>Hexo</code>我的独立博客了不过，会不会写东西就不知道喽~~~~</p>
+
+        <div id="aplayer-zPVXpfOq" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+            <pre class="aplayer-lrc-content"></pre>
+        </div></p></div>
+    </li>
+    <li class="popular-posts-item">
+        <div class="popular-posts-date">2020-04-24</div>
+      <div class="popular-posts-title"><a href="/swift-optional-and-unwrapping-learning.html" rel="bookmark">Swift - ?和!的学习</a></div>
+        <div class="popular-posts-excerpt"><p><p>　　最近在优化一个项目的过程，过程中发现之前开发时由于刚接触 <code>Swift</code> 的原因，在 <code>Swift</code> 中的类里使用了很多 <code>OC</code> 的写法，比如字典数组对象会习惯性用 <code>NSDictionary</code>、<code>NSArray</code>来初始化，而不是用 <code>[KeyType: ValueType]()</code> 或是 <code>[SomeType]()</code> 这种类型来实例化变量。虽然在使用上没有什么问题，但看起来多少有点。。。不优雅。<br>　　当我把大部分类型都修改成 <code>Swift</code> 中的写法后（部分未修改是因为使用 <code>String</code> 类型来给文本做截取和富文本定义，实在不如 <code>NSString</code> 顺手，这种不顺手让我不由想起 Stack Overflow 上看到的一个评论：I thougt i already getting along well  with Swift.）发现，原来一些变量是否为空的判断中，使用 <code>Swift</code> 里的 <code>optional</code> 类型会方便很多。<br>　　比如解析一个 json 数据，如果层级多而且里面每个元素都是不确定的，那么可能就需要每个层级都判一次空。而如果使用 ? 来设置当前对象为可选值，只需要在最后一层实际使用到对象值时，判一次空就 OK 了。<br>　　对于 ? 和 ! 的区别和总结，网上有很多文章，在这里就不重复造轮子了。下面就对这个 <code>optional</code> 的自己两个疑问做个记录。
+　　</p>
+<h2 id="和-！-是表示两种不同的类型吗，一种是可以为空，一种不可以为空？"><a href="#和-！-是表示两种不同的类型吗，一种是可以为空，一种不可以为空？" class="headerlink" title="? 和 ！ 是表示两种不同的类型吗，一种是可以为空，一种不可以为空？"></a>? 和 ！ 是表示两种不同的类型吗，一种是可以为空，一种不可以为空？</h2></p></div>
+    </li>
+    <li class="popular-posts-item">
+        <div class="popular-posts-date">2017-07-28</div>
+      <div class="popular-posts-title"><a href="/ios-develop-tips-1.html" rel="bookmark">iOS开发里的那些散手（一）</a></div>
+        <div class="popular-posts-excerpt"><p><h2 id="解决低版本Xcode不支持高版本iOS真机调试问题"><a href="#解决低版本Xcode不支持高版本iOS真机调试问题" class="headerlink" title="解决低版本Xcode不支持高版本iOS真机调试问题"></a>解决低版本Xcode不支持高版本iOS真机调试问题</h2><p>在真机运行程序后输出如下错误</p></p></div>
+    </li>
+    <li class="popular-posts-item">
+        <div class="popular-posts-date">2020-11-21</div>
+      <div class="popular-posts-title"><a href="/its-time-to-build-an-open-source-library.html" rel="bookmark">是时候维护一个属于自己的开源库了</a></div>
+        <div class="popular-posts-excerpt"><p><p>使用 GitHub 很久，除了无脑 star、fork 大神们的仓库、输出一些学习代码以外，对于 GitHub 本身的贡献似乎寥寥。<a target="_blank" rel="noopener" href="https://archiveprogram.github.com/arctic-vault/"><strong>Arctic Code Vault Contributor</strong></a> 的勋章我受之有愧。如果你也有和我类似的想法，那么，是时候可以尝试一下维护一个自己的开源库了。</p>
+<p>维护一个开源库，听起来很简单，但是真正要开始动手，似乎颇有些千头万绪，无从下手。那让我们来捋一捋，首先我们碰到的第一个问题可能是：我们可以去维护一个怎样的开源库？</p></p></div>
+    </li>
+  </ul>
 
 
     <footer class="post-footer">
@@ -455,7 +494,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:25</span>
+    <span title="站点阅读时长">3:24</span>
   </span>
 </div>
 <div class="busuanzi-count">

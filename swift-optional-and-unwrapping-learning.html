@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-bounce.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.kaaaaai.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
@@ -58,6 +58,7 @@
 
 
 <link rel="dns-prefetch" href="https://waline-server-kaaaaai.vercel.app"> <script type="text/javascript" src="/js/link-highlight.js"></script>
+
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -223,7 +224,6 @@
     </header>
 
     
-  <div class="reading-progress-bar"></div>
 
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
@@ -361,6 +361,43 @@
     
     
       
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+        <div class="popular-posts-date">2020-09-06</div>
+      <div class="popular-posts-title"><a href="/ios-hmac-encryption-and-an-md5-problem.html" rel="bookmark">iOS - HMAC 加密算法和一个 MD5 加密的问题</a></div>
+        <div class="popular-posts-excerpt"><p><h2 id="最近阅读"><a href="#最近阅读" class="headerlink" title="最近阅读"></a>最近阅读</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://swift.gg/2016/06/17/when-to-use-mutating-functions-in-swift-structs/">Swift 结构体何时使用 mutating 函数</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.im/post/6862898534857834510">2020 年疫情之下 iOS 面试题总结篇</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/tianhai110/article/details/6339565">UML类图几种关系的总结</a></li>
+</ul></p></div>
+    </li>
+    <li class="popular-posts-item">
+        <div class="popular-posts-date">2020-05-30</div>
+      <div class="popular-posts-title"><a href="/web-resolve-recirculation-errors.html" rel="bookmark">解决使用 GitPage 重定向多次问题</a></div>
+        <div class="popular-posts-excerpt"><p><h2 id="问题表现"><a href="#问题表现" class="headerlink" title="问题表现"></a>问题表现</h2><p>博客网站更换了 DNS 解析的服务商，访问出现以下问题。<br><img data-src="/images/loading-style-3.gif" data-original="https://s2.loli.net/2022/04/02/QRqexU16yVaWFuY.jpg" alt="03oBxi-20200530"></p></p></div>
+    </li>
+    <li class="popular-posts-item">
+        <div class="popular-posts-date">2020-09-12</div>
+      <div class="popular-posts-title"><a href="/swift-permission-request-tools.html" rel="bookmark">Swift - 权限请求封装</a></div>
+        <div class="popular-posts-excerpt"><p><p>注意到工程里面关于权限请求这块的逻辑没有很好地管理起来，一些是用 OC 的工具类，一些是用 Swift 代码在一些 <code>ViewController</code> 里面单独调用，不能复用，就想封装一个 Swift 版关于权限请求的工具类，虽然这个需求在 GitHub 上搜索也有很多现成的轮子，但使用起来感觉太重，而且有些久不维护，Swift 版本更新的又快，有些接口就不好使了，索性就自己封装一个。</p>
+<p>一开始的思路也是想通过枚举来创建不同权限字段，通过静态方法来实现请求，但是蓝牙权限和定位权限需要实例化对象，设置代理。当使用 <code>static</code> 关键字来创建蓝牙和定位对象，当应用内有其他的业务也要使用蓝牙和定位对象时，代理响应就会有点问题。后面索性就用单例方法创建一个整体的权限管理对象，然后创建类方法，在类方法中自己调用自己。</p></p></div>
+    </li>
+    <li class="popular-posts-item">
+        <div class="popular-posts-date">2019-10-31</div>
+      <div class="popular-posts-title"><a href="/ios-naming-rules-and-annotation-specifications.html" rel="bookmark">iOS - 类、属性、方法、枚举等命名规则和注释规范</a></div>
+        <div class="popular-posts-excerpt"><p><p>iOS开发者规范:以苹果开发者中心规范(<a target="_blank" rel="noopener" href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingBasics.html#//apple_ref/doc/uid/20001281-BBCHBFAH">Coding Guidelines for Cocoa</a>)为标准，添加部分规范。</p>
+<blockquote>
+<p>iOS 命名两大原则是:可读性高和防止命名冲突(通过加前缀来保证). Objective-C 的命名通常都比较长, 名称遵循<strong>驼峰式命名法</strong>. 一个好的命名标准很简单, 就是做到在开发者一看到名字时, 就能够懂得它的含义和使用方法. 另外, 每个模块都要加上自己的前缀, 前缀在编程接口中非常重要, 可以区分软件的功能范畴并防止不同文件或者类之间命名发生冲突, 比如相册模块(PhotoGallery)的代码都以 PG 作为前缀: PGAlbumViewController, PGDataManager.</p>
+</blockquote></p></div>
+    </li>
+    <li class="popular-posts-item">
+        <div class="popular-posts-date">2019-01-16</div>
+      <div class="popular-posts-title"><a href="/swift-style-guide.html" rel="bookmark">iOS - Swift 开发规范</a></div>
+        <div class="popular-posts-excerpt"><p><p><em><strong>规范文档翻译自 <a target="_blank" rel="noopener" href="https://github.com/raywenderlich/swift-style-guide">raywenderlich.com 的编码规范</a></strong></em></p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2></p></div>
+    </li>
+  </ul>
 
 
     <footer class="post-footer">
@@ -451,7 +488,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:25</span>
+    <span title="站点阅读时长">3:24</span>
   </span>
 </div>
 <div class="busuanzi-count">

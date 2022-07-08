@@ -18,10 +18,10 @@
   --btn-default-hover-bg: #222;
   --btn-default-hover-color: #fff;
   --btn-default-hover-border-color: #222;
-  --highlight-background: #f3f3f3;
-  --highlight-foreground: #444;
-  --highlight-gutter-background: #e1e1e1;
-  --highlight-gutter-foreground: #555;
+  --highlight-background: #333;
+  --highlight-foreground: #fff;
+  --highlight-gutter-background: #474747;
+  --highlight-gutter-foreground: #eaeaea;
   color-scheme: light;
 }
 html {
@@ -362,15 +362,26 @@ td {
   top: -5px;
   transform: rotate(-45deg);
 }
-/*!
-  Theme: Default
-  Description: Original highlight.js style
-  Author: (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
-  Maintainer: @highlightjs/core-team
-  Website: https://highlightjs.org/
-  License: see project LICENSE
-  Touched: 2021
-*/pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{background:#f3f3f3;color:#444}.hljs-comment{color:#697070}.hljs-punctuation,.hljs-tag{color:#444a}.hljs-tag .hljs-attr,.hljs-tag .hljs-name{color:#444}.hljs-attribute,.hljs-doctag,.hljs-keyword,.hljs-meta .hljs-keyword,.hljs-name,.hljs-selector-tag{font-weight:700}.hljs-deletion,.hljs-number,.hljs-quote,.hljs-selector-class,.hljs-selector-id,.hljs-string,.hljs-template-tag,.hljs-type{color:#800}.hljs-section,.hljs-title{color:#800;font-weight:700}.hljs-link,.hljs-operator,.hljs-regexp,.hljs-selector-attr,.hljs-selector-pseudo,.hljs-symbol,.hljs-template-variable,.hljs-variable{color:#ab5656}.hljs-literal{color:#695}.hljs-addition,.hljs-built_in,.hljs-bullet,.hljs-code{color:#397300}.hljs-meta{color:#1f7199}.hljs-meta .hljs-string{color:#38a}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}
+pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}/*!
+   Theme: Agate
+   Author: (c) Taufik Nurrohman <hi@taufik-nurrohman.com>
+   Maintainer: @taufik-nurrohman
+   Updated: 2021-04-24
+
+   #333
+   #62c8f3
+   #7bd694
+   #888
+   #a2fca2
+   #ade5fc
+   #b8d8a2
+   #c6b4f0
+   #d36363
+   #fc9b9b
+   #fcc28c
+   #ffa
+   #fff
+*/.hljs{background:#333;color:#fff}.hljs-doctag,.hljs-meta-keyword,.hljs-name,.hljs-strong{font-weight:700}.hljs-code,.hljs-emphasis{font-style:italic}.hljs-section,.hljs-tag{color:#62c8f3}.hljs-selector-class,.hljs-selector-id,.hljs-template-variable,.hljs-variable{color:#ade5fc}.hljs-meta-string,.hljs-string{color:#a2fca2}.hljs-attr,.hljs-quote,.hljs-selector-attr{color:#7bd694}.hljs-tag .hljs-attr{color:inherit}.hljs-attribute,.hljs-title,.hljs-type{color:#ffa}.hljs-number,.hljs-symbol{color:#d36363}.hljs-bullet,.hljs-template-tag{color:#b8d8a2}.hljs-built_in,.hljs-keyword,.hljs-literal,.hljs-selector-tag{color:#fcc28c}.hljs-code,.hljs-comment,.hljs-formula{color:#888}.hljs-link,.hljs-regexp,.hljs-selector-pseudo{color:#c6b4f0}.hljs-meta{color:#fc9b9b}.hljs-deletion{background:#fc9b9b;color:#333}.hljs-addition{background:#a2fca2;color:#333}.hljs-subst{color:#fff}.hljs a{color:inherit}.hljs a:focus,.hljs a:hover{color:inherit;text-decoration:underline}.hljs mark{background:#555;color:inherit}
 .highlight:hover .copy-btn,
 pre:hover .copy-btn {
   opacity: 1;
@@ -1161,12 +1172,12 @@ header.header {
 }
 @media (min-width: 1200px) {
   .header-inner {
-    width: 1160px;
+    width: 60em;
   }
 }
 @media (min-width: 1600px) {
   .header-inner {
-    width: 73%;
+    width: 60%;
   }
 }
 .site-brand-container {
@@ -1608,12 +1619,12 @@ header.header {
 }
 @media (min-width: 1200px) {
   .footer-inner {
-    width: 1160px;
+    width: 60em;
   }
 }
 @media (min-width: 1600px) {
   .footer-inner {
-    width: 73%;
+    width: 60%;
   }
 }
 .use-motion .footer {
@@ -1727,16 +1738,6 @@ header.header {
 }
 .back-to-top.back-to-top-on:hover {
   opacity: 0.8;
-}
-.reading-progress-bar {
-  --progress: 0;
-  background: #cfd9df;
-  height: 3px;
-  position: fixed;
-  z-index: 50;
-  width: var(--progress);
-  left: 0;
-  top: 0;
 }
 .rtl.post-body p,
 .rtl.post-body a,
@@ -2627,12 +2628,12 @@ mark.search-keyword {
 }
 @media (min-width: 1200px) {
   .main {
-    width: 1160px;
+    width: 60em;
   }
 }
 @media (min-width: 1600px) {
   .main {
-    width: 73%;
+    width: 60%;
   }
 }
 @media (max-width: 991px) {
@@ -2922,20 +2923,35 @@ mark.search-keyword {
     padding: 10px 12px;
   }
 }
+/*取出顶部黑色分割线*/
 .headband {
   height: 3px;
   opacity: 0;
   margin-top: 10px;
 }
+.posts-expand .post-header {
+  font-size: 1.125em;
+  margin-bottom: 30px;
+  text-align: center;
+}
 /*添加背景图片*/
 body {
 /*https://s2.loli.net/2022/07/07/Tn26Kxe4vzVWpFD.png*/
 /*https://s2.loli.net/2022/07/07/TdCYRhj9oQBIVW5.jpg*/
-  background: url("https://s2.loli.net/2022/07/07/TdCYRhj9oQBIVW5.jpg");
+/*https://s2.loli.net/2022/07/08/oNgsPfZY1x8dKQ9.png*/
+  background: url("https://w.wallhaven.cc/full/g8/wallhaven-g8gmde.png");
 /*background-size: cover;*/
   background-repeat: no-repeat;
   background-attachment: fixed;
 /*background-position: 50% 50%;*/
+}
+/* sidebar-标题背景 */
+.site-brand-container {
+  background: url("https://s2.loli.net/2022/04/27/wie1BDr4kExIcAH.gif");
+  background-position: 70% 20%;
+  background-size: cover;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
 }
 /* 自定义的引用样式 */
 blockquote {
@@ -2947,24 +2963,7 @@ blockquote {
   border-radius: 4px;
   box-shadow: 0 0 2px 3px #d6dee5;
 }
-/* 选中链接带阴影 */
-/*.post-body a[target][rel][href]:hover {
-  background: #656565;
-  color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 0 5px #656565, 0 0 25px #656565, 0 0 50px #656565,
-    0 0 100px #656565;
-  padding-left: 5px;
-}
-
-.post-body a[target][rel][href]:hover:after  {
-  background: #656565;
-  color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 0 5px #656565, 0 0 25px #656565, 0 0 50px #656565,
-    0 0 100px #656565;
-  padding-right: 5px;
-}*/
+/*链接带图标*/
 .post-body a[target][rel][href]:after {
   content: "\f08e";
   font: normal normal normal 10px/1 FontAwesome;
@@ -2974,6 +2973,25 @@ blockquote {
   margin-right: 5px;
   display: inline-block;
 }
+/* 选中链接带阴影 */
+/*.post-body a[target][rel][href]:hover {
+  background: #656565;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #656565, 0 0 5px #656565, 0 0 5px #656565,
+    0 0 10px #656565;
+  padding-left: 5px;
+}
+
+
+.post-body a[target][rel][href]:hover:after  {
+  background: #656565;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #656565, 0 0 25px #656565, 0 0 50px #656565,
+    0 0 100px #656565;
+  padding-right: 5px;
+}*/
 /* 滚动条 */
 ::-webkit-scrollbar {
   width: 8px;
@@ -2994,12 +3012,6 @@ blockquote {
 ::-moz-selection {
   color: #fff;
   background-color: #555;
-}
-/* sidebar-标题背景 */
-.site-brand-container {
-  background: url("https://s2.loli.net/2022/04/27/wie1BDr4kExIcAH.gif");
-  background-position: 70% 20%;
-  background-size: cover;
 }
 /* 图片显示 */
 .main img {
@@ -3063,8 +3075,8 @@ blockquote {
 }
 /*修改文章内code样式*/
 code {
-  color: #c7254e;
-  background: #f9f2f4;
+  color: #f47466;
+  background: rgba(27,31,35,0.05);
   border: 1px solid #d6d6d6;
 }
 /*[Read More]按钮样式: 黑底绿字*/
@@ -3098,6 +3110,8 @@ code {
   color: var(--f);
   overflow: hidden;
   display: block;
+  border-left-width: 0px;
+  border-radius: 8px;
 }
 .post-copyright ul:after {
   position: absolute;
@@ -3108,6 +3122,10 @@ code {
   right: -40px;
   top: -45px;
   opacity: 0.1;
+}
+.post-copyright ul:hover {
+  -webkit-box-shadow: 0 0 8px 0 rgba(232,237,250,0.6), 0 2px 4px 0 rgba(232,237,250,0.5);
+  box-shadow: 0 0 8px 0 rgba(232,237,250,0.6), 0 2px 4px 0 rgba(232,237,250,0.5);
 }
 /* bb样式 */
 div.timenode {
