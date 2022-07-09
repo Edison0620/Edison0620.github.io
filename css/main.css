@@ -2930,17 +2930,23 @@ mark.search-keyword {
   margin-top: 10px;
 }
 .posts-expand .post-header {
-  font-size: 1.125em;
-  margin-bottom: 30px;
-  text-align: center;
+/*font-size: 1.125em;*/
+  margin-bottom: 20px;
+/*text-align: center;*/
 }
+/*.post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+}*/
 /*添加背景图片*/
 body {
 /*https://s2.loli.net/2022/07/07/Tn26Kxe4vzVWpFD.png*/
 /*https://s2.loli.net/2022/07/07/TdCYRhj9oQBIVW5.jpg*/
 /*https://s2.loli.net/2022/07/08/oNgsPfZY1x8dKQ9.png*/
-  background: url("https://w.wallhaven.cc/full/g8/wallhaven-g8gmde.png");
-/*background-size: cover;*/
+/*https://w.wallhaven.cc/full/g8/wallhaven-g8gmde.png*/
+  background: url("https://s2.loli.net/2022/07/07/TdCYRhj9oQBIVW5.jpg");
+  background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
 /*background-position: 50% 50%;*/
