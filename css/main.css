@@ -1172,12 +1172,12 @@ header.header {
 }
 @media (min-width: 1200px) {
   .header-inner {
-    width: 60em;
+    width: 75em;
   }
 }
 @media (min-width: 1600px) {
   .header-inner {
-    width: 60%;
+    width: 75%;
   }
 }
 .site-brand-container {
@@ -1619,12 +1619,12 @@ header.header {
 }
 @media (min-width: 1200px) {
   .footer-inner {
-    width: 60em;
+    width: 75em;
   }
 }
 @media (min-width: 1600px) {
   .footer-inner {
-    width: 60%;
+    width: 75%;
   }
 }
 .use-motion .footer {
@@ -2628,12 +2628,12 @@ mark.search-keyword {
 }
 @media (min-width: 1200px) {
   .main {
-    width: 60em;
+    width: 75em;
   }
 }
 @media (min-width: 1600px) {
   .main {
-    width: 60%;
+    width: 75%;
   }
 }
 @media (max-width: 991px) {
