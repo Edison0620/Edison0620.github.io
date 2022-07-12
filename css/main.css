@@ -1177,7 +1177,7 @@ header.header {
 }
 @media (min-width: 1600px) {
   .header-inner {
-    width: 75%;
+    width: 65%;
   }
 }
 .site-brand-container {
@@ -1624,7 +1624,7 @@ header.header {
 }
 @media (min-width: 1600px) {
   .footer-inner {
-    width: 75%;
+    width: 65%;
   }
 }
 .use-motion .footer {
@@ -2633,7 +2633,7 @@ mark.search-keyword {
 }
 @media (min-width: 1600px) {
   .main {
-    width: 75%;
+    width: 65%;
   }
 }
 @media (max-width: 991px) {
