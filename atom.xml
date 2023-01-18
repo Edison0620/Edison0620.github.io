@@ -6,7 +6,7 @@
   <link href="https://www.kaaaaai.cn/atom.xml" rel="self"/>
   
   <link href="https://www.kaaaaai.cn/"/>
-  <updated>2021-02-22T08:25:58.000Z</updated>
+  <updated>2023-01-18T06:05:21.141Z</updated>
   <id>https://www.kaaaaai.cn/</id>
   
   <author>
@@ -17,6 +17,30 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>2023 年终总结丨惠存这一年</title>
+    <link href="https://www.kaaaaai.cn/2023-year-end-review.html"/>
+    <id>https://www.kaaaaai.cn/2023-year-end-review.html</id>
+    <published>2023-01-16T05:24:52.000Z</published>
+    <updated>2023-01-18T06:05:21.141Z</updated>
+    
+    
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;去年没写年终总结，今年发生了很多事，觉得应该抽点时间，回顾记录，以重新出发。&lt;/p&gt;
+&lt;p&gt;仍旧是过的很快的一年，好像工作后的每一年都过得很快，书上说人之所以觉得成年后的日子过得快，是因为对很多事没有新鲜感了，没接触新的东西，没有记忆点，日复一日，所以很快。我觉得，对了一半。另一半也许因为年岁渐长，人们喜欢追忆，过去的时间也许也并没有比现在过得更慢，只是过去的日子被人们的反复咀嚼，每一天的长度都被放到无止境大，所以看起来就好像过去的日子变得更有份量。长者逝世的那几天尤其印象深刻，互联网上很多人在回忆长者的年代，我想他们又何尝不是回忆那个热情洋溢年代的自己。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="涂鸦" scheme="https://www.kaaaaai.cn/categories/%E6%B6%82%E9%B8%A6/"/>
+    
+    
+    <category term="扯淡" scheme="https://www.kaaaaai.cn/tags/%E6%89%AF%E6%B7%A1/"/>
+    
+    <category term="随笔" scheme="https://www.kaaaaai.cn/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+    <category term="年终总结" scheme="https://www.kaaaaai.cn/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"/>
+    
+  </entry>
+  
+  <entry>
     <title>翻译：Why use dependency injection</title>
     <link href="https://www.kaaaaai.cn/translation-why-use-dependency-injection.html"/>
     <id>https://www.kaaaaai.cn/translation-why-use-dependency-injection.html</id>
@@ -25,7 +49,7 @@
     
     
     <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;原文来自：&lt;a href=&quot;https://github.com/uber/needle/blob/master/WHY_DI.md&quot;&gt;Why use dependency injection&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;第一次翻译，如有问题还请留言指出。&lt;br&gt;E-mail：&lt;a href=&quot;mailto:&amp;#x72;&amp;#111;&amp;#x6f;&amp;#x74;&amp;#x40;&amp;#x6b;&amp;#x61;&amp;#97;&amp;#97;&amp;#97;&amp;#x61;&amp;#x69;&amp;#x2e;&amp;#x63;&amp;#x6e;&quot;&gt;&amp;#x72;&amp;#111;&amp;#x6f;&amp;#x74;&amp;#x40;&amp;#x6b;&amp;#x61;&amp;#97;&amp;#97;&amp;#97;&amp;#x61;&amp;#x69;&amp;#x2e;&amp;#x63;&amp;#x6e;&lt;/a&gt;&lt;/p&gt;</summary>
+&lt;p&gt;第一次翻译，如有问题还请留言指出。&lt;br&gt;E-mail：&lt;a href=&quot;mailto:&amp;#114;&amp;#x6f;&amp;#x6f;&amp;#116;&amp;#64;&amp;#107;&amp;#97;&amp;#97;&amp;#97;&amp;#97;&amp;#97;&amp;#105;&amp;#46;&amp;#x63;&amp;#110;&quot;&gt;&amp;#114;&amp;#x6f;&amp;#x6f;&amp;#116;&amp;#64;&amp;#107;&amp;#97;&amp;#97;&amp;#97;&amp;#97;&amp;#97;&amp;#105;&amp;#46;&amp;#x63;&amp;#110;&lt;/a&gt;&lt;/p&gt;</summary>
     
     
     
@@ -313,7 +337,7 @@
     <link href="https://www.kaaaaai.cn/about-my-notion-workflow.html"/>
     <id>https://www.kaaaaai.cn/about-my-notion-workflow.html</id>
     <published>2020-06-07T05:24:52.000Z</published>
-    <updated>2022-07-04T10:16:32.206Z</updated>
+    <updated>2022-04-26T01:51:43.000Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;img data-src=&quot;https://i.loli.net/2020/06/07/cSgrjKnkbB41AxI.jpg&quot; alt=&quot;cSgrjKnkbB41AxI&quot;&gt;&lt;/p&gt;</summary>
@@ -361,7 +385,7 @@
     <link href="https://www.kaaaaai.cn/swift-optional-and-unwrapping-learning.html"/>
     <id>https://www.kaaaaai.cn/swift-optional-and-unwrapping-learning.html</id>
     <published>2020-04-24T09:24:52.000Z</published>
-    <updated>2022-04-29T01:56:54.092Z</updated>
+    <updated>2020-11-21T02:09:49.000Z</updated>
     
     
     <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;　　最近在优化一个项目的过程，过程中发现之前开发时由于刚接触 &lt;code&gt;Swift&lt;/code&gt; 的原因，在 &lt;code&gt;Swift&lt;/code&gt; 中的类里使用了很多 &lt;code&gt;OC&lt;/code&gt; 的写法，比如字典数组对象会习惯性用 &lt;code&gt;NSDictionary&lt;/code&gt;、&lt;code&gt;NSArray&lt;/code&gt;来初始化，而不是用 &lt;code&gt;[KeyType: ValueType]()&lt;/code&gt; 或是 &lt;code&gt;[SomeType]()&lt;/code&gt; 这种类型来实例化变量。虽然在使用上没有什么问题，但看起来多少有点。。。不优雅。&lt;br&gt;　　当我把大部分类型都修改成 &lt;code&gt;Swift&lt;/code&gt; 中的写法后（部分未修改是因为使用 &lt;code&gt;String&lt;/code&gt; 类型来给文本做截取和富文本定义，实在不如 &lt;code&gt;NSString&lt;/code&gt; 顺手，这种不顺手让我不由想起 Stack Overflow 上看到的一个评论：I thougt i already getting along well  with Swift.）发现，原来一些变量是否为空的判断中，使用 &lt;code&gt;Swift&lt;/code&gt; 里的 &lt;code&gt;optional&lt;/code&gt; 类型会方便很多。&lt;br&gt;　　比如解析一个 json 数据，如果层级多而且里面每个元素都是不确定的，那么可能就需要每个层级都判一次空。而如果使用 ? 来设置当前对象为可选值，只需要在最后一层实际使用到对象值时，判一次空就 OK 了。&lt;br&gt;　　对于 ? 和 ! 的区别和总结，网上有很多文章，在这里就不重复造轮子了。下面就对这个 &lt;code&gt;optional&lt;/code&gt; 的自己两个疑问做个记录。
@@ -386,7 +410,7 @@
     <link href="https://www.kaaaaai.cn/literary-memoirs-reading-notes.html"/>
     <id>https://www.kaaaaai.cn/literary-memoirs-reading-notes.html</id>
     <published>2020-04-18T05:00:52.000Z</published>
-    <updated>2022-07-03T02:03:28.374Z</updated>
+    <updated>2020-11-05T02:21:02.000Z</updated>
     
     
     <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;h2 id=&quot;《文学回忆录》&quot;&gt;&lt;a href=&quot;#《文学回忆录》&quot; class=&quot;headerlink&quot; title=&quot;《文学回忆录》&quot;&gt;&lt;/a&gt;《文学回忆录》&lt;/h2&gt;&lt;div align=&quot;right&quot;&gt; [木心](https://book.douban.com/subject/20440644/) &lt;/div&gt;</summary>
@@ -430,7 +454,7 @@
     <link href="https://www.kaaaaai.cn/god-will-rolls-the-dice-several-times.html"/>
     <id>https://www.kaaaaai.cn/god-will-rolls-the-dice-several-times.html</id>
     <published>2020-04-04T02:13:52.000Z</published>
-    <updated>2022-04-26T01:54:00.685Z</updated>
+    <updated>2022-04-26T01:52:33.000Z</updated>
     
     
     <summary type="html">&lt;p&gt;　　看了一本图说量子物理学史的书，《上帝的骰子》，书名来自于爱因斯坦的一句话：上帝不会掷骰子。去年也有一本书很火叫《量子物理史話：上帝掷骰子嗎？》，不说大家为什么都一窝蜂的抓着骰子不放，从这些现象我们可以看出，量子的不确定性的迷人魅力让许多人趋之如骛。&lt;br&gt;</summary>
@@ -465,31 +489,6 @@
     <category term="时间管理" scheme="https://www.kaaaaai.cn/tags/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/"/>
     
     <category term="产品思考" scheme="https://www.kaaaaai.cn/tags/%E4%BA%A7%E5%93%81%E6%80%9D%E8%80%83/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Git - Submodule 使用简单教程</title>
-    <link href="https://www.kaaaaai.cn/git-submodule.html"/>
-    <id>https://www.kaaaaai.cn/git-submodule.html</id>
-    <published>2020-03-14T03:24:52.000Z</published>
-    <updated>2020-11-22T01:38:52.000Z</updated>
-    
-    
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;　　最近在项目中使用了 &lt;code&gt;Git Submodule&lt;/code&gt; 的功能，好处是如果是自己开发的封装库，比较方便调试，push 时可以同时上传项目和库的修改，别人通过主仓库地址下载工程的时候速度也会快上一些。&lt;br&gt;　　&lt;code&gt;Git Submodule&lt;/code&gt; 的使用可以通过终端命令来操作（&lt;a href=&quot;https://tnie.github.io/2018/04/02/git_submodule/&quot;&gt;Git Submoudle 使用完整教程&lt;/a&gt;），或者通过 &lt;code&gt;Git&lt;/code&gt; 第三方可视化客户端直接操作。本文展示的是通过 &lt;code&gt;Git&lt;/code&gt; 第三方客户端 Sourcetree 来实现这个功能的。
-　　&lt;/p&gt;
-&lt;h2 id=&quot;一、通过-Sourcetree-使用-Git-Submodule&quot;&gt;&lt;a href=&quot;#一、通过-Sourcetree-使用-Git-Submodule&quot; class=&quot;headerlink&quot; title=&quot;一、通过 Sourcetree 使用 Git Submodule&quot;&gt;&lt;/a&gt;一、通过 Sourcetree 使用 Git Submodule&lt;/h2&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="EXP" scheme="https://www.kaaaaai.cn/tags/EXP/"/>
-    
-    <category term="Git" scheme="https://www.kaaaaai.cn/tags/Git/"/>
-    
-    <category term="Sourcetree" scheme="https://www.kaaaaai.cn/tags/Sourcetree/"/>
     
   </entry>
   
