@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
@@ -340,17 +340,6 @@
     
     
     
-      
-  <div class="popular-posts-header">相关文章</div>
-  <ul class="popular-posts">
-    <li class="popular-posts-item">
-        <div class="popular-posts-date">2019-06-22</div>
-      <div class="popular-posts-title"><a href="/weekly-summary-190622.html" rel="bookmark">每周总结 - 0622</a></div>
-        <div class="popular-posts-excerpt"><p><p>　　上周博客落了一篇，说起来其实上周还没有本周忙，上周主要是测试兄弟公司开发的语音库，和针对新项目给出一个开发周期的预估，虽然一周都不是很忙，但是最后一天因为很久之前的老项目出了问题，需要维护，所以就没有抽出时间来写博客了。<br>　　本周主要在弄一个儿童绘本读物的 App，因为主要的几个页面，需求里都是用现成的内容 <code>SDK</code> 和 <code>h5</code> 实现，所以我的工作还是比较轻松的，因为这个原因也让我有空对自己的知识进行一个归纳整理，包括对一些模棱两可的知识点的提炼。<br>　　比如在新项目里的内容 <code>SDK</code> 的调用，他初始化之后，可以获取到一个控制器，在我的项目中使用，我是直接封装进 <code>tabbar</code> 中，类似于这样使用：</p>
-<figure class="highlight swift"><figcaption><span>Swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> v1 <span class="operator">=</span> <span class="type">XYSDK</span>.obtainRootNavigationRootViewController() <span class="comment">//SDK 获取到的控制器</span></span><br><span class="line">v2.tabBarItem <span class="operator">=</span> <span class="type">ESTabBarItem</span>.<span class="keyword">init</span>(<span class="type">XYBasicContentView</span>(),title: <span class="string">&quot;听听&quot;</span>, image: <span class="type">UIImage</span>(named: <span class="string">&quot;icon_gang&quot;</span>), selectedImage: <span class="type">UIImage</span>(named: <span class="string">&quot;&quot;</span>)) <span class="comment">//定义 tabbarItem 显示文字和图片</span></span><br><span class="line"><span class="keyword">let</span> n1 <span class="operator">=</span> <span class="type">UINavigationController</span>.<span class="keyword">init</span>(rootViewController: v1)</span><br><span class="line"><span class="keyword">let</span> v2 <span class="operator">=</span> <span class="type">UIViewController</span>()</span><br><span class="line"><span class="keyword">let</span> n2 <span class="operator">=</span> <span class="type">UINavigationController</span>.<span class="keyword">init</span>(rootViewController: v2)</span><br><span class="line"><span class="operator">.....</span></span><br><span class="line"><span class="keyword">let</span> n5 <span class="operator">=</span> <span class="type">UINavigationController</span>.<span class="keyword">init</span>(rootViewController: v4)</span><br><span class="line">tabBarController.viewControllers <span class="operator">=</span> [n1, n2, n3, n4]</span><br></pre></td></tr></table></figure></p></div>
-    </li>
-  </ul>
-
 
     <footer class="post-footer">
           <div class="reward-container">
@@ -543,5 +532,5 @@ document.addEventListener('page:loaded', () => {
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var a=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,d=o();function o(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(t){(a||t)&&(d=o());for(var e,i=0;i<d.length;i++)0<=(e=(e=d[i]).getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,a,n,o=d[i];e=function(){d=d.filter(function(t){return o!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(o)},(t=o).dataset.loaded||(t.hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,n=t.getAttribute("data-original"),a.onload=function(){t.src=n,t.removeAttribute("data-original"),t.setAttribute("data-loaded",!0),e&&e()},a.onerror=function(){t.removeAttribute("data-original"),t.setAttribute("data-loaded",!1),t.src=n},t.src!==n&&(a.src=n)))}()}function e(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",e),r.addEventListener("resize",e),r.addEventListener("orientationchange",e)}(this);</script></body>
 </html>

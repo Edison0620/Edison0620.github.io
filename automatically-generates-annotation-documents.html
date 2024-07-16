@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
@@ -344,7 +344,7 @@
 <p><strong>headerdoc</strong><br>headerdoc 是 xcode 自带的文档生成工具。在安装完 xcode 后，就可以用命令行：headdoc2html + 源文件名 来生成对应的文档。我个人试用了一下，还是比较方便的，不过headerdoc的注释生成规则比较特别，只生成以 &#x2F;*! *&#x2F; 的格式的注释。还有一个缺点是每个类文件对应一个注释文件，没有汇总的文件，这点感觉有点不爽。</p>
 <p><strong>appledoc</strong><br>appledoc 是在 stackoverflow 上被大家推荐的一个注释工具。比起以上两个工具，他的优点有：<br>它默认生成的文档风格和苹果的官方文档是一致的，而 doxygen 需要另外配置。<br>appledoc 就是用 objective-c 生成的，必要的时候调试和改动也比较方便。<br>可以生成 docset，并且集成到 xcode 中。这一点是很赞的，相当于在源码中按住 option 再单击就可以调出相应方法的帮助。<br>appledoc 源码在 github 上，而 doxygen 在 svn 上。我个人比较偏激地认为比较活跃的开源项目都应该在 github 上。<br>相对于 headerdoc，它没有特殊的注释要求，可以用&#x2F;** <em>&#x2F; 的格式，也可以兼容&#x2F;</em>! *&#x2F;的格式的注释，并且生成的注释有汇总页面。</p>
 <h2 id="appledoc-的安装"><a href="#appledoc-的安装" class="headerlink" title="appledoc 的安装"></a>appledoc 的安装</h2><p>那么简单介绍一下如何安装 appledoc，安装非常简单，只需要 2 步：</p>
-<figure class="highlight bash"><figcaption><span>Terminal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git://github.com/tomaz/appledoc.git</span><br><span class="line"><span class="built_in">cd</span> appledoc</span><br><span class="line">sudo sh install-appledoc.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>Terminal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git://github.com/tomaz/appledoc.git</span><br><span class="line"><span class="built_in">cd</span> appledoc</span><br><span class="line"><span class="built_in">sudo</span> sh install-appledoc.sh</span><br></pre></td></tr></table></figure>
 <p>当出现 INSTALL SUCCEEDED 时说明成功了，你也可以用 appledoc –version 查看验证下。如果可以正常执行下面指令则证明安装成功，否则需要查看报错说明。</p>
 <figure class="highlight bash"><figcaption><span>Terminal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看版本号</span></span><br><span class="line">$ appledoc --version</span><br><span class="line"><span class="comment"># 查看更多文档信息</span></span><br><span class="line">$ appledoc --<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
 <p><img data-src="/images/loading-style-3.gif" data-original="https://s2.ax1x.com/2019/07/26/enQnXj.jpg"></p>
@@ -394,25 +394,6 @@
     
     
     
-      
-  <div class="popular-posts-header">相关文章</div>
-  <ul class="popular-posts">
-    <li class="popular-posts-item">
-        <div class="popular-posts-date">2019-07-17</div>
-      <div class="popular-posts-title"><a href="/xcode-plugin-research.html" rel="bookmark">iOS - Xcode Plugin 调研和使用</a></div>
-        <div class="popular-posts-excerpt"><p><p>　　Xcode 升级到 8.x 以上版本后为了提升安全性, 防止 <code>XcodeGhost</code> 事件的发生, 添加了代码签名机制, 所以以往我们那些用的很顺手的 Xcode 插件一下子统统都被打入冷宫。这种情况下，我们想要重新使用插件，我们应该怎么做呢？<br>　　首先我们要使用插件第一步是给 Xcode 重新签名, 在签名前建议备份一个纯净 Xcode 做 App 打包发布用(应用程序目录下复制一个即可)。</p>
-<h3 id="一、Xcode-重签名以使用插件"><a href="#一、Xcode-重签名以使用插件" class="headerlink" title="一、Xcode 重签名以使用插件"></a>一、Xcode 重签名以使用插件</h3></p></div>
-    </li>
-    <li class="popular-posts-item">
-        <div class="popular-posts-date">2019-05-11</div>
-      <div class="popular-posts-title"><a href="/weekly-summary-190511.html" rel="bookmark">每周总结 - 0511</a></div>
-        <div class="popular-posts-excerpt"><p><p> 　　项目最后的交接工作，我被派到了中移动总部进行封闭开发，暂时作为 iOS 方面的项目管理和推进，就之前来说，这个礼拜我负责的内容多了一些，除了我本身的代码维护以外，对外要处理项目的交接工作，对内要分配测试人员测试出的 bug，和一些缺失内容，优化内容的推进。一个礼拜下来，有一些收获。<br> 　　之前看知乎上一个问题，是有什么是当上管理层才会想的事？虽然我还没有到那个地步，但是管理项目给我的一些体验让我觉得似乎可以把握到一些管理层的想法，比如很多时候我们觉得领导只看结果不问过程有点不可理喻，但是从另一方面来看这其实只是因为需要对接的内容太多，不问过程只看结果，可以最大程度的排除其他因素的干扰。另一个是就是个人的主观动能性，这阵子做项目管理的时候，我总是会因为分配下去的任务而收到关于很多任务的疑问，比如新增一项需求的时候，开发人员会询问关于这个功能在不同场景下需要表现成怎样，在一些无法实现的地方又应该怎样规避。在管理角度看，这些当然是合理的，但提问的时机太零碎了，容易被分散注意力，另一个是有些场景虽然没有给出标准，但其实可以横向参考其他类似的功能来实现需求，这时候提问并不是必要的，所缺乏的只是一点主动去思考，或者说是虽然想到了第一步，即会产生这个问题，但可能是某种局限导致开发人员没有往下一步怎么解决这个问题，我之前也存在过类似问题。切成开发人员角度，规避这些问题，一个是整理问题，统一解决，另一个是解决问题的方法，虽然可以思考怎么解决，但是如果解决方法最终没有通过产品的审核，那之前针对问题的解决也都白费劲，所以最好的应对方法是，发现问题，可以附上一条或两条解决方案，一并提交。我想这些经验对于以后我做个人开发或者管理都会有帮助。<br> 　　这个礼拜接触到的新技术是使用 OC&#x2F;Swift 自动生成文档的轮子：</p>
-<blockquote>
-<p> 　　OC 自动生成代码文档：<a target="_blank" rel="noopener" href="https://blog.csdn.net/u011374880/article/details/82143782">appledoc</a><br> 　　swift 自动生成代码文档：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/b0d77877bafe">jazzy</a></p>
-</blockquote></p></div>
-    </li>
-  </ul>
-
 
     <footer class="post-footer">
           <div class="reward-container">
@@ -605,5 +586,5 @@ document.addEventListener('page:loaded', () => {
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var a=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,d=o();function o(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(t){(a||t)&&(d=o());for(var e,i=0;i<d.length;i++)0<=(e=(e=d[i]).getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,a,n,o=d[i];e=function(){d=d.filter(function(t){return o!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(o)},(t=o).dataset.loaded||(t.hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,n=t.getAttribute("data-original"),a.onload=function(){t.src=n,t.removeAttribute("data-original"),t.setAttribute("data-loaded",!0),e&&e()},a.onerror=function(){t.removeAttribute("data-original"),t.setAttribute("data-loaded",!1),t.src=n},t.src!==n&&(a.src=n)))}()}function e(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",e),r.addEventListener("resize",e),r.addEventListener("orientationchange",e)}(this);</script></body>
 </html>

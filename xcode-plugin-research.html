@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
@@ -342,7 +342,7 @@
         <p>　　Xcode 升级到 8.x 以上版本后为了提升安全性, 防止 <code>XcodeGhost</code> 事件的发生, 添加了代码签名机制, 所以以往我们那些用的很顺手的 Xcode 插件一下子统统都被打入冷宫。这种情况下，我们想要重新使用插件，我们应该怎么做呢？<br>　　首先我们要使用插件第一步是给 Xcode 重新签名, 在签名前建议备份一个纯净 Xcode 做 App 打包发布用(应用程序目录下复制一个即可)。</p>
 <h3 id="一、Xcode-重签名以使用插件"><a href="#一、Xcode-重签名以使用插件" class="headerlink" title="一、Xcode 重签名以使用插件"></a>一、Xcode 重签名以使用插件</h3><p>　　打开 Keychain Access 之后如图操作，选中 钥匙串访问-&gt;证书助理-&gt;创建证书:<br><img data-src="/images/loading-style-3.gif" data-original="https://s2.ax1x.com/2019/07/17/Zqz7RI.jpg"><br><img data-src="/images/loading-style-3.gif" data-original="https://s2.ax1x.com/2019/07/17/Zqz5IH.jpg"></p>
 <p>　　之后打开 终端&#x2F;Terminal，输入：</p>
-<figure class="highlight bash"><figcaption><span>Terminal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo codesigner -f -s XcodeSigner /Applications/Xcode.app</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>Terminal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">sudo</span> codesigner -f -s XcodeSigner /Applications/Xcode.app</span><br></pre></td></tr></table></figure>
 <p>　　其中 <code>codesigner</code> 是上一步创建证书的名称，随后是要重签名使用插件的 Xcode 目录。</p>
 <p>　　经过一段漫长等待后, 重启 Xcode, 选择 LoadBundle。Xcode 已经可以使用插件啦。</p>
 <h3 id="二、插件使用总结"><a href="#二、插件使用总结" class="headerlink" title="二、插件使用总结"></a>二、插件使用总结</h3><p>　　随着 Xcode 的迭代，一部分插件实现的功能已经被 集成进 Xcode 里面了，比如很有名的注释插件 VVDocumenter，和一些代码补全插件等等。另一部分由于缺少维护和 Xcode 本身的机制，而导致插件使用不太方便，造成使用插件的投入成本大大增加。之前在为了给一个马甲包增加垃圾代码，我用上一段的方法成功安装使用过插件 <code>Alcatraz</code>，作为一个插件管理工具，它内部指向的其他插件已经很多不太兼容新版的 Xcode 了，而他本身最新的更新节点也停留在两年前的状态。而在重启 Xcode 后，安装的 <code>Alcatraz</code>，也消失不见了。而在最新的 Xcode10 上用上面那个方法尝试安装代码格式化插件 —— <a target="_blank" rel="noopener" href="https://github.com/V5zhou/ZZXcodeFormat">ZZXcodeFormat</a>，虽然重启应用后，也跳出了 <code>Load Bundle</code> 的提示框，也点击确定加载，但打开 Xcode 后却没在相应的位置找到插件使用项目。不确定是不是新版 Xcode 所影响导致的。但可以看到，在官方不支持的情况下，使用插件是一个耗时又耗力的事。<br>　　而在调研的过程中，我发现了一个使用苹果官方提供的插件机制（Xcode Source Editor Extension）编写的插件——<a target="_blank" rel="noopener" href="https://github.com/SSBun/FlyCoding">FlyCoding</a>，这个插件的主要功能是，通过特殊语法来快速的生成你想要的 Swfit &#x2F; Objective-C 代码，比如这句代码：</p>
@@ -369,41 +369,6 @@
     
     
     
-      
-  <div class="popular-posts-header">相关文章</div>
-  <ul class="popular-posts">
-    <li class="popular-posts-item">
-        <div class="popular-posts-date">2019-07-26</div>
-      <div class="popular-posts-title"><a href="/automatically-generates-annotation-documents.html" rel="bookmark">iOS - Xcode 自动生成注释文档</a></div>
-        <div class="popular-posts-excerpt"><p><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>自动生成注释文档有三种方式:</p></p></div>
-    </li>
-    <li class="popular-posts-item">
-        <div class="popular-posts-date">2020-10-19</div>
-      <div class="popular-posts-title"><a href="/ios-automated-packaging-complicated-by-mail.html" rel="bookmark">iOS 自动化打包上传 AppleStore、fir.im，并发邮件通知测试人员</a></div>
-        <div class="popular-posts-excerpt"><p><p><img data-src="/images/loading-style-3.gif" data-original="https://i.loli.net/2020/10/19/XKmLbdSTGNoWYZl.png" alt="workflow"></p>
-<p>从上图可以看出使用自动化出包，可以优化掉好几个需要人工介入的步骤，优化开发流程，节省开发者的时间。</p></p></div>
-    </li>
-    <li class="popular-posts-item">
-        <div class="popular-posts-date">2019-10-31</div>
-      <div class="popular-posts-title"><a href="/ios-naming-rules-and-annotation-specifications.html" rel="bookmark">iOS - 类、属性、方法、枚举等命名规则和注释规范</a></div>
-        <div class="popular-posts-excerpt"><p><p>iOS开发者规范:以苹果开发者中心规范(<a target="_blank" rel="noopener" href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingBasics.html#//apple_ref/doc/uid/20001281-BBCHBFAH">Coding Guidelines for Cocoa</a>)为标准，添加部分规范。</p>
-<blockquote>
-<p>iOS 命名两大原则是:可读性高和防止命名冲突(通过加前缀来保证). Objective-C 的命名通常都比较长, 名称遵循<strong>驼峰式命名法</strong>. 一个好的命名标准很简单, 就是做到在开发者一看到名字时, 就能够懂得它的含义和使用方法. 另外, 每个模块都要加上自己的前缀, 前缀在编程接口中非常重要, 可以区分软件的功能范畴并防止不同文件或者类之间命名发生冲突, 比如相册模块(PhotoGallery)的代码都以 PG 作为前缀: PGAlbumViewController, PGDataManager.</p>
-</blockquote></p></div>
-    </li>
-    <li class="popular-posts-item">
-        <div class="popular-posts-date">2017-07-28</div>
-      <div class="popular-posts-title"><a href="/ios-develop-tips-1.html" rel="bookmark">iOS开发里的那些散手（一）</a></div>
-        <div class="popular-posts-excerpt"><p><h2 id="解决低版本Xcode不支持高版本iOS真机调试问题"><a href="#解决低版本Xcode不支持高版本iOS真机调试问题" class="headerlink" title="解决低版本Xcode不支持高版本iOS真机调试问题"></a>解决低版本Xcode不支持高版本iOS真机调试问题</h2><p>在真机运行程序后输出如下错误</p></p></div>
-    </li>
-    <li class="popular-posts-item">
-        <div class="popular-posts-date">2020-02-29</div>
-      <div class="popular-posts-title"><a href="/ios-preliminary-study-of-symbolic-breakpoints.html" rel="bookmark">iOS - 初探符号断点调试</a></div>
-        <div class="popular-posts-excerpt"><p><p><em>在调试一个项目中包含库工程的工程时发现，平常在代码视图左侧点击添加断点调试，忽然发现不起作用了，然后尝试使用了一些不同的方法去解决，虽然最后仍然是通过开关机，重启 Xcode 的方式解决问题的，但那些尝试也在过程中期起到了排除问题的作用，记录一下其中用到的符号断点的用法。</em></p>
-<h2 id="一、介绍"><a href="#一、介绍" class="headerlink" title="一、介绍"></a>一、介绍</h2></p></div>
-    </li>
-  </ul>
-
 
     <footer class="post-footer">
           <div class="reward-container">
@@ -596,5 +561,5 @@ document.addEventListener('page:loaded', () => {
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var a=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,d=o();function o(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(t){(a||t)&&(d=o());for(var e,i=0;i<d.length;i++)0<=(e=(e=d[i]).getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,a,n,o=d[i];e=function(){d=d.filter(function(t){return o!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(o)},(t=o).dataset.loaded||(t.hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,n=t.getAttribute("data-original"),a.onload=function(){t.src=n,t.removeAttribute("data-original"),t.setAttribute("data-loaded",!0),e&&e()},a.onerror=function(){t.removeAttribute("data-original"),t.setAttribute("data-loaded",!1),t.src=n},t.src!==n&&(a.src=n)))}()}function e(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",e),r.addEventListener("resize",e),r.addEventListener("orientationchange",e)}(this);</script></body>
 </html>

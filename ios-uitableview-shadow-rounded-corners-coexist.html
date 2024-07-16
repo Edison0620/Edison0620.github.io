@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
@@ -342,33 +342,6 @@
     
     
     
-      
-  <div class="popular-posts-header">相关文章</div>
-  <ul class="popular-posts">
-    <li class="popular-posts-item">
-        <div class="popular-posts-date">2020-09-12</div>
-      <div class="popular-posts-title"><a href="/swift-permission-request-tools.html" rel="bookmark">Swift - 权限请求封装</a></div>
-        <div class="popular-posts-excerpt"><p><p>注意到工程里面关于权限请求这块的逻辑没有很好地管理起来，一些是用 OC 的工具类，一些是用 Swift 代码在一些 <code>ViewController</code> 里面单独调用，不能复用，就想封装一个 Swift 版关于权限请求的工具类，虽然这个需求在 GitHub 上搜索也有很多现成的轮子，但使用起来感觉太重，而且有些久不维护，Swift 版本更新的又快，有些接口就不好使了，索性就自己封装一个。</p>
-<p>一开始的思路也是想通过枚举来创建不同权限字段，通过静态方法来实现请求，但是蓝牙权限和定位权限需要实例化对象，设置代理。当使用 <code>static</code> 关键字来创建蓝牙和定位对象，当应用内有其他的业务也要使用蓝牙和定位对象时，代理响应就会有点问题。后面索性就用单例方法创建一个整体的权限管理对象，然后创建类方法，在类方法中自己调用自己。</p></p></div>
-    </li>
-    <li class="popular-posts-item">
-        <div class="popular-posts-date">2020-09-06</div>
-      <div class="popular-posts-title"><a href="/ios-hmac-encryption-and-an-md5-problem.html" rel="bookmark">iOS - HMAC 加密算法和一个 MD5 加密的问题</a></div>
-        <div class="popular-posts-excerpt"><p><h2 id="最近阅读"><a href="#最近阅读" class="headerlink" title="最近阅读"></a>最近阅读</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://swift.gg/2016/06/17/when-to-use-mutating-functions-in-swift-structs/">Swift 结构体何时使用 mutating 函数</a></li>
-<li><a target="_blank" rel="noopener" href="https://juejin.im/post/6862898534857834510">2020 年疫情之下 iOS 面试题总结篇</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/tianhai110/article/details/6339565">UML类图几种关系的总结</a></li>
-</ul></p></div>
-    </li>
-    <li class="popular-posts-item">
-        <div class="popular-posts-date">2020-04-24</div>
-      <div class="popular-posts-title"><a href="/swift-optional-and-unwrapping-learning.html" rel="bookmark">Swift - ?和!的学习</a></div>
-        <div class="popular-posts-excerpt"><p><p>　　最近在优化一个项目的过程，过程中发现之前开发时由于刚接触 <code>Swift</code> 的原因，在 <code>Swift</code> 中的类里使用了很多 <code>OC</code> 的写法，比如字典数组对象会习惯性用 <code>NSDictionary</code>、<code>NSArray</code>来初始化，而不是用 <code>[KeyType: ValueType]()</code> 或是 <code>[SomeType]()</code> 这种类型来实例化变量。虽然在使用上没有什么问题，但看起来多少有点。。。不优雅。<br>　　当我把大部分类型都修改成 <code>Swift</code> 中的写法后（部分未修改是因为使用 <code>String</code> 类型来给文本做截取和富文本定义，实在不如 <code>NSString</code> 顺手，这种不顺手让我不由想起 Stack Overflow 上看到的一个评论：I thougt i already getting along well  with Swift.）发现，原来一些变量是否为空的判断中，使用 <code>Swift</code> 里的 <code>optional</code> 类型会方便很多。<br>　　比如解析一个 json 数据，如果层级多而且里面每个元素都是不确定的，那么可能就需要每个层级都判一次空。而如果使用 ? 来设置当前对象为可选值，只需要在最后一层实际使用到对象值时，判一次空就 OK 了。<br>　　对于 ? 和 ! 的区别和总结，网上有很多文章，在这里就不重复造轮子了。下面就对这个 <code>optional</code> 的自己两个疑问做个记录。
-　　</p>
-<h2 id="和-！-是表示两种不同的类型吗，一种是可以为空，一种不可以为空？"><a href="#和-！-是表示两种不同的类型吗，一种是可以为空，一种不可以为空？" class="headerlink" title="? 和 ！ 是表示两种不同的类型吗，一种是可以为空，一种不可以为空？"></a>? 和 ！ 是表示两种不同的类型吗，一种是可以为空，一种不可以为空？</h2></p></div>
-    </li>
-  </ul>
-
 
     <footer class="post-footer">
           <div class="reward-container">
@@ -560,5 +533,5 @@ document.addEventListener('page:loaded', () => {
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var a=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,d=o();function o(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(t){(a||t)&&(d=o());for(var e,i=0;i<d.length;i++)0<=(e=(e=d[i]).getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,a,n,o=d[i];e=function(){d=d.filter(function(t){return o!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(o)},(t=o).dataset.loaded||(t.hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,n=t.getAttribute("data-original"),a.onload=function(){t.src=n,t.removeAttribute("data-original"),t.setAttribute("data-loaded",!0),e&&e()},a.onerror=function(){t.removeAttribute("data-original"),t.setAttribute("data-loaded",!1),t.src=n},t.src!==n&&(a.src=n)))}()}function e(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",e),r.addEventListener("resize",e),r.addEventListener("orientationchange",e)}(this);</script></body>
 </html>

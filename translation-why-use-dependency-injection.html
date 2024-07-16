@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
@@ -23,12 +23,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.kaaaaai.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="原文来自：Why use dependency injection 第一次翻译，如有问题还请留言指出。E-mail：&amp;#x72;&amp;#111;&amp;#x6f;&amp;#x74;&amp;#64;&amp;#x6b;&amp;#97;&amp;#97;&amp;#x61;&amp;#x61;&amp;#97;&amp;#105;&amp;#x2e;&amp;#x63;&amp;#110;">
+    <meta name="description" content="原文来自：Why use dependency injection 第一次翻译，如有问题还请留言指出。E-mail：&#x72;&#x6f;&#x6f;&#x74;&#x40;&#107;&#97;&#x61;&#97;&#x61;&#97;&#x69;&#x2e;&#x63;&#110;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="翻译：Why use dependency injection">
 <meta property="og:url" content="https://www.kaaaaai.cn/translation-why-use-dependency-injection.html">
 <meta property="og:site_name" content="壹拾肆">
-<meta property="og:description" content="原文来自：Why use dependency injection 第一次翻译，如有问题还请留言指出。E-mail：&amp;#x72;&amp;#111;&amp;#x6f;&amp;#x74;&amp;#64;&amp;#x6b;&amp;#97;&amp;#97;&amp;#x61;&amp;#x61;&amp;#97;&amp;#105;&amp;#x2e;&amp;#x63;&amp;#110;">
+<meta property="og:description" content="原文来自：Why use dependency injection 第一次翻译，如有问题还请留言指出。E-mail：&#x72;&#x6f;&#x6f;&#x74;&#x40;&#107;&#97;&#x61;&#97;&#x61;&#97;&#x69;&#x2e;&#x63;&#110;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-02-22T01:37:05.000Z">
 <meta property="article:modified_time" content="2021-02-22T08:25:58.000Z">
@@ -332,7 +332,7 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>原文来自：<a target="_blank" rel="noopener" href="https://github.com/uber/needle/blob/master/WHY_DI.md">Why use dependency injection</a></p>
-<p>第一次翻译，如有问题还请留言指出。<br>E-mail：<a href="mailto:&#x72;&#111;&#x6f;&#x74;&#64;&#x6b;&#97;&#97;&#x61;&#x61;&#97;&#105;&#x2e;&#x63;&#110;">&#x72;&#111;&#x6f;&#x74;&#64;&#x6b;&#97;&#97;&#x61;&#x61;&#97;&#105;&#x2e;&#x63;&#110;</a></p>
+<p>第一次翻译，如有问题还请留言指出。<br>E-mail：<a href="mailto:&#x72;&#x6f;&#x6f;&#x74;&#x40;&#107;&#97;&#x61;&#97;&#x61;&#97;&#x69;&#x2e;&#x63;&#110;">&#x72;&#x6f;&#x6f;&#x74;&#x40;&#107;&#97;&#x61;&#97;&#x61;&#97;&#x69;&#x2e;&#x63;&#110;</a></p>
 <hr>
 <h2 id="为什么使用依赖注入？"><a href="#为什么使用依赖注入？" class="headerlink" title="为什么使用依赖注入？"></a>为什么使用依赖注入？</h2><p>本文档介绍了依赖注入的基本知识；它是什么；以及为什么把它加入进你的应用开发中会是个好的模式？下文将用 DI 这个术语作为依赖注入（dependency injection）的简称。</p>
 <h3 id="一个真实的例子来说明"><a href="#一个真实的例子来说明" class="headerlink" title="一个真实的例子来说明"></a>一个真实的例子来说明</h3><p>与其用抽象的语言描述这个模式，不如用一个简单的基于视图控制器的例子来理解它。如果你对抽象描述感兴趣，维基百科有一篇很棒的<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Dependency_injection">文章</a>。</p>
@@ -359,8 +359,6 @@
     
     
     
-      
-
 
     <footer class="post-footer">
           <div class="reward-container">
@@ -552,5 +550,5 @@ document.addEventListener('page:loaded', () => {
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var a=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,d=o();function o(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(t){(a||t)&&(d=o());for(var e,i=0;i<d.length;i++)0<=(e=(e=d[i]).getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,a,n,o=d[i];e=function(){d=d.filter(function(t){return o!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(o)},(t=o).dataset.loaded||(t.hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,n=t.getAttribute("data-original"),a.onload=function(){t.src=n,t.removeAttribute("data-original"),t.setAttribute("data-loaded",!0),e&&e()},a.onerror=function(){t.removeAttribute("data-original"),t.setAttribute("data-loaded",!1),t.src=n},t.src!==n&&(a.src=n)))}()}function e(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",e),r.addEventListener("resize",e),r.addEventListener("orientationchange",e)}(this);</script></body>
 </html>
