@@ -6,7 +6,7 @@
   <link href="https://www.kaaaaai.cn/atom.xml" rel="self"/>
   
   <link href="https://www.kaaaaai.cn/"/>
-  <updated>2024-12-21T12:38:57.018Z</updated>
+  <updated>2024-12-21T12:40:10.891Z</updated>
   <id>https://www.kaaaaai.cn/</id>
   
   <author>
@@ -17,15 +17,15 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>2023 年做过的一些梦</title>
-    <link href="https://www.kaaaaai.cn/dream-in-2023.html"/>
-    <id>https://www.kaaaaai.cn/dream-in-2023.html</id>
-    <published>2024-12-21T19:24:52.000Z</published>
-    <updated>2024-12-21T12:38:57.018Z</updated>
+    <title>2024 年做过的一些梦</title>
+    <link href="https://www.kaaaaai.cn/dream-in-2024.html"/>
+    <id>https://www.kaaaaai.cn/dream-in-2024.html</id>
+    <published>2024-12-21T12:30:52.000Z</published>
+    <updated>2024-12-21T12:40:10.891Z</updated>
     
     
     <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;&lt;em&gt;常年在社交网络上记录记录做过的梦，定期摘录下汇总到这里~&lt;/em&gt;&lt;/p&gt;
-&lt;h3 id=&quot;登山&quot;&gt;&lt;a href=&quot;#登山&quot; class=&quot;headerlink&quot; title=&quot;登山&quot;&gt;&lt;/a&gt;登山&lt;/h3&gt;</summary>
+&lt;h3 id=&quot;出租车&quot;&gt;&lt;a href=&quot;#出租车&quot; class=&quot;headerlink&quot; title=&quot;出租车&quot;&gt;&lt;/a&gt;出租车&lt;/h3&gt;</summary>
     
     
     
@@ -39,15 +39,15 @@
   </entry>
   
   <entry>
-    <title>2024 年做过的一些梦</title>
-    <link href="https://www.kaaaaai.cn/dream-in-2024.html"/>
-    <id>https://www.kaaaaai.cn/dream-in-2024.html</id>
-    <published>2024-12-21T12:30:52.000Z</published>
-    <updated>2024-12-21T12:39:15.005Z</updated>
+    <title>2023 年做过的一些梦</title>
+    <link href="https://www.kaaaaai.cn/dream-in-2023.html"/>
+    <id>https://www.kaaaaai.cn/dream-in-2023.html</id>
+    <published>2024-12-21T11:24:52.000Z</published>
+    <updated>2024-12-21T12:41:32.108Z</updated>
     
     
     <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;&lt;em&gt;常年在社交网络上记录记录做过的梦，定期摘录下汇总到这里~&lt;/em&gt;&lt;/p&gt;
-&lt;h3 id=&quot;出租车&quot;&gt;&lt;a href=&quot;#出租车&quot; class=&quot;headerlink&quot; title=&quot;出租车&quot;&gt;&lt;/a&gt;出租车&lt;/h3&gt;</summary>
+&lt;h3 id=&quot;登山&quot;&gt;&lt;a href=&quot;#登山&quot; class=&quot;headerlink&quot; title=&quot;登山&quot;&gt;&lt;/a&gt;登山&lt;/h3&gt;</summary>
     
     
     
@@ -76,9 +76,9 @@
     <category term="涂鸦" scheme="https://www.kaaaaai.cn/categories/%E6%B6%82%E9%B8%A6/"/>
     
     
-    <category term="扯淡" scheme="https://www.kaaaaai.cn/tags/%E6%89%AF%E6%B7%A1/"/>
-    
     <category term="随笔" scheme="https://www.kaaaaai.cn/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+    <category term="扯淡" scheme="https://www.kaaaaai.cn/tags/%E6%89%AF%E6%B7%A1/"/>
     
     <category term="年终总结" scheme="https://www.kaaaaai.cn/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"/>
     
@@ -100,9 +100,9 @@
     <category term="涂鸦" scheme="https://www.kaaaaai.cn/categories/%E6%B6%82%E9%B8%A6/"/>
     
     
-    <category term="扯淡" scheme="https://www.kaaaaai.cn/tags/%E6%89%AF%E6%B7%A1/"/>
-    
     <category term="随笔" scheme="https://www.kaaaaai.cn/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+    <category term="扯淡" scheme="https://www.kaaaaai.cn/tags/%E6%89%AF%E6%B7%A1/"/>
     
     <category term="年终总结" scheme="https://www.kaaaaai.cn/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"/>
     
@@ -117,7 +117,7 @@
     
     
     <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;原文来自：&lt;a href=&quot;https://github.com/uber/needle/blob/master/WHY_DI.md&quot;&gt;Why use dependency injection&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;第一次翻译，如有问题还请留言指出。&lt;br&gt;E-mail：&lt;a href=&quot;mailto:&amp;#114;&amp;#111;&amp;#111;&amp;#x74;&amp;#x40;&amp;#x6b;&amp;#x61;&amp;#97;&amp;#x61;&amp;#x61;&amp;#x61;&amp;#x69;&amp;#x2e;&amp;#x63;&amp;#110;&quot;&gt;&amp;#114;&amp;#111;&amp;#111;&amp;#x74;&amp;#x40;&amp;#x6b;&amp;#x61;&amp;#97;&amp;#x61;&amp;#x61;&amp;#x61;&amp;#x69;&amp;#x2e;&amp;#x63;&amp;#110;&lt;/a&gt;&lt;/p&gt;</summary>
+&lt;p&gt;第一次翻译，如有问题还请留言指出。&lt;br&gt;E-mail：&lt;a href=&quot;mailto:&amp;#114;&amp;#x6f;&amp;#x6f;&amp;#116;&amp;#x40;&amp;#107;&amp;#97;&amp;#x61;&amp;#97;&amp;#97;&amp;#97;&amp;#x69;&amp;#46;&amp;#x63;&amp;#110;&quot;&gt;&amp;#114;&amp;#x6f;&amp;#x6f;&amp;#116;&amp;#x40;&amp;#107;&amp;#97;&amp;#x61;&amp;#97;&amp;#97;&amp;#97;&amp;#x69;&amp;#46;&amp;#x63;&amp;#110;&lt;/a&gt;&lt;/p&gt;</summary>
     
     
     
