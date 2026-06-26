@@ -6,7 +6,7 @@
   <link href="https://www.kaaaaai.cn/atom.xml" rel="self"/>
   
   <link href="https://www.kaaaaai.cn/"/>
-  <updated>2024-12-21T12:40:10.891Z</updated>
+  <updated>2024-12-21T12:40:10.000Z</updated>
   <id>https://www.kaaaaai.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.kaaaaai.cn/dream-in-2024.html"/>
     <id>https://www.kaaaaai.cn/dream-in-2024.html</id>
     <published>2024-12-21T12:30:52.000Z</published>
-    <updated>2024-12-21T12:40:10.891Z</updated>
+    <updated>2024-12-21T12:40:10.000Z</updated>
     
     
     <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;&lt;em&gt;常年在社交网络上记录记录做过的梦，定期摘录下汇总到这里~&lt;/em&gt;&lt;/p&gt;
@@ -43,7 +43,7 @@
     <link href="https://www.kaaaaai.cn/dream-in-2023.html"/>
     <id>https://www.kaaaaai.cn/dream-in-2023.html</id>
     <published>2024-12-21T11:24:52.000Z</published>
-    <updated>2024-12-21T12:41:32.108Z</updated>
+    <updated>2024-12-21T12:41:32.000Z</updated>
     
     
     <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;&lt;em&gt;常年在社交网络上记录记录做过的梦，定期摘录下汇总到这里~&lt;/em&gt;&lt;/p&gt;
@@ -65,7 +65,7 @@
     <link href="https://www.kaaaaai.cn/2024-year-end-review.html"/>
     <id>https://www.kaaaaai.cn/2024-year-end-review.html</id>
     <published>2024-03-31T10:41:07.000Z</published>
-    <updated>2024-10-12T02:11:32.109Z</updated>
+    <updated>2024-10-12T01:45:00.000Z</updated>
     
     
     <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;几日不来春便老，开尽桃花。&lt;/p&gt;
@@ -76,9 +76,9 @@
     <category term="涂鸦" scheme="https://www.kaaaaai.cn/categories/%E6%B6%82%E9%B8%A6/"/>
     
     
-    <category term="随笔" scheme="https://www.kaaaaai.cn/tags/%E9%9A%8F%E7%AC%94/"/>
-    
     <category term="扯淡" scheme="https://www.kaaaaai.cn/tags/%E6%89%AF%E6%B7%A1/"/>
+    
+    <category term="随笔" scheme="https://www.kaaaaai.cn/tags/%E9%9A%8F%E7%AC%94/"/>
     
     <category term="年终总结" scheme="https://www.kaaaaai.cn/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"/>
     
@@ -89,7 +89,7 @@
     <link href="https://www.kaaaaai.cn/2023-year-end-review.html"/>
     <id>https://www.kaaaaai.cn/2023-year-end-review.html</id>
     <published>2023-01-16T05:24:52.000Z</published>
-    <updated>2024-04-17T09:57:22.636Z</updated>
+    <updated>2024-04-17T09:57:22.000Z</updated>
     
     
     <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;去年没写年终总结，今年发生了很多事，觉得应该抽点时间，回顾记录，以重新出发。&lt;/p&gt;
@@ -100,9 +100,9 @@
     <category term="涂鸦" scheme="https://www.kaaaaai.cn/categories/%E6%B6%82%E9%B8%A6/"/>
     
     
-    <category term="随笔" scheme="https://www.kaaaaai.cn/tags/%E9%9A%8F%E7%AC%94/"/>
-    
     <category term="扯淡" scheme="https://www.kaaaaai.cn/tags/%E6%89%AF%E6%B7%A1/"/>
+    
+    <category term="随笔" scheme="https://www.kaaaaai.cn/tags/%E9%9A%8F%E7%AC%94/"/>
     
     <category term="年终总结" scheme="https://www.kaaaaai.cn/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"/>
     
@@ -117,7 +117,7 @@
     
     
     <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;原文来自：&lt;a href=&quot;https://github.com/uber/needle/blob/master/WHY_DI.md&quot;&gt;Why use dependency injection&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;第一次翻译，如有问题还请留言指出。&lt;br&gt;E-mail：&lt;a href=&quot;mailto:&amp;#114;&amp;#x6f;&amp;#x6f;&amp;#116;&amp;#x40;&amp;#107;&amp;#97;&amp;#x61;&amp;#97;&amp;#97;&amp;#97;&amp;#x69;&amp;#46;&amp;#x63;&amp;#110;&quot;&gt;&amp;#114;&amp;#x6f;&amp;#x6f;&amp;#116;&amp;#x40;&amp;#107;&amp;#97;&amp;#x61;&amp;#97;&amp;#97;&amp;#97;&amp;#x69;&amp;#46;&amp;#x63;&amp;#110;&lt;/a&gt;&lt;/p&gt;</summary>
+&lt;p&gt;第一次翻译，如有问题还请留言指出。&lt;br&gt;E-mail：&lt;a href=&quot;mailto:&amp;#114;&amp;#x6f;&amp;#x6f;&amp;#x74;&amp;#64;&amp;#107;&amp;#97;&amp;#97;&amp;#x61;&amp;#97;&amp;#x61;&amp;#x69;&amp;#x2e;&amp;#99;&amp;#x6e;&quot;&gt;&amp;#114;&amp;#x6f;&amp;#x6f;&amp;#x74;&amp;#64;&amp;#107;&amp;#97;&amp;#97;&amp;#x61;&amp;#97;&amp;#x61;&amp;#x69;&amp;#x2e;&amp;#99;&amp;#x6e;&lt;/a&gt;&lt;/p&gt;</summary>
     
     
     
@@ -137,7 +137,7 @@
     <link href="https://www.kaaaaai.cn/its-time-to-build-an-open-source-library.html"/>
     <id>https://www.kaaaaai.cn/its-time-to-build-an-open-source-library.html</id>
     <published>2020-11-21T01:37:05.000Z</published>
-    <updated>2022-07-07T10:32:25.136Z</updated>
+    <updated>2022-07-07T10:32:25.000Z</updated>
     
     
     <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;使用 GitHub 很久，除了无脑 star、fork 大神们的仓库、输出一些学习代码以外，对于 GitHub 本身的贡献似乎寥寥。&lt;a href=&quot;https://archiveprogram.github.com/arctic-vault/&quot;&gt;&lt;strong&gt;Arctic Code Vault Contributor&lt;/strong&gt;&lt;/a&gt; 的勋章我受之有愧。如果你也有和我类似的想法，那么，是时候可以尝试一下维护一个自己的开源库了。&lt;/p&gt;
@@ -161,7 +161,7 @@
     <link href="https://www.kaaaaai.cn/ios-douban-open-source-license-mentioned-in-the-library.html"/>
     <id>https://www.kaaaaai.cn/ios-douban-open-source-license-mentioned-in-the-library.html</id>
     <published>2020-10-31T03:24:52.000Z</published>
-    <updated>2022-04-26T01:51:43.289Z</updated>
+    <updated>2022-04-26T01:51:43.000Z</updated>
     
     
     <summary type="html">&lt;p&gt;在网上看到一篇&lt;a href=&quot;https://juejin.im/post/6844903749949865991&quot;&gt;豆瓣开源许可-android&lt;/a&gt;的文章，列举了一些 &lt;code&gt;Android&lt;/code&gt; 端豆瓣开源许可中所提到的第三方框架，出于好奇心理在网上搜索了一下想看下有没有 &lt;code&gt;iOS&lt;/code&gt; 版本。结果是没有的，于是索性就自己动手整理了一份：&lt;/p&gt;</summary>
@@ -184,7 +184,7 @@
     <link href="https://www.kaaaaai.cn/recommend-a-few-podcasts.html"/>
     <id>https://www.kaaaaai.cn/recommend-a-few-podcasts.html</id>
     <published>2020-10-26T05:24:52.000Z</published>
-    <updated>2022-03-30T03:22:20.186Z</updated>
+    <updated>2022-03-30T03:22:20.000Z</updated>
     
     
     <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;因为最近有点用眼过度，所以在空闲时间想找一件尽量可以不用到眼睛又能涨知识的事情做。我先想到的其实是听书和听线上的付费课程。&lt;/p&gt;
@@ -204,7 +204,7 @@
     <link href="https://www.kaaaaai.cn/ios-automated-packaging-complicated-by-mail.html"/>
     <id>https://www.kaaaaai.cn/ios-automated-packaging-complicated-by-mail.html</id>
     <published>2020-10-19T03:24:52.000Z</published>
-    <updated>2022-04-25T09:10:56.299Z</updated>
+    <updated>2022-04-25T09:10:56.000Z</updated>
     
     
     <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;&lt;img data-src=&quot;https://i.loli.net/2020/10/19/XKmLbdSTGNoWYZl.png&quot; alt=&quot;workflow&quot;&gt;&lt;/p&gt;
@@ -252,7 +252,7 @@
     <link href="https://www.kaaaaai.cn/swift-permission-request-tools.html"/>
     <id>https://www.kaaaaai.cn/swift-permission-request-tools.html</id>
     <published>2020-09-12T02:24:52.000Z</published>
-    <updated>2022-04-02T01:50:12.888Z</updated>
+    <updated>2022-04-02T01:50:12.000Z</updated>
     
     
     <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;注意到工程里面关于权限请求这块的逻辑没有很好地管理起来，一些是用 OC 的工具类，一些是用 Swift 代码在一些 &lt;code&gt;ViewController&lt;/code&gt; 里面单独调用，不能复用，就想封装一个 Swift 版关于权限请求的工具类，虽然这个需求在 GitHub 上搜索也有很多现成的轮子，但使用起来感觉太重，而且有些久不维护，Swift 版本更新的又快，有些接口就不好使了，索性就自己封装一个。&lt;/p&gt;
@@ -335,7 +335,7 @@
     <link href="https://www.kaaaaai.cn/swift-toppop-upboxencapsulation.html"/>
     <id>https://www.kaaaaai.cn/swift-toppop-upboxencapsulation.html</id>
     <published>2020-08-04T05:24:52.000Z</published>
-    <updated>2022-04-26T01:51:43.360Z</updated>
+    <updated>2022-04-26T01:51:43.000Z</updated>
     
     
     <summary type="html">&lt;p&gt;抽空把项目里的顶部弹出框封装了一下。&lt;/p&gt;</summary>
@@ -358,7 +358,7 @@
     <link href="https://www.kaaaaai.cn/a-person-abandoned-by-the-light.html"/>
     <id>https://www.kaaaaai.cn/a-person-abandoned-by-the-light.html</id>
     <published>2020-07-18T02:13:52.000Z</published>
-    <updated>2022-07-07T06:09:15.090Z</updated>
+    <updated>2022-07-07T06:09:15.000Z</updated>
     
     
     <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;p&gt;看科幻小说常常会感到一种作为人类的自卑感，对于宇宙来说，我们只是其中数以亿计星球中的一个，即使拥有灿烂的文化和恢弘的历史，也一粒尘埃反射出的微弱光芒。&lt;/p&gt;
@@ -428,7 +428,7 @@
     <link href="https://www.kaaaaai.cn/web-resolve-recirculation-errors.html"/>
     <id>https://www.kaaaaai.cn/web-resolve-recirculation-errors.html</id>
     <published>2020-05-30T09:24:52.000Z</published>
-    <updated>2022-04-02T02:03:35.566Z</updated>
+    <updated>2022-04-02T02:03:35.000Z</updated>
     
     
     <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;h2 id=&quot;问题表现&quot;&gt;&lt;a href=&quot;#问题表现&quot; class=&quot;headerlink&quot; title=&quot;问题表现&quot;&gt;&lt;/a&gt;问题表现&lt;/h2&gt;&lt;p&gt;博客网站更换了 DNS 解析的服务商，访问出现以下问题。&lt;br&gt;![03oBxi-20200530][image-1]&lt;/p&gt;</summary>
