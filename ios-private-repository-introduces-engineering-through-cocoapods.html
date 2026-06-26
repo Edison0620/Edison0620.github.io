@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=ZCOOL+QingKe+HuangYou:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-bounce.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous" defer></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.kaaaaai.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"agate","dark":"agate"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="Spec Repo(配置仓库)的概念　　CocoaPods 对于一名 iOS 开发来说再熟悉不过了，它的工作原理就是在 GitHub 上面有个 Spec Repo，它里面包括成千上万的后缀名为 .podspec 的文件。我们在项目中集成第三方库(如 SDWebImage )的时候其实就是通过 CocoaPods的 Spec Repo 去找到我们需要的开源项目的 .podspec 文件，然后在 .p">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS - 私有仓库通过 CocoaPods 引入工程">
+<meta property="og:url" content="https://www.kaaaaai.cn/ios-private-repository-introduces-engineering-through-cocoapods.html">
+<meta property="og:site_name" content="壹拾肆">
+<meta property="og:description" content="Spec Repo(配置仓库)的概念　　CocoaPods 对于一名 iOS 开发来说再熟悉不过了，它的工作原理就是在 GitHub 上面有个 Spec Repo，它里面包括成千上万的后缀名为 .podspec 的文件。我们在项目中集成第三方库(如 SDWebImage )的时候其实就是通过 CocoaPods的 Spec Repo 去找到我们需要的开源项目的 .podspec 文件，然后在 .p">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/15/1xiKSO.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/15/1ximY6.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/15/1xiMlD.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/15/1xinfK.jpg">
+<meta property="article:published_time" content="2020-02-15T03:24:52.000Z">
+<meta property="article:modified_time" content="2020-11-22T01:35:35.000Z">
+<meta property="article:author" content="Kaaaaai">
+<meta property="article:tag" content="EXP">
+<meta property="article:tag" content="iOS">
+<meta property="article:tag" content="OC">
+<meta property="article:tag" content="CocoaPods">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.ax1x.com/2020/02/15/1xiKSO.jpg">
+
+
+<link rel="canonical" href="https://www.kaaaaai.cn/ios-private-repository-introduces-engineering-through-cocoapods.html">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.kaaaaai.cn/ios-private-repository-introduces-engineering-through-cocoapods.html","path":"/ios-private-repository-introduces-engineering-through-cocoapods.html","title":"iOS - 私有仓库通过 CocoaPods 引入工程"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>iOS - 私有仓库通过 CocoaPods 引入工程 | 壹拾肆</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102185873-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-102185873-1","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js" defer></script>
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?9578d14210d67becef48447e4f6b3f20"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+<script class="next-config" data-name="chatra" type="application/json">{"enable":true,"async":true,"id":"QXLRxXcsfrRJR2KTG"}</script>
+<script src="/js/third-party/chat/chatra.js" defer></script>
+<script async src="https://call.chatra.io/chatra.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+  <script src="/js/third-party/pace.js" defer></script>
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+ <script type="text/javascript" src="/js/link-highlight.js"></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="壹拾肆" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">壹拾肆</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">有些安排是多余的 这片空旷对我有益</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-moments"><a href="/bb/" rel="section"><i class="fa fa-coffee fa-fw"></i>moments</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spec-Repo-%E9%85%8D%E7%BD%AE%E4%BB%93%E5%BA%93-%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">Spec Repo(配置仓库)的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%B7%BB%E5%8A%A0%E2%80%99%E6%9C%AC%E5%9C%B0%E7%9A%84%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E2%80%99-Spec-Repo-%E6%96%87%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">一、添加’本地的私有仓库’(Spec Repo)文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%88%9B%E5%BB%BA-pods-%E9%A1%B9%E7%9B%AE%E5%B7%A5%E7%A8%8B%E6%96%87%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">二、创建 pods 项目工程文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84-pods-%E5%85%AC%E5%85%B1%E7%BB%84%E4%BB%B6%E5%BA%93%E9%A1%B9%E7%9B%AE"><span class="nav-number">4.</span> <span class="nav-text">三、创建自己的 pods 公共组件库项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%9C%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E9%AA%8C%E8%AF%81-podspec-%E6%96%87%E4%BB%B6%E6%98%AF%E5%90%A6%E6%9C%89%E6%95%88"><span class="nav-number">5.</span> <span class="nav-text">四、在命令行验证 .podspec 文件是否有效</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%B0%86-podspec%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6push%E5%88%B0%E8%BF%9C%E7%AB%AF%E4%B8%93%E9%97%A8%E5%AD%98%E5%82%A8%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9A%84%E4%BB%93%E5%BA%93%E4%B8%AD"><span class="nav-number">6.</span> <span class="nav-text">五、将.podspec配置文件push到远端专门存储配置文件的仓库中</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Kaaaaai"
+      src="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+  <p class="site-author-name" itemprop="name">Kaaaaai</p>
+  <div class="site-description" itemprop="description">🐨🐨</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">100</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">66</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="sidebar-button animated">
+    <button><i class="fa fa-comment"></i>
+      聊天
+    </button>
+  </div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Kaaaaai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Kaaaaai" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/8342030/kaaaaai" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;8342030&#x2F;kaaaaai" rel="noopener me" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/edisonlllllk" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;edisonlllllk" rel="noopener me" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:root@kaaaaai.cn" title="E-Mail → mailto:root@kaaaaai.cn" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.kaaaaai.cn/ios-private-repository-introduces-engineering-through-cocoapods.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+      <meta itemprop="name" content="Kaaaaai">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="壹拾肆">
+      <meta itemprop="description" content="🐨🐨">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="iOS - 私有仓库通过 CocoaPods 引入工程 | 壹拾肆">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          iOS - 私有仓库通过 CocoaPods 引入工程
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-02-15 11:24:52" itemprop="dateCreated datePublished" datetime="2020-02-15T11:24:52+08:00">2020-02-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="Spec-Repo-配置仓库-的概念"><a href="#Spec-Repo-配置仓库-的概念" class="headerlink" title="Spec Repo(配置仓库)的概念"></a>Spec Repo(配置仓库)的概念</h2><p>　　<code>CocoaPods</code> 对于一名 <code>iOS</code> 开发来说再熟悉不过了，它的工作原理就是在 <code>GitHub</code> 上面有个 <code>Spec Repo</code>，它里面包括成千上万的后缀名为 <code>.podspec</code> 的文件。我们在项目中集成第三方库(如 <code>SDWebImage</code> )的时候其实就是通过 <code>CocoaPods</code>的 <code>Spec Repo</code> 去找到我们需要的开源项目的 <code>.podspec</code> 文件，然后在 <code>.podspec</code> 文件中有具体的源码地址(放具体代码的地方)，根据这个地址去下载代码。</p>
+<p>　　按照上面 <code>Spec Repo</code> 的理解，我们如果能自己创建一个类似 <code>CocoaPods</code> 的 <code>Spec Repo</code>，然后把我们私有的公共组件的 <code>.podspec</code> 文件放在里面，然后集成的时候让 <code>CocoaPods</code> 帮我们集成那我们就能达到目的，就可以建立私有pod库了。</p>
+<p>　　一般项目经理都会把代码仓库和配置仓库都建好，这时候我们只需要把 <code>Spec Repo</code> 加到本地就行了。(注意：需要管理员将你的账号加到里边，有访问权限并且有修改权限)。
+ </p>
+<h2 id="一、添加’本地的私有仓库’-Spec-Repo-文件"><a href="#一、添加’本地的私有仓库’-Spec-Repo-文件" class="headerlink" title="一、添加’本地的私有仓库’(Spec Repo)文件"></a>一、添加’本地的私有仓库’(Spec Repo)文件</h2><p>1、使用下面的命令就可以在本地生成配置文件的仓库,建议这个本地的名字也和远程的一致,这样便于区分和后期的维护.<br>“baseSpecs”是你们团队远端创建的配置文件仓库的名字,后面是配置文件仓库远端的地址 .<br>注意此时不需要 <code>cd</code> 进入任何目录,从默认位置输入这个命令,即在点击终端快捷方式打开的状态下直接输入下面的命令即可</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod repo add baseSpecs http://***/***/specs.git</span><br></pre></td></tr></table></figure>
+<p>2、查看是否添加成功(查看本地的所有repo)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod repo list</span><br></pre></td></tr></table></figure>
+<p>或者打开本地配置仓库管理文件夹进行查看</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open ~/.cocoapods/repos</span><br></pre></td></tr></table></figure>
+<p>如果能看到自己团队的 repo(本地的私有仓库)，就 OK 了。注意：这个操作只需要执行一次就可以了，下次再打新的 pod 库的时候就不需要再执行了。</p>
+<h2 id="二、创建-pods-项目工程文件"><a href="#二、创建-pods-项目工程文件" class="headerlink" title="二、创建 pods 项目工程文件"></a>二、创建 pods 项目工程文件</h2><p>1、创建项目和 <code>.podspec</code> 文件</p>
+<p>方式1、可以利用 <code>pod</code> 提供的命令，直接创建一个 <code>pod</code> 库的标准模板。这个很方便，可以直接创建一个工程，可以省去很多操作。命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod lib create UIPoolSingleImage</span><br></pre></td></tr></table></figure>
+<p>方式2、自己在项目根目录创建 <code>podspec</code> 文件。该方式比较麻烦，需要自己创建项目。</p>
+<p>2、编写 <code>.podspec</code> 文件。根据自己的 <code>pod</code> 库更改相关内容，文件内容大概是这样的：</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//特别说明，里面的注释是博主为了大家知道什么意思加的，实际使用时一定要去掉</span></span><br><span class="line">Pod::Spec.<span class="keyword">new</span> <span class="keyword">do</span> |s|</span><br><span class="line"><span class="comment">//文件名</span></span><br><span class="line">s.name = <span class="string">&#x27;UIPoolSingleImage&#x27;</span></span><br><span class="line"><span class="comment">//版本</span></span><br><span class="line">s.version = <span class="string">&#x27;0.1.0&#x27;</span></span><br><span class="line"><span class="comment">//描述信息</span></span><br><span class="line">s.summary = <span class="string">&#x27;A short description of UIPoolSingleImage.&#x27;</span></span><br><span class="line"><span class="comment">//这里的主页自己随便写</span></span><br><span class="line">s.homepage = <span class="string">&#x27;https://github.com/623099552@qq.com/UIPoolSingleImage&#x27;</span> </span><br><span class="line"><span class="comment">//作者</span></span><br><span class="line">s.authors = &#123; <span class="string">&#x27;623099552@qq.com&#x27;</span> =&gt; <span class="string">&#x27;623099552@qq.com&#x27;</span> &#125;</span><br><span class="line"><span class="comment">//资源路径</span></span><br><span class="line">s.source = &#123; :<span class="function"><span class="params">git</span> =&gt;</span> <span class="string">&#x27;http://***/***/uipoolsingleimage.git&#x27;</span>, :<span class="function"><span class="params">tag</span> =&gt;</span> s.version.to_s &#125;</span><br><span class="line"><span class="comment">//ARC模式</span></span><br><span class="line">s.requires_arc = <span class="literal">true</span></span><br><span class="line"><span class="comment">//license，一般我们用MIT</span></span><br><span class="line">s.license = <span class="string">&#x27;MIT&#x27;</span></span><br><span class="line"><span class="comment">//允许的最低系统使用版本</span></span><br><span class="line">s.ios.deployment_target = <span class="string">&#x27;8.0&#x27;</span></span><br><span class="line"><span class="comment">//库文件路径，这个路径需要和你提供的库文件的目录相对应，否则会报错</span></span><br><span class="line">s.source_files = <span class="string">&#x27;UIPoolSingleImage/Classes/*&#x27;</span></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<h2 id="三、创建自己的-pods-公共组件库项目"><a href="#三、创建自己的-pods-公共组件库项目" class="headerlink" title="三、创建自己的 pods 公共组件库项目"></a>三、创建自己的 pods 公共组件库项目</h2><p>1、在可以创建私有库的地方创建一个 <code>code repository</code>(代码仓库), 也就是存放要打的 <code>pod</code> 库中的代码文件。这里我使用的是 <code>gitlab</code>。</p>
+<p> 点击右上角的加号按钮,创建代码仓库名为 <code>UIPoolSingleImage</code><br><img data-src="/images/loading-style-3.gif" data-original="https://s2.ax1x.com/2020/02/15/1xiKSO.jpg" alt="2018101510425055"></p>
+<p>2.克隆 <code>code repository</code>(代码仓库)到本地，并将上面创建好的私有库代码文件上传到 <code>code repository</code>(代码仓库)中。注意：代码上传之后时候需要打一个 <code>tag</code>，并且每次更新 <code>tag</code> 都要和 <code>.podspec</code> 文件中的 <code>tag</code> 对应。</p>
+<h2 id="四、在命令行验证-podspec-文件是否有效"><a href="#四、在命令行验证-podspec-文件是否有效" class="headerlink" title="四、在命令行验证 .podspec 文件是否有效"></a>四、在命令行验证 <code>.podspec</code> 文件是否有效</h2><p>注意：<code>--allow-warnings</code> :表示忽略警告。 <code>--verbose</code>：表示会输出详细的debug信息。</p>
+<p> 1、本地校验：pod lib lint UIPoolSingleImage.podspec –allow-warnings<br> 2、线上校验：pod spec lint UIPoolSingleImage.podspec –allow-warnings<br>注意：如果你制作的pod库，会依赖spec repository(配置文件仓库)中其他的私有仓库，则需要加上 –use-libraries。并且将spec repository 的源加上。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod spec lint  UIPoolSingleImage.podspec --sources=<span class="string">&#x27;http://***/***/specs.git&#x27;</span>,<span class="string">&#x27;https://github.com/CocoaPods/Specs.git&#x27;</span> --use-libraries</span><br></pre></td></tr></table></figure>
+<p>如果出现 <code>passed validating</code> 则表示 <code>spec</code> 文件验证通过了<br><img data-src="/images/loading-style-3.gif" data-original="https://s2.ax1x.com/2020/02/15/1ximY6.jpg"></p>
+<h2 id="五、将-podspec配置文件push到远端专门存储配置文件的仓库中"><a href="#五、将-podspec配置文件push到远端专门存储配置文件的仓库中" class="headerlink" title="五、将.podspec配置文件push到远端专门存储配置文件的仓库中"></a>五、将.podspec配置文件push到远端专门存储配置文件的仓库中</h2><p>1、将配置文件 push 到远端专门存储配置文件的仓库中 ,本地的也会同步更新<br>此时需要 <code>cd</code> 进入本地的 <code>.podspec</code> 所在的路径(否则会找不到 <code>podspe</code> c文件) <br>然后使用下面的命令即可，<code>baseSpecs</code> 是你创建的 <code>spec repository</code> 的名字,后面是你本地创建的 <code>.podspec</code> 文件</p>
+<p>注意：如果你制作的 <code>pod</code> 库，会依赖 <code>spec repository</code>(配置文件仓库)中其他的私有仓库，则需要加上 <code>--use-libraries</code>。</p>
+<p>注意：如果你在手动验证 <code>Pod</code> 时使用了 <code>--use-libraries </code>或 <code>--allow-warnings</code> 等修饰符，那么发布的时候也应该使用相同的字段修饰，否则可能会报错。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod repo push baseSpecs UIPoolSingleImage.podspec --allow-warnings --use-libraries --verbose</span><br></pre></td></tr></table></figure>
+
+<p>2、出现下面信息,则代表成功<br><img data-src="/images/loading-style-3.gif" data-original="https://s2.ax1x.com/2020/02/15/1xiMlD.jpg"><br>或者查询本地私有 <code>spec</code> 管理文件夹,如果看到了<code>UIPoolSingleImage</code> 则代表成功</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open ~/.cocoapods/repos</span><br></pre></td></tr></table></figure>
+
+<p>3、可以在远端配置文件仓库中看到这个文件，如下：<br><img data-src="/images/loading-style-3.gif" data-original="https://s2.ax1x.com/2020/02/15/1xinfK.jpg"></p>
+<p>到此，利用 <code>Cocoapods</code> 打私有的 <code>pod</code> 库就完成了。接下来，在项目中就可以直接引入私有库了。 </p>
+<p>注意：引用私有库的时候，需要将 <code>Spec Repo</code> 源加到 <code>Profile</code> 文件中，如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> <span class="string">&quot;https://github.com/CocoaPods/Specs.git&quot;</span> <span class="comment">#cocoapods的</span></span><br><span class="line"><span class="built_in">source</span> <span class="string">&quot;http://***/***/specs.git&quot;</span> <span class="comment">#私有的</span></span><br><span class="line"> </span><br><span class="line">pod <span class="string">&#x27;UIPoolSingleImage&#x27;</span>, <span class="string">&#x27;0.1.0&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>更新</strong>：下次更新 <code>pod</code> 库的时候，在 <code>sourceTree</code> 需要打 <code>tag</code> ，比如从 0.1.0 升级到 0.2.0，要先将代码推送到远端，然后再打 <code>tag</code>，顺序不能反。而且打的 <code>tag</code> 要和 <code>.podspec</code> 文件中的 <code>tag</code> 要对应。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/loading-style-3.gif" data-original="https://s2.loli.net/2022/07/02/Gce8a5QAqrZ3X9R.gif" alt="Kaaaaai 微信">
+        <span>微信</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Kaaaaai
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://www.kaaaaai.cn/ios-private-repository-introduces-engineering-through-cocoapods.html" title="iOS - 私有仓库通过 CocoaPods 引入工程">https://www.kaaaaai.cn/ios-private-repository-introduces-engineering-through-cocoapods.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/EXP/" rel="tag"><i class="fa fa-tag"></i> EXP</a>
+              <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
+              <a href="/tags/OC/" rel="tag"><i class="fa fa-tag"></i> OC</a>
+              <a href="/tags/CocoaPods/" rel="tag"><i class="fa fa-tag"></i> CocoaPods</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/sun-sleeping-in-the-forest.html" rel="prev" title="林中落日">
+                  <i class="fa fa-angle-left"></i> 林中落日
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/gangster-and-litchi.html" rel="next" title="黑帮老大和荔枝">
+                  黑帮老大和荔枝 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Kaaaaai</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">234k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:33</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: true,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var a=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,d=o();function o(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(t){(a||t)&&(d=o());for(var e,i=0;i<d.length;i++)0<=(e=(e=d[i]).getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,a,n,o=d[i];e=function(){d=d.filter(function(t){return o!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(o)},(t=o).dataset.loaded||(t.hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,n=t.getAttribute("data-original"),a.onload=function(){t.src=n,t.removeAttribute("data-original"),t.setAttribute("data-loaded",!0),e&&e()},a.onerror=function(){t.removeAttribute("data-original"),t.setAttribute("data-loaded",!1),t.src=n},t.src!==n&&(a.src=n)))}()}function e(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",e),r.addEventListener("resize",e),r.addEventListener("orientationchange",e)}(this);</script></body>
+</html>
