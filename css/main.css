@@ -1312,7 +1312,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #09ff6e;
+    background: #21ff14;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2931,7 +2931,7 @@ body {
 /*https://s2.loli.net/2022/07/07/TdCYRhj9oQBIVW5.jpg*/
 /*https://s2.loli.net/2022/07/08/oNgsPfZY1x8dKQ9.png*/
 /*https://w.wallhaven.cc/full/g8/wallhaven-g8gmde.png*/
-  background: url("https://s2.loli.net/2022/07/07/TdCYRhj9oQBIVW5.jpg");
+  background: url("https://res.cloudinary.com/clawvox/image/upload/f_auto,q_auto:best/blog/backgrounds/blog-bg.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
