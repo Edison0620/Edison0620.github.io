@@ -190,7 +190,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">100</span>
+          <span class="site-state-item-count">99</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -413,6 +413,28 @@ return '<section class="bb-channel-card" id="bb-' + escapeHtml(post.id) + '">' +
 '</section>';
 };
 
+const focusWithoutScroll = (element) => {
+if (!element || typeof element.focus !== 'function') return;
+try {
+element.focus({ preventScroll: true });
+} catch (error) {
+element.focus();
+}
+};
+
+const preserveCardViewportPosition = (card, update) => {
+const initialTop = card.getBoundingClientRect().top;
+update();
+const restore = () => {
+const delta = card.getBoundingClientRect().top - initialTop;
+if (Math.abs(delta) > 0.5) window.scrollBy(0, delta);
+};
+requestAnimationFrame(() => {
+restore();
+requestAnimationFrame(restore);
+});
+};
+
 const openImageViewer = (card, index) => {
 const viewer = card.querySelector('[data-bb-image-viewer]');
 const track = card.querySelector('[data-bb-image-track]');
@@ -422,6 +444,7 @@ if (!viewer || !track || !slides.length) return;
 const safeIndex = (Number(index) + slides.length) % slides.length;
 card.dataset.bbImageIndex = String(safeIndex);
 if (count) count.textContent = slides.length > 1 ? (safeIndex + 1) + ' / ' + slides.length : '';
+preserveCardViewportPosition(card, () => {
 window.clearTimeout(card.bbViewerCloseTimer);
 delete card.dataset.bbViewerClosing;
 viewer.hidden = false;
@@ -429,14 +452,19 @@ hydrateImages(slides[safeIndex]);
 requestAnimationFrame(() => {
 card.dataset.bbViewerOpen = 'true';
 track.scrollTo({ left: track.clientWidth * safeIndex, behavior: 'smooth' });
+focusWithoutScroll(track);
+});
 });
 };
 
 const closeImageViewer = (card) => {
 const viewer = card.querySelector('[data-bb-image-viewer]');
 if (!viewer || viewer.hidden || card.dataset.bbViewerClosing === 'true') return;
+preserveCardViewportPosition(card, () => {
+const thumb = card.querySelector('[data-bb-media-index="' + (card.dataset.bbImageIndex || '0') + '"]');
 card.dataset.bbViewerClosing = 'true';
 delete card.dataset.bbViewerOpen;
+focusWithoutScroll(thumb);
 window.clearTimeout(card.bbViewerCloseTimer);
 const finishClose = () => {
 if (card.dataset.bbViewerClosing !== 'true' || card.dataset.bbViewerOpen === 'true') return;
@@ -444,6 +472,7 @@ viewer.hidden = true;
 delete card.dataset.bbViewerClosing;
 };
 card.bbViewerCloseTimer = window.setTimeout(finishClose, 460);
+});
 };
 
 const moveImageViewer = (card, delta) => {
@@ -583,13 +612,13 @@ document.addEventListener('pjax:success', window.initBbChannel);
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">234k</span>
+    <span title="站点总字数">233k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:33</span>
+    <span title="站点阅读时长">3:32</span>
   </span>
 </div>
 <div class="busuanzi-count">
