@@ -125,7 +125,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-moments"><a href="/bb/" rel="section"><i class="fa fa-coffee fa-fw"></i>moments</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-moments"><a href="/bb/" rel="section"><i class="fa fa-coffee fa-fw"></i>moments</a></li><li class="menu-item menu-item-tokens"><a href="/token-usage/" rel="section"><i class="fa fa-chart-line fa-fw"></i>Tokens</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -266,7 +266,7 @@
 .bb-channel-portable{max-width:100%;margin:0 auto;color:#242424}
 .bb-channel-portable *{box-sizing:border-box}
 .bb-channel-portable .bb-channel-intro{position:relative;margin:0 0 1.55rem;padding:0;border-bottom:0}
-.bb-channel-portable .bb-channel-title{margin:0 0 .45rem;color:#202020;font-family:inherit;font-size:1.72rem;font-weight:700;line-height:1.2;letter-spacing:-.02em}
+.bb-channel-portable .bb-channel-title{margin:0 0 .45rem;color:#202020;font-family:var(--bb-channel-title-font,inherit);font-size:1.72rem;font-weight:700;line-height:1.2;letter-spacing:0}
 .bb-channel-portable .bb-channel-intro-text{margin:0;color:#777;font-size:1rem;line-height:1.6;text-align:left}
 .bb-channel-portable .bb-channel-status{min-height:1.2rem;margin:.4rem 0 .8rem;color:#999}
 .bb-channel-portable .bb-channel-feed{position:relative;display:flex;flex-direction:column;gap:1.05rem;padding-left:2.1rem}
@@ -281,8 +281,8 @@
 .bb-channel-portable .bb-channel-time{color:inherit;text-decoration:none;border-bottom:0;font-size:.96rem;line-height:1.3}
 .bb-channel-portable .bb-channel-body-with-media{display:grid;grid-template-columns:minmax(0,1fr) minmax(10rem,13.5rem);gap:1.25rem;align-items:start}
 .bb-channel-portable .bb-channel-main{min-width:0}
-.bb-channel-portable .bb-channel-content{font-size:1rem;line-height:1.78;overflow-wrap:anywhere}
-.bb-channel-portable .bb-channel-content p{margin:0 0 .9em}
+.bb-channel-portable .bb-channel-content{font-family:var(--bb-channel-content-font,inherit);font-size:1.02rem;line-height:1.82;letter-spacing:.01em;text-rendering:optimizeLegibility;overflow-wrap:anywhere}
+.bb-channel-portable .bb-channel-content p{margin:0 0 .82em}
 .bb-channel-portable .bb-channel-content a{color:#e46f0a;border-bottom:1px solid rgba(228,111,10,.35);text-decoration:none}
 .bb-channel-portable .bb-channel-media-rail{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.32rem;justify-self:end;width:min(13.5rem,100%);max-height:24rem;opacity:1;overflow:hidden;transform:translateY(0);filter:blur(0);transition:max-height 420ms cubic-bezier(.22,1,.36,1),opacity 420ms cubic-bezier(.22,1,.36,1),transform 420ms cubic-bezier(.22,1,.36,1),filter 420ms cubic-bezier(.22,1,.36,1);will-change:max-height,opacity,transform}
 .bb-channel-portable .bb-channel-media-thumb{position:relative;display:grid;min-height:0;aspect-ratio:1/1;place-items:center;border:1px solid #e7e7e7;border-radius:8px;background:#f8f8f8;padding:0;overflow:hidden;cursor:pointer}
@@ -322,8 +322,8 @@
 .bb-channel-portable .bb-channel-pagination span{min-width:2.15rem;background:#333;color:#fff;border-color:#333}
 @media(max-width:720px){.bb-channel-portable .bb-channel-body-with-media{grid-template-columns:1fr}.bb-channel-portable .bb-channel-media-rail{justify-self:start;width:min(18rem,100%)}}
 @keyframes bb-channel-shimmer{0%{background-position:180% 0}100%{background-position:-80% 0}}
-@media(max-width:640px){.bb-channel-portable .bb-channel-intro{margin-bottom:1.2rem}.bb-channel-portable .bb-channel-title{font-size:1.45rem}.bb-channel-portable .bb-channel-intro-text{font-size:.94rem}.bb-channel-portable .bb-channel-feed{gap:.9rem;padding-left:1.15rem}.bb-channel-portable .bb-channel-feed::before{left:.06rem}.bb-channel-portable .bb-channel-dot{left:-1.32rem;top:1.42rem}.bb-channel-portable .bb-channel-card-surface{padding:1.05rem .95rem;border-radius:12px}.bb-channel-portable .bb-channel-card-placeholder{border-radius:12px}.bb-channel-portable .bb-channel-card:hover .bb-channel-card-surface{transform:none}.bb-channel-portable .bb-channel-meta{margin-bottom:.85rem}.bb-channel-portable .bb-channel-content{font-size:.96rem;line-height:1.72}.bb-channel-portable .bb-channel-media-rail{width:100%;max-width:20rem;grid-template-columns:repeat(3,minmax(0,1fr));justify-self:center;margin-top:.15rem}.bb-channel-portable .bb-channel-media-thumb{min-height:4.1rem}.bb-channel-portable .bb-channel-image-viewer{margin-top:.95rem;max-width:100%}.bb-channel-portable .bb-channel-image-slide{min-height:10rem}.bb-channel-portable .bb-channel-image-large{max-width:100%!important;max-height:68vh!important}.bb-channel-portable .bb-channel-image-nav{width:2.55rem;height:2.55rem}.bb-channel-portable .bb-channel-image-prev{left:.45rem}.bb-channel-portable .bb-channel-image-next{right:.45rem}.bb-channel-portable .bb-channel-attachment{align-items:flex-start;padding:.78rem .82rem}.bb-channel-portable .bb-channel-attachment-title{white-space:normal;overflow-wrap:anywhere}.bb-channel-portable .bb-channel-tags{gap:.42rem}.bb-channel-portable .bb-channel-pagination{gap:1rem}}
-@media(prefers-reduced-motion:reduce){.bb-channel-portable .bb-channel-card-placeholder,.bb-channel-portable .bb-channel-card-surface,.bb-channel-portable .bb-channel-media-rail,.bb-channel-portable .bb-channel-image-viewer,.bb-channel-portable .bb-channel-image-large,.bb-channel-portable .bb-channel-attachment{transition:none}.bb-channel-portable .bb-channel-card:hover .bb-channel-card-surface{transform:none}}
+@media(max-width:640px){.bb-channel-portable .bb-channel-intro{margin-bottom:1.2rem}.bb-channel-portable .bb-channel-title{font-size:1.45rem}.bb-channel-portable .bb-channel-intro-text{font-size:.94rem}.bb-channel-portable .bb-channel-feed{gap:.9rem;padding-left:1.15rem}.bb-channel-portable .bb-channel-feed::before{left:.06rem}.bb-channel-portable .bb-channel-dot{left:-1.32rem;top:1.42rem}.bb-channel-portable .bb-channel-card-surface{padding:1.05rem .95rem;border-radius:12px}.bb-channel-portable .bb-channel-card-placeholder{border-radius:12px}.bb-channel-portable .bb-channel-card:hover .bb-channel-card-surface{transform:none}.bb-channel-portable .bb-channel-card[data-bb-card-active="true"] .bb-channel-card-placeholder{opacity:1}.bb-channel-portable .bb-channel-card[data-bb-card-active="true"] .bb-channel-card-surface{transform:translate(4px,-5px);border-style:solid;border-color:#e7b99d;background:rgba(255,255,255,.86);box-shadow:0 12px 26px -24px rgba(15,23,42,.32)}.bb-channel-portable .bb-channel-card[data-bb-viewer-open="true"] .bb-channel-card-placeholder{opacity:0}.bb-channel-portable .bb-channel-card[data-bb-viewer-open="true"] .bb-channel-card-surface{transform:none}.bb-channel-portable .bb-channel-meta{margin-bottom:.85rem}.bb-channel-portable .bb-channel-content{font-size:.96rem;line-height:1.72}.bb-channel-portable .bb-channel-media-rail{width:100%;max-width:20rem;grid-template-columns:repeat(3,minmax(0,1fr));justify-self:center;margin-top:.15rem}.bb-channel-portable .bb-channel-media-thumb{min-height:4.1rem}.bb-channel-portable .bb-channel-image-viewer{margin-top:.95rem;max-width:100%}.bb-channel-portable .bb-channel-image-slide{min-height:10rem}.bb-channel-portable .bb-channel-image-large{max-width:100%!important;max-height:68vh!important}.bb-channel-portable .bb-channel-image-nav{width:2.55rem;height:2.55rem}.bb-channel-portable .bb-channel-image-prev{left:.45rem}.bb-channel-portable .bb-channel-image-next{right:.45rem}.bb-channel-portable .bb-channel-attachment{align-items:flex-start;padding:.78rem .82rem}.bb-channel-portable .bb-channel-attachment-title{white-space:normal;overflow-wrap:anywhere}.bb-channel-portable .bb-channel-tags{gap:.42rem}.bb-channel-portable .bb-channel-pagination{gap:1rem}}
+@media(prefers-reduced-motion:reduce){.bb-channel-portable .bb-channel-card-placeholder,.bb-channel-portable .bb-channel-card-surface,.bb-channel-portable .bb-channel-media-rail,.bb-channel-portable .bb-channel-image-viewer,.bb-channel-portable .bb-channel-image-large,.bb-channel-portable .bb-channel-attachment{transition:none}.bb-channel-portable .bb-channel-card:hover .bb-channel-card-surface,.bb-channel-portable .bb-channel-card[data-bb-card-active="true"] .bb-channel-card-surface{transform:none}}
 </style>
 <div class="bb-channel-portable" data-bb-channel-root data-api-base="https://kaaaaai-tools-channel-api.vercel.app" data-page-size="20">
 <header class="bb-channel-intro">
@@ -347,6 +347,10 @@ const pageSize = root.dataset.pageSize || '20';
 const feed = root.querySelector('[data-bb-channel-feed]');
 const pager = root.querySelector('[data-bb-channel-pagination]');
 const status = root.querySelector('[data-bb-channel-status]');
+let bbActiveCardObserver = null;
+let bbActiveCardRaf = 0;
+let bbActiveCardListening = false;
+const bbActiveCardQuery = window.matchMedia ? window.matchMedia('(max-width: 640px)') : null;
 
 const escapeHtml = (value = '') => String(value)
 .replace(/&/g, '&amp;')
@@ -435,6 +439,121 @@ requestAnimationFrame(restore);
 });
 };
 
+const positionImageTrack = (track, index, useSmoothScroll) => {
+const left = track.clientWidth * index;
+track.scrollTo({ left, behavior: useSmoothScroll ? 'smooth' : 'auto' });
+if (!useSmoothScroll) track.scrollLeft = left;
+};
+
+const clearMobileActiveCards = () => {
+feed.querySelectorAll('.bb-channel-card[data-bb-card-active]').forEach((card) => {
+delete card.dataset.bbCardActive;
+});
+};
+
+const calculateCardVisibleArea = (card) => {
+const surface = card.querySelector('.bb-channel-card-surface') || card;
+const rect = surface.getBoundingClientRect();
+const viewportWidth = window.innerWidth || document.documentElement.clientWidth || 0;
+const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
+const width = Math.max(0, Math.min(rect.right, viewportWidth) - Math.max(rect.left, 0));
+const height = Math.max(0, Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0));
+return width * height;
+};
+
+const calculateCardVisibleRatio = (card) => {
+const surface = card.querySelector('.bb-channel-card-surface') || card;
+const rect = surface.getBoundingClientRect();
+const area = calculateCardVisibleArea(card);
+const total = Math.max(1, rect.width * rect.height);
+return area / total;
+};
+
+const calculateCardActiveDistance = (card) => {
+const surface = card.querySelector('.bb-channel-card-surface') || card;
+const rect = surface.getBoundingClientRect();
+const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
+const viewportActiveLine = viewportHeight * .52;
+const visibleTop = Math.max(rect.top, 0);
+const visibleBottom = Math.min(rect.bottom, viewportHeight);
+const visibleCenter = (visibleTop + visibleBottom) / 2;
+return Math.abs(visibleCenter - viewportActiveLine);
+};
+
+const activateLargestVisibleCard = () => {
+bbActiveCardRaf = 0;
+if (!bbActiveCardQuery || !bbActiveCardQuery.matches) {
+clearMobileActiveCards();
+return;
+}
+let activeCard = null;
+let bestDistance = Infinity;
+let bestRatio = 0;
+feed.querySelectorAll('.bb-channel-card').forEach((card) => {
+if (card.dataset.bbViewerOpen === 'true') return;
+const visibleArea = calculateCardVisibleArea(card);
+const visibleRatio = calculateCardVisibleRatio(card);
+if (visibleArea <= 0 || visibleRatio < .08) return;
+const distance = calculateCardActiveDistance(card);
+if (distance < bestDistance || (Math.abs(distance - bestDistance) < 1 && visibleRatio > bestRatio)) {
+bestDistance = distance;
+bestRatio = visibleRatio;
+activeCard = card;
+}
+});
+feed.querySelectorAll('.bb-channel-card').forEach((card) => {
+if (card === activeCard) {
+card.dataset.bbCardActive = 'true';
+} else {
+delete card.dataset.bbCardActive;
+}
+});
+};
+
+const scheduleMobileActiveCardUpdate = () => {
+if (bbActiveCardRaf) return;
+bbActiveCardRaf = window.requestAnimationFrame(activateLargestVisibleCard);
+};
+
+const stopMobileActiveCardTracking = () => {
+if (bbActiveCardObserver) {
+bbActiveCardObserver.disconnect();
+bbActiveCardObserver = null;
+}
+if (bbActiveCardRaf) {
+window.cancelAnimationFrame(bbActiveCardRaf);
+bbActiveCardRaf = 0;
+}
+if (bbActiveCardListening) {
+window.removeEventListener('scroll', scheduleMobileActiveCardUpdate);
+window.removeEventListener('resize', scheduleMobileActiveCardUpdate);
+bbActiveCardListening = false;
+}
+};
+
+const setupMobileActiveCard = () => {
+stopMobileActiveCardTracking();
+clearMobileActiveCards();
+if (!bbActiveCardQuery || !bbActiveCardQuery.matches) return;
+window.addEventListener('scroll', scheduleMobileActiveCardUpdate, { passive: true });
+window.addEventListener('resize', scheduleMobileActiveCardUpdate);
+bbActiveCardListening = true;
+if ('IntersectionObserver' in window) {
+bbActiveCardObserver = new IntersectionObserver(scheduleMobileActiveCardUpdate, { threshold: [0, .15, .3, .45, .6, .75, .9, 1] });
+feed.querySelectorAll('.bb-channel-card').forEach((card) => bbActiveCardObserver.observe(card));
+}
+scheduleMobileActiveCardUpdate();
+};
+
+if (bbActiveCardQuery) {
+const handleActiveCardQueryChange = () => setupMobileActiveCard();
+if (typeof bbActiveCardQuery.addEventListener === 'function') {
+bbActiveCardQuery.addEventListener('change', handleActiveCardQueryChange);
+} else if (typeof bbActiveCardQuery.addListener === 'function') {
+bbActiveCardQuery.addListener(handleActiveCardQueryChange);
+}
+}
+
 const openImageViewer = (card, index) => {
 const viewer = card.querySelector('[data-bb-image-viewer]');
 const track = card.querySelector('[data-bb-image-track]');
@@ -442,6 +561,7 @@ const slides = [...card.querySelectorAll('[data-bb-image-slide]')];
 const count = card.querySelector('[data-bb-image-count]');
 if (!viewer || !track || !slides.length) return;
 const safeIndex = (Number(index) + slides.length) % slides.length;
+const useSmoothScroll = card.dataset.bbViewerOpen === 'true';
 card.dataset.bbImageIndex = String(safeIndex);
 if (count) count.textContent = slides.length > 1 ? (safeIndex + 1) + ' / ' + slides.length : '';
 preserveCardViewportPosition(card, () => {
@@ -451,7 +571,7 @@ viewer.hidden = false;
 hydrateImages(slides[safeIndex]);
 requestAnimationFrame(() => {
 card.dataset.bbViewerOpen = 'true';
-track.scrollTo({ left: track.clientWidth * safeIndex, behavior: 'smooth' });
+positionImageTrack(track, safeIndex, useSmoothScroll);
 focusWithoutScroll(track);
 });
 });
@@ -520,6 +640,7 @@ if (!response.ok) throw new Error('API responded ' + response.status);
 const data = await response.json();
 feed.innerHTML = (data.posts || []).map(renderCard).join('');
 hydrateImages(feed);
+setupMobileActiveCard();
 status.textContent = '';
 pager.innerHTML = '';
 if (data.pagination && data.pagination.total > 1) {

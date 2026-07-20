@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=ZCOOL+QingKe+HuangYou:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-bounce.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous" defer></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.kaaaaai.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"agate","dark":"agate"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"waline","storage":true,"lazyload":true,"nav":null,"activeClass":"waline"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="AI token usage dashboard">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tokens">
+<meta property="og:url" content="https://www.kaaaaai.cn/token-usage/index.html">
+<meta property="og:site_name" content="壹拾肆">
+<meta property="og:description" content="AI token usage dashboard">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Kaaaaai">
+<meta property="article:tag" content="个人, 成长, 技术, 思考, 书籍, 电影, iOS, Android, 代码">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.kaaaaai.cn/token-usage/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"token-usage/index.html","title":"Tokens"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Tokens | 壹拾肆
+</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102185873-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-102185873-1","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js" defer></script>
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?9578d14210d67becef48447e4f6b3f20"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+<script class="next-config" data-name="chatra" type="application/json">{"enable":true,"async":true,"id":"QXLRxXcsfrRJR2KTG"}</script>
+<script src="/js/third-party/chat/chatra.js" defer></script>
+<script async src="https://call.chatra.io/chatra.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+  <script src="/js/third-party/pace.js" defer></script>
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+ <script type="text/javascript" src="/js/link-highlight.js"></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="壹拾肆" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">壹拾肆</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">有些安排是多余的 这片空旷对我有益</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-moments"><a href="/bb/" rel="section"><i class="fa fa-coffee fa-fw"></i>moments</a></li><li class="menu-item menu-item-tokens"><a href="/token-usage/" rel="section"><i class="fa fa-chart-line fa-fw"></i>Tokens</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Kaaaaai"
+      src="https://s2.loli.net/2022/03/29/GSJKrCRi4owa9hq.png">
+  <p class="site-author-name" itemprop="name">Kaaaaai</p>
+  <div class="site-description" itemprop="description">🐨🐨</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">99</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">66</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="sidebar-button animated">
+    <button><i class="fa fa-comment"></i>
+      聊天
+    </button>
+  </div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Kaaaaai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Kaaaaai" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/8342030/kaaaaai" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;8342030&#x2F;kaaaaai" rel="noopener me" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/leooooon_ins/" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;leooooon_ins&#x2F;" rel="noopener me" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:root@kaaaaai.cn" title="E-Mail → mailto:root@kaaaaai.cn" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner page posts-expand">
+
+
+    
+    
+    
+    <div class="post-block" lang="zh-CN">
+      
+      
+      
+      <div class="post-body">
+          
+<style>
+  .post-block:has(.token-usage-portable) .post-title,
+  .post-block:has(.token-usage-portable) .post-meta-container,
+  body:has(.token-usage-portable) .post-toc-wrap {
+    display: none;
+  }
+
+  .token-usage-portable {
+    --tu-text: #242424;
+    --tu-muted: #777;
+    --tu-soft: #f7f7f7;
+    --tu-line: #e8e8e8;
+    --tu-accent: #4f6f7f;
+    --tu-warm: #a56a43;
+    color: var(--tu-text);
+    font-size: 1rem;
+  }
+
+  .token-usage-portable * {
+    box-sizing: border-box;
+  }
+
+  .token-usage-portable .tu-intro {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.2rem;
+    margin-bottom: 1.6rem;
+    padding-bottom: 1.1rem;
+    border-bottom: 1px solid var(--tu-line);
+  }
+
+  .token-usage-portable .tu-title {
+    margin: 0 0 .45rem;
+    color: #202020;
+    font-family: inherit;
+    font-size: 1.72rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0;
+  }
+
+  .token-usage-portable .tu-description {
+    max-width: 36rem;
+    margin: 0;
+    color: var(--tu-muted);
+    font-size: .96rem;
+    line-height: 1.65;
+  }
+
+  .token-usage-portable .tu-status {
+    display: inline-flex;
+    min-height: 2.1rem;
+    align-items: center;
+    gap: .48rem;
+    border: 1px solid var(--tu-line);
+    border-radius: 7px;
+    padding: .32rem .7rem;
+    color: var(--tu-muted);
+    background: rgba(255, 255, 255, .64);
+    font-size: .86rem;
+    white-space: nowrap;
+  }
+
+  .token-usage-portable .tu-status::before {
+    width: .46rem;
+    height: .46rem;
+    border-radius: 999px;
+    background: #aaa;
+    content: "";
+  }
+
+  .token-usage-portable .tu-status[data-state="ok"]::before {
+    background: #438a5e;
+  }
+
+  .token-usage-portable .tu-status[data-state="error"]::before {
+    background: #b34d4d;
+  }
+
+  .token-usage-portable .tu-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: .75rem;
+    margin-bottom: 1.45rem;
+  }
+
+  .token-usage-portable .tu-metric {
+    min-width: 0;
+    border: 1px solid var(--tu-line);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, .54);
+    padding: .95rem 1rem;
+  }
+
+  .token-usage-portable .tu-label {
+    margin: 0;
+    color: var(--tu-muted);
+    font-size: .72rem;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+
+  .token-usage-portable .tu-value {
+    margin: .42rem 0 0;
+    color: #202020;
+    font-size: 1.34rem;
+    font-weight: 700;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+  }
+
+  .token-usage-portable .tu-note {
+    margin: .34rem 0 0;
+    color: var(--tu-muted);
+    font-size: .78rem;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+  }
+
+  .token-usage-portable .tu-panel {
+    border: 1px solid var(--tu-line);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, .58);
+    overflow: hidden;
+  }
+
+  .token-usage-portable .tu-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--tu-line);
+    overflow-x: auto;
+  }
+
+  .token-usage-portable .tu-tab {
+    min-width: 6.8rem;
+    min-height: 2.75rem;
+    border: 0;
+    border-right: 1px solid var(--tu-line);
+    background: transparent;
+    color: var(--tu-muted);
+    cursor: pointer;
+    font: inherit;
+  }
+
+  .token-usage-portable .tu-tab[aria-selected="true"] {
+    background: rgba(255, 255, 255, .75);
+    color: var(--tu-text);
+    font-weight: 700;
+  }
+
+  .token-usage-portable .tu-tab:focus-visible,
+  .token-usage-portable .tu-bar:focus-visible {
+    outline: 2px solid rgba(79, 111, 127, .45);
+    outline-offset: 2px;
+  }
+
+  .token-usage-portable .tu-section {
+    display: none;
+    padding: 1.25rem;
+  }
+
+  .token-usage-portable .tu-section[data-active="true"] {
+    display: block;
+  }
+
+  .token-usage-portable .tu-section-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.05rem;
+  }
+
+  .token-usage-portable .tu-section-title {
+    margin: 0;
+    color: #202020;
+    font-size: 1.12rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .token-usage-portable .tu-section-subtitle,
+  .token-usage-portable .tu-latest {
+    margin: .28rem 0 0;
+    color: var(--tu-muted);
+    font-size: .86rem;
+  }
+
+  .token-usage-portable .tu-chart {
+    display: grid;
+    grid-template-columns: repeat(30, minmax(.36rem, 1fr));
+    align-items: end;
+    gap: .3rem;
+    min-height: 13.5rem;
+    border: 1px solid var(--tu-line);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, .38);
+    padding: .9rem .75rem 1.85rem;
+  }
+
+  .token-usage-portable .tu-bar {
+    position: relative;
+    min-width: 0;
+    height: max(.35rem, var(--bar-height));
+    border: 0;
+    border-radius: 4px 4px 1px 1px;
+    background: linear-gradient(180deg, var(--tu-accent), var(--tu-warm));
+  }
+
+  .token-usage-portable .tu-bar span {
+    position: absolute;
+    left: 50%;
+    bottom: -1.35rem;
+    transform: translateX(-50%);
+    color: var(--tu-muted);
+    font-size: .62rem;
+    white-space: nowrap;
+  }
+
+  .token-usage-portable .tu-breakdown {
+    display: grid;
+    gap: .66rem;
+    margin-top: 1.55rem;
+  }
+
+  .token-usage-portable .tu-breakdown-row {
+    display: grid;
+    grid-template-columns: minmax(7rem, 12rem) minmax(7rem, 1fr) minmax(4rem, auto);
+    align-items: center;
+    gap: .7rem;
+    color: var(--tu-muted);
+    font-size: .86rem;
+  }
+
+  .token-usage-portable .tu-model-name {
+    color: var(--tu-text);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .token-usage-portable .tu-track {
+    height: .5rem;
+    border-radius: 999px;
+    background: rgba(120, 120, 120, .16);
+    overflow: hidden;
+  }
+
+  .token-usage-portable .tu-fill {
+    width: var(--fill-width);
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--tu-accent), var(--tu-warm));
+  }
+
+  .token-usage-portable .tu-table-wrap {
+    border: 1px solid var(--tu-line);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, .38);
+    overflow-x: auto;
+  }
+
+  .token-usage-portable table {
+    width: 100%;
+    min-width: 38rem;
+    border-collapse: collapse;
+    margin: 0;
+    font-size: .9rem;
+  }
+
+  .token-usage-portable th,
+  .token-usage-portable td {
+    border-bottom: 1px solid var(--tu-line);
+    padding: .72rem .85rem;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  .token-usage-portable th {
+    color: var(--tu-muted);
+    font-size: .72rem;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+
+  .token-usage-portable td {
+    color: var(--tu-text);
+  }
+
+  .token-usage-portable tr:last-child td {
+    border-bottom: 0;
+  }
+
+  .token-usage-portable .tu-empty {
+    border: 1px dashed var(--tu-line);
+    border-radius: 8px;
+    padding: 1.2rem;
+    color: var(--tu-muted);
+    text-align: center;
+  }
+
+  .token-usage-portable .tu-source {
+    margin: 1rem 0 0;
+    color: var(--tu-muted);
+    font-size: .78rem;
+    overflow-wrap: anywhere;
+  }
+
+  @media (max-width: 760px) {
+    .token-usage-portable .tu-intro,
+    .token-usage-portable .tu-section-head {
+      display: block;
+    }
+
+    .token-usage-portable .tu-status {
+      margin-top: .9rem;
+    }
+
+    .token-usage-portable .tu-metrics {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .token-usage-portable .tu-section {
+      padding: 1rem;
+    }
+
+    .token-usage-portable .tu-chart {
+      grid-template-columns: repeat(15, minmax(.45rem, 1fr));
+      min-height: 12rem;
+    }
+
+    .token-usage-portable .tu-breakdown-row {
+      grid-template-columns: 1fr;
+      gap: .35rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .token-usage-portable .tu-metrics {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .token-usage-portable {
+      --tu-text: #e9e9e9;
+      --tu-muted: #aaa;
+      --tu-soft: #1f2021;
+      --tu-line: rgba(255, 255, 255, .14);
+      --tu-accent: #9cb5c4;
+      --tu-warm: #c2a07d;
+    }
+
+    .token-usage-portable .tu-title,
+    .token-usage-portable .tu-value,
+    .token-usage-portable .tu-section-title {
+      color: #f0f0f0;
+    }
+
+    .token-usage-portable .tu-status,
+    .token-usage-portable .tu-metric,
+    .token-usage-portable .tu-panel,
+    .token-usage-portable .tu-tab[aria-selected="true"],
+    .token-usage-portable .tu-chart,
+    .token-usage-portable .tu-table-wrap {
+      background: rgba(28, 29, 30, .64);
+    }
+  }
+</style>
+
+<div class="token-usage-portable" data-token-usage-root data-data-url="https://raw.githubusercontent.com/kaaaaai/kaaaaai.tools.token-usage-public/main/token-usage.json">
+  <header class="tu-intro">
+    <div>
+      <div class="tu-title" role="heading" aria-level="1">Tokens</div>
+      <p class="tu-description">AI token usage dashboard</p>
+    </div>
+    <div class="tu-status" data-token-status data-state="loading">Loading</div>
+  </header>
+
+  <section class="tu-metrics" data-token-metrics aria-label="Token usage summary"></section>
+
+  <section class="tu-panel" aria-label="Token usage details">
+    <div class="tu-tabs" role="tablist" aria-label="Token usage views">
+      <button class="tu-tab" id="tu-tab-overview" type="button" role="tab" aria-selected="true" aria-controls="tu-panel-overview" data-token-tab="overview">Overview</button>
+      <button class="tu-tab" id="tu-tab-models" type="button" role="tab" aria-selected="false" aria-controls="tu-panel-models" data-token-tab="models">Models</button>
+      <button class="tu-tab" id="tu-tab-daily" type="button" role="tab" aria-selected="false" aria-controls="tu-panel-daily" data-token-tab="daily">Daily</button>
+    </div>
+
+    <section class="tu-section" id="tu-panel-overview" role="tabpanel" aria-labelledby="tu-tab-overview" data-token-panel="overview" data-active="true">
+      <div class="tu-section-head">
+        <div>
+          <p class="tu-section-title">Recent Activity</p>
+          <p class="tu-section-subtitle">Last 30 synced days by token volume.</p>
+        </div>
+        <p class="tu-latest" data-token-latest></p>
+      </div>
+      <div class="tu-chart" data-token-chart aria-label="Daily token chart"></div>
+      <div class="tu-breakdown" data-token-breakdown aria-label="Latest day model breakdown"></div>
+    </section>
+
+    <section class="tu-section" id="tu-panel-models" role="tabpanel" aria-labelledby="tu-tab-models" data-token-panel="models">
+      <div class="tu-section-head">
+        <div>
+          <p class="tu-section-title">Models</p>
+          <p class="tu-section-subtitle">Cumulative model usage from the merged local data.</p>
+        </div>
+      </div>
+      <div class="tu-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Provider</th>
+              <th>Tokens</th>
+              <th>Cost</th>
+              <th>Messages</th>
+            </tr>
+          </thead>
+          <tbody data-token-models></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="tu-section" id="tu-panel-daily" role="tabpanel" aria-labelledby="tu-tab-daily" data-token-panel="daily">
+      <div class="tu-section-head">
+        <div>
+          <p class="tu-section-title">Daily</p>
+          <p class="tu-section-subtitle">Daily totals, newest first.</p>
+        </div>
+      </div>
+      <div class="tu-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Tokens</th>
+              <th>Cost</th>
+              <th>Messages</th>
+            </tr>
+          </thead>
+          <tbody data-token-daily></tbody>
+        </table>
+      </div>
+    </section>
+  </section>
+
+  <p class="tu-source">Source: <a href="https://raw.githubusercontent.com/kaaaaai/kaaaaai.tools.token-usage-public/main/token-usage.json" target="_blank" rel="noopener noreferrer">https://raw.githubusercontent.com/kaaaaai/kaaaaai.tools.token-usage-public/main/token-usage.json</a></p>
+</div>
+
+<script data-pjax>
+  (() => {
+    window.initTokenUsagePage = window.initTokenUsagePage || (() => {
+      const root = document.querySelector('[data-token-usage-root]');
+      if (!root || root.dataset.ready === 'true') return;
+      root.dataset.ready = 'true';
+
+      const dataUrl = root.dataset.dataUrl;
+      const status = root.querySelector('[data-token-status]');
+      const metrics = root.querySelector('[data-token-metrics]');
+      const chart = root.querySelector('[data-token-chart]');
+      const breakdown = root.querySelector('[data-token-breakdown]');
+      const latest = root.querySelector('[data-token-latest]');
+      const modelsBody = root.querySelector('[data-token-models]');
+      const dailyBody = root.querySelector('[data-token-daily]');
+
+      const setStatus = (text, type = 'loading') => {
+        status.textContent = text;
+        status.dataset.state = type;
+      };
+
+      const numberValue = value => {
+        const num = Number(value);
+        return Number.isFinite(num) ? num : 0;
+      };
+
+      const compact = value => new Intl.NumberFormat('en-US', {
+        notation: 'compact',
+        maximumFractionDigits: numberValue(value) >= 1000000 ? 2 : 1
+      }).format(numberValue(value));
+
+      const integer = value => new Intl.NumberFormat('en-US').format(Math.round(numberValue(value)));
+
+      const money = value => new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        maximumFractionDigits: numberValue(value) >= 1000 ? 1 : 2
+      }).format(numberValue(value));
+
+      const dayLabel = value => {
+        const parts = String(value || '').split('-');
+        return parts.length === 3 ? parts[1] + '/' + parts[2] : String(value || '');
+      };
+
+      const appendText = (parent, tag, className, text) => {
+        const node = document.createElement(tag);
+        if (className) node.className = className;
+        node.textContent = text;
+        parent.appendChild(node);
+        return node;
+      };
+
+      const renderMetric = (label, value, note) => {
+        const item = document.createElement('article');
+        item.className = 'tu-metric';
+        appendText(item, 'p', 'tu-label', label);
+        appendText(item, 'p', 'tu-value', value);
+        appendText(item, 'p', 'tu-note', note || '');
+        return item;
+      };
+
+      const emptyState = text => {
+        const node = document.createElement('div');
+        node.className = 'tu-empty';
+        node.textContent = text;
+        return node;
+      };
+
+      const emptyRow = (span, text) => {
+        const row = document.createElement('tr');
+        const cell = document.createElement('td');
+        cell.colSpan = span;
+        cell.textContent = text;
+        row.appendChild(cell);
+        return row;
+      };
+
+      const renderMetrics = data => {
+        const overview = data.overview || {};
+        metrics.replaceChildren(
+          renderMetric('Total Tokens', compact(overview.totalTokens), integer(overview.totalTokens) + ' tokens'),
+          renderMetric('Total Cost', money(overview.totalCost), 'Estimated API spend'),
+          renderMetric('Active Days', integer(overview.activeDays), 'Days with synced usage'),
+          renderMetric('Favorite Model', overview.favoriteModel || '-', 'Most used model')
+        );
+      };
+
+      const renderChart = days => {
+        const recent = days.slice(-30);
+        const maxTokens = recent.reduce((max, day) => Math.max(max, numberValue(day.tokens || day.totalTokens)), 0);
+        if (!recent.length) {
+          chart.replaceChildren(emptyState('No daily data yet.'));
+          return;
+        }
+
+        const bars = recent.map(day => {
+          const tokens = numberValue(day.tokens || day.totalTokens);
+          const percent = maxTokens ? Math.max(4, Math.round(tokens / maxTokens * 100)) : 4;
+          const bar = document.createElement('button');
+          bar.className = 'tu-bar';
+          bar.type = 'button';
+          bar.style.setProperty('--bar-height', percent + '%');
+          bar.setAttribute('aria-label', String(day.date) + ': ' + integer(tokens) + ' tokens');
+          bar.title = String(day.date) + ' · ' + integer(tokens) + ' tokens · ' + money(day.cost || day.totalCost);
+          appendText(bar, 'span', '', dayLabel(day.date));
+          return bar;
+        });
+        chart.replaceChildren(...bars);
+      };
+
+      const renderBreakdown = data => {
+        const dailyModels = data.dailyModels || {};
+        const days = Array.isArray(dailyModels.days) ? dailyModels.days : [];
+        const last = days.length ? days[days.length - 1] : null;
+        if (!last || !last.models) {
+          latest.textContent = '';
+          breakdown.replaceChildren(emptyState('No model breakdown for the latest day.'));
+          return;
+        }
+
+        latest.textContent = 'Latest: ' + last.date + ' · ' + compact(last.totalTokens) + ' tokens';
+        const entries = Object.keys(last.models).map(name => ({
+          name,
+          tokens: numberValue(last.models[name])
+        })).sort((a, b) => b.tokens - a.tokens).slice(0, 8);
+        const total = entries.reduce((sum, item) => sum + item.tokens, 0);
+        const rows = entries.map(item => {
+          const row = document.createElement('div');
+          row.className = 'tu-breakdown-row';
+          appendText(row, 'div', 'tu-model-name', item.name);
+          const track = document.createElement('div');
+          track.className = 'tu-track';
+          const fill = document.createElement('div');
+          fill.className = 'tu-fill';
+          fill.style.setProperty('--fill-width', (total ? Math.max(2, item.tokens / total * 100) : 0) + '%');
+          track.appendChild(fill);
+          row.appendChild(track);
+          appendText(row, 'div', '', compact(item.tokens));
+          return row;
+        });
+        breakdown.replaceChildren(...rows);
+      };
+
+      const renderModels = models => {
+        const rows = (Array.isArray(models) ? models : []).slice()
+          .sort((a, b) => numberValue(b.totalTokens) - numberValue(a.totalTokens))
+          .map(model => {
+            const row = document.createElement('tr');
+            appendText(row, 'td', '', model.model || '-');
+            appendText(row, 'td', '', model.provider || model.client || '-');
+            appendText(row, 'td', '', integer(model.totalTokens));
+            appendText(row, 'td', '', money(model.totalCost));
+            appendText(row, 'td', '', integer(model.messageCount));
+            return row;
+          });
+        modelsBody.replaceChildren(...(rows.length ? rows : [emptyRow(5, 'No model data yet.')]));
+      };
+
+      const renderDaily = days => {
+        const rows = (Array.isArray(days) ? days : []).slice()
+          .sort((a, b) => String(b.date).localeCompare(String(a.date)))
+          .map(day => {
+            const row = document.createElement('tr');
+            appendText(row, 'td', '', day.date || '-');
+            appendText(row, 'td', '', integer(day.tokens || day.totalTokens));
+            appendText(row, 'td', '', money(day.cost || day.totalCost));
+            appendText(row, 'td', '', integer(day.messages || day.messageCount));
+            return row;
+          });
+        dailyBody.replaceChildren(...(rows.length ? rows : [emptyRow(4, 'No daily data yet.')]));
+      };
+
+      const activateTab = name => {
+        root.querySelectorAll('[data-token-tab]').forEach(tab => {
+          tab.setAttribute('aria-selected', tab.dataset.tokenTab === name ? 'true' : 'false');
+        });
+        root.querySelectorAll('[data-token-panel]').forEach(panel => {
+          panel.dataset.active = panel.dataset.tokenPanel === name ? 'true' : 'false';
+        });
+      };
+
+      root.querySelectorAll('[data-token-tab]').forEach(tab => {
+        tab.addEventListener('click', () => activateTab(tab.dataset.tokenTab));
+      });
+
+      fetch(dataUrl, { cache: 'no-store' })
+        .then(response => {
+          if (!response.ok) throw new Error('HTTP ' + response.status);
+          return response.json();
+        })
+        .then(data => {
+          const daily = Array.isArray(data.daily) ? data.daily : [];
+          const dailyModelDays = data.dailyModels && Array.isArray(data.dailyModels.days) ? data.dailyModels.days : [];
+          renderMetrics(data);
+          renderChart(dailyModelDays.length ? dailyModelDays : daily);
+          renderBreakdown(data);
+          renderModels(data.models);
+          renderDaily(daily);
+          setStatus('Synced', 'ok');
+        })
+        .catch(error => {
+          setStatus('Load failed', 'error');
+          metrics.replaceChildren(
+            renderMetric('Total Tokens', '-', 'Data unavailable'),
+            renderMetric('Total Cost', '-', 'Data unavailable'),
+            renderMetric('Active Days', '-', 'Data unavailable'),
+            renderMetric('Favorite Model', '-', 'Data unavailable')
+          );
+          chart.replaceChildren(emptyState('Unable to load token usage JSON.'));
+          breakdown.replaceChildren();
+          modelsBody.replaceChildren(emptyRow(5, error.message));
+          dailyBody.replaceChildren(emptyRow(4, error.message));
+        });
+    });
+
+    if (document.readyState !== 'loading') window.initTokenUsagePage();
+    else document.addEventListener('DOMContentLoaded', window.initTokenUsagePage);
+    document.addEventListener('pjax:success', window.initTokenUsagePage);
+  })();
+</script>
+      </div>
+      
+      
+      
+    </div>
+
+    
+    
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Kaaaaai</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">233k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:32</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+<script>
+(function(){
+  var WALINE_CFG = {"el":"#waline-container","serverURL":"https://waline-server-kaaaaai.vercel.app","lang":"zh-CN","locale":{"placeholder":"请文明评论呀"},"meta":["nick","mail","link"],"requiredMeta":[],"avatar":"mm","pageSize":10,"pageview":false,"comment":true};
+  var inst = null;
+  function mountWaline(){
+    var el = document.getElementById("waline-container");
+    if(!el || typeof Waline === "undefined") return;
+    var opts = {};
+    for(var k in WALINE_CFG){ opts[k] = WALINE_CFG[k]; }
+    opts.path = window.location.pathname;
+    if(inst && inst.destroy){ try{ inst.destroy(); }catch(e){} }
+    inst = Waline.init(opts);
+  }
+  if(document.readyState !== "loading"){ mountWaline(); }
+  else { document.addEventListener("DOMContentLoaded", mountWaline); }
+  document.addEventListener("pjax:success", mountWaline);
+})();
+</script>
+
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: true,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var a=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,d=o();function o(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(t){(a||t)&&(d=o());for(var e,i=0;i<d.length;i++)0<=(e=(e=d[i]).getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,a,n,o=d[i];e=function(){d=d.filter(function(t){return o!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(o)},(t=o).dataset.loaded||(t.hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,n=t.getAttribute("data-original"),a.onload=function(){t.src=n,t.removeAttribute("data-original"),t.setAttribute("data-loaded",!0),e&&e()},a.onerror=function(){t.removeAttribute("data-original"),t.setAttribute("data-loaded",!1),t.src=n},t.src!==n&&(a.src=n)))}()}function e(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",e),r.addEventListener("resize",e),r.addEventListener("orientationchange",e)}(this);</script></body>
+</html>
