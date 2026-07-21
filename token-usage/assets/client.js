@@ -212,11 +212,15 @@ function createTokenUsageClient(overrides = {}) {
       );
     }
 
-    const dailyRows = daily.slice(0, 7).map(day => [
-      String(day.date || 'Unknown date'),
-      formatLedgerTokens(day.tokens),
-      formatCost(day.cost)
-    ]);
+    const dailyRows = daily
+      .slice()
+      .sort((left, right) => String(right.date || '').localeCompare(String(left.date || '')))
+      .slice(0, 7)
+      .map(day => [
+        String(day.date || 'Unknown date'),
+        formatLedgerTokens(day.tokens),
+        formatCost(day.cost)
+      ]);
     const dailySummary = query(root, '[data-token-daily-summary]');
     if (dailySummary) {
       buildTable(
@@ -311,9 +315,11 @@ function createTokenUsageClient(overrides = {}) {
       const pathname = String(document?.location?.pathname || '/');
       assetBase = `${pathname.replace(/\/?$/, '/')}assets`;
     }
+    const assetVersion = String(root.dataset.assetVersion || '').trim();
+    const assetQuery = assetVersion ? `?v=${encodeURIComponent(assetVersion)}` : '';
     return [
-      `${assetBase}/tokscale_renderer.js`,
-      `${assetBase}/tokscale_renderer_bg.wasm`
+      `${assetBase}/tokscale_renderer.js${assetQuery}`,
+      `${assetBase}/tokscale_renderer_bg.wasm${assetQuery}`
     ];
   }
 
