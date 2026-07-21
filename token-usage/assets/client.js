@@ -327,7 +327,7 @@ function createTokenUsageClient(overrides = {}) {
     return grid;
   }
 
-  function focusInitialTerminalGrid(root, run) {
+  function focusInitialTerminalGrid(root, run, entryFocus) {
     const gridIsVisible = grid => {
       const style = getElementStyle?.(grid);
       return !style || (style.visibility !== 'hidden' && style.display !== 'none');
@@ -336,7 +336,10 @@ function createTokenUsageClient(overrides = {}) {
       if (!isCurrent(root, run)) return false;
       const terminal = query(root, '[data-token-terminal]');
       const activeElement = document?.activeElement;
-      const focusMovedOutside = activeElement && activeElement !== document?.body && !terminal?.contains?.(activeElement);
+      const focusMovedOutside = activeElement &&
+        activeElement !== document?.body &&
+        activeElement !== entryFocus &&
+        !terminal?.contains?.(activeElement);
       if (terminalInitialFocusCancelled || focusMovedOutside) {
         terminalMountObserver?.disconnect();
         terminalMountObserver = null;
@@ -503,7 +506,7 @@ function createTokenUsageClient(overrides = {}) {
     resizeObserver.observe(target);
   }
 
-  async function runInitialization(root, run) {
+  async function runInitialization(root, run, entryFocus) {
     const source = sourceDetails(root.dataset.dataUrl);
     if (!source.href) {
       if (!isCurrent(root, run)) return false;
@@ -555,7 +558,7 @@ function createTokenUsageClient(overrides = {}) {
       query(root, '[data-token-window]')?.classList.remove('is-unavailable');
       root.dataset.ready = 'true';
       setStatus(root, 'ready', `Updated ${formatUpdate(lastSuccessfulUpdate)}`);
-      focusInitialTerminalGrid(root, run);
+      focusInitialTerminalGrid(root, run, entryFocus);
       installResizeObserver(root, run);
       return true;
     } catch (error) {
@@ -592,7 +595,8 @@ function createTokenUsageClient(overrides = {}) {
     root.dataset.ready = 'loading';
     showLoading(root);
     const run = ++generation;
-    const operation = runInitialization(root, run);
+    const entryFocus = document.activeElement;
+    const operation = runInitialization(root, run, entryFocus);
     pendingInit = operation.finally(() => {
       if (isCurrent(root, run)) pendingInit = null;
     });
