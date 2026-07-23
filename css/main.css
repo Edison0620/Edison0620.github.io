@@ -1312,7 +1312,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #0a692a;
+    background: #3ef925;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3111,6 +3111,143 @@ code {
   }
 }
 /* End footer lightning strike */
+/* Homepage random BB */
+:root {
+  --bb-highlight-color: #b94235;
+}
+body .bb-channel-portable {
+  --bb-card-active-border: var(--bb-highlight-color);
+}
+.home-bb-random {
+  min-height: 44px;
+  margin: 0;
+}
+.home-bb-random-link {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-width: 0;
+  min-height: 44px;
+  padding: 0 15px;
+  border-bottom: 0;
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+}
+.home-bb-random-link:hover {
+  color: #fff;
+}
+.home-bb-random-link:focus-visible {
+  outline: 2px solid var(--bb-highlight-color);
+  outline-offset: 3px;
+}
+.home-bb-random-mark,
+.home-bb-random-content {
+  opacity: 0;
+  transform: translateY(3px);
+}
+.home-bb-random-mark {
+  width: 9px;
+  height: 9px;
+  flex: 0 0 9px;
+  border: 2px solid var(--bb-highlight-color);
+  border-radius: 48% 57% 43% 61%;
+  box-shadow: inset 1px 0 rgba(211,91,78,0.55), 0 0 0 1px rgba(185,66,53,0.1);
+  transform: translateY(3px) rotate(-11deg);
+}
+.home-bb-random-content {
+  position: relative;
+  width: fit-content;
+  max-width: calc(100% - 20px);
+  min-width: 0;
+}
+.home-bb-random-text {
+  position: relative;
+  z-index: 1;
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  color: inherit;
+  line-height: 1.55;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.home-bb-random-underline {
+  position: absolute;
+  z-index: 0;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 14px;
+  overflow: visible;
+  pointer-events: none;
+}
+.home-bb-random-stroke {
+  fill: none;
+  stroke-linecap: round;
+  transform: scaleX(0);
+  transform-box: fill-box;
+  transform-origin: left center;
+}
+.home-bb-random-pigment {
+  stroke: #b94235;
+  stroke-width: 7.4;
+  opacity: 0.86;
+}
+.home-bb-random-edge {
+  stroke: #d35b4e;
+  stroke-width: 2.8;
+  opacity: 0.58;
+}
+.home-bb-random-channel {
+  stroke: rgba(12,14,18,0.62);
+  stroke-width: 1.1;
+  stroke-dasharray: 15 5 3 8 23 4;
+  opacity: 0.72;
+}
+.home-bb-random.is-ready:not(.is-changing) .home-bb-random-mark,
+.home-bb-random.is-ready:not(.is-changing) .home-bb-random-content {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 220ms ease-out, transform 220ms ease-out;
+}
+.home-bb-random.is-ready:not(.is-changing) .home-bb-random-mark {
+  transform: rotate(-11deg);
+}
+.home-bb-random.is-ready:not(.is-changing) .home-bb-random-stroke {
+  transform: scaleX(1);
+  transition: transform 320ms 20ms ease-out;
+}
+.home-bb-random.is-changing .home-bb-random-mark,
+.home-bb-random.is-changing .home-bb-random-content {
+  opacity: 0;
+  transform: translateY(2px);
+  transition: opacity 140ms ease-in, transform 140ms ease-in;
+}
+.home-bb-random.is-changing .home-bb-random-stroke {
+  transform: scaleX(0);
+}
+.home-bb-random-link:hover .home-bb-random-pigment {
+  opacity: 0.96;
+}
+@media (max-width: 767px) {
+  .home-bb-random-link {
+    padding-right: 4px;
+    padding-left: 4px;
+    color: #767676;
+  }
+  .home-bb-random-link:hover {
+    color: #767676;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-bb-random-mark,
+  .home-bb-random-content,
+  .home-bb-random-stroke {
+    transition: none !important;
+  }
+}
+/* End homepage random BB */
 @keyframes footer-bolt-motion {
   0%, 18% {
     transform: translate(9px, -12px) rotate(7deg);

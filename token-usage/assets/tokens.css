@@ -4,6 +4,9 @@
   --window-border: #21262d;
   --window-titlebar: #161b22;
   --window-screen: #0d1117;
+  --terminal-text: #c9d1d9;
+  --terminal-accent: #1faaa2;
+  --terminal-font: "JetBrains Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
   --page-text: #242424;
   --page-muted: #6b6b6b;
   --page-rule: #dedede;
@@ -155,13 +158,14 @@
 
 .token-usage-app .token-window-title b {
   display: inline-grid;
-  width: 16px;
-  height: 16px;
+  width: 22px;
+  height: 18px;
   place-items: center;
-  border-radius: 50%;
-  background: #a3a300;
-  color: #101114;
+  border: 1px solid #364049;
+  border-radius: 4px;
+  color: #1faaa2;
   font-size: 10px;
+  font-weight: 700;
   line-height: 1;
 }
 
@@ -179,10 +183,10 @@
 
 .token-usage-app [data-token-terminal] {
   overflow: hidden;
-  color: #c9d1d9;
+  color: var(--terminal-text);
   outline: 0;
   background: var(--window-screen);
-  font-family: "JetBrains Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-family: var(--terminal-font);
 }
 
 .token-usage-app .token-window-hint {
@@ -196,24 +200,44 @@
   line-height: 1.3;
 }
 
-.token-usage-app .token-window-hint kbd {
+.token-usage-app .token-window-key {
+  appearance: none;
+  -webkit-appearance: none;
   display: inline-grid;
   width: 20px;
   height: 20px;
+  margin: 0;
   place-items: center;
   border: 1px solid #c6c8ca;
   border-bottom-color: #a9abad;
+  padding: 0;
   border-radius: 4px;
   background: #f4f4f4;
   box-shadow: 0 1px 0 #a9abad;
   color: #424242;
+  cursor: pointer;
   font: 600 11px/1 "JetBrains Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.token-usage-app .token-window-key:focus-visible {
+  outline: 2px solid #1f6feb;
+  outline-offset: 2px;
+}
+
+.token-usage-app .token-window-key:active {
+  background: #d9d9d9;
 }
 
 .token-usage-app [data-token-terminal] pre {
   margin: 0;
   padding: 0;
   border: 0;
+  background: transparent;
+  color: inherit;
   font: inherit;
   line-height: normal;
   white-space: pre;
@@ -224,18 +248,52 @@
   box-shadow: inset 0 0 0 1px var(--window-border);
 }
 
+.token-usage-app .token-terminal-loader {
+  width: 100%;
+  color: var(--terminal-text);
+  font: 600 14px/1.55 var(--terminal-font);
+  text-align: left;
+}
+
+.token-usage-app .token-terminal-loader p {
+  min-width: 0;
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  text-align: left;
+}
+
+.token-usage-app .token-terminal-prompt {
+  color: var(--terminal-accent);
+}
+
+.token-usage-app .token-terminal-cursor {
+  display: inline-block;
+  width: 0.62em;
+  height: 1em;
+  margin-left: 2px;
+  background: currentColor;
+  vertical-align: -0.12em;
+  animation: token-terminal-cursor-blink 900ms steps(1, end) infinite;
+}
+
+@keyframes token-terminal-cursor-blink {
+  0%, 45% { opacity: 1; }
+  46%, 100% { opacity: 0; }
+}
+
 .token-usage-app .token-terminal-state {
   position: absolute;
   inset: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 10px;
   padding: 24px;
-  color: #c9d1d9;
+  color: var(--terminal-text);
   background: var(--window-screen);
-  font: 14px/1.5 "JetBrains Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font: 14px/1.5 var(--terminal-font);
 }
 
 .token-usage-app .token-terminal-state p {
@@ -407,6 +465,12 @@ body.token-usage-route .sidebar-toggle {
   display: none;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .token-usage-app .token-terminal-cursor {
+    animation: none;
+  }
+}
+
 @media (max-width: 767px) {
   .token-usage-app .token-usage-heading {
     align-items: flex-start;
@@ -449,7 +513,13 @@ body.token-usage-route .sidebar-toggle {
 
   .token-usage-app .token-window-hint {
     flex-wrap: wrap;
+    gap: 10px;
     margin-top: 20px;
+  }
+
+  .token-usage-app .token-window-key {
+    min-width: 44px;
+    min-height: 44px;
   }
 
   .token-usage-app .token-usage-details {

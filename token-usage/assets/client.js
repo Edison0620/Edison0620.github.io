@@ -14,7 +14,23 @@ function createTokenUsageClient(overrides = {}) {
   const enqueue = overrides.queueMicrotask || environment.queueMicrotask?.bind(environment) || (callback => Promise.resolve().then(callback));
   const addWindowEventListener = overrides.addWindowEventListener || environment.addEventListener?.bind(environment);
   const removeWindowEventListener = overrides.removeWindowEventListener || environment.removeEventListener?.bind(environment);
+  const MouseEventClass = overrides.MouseEvent || environment.MouseEvent;
+  const KeyboardEventClass = overrides.KeyboardEvent || environment.KeyboardEvent;
   const loadRenderer = overrides.loadRenderer || defaultLoadRenderer;
+  const now = overrides.now || (() => new Date());
+  const prefersReducedMotion = overrides.prefersReducedMotion ??
+    environment.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches ?? false;
+  const coarsePointer = overrides.coarsePointer ??
+    environment.matchMedia?.('(pointer: coarse)')?.matches ?? false;
+  const TERMINAL_LOADING_DELAY = 300;
+  const TERMINAL_TYPE_DELAY = 28;
+
+  function localDateKey(value) {
+    const year = value.getFullYear();
+    const month = String(value.getMonth() + 1).padStart(2, '0');
+    const day = String(value.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }
 
   let activeRoot = null;
   let renderer = null;
@@ -36,6 +52,14 @@ function createTokenUsageClient(overrides = {}) {
   let terminalMountFrame = null;
   let terminalMountSequence = 0;
   let terminalInitialFocusCancelled = false;
+  let terminalTouchTarget = null;
+  let terminalTouchStartListener = null;
+  let terminalTouchMoveListener = null;
+  let terminalTouchEndListener = null;
+  let terminalTouchCancelListener = null;
+  let terminalTouchPoint = null;
+  let terminalDirectionControlBindings = [];
+  let terminalLoadingController = null;
 
   function query(root, selector) {
     return root?.querySelector(selector) || null;
@@ -270,6 +294,7 @@ function createTokenUsageClient(overrides = {}) {
   }
 
   function renderTerminalMessage(root, title, error, source, readyState) {
+    cancelTerminalLoading();
     const state = query(root, '[data-token-terminal-state]');
     const window = query(root, '[data-token-window]');
     if (!state) return;
@@ -300,11 +325,11 @@ function createTokenUsageClient(overrides = {}) {
   }
 
   function showLoading(root) {
-    setStatus(root, 'loading', 'Loading usage data...');
+    setStatus(root, 'loading', 'Syncing usage data...');
     const state = query(root, '[data-token-terminal-state]');
     if (state) {
-      state.textContent = 'Loading usage data...';
-      state.hidden = false;
+      state.replaceChildren();
+      state.hidden = true;
     }
     query(root, '[data-token-window]')?.classList.remove('is-unavailable');
   }
@@ -447,11 +472,232 @@ function createTokenUsageClient(overrides = {}) {
     }
   }
 
+  function installTerminalTouchBridge(root) {
+    const terminal = query(root, '[data-token-terminal]');
+    if (!terminal?.addEventListener || !MouseEventClass) return;
+    const touchByIdentifier = (touches, identifier) => {
+      for (let index = 0; index < (touches?.length || 0); index += 1) {
+        const touch = touches[index];
+        if (identifier === undefined || touch.identifier === identifier) return touch;
+      }
+      return null;
+    };
+    terminalTouchTarget = terminal;
+    terminalTouchStartListener = event => {
+      if (event.touches?.length !== 1) {
+        terminalTouchPoint = null;
+        return;
+      }
+      const touch = touchByIdentifier(event.touches);
+      terminalTouchPoint = touch ? {
+        identifier: touch.identifier,
+        clientX: touch.clientX,
+        clientY: touch.clientY,
+        moved: false
+      } : null;
+    };
+    terminalTouchMoveListener = event => {
+      if (!terminalTouchPoint) return;
+      const touch = touchByIdentifier(event.touches, terminalTouchPoint.identifier);
+      if (!touch) return;
+      if (
+        Math.abs(touch.clientX - terminalTouchPoint.clientX) > 10 ||
+        Math.abs(touch.clientY - terminalTouchPoint.clientY) > 10
+      ) {
+        terminalTouchPoint.moved = true;
+      }
+    };
+    terminalTouchEndListener = event => {
+      const point = terminalTouchPoint;
+      terminalTouchPoint = null;
+      if (!point || point.moved) return;
+      const touch = touchByIdentifier(event.changedTouches, point.identifier);
+      const grid = configureTerminalGrid(root);
+      if (!touch || !grid?.dispatchEvent) return;
+      event.preventDefault?.();
+      grid.dispatchEvent(new MouseEventClass('click', {
+        bubbles: true,
+        cancelable: true,
+        clientX: touch.clientX,
+        clientY: touch.clientY,
+        button: 0
+      }));
+      grid.focus?.({ preventScroll: true });
+    };
+    terminalTouchCancelListener = () => {
+      terminalTouchPoint = null;
+    };
+    terminal.addEventListener('touchstart', terminalTouchStartListener, { passive: true });
+    terminal.addEventListener('touchmove', terminalTouchMoveListener, { passive: true });
+    terminal.addEventListener('touchend', terminalTouchEndListener, { passive: false });
+    terminal.addEventListener('touchcancel', terminalTouchCancelListener, { passive: true });
+  }
+
+  function installTerminalDirectionControls(root, activeRenderer) {
+    if (!activeRenderer?.navigate && !KeyboardEventClass) return;
+    const controls = root?.querySelectorAll?.('[data-token-direction]') || [];
+    controls.forEach(control => {
+      const listener = () => {
+        const grid = configureTerminalGrid(root);
+        const key = control.dataset.tokenDirection;
+        if (activeRenderer?.navigate) {
+          activeRenderer.navigate('tokscale-terminal', key);
+        } else {
+          grid?.dispatchEvent(new KeyboardEventClass('keydown', {
+            key,
+            code: key,
+            bubbles: true,
+            cancelable: true
+          }));
+        }
+        if (!coarsePointer) grid?.focus?.({ preventScroll: true });
+      };
+      control.addEventListener('click', listener);
+      terminalDirectionControlBindings.push({ control, listener });
+    });
+  }
+
   function isCurrent(root, run) {
     return activeRoot === root && generation === run;
   }
 
+  function createTerminalLoadingController(root, run) {
+    let revealTimer = null;
+    let typeTimer = null;
+    let active = true;
+    let visible = false;
+    let typedLength = 0;
+    let stage = 'waiting';
+    let cursor = null;
+    const command = 'fetch usage.json';
+
+    function isActive() {
+      return active && isCurrent(root, run);
+    }
+
+    function clearTimers() {
+      if (revealTimer !== null) cancel?.(revealTimer);
+      if (typeTimer !== null) cancel?.(typeTimer);
+      revealTimer = null;
+      typeTimer = null;
+    }
+
+    function stageLines() {
+      const lines = [];
+      if (['received', 'validated', 'mounting'].includes(stage)) lines.push('[ok] usage data received');
+      if (['validated', 'mounting'].includes(stage)) lines.push('[ok] schema verified');
+      if (stage === 'mounting') lines.push('> mounting renderer');
+      return lines;
+    }
+
+    function statusText() {
+      return {
+        waiting: 'Fetching usage data',
+        received: 'Usage data received',
+        validated: 'Usage schema verified',
+        mounting: 'Mounting terminal renderer'
+      }[stage];
+    }
+
+    function refreshStages() {
+      const state = query(root, '[data-token-terminal-state]');
+      const output = query(state, '[data-token-loader-output]');
+      const accessible = query(state, '[data-token-loader-status]');
+      if (!output || !accessible) return;
+      const rows = stageLines().map(line => {
+        const row = document.createElement('p');
+        row.textContent = line;
+        return row;
+      });
+      if (cursor && rows.length) rows[rows.length - 1].append(cursor);
+      output.replaceChildren(...rows);
+      accessible.textContent = statusText();
+    }
+
+    function typeNext() {
+      if (!isActive() || !visible) return;
+      const commandNode = query(root, '[data-token-loader-command]');
+      if (!commandNode) return;
+      typedLength = Math.min(command.length, typedLength + 1);
+      commandNode.textContent = command.slice(0, typedLength);
+      if (typedLength < command.length) typeTimer = schedule?.(typeNext, TERMINAL_TYPE_DELAY);
+    }
+
+    function finishTyping() {
+      if (typeTimer !== null) cancel?.(typeTimer);
+      typeTimer = null;
+      typedLength = command.length;
+      const commandNode = query(root, '[data-token-loader-command]');
+      if (commandNode) commandNode.textContent = command;
+    }
+
+    function reveal() {
+      if (!isActive()) return;
+      revealTimer = null;
+      visible = true;
+      const state = query(root, '[data-token-terminal-state]');
+      if (!state) return;
+      const visual = document.createElement('div');
+      visual.className = 'token-terminal-loader';
+      visual.setAttribute('data-token-loader', '');
+      visual.setAttribute('aria-hidden', 'true');
+      const commandLine = document.createElement('p');
+      const prompt = document.createElement('span');
+      prompt.className = 'token-terminal-prompt';
+      prompt.textContent = 'kaaaaai@tokens:~$ ';
+      const commandNode = document.createElement('span');
+      commandNode.setAttribute('data-token-loader-command', '');
+      cursor = document.createElement('span');
+      cursor.className = 'token-terminal-cursor';
+      commandLine.append(prompt, commandNode, cursor);
+      const output = document.createElement('div');
+      output.setAttribute('data-token-loader-output', '');
+      visual.append(commandLine, output);
+      const accessible = document.createElement('span');
+      accessible.className = 'sr-only';
+      accessible.setAttribute('data-token-loader-status', '');
+      state.replaceChildren(visual, accessible);
+      state.hidden = false;
+      refreshStages();
+      if (prefersReducedMotion || stage !== 'waiting') {
+        finishTyping();
+      } else {
+        typeNext();
+      }
+    }
+
+    return {
+      start() {
+        revealTimer = schedule?.(reveal, TERMINAL_LOADING_DELAY);
+      },
+      advance(nextStage) {
+        if (!isActive() || !['received', 'validated', 'mounting'].includes(nextStage)) return;
+        stage = nextStage;
+        if (visible) {
+          finishTyping();
+          refreshStages();
+        }
+      },
+      complete() {
+        this.cancel();
+      },
+      cancel() {
+        if (!active) return;
+        active = false;
+        clearTimers();
+        const state = query(root, '[data-token-terminal-state]');
+        if (query(state, '[data-token-loader]')) state.hidden = true;
+      }
+    };
+  }
+
+  function cancelTerminalLoading() {
+    terminalLoadingController?.cancel();
+    terminalLoadingController = null;
+  }
+
   function clearRenderer() {
+    cancelTerminalLoading();
     if (resizeTimer !== null && cancel) cancel(resizeTimer);
     resizeTimer = null;
     resizeObserver?.disconnect();
@@ -488,6 +734,22 @@ function createTokenUsageClient(overrides = {}) {
     terminalMountSequence += 1;
     if (terminalMountFrame !== null && cancelFrame) cancelFrame(terminalMountFrame);
     terminalMountFrame = null;
+    if (terminalTouchTarget) {
+      terminalTouchTarget.removeEventListener('touchstart', terminalTouchStartListener);
+      terminalTouchTarget.removeEventListener('touchmove', terminalTouchMoveListener);
+      terminalTouchTarget.removeEventListener('touchend', terminalTouchEndListener);
+      terminalTouchTarget.removeEventListener('touchcancel', terminalTouchCancelListener);
+    }
+    terminalTouchTarget = null;
+    terminalTouchStartListener = null;
+    terminalTouchMoveListener = null;
+    terminalTouchEndListener = null;
+    terminalTouchCancelListener = null;
+    terminalTouchPoint = null;
+    terminalDirectionControlBindings.forEach(({ control, listener }) => {
+      control.removeEventListener('click', listener);
+    });
+    terminalDirectionControlBindings = [];
   }
 
   function installResizeObserver(root, run) {
@@ -513,6 +775,7 @@ function createTokenUsageClient(overrides = {}) {
   }
 
   async function runInitialization(root, run, entryFocus) {
+    const loadingController = terminalLoadingController;
     const source = sourceDetails(root.dataset.dataUrl);
     if (!source.href) {
       if (!isCurrent(root, run)) return false;
@@ -534,7 +797,10 @@ function createTokenUsageClient(overrides = {}) {
       if (!response?.ok) {
         throw new Error(`Usage request failed (${response?.status || 'network error'}).`);
       }
-      data = validateUsagePayload(await response.json());
+      loadingController?.advance('received');
+      const rawData = await response.json();
+      data = validateUsagePayload(rawData);
+      loadingController?.advance('validated');
     } catch (error) {
       if (!isCurrent(root, run)) return false;
       setStatus(root, 'error', 'Usage data unavailable');
@@ -548,23 +814,27 @@ function createTokenUsageClient(overrides = {}) {
     let loadedRenderer = null;
     try {
       const [scriptUrl, wasmUrl] = rendererUrls(root);
+      loadingController?.advance('mounting');
       loadedRenderer = await loadRenderer(scriptUrl, wasmUrl);
       if (!isCurrent(root, run)) return false;
       installTerminalFocusTracking(root);
-      loadedRenderer.mount('tokscale-terminal', JSON.stringify(data));
+      loadedRenderer.mount('tokscale-terminal', JSON.stringify(data), localDateKey(now()));
       configureTerminalGrid(root);
+      installTerminalDirectionControls(root, loadedRenderer);
+      installTerminalTouchBridge(root);
       if (!isCurrent(root, run)) {
         loadedRenderer.destroy('tokscale-terminal');
         return false;
       }
       renderer = loadedRenderer;
       rendererMounted = true;
+      loadingController?.complete();
       const terminalState = query(root, '[data-token-terminal-state]');
       if (terminalState) terminalState.hidden = true;
       query(root, '[data-token-window]')?.classList.remove('is-unavailable');
       root.dataset.ready = 'true';
       setStatus(root, 'ready', `Updated ${formatUpdate(lastSuccessfulUpdate)}`);
-      focusInitialTerminalGrid(root, run, entryFocus);
+      if (!coarsePointer) focusInitialTerminalGrid(root, run, entryFocus);
       installResizeObserver(root, run);
       return true;
     } catch (error) {
@@ -601,6 +871,8 @@ function createTokenUsageClient(overrides = {}) {
     root.dataset.ready = 'loading';
     showLoading(root);
     const run = ++generation;
+    terminalLoadingController = createTerminalLoadingController(root, run);
+    terminalLoadingController.start();
     const entryFocus = document.activeElement;
     const operation = runInitialization(root, run, entryFocus);
     pendingInit = operation.finally(() => {

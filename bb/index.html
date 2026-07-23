@@ -10,7 +10,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
   <link rel="mask-icon" href="/favicon.ico" color="#222">
 
-<link rel="stylesheet" href="/css/main.css?v=2ca48296e2dd">
+<link rel="stylesheet" href="/css/main.css?v=abb726377038">
 
 <link rel="stylesheet" href="https://fonts.loli.net/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=ZCOOL+QingKe+HuangYou:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
 
@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-bounce.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous" defer></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.kaaaaai.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"agate","dark":"agate"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"waline","storage":true,"lazyload":true,"nav":null,"activeClass":"waline"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.kaaaaai.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.28.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"agate","dark":"agate"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"waline","storage":true,"lazyload":true,"nav":null,"activeClass":"waline"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
 
     <meta name="description" content="这些片段可能来自于互联网破烂收集和大脑皮层短暂兴奋后的捕捉🤏">
 <meta property="og:type" content="website">
@@ -272,10 +272,11 @@
 .bb-channel-portable .bb-channel-feed{position:relative;display:flex;flex-direction:column;gap:1.05rem;padding-left:2.1rem}
 .bb-channel-portable .bb-channel-feed::before{content:"";position:absolute;left:.22rem;top:.25rem;bottom:.25rem;width:1px;background:linear-gradient(to bottom,rgba(226,226,226,0),#e2e2e2 1.2rem,#e2e2e2 calc(100% - 1.2rem),rgba(226,226,226,0))}
 .bb-channel-portable .bb-channel-card{position:relative;border-radius:14px}
+.bb-channel-portable .bb-channel-card:focus{outline:none}
 .bb-channel-portable .bb-channel-card-placeholder{pointer-events:none;position:absolute;inset:0;border:1px dashed var(--bb-card-placeholder-border);border-radius:14px;background:var(--bb-card-placeholder-bg);opacity:0;transition:opacity var(--bb-card-transition)}
 .bb-channel-portable .bb-channel-card-surface{position:relative;z-index:1;border:1px dashed var(--bb-card-placeholder-border);border-radius:14px;background:var(--bb-card-surface-bg);padding:1.45rem 1.65rem;box-shadow:none;transition:border-color var(--bb-card-transition),background-color var(--bb-card-transition),box-shadow var(--bb-card-transition),transform var(--bb-card-transition)}
-.bb-channel-portable .bb-channel-card[data-bb-card-active="true"] .bb-channel-card-placeholder{opacity:1}
-.bb-channel-portable .bb-channel-card[data-bb-card-active="true"] .bb-channel-card-surface{transform:translate(var(--bb-card-offset-x),var(--bb-card-offset-y));border-style:solid;border-color:var(--bb-card-active-border);background:var(--bb-card-active-bg);box-shadow:var(--bb-card-active-shadow)}
+.bb-channel-portable .bb-channel-card[data-bb-card-active="true"] .bb-channel-card-placeholder,.bb-channel-portable .bb-channel-card[data-bb-deep-link-active="true"] .bb-channel-card-placeholder{opacity:1}
+.bb-channel-portable .bb-channel-card[data-bb-card-active="true"] .bb-channel-card-surface,.bb-channel-portable .bb-channel-card[data-bb-deep-link-active="true"] .bb-channel-card-surface{transform:translate(var(--bb-card-offset-x),var(--bb-card-offset-y));border-style:solid;border-color:var(--bb-card-active-border);background:var(--bb-card-active-bg);box-shadow:var(--bb-card-active-shadow)}
 @media(hover:hover) and (pointer:fine){.bb-channel-portable .bb-channel-card:hover .bb-channel-card-placeholder{opacity:1}.bb-channel-portable .bb-channel-card:hover .bb-channel-card-surface{transform:translate(var(--bb-card-offset-x),var(--bb-card-offset-y));border-style:solid;border-color:var(--bb-card-active-border);background:var(--bb-card-active-bg);box-shadow:var(--bb-card-active-shadow)}}
 .bb-channel-portable .bb-channel-dot{position:absolute;left:-2.16rem;top:1.7rem;z-index:2;width:.56rem;height:.56rem;border-radius:999px;background:#ff7900;box-shadow:0 0 0 .28rem rgba(255,121,0,.12)}
 .bb-channel-portable .bb-channel-meta{display:flex;align-items:center;gap:.7rem;margin:0 0 1.08rem;color:#737373;font-weight:500}
@@ -326,7 +327,7 @@
 @media(max-width:720px){.bb-channel-portable .bb-channel-body-with-media{grid-template-columns:1fr}.bb-channel-portable .bb-channel-media-rail{justify-self:start;width:min(18rem,100%)}}
 @keyframes bb-channel-shimmer{0%{background-position:180% 0}100%{background-position:-80% 0}}
 @media(max-width:640px){.bb-channel-portable{--bb-card-offset-x:var(--bb-card-mobile-offset-x);--bb-card-offset-y:var(--bb-card-mobile-offset-y);--bb-card-active-shadow:0 12px 26px -24px rgba(15,23,42,.32)}.bb-channel-portable .bb-channel-intro{margin-bottom:1.2rem}.bb-channel-portable .bb-channel-title{font-size:1.45rem}.bb-channel-portable .bb-channel-intro-text{font-size:.94rem}.bb-channel-portable .bb-channel-feed{gap:.9rem;padding-left:1.15rem}.bb-channel-portable .bb-channel-feed::before{left:.06rem}.bb-channel-portable .bb-channel-dot{left:-1.32rem;top:1.42rem}.bb-channel-portable .bb-channel-card-surface{padding:1.05rem .95rem;border-radius:12px}.bb-channel-portable .bb-channel-card-placeholder{border-radius:12px}.bb-channel-portable .bb-channel-meta{margin-bottom:.85rem}.bb-channel-portable .bb-channel-content{font-size:.96rem;line-height:1.72}.bb-channel-portable .bb-channel-media-rail{width:100%;max-width:20rem;grid-template-columns:repeat(3,minmax(0,1fr));justify-self:center;margin-top:.15rem}.bb-channel-portable .bb-channel-media-thumb{min-height:4.1rem}.bb-channel-portable .bb-channel-image-viewer{margin-top:.95rem;max-width:100%}.bb-channel-portable .bb-channel-image-slide{min-height:10rem}.bb-channel-portable .bb-channel-image-large{max-width:100%!important;max-height:68vh!important}.bb-channel-portable .bb-channel-image-nav{width:2.55rem;height:2.55rem}.bb-channel-portable .bb-channel-image-prev{left:.45rem}.bb-channel-portable .bb-channel-image-next{right:.45rem}.bb-channel-portable .bb-channel-attachment{align-items:flex-start;padding:.78rem .82rem}.bb-channel-portable .bb-channel-attachment-title{white-space:normal;overflow-wrap:anywhere}.bb-channel-portable .bb-channel-tags{gap:.42rem}.bb-channel-portable .bb-channel-pagination{gap:1rem}}
-@media(prefers-reduced-motion:reduce){.bb-channel-portable .bb-channel-card-placeholder,.bb-channel-portable .bb-channel-card-surface,.bb-channel-portable .bb-channel-media-rail,.bb-channel-portable .bb-channel-image-viewer,.bb-channel-portable .bb-channel-image-large,.bb-channel-portable .bb-channel-attachment{transition:none}.bb-channel-portable .bb-channel-card:hover .bb-channel-card-surface,.bb-channel-portable .bb-channel-card[data-bb-card-active="true"] .bb-channel-card-surface{transform:none}}
+@media(prefers-reduced-motion:reduce){.bb-channel-portable .bb-channel-card-placeholder,.bb-channel-portable .bb-channel-card-surface,.bb-channel-portable .bb-channel-media-rail,.bb-channel-portable .bb-channel-image-viewer,.bb-channel-portable .bb-channel-image-large,.bb-channel-portable .bb-channel-attachment{transition:none}.bb-channel-portable .bb-channel-card:hover .bb-channel-card-surface,.bb-channel-portable .bb-channel-card[data-bb-card-active="true"] .bb-channel-card-surface,.bb-channel-portable .bb-channel-card[data-bb-deep-link-active="true"] .bb-channel-card-surface{transform:none}}
 </style>
 <div class="bb-channel-portable" data-bb-channel-root data-api-base="https://kaaaaai-tools-channel-api.vercel.app" data-page-size="20">
 <header class="bb-channel-intro">
@@ -341,9 +342,173 @@
 <script data-pjax>
 (() => {
 const bbChannelFileIcon = "<svg aria-hidden=\"true\" focusable=\"false\"\n  class=\"bb-channel-lucide bb-channel-lucide-file\"\n  xmlns=\"http://www.w3.org/2000/svg\"\n  width=\"24\"\n  height=\"24\"\n  viewBox=\"0 0 24 24\"\n  fill=\"none\"\n  stroke=\"currentColor\"\n  stroke-width=\"2\"\n  stroke-linecap=\"round\"\n  stroke-linejoin=\"round\"\n>\n  <path d=\"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n</svg>\n";
+const normalizePage = function normalizePage(value) {
+const page = Number(value);
+return Number.isInteger(page) && page > 0 ? page : 1;
+};
+const readDeepLink = function readDeepLink(location = {}) {
+const params = new URLSearchParams(location.search || '');
+const rawHash = String(location.hash || '').replace(/^#/, '');
+let hash = rawHash;
+try {
+hash = decodeURIComponent(rawHash);
+} catch {}
+return {
+page: normalizePage(params.get('page')),
+targetId: hash.startsWith('bb-') ? hash : '',
+};
+};
+const createDeepLinkController = function createDeepLinkController(browser, options) {
+let activeCard = null;
+let activeCardHadTabindex = false;
+let activeCardTabindex = null;
+let focusAttempts = 0;
+let focusRetryTimer = 0;
+let highlightTimer = 0;
+let lastLocationKey = '';
+let navigationId = 0;
+let pendingFocus = null;
+let started = false;
+
+const motionBehavior = () => {
+const query = browser.matchMedia && browser.matchMedia('(prefers-reduced-motion: reduce)');
+return query && query.matches ? 'auto' : 'smooth';
+};
+
+const clearHighlight = () => {
+if (pendingFocus) {
+browser.removeEventListener('load', pendingFocus);
+pendingFocus = null;
+}
+if (focusRetryTimer) {
+browser.clearTimeout(focusRetryTimer);
+focusRetryTimer = 0;
+}
+if (highlightTimer) {
+browser.clearTimeout(highlightTimer);
+highlightTimer = 0;
+}
+if (!activeCard) return;
+activeCard.removeAttribute('data-bb-deep-link-active');
+if (activeCardHadTabindex) {
+activeCard.setAttribute('tabindex', activeCardTabindex);
+} else {
+activeCard.removeAttribute('tabindex');
+}
+activeCard = null;
+activeCardHadTabindex = false;
+activeCardTabindex = null;
+};
+
+const revealTarget = (targetId) => {
+clearHighlight();
+const card = browser.document.getElementById(targetId);
+if (!card || !options.feed.contains(card)) return false;
+
+activeCard = card;
+activeCardHadTabindex = card.hasAttribute('tabindex');
+activeCardTabindex = card.getAttribute('tabindex');
+card.setAttribute('data-bb-deep-link-active', 'true');
+card.setAttribute('tabindex', '-1');
+card.scrollIntoView({ behavior: motionBehavior(), block: 'center' });
+focusAttempts = 0;
+const focusTarget = () => {
+pendingFocus = null;
+focusRetryTimer = 0;
+if (activeCard !== card) return;
+const style = browser.getComputedStyle && browser.getComputedStyle(card);
+if (style && style.visibility === 'hidden' && focusAttempts < 40) {
+focusAttempts += 1;
+focusRetryTimer = browser.setTimeout(focusTarget, 50);
+return;
+}
+try {
+card.focus({ preventScroll: true });
+} catch {
+card.focus();
+}
+highlightTimer = browser.setTimeout(clearHighlight, options.highlightDuration || 2400);
+};
+if (browser.document.readyState === 'loading') {
+pendingFocus = focusTarget;
+browser.addEventListener('load', focusTarget, { once: true });
+} else {
+focusTarget();
+}
+return true;
+};
+
+const renderLocation = async ({ scrollRoot = false } = {}) => {
+const currentId = ++navigationId;
+const state = readDeepLink(browser.location);
+const isCurrent = () => currentId === navigationId;
+const loaded = await options.loadPage(state.page, isCurrent);
+if (loaded === false || !isCurrent()) return false;
+if (scrollRoot) {
+options.root.scrollIntoView({ behavior: motionBehavior(), block: 'start' });
+}
+if (state.targetId) revealTarget(state.targetId);
+return true;
+};
+
+const restore = ({ force = false, scrollRoot = false } = {}) => {
+const locationKey = browser.location.href;
+if (!force && locationKey === lastLocationKey) return Promise.resolve(false);
+lastLocationKey = locationKey;
+return renderLocation({ scrollRoot }).catch(error => {
+if (lastLocationKey === locationKey) lastLocationKey = '';
+throw error;
+});
+};
+const handleLocationChange = () => {
+return restore().catch(error => {
+if (typeof options.onError === 'function') options.onError(error);
+});
+};
+
+const start = () => {
+if (!started) {
+browser.addEventListener('popstate', handleLocationChange);
+browser.addEventListener('hashchange', handleLocationChange);
+started = true;
+}
+return restore({ force: true });
+};
+
+const goToPage = (page) => {
+const url = new URL(browser.location.href);
+url.searchParams.set('page', String(normalizePage(page)));
+url.hash = '';
+browser.history.pushState({}, '', url.pathname + url.search);
+return restore({ scrollRoot: true });
+};
+
+const destroy = () => {
+navigationId += 1;
+lastLocationKey = '';
+clearHighlight();
+if (!started) return;
+browser.removeEventListener('popstate', handleLocationChange);
+browser.removeEventListener('hashchange', handleLocationChange);
+started = false;
+};
+
+return {
+destroy,
+goToPage,
+restore,
+start,
+};
+};
 window.initBbChannel = window.initBbChannel || (() => {
 const root = document.querySelector('[data-bb-channel-root]');
-if (!root || root.dataset.bbChannelReady === 'true') return;
+const previousRuntime = window.__bbChannelRuntime;
+if (!root) {
+if (previousRuntime) previousRuntime.destroy();
+return;
+}
+if (previousRuntime && previousRuntime.root !== root) previousRuntime.destroy();
+if (root.dataset.bbChannelReady === 'true') return;
 root.dataset.bbChannelReady = 'true';
 const apiBase = root.dataset.apiBase;
 const pageSize = root.dataset.pageSize || '20';
@@ -353,6 +518,7 @@ const status = root.querySelector('[data-bb-channel-status]');
 let bbActiveCardObserver = null;
 let bbActiveCardRaf = 0;
 let bbActiveCardListening = false;
+let bbActiveCardQueryChangeHandler = null;
 const bbActiveCardQuery = window.matchMedia ? window.matchMedia('(max-width: 640px)') : null;
 
 const escapeHtml = (value = '') => String(value)
@@ -549,11 +715,11 @@ scheduleMobileActiveCardUpdate();
 };
 
 if (bbActiveCardQuery) {
-const handleActiveCardQueryChange = () => setupMobileActiveCard();
+bbActiveCardQueryChangeHandler = () => setupMobileActiveCard();
 if (typeof bbActiveCardQuery.addEventListener === 'function') {
-bbActiveCardQuery.addEventListener('change', handleActiveCardQueryChange);
+bbActiveCardQuery.addEventListener('change', bbActiveCardQueryChangeHandler);
 } else if (typeof bbActiveCardQuery.addListener === 'function') {
-bbActiveCardQuery.addListener(handleActiveCardQueryChange);
+bbActiveCardQuery.addListener(bbActiveCardQueryChangeHandler);
 }
 }
 
@@ -629,18 +795,32 @@ if (img.complete && holder) holder.dataset.bbLoaded = 'true';
 });
 };
 
-const loadPage = async (page = 1) => {
+const loadPage = async (page = 1, isCurrent = () => true) => {
 if (!apiBase) {
-status.textContent = 'Missing bb_channel.api_base';
-return;
+if (isCurrent()) status.textContent = 'Missing bb_channel.api_base';
+return false;
 }
-status.textContent = 'Loading...';
+if (isCurrent()) status.textContent = 'Loading...';
 const url = new URL('/api/posts', apiBase);
 url.searchParams.set('page', page);
 url.searchParams.set('page_size', pageSize);
-const response = await fetch(url.toString());
+let response;
+try {
+response = await fetch(url.toString());
+} catch (error) {
+if (!isCurrent()) return false;
+throw error;
+}
+if (!isCurrent()) return false;
 if (!response.ok) throw new Error('API responded ' + response.status);
-const data = await response.json();
+let data;
+try {
+data = await response.json();
+} catch (error) {
+if (!isCurrent()) return false;
+throw error;
+}
+if (!isCurrent()) return false;
 feed.innerHTML = (data.posts || []).map(renderCard).join('');
 hydrateImages(feed);
 setupMobileActiveCard();
@@ -651,11 +831,37 @@ const prev = data.pagination.hasPrev ? '<button data-page="' + (data.pagination.
 const next = data.pagination.hasNext ? '<button data-page="' + (data.pagination.page + 1) + '">下一页</button>' : '';
 pager.innerHTML = prev + '<span>' + data.pagination.page + ' / ' + data.pagination.total + '</span>' + next;
 }
+return true;
+};
+
+const deepLinkController = createDeepLinkController(window, {
+root,
+feed,
+loadPage: (page, isCurrent) => loadPage(page, isCurrent),
+highlightDuration: 2400,
+onError: (error) => { status.textContent = error.message; },
+});
+window.__bbChannelRuntime = {
+root,
+destroy: () => {
+deepLinkController.destroy();
+stopMobileActiveCardTracking();
+if (bbActiveCardQuery && bbActiveCardQueryChangeHandler) {
+if (typeof bbActiveCardQuery.removeEventListener === 'function') {
+bbActiveCardQuery.removeEventListener('change', bbActiveCardQueryChangeHandler);
+} else if (typeof bbActiveCardQuery.removeListener === 'function') {
+bbActiveCardQuery.removeListener(bbActiveCardQueryChangeHandler);
+}
+}
+if (window.__bbChannelRuntime && window.__bbChannelRuntime.root === root) {
+delete window.__bbChannelRuntime;
+}
+},
 };
 
 pager.addEventListener('click', (event) => {
 const button = event.target.closest('button[data-page]');
-if (button) loadPage(button.dataset.page).catch((error) => { status.textContent = error.message; });
+if (button) deepLinkController.goToPage(button.dataset.page).catch((error) => { status.textContent = error.message; });
 });
 feed.addEventListener('click', (event) => {
 const thumb = event.target.closest('[data-bb-media-index]');
@@ -699,7 +905,7 @@ feed.addEventListener('scroll', (event) => {
 const track = event.target.closest && event.target.closest('[data-bb-image-track]');
 if (track) syncImageViewerIndex(track);
 }, { passive: true, capture: true });
-loadPage().catch((error) => { status.textContent = error.message; });
+deepLinkController.start().catch((error) => { status.textContent = error.message; });
 });
 window.initBbChannel();
 document.addEventListener('DOMContentLoaded', window.initBbChannel, { once: true });
@@ -808,6 +1014,17 @@ document.addEventListener('pjax:success', window.initBbChannel);
     });
   })();
 </script>
+<script>
+  window.__homeBbRandomConfig = {
+    apiBase: "https://kaaaaai-tools-channel-api.vercel.app",
+    bbPath: "/bb/",
+    siteRoot: "/",
+    poolSize: 20
+  };
+</script>
+<script src="/js/home-bb-random.js"></script>
+<script src="/js/clawd-physics.js"></script>
+<script src="/js/clawd-effects.js"></script>
 
 
         <style>
