@@ -158,7 +158,7 @@
         let animation;
         try {
           animation = this.runtime.explodeCard(
-            card, event.clientX, event.clientY,
+            link, event.clientX, event.clientY,
             { mobile: this.coarsePointer.matches }
           );
         } catch (error) {
