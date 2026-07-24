@@ -1312,7 +1312,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #2fff79;
+    background: #a6ffff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3252,6 +3252,12 @@ body .bb-channel-portable {
   }
 }
 /* End homepage random BB */
+@media (pointer: coarse) {
+  .post-title-link,
+  .post-button .btn {
+    touch-action: manipulation;
+  }
+}
 @keyframes footer-bolt-motion {
   0%, 18% {
     transform: translate(9px, -12px) rotate(7deg);

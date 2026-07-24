@@ -23,6 +23,8 @@
     '.search-pop-overlay',
     '.highlight',
     '.post-body pre',
+    '.post-title-link',
+    '.post-button .btn',
     '.comments',
     '.comment-container'
   ].join(', ');

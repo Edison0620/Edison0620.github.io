@@ -28,6 +28,11 @@
     '[data-site-effects-ignore]', '.search-popup', '.search-pop-overlay',
     '.fancybox__container', '.comments', '.comment-container'
   ].join(', ');
+  const FOREGROUND_SUBTREE_EXCLUSIONS = [
+    'script', 'style', 'noscript', 'canvas', '[data-site-effects-ignore]',
+    '.search-popup', '.search-pop-overlay', '.fancybox__container',
+    '.comments', '.comment-container'
+  ].join(', ');
   const reportedErrorObjects = new WeakSet();
   const reportedErrorValues = new Set();
 
@@ -234,72 +239,531 @@
     };
   }
 
-  function fallbackSegments(text) {
-    const segments = [];
+  function* fallbackSegments(text) {
+    let segment = '';
+    let segmentIndex = 0;
     let index = 0;
     for (const character of text) {
-      const previous = segments[segments.length - 1];
-      const joinsPrevious = previous && (
+      const joinsPrevious = segment && (
         /\p{Mark}/u.test(character)
         || /[\uFE00-\uFE0F]/u.test(character)
         || /[\u{1F3FB}-\u{1F3FF}]/u.test(character)
         || character === '\u200D'
-        || previous.segment.endsWith('\u200D')
+        || segment.endsWith('\u200D')
       );
       if (joinsPrevious) {
-        previous.segment += character;
+        segment += character;
       } else {
-        segments.push({ segment: character, index });
+        if (segment) yield { segment, index: segmentIndex };
+        segment = character;
+        segmentIndex = index;
       }
       index += character.length;
     }
-    return segments;
+    if (segment) yield { segment, index: segmentIndex };
   }
 
   function extractCharacters(element, cap) {
-    const candidates = [];
-    const rootRect = element.getBoundingClientRect();
-    const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
+    if (cap <= 0) return [];
+    const segmenter = typeof Intl.Segmenter === 'function'
+      ? new Intl.Segmenter(undefined, { granularity: 'grapheme' })
+      : null;
+    const segmentsFor = text => segmenter
+      ? segmenter.segment(text)
+      : fallbackSegments(text);
+    let candidateCount = 0;
+    let walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
     let node;
     while ((node = walker.nextNode())) {
       const parent = node.parentElement;
       if (!parent || parent.closest(TEXT_EXCLUSIONS)) continue;
-      const style = getComputedStyle(parent);
-      if (style.display === 'none' || style.visibility === 'hidden') continue;
-      if (style.position === 'fixed' || style.position === 'sticky') continue;
-      const segments = typeof Intl.Segmenter === 'function'
-        ? [...new Intl.Segmenter(undefined, { granularity: 'grapheme' })
-          .segment(node.textContent)]
-        : fallbackSegments(node.textContent);
-      for (const item of segments) {
-        if (!item.segment.trim() && item.segment !== ' ') continue;
-        candidates.push({ item, node, style });
+      for (const item of segmentsFor(node.textContent)) {
+        if (item.segment.trim() || item.segment === ' ') candidateCount += 1;
       }
     }
+    if (!candidateCount) return [];
+    const selectedCount = Math.min(candidateCount, cap);
+    const selectedIndexes = Array.from({ length: selectedCount }, (_, index) => (
+      selectedCount === 1
+        ? Math.floor(candidateCount / 2)
+        : Math.round(index * (candidateCount - 1) / (selectedCount - 1))
+    ));
+    const rootRect = element.getBoundingClientRect();
     const characters = [];
-    for (const { item, node, style } of sampleEvenly(candidates, cap)) {
-      const range = document.createRange();
-      range.setStart(node, item.index);
-      range.setEnd(node, item.index + item.segment.length);
-      const rect = range.getBoundingClientRect();
-      range.detach?.();
-      if (rect.width < 0.5 || rect.height < 0.5) continue;
-      if (rect.bottom < -50 || rect.top > window.innerHeight + 50) continue;
-      characters.push({
-        char: item.segment,
-        x: rect.left,
-        y: rect.top,
-        tx: rect.left,
-        ty: rect.top,
-        w: rect.width,
-        h: rect.height,
-        color: style.color,
-        font: `${style.fontWeight} ${style.fontSize} ${style.fontFamily}`,
-        rootX: rootRect.left,
-        rootY: rootRect.top
-      });
+    let candidateIndex = 0;
+    let selectedIndex = 0;
+    walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
+    while ((node = walker.nextNode()) && selectedIndex < selectedIndexes.length) {
+      const parent = node.parentElement;
+      if (!parent || parent.closest(TEXT_EXCLUSIONS)) continue;
+      for (const item of segmentsFor(node.textContent)) {
+        if (!item.segment.trim() && item.segment !== ' ') continue;
+        if (candidateIndex !== selectedIndexes[selectedIndex]) {
+          candidateIndex += 1;
+          continue;
+        }
+        candidateIndex += 1;
+        selectedIndex += 1;
+        const style = getComputedStyle(parent);
+        if (style.display === 'none' || style.visibility === 'hidden'
+          || style.opacity === '0'
+          || style.position === 'fixed' || style.position === 'sticky') continue;
+        const range = document.createRange();
+        range.setStart(node, item.index);
+        range.setEnd(node, item.index + item.segment.length);
+        const rect = range.getBoundingClientRect();
+        range.detach?.();
+        if (rect.width < 0.5 || rect.height < 0.5) continue;
+        if (rect.bottom < -50 || rect.top > window.innerHeight + 50) continue;
+        characters.push({
+          char: item.segment,
+          x: rect.left,
+          y: rect.top,
+          tx: rect.left,
+          ty: rect.top,
+          w: rect.width,
+          h: rect.height,
+          color: style.color,
+          font: `${style.fontWeight} ${style.fontSize} ${style.fontFamily}`,
+          rootX: rootRect.left,
+          rootY: rootRect.top
+        });
+        if (selectedIndex >= selectedIndexes.length) break;
+      }
     }
     return characters;
+  }
+
+  function sampleDescendants(root, matches, cap) {
+    if (cap <= 0) return [];
+    let candidateCount = 0;
+    let walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT);
+    let element;
+    while ((element = walker.nextNode())) {
+      if (matches(element)) candidateCount += 1;
+    }
+    if (!candidateCount) return [];
+    const selectedCount = Math.min(candidateCount, cap);
+    const selectedIndexes = Array.from({ length: selectedCount }, (_, index) => (
+      selectedCount === 1
+        ? Math.floor(candidateCount / 2)
+        : Math.round(index * (candidateCount - 1) / (selectedCount - 1))
+    ));
+    const selected = [];
+    let candidateIndex = 0;
+    let selectedIndex = 0;
+    walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT);
+    while ((element = walker.nextNode()) && selectedIndex < selectedCount) {
+      if (!matches(element)) continue;
+      if (candidateIndex === selectedIndexes[selectedIndex]) {
+        selected.push(element);
+        selectedIndex += 1;
+      }
+      candidateIndex += 1;
+    }
+    return selected;
+  }
+
+  function isExcludedForegroundElement(element) {
+    return Boolean(
+      typeof element.closest === 'function'
+      && element.closest(FOREGROUND_SUBTREE_EXCLUSIONS)
+    );
+  }
+
+  function visibleRect(element) {
+    const style = getComputedStyle(element);
+    const rect = element.getBoundingClientRect();
+    if (style.display === 'none' || style.visibility === 'hidden'
+      || style.opacity === '0' || rect.width < 0.5 || rect.height < 0.5) {
+      return null;
+    }
+    if (rect.bottom < -50 || rect.top > window.innerHeight + 50) return null;
+    return { rect, style };
+  }
+
+  function imageContentBox(image, rect, style) {
+    const naturalWidth = image.naturalWidth;
+    const naturalHeight = image.naturalHeight;
+    if (!naturalWidth || !naturalHeight) return null;
+    const source = { x: 0, y: 0, width: naturalWidth, height: naturalHeight };
+    const destination = {
+      x: rect.left, y: rect.top, width: rect.width, height: rect.height
+    };
+    const imageRatio = naturalWidth / naturalHeight;
+    const boxRatio = rect.width / rect.height;
+    if (style.objectFit === 'cover') {
+      if (imageRatio > boxRatio) {
+        source.width = naturalHeight * boxRatio;
+        source.x = (naturalWidth - source.width) / 2;
+      } else {
+        source.height = naturalWidth / boxRatio;
+        source.y = (naturalHeight - source.height) / 2;
+      }
+    } else if (style.objectFit === 'contain') {
+      if (imageRatio > boxRatio) {
+        destination.height = rect.width / imageRatio;
+        destination.y += (rect.height - destination.height) / 2;
+      } else {
+        destination.width = rect.height * imageRatio;
+        destination.x += (rect.width - destination.width) / 2;
+      }
+    }
+    return { destination, source };
+  }
+
+  function extractImageVisuals(card, cap) {
+    const visuals = [];
+    const images = sampleDescendants(card, element => (
+      !isExcludedForegroundElement(element)
+      && (
+        element.matches?.('img')
+        || element.tagName?.toLowerCase() === 'img'
+      )
+    ), cap);
+    for (let imageIndex = 0; imageIndex < images.length; imageIndex += 1) {
+      const image = images[imageIndex];
+      const tileBudget = Math.max(1, Math.floor(
+        (cap - visuals.length) / (images.length - imageIndex)
+      ));
+      const visible = visibleRect(image);
+      if (!visible) continue;
+      const box = imageContentBox(image, visible.rect, visible.style);
+      if (!image.complete || !box) {
+        const color = visible.style.backgroundColor !== 'rgba(0, 0, 0, 0)'
+          ? visible.style.backgroundColor
+          : visible.style.color;
+        const halfWidth = visible.rect.width / 2;
+        const halfHeight = visible.rect.height / 2;
+        const fallbackCount = Math.min(4, tileBudget);
+        for (let index = 0; index < fallbackCount; index += 1) {
+          const tileIndex = fallbackCount === 1
+            ? 2
+            : Math.round(index * 3 / (fallbackCount - 1));
+          const row = Math.floor(tileIndex / 2);
+          const column = tileIndex % 2;
+          visuals.push(paintedShape(
+            image,
+            visible.rect.left + halfWidth * column,
+            visible.rect.top + halfHeight * row,
+            halfWidth,
+            halfHeight,
+            color
+          ));
+        }
+        continue;
+      }
+      const columns = Math.max(2, Math.min(4, Math.ceil(box.destination.width / 48)));
+      const rows = Math.max(2, Math.min(4, Math.ceil(box.destination.height / 48)));
+      const gridCount = columns * rows;
+      const selectedTiles = Math.min(gridCount, tileBudget);
+      for (let index = 0; index < selectedTiles; index += 1) {
+        const tileIndex = selectedTiles === 1
+          ? Math.floor(gridCount / 2)
+          : Math.round(index * (gridCount - 1) / (selectedTiles - 1));
+        const row = Math.floor(tileIndex / columns);
+        const column = tileIndex % columns;
+        const xRatio = column / columns;
+        const yRatio = row / rows;
+        visuals.push({
+          kind: 'image',
+          image,
+          sx: box.source.x + box.source.width * xRatio,
+          sy: box.source.y + box.source.height * yRatio,
+          sw: box.source.width / columns,
+          sh: box.source.height / rows,
+          x: box.destination.x + box.destination.width * xRatio,
+          y: box.destination.y + box.destination.height * yRatio,
+          w: box.destination.width / columns,
+          h: box.destination.height / rows,
+          fallbackColor: visible.style.color
+        });
+      }
+    }
+    return visuals;
+  }
+
+  function pseudoContent(style) {
+    const content = style.content;
+    if (!content || content === 'none' || content === 'normal') return '';
+    const unquoted = content.replace(/^(['"])(.*)\1$/, '$2');
+    return unquoted.replace(/\\+([0-9a-fA-F]{1,6})\s?/g, (_, value) => (
+      String.fromCodePoint(parseInt(value, 16))
+    ));
+  }
+
+  function visibleColor(value) {
+    if (!value || value === 'transparent') return false;
+    return !/^rgba\([^)]*,\s*0(?:\.0+)?\s*\)$/i.test(value);
+  }
+
+  function visibleLine(style, prefix) {
+    return (parseFloat(style[`${prefix}Width`]) || 0) > 0
+      && style[`${prefix}Style`] !== 'none'
+      && style[`${prefix}Style`] !== 'hidden'
+      && visibleColor(style[`${prefix}Color`]);
+  }
+
+  function visiblePaint(style) {
+    return visibleColor(style.backgroundColor)
+      || ['borderTop', 'borderRight', 'borderBottom', 'borderLeft']
+        .some(prefix => visibleLine(style, prefix))
+      || visibleLine(style, 'outline');
+  }
+
+  function paintedShape(
+    owner, x, y, w, h, color, borderRadius = 0, metadata = {}
+  ) {
+    return {
+      kind: 'shape',
+      owner,
+      x, y, w, h,
+      backgroundColor: color,
+      borderColor: 'transparent',
+      borderWidth: 0,
+      borderRadius,
+      ...metadata
+    };
+  }
+
+  function shapeFragments(owner, rect, style, metadata = {}) {
+    const visuals = [];
+    const background = style.backgroundColor;
+    if (visibleColor(background)) {
+      const columns = rect.width > 48 ? 2 : 1;
+      const rows = rect.height > 32 ? 2 : 1;
+      for (let row = 0; row < rows; row += 1) {
+        for (let column = 0; column < columns; column += 1) {
+          visuals.push(paintedShape(
+            owner,
+            rect.left + rect.width * column / columns,
+            rect.top + rect.height * row / rows,
+            rect.width / columns,
+            rect.height / rows,
+            background,
+            parseFloat(style.borderTopLeftRadius) || 0,
+            metadata
+          ));
+        }
+      }
+    }
+    const sides = [
+      ['Top', rect.left, rect.top, rect.width, parseFloat(style.borderTopWidth)],
+      ['Right', rect.right - parseFloat(style.borderRightWidth), rect.top,
+        parseFloat(style.borderRightWidth), rect.height],
+      ['Bottom', rect.left, rect.bottom - parseFloat(style.borderBottomWidth),
+        rect.width, parseFloat(style.borderBottomWidth)],
+      ['Left', rect.left, rect.top, parseFloat(style.borderLeftWidth), rect.height]
+    ];
+    for (const [side, x, y, w, h] of sides) {
+      if (!(w > 0 && h > 0) || !visibleLine(style, `border${side}`)) continue;
+      visuals.push(paintedShape(
+        owner, x, y, w, h, style[`border${side}Color`], 0, metadata
+      ));
+    }
+    if (visibleLine(style, 'outline')) {
+      const width = parseFloat(style.outlineWidth);
+      const offset = parseFloat(style.outlineOffset) || 0;
+      const left = rect.left - offset - width;
+      const top = rect.top - offset - width;
+      const right = rect.right + offset + width;
+      const bottom = rect.bottom + offset + width;
+      for (const [x, y, w, h] of [
+        [left, top, right - left, width],
+        [right - width, top, width, bottom - top],
+        [left, bottom - width, right - left, width],
+        [left, top, width, bottom - top]
+      ]) {
+        visuals.push(paintedShape(
+          owner, x, y, w, h, style.outlineColor, 0, metadata
+        ));
+      }
+    }
+    return visuals;
+  }
+
+  function appendAtMost(target, values, cap) {
+    const remaining = cap - target.length;
+    if (remaining <= 0) return;
+    target.push(...sampleAtMost(values, remaining));
+  }
+
+  function extractPaintVisuals(card, shapeCap, glyphCap) {
+    const shapes = [];
+    const glyphs = [];
+    const scanCap = shapeCap + glyphCap;
+    const descendants = sampleDescendants(
+      card,
+      element => !isExcludedForegroundElement(element),
+      scanCap
+    );
+    for (const element of descendants) {
+      const visible = visibleRect(element);
+      if (!visible || visible.style.position === 'fixed'
+        || visible.style.position === 'sticky') continue;
+      if (shapes.length < shapeCap && visiblePaint(visible.style)) {
+        appendAtMost(
+          shapes,
+          shapeFragments(element, visible.rect, visible.style),
+          shapeCap
+        );
+      }
+      let emittedPseudoGlyph = false;
+      for (const pseudo of ['::before', '::after']) {
+        const style = getComputedStyle(element, pseudo);
+        if (style.display === 'none' || style.visibility === 'hidden'
+          || style.opacity === '0') continue;
+        const char = pseudoContent(style);
+        if (char && glyphs.length < glyphCap) {
+          emittedPseudoGlyph = true;
+          glyphs.push({
+            kind: 'glyph',
+            owner: element,
+            pseudo,
+            char,
+            x: visible.rect.left,
+            y: visible.rect.top,
+            w: parseFloat(style.width) || visible.rect.width,
+            h: parseFloat(style.height) || visible.rect.height,
+            color: style.color,
+            font: `${style.fontWeight} ${style.fontSize} ${style.fontFamily}`
+          });
+        }
+        if (shapes.length < shapeCap && visiblePaint(style)) {
+          appendAtMost(
+            shapes,
+            shapeFragments(element, visible.rect, style, { pseudo }),
+            shapeCap
+          );
+        }
+      }
+      if (!emittedPseudoGlyph && element.matches?.('svg')
+        && shapes.length < shapeCap && !visiblePaint(visible.style)) {
+        const halfWidth = visible.rect.width / 2;
+        const halfHeight = visible.rect.height / 2;
+        const fallback = [];
+        for (let row = 0; row < 2; row += 1) {
+          for (let column = 0; column < 2; column += 1) {
+            fallback.push(paintedShape(
+              element,
+              visible.rect.left + halfWidth * column,
+              visible.rect.top + halfHeight * row,
+              halfWidth,
+              halfHeight,
+              visible.style.color
+            ));
+          }
+        }
+        appendAtMost(shapes, fallback, shapeCap);
+      }
+      if (shapes.length >= shapeCap && glyphs.length >= glyphCap) break;
+    }
+    return { glyphs, shapes };
+  }
+
+  function sampleAtMost(values, cap) {
+    if (cap <= 0 || !values.length) return [];
+    if (values.length <= cap) return values;
+    if (cap === 1) return [values[Math.floor(values.length / 2)]];
+    return sampleEvenly(values, cap);
+  }
+
+  function fairSampleGroups(groups, cap) {
+    const records = groups
+      .filter(values => values.length)
+      .map(values => ({ quota: 0, values }));
+    if (!records.length || cap <= 0) return [];
+    const active = [...records];
+    let remaining = cap;
+    while (active.length && remaining > 0) {
+      const share = Math.floor(remaining / active.length);
+      if (share === 0) {
+        for (let index = 0; index < remaining; index += 1) {
+          active[index].quota += 1;
+        }
+        remaining = 0;
+        break;
+      }
+      let exhausted = false;
+      for (let index = active.length - 1; index >= 0; index -= 1) {
+        const group = active[index];
+        const available = group.values.length - group.quota;
+        const allocation = Math.min(share, available);
+        group.quota += allocation;
+        remaining -= allocation;
+        if (allocation === available) {
+          active.splice(index, 1);
+          exhausted = true;
+        }
+      }
+      if (!exhausted) {
+        for (let index = 0; index < remaining; index += 1) {
+          active[index].quota += 1;
+        }
+        remaining = 0;
+      }
+    }
+    return records.flatMap(group => sampleAtMost(group.values, group.quota));
+  }
+
+  function extractCardVisuals(card, cap) {
+    if (cap <= 0) return [];
+    const paint = extractPaintVisuals(card, cap, cap);
+    return fairSampleGroups([
+      paint.shapes,
+      extractImageVisuals(card, cap),
+      paint.glyphs,
+      extractCharacters(card, cap).map(item => ({
+        ...item,
+        kind: 'text'
+      }))
+    ], cap);
+  }
+
+  function drawShapeFragment(context, particle) {
+    const x = -particle.w / 2;
+    const y = -particle.h / 2;
+    context.fillStyle = particle.backgroundColor;
+    if (particle.backgroundColor
+      && particle.backgroundColor !== 'transparent'
+      && particle.backgroundColor !== 'rgba(0, 0, 0, 0)') {
+      context.fillRect(x, y, particle.w, particle.h);
+    }
+    if (particle.borderWidth > 0) {
+      context.strokeStyle = particle.borderColor;
+      context.lineWidth = particle.borderWidth;
+      context.strokeRect(x, y, particle.w, particle.h);
+    }
+  }
+
+  function drawCardVisual(context, particle) {
+    context.globalAlpha = Math.max(0, Math.min(particle.opacity, 1));
+    context.save();
+    context.translate(particle.x + particle.w / 2, particle.y + particle.h / 2);
+    context.rotate(particle.rot);
+    if (particle.kind === 'image') {
+      try {
+        context.drawImage(
+          particle.image,
+          particle.sx, particle.sy, particle.sw, particle.sh,
+          -particle.w / 2, -particle.h / 2, particle.w, particle.h
+        );
+      } catch {
+        context.fillStyle = particle.fallbackColor;
+        context.fillRect(
+          -particle.w / 2, -particle.h / 2, particle.w, particle.h
+        );
+      }
+    } else if (particle.kind === 'shape') {
+      drawShapeFragment(context, particle);
+    } else {
+      context.fillStyle = particle.color;
+      context.font = particle.font;
+      context.textBaseline = 'top';
+      context.fillText(particle.char, -particle.w / 2, -particle.h / 2);
+    }
+    context.restore();
+    context.globalAlpha = 1;
   }
 
   function saveTarget(element) {
@@ -316,6 +780,52 @@
     } else {
       element.setAttribute('style', savedStyleAttribute);
     }
+  }
+
+  function saveVisibilityTarget(element) {
+    return {
+      element,
+      savedStyleAttribute: element.getAttribute('style'),
+      savedVisibility: element.style.visibility,
+      appliedStyleAttribute: null
+    };
+  }
+
+  function hideVisibilityTarget(record) {
+    record.element.style.visibility = 'hidden';
+    record.appliedStyleAttribute = record.element.getAttribute('style');
+  }
+
+  function restoreVisibilityTarget(record) {
+    const current = record.element.getAttribute('style');
+    if (current === record.appliedStyleAttribute) {
+      if (record.savedStyleAttribute === null) {
+        record.element.removeAttribute('style');
+      } else {
+        record.element.setAttribute('style', record.savedStyleAttribute);
+      }
+    } else {
+      record.element.style.visibility = record.savedVisibility;
+    }
+  }
+
+  function saveTargets(elements) {
+    return elements.map(saveVisibilityTarget);
+  }
+
+  function restoreTargets(records) {
+    for (const record of records) restoreVisibilityTarget(record);
+  }
+
+  function cardForegroundRoots(card) {
+    return [...card.children].filter(element => {
+      const style = getComputedStyle(element);
+      const rect = element.getBoundingClientRect();
+      return style.display !== 'none'
+        && style.visibility !== 'hidden'
+        && rect.width > 0
+        && rect.height > 0;
+    });
   }
 
   function drawConfetti(context, particle) {
@@ -350,15 +860,15 @@
         : 1;
       if (progress < 1) {
         complete = false;
-        animation.drawCharacter(context, particle);
+        animation.drawCardVisual(context, particle);
       }
     }
     if (complete) animation.finish();
   }
 
   function makeCardAnimation(
-    target, characters, clientX, clientY,
-    durationScale, random, finish, resolve, drawCharacter
+    characters, clientX, clientY, durationScale, random,
+    finish, resolve, drawCardVisual
   ) {
     const particles = characters.map(character => {
       const launch = inverseSquareLaunch(
@@ -386,10 +896,9 @@
       };
     });
     return {
-      target,
       particles,
       resolve,
-      drawCharacter,
+      drawCardVisual,
       finish,
       step(context, dt) {
         _stepCard(this, context, dt);
@@ -485,11 +994,14 @@
     const overlay = new CanvasOverlay();
     const random = options.random || Math.random;
     const watchdogMs = options.watchdogMs || 4000;
+    const shouldRetainCardForeground = options.shouldRetainCardForeground
+      || (() => false);
     const runtimeWindow = typeof window === 'undefined' ? globalThis : window;
     let primary = null;
     let confetti = [];
     let destroyed = false;
     let warned = false;
+    let retainedCard = null;
     const tagRecords = new Set();
 
     function particleCap(mobile) {
@@ -508,15 +1020,34 @@
       );
     }
 
-    function settlePrimary(record, outcome = 'resolve', error) {
+    function clearPrimaryWatchdog(record) {
+      if (record.watchdog === null) return;
+      runtimeWindow.clearTimeout(record.watchdog);
+      record.watchdog = null;
+    }
+
+    function restorePrimaryTargets(record) {
+      if (record.targets) {
+        restoreTargets(record.targets);
+      } else {
+        restoreTarget(record.target);
+      }
+    }
+
+    function settlePrimary(record, outcome = 'resolve', error, options = {}) {
       if (!record || record.settled) return;
       record.settled = true;
-      if (record.watchdog !== null) {
-        runtimeWindow.clearTimeout(record.watchdog);
-        record.watchdog = null;
-      }
+      clearPrimaryWatchdog(record);
       if (primary === record) primary = null;
-      restoreTarget(record.target);
+      const retain = record.kind === 'card'
+        && (record.retainOnResolve && outcome === 'resolve'
+          || options.retainCardForeground);
+      if (retain) {
+        if (retainedCard) restoreTargets(retainedCard);
+        retainedCard = record.targets;
+      } else {
+        restorePrimaryTargets(record);
+      }
       if (outcome === 'reject') {
         record.reject?.(error);
       } else {
@@ -524,8 +1055,8 @@
       }
     }
 
-    function finishPrimary() {
-      settlePrimary(primary);
+    function finishPrimary(options) {
+      settlePrimary(primary, 'resolve', undefined, options);
     }
 
     function cancelTag(record) {
@@ -595,7 +1126,7 @@
       overlay.raf = requestAnimationFrame(frame);
     }
 
-    function startPrimary(target, makeAnimation) {
+    function startPrimary(recordOptions, makeAnimation) {
       return new Promise((resolve, reject) => {
         let record;
         try {
@@ -604,11 +1135,12 @@
             resolve
           );
         } catch (error) {
-          restoreTarget(target);
+          restorePrimaryTargets(recordOptions);
           warnOnce(error);
           reject(error);
           return;
         }
+        Object.assign(record, recordOptions);
         record.resolve = resolve;
         record.reject = reject;
         record.settled = false;
@@ -632,8 +1164,20 @@
 
     function onResize() {
       if (destroyed) return;
-      finishPrimary();
+      const retainCardForeground = Boolean(shouldRetainCardForeground());
+      finishPrimary({ retainCardForeground });
+      if (!retainCardForeground) restoreRetainedCard();
       stopVisuals();
+    }
+
+    function restoreRetainedCard() {
+      if (!retainedCard) return;
+      restoreTargets(retainedCard);
+      retainedCard = null;
+    }
+
+    function discardRetainedCard() {
+      retainedCard = null;
     }
 
     if (typeof runtimeWindow.addEventListener === 'function') {
@@ -642,22 +1186,27 @@
 
     return {
       explodeCard(element, clientX, clientY, options = {}) {
+        restoreRetainedCard();
         finishPrimary();
         const mobile = Boolean(options.mobile);
         const durationScale = mobile ? 180 / 625 : 1;
-        const particles = extractCharacters(element, particleCap(mobile));
+        const particles = extractCardVisuals(element, particleCap(mobile));
         if (!particles.length) return Promise.resolve();
-        const target = saveTarget(element);
-        element.style.visibility = 'hidden';
-        return startPrimary(target, (finish, resolve) => (
+        const targets = saveTargets(cardForegroundRoots(element));
+        for (const target of targets) hideVisibilityTarget(target);
+        return startPrimary({
+          kind: 'card',
+          retainOnResolve: true,
+          targets
+        }, (finish, resolve) => (
           makeCardAnimation(
-            target, particles, clientX, clientY,
-            durationScale, random, finish, resolve, drawCharacter
+            particles, clientX, clientY,
+            durationScale, random, finish, resolve, drawCardVisual
           )
         ));
       },
       explodeCode(element, options = {}) {
-        if (primary?.target.element === element) return Promise.resolve();
+        if (primary?.target?.element === element) return Promise.resolve();
         finishPrimary();
         const particles = extractCharacters(
           element, particleCap(Boolean(options.mobile))
@@ -665,7 +1214,11 @@
         if (!particles.length) return Promise.resolve();
         const target = saveTarget(element);
         element.style.visibility = 'hidden';
-        return startPrimary(target, (finish, resolve) => (
+        return startPrimary({
+          kind: 'code',
+          retainOnResolve: false,
+          target
+        }, (finish, resolve) => (
           makeCodeAnimation(
             target, particles, random, finish, resolve, drawCharacter
           )
@@ -726,8 +1279,15 @@
           return false;
         }
       },
-      cancelAll() {
-        finishPrimary();
+      restoreRetainedCard() {
+        restoreRetainedCard();
+      },
+      discardRetainedCard() {
+        discardRetainedCard();
+      },
+      cancelAll(options = {}) {
+        finishPrimary(options);
+        if (!options.retainCardForeground) this.restoreRetainedCard();
         stopVisuals();
       },
       destroy() {
@@ -757,6 +1317,8 @@
     isDoubleTap,
     isReportedError,
     extractCharacters,
+    extractCardVisuals,
+    drawCardVisual,
     createRuntime
   };
 });

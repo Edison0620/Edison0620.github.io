@@ -13,6 +13,7 @@
     '[data-site-effects-ignore]', '.search-popup', '.search-pop-overlay',
     '.fancybox__container', '.comments', '.comment-container'
   ].join(', ');
+  const POST_NAVIGATION_WATCHDOG_MS = 4000;
 
   function listenMediaQuery(query, listener) {
     if (typeof query.addEventListener === 'function') {
@@ -25,7 +26,16 @@
 
   class SiteEffectsController {
     constructor() {
-      this.runtime = effects.createRuntime();
+      this.ownedCardNavigation = null;
+      this.pageLifecycleRetention = null;
+      this.retainedCardNavigation = null;
+      this.runtime = effects.createRuntime({
+        shouldRetainCardForeground: () => Boolean(
+          this.pendingNavigation?.kind === 'card'
+          || this.retainedCardNavigation
+          || this.pageLifecycleRetention
+        )
+      });
       this.reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
       this.coarsePointer = matchMedia('(pointer: coarse)');
       this.articleRewarded = false;
@@ -39,11 +49,13 @@
       this.konamiState = [];
       this.toastTimers = new Set();
       this.toastFrame = null;
+      this.visibilitySettlement = null;
       this.warned = false;
       for (const name of [
         '_onClick', '_onDoubleClick', '_onTouchStart', '_onTouchMove',
         '_onTouchEnd', '_onTouchCancel', '_onContextMenu', '_onScroll',
-        '_onKeyDown', '_onPjaxSend', '_onPjaxSuccess', '_onVisibilityChange',
+        '_onKeyDown', '_onPjaxSend', '_onPjaxSuccess', '_onPjaxError',
+        '_onVisibilityChange', '_onPageHide', '_onPageShow',
         '_onReducedMotionChange'
       ]) this[name] = this[name].bind(this);
       document.addEventListener('click', this._onClick, true);
@@ -57,7 +69,10 @@
       document.addEventListener('visibilitychange', this._onVisibilityChange);
       document.addEventListener('pjax:send', this._onPjaxSend);
       document.addEventListener('pjax:success', this._onPjaxSuccess);
+      document.addEventListener('pjax:error', this._onPjaxError);
       window.addEventListener('scroll', this._onScroll, { passive: true });
+      window.addEventListener('pagehide', this._onPageHide);
+      window.addEventListener('pageshow', this._onPageShow);
       this.removeReducedMotionListener = listenMediaQuery(
         this.reducedMotion,
         this._onReducedMotionChange
@@ -69,12 +84,32 @@
         || Boolean(target.closest(IGNORED_SELECTOR)));
     }
 
-    _navigate(url) {
+    _navigate(record) {
       if (window.pjax && typeof window.pjax.loadUrl === 'function') {
-        window.pjax.loadUrl(url);
+        if (record.kind === 'card'
+          && this.ownedCardNavigation === record) {
+          this._armPostNavigationWatchdog(record);
+        }
+        window.pjax.loadUrl(record.url);
       } else {
-        window.location.assign(url);
+        window.location.assign(record.url);
       }
+    }
+
+    _clearPostNavigationWatchdog(record) {
+      if (!record || record.postNavigationWatchdog === null) return;
+      window.clearTimeout(record.postNavigationWatchdog);
+      record.postNavigationWatchdog = null;
+    }
+
+    _armPostNavigationWatchdog(record) {
+      this._clearPostNavigationWatchdog(record);
+      record.postNavigationWatchdog = window.setTimeout(() => {
+        if (this.ownedCardNavigation !== record) return;
+        record.postNavigationWatchdog = null;
+        this._restoreOwnedCardNavigation();
+        window.location.assign(record.url);
+      }, POST_NAVIGATION_WATCHDOG_MS);
     }
 
     _warn(error) {
@@ -92,17 +127,55 @@
       const record = this.pendingNavigation;
       this.pendingNavigation = null;
       if (!record) return;
+      this._clearVisibilitySettlement(record);
       record.active = false;
       for (const timer of record.timers) window.clearTimeout(timer);
       record.timers.clear();
     }
 
-    _beginNavigation(url) {
+    _cancelAll(options = {}) {
+      this.runtime.cancelAll(options);
+      if (!options.retainCardForeground) {
+        this.pageLifecycleRetention = null;
+        this.retainedCardNavigation = null;
+      }
+      if (!options.retainCardNavigation) {
+        this._clearPostNavigationWatchdog(this.ownedCardNavigation);
+        this.ownedCardNavigation = null;
+      }
+    }
+
+    _restoreOwnedCardNavigation() {
+      const record = this.ownedCardNavigation;
+      if (!record) return;
+      this._clearPostNavigationWatchdog(record);
+      if (this.retainedCardNavigation === record) {
+        this.runtime.restoreRetainedCard();
+      }
+      this.ownedCardNavigation = null;
+      this.retainedCardNavigation = null;
+    }
+
+    _discardOwnedCardNavigation() {
+      const record = this.ownedCardNavigation;
+      if (!record) return;
+      this._clearPostNavigationWatchdog(record);
+      if (this.retainedCardNavigation === record) {
+        this.runtime.discardRetainedCard();
+      }
+      this.ownedCardNavigation = null;
+      this.retainedCardNavigation = null;
+    }
+
+    _beginNavigation(url, kind) {
       this._invalidatePendingNavigation();
-      this.runtime.cancelAll();
+      this._cancelAll();
       const record = {
         active: true,
         generation: this.navigationGeneration,
+        kind,
+        postNavigationWatchdog: null,
+        pjaxSendObserved: false,
         timers: new Set(),
         url
       };
@@ -125,19 +198,50 @@
       return timer;
     }
 
+    _clearVisibilitySettlement(record) {
+      const settlement = this.visibilitySettlement;
+      if (!settlement || (record && settlement.navigation !== record)) return;
+      window.clearTimeout(settlement.timer);
+      this.visibilitySettlement = null;
+    }
+
+    _deferVisibilitySettlement(record) {
+      this._clearVisibilitySettlement();
+      const settlement = { navigation: record, timer: null };
+      settlement.timer = window.setTimeout(() => {
+        if (this.visibilitySettlement !== settlement) return;
+        this.visibilitySettlement = null;
+        if (!this._isPendingNavigation(record)) return;
+        this._cancelAll({ retainCardForeground: true });
+      }, 0);
+      this.visibilitySettlement = settlement;
+    }
+
     _completeNavigation(record) {
       if (!this._isPendingNavigation(record)) return;
+      this._clearVisibilitySettlement(record);
       record.active = false;
       this.pendingNavigation = null;
       for (const timer of record.timers) window.clearTimeout(timer);
       record.timers.clear();
-      this.runtime.cancelAll();
-      this._navigate(record.url);
+      if (record.kind === 'card' && !this.reducedMotion.matches) {
+        this._cancelAll({ retainCardForeground: true });
+        this.retainedCardNavigation = record;
+      } else {
+        this._cancelAll();
+      }
+      if (record.kind === 'card') this.ownedCardNavigation = record;
+      try {
+        this._navigate(record);
+      } catch (error) {
+        this._onPjaxError();
+        window.location.assign(record.url);
+      }
     }
 
     cancelPendingNavigation() {
       this._invalidatePendingNavigation();
-      this.runtime.cancelAll();
+      this._cancelAll();
     }
 
     _effectLink(link, event, kind) {
@@ -149,7 +253,7 @@
         || new URL(link.href, location.href).origin !== location.origin) return;
       event.preventDefault();
       event.stopImmediatePropagation();
-      const record = this._beginNavigation(link.href);
+      const record = this._beginNavigation(link.href, kind);
       this._scheduleNavigation(record, 900);
       if (this.reducedMotion.matches) return this._completeNavigation(record);
       if (kind === 'card') {
@@ -158,7 +262,7 @@
         let animation;
         try {
           animation = this.runtime.explodeCard(
-            link, event.clientX, event.clientY,
+            card, event.clientX, event.clientY,
             { mobile: this.coarsePointer.matches }
           );
         } catch (error) {
@@ -191,7 +295,9 @@
     _onClick(event) {
       if (this._suppressLongPressAction(event)) return;
       if (this._isIgnored(event.target)) return;
-      const cardLink = event.target.closest('.post-title-link');
+      const cardLink = event.target.closest(
+        '.post-title-link, .post-button .btn'
+      );
       if (cardLink && cardLink.closest('.post-block')) {
         this._effectLink(cardLink, event, 'card');
         return;
@@ -373,8 +479,47 @@
     _onVisibilityChange() {
       if (document.hidden) {
         this._cancelLongPress(true);
-        this.runtime.cancelAll();
+        const pendingRecord = this.pendingNavigation;
+        if (pendingRecord?.kind === 'card') {
+          this._deferVisibilitySettlement(pendingRecord);
+          return;
+        }
+        this._cancelAll({
+          retainCardForeground: Boolean(
+            this.retainedCardNavigation || this.pageLifecycleRetention
+          ),
+          retainCardNavigation: Boolean(this.ownedCardNavigation)
+        });
       }
+    }
+
+    _onPageHide() {
+      this._cancelLongPress(true);
+      const pendingRecord = this.pendingNavigation?.kind === 'card'
+        ? this.pendingNavigation
+        : null;
+      this._clearVisibilitySettlement(pendingRecord);
+      this._invalidatePendingNavigation();
+      if (pendingRecord) this.pageLifecycleRetention = pendingRecord;
+      this._cancelAll({
+        retainCardForeground: Boolean(
+          pendingRecord
+          || this.retainedCardNavigation
+          || this.pageLifecycleRetention
+        ),
+        retainCardNavigation: Boolean(
+          this.ownedCardNavigation
+        )
+      });
+    }
+
+    _onPageShow(event) {
+      if (!event.persisted) return;
+      this._cancelLongPress(true);
+      this._invalidatePendingNavigation();
+      this._clearToast();
+      this._cancelAll();
+      this.articleRewarded = false;
     }
 
     _onReducedMotionChange() {
@@ -385,7 +530,9 @@
       if (record) {
         this._completeNavigation(record);
       } else {
-        this.runtime.cancelAll();
+        this._cancelAll({
+          retainCardNavigation: Boolean(this.ownedCardNavigation)
+        });
       }
     }
 
@@ -394,15 +541,38 @@
       this._invalidatePendingNavigation();
       this.konamiState = [];
       this._clearToast();
-      this.runtime.cancelAll();
+      const ownedRecord = this.ownedCardNavigation;
+      const isOwnedSend = Boolean(
+        ownedRecord && !ownedRecord.pjaxSendObserved
+      );
+      if (isOwnedSend) ownedRecord.pjaxSendObserved = true;
+      this._cancelAll({
+        retainCardForeground: Boolean(
+          isOwnedSend && this.retainedCardNavigation === ownedRecord
+        ),
+        retainCardNavigation: isOwnedSend
+      });
     }
 
     _onPjaxSuccess() {
+      this._discardOwnedCardNavigation();
       this.articleRewarded = false;
     }
 
+    _onPjaxError() {
+      this._restoreOwnedCardNavigation();
+    }
+
     destroy() {
-      this._onPjaxSend();
+      this._cancelLongPress(true);
+      this._invalidatePendingNavigation();
+      this.konamiState = [];
+      this._clearToast();
+      this._clearPostNavigationWatchdog(this.ownedCardNavigation);
+      this._clearVisibilitySettlement();
+      this.ownedCardNavigation = null;
+      this.pageLifecycleRetention = null;
+      this.retainedCardNavigation = null;
       this.runtime.destroy();
       this.removeReducedMotionListener();
       document.removeEventListener('click', this._onClick, true);
@@ -416,7 +586,10 @@
       document.removeEventListener('visibilitychange', this._onVisibilityChange);
       document.removeEventListener('pjax:send', this._onPjaxSend);
       document.removeEventListener('pjax:success', this._onPjaxSuccess);
+      document.removeEventListener('pjax:error', this._onPjaxError);
       window.removeEventListener('scroll', this._onScroll);
+      window.removeEventListener('pagehide', this._onPageHide);
+      window.removeEventListener('pageshow', this._onPageShow);
     }
   }
 
