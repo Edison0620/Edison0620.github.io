@@ -365,115 +365,133 @@ td {
   top: -6px;
   transform: rotate(-45deg);
 }
-/*!
- * Agate by Taufik Nurrohman <https://github.com/taufik-nurrohman>
- * ---------------------------------------------------------------
- *
- * #ade5fc
- * #a2fca2
- * #c6b4f0
- * #d36363
- * #fcc28c
- * #fc9b9b
- * #ffa
- * #fff
- * #333
- * #62c8f3
- * #888
- *
- */
-
-.hljs {
+pre code.hljs {
   display: block;
   overflow-x: auto;
-  padding: 0.5em;
-  background: #333;
-  color: white;
+  padding: 1em
 }
+code.hljs {
+  padding: 3px 5px
+}
+/*!
+   Theme: Agate
+   Author: (c) Taufik Nurrohman <hi@taufik-nurrohman.com>
+   Maintainer: @taufik-nurrohman
+   Updated: 2021-04-24
 
+   #333
+   #62c8f3
+   #7bd694
+   #888
+   #a2fca2
+   #ade5fc
+   #b8d8a2
+   #c6b4f0
+   #d36363
+   #fc9b9b
+   #fcc28c
+   #ffa
+   #fff
+*/
+.hljs {
+  background: #333;
+  color: #fff
+}
+.hljs-doctag,
+.hljs-meta-keyword,
 .hljs-name,
 .hljs-strong {
-  font-weight: bold;
+  font-weight: bold
 }
-
 .hljs-code,
 .hljs-emphasis {
-  font-style: italic;
+  font-style: italic
 }
-
-.hljs-tag {
-  color: #62c8f3;
-}
-
-.hljs-variable,
-.hljs-template-variable,
-.hljs-selector-id,
-.hljs-selector-class {
-  color: #ade5fc;
-}
-
-.hljs-string,
-.hljs-bullet {
-  color: #a2fca2;
-}
-
-.hljs-type,
-.hljs-title,
 .hljs-section,
-.hljs-attribute,
+.hljs-tag {
+  color: #62c8f3
+}
+.hljs-selector-class,
+.hljs-selector-id,
+.hljs-template-variable,
+.hljs-variable {
+  color: #ade5fc
+}
+.hljs-meta-string,
+.hljs-string {
+  color: #a2fca2
+}
+.hljs-attr,
 .hljs-quote,
-.hljs-built_in,
-.hljs-builtin-name {
-  color: #ffa;
+.hljs-selector-attr {
+  color: #7bd694
 }
-
+.hljs-tag .hljs-attr {
+  color: inherit
+}
+.hljs-attribute,
+.hljs-title,
+.hljs-type {
+  color: #ffa
+}
 .hljs-number,
-.hljs-symbol,
-.hljs-bullet {
-  color: #d36363;
+.hljs-symbol {
+  color: #d36363
 }
-
+.hljs-bullet,
+.hljs-template-tag {
+  color: #b8d8a2
+}
+.hljs-built_in,
 .hljs-keyword,
-.hljs-selector-tag,
-.hljs-literal {
-  color: #fcc28c;
+.hljs-literal,
+.hljs-selector-tag {
+  color: #fcc28c
 }
-
+.hljs-code,
 .hljs-comment,
-.hljs-deletion,
-.hljs-code {
-  color: #888;
+.hljs-formula {
+  color: #888
 }
-
-.hljs-regexp,
-.hljs-link {
-  color: #c6b4f0;
+.hljs-link,
+.hljs-selector-pseudo,
+.hljs-regexp {
+  color: #c6b4f0
 }
-
 .hljs-meta {
-  color: #fc9b9b;
+  color: #fc9b9b
 }
-
 .hljs-deletion {
-  background-color: #fc9b9b;
-  color: #333;
+  background: #fc9b9b;
+  color: #333
 }
-
 .hljs-addition {
-  background-color: #a2fca2;
-  color: #333;
+  background: #a2fca2;
+  color: #333
 }
-
+/* Purposely ignored */
+.hljs-operator,
+.hljs-params,
+.hljs-property,
+.hljs-punctuation {
+  
+}
+.hljs-subst {
+  color: #fff
+}
+/* This applies only if HTML auto-merging plugin is enabled by user (#2889) */
 .hljs a {
-  color: inherit;
+  color: inherit
 }
-
 .hljs a:focus,
 .hljs a:hover {
   color: inherit;
-  text-decoration: underline;
+  text-decoration: underline
 }
-
+.hljs mark {
+  background: #555;
+  color: inherit
+}
 .highlight:hover .copy-btn,
 .code-container:hover .copy-btn {
   opacity: 1;
@@ -1312,7 +1330,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #ffac49;
+    background: #810d0b;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2931,7 +2949,7 @@ body {
 /*https://s2.loli.net/2022/07/07/TdCYRhj9oQBIVW5.jpg*/
 /*https://s2.loli.net/2022/07/08/oNgsPfZY1x8dKQ9.png*/
 /*https://w.wallhaven.cc/full/g8/wallhaven-g8gmde.png*/
-  background: url("https://res.cloudinary.com/clawvox/image/upload/f_auto,q_auto:best/blog/backgrounds/blog-bg.png");
+  background: url("https://res.cloudinary.com/clawvox/image/upload/f_auto,q_auto:good/blog/backgrounds/blog-bg.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -3117,7 +3135,9 @@ code {
 /* End footer lightning strike */
 /* Homepage random BB */
 :root {
-  --bb-highlight-color: #b94235;
+  --bb-highlight-color: #fc6423;
+  --bb-highlight-fill: rgba(252,100,35,0.18);
+  --bb-highlight-edge: #fc7d46;
 }
 body .bb-channel-portable {
   --bb-card-active-border: var(--bb-highlight-color);
@@ -3145,19 +3165,37 @@ body .bb-channel-portable {
   outline: 2px solid var(--bb-highlight-color);
   outline-offset: 3px;
 }
-.home-bb-random-mark,
+.home-bb-random-pencil,
 .home-bb-random-content {
   opacity: 0;
   transform: translateY(3px);
 }
-.home-bb-random-mark {
-  width: 9px;
-  height: 9px;
-  flex: 0 0 9px;
-  border: 2px solid var(--bb-highlight-color);
-  border-radius: 48% 57% 43% 61%;
-  box-shadow: inset 1px 0 rgba(211,91,78,0.55), 0 0 0 1px rgba(185,66,53,0.1);
-  transform: translateY(3px) rotate(-11deg);
+.home-bb-random-pencil {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  overflow: visible;
+  color: var(--bb-highlight-color);
+  transform: translateY(3px) rotate(-5deg);
+}
+.home-bb-random-pencil-body {
+  fill: var(--bb-highlight-fill);
+  stroke: currentColor;
+  stroke-linejoin: round;
+  stroke-width: 1.6;
+}
+.home-bb-random-pencil-seam,
+.home-bb-random-pencil-tip {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.home-bb-random-pencil-seam {
+  stroke-width: 1.25;
+}
+.home-bb-random-pencil-tip {
+  stroke-width: 1.5;
 }
 .home-bb-random-content {
   position: relative;
@@ -3194,12 +3232,12 @@ body .bb-channel-portable {
   transform-origin: left center;
 }
 .home-bb-random-pigment {
-  stroke: #b94235;
+  stroke: var(--bb-highlight-color);
   stroke-width: 7.4;
   opacity: 0.86;
 }
 .home-bb-random-edge {
-  stroke: #d35b4e;
+  stroke: var(--bb-highlight-edge);
   stroke-width: 2.8;
   opacity: 0.58;
 }
@@ -3209,20 +3247,20 @@ body .bb-channel-portable {
   stroke-dasharray: 15 5 3 8 23 4;
   opacity: 0.72;
 }
-.home-bb-random.is-ready:not(.is-changing) .home-bb-random-mark,
+.home-bb-random.is-ready:not(.is-changing) .home-bb-random-pencil,
 .home-bb-random.is-ready:not(.is-changing) .home-bb-random-content {
   opacity: 1;
   transform: translateY(0);
   transition: opacity 220ms ease-out, transform 220ms ease-out;
 }
-.home-bb-random.is-ready:not(.is-changing) .home-bb-random-mark {
-  transform: rotate(-11deg);
+.home-bb-random.is-ready:not(.is-changing) .home-bb-random-pencil {
+  transform: rotate(-5deg);
 }
 .home-bb-random.is-ready:not(.is-changing) .home-bb-random-stroke {
   transform: scaleX(1);
   transition: transform 320ms 20ms ease-out;
 }
-.home-bb-random.is-changing .home-bb-random-mark,
+.home-bb-random.is-changing .home-bb-random-pencil,
 .home-bb-random.is-changing .home-bb-random-content {
   opacity: 0;
   transform: translateY(2px);
@@ -3245,13 +3283,19 @@ body .bb-channel-portable {
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .home-bb-random-mark,
+  .home-bb-random-pencil,
   .home-bb-random-content,
   .home-bb-random-stroke {
     transition: none !important;
   }
 }
 /* End homepage random BB */
+@media (pointer: coarse) {
+  .post-title-link,
+  .post-button .btn {
+    touch-action: manipulation;
+  }
+}
 @keyframes footer-bolt-motion {
   0%, 18% {
     transform: translate(9px, -12px) rotate(7deg);

@@ -173,6 +173,28 @@
     return underline;
   }
 
+  function createPencilIcon(document) {
+    const pencil = createSvgElement(document, 'svg', {
+      class: 'home-bb-random-pencil',
+      viewBox: '0 0 20 20',
+      'aria-hidden': 'true',
+    });
+    const body = createSvgElement(document, 'path', {
+      class: 'home-bb-random-pencil-body',
+      d: 'M4.1 14.8 5 11.2 13.8 2.5 17.4 6.1 8.7 14.9Z',
+    });
+    const seam = createSvgElement(document, 'path', {
+      class: 'home-bb-random-pencil-seam',
+      d: 'm11.9 4.4 3.7 3.7M5 11.2l3.7 3.7',
+    });
+    const tip = createSvgElement(document, 'path', {
+      class: 'home-bb-random-pencil-tip',
+      d: 'm4.1 14.8-.8 2.3 2.3-.8',
+    });
+    pencil.append(body, seam, tip);
+    return pencil;
+  }
+
   function createEntry(document, bbPath) {
     const entry = document.createElement('aside');
     entry.className = 'home-bb-random';
@@ -187,9 +209,7 @@
     link.setAttribute('href', cleanBbPath(bbPath));
     link.setAttribute('tabindex', '-1');
 
-    const mark = document.createElement('span');
-    mark.className = 'home-bb-random-mark';
-    mark.setAttribute('aria-hidden', 'true');
+    const pencil = createPencilIcon(document);
 
     const content = document.createElement('span');
     content.className = 'home-bb-random-content';
@@ -199,7 +219,7 @@
     text.setAttribute('data-home-bb-random-text', '');
     content.append(text, createUnderline(document));
 
-    link.append(mark, content);
+    link.append(pencil, content);
     entry.append(link);
     return { entry, link, text };
   }
@@ -255,7 +275,7 @@
     const schedule = () => {
       clearWait();
       if (disposed || reduced || queue.length < 2 || paused.size) return;
-      waitTimer = setTimeoutFn(advance, 12000);
+      waitTimer = setTimeoutFn(advance, 8000);
     };
     const advance = () => {
       waitTimer = null;
