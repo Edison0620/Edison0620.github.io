@@ -5,6 +5,12 @@
   if (typeof module === 'object' && module.exports) module.exports = api;
   if (root) root.SiteParticleEffects = api;
 })(typeof window === 'undefined' ? null : window, function() {
+  const PARTICLE_EFFECTS_VERSION = '20260727.13';
+  const ACCELERATOR_LAZY_DELAY = 1500;
+  const ACCELERATOR_SCRIPTS = Object.freeze([
+    '/js/site-particle-atlas.js?v=20260727.1',
+    '/js/site-particle-accelerator.js?v=20260727.1'
+  ]);
   const CONSTANTS = Object.freeze({
     cardForce: 28000,
     codeForce: 15000,
@@ -35,6 +41,25 @@
   ].join(', ');
   const reportedErrorObjects = new WeakSet();
   const reportedErrorValues = new Set();
+
+  function listen(target, type, listener, options) {
+    if (!target || typeof target.addEventListener !== 'function') return () => {};
+    target.addEventListener(type, listener, options);
+    return () => target.removeEventListener?.(type, listener, options);
+  }
+
+  function listenMediaQuery(query, listener) {
+    if (!query) return () => {};
+    if (typeof query.addEventListener === 'function') {
+      query.addEventListener('change', listener);
+      return () => query.removeEventListener?.('change', listener);
+    }
+    if (typeof query.addListener === 'function') {
+      query.addListener(listener);
+      return () => query.removeListener?.(listener);
+    }
+    return () => {};
+  }
 
   function markReportedError(error) {
     if ((typeof error === 'object' && error !== null)
@@ -297,6 +322,27 @@
     ));
   }
 
+  function drainSteps(iterator) {
+    let step = iterator.next();
+    while (!step.done) step = iterator.next();
+    return step.value;
+  }
+
+  async function drainStepsAsync(iterator, options = {}) {
+    const batchSize = Math.max(1, Math.floor(options.batchSize || 50));
+    const yieldControl = typeof options.yieldControl === 'function'
+      ? options.yieldControl
+      : () => new Promise(resolve => setTimeout(resolve, 0));
+    let operationCount = 0;
+    let step = iterator.next();
+    while (!step.done) {
+      operationCount += 1;
+      if (operationCount % batchSize === 0) await yieldControl();
+      step = iterator.next();
+    }
+    return step.value;
+  }
+
   function cardFragmentUnit(characters, mobile) {
     const heights = characters
       .map(character => character.h)
@@ -318,13 +364,14 @@
     return Math.max(minimum, Math.min(maximum, clean(textUnit * 0.7)));
   }
 
-  function fragmentRectangles(rect, unit, cap) {
+  function* fragmentRectangleSteps(rect, unit, cap) {
     if (!(rect.width > 0 && rect.height > 0 && unit > 0 && cap > 0)) return [];
     const columns = Math.max(1, Math.ceil(rect.width / unit));
     const rows = Math.max(1, Math.ceil(rect.height / unit));
     const total = columns * rows;
     const count = Math.min(total, Math.floor(cap));
-    return Array.from({ length: count }, (_, selectionIndex) => {
+    const fragments = [];
+    for (let selectionIndex = 0; selectionIndex < count; selectionIndex += 1) {
       const index = count === 1
         ? Math.floor(total / 2)
         : Math.round(selectionIndex * (total - 1) / (count - 1));
@@ -334,13 +381,19 @@
       const right = rect.left + rect.width * (column + 1) / columns;
       const top = rect.top + rect.height * row / rows;
       const bottom = rect.top + rect.height * (row + 1) / rows;
-      return {
+      fragments.push({
         left, top, right, bottom,
         width: right - left,
         height: bottom - top,
         row, column, index
-      };
-    });
+      });
+      yield;
+    }
+    return fragments;
+  }
+
+  function fragmentRectangles(rect, unit, cap) {
+    return drainSteps(fragmentRectangleSteps(rect, unit, cap));
   }
 
   function tagScatterVector(point, origin, random) {
@@ -436,7 +489,7 @@
     if (segment) yield { segment, index: segmentIndex };
   }
 
-  function extractCharacters(element, cap) {
+  function* extractCharacterSteps(element, cap) {
     if (cap <= 0) return [];
     const segmenter = typeof Intl.Segmenter === 'function'
       ? new Intl.Segmenter(undefined, { granularity: 'grapheme' })
@@ -449,18 +502,24 @@
     let node;
     while ((node = walker.nextNode())) {
       const parent = node.parentElement;
-      if (!parent || parent.closest(TEXT_EXCLUSIONS)) continue;
-      for (const item of segmentsFor(node.textContent)) {
-        if (item.segment.trim() || item.segment === ' ') candidateCount += 1;
+      if (parent && !parent.closest(TEXT_EXCLUSIONS)) {
+        for (const item of segmentsFor(node.textContent)) {
+          if (item.segment.trim() || item.segment === ' ') candidateCount += 1;
+          yield;
+        }
       }
+      yield;
     }
     if (!candidateCount) return [];
     const selectedCount = Math.min(candidateCount, cap);
-    const selectedIndexes = Array.from({ length: selectedCount }, (_, index) => (
-      selectedCount === 1
+    const selectedIndexes = [];
+    for (let index = 0; index < selectedCount; index += 1) {
+      selectedIndexes.push(selectedCount === 1
         ? Math.floor(candidateCount / 2)
         : Math.round(index * (candidateCount - 1) / (selectedCount - 1))
-    ));
+      );
+      yield;
+    }
     const rootRect = element.getBoundingClientRect();
     const characters = [];
     let candidateIndex = 0;
@@ -468,73 +527,101 @@
     walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
     while ((node = walker.nextNode()) && selectedIndex < selectedIndexes.length) {
       const parent = node.parentElement;
-      if (!parent || parent.closest(TEXT_EXCLUSIONS)) continue;
-      for (const item of segmentsFor(node.textContent)) {
-        if (!item.segment.trim() && item.segment !== ' ') continue;
-        if (candidateIndex !== selectedIndexes[selectedIndex]) {
+      if (parent && !parent.closest(TEXT_EXCLUSIONS)) {
+        for (const item of segmentsFor(node.textContent)) {
+          if (!item.segment.trim() && item.segment !== ' ') {
+            yield;
+            continue;
+          }
+          if (candidateIndex !== selectedIndexes[selectedIndex]) {
+            candidateIndex += 1;
+            yield;
+            continue;
+          }
           candidateIndex += 1;
-          continue;
+          selectedIndex += 1;
+          const style = getComputedStyle(parent);
+          if (style.display === 'none' || style.visibility === 'hidden'
+            || style.opacity === '0'
+            || style.position === 'fixed' || style.position === 'sticky') {
+            yield;
+            continue;
+          }
+          const range = document.createRange();
+          range.setStart(node, item.index);
+          range.setEnd(node, item.index + item.segment.length);
+          const rect = range.getBoundingClientRect();
+          range.detach?.();
+          if (rect.width >= 0.5 && rect.height >= 0.5
+            && rect.bottom >= -50
+            && rect.top <= window.innerHeight + 50) {
+            characters.push({
+              char: item.segment,
+              x: rect.left,
+              y: rect.top,
+              tx: rect.left,
+              ty: rect.top,
+              w: rect.width,
+              h: rect.height,
+              color: style.color,
+              font: `${style.fontWeight} ${style.fontSize} ${style.fontFamily}`,
+              rootX: rootRect.left,
+              rootY: rootRect.top
+            });
+          }
+          yield;
+          if (selectedIndex >= selectedIndexes.length) break;
         }
-        candidateIndex += 1;
-        selectedIndex += 1;
-        const style = getComputedStyle(parent);
-        if (style.display === 'none' || style.visibility === 'hidden'
-          || style.opacity === '0'
-          || style.position === 'fixed' || style.position === 'sticky') continue;
-        const range = document.createRange();
-        range.setStart(node, item.index);
-        range.setEnd(node, item.index + item.segment.length);
-        const rect = range.getBoundingClientRect();
-        range.detach?.();
-        if (rect.width < 0.5 || rect.height < 0.5) continue;
-        if (rect.bottom < -50 || rect.top > window.innerHeight + 50) continue;
-        characters.push({
-          char: item.segment,
-          x: rect.left,
-          y: rect.top,
-          tx: rect.left,
-          ty: rect.top,
-          w: rect.width,
-          h: rect.height,
-          color: style.color,
-          font: `${style.fontWeight} ${style.fontSize} ${style.fontFamily}`,
-          rootX: rootRect.left,
-          rootY: rootRect.top
-        });
-        if (selectedIndex >= selectedIndexes.length) break;
       }
+      yield;
     }
     return characters;
   }
 
-  function sampleDescendants(root, matches, cap) {
+  function extractCharacters(element, cap) {
+    return drainSteps(extractCharacterSteps(element, cap));
+  }
+
+  function* sampleDescendantSteps(root, matches, cap) {
     if (cap <= 0) return [];
     let candidateCount = 0;
     let walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT);
     let element;
     while ((element = walker.nextNode())) {
       if (matches(element)) candidateCount += 1;
+      yield;
     }
     if (!candidateCount) return [];
     const selectedCount = Math.min(candidateCount, cap);
-    const selectedIndexes = Array.from({ length: selectedCount }, (_, index) => (
-      selectedCount === 1
+    const selectedIndexes = [];
+    for (let index = 0; index < selectedCount; index += 1) {
+      selectedIndexes.push(selectedCount === 1
         ? Math.floor(candidateCount / 2)
         : Math.round(index * (candidateCount - 1) / (selectedCount - 1))
-    ));
+      );
+      yield;
+    }
     const selected = [];
     let candidateIndex = 0;
     let selectedIndex = 0;
     walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT);
     while ((element = walker.nextNode()) && selectedIndex < selectedCount) {
-      if (!matches(element)) continue;
+      if (!matches(element)) {
+        yield;
+        continue;
+      }
       if (candidateIndex === selectedIndexes[selectedIndex]) {
         selected.push(element);
         selectedIndex += 1;
       }
       candidateIndex += 1;
+      yield;
     }
     return selected;
+  }
+
+  function sampleDescendants(root, matches, cap) {
+    return drainSteps(sampleDescendantSteps(root, matches, cap));
   }
 
   function isExcludedForegroundElement(element) {
@@ -585,9 +672,9 @@
     return { destination, source };
   }
 
-  function extractImageVisuals(card, cap, unit) {
+  function* extractImageVisualSteps(card, cap, unit) {
     const visuals = [];
-    const images = sampleDescendants(card, element => (
+    const images = yield* sampleDescendantSteps(card, element => (
       !isExcludedForegroundElement(element)
       && (
         element.matches?.('img')
@@ -600,13 +687,14 @@
         (cap - visuals.length) / (images.length - imageIndex)
       ));
       const visible = visibleRect(image);
+      yield;
       if (!visible) continue;
       const box = imageContentBox(image, visible.rect, visible.style);
       if (!image.complete || !box) {
         const color = visible.style.backgroundColor !== 'rgba(0, 0, 0, 0)'
           ? visible.style.backgroundColor
           : visible.style.color;
-        const fragments = fragmentRectangles(
+        const fragments = yield* fragmentRectangleSteps(
           visible.rect, unit, tileBudget
         );
         for (const fragment of fragments) {
@@ -620,6 +708,7 @@
             0,
             { material: 'image' }
           ));
+          yield;
         }
         continue;
       }
@@ -629,7 +718,7 @@
         width: box.destination.width,
         height: box.destination.height
       };
-      const fragments = fragmentRectangles(
+      const fragments = yield* fragmentRectangleSteps(
         destinationRect, unit, tileBudget
       );
       for (const fragment of fragments) {
@@ -651,9 +740,14 @@
           h: fragment.height,
           fallbackColor: visible.style.color
         });
+        yield;
       }
     }
     return visuals;
+  }
+
+  function extractImageVisuals(card, cap, unit) {
+    return drainSteps(extractImageVisualSteps(card, cap, unit));
   }
 
   function pseudoContent(style) {
@@ -748,11 +842,15 @@
     };
   }
 
-  function shapeFragments(owner, rect, style, metadata = {}, unit = 16, cap = Infinity) {
+  function* shapeFragmentSteps(
+    owner, rect, style, metadata = {}, unit = 16, cap = Infinity
+  ) {
     const visuals = [];
     const background = style.backgroundColor;
     if (visibleColor(background)) {
-      const fragments = fragmentRectangles(rect, unit, cap - visuals.length);
+      const fragments = yield* fragmentRectangleSteps(
+        rect, unit, cap - visuals.length
+      );
       for (const fragment of fragments) {
         visuals.push(paintedShape(
           owner,
@@ -764,6 +862,7 @@
           parseFloat(style.borderTopLeftRadius) || 0,
           { ...metadata, material: 'fill' }
         ));
+        yield;
       }
     }
     const sides = [
@@ -777,7 +876,7 @@
     for (const [side, x, y, w, h] of sides) {
       if (visuals.length >= cap) break;
       if (!(w > 0 && h > 0) || !visibleLine(style, `border${side}`)) continue;
-      const fragments = fragmentRectangles(
+      const fragments = yield* fragmentRectangleSteps(
         { left: x, top: y, width: w, height: h },
         unit,
         cap - visuals.length
@@ -793,6 +892,7 @@
           0,
           { ...metadata, material: 'line' }
         ));
+        yield;
       }
     }
     if (visuals.length < cap && visibleLine(style, 'outline')) {
@@ -809,7 +909,7 @@
         [left, top, width, bottom - top]
       ]) {
         if (visuals.length >= cap) break;
-        const fragments = fragmentRectangles(
+        const fragments = yield* fragmentRectangleSteps(
           { left: x, top: y, width: w, height: h },
           unit,
           cap - visuals.length
@@ -825,21 +925,27 @@
             0,
             { ...metadata, material: 'line' }
           ));
+          yield;
         }
       }
     }
     return visuals;
   }
 
-  function appendAtMost(target, values, cap) {
+  function* appendAtMostSteps(target, values, cap) {
     const remaining = cap - target.length;
     if (remaining <= 0) return;
-    target.push(...sampleAtMost(values, remaining));
+    const sampled = yield* sampleAtMostSteps(values, remaining);
+    for (const value of sampled) {
+      target.push(value);
+      yield;
+    }
   }
 
-  function glyphFragments(owner, pseudo, char, rect, style, unit, cap) {
+  function* glyphFragmentSteps(owner, pseudo, char, rect, style, unit, cap) {
     const font = `${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
     if (rect.width <= unit * 1.5 && rect.height <= unit * 1.5) {
+      yield;
       return [{
         kind: 'glyph',
         material: 'glyph',
@@ -854,44 +960,52 @@
         font
       }];
     }
-    return fragmentRectangles(rect, unit, cap).map(fragment => ({
-      kind: 'glyph',
-      material: 'glyph',
-      owner,
-      pseudo,
-      char,
-      x: fragment.left,
-      y: fragment.top,
-      w: fragment.width,
-      h: fragment.height,
-      color: style.color,
-      font,
-      clipGlyph: true,
-      glyphDrawX: rect.left - (fragment.left + fragment.width / 2),
-      glyphDrawY: rect.top - (fragment.top + fragment.height / 2)
-    }));
+    const fragments = yield* fragmentRectangleSteps(rect, unit, cap);
+    const glyphs = [];
+    for (const fragment of fragments) {
+      glyphs.push({
+        kind: 'glyph',
+        material: 'glyph',
+        owner,
+        pseudo,
+        char,
+        x: fragment.left,
+        y: fragment.top,
+        w: fragment.width,
+        h: fragment.height,
+        color: style.color,
+        font,
+        clipGlyph: true,
+        glyphDrawX: rect.left - (fragment.left + fragment.width / 2),
+        glyphDrawY: rect.top - (fragment.top + fragment.height / 2)
+      });
+      yield;
+    }
+    return glyphs;
   }
 
-  function extractPaintVisuals(card, shapeCap, glyphCap, unit) {
+  function* extractPaintVisualSteps(card, shapeCap, glyphCap, unit) {
     const shapes = [];
     const glyphs = [];
     const scanCap = shapeCap + glyphCap;
-    const descendants = sampleDescendants(
+    const descendants = yield* sampleDescendantSteps(
       card,
       element => !isExcludedForegroundElement(element),
       scanCap
     );
     for (const element of descendants) {
       const visible = visibleRect(element);
+      yield;
       if (!visible || visible.style.position === 'fixed'
         || visible.style.position === 'sticky') continue;
       if (shapes.length < shapeCap && visiblePaint(visible.style)) {
-        appendAtMost(
+        const fragments = yield* shapeFragmentSteps(
+          element, visible.rect, visible.style, {}, unit,
+          shapeCap - shapes.length
+        );
+        yield* appendAtMostSteps(
           shapes,
-          shapeFragments(
-            element, visible.rect, visible.style, {}, unit,
-            shapeCap - shapes.length
-          ),
+          fragments,
           shapeCap
         );
       }
@@ -899,61 +1013,79 @@
       for (const pseudo of ['::before', '::after']) {
         const style = getComputedStyle(element, pseudo);
         if (style.display === 'none' || style.visibility === 'hidden'
-          || style.opacity === '0') continue;
+          || style.opacity === '0') {
+          yield;
+          continue;
+        }
         const pseudoRect = pseudoVisualRect(visible.rect, style);
         const char = pseudoContent(style);
         if (char && glyphs.length < glyphCap) {
           emittedPseudoGlyph = true;
           const glyphRect = pseudoGlyphRect(pseudoRect, style);
-          appendAtMost(
+          const fragments = yield* glyphFragmentSteps(
+            element, pseudo, char, glyphRect, style, unit,
+            glyphCap - glyphs.length
+          );
+          yield* appendAtMostSteps(
             glyphs,
-            glyphFragments(
-              element, pseudo, char, glyphRect, style, unit,
-              glyphCap - glyphs.length
-            ),
+            fragments,
             glyphCap
           );
         }
         if (shapes.length < shapeCap && visiblePaint(style)) {
-          appendAtMost(
+          const fragments = yield* shapeFragmentSteps(
+            element, pseudoRect, style, { pseudo }, unit,
+            shapeCap - shapes.length
+          );
+          yield* appendAtMostSteps(
             shapes,
-            shapeFragments(
-              element, pseudoRect, style, { pseudo }, unit,
-              shapeCap - shapes.length
-            ),
+            fragments,
             shapeCap
           );
         }
+        yield;
       }
       if (!emittedPseudoGlyph && element.matches?.('svg')
         && shapes.length < shapeCap && !visiblePaint(visible.style)) {
-        const fallback = fragmentRectangles(
+        const fragments = yield* fragmentRectangleSteps(
           visible.rect, unit, shapeCap - shapes.length
-        ).map(fragment => paintedShape(
-          element,
-          fragment.left,
-          fragment.top,
-          fragment.width,
-          fragment.height,
-          visible.style.color,
-          0,
-          { material: 'glyph' }
-        ));
-        appendAtMost(shapes, fallback, shapeCap);
+        );
+        const fallback = [];
+        for (const fragment of fragments) {
+          fallback.push(paintedShape(
+            element,
+            fragment.left,
+            fragment.top,
+            fragment.width,
+            fragment.height,
+            visible.style.color,
+            0,
+            { material: 'glyph' }
+          ));
+          yield;
+        }
+        yield* appendAtMostSteps(shapes, fallback, shapeCap);
       }
       if (shapes.length >= shapeCap && glyphs.length >= glyphCap) break;
     }
     return { glyphs, shapes };
   }
 
-  function sampleAtMost(values, cap) {
+  function* sampleAtMostSteps(values, cap) {
     if (cap <= 0 || !values.length) return [];
     if (values.length <= cap) return values;
     if (cap === 1) return [values[Math.floor(values.length / 2)]];
-    return sampleEvenly(values, cap);
+    const sampled = [];
+    for (let index = 0; index < cap; index += 1) {
+      sampled.push(
+        values[Math.round(index * (values.length - 1) / (cap - 1))]
+      );
+      yield;
+    }
+    return sampled;
   }
 
-  function fairSampleGroups(groups, cap) {
+  function* fairSampleGroupSteps(groups, cap) {
     const records = groups
       .filter(values => values.length)
       .map(values => ({ quota: 0, values }));
@@ -988,26 +1120,53 @@
         remaining = 0;
       }
     }
-    return records.flatMap(group => sampleAtMost(group.values, group.quota));
+    const sampled = [];
+    for (const group of records) {
+      const values = yield* sampleAtMostSteps(group.values, group.quota);
+      for (const value of values) {
+        sampled.push(value);
+        yield;
+      }
+    }
+    return sampled;
   }
 
-  function extractCardVisuals(card, cap, options = {}) {
+  function* extractCardVisualSteps(card, cap, options = {}) {
     if (cap <= 0) return [];
-    const text = extractCharacters(card, cap).map(item => ({
-      ...item,
-      kind: 'text',
-      material: 'text'
-    }));
+    const characters = yield* extractCharacterSteps(card, cap);
+    const text = [];
+    for (const item of characters) {
+      text.push({
+        ...item,
+        kind: 'text',
+        material: 'text'
+      });
+      yield;
+    }
     const mobile = Boolean(options.mobile);
     const textUnit = cardFragmentUnit(text, mobile);
     const controlUnit = cardControlFragmentUnit(textUnit, mobile);
-    const paint = extractPaintVisuals(card, cap, cap, controlUnit);
-    return fairSampleGroups([
+    const paint = yield* extractPaintVisualSteps(
+      card, cap, cap, controlUnit
+    );
+    const images = yield* extractImageVisualSteps(card, cap, controlUnit);
+    return yield* fairSampleGroupSteps([
       paint.shapes,
-      extractImageVisuals(card, cap, controlUnit),
+      images,
       paint.glyphs,
       text
     ], cap);
+  }
+
+  function extractCardVisuals(card, cap, options = {}) {
+    return drainSteps(extractCardVisualSteps(card, cap, options));
+  }
+
+  function extractCardVisualsAsync(card, cap, options = {}) {
+    return drainStepsAsync(
+      extractCardVisualSteps(card, cap, options),
+      options
+    );
   }
 
   function drawShapeFragment(context, particle) {
@@ -1288,6 +1447,85 @@
     };
   }
 
+  function createAcceleratorLoader(runtimeWindow, runtimeDocument) {
+    const scriptPromises = new Map();
+
+    function abortError() {
+      const error = new Error('Particle accelerator loading was cancelled');
+      error.name = 'AbortError';
+      return error;
+    }
+
+    function loadScript(url, signal) {
+      if (scriptPromises.has(url)) return scriptPromises.get(url);
+      const promise = new Promise((resolve, reject) => {
+        if (signal?.aborted) {
+          reject(abortError());
+          return;
+        }
+        const script = runtimeDocument.createElement('script');
+        let settled = false;
+        script.async = true;
+        script.src = url;
+
+        const cleanup = () => {
+          script.removeEventListener?.('load', onLoad);
+          script.removeEventListener?.('error', onError);
+          signal?.removeEventListener?.('abort', onAbort);
+        };
+        const settle = (callback, value, remove) => {
+          if (settled) return;
+          settled = true;
+          cleanup();
+          if (remove) {
+            try {
+              script.remove?.();
+            } catch {
+              // Promise state still determines whether a retry is possible.
+            }
+          }
+          callback(value);
+        };
+        const onLoad = () => settle(resolve, undefined, false);
+        const onError = () => settle(
+          reject,
+          new Error(`Failed to load particle accelerator script: ${url}`),
+          true
+        );
+        const onAbort = () => settle(reject, abortError(), true);
+
+        script.addEventListener?.('load', onLoad);
+        script.addEventListener?.('error', onError);
+        signal?.addEventListener?.('abort', onAbort, { once: true });
+        try {
+          (runtimeDocument.head || runtimeDocument.documentElement)
+            .appendChild(script);
+        } catch (error) {
+          settle(reject, error, true);
+        }
+      });
+      scriptPromises.set(url, promise);
+      promise.catch(() => {
+        if (scriptPromises.get(url) === promise) scriptPromises.delete(url);
+      });
+      return promise;
+    }
+
+    return async function loadAccelerator({ signal } = {}) {
+      if (runtimeWindow.SiteParticleAccelerator?.createAccelerator) {
+        return runtimeWindow.SiteParticleAccelerator;
+      }
+      for (const url of ACCELERATOR_SCRIPTS) {
+        await loadScript(url, signal);
+      }
+      const api = runtimeWindow.SiteParticleAccelerator;
+      if (!api || typeof api.createAccelerator !== 'function') {
+        throw new Error('Particle accelerator API is unavailable');
+      }
+      return api;
+    };
+  }
+
   function createRuntime(options = {}) {
     const overlay = new CanvasOverlay();
     const random = options.random || Math.random;
@@ -1295,12 +1533,165 @@
     const shouldRetainCardForeground = options.shouldRetainCardForeground
       || (() => false);
     const runtimeWindow = typeof window === 'undefined' ? globalThis : window;
+    const runtimeDocument = options.document
+      || runtimeWindow.document
+      || (typeof document === 'undefined' ? null : document);
+    const reducedMotion = options.reducedMotionQuery
+      || runtimeWindow.matchMedia?.('(prefers-reduced-motion: reduce)')
+      || { matches: false };
+    const canLoadAccelerator = typeof options.loadAccelerator === 'function'
+      || Boolean(runtimeDocument?.head && runtimeDocument?.createElement);
+    const loadAccelerator = options.loadAccelerator
+      || (canLoadAccelerator
+        ? createAcceleratorLoader(runtimeWindow, runtimeDocument)
+        : null);
+    const accelerationRoot = options.accelerationRoot || runtimeDocument;
     let primary = null;
     let confetti = [];
     let destroyed = false;
     let warned = false;
     let retainedCard = null;
+    let accelerator = null;
+    let accelerationDisabled = false;
+    let acceleratorLoad = null;
+    let acceleratorTimer = null;
+    let acceleratorGeneration = 0;
+    let loaded = runtimeDocument?.readyState === 'complete';
     const tagRecords = new Set();
+    const accelerationRemovers = [];
+
+    function acceleratorEffectsApi() {
+      return {
+        CONSTANTS,
+        drawCardVisual,
+        extractCardVisuals,
+        extractCardVisualsAsync
+      };
+    }
+
+    function cancelAcceleratorTimer() {
+      if (acceleratorTimer === null) return;
+      runtimeWindow.clearTimeout(acceleratorTimer);
+      acceleratorTimer = null;
+    }
+
+    function cancelAcceleratorLoad() {
+      acceleratorGeneration++;
+      const record = acceleratorLoad;
+      acceleratorLoad = null;
+      try {
+        record?.controller?.abort();
+      } catch {
+        // Generation checks still prevent a late install.
+      }
+    }
+
+    function installAccelerator(api, generation) {
+      if (destroyed || accelerationDisabled
+        || generation !== acceleratorGeneration
+        || reducedMotion.matches || accelerator) return;
+      if (!api || typeof api.createAccelerator !== 'function') {
+        throw new Error('Particle accelerator factory is unavailable');
+      }
+      const instance = api.createAccelerator({
+        ...(options.acceleratorOptions || {}),
+        atlasVersion: '20260727.1',
+        document: runtimeDocument,
+        effects: acceleratorEffectsApi(),
+        effectsVersion: PARTICLE_EFFECTS_VERSION,
+        reducedMotionQuery: reducedMotion,
+        webglVersion: '20260727.1',
+        window: runtimeWindow,
+        workerVersion: '20260727.1'
+      });
+      if (!instance || typeof instance.take !== 'function') {
+        instance?.destroy?.();
+        throw new Error('Particle accelerator instance is invalid');
+      }
+      if (destroyed || accelerationDisabled
+        || generation !== acceleratorGeneration
+        || reducedMotion.matches) {
+        instance.destroy?.();
+        return;
+      }
+      accelerator = instance;
+      accelerator.observe?.(accelerationRoot);
+    }
+
+    function attemptAcceleratorLoad() {
+      if (destroyed || accelerationDisabled
+        || accelerator || acceleratorLoad
+        || reducedMotion.matches || !loaded || !loadAccelerator) return;
+      const generation = acceleratorGeneration;
+      const AbortControllerClass = runtimeWindow.AbortController
+        || (typeof AbortController === 'function' ? AbortController : null);
+      const controller = AbortControllerClass
+        ? new AbortControllerClass()
+        : null;
+      const record = { controller, generation, promise: null };
+      const promise = (async () => {
+        let shouldRetry = false;
+        try {
+          const api = await loadAccelerator({
+            signal: controller?.signal
+          });
+          installAccelerator(api, generation);
+        } catch {
+          shouldRetry = !destroyed
+            && generation === acceleratorGeneration
+            && !reducedMotion.matches;
+        } finally {
+          if (acceleratorLoad === record) acceleratorLoad = null;
+          if (shouldRetry) scheduleAcceleratorLoad();
+        }
+      })();
+      record.promise = promise;
+      acceleratorLoad = record;
+    }
+
+    function scheduleAcceleratorLoad() {
+      if (destroyed || accelerationDisabled
+        || accelerator || acceleratorLoad
+        || acceleratorTimer !== null || reducedMotion.matches
+        || !loaded || !loadAccelerator) return;
+      acceleratorTimer = runtimeWindow.setTimeout(() => {
+        acceleratorTimer = null;
+        attemptAcceleratorLoad();
+      }, ACCELERATOR_LAZY_DELAY);
+    }
+
+    function suspendAcceleratorLifecycle() {
+      cancelAcceleratorTimer();
+      cancelAcceleratorLoad();
+      const instance = accelerator;
+      accelerator = null;
+      try {
+        instance?.destroy?.();
+      } catch {
+        // Runtime teardown must continue even if accelerator cleanup fails.
+      }
+    }
+
+    function onLoad() {
+      if (destroyed) return;
+      loaded = true;
+      scheduleAcceleratorLoad();
+    }
+
+    function resumeAcceleratorLifecycle() {
+      if (destroyed) return;
+      loaded = true;
+      scheduleAcceleratorLoad();
+    }
+
+    function onReducedMotionChange(event) {
+      if (event?.matches ?? reducedMotion.matches) {
+        cancelAcceleratorTimer();
+        cancelAcceleratorLoad();
+      } else {
+        scheduleAcceleratorLoad();
+      }
+    }
 
     function particleCap(mobile) {
       return mobile
@@ -1332,10 +1723,21 @@
       }
     }
 
+    function cancelExternalRun(record) {
+      if (!record.externalRun || record.externalCancelled) return;
+      record.externalCancelled = true;
+      try {
+        record.externalRun.cancel();
+      } catch {
+        // Coordinator settlement remains authoritative.
+      }
+    }
+
     function settlePrimary(record, outcome = 'resolve', error, options = {}) {
       if (!record || record.settled) return;
       record.settled = true;
       clearPrimaryWatchdog(record);
+      cancelExternalRun(record);
       if (primary === record) primary = null;
       const retain = record.kind === 'card'
         && (record.retainOnResolve && outcome === 'resolve'
@@ -1377,6 +1779,14 @@
     function failRuntime(error) {
       const record = primary;
       if (record) settlePrimary(record, 'reject', error);
+      if (record?.external) {
+        accelerationDisabled = true;
+        try {
+          accelerator?.disable?.(error);
+        } catch {
+          // The current failure still settles through the runtime.
+        }
+      }
       stopVisuals();
       overlay.destroy();
       warnOnce(error);
@@ -1408,7 +1818,7 @@
           const dt = Math.min((now - previous) / 1000, 0.05);
           previous = now;
           overlay.clear();
-          if (primary) primary.step(overlay.context, dt);
+          if (primary?.step) primary.step(overlay.context, dt);
           confetti = confetti.filter(particle => {
             stepConfettiParticle(particle, dt);
             if (!particle.alive) return false;
@@ -1427,14 +1837,16 @@
       overlay.raf = requestAnimationFrame(frame);
     }
 
-    function startPrimary(recordOptions, makeAnimation) {
+    function startPrimary(recordOptions, makeAnimation, startExternal) {
       return new Promise((resolve, reject) => {
         let record;
         try {
-          record = makeAnimation(
-            () => settlePrimary(record),
-            resolve
-          );
+          record = startExternal
+            ? { external: true, externalCancelled: false, externalRun: null }
+            : makeAnimation(
+              () => settlePrimary(record),
+              resolve
+            );
         } catch (error) {
           restorePrimaryTargets(recordOptions);
           warnOnce(error);
@@ -1448,7 +1860,28 @@
         record.watchdog = null;
         primary = record;
         try {
-          ensureLoop();
+          if (startExternal) {
+            const run = startExternal(
+              () => settlePrimary(record),
+              error => {
+                if (!record.settled) failRuntime(error);
+              }
+            );
+            if (!run || typeof run.cancel !== 'function'
+              || !run.completion?.then) {
+              throw new Error('External particle animation is invalid');
+            }
+            record.externalRun = run;
+            Promise.resolve(run.completion).then(
+              () => settlePrimary(record),
+              error => {
+                if (!record.settled) failRuntime(error);
+              }
+            );
+            if (record.settled) cancelExternalRun(record);
+          } else {
+            ensureLoop();
+          }
           if (primary === record) {
             record.watchdog = runtimeWindow.setTimeout(() => {
               if (primary !== record || record.settled) return;
@@ -1484,25 +1917,70 @@
     if (typeof runtimeWindow.addEventListener === 'function') {
       runtimeWindow.addEventListener('resize', onResize);
     }
+    if (loadAccelerator) {
+      accelerationRemovers.push(
+        listen(runtimeWindow, 'load', onLoad),
+        listenMediaQuery(reducedMotion, onReducedMotionChange)
+      );
+      if (loaded) scheduleAcceleratorLoad();
+    }
 
     return {
       explodeCard(element, clientX, clientY, options = {}) {
         restoreRetainedCard();
         finishPrimary();
         const mobile = Boolean(options.mobile);
-        const particles = extractCardVisuals(
+        let prepared = null;
+        try {
+          prepared = accelerator?.take(element, mobile) || null;
+        } catch (error) {
+          accelerationDisabled = true;
+          try {
+            accelerator?.disable?.(error);
+          } catch {
+            // Canvas fallback remains immediately available.
+          }
+        }
+        const visuals = prepared?.visuals || extractCardVisuals(
           element, particleCap(mobile), { mobile }
         );
-        if (!particles.length) return Promise.resolve();
+        if (!visuals.length) {
+          prepared?.dispose?.();
+          return Promise.resolve();
+        }
         const targets = saveTargets(cardForegroundRoots(element));
         for (const target of targets) hideVisibilityTarget(target);
+        if (prepared) {
+          return startPrimary({
+            kind: 'card',
+            retainOnResolve: true,
+            targets
+          }, null, (finish, error) => {
+            let particles;
+            try {
+              particles = visuals.map(visual => createCardParticle(
+                visual,
+                clientX,
+                clientY,
+                { mobile, random }
+              ));
+            } catch (particleError) {
+              prepared.dispose?.();
+              throw particleError;
+            }
+            return prepared.start(particles, {
+              complete: finish,
+              error
+            });
+          });
+        }
         return startPrimary({
           kind: 'card',
           retainOnResolve: true,
           targets
         }, (finish, resolve) => (
           makeCardAnimation(
-            particles, clientX, clientY,
+            visuals, clientX, clientY,
             mobile, random, finish, resolve, drawCardVisual
           )
         ));
@@ -1595,6 +2073,13 @@
       discardRetainedCard() {
         discardRetainedCard();
       },
+      suspendAcceleration() {
+        if (destroyed) return;
+        suspendAcceleratorLifecycle();
+      },
+      resumeAcceleration() {
+        resumeAcceleratorLifecycle();
+      },
       cancelAll(options = {}) {
         finishPrimary(options);
         if (!options.retainCardForeground) this.restoreRetainedCard();
@@ -1604,6 +2089,14 @@
         if (destroyed) return;
         destroyed = true;
         this.cancelAll();
+        suspendAcceleratorLifecycle();
+        for (const remove of accelerationRemovers.splice(0)) {
+          try {
+            remove();
+          } catch {
+            // Continue removing the remaining lifecycle listeners.
+          }
+        }
         if (typeof runtimeWindow.removeEventListener === 'function') {
           runtimeWindow.removeEventListener('resize', onResize);
         }
@@ -1613,6 +2106,8 @@
   }
 
   return {
+    ACCELERATOR_SCRIPTS,
+    PARTICLE_EFFECTS_VERSION,
     CONSTANTS,
     CanvasOverlay,
     inverseSquareLaunch,
@@ -1633,6 +2128,7 @@
     isReportedError,
     extractCharacters,
     extractCardVisuals,
+    extractCardVisualsAsync,
     drawCardVisual,
     createRuntime
   };

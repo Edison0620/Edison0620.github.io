@@ -29,15 +29,20 @@
       this.ownedCardNavigation = null;
       this.pageLifecycleRetention = null;
       this.retainedCardNavigation = null;
+      this.reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+      this.coarsePointer = matchMedia('(pointer: coarse)');
       this.runtime = effects.createRuntime({
+        accelerationRoot: document,
+        acceleratorOptions: {
+          mobile: () => this.coarsePointer.matches
+        },
+        reducedMotionQuery: this.reducedMotion,
         shouldRetainCardForeground: () => Boolean(
           this.pendingNavigation?.kind === 'card'
           || this.retainedCardNavigation
           || this.pageLifecycleRetention
         )
       });
-      this.reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-      this.coarsePointer = matchMedia('(pointer: coarse)');
       this.articleRewarded = false;
       this.pendingNavigation = null;
       this.navigationGeneration = 0;
@@ -519,6 +524,7 @@
           this.ownedCardNavigation
         )
       });
+      this.runtime.suspendAcceleration?.();
     }
 
     _onPageShow(event) {
@@ -528,6 +534,7 @@
       this._clearToast();
       this._cancelAll();
       this.articleRewarded = false;
+      this.runtime.resumeAcceleration?.();
     }
 
     _onReducedMotionChange() {

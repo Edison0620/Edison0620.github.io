@@ -5,7 +5,7 @@
   if (typeof module === 'object' && module.exports) module.exports = api;
   if (root) root.SiteParticleAtlas = api;
 })(typeof window === 'undefined' ? null : window, function() {
-  function packAtlas(rectangles, options = {}) {
+  function createAtlasPacker(options = {}) {
     const maxSize = options.maxSize || 2048;
     const padding = options.padding ?? 2;
     const maxPages = options.maxPages || 4;
@@ -21,7 +21,7 @@
       pages.push(page);
     }
 
-    for (const rectangle of rectangles) {
+    function add(rectangle) {
       const width = rectangle.width;
       const height = rectangle.height;
       if (width + (padding * 2) > maxSize
@@ -55,32 +55,72 @@
       page.shelfHeight = Math.max(page.shelfHeight, height);
     }
 
-    return {
-      pages: pages.map(({ width, height }) => ({ width, height })),
-      placements
-    };
+    function finish() {
+      return {
+        pages: pages.map(({ width, height }) => ({ width, height })),
+        placements
+      };
+    }
+
+    return { add, finish };
+  }
+
+  function packAtlas(rectangles, options = {}) {
+    const packer = createAtlasPacker(options);
+    for (const rectangle of rectangles) packer.add(rectangle);
+    return packer.finish();
   }
 
   async function buildVisualAtlas(visuals, options) {
     const dpr = options.dpr || 1;
-    const rectangles = visuals.map(visual => ({
-      width: Math.max(1, Math.ceil(visual.w * dpr)),
-      height: Math.max(1, Math.ceil(visual.h * dpr))
-    }));
-    const layout = packAtlas(rectangles, options);
+    const batchSize = Math.max(
+      1,
+      Math.floor(options.batchSize || visuals.length || 1)
+    );
+    const yieldControl = typeof options.yieldControl === 'function'
+      ? options.yieldControl
+      : null;
+    const packer = createAtlasPacker(options);
+    for (let index = 0; index < visuals.length; index += 1) {
+      const visual = visuals[index];
+      packer.add({
+        width: Math.max(1, Math.ceil(visual.w * dpr)),
+        height: Math.max(1, Math.ceil(visual.h * dpr))
+      });
+      if ((index + 1) % batchSize === 0
+        && index + 1 < visuals.length && yieldControl) {
+        await yieldControl();
+      }
+    }
+    const layout = packer.finish();
     const canvases = layout.pages.map(page => {
       const canvas = options.createCanvas(page.width, page.height);
       const context = canvas.getContext('2d');
       return { canvas, context };
     });
+    if (visuals.length && yieldControl) await yieldControl();
 
-    layout.placements.forEach((placement, index) => {
+    const entries = [];
+    for (let index = 0; index < layout.placements.length; index += 1) {
+      const placement = layout.placements[index];
       options.drawVisual(
         canvases[placement.page].context,
         visuals[index],
         placement
       );
-    });
+      const page = layout.pages[placement.page];
+      entries.push({
+        page: placement.page,
+        u0: placement.x / page.width,
+        v0: placement.y / page.height,
+        u1: (placement.x + placement.width) / page.width,
+        v1: (placement.y + placement.height) / page.height
+      });
+      if ((index + 1) % batchSize === 0
+        && index + 1 < layout.placements.length && yieldControl) {
+        await yieldControl();
+      }
+    }
 
     const pages = [];
     try {
@@ -95,16 +135,6 @@
       }
       throw error;
     }
-    const entries = layout.placements.map(placement => {
-      const page = layout.pages[placement.page];
-      return {
-        page: placement.page,
-        u0: placement.x / page.width,
-        v0: placement.y / page.height,
-        u1: (placement.x + placement.width) / page.width,
-        v1: (placement.y + placement.height) / page.height
-      };
-    });
     return { pages, entries };
   }
 

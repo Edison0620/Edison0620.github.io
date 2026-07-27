@@ -1330,7 +1330,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #ff5424;
+    background: #f09c4a;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3316,14 +3316,20 @@ body .bb-channel-portable {
 .content-image-frame[data-image-state='loading'],
 .content-image-frame[data-image-state='retrying'] {
   width: 100%;
-  background: linear-gradient(100deg, #f3eee4 0%, #e8dfd1 46%, #f7f2e9 78%);
+  background-color: #eee9e0;
+  background-image: linear-gradient(102deg, transparent 30%, rgba(255,255,255,0.38) 50%, transparent 70%);
   background-size: 220% 100%;
-  animation: content-image-breathe 1.5s ease-in-out infinite;
+  animation: content-image-breathe 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+.content-image-frame[data-image-state='loading'] > a,
+.content-image-frame[data-image-state='retrying'] > a {
+  border-bottom: 0;
 }
 .content-image-frame[data-image-state='loading'] img,
 .content-image-frame[data-image-state='retrying'] img {
   width: 100%;
-  aspect-ratio: auto 3/2;
+  height: clamp(8rem, 22vw, 12rem);
+  margin-bottom: 0;
   opacity: 0;
 }
 .content-image-frame[data-image-state='loaded'] {
@@ -3335,7 +3341,7 @@ body .bb-channel-portable {
 }
 .content-image-frame[data-image-state='error'] {
   width: 100%;
-  min-height: clamp(9rem, 32vw, 16rem);
+  min-height: clamp(8rem, 22vw, 12rem);
   border: 1px solid rgba(84,58,37,0.14);
 }
 .content-image-frame[data-image-state='error'] img {
@@ -3399,9 +3405,12 @@ body .bb-channel-portable {
   cursor: wait;
   opacity: 0.58;
 }
-.bb-channel-portable .bb-channel-image-skeleton {
-  background: linear-gradient(100deg, #f3eee4 0%, #e8dfd1 46%, #f7f2e9 78%);
+.bb-channel-portable[data-bb-channel-root] .bb-channel-image-skeleton,
+.bb-channel-portable[data-bb-channel-root] [data-bb-loaded='error'] > .bb-channel-image-skeleton {
+  background-color: #eee9e0;
+  background-image: linear-gradient(102deg, transparent 30%, rgba(255,255,255,0.38) 50%, transparent 70%);
   background-size: 220% 100%;
+  animation: content-image-breathe 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 .bb-channel-portable [data-bb-loaded='error'] {
   position: relative;
@@ -3464,12 +3473,10 @@ body .bb-channel-portable {
   }
 }
 @keyframes content-image-breathe {
-  0%, 100% {
+  0% {
     background-position: 160% 0;
-    opacity: 0.82;
   }
-  50% {
+  55%, 100% {
     background-position: -40% 0;
-    opacity: 1;
   }
 }
