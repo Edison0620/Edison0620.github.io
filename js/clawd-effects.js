@@ -10,7 +10,8 @@
   }
 
   const EFFECT_TRANSITION = 'transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
-  const IGNORED_SELECTOR = [
+  const TARGET_ROOT_SELECTOR = '.main-inner, .sidebar-inner';
+  const COLLISION_IGNORED_SELECTORS = [
     'input',
     'textarea',
     'select',
@@ -23,10 +24,14 @@
     '.search-pop-overlay',
     '.highlight',
     '.post-body pre',
-    '.post-title-link',
-    '.post-button .btn',
     '.comments',
     '.comment-container'
+  ];
+  const COLLISION_IGNORED_SELECTOR = COLLISION_IGNORED_SELECTORS.join(', ');
+  const INTERACTION_IGNORED_SELECTOR = [
+    ...COLLISION_IGNORED_SELECTORS,
+    '.post-title-link',
+    '.post-button .btn'
   ].join(', ');
 
   function listenMediaQuery(query, listener) {
@@ -142,7 +147,7 @@
     _isIgnoredTarget(target) {
       return target instanceof Element && (
         target.isContentEditable
-        || Boolean(target.closest(IGNORED_SELECTOR))
+        || Boolean(target.closest(INTERACTION_IGNORED_SELECTOR))
       );
     }
 
@@ -212,26 +217,43 @@
       this.context.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
     }
 
+    _prepareTextTargets() {
+      for (const postBody of document.querySelectorAll('.post-body')) {
+        for (const node of [...postBody.childNodes]) {
+          if (node.nodeType !== Node.TEXT_NODE || !node.textContent.trim()) continue;
+          const wrapper = document.createElement('div');
+          wrapper.dataset.clawdTextTarget = '';
+          postBody.replaceChild(wrapper, node);
+          wrapper.append(node);
+        }
+      }
+    }
+
     _collectTargets() {
-      const content = document.querySelector('.main-inner');
-      if (!content) return [];
+      const roots = [...document.querySelectorAll(TARGET_ROOT_SELECTOR)];
+      if (roots.length === 0) return [];
+      this._prepareTextTargets();
 
       const candidates = new Set();
-      const walker = document.createTreeWalker(content, NodeFilter.SHOW_TEXT);
-      let textNode;
+      for (const root of roots) {
+        const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+        let textNode;
 
-      while ((textNode = walker.nextNode())) {
-        if (!textNode.textContent.trim()) continue;
-        const element = textNode.parentElement;
-        if (!element || element.closest(IGNORED_SELECTOR)) continue;
-        if (element.closest('script, style, noscript, svg, canvas')) continue;
-        candidates.add(element);
+        while ((textNode = walker.nextNode())) {
+          if (!textNode.textContent.trim()) continue;
+          const element = textNode.parentElement;
+          if (!element || element.closest(COLLISION_IGNORED_SELECTOR)) continue;
+          if (element.closest('script, style, noscript, svg, canvas')) continue;
+          candidates.add(element);
+        }
       }
 
       return [...candidates]
         .filter(element => {
+          const root = element.closest(TARGET_ROOT_SELECTOR);
+          if (!root || element === root) return false;
           let ancestor = element.parentElement;
-          while (ancestor && ancestor !== content) {
+          while (ancestor && ancestor !== root) {
             if (candidates.has(ancestor)) return false;
             ancestor = ancestor.parentElement;
           }
