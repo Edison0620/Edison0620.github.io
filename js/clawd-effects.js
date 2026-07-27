@@ -10,7 +10,8 @@
   }
 
   const EFFECT_TRANSITION = 'transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
-  const TARGET_ROOT_SELECTOR = '.main-inner, .sidebar-inner';
+  const TARGET_ROOT_SELECTOR = '.header, .main-inner, .sidebar-inner';
+  const GROUPED_TARGET_SELECTOR = '.post-meta-container';
   const COLLISION_IGNORED_SELECTORS = [
     'input',
     'textarea',
@@ -246,6 +247,10 @@
           if (element.closest('script, style, noscript, svg, canvas')) continue;
           candidates.add(element);
         }
+      }
+
+      for (const element of document.querySelectorAll(GROUPED_TARGET_SELECTOR)) {
+        if (element.closest(TARGET_ROOT_SELECTOR)) candidates.add(element);
       }
 
       return [...candidates]
