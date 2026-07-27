@@ -85,7 +85,9 @@
     const pages = [];
     try {
       for (const { canvas } of canvases) {
-        pages.push(await options.createImageBitmap(canvas));
+        pages.push(await options.createImageBitmap(canvas, {
+          premultiplyAlpha: 'premultiply'
+        }));
       }
     } catch (error) {
       for (const bitmap of pages) {

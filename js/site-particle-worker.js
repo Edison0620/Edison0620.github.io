@@ -6,6 +6,7 @@
   if (root) root.SiteParticleWorker = api;
 })(typeof globalThis === 'undefined' ? null : globalThis, function() {
   const FIXED_STEP = 1 / 60;
+  const FIXED_STEP_MS = FIXED_STEP * 1000;
   const DRAG = 0.965;
   const GRAVITY = 580;
 
@@ -86,17 +87,9 @@
 
   function advanceFixedParticles(state, elapsedSeconds) {
     state.accumulator = Math.min(state.accumulator + elapsedSeconds, 0.1);
-    const terminalAtFrameStart = new Set(
-      state.particles.filter(particle => particle.phase === 'complete')
-    );
     while (state.accumulator >= FIXED_STEP) {
       for (const particle of state.particles) {
-        if (particle.phase === 'complete') {
-          if (terminalAtFrameStart.has(particle)) {
-            particle.interpolationComplete = true;
-          }
-          continue;
-        }
+        if (particle.phase === 'complete') continue;
         particle.previousX = particle.x;
         particle.previousY = particle.y;
         particle.previousRot = particle.rot;
@@ -199,13 +192,47 @@
               0,
               Math.min(record.state.accumulator / FIXED_STEP, 1)
             );
-            const visible = record.state.particles
-              .filter(particle => !particle.interpolationComplete)
-              .map(particle => interpolateParticle(particle, alpha));
+            const visible = [];
+            let latestTerminalDeadline = -Infinity;
+            for (const particle of record.state.particles) {
+              if (particle.phase !== 'complete') {
+                visible.push(interpolateParticle(particle, alpha));
+                continue;
+              }
+              let terminal = record.terminals.get(particle);
+              if (!terminal) {
+                const startedAt = currentTime - alpha * FIXED_STEP_MS;
+                terminal = {
+                  deadline: startedAt + FIXED_STEP_MS,
+                  displayed: false
+                };
+                record.terminals.set(particle, terminal);
+              }
+              latestTerminalDeadline = Math.max(
+                latestTerminalDeadline,
+                terminal.deadline
+              );
+              if (!terminal.displayed
+                || currentTime < terminal.deadline - 1e-9) {
+                const terminalAlpha = Math.max(0, Math.min(
+                  1 - (terminal.deadline - currentTime) / FIXED_STEP_MS,
+                  1
+                ));
+                visible.push(interpolateParticle(particle, terminalAlpha));
+                terminal.displayed = true;
+              }
+            }
             renderer.draw(visible);
             post({ type: 'frame', id: record.id });
-            if (record.state.particles.every(
-              particle => particle.interpolationComplete
+            const allComplete = record.state.particles.every(
+              particle => particle.phase === 'complete'
+            );
+            const nextFrameTime = currentTime + elapsed * 1000;
+            const wouldMissTerminalDeadline = allComplete
+              && visible.length > 0
+              && nextFrameTime > latestTerminalDeadline + 1e-9;
+            if (allComplete && (
+              visible.length === 0 || wouldMissTerminalDeadline
             )) {
               record.completed = true;
               post({ type: 'complete', id: record.id });
@@ -278,7 +305,8 @@
         },
         lastTime,
         frame: null,
-        completed: false
+        completed: false,
+        terminals: new Map()
       };
       active = record;
       schedule(record);
