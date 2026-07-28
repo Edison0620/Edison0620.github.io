@@ -6,6 +6,7 @@
   if (root) root.SiteParticleEffects = api;
 })(typeof window === 'undefined' ? null : window, function() {
   const PARTICLE_EFFECTS_VERSION = '20260727.14';
+  const PARTICLE_ACCELERATOR_ENABLED = true;
   const ACCELERATOR_LAZY_DELAY = 1500;
   const ACCELERATOR_SCRIPTS = Object.freeze([
     '/js/site-particle-atlas.js?v=20260727.1',
@@ -1690,12 +1691,14 @@
     const reducedMotion = options.reducedMotionQuery
       || runtimeWindow.matchMedia?.('(prefers-reduced-motion: reduce)')
       || { matches: false };
-    const canLoadAccelerator = typeof options.loadAccelerator === 'function'
-      || Boolean(runtimeDocument?.head && runtimeDocument?.createElement);
-    const loadAccelerator = options.loadAccelerator
-      || (canLoadAccelerator
-        ? createAcceleratorLoader(runtimeWindow, runtimeDocument)
-        : null);
+    const canLoadAccelerator = PARTICLE_ACCELERATOR_ENABLED && (
+      typeof options.loadAccelerator === 'function'
+      || Boolean(runtimeDocument?.head && runtimeDocument?.createElement)
+    );
+    const loadAccelerator = canLoadAccelerator
+      ? options.loadAccelerator
+        || createAcceleratorLoader(runtimeWindow, runtimeDocument)
+      : null;
     const accelerationRoot = options.accelerationRoot || runtimeDocument;
     const accelerationSelector = options.accelerationSelector || null;
     let primary = null;
@@ -1719,6 +1722,14 @@
     const tagRecords = new Set();
     const accelerationRemovers = [];
     const lcpFinalizationRemovers = [];
+
+    function benchmarkMark(name) {
+      try {
+        runtimeWindow.__particleBenchmarkMark?.(name);
+      } catch {
+        // Test-only timing hooks must never affect production animation.
+      }
+    }
 
     function acceleratorEffectsApi() {
       return {
@@ -2303,27 +2314,30 @@
           prepared?.dispose?.();
           return Promise.resolve();
         }
+        benchmarkMark('foreground-collect-start');
         const targets = saveTargets(cardForegroundRoots(element));
+        benchmarkMark('foreground-collect-end');
         for (const target of targets) hideVisibilityTarget(target);
+        benchmarkMark('foreground-hide-end');
         if (prepared) {
           return startPrimary({
             kind: 'card',
             retainOnResolve: true,
             targets
           }, null, (finish, error) => {
-            let particles;
-            try {
-              particles = visuals.map(visual => createCardParticle(
-                visual,
-                clientX,
-                clientY,
-                { mobile, random }
-              ));
-            } catch (particleError) {
-              prepared.dispose?.();
-              throw particleError;
-            }
-            return prepared.start(particles, {
+            return prepared.start(() => {
+              try {
+                return visuals.map(visual => createCardParticle(
+                  visual,
+                  clientX,
+                  clientY,
+                  { mobile, random }
+                ));
+              } catch (particleError) {
+                prepared.dispose?.();
+                throw particleError;
+              }
+            }, {
               complete: finish,
               error
             });
@@ -2465,6 +2479,7 @@
 
   return {
     ACCELERATOR_SCRIPTS,
+    PARTICLE_ACCELERATOR_ENABLED,
     PARTICLE_EFFECTS_VERSION,
     CONSTANTS,
     CanvasOverlay,

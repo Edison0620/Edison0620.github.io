@@ -117,10 +117,12 @@
 
   function createWorkerRuntime(scope, dependencies) {
     let renderer = null;
+    let initialParticles = [];
     let active = null;
     let destroyed = false;
     let initErrorReported = false;
     const startedIds = new Set();
+    const primedIds = new Set();
     const erroredIds = new Set();
 
     function post(message) {
@@ -254,6 +256,7 @@
       active = null;
       releaseRenderer(previousId);
       startedIds.clear();
+      primedIds.clear();
       erroredIds.clear();
       initErrorReported = false;
       try {
@@ -264,17 +267,67 @@
         if (!gl) throw new Error('WebGL2 context is unavailable');
         renderer = dependencies.createRenderer(gl, {
           ...message.viewport,
-          pages: message.pages
+          pages: message.pages,
+          initialParticles: message.initialParticles
         });
+        initialParticles = Array.isArray(message.initialParticles)
+          ? message.initialParticles
+          : [];
         if (!renderer || typeof renderer.draw !== 'function'
           || typeof renderer.resize !== 'function'
           || typeof renderer.destroy !== 'function') {
           throw new Error('Particle renderer is invalid');
         }
-        post({ type: 'ready' });
+        if (initialParticles.length
+          && typeof renderer.warmPrepared === 'function') {
+          renderer.warmPrepared();
+        } else if (initialParticles.length
+          && typeof renderer.drawPrepared === 'function') {
+          renderer.drawPrepared(0, 0);
+        }
+        post({
+          type: 'ready',
+          renderer: dependencies.rendererInfo?.(gl) || 'unknown',
+          workerRaf: Boolean(dependencies.workerRaf)
+        });
       } catch (error) {
         releaseRenderer(null);
         postError(null, error);
+      }
+    }
+
+    function prime(message) {
+      if (primedIds.has(message.id)) return;
+      primedIds.add(message.id);
+      if (!renderer) {
+        postError(message.id, new Error('Particle renderer is not initialized'));
+        return;
+      }
+      const offsetX = Number(message.offsetX) || 0;
+      const offsetY = Number(message.offsetY) || 0;
+      try {
+        const receivedAt = dependencies.now();
+        if (typeof renderer.drawPrepared === 'function') {
+          renderer.drawPrepared(offsetX, offsetY);
+        } else {
+          const visible = offsetX === 0 && offsetY === 0
+            ? initialParticles
+            : initialParticles.map(particle => ({
+              ...particle,
+              x: particle.x + offsetX,
+              y: particle.y + offsetY
+            }));
+          renderer.draw(visible);
+        }
+        const drawnAt = dependencies.now();
+        post({
+          type: 'frame',
+          id: message.id,
+          prime: true,
+          primeDrawDurationMs: drawnAt - receivedAt
+        });
+      } catch (error) {
+        fail(message.id, error);
       }
     }
 
@@ -334,6 +387,8 @@
       const message = event.data;
       if (message.type === 'init') {
         initialize(message);
+      } else if (message.type === 'prime') {
+        prime(message);
       } else if (message.type === 'start') {
         start(message);
       } else if (message.type === 'cancel') {
@@ -357,7 +412,8 @@
 
   if (typeof self !== 'undefined' && typeof importScripts === 'function') {
     importScripts('/js/site-particle-webgl.js?v=20260727.1');
-    const scheduleFrame = typeof self.requestAnimationFrame === 'function'
+    const workerRaf = typeof self.requestAnimationFrame === 'function';
+    const scheduleFrame = workerRaf
       ? callback => self.requestAnimationFrame(callback)
       : callback => self.setTimeout(() => callback(performance.now()), 16);
     const cancelFrame = typeof self.cancelAnimationFrame === 'function'
@@ -367,6 +423,18 @@
       createRenderer: self.SiteParticleWebGL.createRenderer,
       requestAnimationFrame: scheduleFrame,
       cancelAnimationFrame: cancelFrame,
+      rendererInfo(gl) {
+        try {
+          const extension = gl.getExtension?.('WEBGL_debug_renderer_info');
+          const parameter = extension?.UNMASKED_RENDERER_WEBGL || gl.RENDERER;
+          return parameter === undefined
+            ? 'unknown'
+            : String(gl.getParameter(parameter));
+        } catch {
+          return 'unknown';
+        }
+      },
+      workerRaf,
       now: () => performance.now()
     });
     self.onmessage = runtime.onMessage;

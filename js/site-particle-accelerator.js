@@ -16,6 +16,12 @@
     'vx', 'vy', 'rot', 'av', 'opacity',
     'age', 't', 'duration', 'phase'
   ];
+  const INITIAL_PARTICLE_KEYS = [
+    'x', 'y', 'w', 'h', 'rot', 'opacity',
+    'page', 'u0', 'v0', 'u1', 'v1'
+  ];
+  const DEFAULT_MAX_ENTRY_TEXTURE_BYTES = 16 * 1024 * 1024;
+  const DEFAULT_MAX_HOT_TEXTURE_BYTES = 32 * 1024 * 1024;
 
   function transferFunction(environment) {
     return environment.transferControlToOffscreen
@@ -65,13 +71,44 @@
   }
 
   function closePages(entry) {
-    if (!entry || entry.closed || entry.transferred) return;
+    if (!entry || entry.closed) return;
     entry.closed = true;
-    for (const page of entry.pages || []) {
+    try {
+      entry.releaseBudget?.();
+    } catch {
+      // Continue releasing concrete resources if accounting hooks fail.
+    }
+    if (entry.readyTimer !== null && entry.readyTimer !== undefined) {
       try {
-        if (page && typeof page.close === 'function') page.close();
+        entry.window?.clearTimeout?.(entry.readyTimer);
       } catch {
-        // Continue releasing the remaining owned bitmaps.
+        // Resource teardown remains authoritative.
+      }
+      entry.readyTimer = null;
+    }
+    try {
+      entry.worker?.terminate?.();
+    } catch {
+      // Continue releasing the detached overlay and atlas ownership.
+    }
+    entry.worker = null;
+    try {
+      entry.overlay?.remove?.();
+    } catch {
+      try {
+        entry.overlay?.parentNode?.removeChild?.(entry.overlay);
+      } catch {
+        // Continue releasing bitmap ownership.
+      }
+    }
+    entry.overlay = null;
+    if (!entry.transferred) {
+      for (const page of entry.pages || []) {
+        try {
+          if (page && typeof page.close === 'function') page.close();
+        } catch {
+          // Continue releasing the remaining owned bitmaps.
+        }
       }
     }
   }
@@ -104,9 +141,26 @@
     const atlas = options.atlas || runtimeWindow.SiteParticleAtlas;
     const effects = options.effects || runtimeWindow.SiteParticleEffects;
     const cardSelector = options.cardSelector || '.post-block';
-    const maxEntries = Number.isInteger(options.maxEntries)
+    const requestedEntries = Number.isInteger(options.maxEntries)
       ? Math.max(1, options.maxEntries)
       : 4;
+    const maxEntries = Math.min(
+      requestedEntries,
+      Number.isInteger(options.maxHotEntries)
+        ? Math.max(1, options.maxHotEntries)
+        : 4
+    );
+    const readyTimeoutMs = Number.isFinite(options.readyTimeoutMs)
+      ? Math.max(1, options.readyTimeoutMs)
+      : 3000;
+    const maxEntryTextureBytes = Number.isFinite(
+      options.maxEntryTextureBytes
+    ) ? Math.max(0, options.maxEntryTextureBytes)
+      : DEFAULT_MAX_ENTRY_TEXTURE_BYTES;
+    const maxHotTextureBytes = Number.isFinite(
+      options.maxHotTextureBytes
+    ) ? Math.max(0, options.maxHotTextureBytes)
+      : DEFAULT_MAX_HOT_TEXTURE_BYTES;
     const geometryTolerance = Number.isFinite(options.geometryTolerance)
       ? Math.max(0, options.geometryTolerance)
       : 1;
@@ -152,6 +206,9 @@
     let destroyed = false;
     let nextAnimationId = 1;
     let assetsWarmed = false;
+    let liveEntryCount = 0;
+    let liveTextureBytes = 0;
+    let reservedTextureBytes = 0;
 
     const versions = {
       atlasVersion: options.atlasVersion || '20260727.1',
@@ -427,6 +484,66 @@
       cacheOrder.clear();
     }
 
+    function textureBytesFor(pages) {
+      return (pages || []).reduce((total, page) => (
+        total + Math.max(0, Number(page?.width) || 0)
+          * Math.max(0, Number(page?.height) || 0) * 4
+      ), 0);
+    }
+
+    function ownEntry(entry) {
+      if (entry.budgetOwned) return;
+      entry.budgetOwned = true;
+      liveEntryCount++;
+      liveTextureBytes += entry.textureBytes;
+      entry.releaseBudget = () => {
+        if (!entry.budgetOwned) return;
+        entry.budgetOwned = false;
+        liveEntryCount = Math.max(0, liveEntryCount - 1);
+        liveTextureBytes = Math.max(
+          0, liveTextureBytes - entry.textureBytes
+        );
+      };
+    }
+
+    function evictOldestCached(excludedCard = null) {
+      for (const [card, entry] of cacheOrder) {
+        if (card === excludedCard) continue;
+        cache.delete(card);
+        cacheOrder.delete(card);
+        closePages(entry);
+        return true;
+      }
+      return false;
+    }
+
+    function reserveTexture(bytes) {
+      while (liveTextureBytes + reservedTextureBytes + bytes
+        > maxHotTextureBytes) {
+        if (!evictOldestCached()) return false;
+      }
+      reservedTextureBytes += bytes;
+      return true;
+    }
+
+    function releaseTextureReservation(bytes) {
+      reservedTextureBytes = Math.max(0, reservedTextureBytes - bytes);
+    }
+
+    function makeRoomForEntry(card, textureBytes) {
+      const replaced = cache.get(card);
+      if (replaced) {
+        cache.delete(card);
+        cacheOrder.delete(card);
+        closePages(replaced);
+      }
+      while (liveEntryCount >= maxEntries
+        || liveTextureBytes + textureBytes > maxHotTextureBytes) {
+        if (!evictOldestCached(card)) return false;
+      }
+      return true;
+    }
+
     function insertCache(card, entry) {
       const replaced = cache.get(card);
       if (replaced) closePages(replaced);
@@ -507,6 +624,53 @@
       }
     }
 
+    async function buildPrimeSnapshot(
+      visuals, geometry, dpr, preparedGeneration
+    ) {
+      const width = Math.max(1, Math.ceil(geometry.rect.width * dpr));
+      const height = Math.max(1, Math.ceil(geometry.rect.height * dpr));
+      if (width > 4096 || height > 4096) return null;
+      const canvas = createCanvas(width, height);
+      const context = canvas.getContext?.('2d');
+      if (!context) return null;
+      context.save?.();
+      try {
+        context.scale?.(dpr, dpr);
+        context.translate?.(-geometry.rect.left, -geometry.rect.top);
+        const batchSize = Number(options.primeSnapshotBatchSize ?? 100);
+        for (let index = 0; index < visuals.length; index += 1) {
+          if (Number.isFinite(batchSize) && batchSize > 0
+            && index > 0 && index % batchSize === 0) {
+            await yieldPreparationControl(preparedGeneration);
+          }
+          effects.drawCardVisual(context, {
+            ...visuals[index],
+            rot: 0,
+            opacity: 1
+          });
+        }
+      } finally {
+        context.restore?.();
+      }
+      const page = await runtimeWindow.createImageBitmap(canvas);
+      return {
+        page,
+        particle: {
+          x: geometry.rect.left,
+          y: geometry.rect.top,
+          w: geometry.rect.width,
+          h: geometry.rect.height,
+          rot: 0,
+          opacity: 1,
+          page: -1,
+          u0: 0,
+          v0: 0,
+          u1: 1,
+          v1: 1
+        }
+      };
+    }
+
     function yieldPreparationControl(preparedGeneration) {
       return new Promise((resolve, reject) => {
         const resume = () => {
@@ -561,19 +725,26 @@
       if (!Array.isArray(visuals) || !visuals.length
         || hasCrossOriginImage(visuals)) return null;
       const dpr = currentDpr();
-      const built = await atlas.buildVisualAtlas(visuals, {
-        ...(options.atlasOptions || {}),
-        batchSize: options.atlasBatchSize
-          || options.atlasOptions?.batchSize
-          || 100,
-        dpr,
-        createCanvas,
-        createImageBitmap: runtimeWindow.createImageBitmap.bind(runtimeWindow),
-        drawVisual: (context, visual, placement) => {
-          drawVisualAtPlacement(dpr, context, visual, placement);
-        },
-        yieldControl: () => yieldPreparationControl(preparedGeneration)
-      });
+      const conservativeReservation = maxEntryTextureBytes;
+      if (!reserveTexture(conservativeReservation)) return null;
+      let built;
+      try {
+        built = await atlas.buildVisualAtlas(visuals, {
+          ...(options.atlasOptions || {}),
+          batchSize: options.atlasBatchSize
+            || options.atlasOptions?.batchSize
+            || 100,
+          dpr,
+          createCanvas,
+          createImageBitmap: runtimeWindow.createImageBitmap.bind(runtimeWindow),
+          drawVisual: (context, visual, placement) => {
+            drawVisualAtPlacement(dpr, context, visual, placement);
+          },
+          yieldControl: () => yieldPreparationControl(preparedGeneration)
+        });
+      } finally {
+        releaseTextureReservation(conservativeReservation);
+      }
       const entry = {
         card,
         closed: false,
@@ -585,6 +756,27 @@
         transferred: false,
         visuals
       };
+      try {
+        const prime = await buildPrimeSnapshot(
+          visuals, geometry, dpr, preparedGeneration
+        );
+        if (prime) {
+          prime.particle.page = entry.pages.length;
+          entry.pages.push(prime.page);
+          entry.initialParticles = [prime.particle];
+        }
+        entry.textureBytes = textureBytesFor(entry.pages);
+        if (entry.textureBytes > maxEntryTextureBytes
+          || !makeRoomForEntry(card, entry.textureBytes)) {
+          closePages(entry);
+          return null;
+        }
+        ownEntry(entry);
+        await warmEntry(entry);
+      } catch {
+        closePages(entry);
+        return null;
+      }
       if (destroyed || disabled || generation !== preparedGeneration
         || keyFor(card, mobile) !== key) {
         closePages(entry);
@@ -592,6 +784,93 @@
       }
       insertCache(card, entry);
       return entry;
+    }
+
+    function warmEntry(entry) {
+      if (!sameOriginStaticUrl(workerUrl)) {
+        return Promise.reject(new Error('Particle Worker URL is not same-origin'));
+      }
+      return new Promise((resolve, reject) => {
+        let settled = false;
+        let worker = null;
+        let overlay = null;
+        const finish = (callback, value) => {
+          if (settled) return;
+          settled = true;
+          if (entry.readyTimer !== null) {
+            runtimeWindow.clearTimeout(entry.readyTimer);
+            entry.readyTimer = null;
+          }
+          callback(value);
+        };
+        const fail = error => {
+          const failure = error instanceof Error
+            ? error
+            : new Error(String(error));
+          if (settled) {
+            if (entry.ready && !entry.closed) {
+              cache.delete(entry.card);
+              cacheOrder.delete(entry.card);
+              closePages(entry);
+              disableLifecycle(failure, null);
+            }
+            return;
+          }
+          finish(reject, failure);
+        };
+        try {
+          overlay = runtimeDocument.createElement('canvas');
+          overlay.setAttribute('data-site-effects-webgl-layer', '');
+          overlay.setAttribute('aria-hidden', 'true');
+          overlay.style.cssText = [
+            'position:fixed', 'inset:0', 'width:100vw', 'height:100vh',
+            'pointer-events:none', 'z-index:9997', 'display:none'
+          ].join(';');
+          entry.overlay = overlay;
+          entry.window = runtimeWindow;
+          const offscreen = overlay.transferControlToOffscreen();
+          worker = new runtimeWindow.Worker(workerUrl);
+          entry.worker = worker;
+          worker.onmessage = event => {
+            const message = event?.data || {};
+            if (message.type === 'ready') {
+              entry.renderer = message.renderer || 'unknown';
+              entry.workerRaf = Boolean(message.workerRaf);
+              entry.ready = true;
+              finish(resolve, entry);
+            } else if (message.type === 'error' && message.id === null) {
+              fail(new Error(message.message || 'Particle Worker failed to warm'));
+            }
+          };
+          worker.onerror = event => {
+            event?.preventDefault?.();
+            fail(event?.error || new Error(
+              event?.message || 'Particle Worker failed to warm'
+            ));
+          };
+          worker.onmessageerror = worker.onerror;
+          entry.readyTimer = runtimeWindow.setTimeout(() => {
+            fail(new Error(
+              `Particle Worker warmup exceeded ${readyTimeoutMs}ms`
+            ));
+          }, readyTimeoutMs);
+          worker.postMessage({
+            type: 'init',
+            canvas: offscreen,
+            viewport: {
+              width: runtimeWindow.innerWidth,
+              height: runtimeWindow.innerHeight,
+              dpr: currentDpr()
+            },
+            pages: entry.pages,
+            initialParticles: entry.initialParticles
+              || serializeInitialParticles(entry.visuals, entry.entries)
+          }, [offscreen, ...entry.pages]);
+          entry.transferred = true;
+        } catch (error) {
+          fail(error);
+        }
+      });
     }
 
     function prepareCard(card) {
@@ -625,6 +904,23 @@
       });
     }
 
+    function serializeInitialParticles(visuals, entries) {
+      if (!Array.isArray(visuals) || visuals.length !== entries.length) {
+        throw new Error('Initial particle list does not match the prepared atlas');
+      }
+      return visuals.map((visual, index) => {
+        const source = {
+          ...visual,
+          ...entries[index],
+          rot: 0,
+          opacity: 1
+        };
+        const serialized = {};
+        for (const key of INITIAL_PARTICLE_KEYS) serialized[key] = source[key];
+        return serialized;
+      });
+    }
+
     function sameOriginStaticUrl(candidate) {
       if (!runtimeWindow.location) return true;
       try {
@@ -645,6 +941,14 @@
         handler(value);
       } catch {
         // Coordinator callback errors must not escape Worker event delivery.
+      }
+    }
+
+    function benchmarkMark(name) {
+      try {
+        runtimeWindow.__particleBenchmarkMark?.(name);
+      } catch {
+        // Test-only timing hooks must never affect production animation.
       }
     }
 
@@ -688,7 +992,7 @@
       };
     }
 
-    function startEntry(token, particles, handlers = {}) {
+    function startEntry(token, particlesOrFactory, handlers = {}) {
       if (token.revoked || token.generation !== generation) {
         return createRejectedRun(
           new Error('Prepared particle entry was revoked'),
@@ -710,7 +1014,10 @@
       if (!loaded || destroyed || disabled
         || capabilityReason(environment())
         || token.entry.key !== keyFor(token.card, token.mobile)
-        || !sameOriginStaticUrl(workerUrl)) {
+        || !sameOriginStaticUrl(workerUrl)
+        || !token.entry.ready
+        || !token.entry.worker
+        || !token.entry.overlay) {
         return createRejectedRun(
           new Error('Prepared particle entry is no longer eligible'),
           handlers,
@@ -718,23 +1025,27 @@
           false
         );
       }
-      let workerParticles;
-      try {
-        workerParticles = serializeParticles(
-          particles,
-          token.entry.entries
-        );
-      } catch (error) {
-        return createRejectedRun(error, handlers, token.entry, false);
+      let workerParticles = null;
+      if (typeof particlesOrFactory !== 'function') {
+        try {
+          workerParticles = serializeParticles(
+            particlesOrFactory,
+            token.entry.entries
+          );
+        } catch (error) {
+          return createRejectedRun(error, handlers, token.entry, false);
+        }
       }
-
-      let worker = null;
-      let overlay = null;
-      let transferred = false;
+      let worker = token.entry.worker;
+      let overlay = token.entry.overlay;
+      let transferred = token.entry.transferred;
       let startPosted = false;
+      let physicsStarted = false;
+      let physicsFrame = null;
+      let physicsTimer = null;
       let settled = false;
       let cleaned = false;
-      let readySeen = false;
+      let readySeen = true;
       let resolveCompletion;
       let rejectCompletion;
       const id = nextAnimationId++;
@@ -746,6 +1057,22 @@
       function cleanup(sendCancel) {
         if (cleaned) return;
         cleaned = true;
+        if (physicsFrame !== null) {
+          try {
+            runtimeWindow.cancelAnimationFrame?.(physicsFrame);
+          } catch {
+            // Continue with authoritative Worker cleanup.
+          }
+          physicsFrame = null;
+        }
+        if (physicsTimer !== null) {
+          try {
+            runtimeWindow.clearTimeout?.(physicsTimer);
+          } catch {
+            // Continue with authoritative Worker cleanup.
+          }
+          physicsTimer = null;
+        }
         if (sendCancel && worker && startPosted) {
           try {
             worker.postMessage({ type: 'cancel', id });
@@ -782,7 +1109,15 @@
             // Continue settling the coordinator even if termination throws.
           }
         }
+        try {
+          token.entry.releaseBudget?.();
+        } catch {
+          // Resource teardown remains authoritative if accounting fails.
+        }
         if (!transferred) closePages(token.entry);
+        token.entry.closed = true;
+        token.entry.worker = null;
+        token.entry.overlay = null;
         active.delete(run);
       }
 
@@ -823,6 +1158,54 @@
         fail(new Error('WebGL context is lost'));
       }
 
+      function startPhysics() {
+        if (settled || physicsStarted) return;
+        physicsStarted = true;
+        try {
+          if (workerParticles === null) {
+            benchmarkMark('particle-map-start');
+            const particles = particlesOrFactory();
+            benchmarkMark('particle-map-end');
+            benchmarkMark('serialization-start');
+            workerParticles = serializeParticles(
+              particles,
+              token.entry.entries
+            );
+            benchmarkMark('serialization-end');
+          }
+          worker.postMessage({
+            type: 'start',
+            id,
+            particles: workerParticles
+          });
+          benchmarkMark('start-post');
+          startPosted = true;
+        } catch (error) {
+          fail(error);
+        }
+      }
+
+      function schedulePhysicsAfterComposite() {
+        if (settled || physicsStarted
+          || physicsFrame !== null || physicsTimer !== null) return;
+        if (typeof runtimeWindow.requestAnimationFrame !== 'function') {
+          startPhysics();
+          return;
+        }
+        try {
+          physicsFrame = runtimeWindow.requestAnimationFrame(() => {
+            physicsFrame = null;
+            if (settled) return;
+            physicsTimer = runtimeWindow.setTimeout(() => {
+              physicsTimer = null;
+              startPhysics();
+            }, 0);
+          });
+        } catch (error) {
+          fail(error);
+        }
+      }
+
       function onWorkerMessage(event) {
         if (settled || !event?.data) return;
         const message = event.data;
@@ -840,6 +1223,7 @@
         if (message.id !== id) return;
         if (message.type === 'frame') {
           callHandler(handlers, 'frame');
+          if (message.prime) schedulePhysicsAfterComposite();
         } else if (message.type === 'complete') {
           complete();
         }
@@ -859,39 +1243,21 @@
       active.add(run);
 
       try {
-        overlay = runtimeDocument.createElement('canvas');
-        overlay.setAttribute('data-site-effects-webgl-layer', '');
-        overlay.setAttribute('aria-hidden', 'true');
-        overlay.style.cssText = [
-          'position:fixed', 'inset:0', 'width:100vw', 'height:100vh',
-          'pointer-events:none', 'z-index:9997', 'display:block'
-        ].join(';');
+        benchmarkMark('overlay-attach-start');
+        overlay.style.display = 'block';
         overlay.addEventListener?.('webglcontextlost', onContextLost);
         runtimeDocument.documentElement.appendChild(overlay);
-        const offscreen = overlay.transferControlToOffscreen();
-        worker = new runtimeWindow.Worker(workerUrl);
+        benchmarkMark('overlay-attach-end');
         worker.onmessage = onWorkerMessage;
         worker.onerror = onWorkerError;
         worker.onmessageerror = onWorkerError;
-        const viewport = {
-          width: runtimeWindow.innerWidth,
-          height: runtimeWindow.innerHeight,
-          dpr: currentDpr()
-        };
         worker.postMessage({
-          type: 'init',
-          canvas: offscreen,
-          viewport,
-          pages: token.entry.pages
-        }, [offscreen, ...token.entry.pages]);
-        transferred = true;
-        token.entry.transferred = true;
-        worker.postMessage({
-          type: 'start',
+          type: 'prime',
           id,
-          particles: workerParticles
+          offsetX: token.offsetX,
+          offsetY: token.offsetY
         });
-        startPosted = true;
+        benchmarkMark('prime-post');
       } catch (error) {
         fail(error);
       }
@@ -967,12 +1333,21 @@
       }
     }
 
+    function onVisibilityChange() {
+      if (runtimeDocument?.hidden) {
+        revokeResources('visibility', false);
+      } else {
+        rescan();
+      }
+    }
+
     removers.push(
       listen(runtimeWindow, 'load', onLoad),
       listen(runtimeWindow, 'resize', onResize),
       listen(runtimeDocument, 'pjax:send', onPjaxSend),
       listen(runtimeDocument, 'pjax:success', onPjaxComplete),
       listen(runtimeDocument, 'pjax:error', onPjaxComplete),
+      listen(runtimeDocument, 'visibilitychange', onVisibilityChange),
       listen(runtimeDocument, 'load', onImageEvent, true),
       listen(runtimeDocument, 'error', onImageEvent, true),
       listen(runtimeDocument?.fonts, 'loadingdone', onFontChange),
@@ -1024,6 +1399,8 @@
           entry,
           generation,
           mobile: Boolean(mobile),
+          offsetX: currentGeometry.rect.left - entry.geometry.rect.left,
+          offsetY: currentGeometry.rect.top - entry.geometry.rect.top,
           revoked: false,
           started: false,
           revoke() {

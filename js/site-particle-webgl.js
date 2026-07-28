@@ -12,6 +12,7 @@ layout(location = 1) in vec4 a_geometry;
 layout(location = 2) in vec2 a_rotationOpacity;
 layout(location = 3) in vec4 a_uv;
 uniform vec2 u_viewport;
+uniform vec2 u_offset;
 out vec2 v_uv;
 out float v_opacity;
 void main() {
@@ -19,7 +20,7 @@ void main() {
   float c = cos(a_rotationOpacity.x);
   float s = sin(a_rotationOpacity.x);
   vec2 rotated = mat2(c, s, -s, c) * local;
-  vec2 pixel = a_geometry.xy + a_geometry.zw * 0.5 + rotated;
+  vec2 pixel = a_geometry.xy + u_offset + a_geometry.zw * 0.5 + rotated;
   vec2 clip = vec2(
     pixel.x / u_viewport.x * 2.0 - 1.0,
     1.0 - pixel.y / u_viewport.y * 2.0
@@ -67,7 +68,9 @@ void main() {
     let destroyed = false;
     let pagesClosed = false;
     let viewportLocation = null;
+    let offsetLocation = null;
     let atlasLocation = null;
+    let prepared = null;
 
     function releaseResources() {
       for (const texture of textures) gl.deleteTexture(texture);
@@ -90,6 +93,12 @@ void main() {
         throw new Error(
           `${operation} failed with WebGL error 0x${error.toString(16)}`
         );
+      }
+    }
+
+    function assertContextActive(operation) {
+      if (gl.isContextLost()) {
+        throw new Error(`${operation} failed: WebGL context is lost`);
       }
     }
 
@@ -168,8 +177,10 @@ void main() {
       shaders.length = 0;
 
       viewportLocation = gl.getUniformLocation(program, 'u_viewport');
+      offsetLocation = gl.getUniformLocation(program, 'u_offset');
       atlasLocation = gl.getUniformLocation(program, 'u_atlas');
-      if (viewportLocation === null || atlasLocation === null) {
+      if (viewportLocation === null || offsetLocation === null
+        || atlasLocation === null) {
         throw new Error('Particle shader uniforms are unavailable');
       }
 
@@ -253,6 +264,62 @@ void main() {
         gl.bufferData(gl.ARRAY_BUFFER, data, gl.DYNAMIC_DRAW);
       }
 
+      function bindAttribute(buffer, location, size, offset = 0) {
+        gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+        gl.enableVertexAttribArray(location);
+        gl.vertexAttribPointer(location, size, gl.FLOAT, false, 0, offset);
+        gl.vertexAttribDivisor(location, 1);
+      }
+
+      function prepareInitial(particles) {
+        if (!Array.isArray(particles) || !particles.length) return null;
+        const groups = Array.from({ length: textures.length }, () => []);
+        for (const particle of particles) {
+          if (!particle || !Number.isInteger(particle.page)
+            || particle.page < 0 || particle.page >= groups.length) {
+            throw new Error('Initial particle atlas page is invalid');
+          }
+          groups[particle.page].push(particle);
+        }
+        const ordered = groups.flat();
+        const geometry = new Float32Array(ordered.length * 4);
+        const rotationOpacity = new Float32Array(ordered.length * 2);
+        const uv = new Float32Array(ordered.length * 4);
+        for (let index = 0; index < ordered.length; index += 1) {
+          const particle = ordered[index];
+          const geometryOffset = index * 4;
+          const rotationOpacityOffset = index * 2;
+          geometry[geometryOffset] = particle.x;
+          geometry[geometryOffset + 1] = particle.y;
+          geometry[geometryOffset + 2] = particle.w;
+          geometry[geometryOffset + 3] = particle.h;
+          rotationOpacity[rotationOpacityOffset] = particle.rot;
+          rotationOpacity[rotationOpacityOffset + 1] = particle.opacity;
+          uv[geometryOffset] = particle.u0;
+          uv[geometryOffset + 1] = particle.v0;
+          uv[geometryOffset + 2] = particle.u1;
+          uv[geometryOffset + 3] = particle.v1;
+        }
+        let start = 0;
+        const ranges = groups.map(group => {
+          const range = { count: group.length, start };
+          start += group.length;
+          return range;
+        });
+        return {
+          geometry: createAttributeBuffer(
+            1, 4, 1, geometry, gl.STATIC_DRAW
+          ),
+          rotationOpacity: createAttributeBuffer(
+            2, 2, 1, rotationOpacity, gl.STATIC_DRAW
+          ),
+          uv: createAttributeBuffer(3, 4, 1, uv, gl.STATIC_DRAW),
+          ranges
+        };
+      }
+
+      prepared = prepareInitial(options.initialParticles);
+
       function draw(particles) {
         assertActive();
         if (!Array.isArray(particles)) {
@@ -268,7 +335,11 @@ void main() {
         }
 
         gl.useProgram(program);
+        gl.uniform2f(offsetLocation, 0, 0);
         gl.bindVertexArray(vertexArray);
+        bindAttribute(geometryBuffer, 1, 4);
+        bindAttribute(rotationOpacityBuffer, 2, 2);
+        bindAttribute(uvBuffer, 3, 4);
         gl.clear(gl.COLOR_BUFFER_BIT);
         for (let page = 0; page < groups.length; page += 1) {
           const group = groups[page];
@@ -305,6 +376,46 @@ void main() {
         assertHealthy('Particle draw');
       }
 
+      function drawPrepared(offsetX = 0, offsetY = 0) {
+        assertActive();
+        if (!prepared) throw new Error('Initial particles are unavailable');
+        gl.useProgram(program);
+        gl.uniform2f(offsetLocation, offsetX, offsetY);
+        gl.bindVertexArray(vertexArray);
+        gl.clear(gl.COLOR_BUFFER_BIT);
+        for (let page = 0; page < prepared.ranges.length; page += 1) {
+          const range = prepared.ranges[page];
+          if (!range.count) continue;
+          bindAttribute(
+            prepared.geometry, 1, 4,
+            range.start * 4 * Float32Array.BYTES_PER_ELEMENT
+          );
+          bindAttribute(
+            prepared.rotationOpacity, 2, 2,
+            range.start * 2 * Float32Array.BYTES_PER_ELEMENT
+          );
+          bindAttribute(
+            prepared.uv, 3, 4,
+            range.start * 4 * Float32Array.BYTES_PER_ELEMENT
+          );
+          gl.bindTexture(gl.TEXTURE_2D, textures[page]);
+          gl.drawArraysInstanced(
+            gl.TRIANGLE_STRIP,
+            0,
+            4,
+            range.count
+          );
+        }
+        assertContextActive('Initial particle draw');
+      }
+
+      function warmPrepared() {
+        drawPrepared(0, 0);
+        gl.clear(gl.COLOR_BUFFER_BIT);
+        gl.finish();
+        assertHealthy('Initial particle warmup');
+      }
+
       function resize(viewport) {
         assertActive();
         applyViewport(viewport);
@@ -317,7 +428,7 @@ void main() {
         releaseResources();
       }
 
-      return { draw, resize, destroy };
+      return { draw, drawPrepared, warmPrepared, resize, destroy };
     } catch (error) {
       closePages();
       releaseResources();
