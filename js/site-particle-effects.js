@@ -5,7 +5,7 @@
   if (typeof module === 'object' && module.exports) module.exports = api;
   if (root) root.SiteParticleEffects = api;
 })(typeof window === 'undefined' ? null : window, function() {
-  const PARTICLE_EFFECTS_VERSION = '20260727.13';
+  const PARTICLE_EFFECTS_VERSION = '20260727.14';
   const ACCELERATOR_LAZY_DELAY = 1500;
   const ACCELERATOR_SCRIPTS = Object.freeze([
     '/js/site-particle-atlas.js?v=20260727.1',
@@ -1449,6 +1449,10 @@
 
   function createAcceleratorLoader(runtimeWindow, runtimeDocument) {
     const scriptPromises = new Map();
+    const canFetchSource = typeof runtimeWindow.fetch === 'function'
+      && typeof runtimeWindow.Blob === 'function'
+      && typeof runtimeWindow.URL?.createObjectURL === 'function'
+      && typeof runtimeWindow.URL?.revokeObjectURL === 'function';
 
     function abortError() {
       const error = new Error('Particle accelerator loading was cancelled');
@@ -1456,9 +1460,146 @@
       return error;
     }
 
-    function loadScript(url, signal) {
-      if (scriptPromises.has(url)) return scriptPromises.get(url);
-      const promise = new Promise((resolve, reject) => {
+    function acceleratorLoadError(message, retryable, cause) {
+      const error = new Error(message);
+      error.retryable = retryable;
+      if (cause !== undefined) error.cause = cause;
+      return error;
+    }
+
+    function evaluateScript(source, url, signal) {
+      if (signal?.aborted) return Promise.reject(abortError());
+      let objectUrl;
+      try {
+        objectUrl = runtimeWindow.URL.createObjectURL(new runtimeWindow.Blob(
+          [`${source}\n//# sourceURL=${url}`],
+          { type: 'text/javascript' }
+        ));
+      } catch (error) {
+        return Promise.reject(acceleratorLoadError(
+          `Failed to prepare particle accelerator script: ${url}`,
+          false,
+          error
+        ));
+      }
+      return new Promise((resolve, reject) => {
+        if (signal?.aborted) {
+          runtimeWindow.URL.revokeObjectURL(objectUrl);
+          reject(abortError());
+          return;
+        }
+        let script;
+        let settled = false;
+
+        const cleanup = () => {
+          script?.removeEventListener?.('load', onLoad);
+          script?.removeEventListener?.('error', onError);
+          signal?.removeEventListener?.('abort', onAbort);
+          try {
+            script?.remove?.();
+          } catch {
+            // Script execution has already settled.
+          }
+          try {
+            runtimeWindow.URL.revokeObjectURL(objectUrl);
+          } catch {
+            // Revocation is best-effort after the script has settled.
+          }
+        };
+        const settle = (callback, value) => {
+          if (settled) return;
+          settled = true;
+          cleanup();
+          callback(value);
+        };
+        const onLoad = () => settle(resolve);
+        const onError = () => settle(
+          reject,
+          acceleratorLoadError(
+            `Failed to evaluate particle accelerator script: ${url}`,
+            false
+          )
+        );
+        const onAbort = () => settle(reject, abortError());
+
+        try {
+          script = runtimeDocument.createElement('script');
+          script.async = false;
+          script.src = objectUrl;
+        } catch (error) {
+          settle(
+            reject,
+            acceleratorLoadError(
+              `Failed to prepare particle accelerator script: ${url}`,
+              false,
+              error
+            )
+          );
+          return;
+        }
+        script.addEventListener?.('load', onLoad);
+        script.addEventListener?.('error', onError);
+        signal?.addEventListener?.('abort', onAbort, { once: true });
+        try {
+          (runtimeDocument.head || runtimeDocument.documentElement)
+            .appendChild(script);
+        } catch (error) {
+          settle(
+            reject,
+            acceleratorLoadError(
+              `Failed to evaluate particle accelerator script: ${url}`,
+              false,
+              error
+            )
+          );
+        }
+      });
+    }
+
+    async function fetchAndEvaluate(url, signal) {
+      if (signal?.aborted) throw abortError();
+      let response;
+      try {
+        response = await runtimeWindow.fetch(url, {
+          signal,
+          credentials: 'same-origin',
+          cache: 'force-cache'
+        });
+      } catch (error) {
+        if (signal?.aborted || error?.name === 'AbortError') {
+          throw abortError();
+        }
+        throw acceleratorLoadError(
+          `Failed to fetch particle accelerator script: ${url}`,
+          true,
+          error
+        );
+      }
+      if (!response?.ok) {
+        throw acceleratorLoadError(
+          `Failed to fetch particle accelerator script: ${url}`,
+          true
+        );
+      }
+      let source;
+      try {
+        source = await response.text();
+      } catch (error) {
+        if (signal?.aborted || error?.name === 'AbortError') {
+          throw abortError();
+        }
+        throw acceleratorLoadError(
+          `Failed to read particle accelerator script: ${url}`,
+          true,
+          error
+        );
+      }
+      if (signal?.aborted) throw abortError();
+      await evaluateScript(source, url, signal);
+    }
+
+    function appendScript(url, signal) {
+      return new Promise((resolve, reject) => {
         if (signal?.aborted) {
           reject(abortError());
           return;
@@ -1489,7 +1630,10 @@
         const onLoad = () => settle(resolve, undefined, false);
         const onError = () => settle(
           reject,
-          new Error(`Failed to load particle accelerator script: ${url}`),
+          acceleratorLoadError(
+            `Failed to load particle accelerator script: ${url}`,
+            true
+          ),
           true
         );
         const onAbort = () => settle(reject, abortError(), true);
@@ -1504,6 +1648,13 @@
           settle(reject, error, true);
         }
       });
+    }
+
+    function loadScript(url, signal) {
+      if (scriptPromises.has(url)) return scriptPromises.get(url);
+      const promise = canFetchSource
+        ? fetchAndEvaluate(url, signal)
+        : appendScript(url, signal);
       scriptPromises.set(url, promise);
       promise.catch(() => {
         if (scriptPromises.get(url) === promise) scriptPromises.delete(url);
@@ -1546,6 +1697,7 @@
         ? createAcceleratorLoader(runtimeWindow, runtimeDocument)
         : null);
     const accelerationRoot = options.accelerationRoot || runtimeDocument;
+    const accelerationSelector = options.accelerationSelector || null;
     let primary = null;
     let confetti = [];
     let destroyed = false;
@@ -1554,11 +1706,19 @@
     let accelerator = null;
     let accelerationDisabled = false;
     let acceleratorLoad = null;
-    let acceleratorTimer = null;
+    let acceleratorRetryTimer = null;
     let acceleratorGeneration = 0;
+    let loadGateTimer = null;
+    let loadGateElapsed = false;
+    let lcpObserver = null;
+    let lcpGeneration = 0;
+    let lcpCandidateObserved = false;
+    let lcpFinalized = false;
+    let lcpLoadSuppressed = false;
     let loaded = runtimeDocument?.readyState === 'complete';
     const tagRecords = new Set();
     const accelerationRemovers = [];
+    const lcpFinalizationRemovers = [];
 
     function acceleratorEffectsApi() {
       return {
@@ -1569,10 +1729,92 @@
       };
     }
 
-    function cancelAcceleratorTimer() {
-      if (acceleratorTimer === null) return;
-      runtimeWindow.clearTimeout(acceleratorTimer);
-      acceleratorTimer = null;
+    function hasEligibleCards() {
+      if (!accelerationSelector) return true;
+      try {
+        return Boolean(
+          accelerationRoot?.querySelector?.(accelerationSelector)
+        );
+      } catch {
+        return false;
+      }
+    }
+
+    function cancelAcceleratorRetry() {
+      if (acceleratorRetryTimer === null) return;
+      runtimeWindow.clearTimeout(acceleratorRetryTimer);
+      acceleratorRetryTimer = null;
+    }
+
+    function cancelLoadGate() {
+      if (loadGateTimer === null) return;
+      runtimeWindow.clearTimeout(loadGateTimer);
+      loadGateTimer = null;
+    }
+
+    function disconnectLcpObserver() {
+      lcpGeneration++;
+      const observer = lcpObserver;
+      lcpObserver = null;
+      try {
+        observer?.disconnect?.();
+      } catch {
+        // Generation checks still ignore a late observer delivery.
+      }
+    }
+
+    function removeLcpFinalizationListeners() {
+      for (const remove of lcpFinalizationRemovers.splice(0)) {
+        try {
+          remove();
+        } catch {
+          // Continue removing the remaining finalization listeners.
+        }
+      }
+    }
+
+    function completeLcpGate(options = {}) {
+      if (!lcpCandidateObserved || !lcpFinalized) return;
+      disconnectLcpObserver();
+      removeLcpFinalizationListeners();
+      if (options.attempt !== false && !lcpLoadSuppressed) {
+        attemptAcceleratorLoad();
+      }
+    }
+
+    function finalizeLcp(options = {}) {
+      if (destroyed) return;
+      if (options.attempt === false) lcpLoadSuppressed = true;
+      if (lcpFinalized) return;
+      lcpFinalized = true;
+      completeLcpGate(options);
+    }
+
+    function onLcpInteraction() {
+      finalizeLcp();
+    }
+
+    function onLcpVisibilityChange() {
+      if (runtimeDocument?.hidden) {
+        finalizeLcp({ attempt: false });
+      } else {
+        lcpLoadSuppressed = false;
+        attemptAcceleratorLoad();
+      }
+    }
+
+    function onLcpPageHide() {
+      finalizeLcp({ attempt: false });
+    }
+
+    function armLcpFinalizationListeners() {
+      if (destroyed || lcpFinalized || lcpFinalizationRemovers.length) return;
+      const passiveCapture = { capture: true, passive: true };
+      lcpFinalizationRemovers.push(
+        listen(runtimeWindow, 'pointerdown', onLcpInteraction, passiveCapture),
+        listen(runtimeWindow, 'keydown', onLcpInteraction, true),
+        listen(runtimeWindow, 'scroll', onLcpInteraction, passiveCapture)
+      );
     }
 
     function cancelAcceleratorLoad() {
@@ -1589,12 +1831,16 @@
     function installAccelerator(api, generation) {
       if (destroyed || accelerationDisabled
         || generation !== acceleratorGeneration
-        || reducedMotion.matches || accelerator) return;
+        || reducedMotion.matches || accelerator
+        || !hasEligibleCards()) return;
       if (!api || typeof api.createAccelerator !== 'function') {
         throw new Error('Particle accelerator factory is unavailable');
       }
       const instance = api.createAccelerator({
         ...(options.acceleratorOptions || {}),
+        ...(accelerationSelector
+          ? { cardSelector: accelerationSelector }
+          : {}),
         atlasVersion: '20260727.1',
         document: runtimeDocument,
         effects: acceleratorEffectsApi(),
@@ -1610,7 +1856,7 @@
       }
       if (destroyed || accelerationDisabled
         || generation !== acceleratorGeneration
-        || reducedMotion.matches) {
+        || reducedMotion.matches || !hasEligibleCards()) {
         instance.destroy?.();
         return;
       }
@@ -1621,7 +1867,10 @@
     function attemptAcceleratorLoad() {
       if (destroyed || accelerationDisabled
         || accelerator || acceleratorLoad
-        || reducedMotion.matches || !loaded || !loadAccelerator) return;
+        || reducedMotion.matches || !loaded || !loadGateElapsed
+        || !lcpCandidateObserved || !lcpFinalized
+        || lcpLoadSuppressed || runtimeDocument?.hidden
+        || !hasEligibleCards() || !loadAccelerator) return;
       const generation = acceleratorGeneration;
       const AbortControllerClass = runtimeWindow.AbortController
         || (typeof AbortController === 'function' ? AbortController : null);
@@ -1636,33 +1885,107 @@
             signal: controller?.signal
           });
           installAccelerator(api, generation);
-        } catch {
+        } catch (error) {
+          if (error?.retryable === false
+            && generation === acceleratorGeneration) {
+            accelerationDisabled = true;
+          }
           shouldRetry = !destroyed
+            && !accelerationDisabled
             && generation === acceleratorGeneration
-            && !reducedMotion.matches;
+            && !reducedMotion.matches
+            && hasEligibleCards();
         } finally {
           if (acceleratorLoad === record) acceleratorLoad = null;
-          if (shouldRetry) scheduleAcceleratorLoad();
+          if (shouldRetry) scheduleAcceleratorRetry();
         }
       })();
       record.promise = promise;
       acceleratorLoad = record;
     }
 
-    function scheduleAcceleratorLoad() {
+    function scheduleAcceleratorRetry() {
       if (destroyed || accelerationDisabled
         || accelerator || acceleratorLoad
-        || acceleratorTimer !== null || reducedMotion.matches
-        || !loaded || !loadAccelerator) return;
-      acceleratorTimer = runtimeWindow.setTimeout(() => {
-        acceleratorTimer = null;
+        || acceleratorRetryTimer !== null || reducedMotion.matches
+        || !loaded || !loadGateElapsed
+        || !lcpCandidateObserved || !lcpFinalized
+        || lcpLoadSuppressed || runtimeDocument?.hidden
+        || !hasEligibleCards() || !loadAccelerator) return;
+      acceleratorRetryTimer = runtimeWindow.setTimeout(() => {
+        acceleratorRetryTimer = null;
         attemptAcceleratorLoad();
       }, ACCELERATOR_LAZY_DELAY);
     }
 
+    function armLoadGate() {
+      if (destroyed || accelerationDisabled || !loaded
+        || loadGateElapsed || loadGateTimer !== null
+        || !loadAccelerator) return;
+      loadGateTimer = runtimeWindow.setTimeout(() => {
+        loadGateTimer = null;
+        loadGateElapsed = true;
+        attemptAcceleratorLoad();
+      }, ACCELERATOR_LAZY_DELAY);
+    }
+
+    function armLcpObservation() {
+      if (destroyed || accelerationDisabled || reducedMotion.matches
+        || (lcpCandidateObserved && lcpFinalized)
+        || lcpObserver || !loadAccelerator) return;
+      const PerformanceObserverClass = runtimeWindow.PerformanceObserver;
+      if (typeof PerformanceObserverClass !== 'function') {
+        // Older browsers conservatively fall back to the post-load delay.
+        lcpCandidateObserved = true;
+        lcpFinalized = true;
+        attemptAcceleratorLoad();
+        return;
+      }
+      const supportedEntryTypes = PerformanceObserverClass.supportedEntryTypes;
+      if (Array.isArray(supportedEntryTypes)
+        && !supportedEntryTypes.includes('largest-contentful-paint')) {
+        lcpCandidateObserved = true;
+        lcpFinalized = true;
+        attemptAcceleratorLoad();
+        return;
+      }
+      armLcpFinalizationListeners();
+      const generation = ++lcpGeneration;
+      let observer;
+      try {
+        observer = new PerformanceObserverClass(entries => {
+          if (destroyed || generation !== lcpGeneration
+            || observer !== lcpObserver) return;
+          const candidates = entries?.getEntries?.() || [];
+          if (!candidates.length) return;
+          lcpCandidateObserved = true;
+          completeLcpGate();
+        });
+        lcpObserver = observer;
+        observer.observe({
+          type: 'largest-contentful-paint',
+          buffered: true
+        });
+      } catch {
+        if (observer === lcpObserver) disconnectLcpObserver();
+        // A partial/older observer implementation uses the same safe fallback.
+        removeLcpFinalizationListeners();
+        lcpCandidateObserved = true;
+        lcpFinalized = true;
+        attemptAcceleratorLoad();
+      }
+    }
+
     function suspendAcceleratorLifecycle() {
-      cancelAcceleratorTimer();
+      cancelAcceleratorRetry();
+      cancelLoadGate();
+      loadGateElapsed = false;
       cancelAcceleratorLoad();
+      disconnectLcpObserver();
+      removeLcpFinalizationListeners();
+      lcpCandidateObserved = false;
+      lcpFinalized = false;
+      lcpLoadSuppressed = false;
       const instance = accelerator;
       accelerator = null;
       try {
@@ -1675,21 +1998,50 @@
     function onLoad() {
       if (destroyed) return;
       loaded = true;
-      scheduleAcceleratorLoad();
+      armLoadGate();
+      armLcpObservation();
+      attemptAcceleratorLoad();
     }
 
     function resumeAcceleratorLifecycle() {
       if (destroyed) return;
       loaded = true;
-      scheduleAcceleratorLoad();
+      // A suspended document has passed pagehide, which finalizes its LCP.
+      lcpFinalized = true;
+      lcpLoadSuppressed = false;
+      armLcpObservation();
+      armLoadGate();
+      attemptAcceleratorLoad();
+    }
+
+    function refreshAcceleratorLifecycle() {
+      if (destroyed || accelerationDisabled) return;
+      if (!hasEligibleCards()) {
+        cancelAcceleratorRetry();
+        cancelAcceleratorLoad();
+        const instance = accelerator;
+        accelerator = null;
+        try {
+          instance?.destroy?.();
+        } catch {
+          // A later eligible page may still use a fresh accelerator.
+        }
+        return;
+      }
+      armLcpObservation();
+      armLoadGate();
+      attemptAcceleratorLoad();
     }
 
     function onReducedMotionChange(event) {
       if (event?.matches ?? reducedMotion.matches) {
-        cancelAcceleratorTimer();
+        cancelAcceleratorRetry();
         cancelAcceleratorLoad();
+        disconnectLcpObserver();
       } else {
-        scheduleAcceleratorLoad();
+        armLcpObservation();
+        armLoadGate();
+        attemptAcceleratorLoad();
       }
     }
 
@@ -1920,9 +2272,12 @@
     if (loadAccelerator) {
       accelerationRemovers.push(
         listen(runtimeWindow, 'load', onLoad),
+        listen(runtimeWindow, 'pagehide', onLcpPageHide),
+        listen(runtimeDocument, 'visibilitychange', onLcpVisibilityChange),
         listenMediaQuery(reducedMotion, onReducedMotionChange)
       );
-      if (loaded) scheduleAcceleratorLoad();
+      armLcpObservation();
+      if (loaded) armLoadGate();
     }
 
     return {
@@ -2079,6 +2434,9 @@
       },
       resumeAcceleration() {
         resumeAcceleratorLifecycle();
+      },
+      refreshAcceleration() {
+        refreshAcceleratorLifecycle();
       },
       cancelAll(options = {}) {
         finishPrimary(options);

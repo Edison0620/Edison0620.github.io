@@ -33,6 +33,7 @@
       this.coarsePointer = matchMedia('(pointer: coarse)');
       this.runtime = effects.createRuntime({
         accelerationRoot: document,
+        accelerationSelector: '.main-inner.index .post-block',
         acceleratorOptions: {
           mobile: () => this.coarsePointer.matches
         },
@@ -572,6 +573,7 @@
     _onPjaxSuccess() {
       this._discardOwnedCardNavigation();
       this.articleRewarded = false;
+      this.runtime.refreshAcceleration();
     }
 
     _onPjaxError() {

@@ -11,7 +11,12 @@
 
   const EFFECT_TRANSITION = 'transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
   const TARGET_ROOT_SELECTOR = '.header, .main-inner, .sidebar-inner';
-  const GROUPED_TARGET_SELECTOR = '.post-meta-container';
+  const GROUPED_TARGET_SELECTOR = [
+    '.post-meta-container',
+    '.post-body .highlight',
+    '.post-body pre',
+    '.post-toc'
+  ].join(', ');
   const COLLISION_IGNORED_SELECTORS = [
     'input',
     'textarea',
@@ -23,14 +28,14 @@
     '.fancybox__container',
     '.search-popup',
     '.search-pop-overlay',
-    '.highlight',
-    '.post-body pre',
     '.comments',
     '.comment-container'
   ];
   const COLLISION_IGNORED_SELECTOR = COLLISION_IGNORED_SELECTORS.join(', ');
   const INTERACTION_IGNORED_SELECTOR = [
     ...COLLISION_IGNORED_SELECTORS,
+    '.highlight',
+    '.post-body pre',
     '.post-title-link',
     '.post-button .btn'
   ].join(', ');
