@@ -199,7 +199,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: ZCOOL QingKe HuangYou, Lato, "Noto Serif SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: Lato, "Noto Serif SC", "PingFang SC", "Microsoft YaHei", sans-serif;
   font-weight: bold;
   line-height: 1.5;
   margin: 30px 0 15px;
@@ -1330,7 +1330,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #2973ed;
+    background: #d9ff0b;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
