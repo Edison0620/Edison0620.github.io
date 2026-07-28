@@ -11,10 +11,10 @@
 
   const EFFECT_TRANSITION = 'transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
   const TARGET_ROOT_SELECTOR = '.header, .main-inner, .sidebar-inner';
+  const CODE_LINE_TARGET_SELECTOR = '.post-body .highlight td.code .line';
   const GROUPED_TARGET_SELECTOR = [
     '.post-meta-container',
-    '.post-body .highlight',
-    '.post-body pre',
+    '.post-body > pre',
     '.post-toc'
   ].join(', ');
   const COLLISION_IGNORED_SELECTORS = [
@@ -233,6 +233,9 @@
           wrapper.append(node);
         }
       }
+      for (const line of document.querySelectorAll(CODE_LINE_TARGET_SELECTOR)) {
+        line.dataset.clawdCodeLine = '';
+      }
     }
 
     _collectTargets() {
@@ -256,6 +259,10 @@
 
       for (const element of document.querySelectorAll(GROUPED_TARGET_SELECTOR)) {
         if (element.closest(TARGET_ROOT_SELECTOR)) candidates.add(element);
+      }
+
+      for (const line of document.querySelectorAll(CODE_LINE_TARGET_SELECTOR)) {
+        if (line.textContent.trim()) candidates.add(line);
       }
 
       return [...candidates]

@@ -1330,7 +1330,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #381f45;
+    background: #2a79ff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2958,6 +2958,9 @@ body {
 html.clawd-effects-active,
 html.clawd-effects-active * {
   cursor: none !important;
+}
+[data-clawd-code-line] {
+  display: inline-block;
 }
 /* sidebar-标题背景 */
 .site-brand-container {
