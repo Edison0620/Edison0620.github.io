@@ -1404,7 +1404,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #8539ff;
+    background: #000bff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3113,6 +3113,74 @@ blockquote {
   margin-left: 5px;
   margin-right: 5px;
   display: inline-block;
+}
+/* 正文链接：atpX 风格的底部色块与 hover 覆盖效果 */
+.post-body {
+  --post-link-highlight-color: rgba(142,174,107,0.3);
+}
+.post-body :where(p,
+li:not(.tab),
+blockquote,
+td,
+figcaption,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6) a:not(.btn):not(.fancybox):not(.headerlink):not(.header-anchor):not([data-fancybox]) {
+  border-bottom: 0;
+  background-image: linear-gradient(var(--post-link-highlight-color), var(--post-link-highlight-color));
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 40%;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  text-decoration: none;
+  transition: background-size 0.25s ease, color 0.25s ease;
+}
+.post-body :where(p,
+li:not(.tab),
+blockquote,
+td,
+figcaption,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6) a:not(.btn):not(.fancybox):not(.headerlink):not(.header-anchor):not([data-fancybox]):hover {
+  background-size: 100% 100%;
+}
+.post-body :where(p,
+li:not(.tab),
+blockquote,
+td,
+figcaption,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6) a:not(.btn):not(.fancybox):not(.headerlink):not(.header-anchor):not([data-fancybox]):focus-visible {
+  background-size: 100% 100%;
+  outline: 2px solid var(--link-hover-color);
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .post-body :where(p,
+  li:not(.tab),
+  blockquote,
+  td,
+  figcaption,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6) a:not(.btn):not(.fancybox):not(.headerlink):not(.header-anchor):not([data-fancybox]) {
+    transition-duration: 0s;
+  }
 }
 /* 选中链接带阴影 */
 /*.post-body a[target][rel][href]:hover {
