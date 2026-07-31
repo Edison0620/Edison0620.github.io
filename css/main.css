@@ -1404,7 +1404,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #0bffff;
+    background: #8539ff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -1742,7 +1742,6 @@ pre code {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  flex-direction: column;
 }
 .links-of-blogroll-item {
   max-width: 100%;
@@ -3655,6 +3654,23 @@ body .bb-channel-portable {
   }
 }
 /* End content image states */
+/* sidebar-友链：紧凑标签式布局 */
+.links-of-blogroll-list {
+  gap: 6px;
+  margin-top: 8px;
+}
+.links-of-blogroll-item a {
+  background: var(--body-bg-color);
+  border-bottom: 0;
+  border-radius: 12px;
+  font-size: 0.85em;
+  line-height: 2;
+  padding: 0 10px;
+}
+.links-of-blogroll-item a:hover {
+  background: var(--link-hover-color);
+  color: var(--card-bg-color);
+}
 @keyframes footer-bolt-motion {
   0%, 18% {
     transform: translate(9px, -12px) rotate(7deg);
