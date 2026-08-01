@@ -1404,7 +1404,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #fff0a1;
+    background: #c3d01b;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3216,7 +3216,7 @@ blockquote {
 }
 /* 正文链接：atpX 风格的底部色块与 hover 覆盖效果 */
 .post-body {
-  --post-link-highlight-color: rgba(142,174,107,0.3);
+  --post-link-highlight-color: color-mix(in srgb, var(--link-hover-color) 30%, transparent);
 }
 .post-body :where(p,
 li:not(.tab),
