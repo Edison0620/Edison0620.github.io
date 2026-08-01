@@ -2,19 +2,19 @@
   'use strict';
 
   var STORAGE_KEY = 'blog-color-mode';
-  var MODES = ['auto', 'light', 'dark'];
+  var MODES = ['light', 'dark'];
   var MODE_LABELS = {
-    auto: '自动',
     light: '浅色',
     dark: '深色'
   };
   var MODE_ICONS = {
-    auto: 'fa-adjust',
     light: 'fa-sun',
     dark: 'fa-moon'
   };
   var media = window.matchMedia('(prefers-color-scheme: dark)');
-  var currentMode = readMode();
+  var savedMode = readMode();
+  var followsSystem = savedMode === null;
+  var currentMode = savedMode || getSystemMode();
   var colorSchemeMediaRules = [];
   var seenMediaRules = new WeakSet();
   var themeColorMetas = [];
@@ -33,14 +33,14 @@
   function readMode() {
     try {
       var savedMode = window.localStorage.getItem(STORAGE_KEY);
-      return MODES.indexOf(savedMode) === -1 ? 'auto' : savedMode;
+      return MODES.indexOf(savedMode) === -1 ? null : savedMode;
     } catch (error) {
-      return 'auto';
+      return null;
     }
   }
 
-  function resolveMode(mode) {
-    return mode === 'auto' ? (media.matches ? 'dark' : 'light') : mode;
+  function getSystemMode() {
+    return media.matches ? 'dark' : 'light';
   }
 
   function collectColorSchemeMediaRules() {
@@ -90,7 +90,7 @@
     themeColorMetas.forEach(function (entry) {
       entry.meta.setAttribute(
         'media',
-        currentMode === 'auto'
+        followsSystem
           ? entry.media
           : forceColorSchemeQuery(entry.media, resolvedMode)
       );
@@ -122,7 +122,7 @@
     collectColorSchemeMediaRules();
     colorSchemeMediaRules.forEach(function (entry) {
       entry.rule.media.mediaText =
-        currentMode === 'auto'
+        followsSystem
           ? entry.query
           : forceColorSchemeQuery(entry.query, resolvedMode);
     });
@@ -275,10 +275,11 @@
   }
 
   function applyMode(mode, persist) {
-    currentMode = MODES.indexOf(mode) === -1 ? 'auto' : mode;
+    if (persist) followsSystem = false;
+    currentMode = MODES.indexOf(mode) === -1 ? getSystemMode() : mode;
     document.documentElement.dataset.themeMode = currentMode;
-    document.documentElement.dataset.theme = resolveMode(currentMode);
-    syncColorSchemeMedia(document.documentElement.dataset.theme);
+    document.documentElement.dataset.theme = currentMode;
+    syncColorSchemeMedia(currentMode);
 
     if (persist) persistMode(currentMode);
     updateToggle();
@@ -301,7 +302,7 @@
     bindToggleInteraction(button);
     restoreTogglePosition(button);
     updateToggle();
-    syncColorSchemeMedia(resolveMode(currentMode));
+    syncColorSchemeMedia(currentMode);
   }
 
   applyMode(currentMode, false);
@@ -314,10 +315,13 @@
 
   document.addEventListener('pjax:success', mountToggle);
   window.addEventListener('load', function () {
-    syncColorSchemeMedia(resolveMode(currentMode));
+    syncColorSchemeMedia(currentMode);
   });
   window.addEventListener('storage', function (event) {
-    if (event.key === STORAGE_KEY) applyMode(readMode(), false);
+    if (event.key !== STORAGE_KEY) return;
+    var syncedMode = readMode();
+    followsSystem = syncedMode === null;
+    applyMode(syncedMode || getSystemMode(), false);
   });
 
   window.addEventListener('resize', function () {
@@ -331,11 +335,11 @@
 
   if (typeof media.addEventListener === 'function') {
     media.addEventListener('change', function () {
-      if (currentMode === 'auto') applyMode('auto', false);
+      if (followsSystem) applyMode(getSystemMode(), false);
     });
   } else {
     media.addListener(function () {
-      if (currentMode === 'auto') applyMode('auto', false);
+      if (followsSystem) applyMode(getSystemMode(), false);
     });
   }
 })();
