@@ -19,6 +19,16 @@
   var seenMediaRules = new WeakSet();
   var themeColorMetas = [];
   var seenThemeColorMetas = new WeakSet();
+  var positionMedia = window.matchMedia('(max-width: 767px)');
+  var POSITION_STORAGE_KEYS = {
+    desktop: 'blog-theme-toggle-y-desktop',
+    mobile: 'blog-theme-toggle-y-mobile'
+  };
+  var DEFAULT_POSITION_RATIO = 0.58;
+  var DRAG_THRESHOLD = 6;
+  var KEYBOARD_STEP = 24;
+  var POSITION_INSET = 12;
+  var resizeFrame = null;
 
   function readMode() {
     try {
@@ -127,18 +137,141 @@
     }
   }
 
+  function getPositionStorageKey() {
+    return POSITION_STORAGE_KEYS[positionMedia.matches ? 'mobile' : 'desktop'];
+  }
+
+  function readPositionRatio() {
+    try {
+      var savedPosition = window.localStorage.getItem(getPositionStorageKey());
+      if (savedPosition === null) return DEFAULT_POSITION_RATIO;
+      var savedRatio = Number(savedPosition);
+      return savedRatio >= 0 && savedRatio <= 1 ? savedRatio : DEFAULT_POSITION_RATIO;
+    } catch (error) {
+      return DEFAULT_POSITION_RATIO;
+    }
+  }
+
+  function getPositionBounds(button) {
+    var halfHeight = button.offsetHeight / 2;
+    return {
+      min: POSITION_INSET + halfHeight,
+      max: window.innerHeight - POSITION_INSET - halfHeight
+    };
+  }
+
+  function setTogglePosition(button, position, persist) {
+    var bounds = getPositionBounds(button);
+    var clampedPosition = Math.min(Math.max(position, bounds.min), bounds.max);
+    button.style.setProperty('--theme-toggle-y', clampedPosition + 'px');
+
+    if (persist) {
+      try {
+        window.localStorage.setItem(
+          getPositionStorageKey(),
+          String(clampedPosition / window.innerHeight)
+        );
+      } catch (error) {
+        // Dragging still works when storage is unavailable.
+      }
+    }
+  }
+
+  function restoreTogglePosition(button) {
+    setTogglePosition(button, readPositionRatio() * window.innerHeight, false);
+  }
+
+  function bindToggleInteraction(button) {
+    if (button.dataset.themeDragReady === 'true') return;
+
+    var dragState = null;
+    var suppressClick = false;
+
+    button.addEventListener('pointerdown', function (event) {
+      if (event.pointerType === 'mouse' && event.button !== 0) return;
+
+      var rect = button.getBoundingClientRect();
+      dragState = {
+        pointerId: event.pointerId,
+        startPointerY: event.clientY,
+        startButtonY: rect.top + rect.height / 2,
+        moved: false
+      };
+      button.setPointerCapture(event.pointerId);
+      button.classList.add('theme-mode-toggle-dragging');
+    });
+
+    button.addEventListener('pointermove', function (event) {
+      if (!dragState || dragState.pointerId !== event.pointerId) return;
+
+      var deltaY = event.clientY - dragState.startPointerY;
+      if (!dragState.moved && Math.abs(deltaY) < DRAG_THRESHOLD) return;
+
+      dragState.moved = true;
+      event.preventDefault();
+      setTogglePosition(button, dragState.startButtonY + deltaY, false);
+    });
+
+    function finishDrag(event, cancelled) {
+      if (!dragState || dragState.pointerId !== event.pointerId) return;
+
+      if (button.hasPointerCapture(event.pointerId)) {
+        button.releasePointerCapture(event.pointerId);
+      }
+      button.classList.remove('theme-mode-toggle-dragging');
+      suppressClick = dragState.moved && !cancelled;
+      if (dragState.moved && !cancelled) {
+        var rect = button.getBoundingClientRect();
+        setTogglePosition(button, rect.top + rect.height / 2, true);
+      }
+      dragState = null;
+    }
+
+    button.addEventListener('pointerup', function (event) {
+      finishDrag(event, false);
+    });
+    button.addEventListener('pointercancel', function (event) {
+      finishDrag(event, true);
+    });
+
+    button.addEventListener('click', function (event) {
+      if (suppressClick) {
+        suppressClick = false;
+        event.preventDefault();
+        return;
+      }
+
+      var nextMode = MODES[(MODES.indexOf(currentMode) + 1) % MODES.length];
+      applyMode(nextMode, true);
+    });
+
+    button.addEventListener('keydown', function (event) {
+      if (event.key !== 'ArrowUp' && event.key !== 'ArrowDown') return;
+
+      event.preventDefault();
+      var rect = button.getBoundingClientRect();
+      var direction = event.key === 'ArrowUp' ? -1 : 1;
+      setTogglePosition(
+        button,
+        rect.top + rect.height / 2 + direction * KEYBOARD_STEP,
+        true
+      );
+    });
+
+    button.dataset.themeDragReady = 'true';
+  }
+
   function updateToggle() {
     var button = document.querySelector('[data-theme-mode-toggle]');
     if (!button) return;
 
     var nextMode = MODES[(MODES.indexOf(currentMode) + 1) % MODES.length];
     var icon = button.querySelector('i');
-    var label = button.querySelector('span');
 
     icon.className = 'fa ' + MODE_ICONS[currentMode] + ' fa-fw';
-    label.textContent = MODE_LABELS[currentMode];
+    button.dataset.mode = currentMode;
     button.setAttribute('aria-label', '当前为' + MODE_LABELS[currentMode] + '模式，切换到' + MODE_LABELS[nextMode] + '模式');
-    button.title = '外观：' + MODE_LABELS[currentMode];
+    button.title = '外观：' + MODE_LABELS[currentMode] + '；可上下拖动';
   }
 
   function applyMode(mode, persist) {
@@ -152,35 +285,21 @@
   }
 
   function mountToggle() {
-    var menu = document.querySelector('.main-menu');
-    if (!menu) return;
-
-    var item = menu.querySelector('.theme-mode-item');
-    if (!item) {
-      item = document.createElement('li');
-      item.className = 'menu-item theme-mode-item animated fadeInDown';
-
-      var button = document.createElement('button');
+    var button = document.querySelector('body > [data-theme-mode-toggle]');
+    if (!button) {
+      button = document.createElement('button');
       button.type = 'button';
       button.className = 'theme-mode-toggle';
       button.setAttribute('data-theme-mode-toggle', '');
 
       var icon = document.createElement('i');
       icon.setAttribute('aria-hidden', 'true');
-
-      var label = document.createElement('span');
-
       button.appendChild(icon);
-      button.appendChild(label);
-      button.addEventListener('click', function () {
-        var nextMode = MODES[(MODES.indexOf(currentMode) + 1) % MODES.length];
-        applyMode(nextMode, true);
-      });
-
-      item.appendChild(button);
-      menu.appendChild(item);
+      document.body.appendChild(button);
     }
 
+    bindToggleInteraction(button);
+    restoreTogglePosition(button);
     updateToggle();
     syncColorSchemeMedia(resolveMode(currentMode));
   }
@@ -199,6 +318,15 @@
   });
   window.addEventListener('storage', function (event) {
     if (event.key === STORAGE_KEY) applyMode(readMode(), false);
+  });
+
+  window.addEventListener('resize', function () {
+    if (resizeFrame !== null) window.cancelAnimationFrame(resizeFrame);
+    resizeFrame = window.requestAnimationFrame(function () {
+      var button = document.querySelector('body > [data-theme-mode-toggle]');
+      if (button) restoreTogglePosition(button);
+      resizeFrame = null;
+    });
   });
 
   if (typeof media.addEventListener === 'function') {
