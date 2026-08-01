@@ -1404,7 +1404,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #000bff;
+    background: #fff0a1;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3051,6 +3051,106 @@ header.header {
     padding: 10px 12px;
   }
 }
+/* Manual color mode overrides NexT's system-only dark mode. */
+:root[data-theme='light'] {
+  --body-bg-color: #eee;
+  --content-bg-color: #fff;
+  --card-bg-color: #f5f5f5;
+  --text-color: #555;
+  --selection-bg: #262a30;
+  --selection-color: #eee;
+  --blockquote-color: #666;
+  --link-color: #555;
+  --link-hover-color: #222;
+  --brand-color: #fff;
+  --brand-hover-color: #fff;
+  --table-row-odd-bg-color: #f9f9f9;
+  --table-row-hover-bg-color: #f5f5f5;
+  --menu-item-bg-color: #f5f5f5;
+  --theme-color: #222;
+  --btn-default-bg: #fff;
+  --btn-default-color: #555;
+  --btn-default-border-color: #555;
+  --btn-default-hover-bg: #222;
+  --btn-default-hover-color: #fff;
+  --btn-default-hover-border-color: #222;
+  --highlight-background: #333;
+  --highlight-foreground: #fff;
+  --highlight-gutter-background: #474747;
+  --highlight-gutter-foreground: #eaeaea;
+  color-scheme: light;
+}
+:root[data-theme='dark'] {
+  --body-bg-color: #282828;
+  --content-bg-color: #333;
+  --card-bg-color: #555;
+  --text-color: #ccc;
+  --selection-bg: #bbb;
+  --selection-color: #333;
+  --blockquote-color: #bbb;
+  --link-color: #ccc;
+  --link-hover-color: #eee;
+  --brand-color: #ddd;
+  --brand-hover-color: #ddd;
+  --table-row-odd-bg-color: #282828;
+  --table-row-hover-bg-color: #363636;
+  --menu-item-bg-color: #555;
+  --theme-color: #222;
+  --btn-default-bg: #222;
+  --btn-default-color: #ccc;
+  --btn-default-border-color: #555;
+  --btn-default-hover-bg: #666;
+  --btn-default-hover-color: #ccc;
+  --btn-default-hover-border-color: #666;
+  --highlight-background: #333;
+  --highlight-foreground: #fff;
+  --highlight-gutter-background: #474747;
+  --highlight-gutter-foreground: #eaeaea;
+  color-scheme: dark;
+}
+:root[data-theme='light'] img {
+  opacity: 1;
+}
+:root[data-theme='dark'] img {
+  opacity: 0.75;
+}
+:root[data-theme='dark'] img:hover {
+  opacity: 0.9;
+}
+.theme-mode-item {
+  visibility: visible !important;
+}
+@media (max-width: 991px) {
+  body:not(.site-nav-on) .site-nav .theme-mode-item {
+    visibility: hidden !important;
+  }
+}
+.menu .theme-mode-item .theme-mode-toggle {
+  align-items: center;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: var(--text-color);
+  cursor: pointer;
+  display: flex;
+  font-family: inherit;
+  font-size: 0.8125em;
+  line-height: 2;
+  padding: 5px 20px;
+  text-align: left;
+  width: 100%;
+}
+.menu .theme-mode-item .theme-mode-toggle:hover {
+  background: var(--menu-item-bg-color);
+  color: var(--link-hover-color);
+}
+.menu .theme-mode-item .theme-mode-toggle:focus-visible {
+  outline: 2px solid var(--link-hover-color);
+  outline-offset: -2px;
+}
+.theme-mode-toggle i[class^='fa'] {
+  margin-right: 8px;
+}
 /*取出顶部黑色分割线*/
 .headband {
   height: 3px;
@@ -3625,93 +3725,91 @@ body .bb-channel-portable {
     min-width: 100%;
   }
 }
-@media (prefers-color-scheme: dark) {
-  :root {
-    --content-image-surface: #24231f;
-    --content-image-placeholder: #2b2924;
-    --content-image-text: #d8d0c4;
-    --content-image-icon: #c3ad83;
-    --content-image-accent: #e5a0aa;
-    --content-image-border: rgba(226,210,190,0.18);
-    --content-image-control-border: rgba(226,210,190,0.28);
-    --content-image-control-bg: rgba(255,255,255,0.07);
-    --content-image-focus: rgba(229,160,170,0.28);
-    --content-image-shimmer: rgba(255,255,255,0.08);
-  }
-  body .bb-channel-portable {
-    --bb-muted-color: #aaa;
-    --bb-card-placeholder-border: var(--btn-default-border-color);
-    --bb-card-placeholder-bg: rgba(255,255,255,0.03);
-    --bb-card-surface-bg: rgba(255,255,255,0.04);
-    --bb-card-active-border: #8e735f;
-    --bb-card-active-bg: rgba(255,255,255,0.08);
-    --bb-card-active-shadow: 0 14px 30px -28px rgba(0,0,0,0.72);
-    color: var(--text-color);
-  }
-  body .bb-channel-portable .bb-channel-title {
-    color: var(--text-color);
-  }
-  body .bb-channel-portable .bb-channel-intro-text,
-  body .bb-channel-portable .bb-channel-status,
-  body .bb-channel-portable .bb-channel-meta,
-  body .bb-channel-portable .bb-channel-image-count,
-  body .bb-channel-portable .bb-channel-attachment-meta,
-  body .bb-channel-portable .bb-channel-tags {
-    color: var(--bb-muted-color);
-  }
-  body .bb-channel-portable .bb-channel-feed::before {
-    background: linear-gradient(to bottom, transparent, var(--btn-default-border-color) 1.2rem, var(--btn-default-border-color) calc(100% - 1.2rem), transparent);
-  }
-  body .bb-channel-portable .bb-channel-media-thumb,
-  body .bb-channel-portable .bb-channel-image-large {
-    border-color: var(--btn-default-border-color);
-    background: var(--content-image-placeholder);
-  }
-  body .bb-channel-portable .bb-channel-image-nav {
-    border-color: var(--btn-default-border-color);
-    background: var(--card-bg-color);
-    color: var(--text-color);
-  }
-  body .bb-channel-portable .bb-channel-attachment {
-    border-color: var(--btn-default-border-color);
-    background: rgba(255,255,255,0.04);
-    color: var(--text-color);
-  }
-  body .bb-channel-portable .bb-channel-attachment:hover {
-    border-color: #8e735f;
-    background: rgba(255,255,255,0.08);
-    box-shadow: 0 8px 22px -20px rgba(0,0,0,0.72);
-  }
-  body .bb-channel-portable .bb-channel-attachment-icon {
-    border-color: var(--btn-default-border-color);
-    background: rgba(255,255,255,0.06);
-  }
-  body .bb-channel-portable .bb-channel-tags span {
-    background: var(--content-image-placeholder);
-  }
-  body .bb-channel-portable .bb-channel-pagination button {
-    border-color: var(--btn-default-border-color);
-    color: var(--text-color);
-    background: var(--card-bg-color);
-  }
-  body .waline-container {
-    --waline-white: #000;
-    --waline-light-grey: #777;
-    --waline-dark-grey: #aaa;
-    --waline-color: var(--text-color);
-    --waline-bg-color: var(--content-bg-color);
-    --waline-bg-color-light: var(--card-bg-color);
-    --waline-bg-color-hover: #3d3d3d;
-    --waline-border-color: var(--btn-default-border-color);
-    --waline-disable-bg-color: #444;
-    --waline-disable-color: #999;
-    --waline-bq-color: var(--card-bg-color);
-    --waline-info-bg-color: var(--card-bg-color);
-    --waline-info-color: #aaa;
-  }
-  body {
-    background-image: none;
-  }
+:root[data-theme='dark'] {
+  --content-image-surface: #24231f;
+  --content-image-placeholder: #2b2924;
+  --content-image-text: #d8d0c4;
+  --content-image-icon: #c3ad83;
+  --content-image-accent: #e5a0aa;
+  --content-image-border: rgba(226,210,190,0.18);
+  --content-image-control-border: rgba(226,210,190,0.28);
+  --content-image-control-bg: rgba(255,255,255,0.07);
+  --content-image-focus: rgba(229,160,170,0.28);
+  --content-image-shimmer: rgba(255,255,255,0.08);
+}
+html[data-theme='dark'] body .bb-channel-portable {
+  --bb-muted-color: #aaa;
+  --bb-card-placeholder-border: var(--btn-default-border-color);
+  --bb-card-placeholder-bg: rgba(255,255,255,0.03);
+  --bb-card-surface-bg: rgba(255,255,255,0.04);
+  --bb-card-active-border: #8e735f;
+  --bb-card-active-bg: rgba(255,255,255,0.08);
+  --bb-card-active-shadow: 0 14px 30px -28px rgba(0,0,0,0.72);
+  color: var(--text-color);
+}
+html[data-theme='dark'] body .bb-channel-portable .bb-channel-title {
+  color: var(--text-color);
+}
+html[data-theme='dark'] body .bb-channel-portable .bb-channel-intro-text,
+html[data-theme='dark'] body .bb-channel-portable .bb-channel-status,
+html[data-theme='dark'] body .bb-channel-portable .bb-channel-meta,
+html[data-theme='dark'] body .bb-channel-portable .bb-channel-image-count,
+html[data-theme='dark'] body .bb-channel-portable .bb-channel-attachment-meta,
+html[data-theme='dark'] body .bb-channel-portable .bb-channel-tags {
+  color: var(--bb-muted-color);
+}
+html[data-theme='dark'] body .bb-channel-portable .bb-channel-feed::before {
+  background: linear-gradient(to bottom, transparent, var(--btn-default-border-color) 1.2rem, var(--btn-default-border-color) calc(100% - 1.2rem), transparent);
+}
+html[data-theme='dark'] body .bb-channel-portable .bb-channel-media-thumb,
+html[data-theme='dark'] body .bb-channel-portable .bb-channel-image-large {
+  border-color: var(--btn-default-border-color);
+  background: var(--content-image-placeholder);
+}
+html[data-theme='dark'] body .bb-channel-portable .bb-channel-image-nav {
+  border-color: var(--btn-default-border-color);
+  background: var(--card-bg-color);
+  color: var(--text-color);
+}
+html[data-theme='dark'] body .bb-channel-portable .bb-channel-attachment {
+  border-color: var(--btn-default-border-color);
+  background: rgba(255,255,255,0.04);
+  color: var(--text-color);
+}
+html[data-theme='dark'] body .bb-channel-portable .bb-channel-attachment:hover {
+  border-color: #8e735f;
+  background: rgba(255,255,255,0.08);
+  box-shadow: 0 8px 22px -20px rgba(0,0,0,0.72);
+}
+html[data-theme='dark'] body .bb-channel-portable .bb-channel-attachment-icon {
+  border-color: var(--btn-default-border-color);
+  background: rgba(255,255,255,0.06);
+}
+html[data-theme='dark'] body .bb-channel-portable .bb-channel-tags span {
+  background: var(--content-image-placeholder);
+}
+html[data-theme='dark'] body .bb-channel-portable .bb-channel-pagination button {
+  border-color: var(--btn-default-border-color);
+  color: var(--text-color);
+  background: var(--card-bg-color);
+}
+html[data-theme='dark'] body .waline-container {
+  --waline-white: #000;
+  --waline-light-grey: #777;
+  --waline-dark-grey: #aaa;
+  --waline-color: var(--text-color);
+  --waline-bg-color: var(--content-bg-color);
+  --waline-bg-color-light: var(--card-bg-color);
+  --waline-bg-color-hover: #3d3d3d;
+  --waline-border-color: var(--btn-default-border-color);
+  --waline-disable-bg-color: #444;
+  --waline-disable-color: #999;
+  --waline-bq-color: var(--card-bg-color);
+  --waline-info-bg-color: var(--card-bg-color);
+  --waline-info-color: #aaa;
+}
+html[data-theme='dark'] body {
+  background-image: none;
 }
 @media (prefers-reduced-motion: reduce) {
   .content-image-frame,
