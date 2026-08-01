@@ -1404,7 +1404,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #21ff70;
+    background: #afffb4;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3122,14 +3122,15 @@ header.header {
   appearance: none;
   background: var(--content-bg-color);
   border: 1px solid var(--btn-default-border-color);
-  border-radius: 22px 0 0 22px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+  border-radius: 16px 0 0 16px;
+  border-right: 0;
+  box-shadow: -4px 5px 14px rgba(0,0,0,0.12);
   color: var(--link-color);
   cursor: grab;
   display: flex;
   font-family: inherit;
   font-size: 16px;
-  height: 44px;
+  height: 48px;
   justify-content: center;
   opacity: 0.92;
   padding: 0;
@@ -3144,10 +3145,28 @@ header.header {
   z-index: 40;
   -webkit-tap-highlight-color: transparent;
 }
+.theme-mode-toggle::before {
+  background: #fc6423;
+  border-radius: 2px;
+  content: '';
+  height: 20px;
+  left: 4px;
+  opacity: 0.75;
+  position: absolute;
+  transition: opacity 0.2s ease;
+  width: 2px;
+}
+:root[data-theme='dark'] .theme-mode-toggle {
+  box-shadow: -5px 6px 16px rgba(0,0,0,0.35);
+}
 .theme-mode-toggle:hover {
   background: var(--menu-item-bg-color);
   color: var(--link-hover-color);
   opacity: 1;
+  box-shadow: -5px 7px 18px rgba(0,0,0,0.18);
+}
+:root[data-theme='dark'] .theme-mode-toggle:hover {
+  box-shadow: -6px 8px 20px rgba(0,0,0,0.42);
 }
 .theme-mode-toggle:focus-visible {
   outline: 2px solid var(--link-hover-color);
@@ -3157,6 +3176,9 @@ header.header {
   cursor: grabbing;
   opacity: 1;
   transition: none;
+}
+.theme-mode-toggle.theme-mode-toggle-dragging::before {
+  opacity: 1;
 }
 .theme-mode-toggle .fa {
   margin: 0;
