@@ -1,70 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.kaaaaai.cn//three-fragments-of-poetry.html</loc>
-    <lastmod>2026-08-03</lastmod>
-  </url>
-  <url>
-    <loc>https://www.kaaaaai.cn//translation-why-use-dependency-injection.html</loc>
-    <lastmod>2026-08-03</lastmod>
-  </url>
-  <url>
-    <loc>https://www.kaaaaai.cn//unreasonable-guess.html</loc>
-    <lastmod>2026-08-03</lastmod>
-  </url>
-  <url>
-    <loc>https://www.kaaaaai.cn//veteran_science_fiction.html</loc>
-    <lastmod>2026-08-03</lastmod>
-  </url>
-  <url>
-    <loc>https://www.kaaaaai.cn//web-resolve-recirculation-errors.html</loc>
-    <lastmod>2026-08-03</lastmod>
-  </url>
-  <url>
-    <loc>https://www.kaaaaai.cn//weekly-summary-190428.html</loc>
-    <lastmod>2026-08-03</lastmod>
-  </url>
-  <url>
-    <loc>https://www.kaaaaai.cn//weekly-summary-190418.html</loc>
-    <lastmod>2026-08-03</lastmod>
-  </url>
-  <url>
-    <loc>https://www.kaaaaai.cn//weekly-summary-190518.html</loc>
-    <lastmod>2026-08-03</lastmod>
-  </url>
-  <url>
-    <loc>https://www.kaaaaai.cn//weekly-summary-190601.html</loc>
-    <lastmod>2026-08-03</lastmod>
-  </url>
-  <url>
-    <loc>https://www.kaaaaai.cn//weekly-summary-190511.html</loc>
-    <lastmod>2026-08-03</lastmod>
-  </url>
-  <url>
-    <loc>https://www.kaaaaai.cn//weekly-summary-190622.html</loc>
-    <lastmod>2026-08-03</lastmod>
-  </url>
-  <url>
-    <loc>https://www.kaaaaai.cn//weekly-summary-190629.html</loc>
-    <lastmod>2026-08-03</lastmod>
-  </url>
-  <url>
-    <loc>https://www.kaaaaai.cn//weekly-summary-190706.html</loc>
-    <lastmod>2026-08-03</lastmod>
-  </url>
-  <url>
-    <loc>https://www.kaaaaai.cn//weekly-summary-190713.html</loc>
-    <lastmod>2026-08-03</lastmod>
-  </url>
-  <url>
-    <loc>https://www.kaaaaai.cn//weekly-summary-190722.html</loc>
-    <lastmod>2026-08-03</lastmod>
-  </url>
-  <url>
-    <loc>https://www.kaaaaai.cn//weekly-summary-190729.html</loc>
-    <lastmod>2026-08-03</lastmod>
-  </url>
-  <url>
     <loc>https://www.kaaaaai.cn//weekly-summary-190803.html</loc>
     <lastmod>2026-08-03</lastmod>
   </url>
@@ -97,15 +33,99 @@
     <lastmod>2026-08-03</lastmod>
   </url>
   <url>
+    <loc>https://www.kaaaaai.cn//swift-style-guide.html</loc>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.kaaaaai.cn//swift-toppop-upboxencapsulation.html</loc>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.kaaaaai.cn//teenages-like-you-and-me.html</loc>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.kaaaaai.cn//the-first-report-of-the-newcomer.html</loc>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.kaaaaai.cn//three-books-thick-with-nostalgia.html</loc>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.kaaaaai.cn//three-fragments-of-poetry.html</loc>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.kaaaaai.cn//translation-why-use-dependency-injection.html</loc>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.kaaaaai.cn//unreasonable-guess.html</loc>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.kaaaaai.cn//veteran_science_fiction.html</loc>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.kaaaaai.cn//web-resolve-recirculation-errors.html</loc>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.kaaaaai.cn//weekly-summary-190418.html</loc>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.kaaaaai.cn//weekly-summary-190428.html</loc>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.kaaaaai.cn//weekly-summary-190518.html</loc>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.kaaaaai.cn//weekly-summary-190511.html</loc>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.kaaaaai.cn//weekly-summary-190601.html</loc>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.kaaaaai.cn//weekly-summary-190622.html</loc>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.kaaaaai.cn//weekly-summary-190629.html</loc>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.kaaaaai.cn//weekly-summary-190706.html</loc>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.kaaaaai.cn//weekly-summary-190713.html</loc>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.kaaaaai.cn//weekly-summary-190722.html</loc>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.kaaaaai.cn//weekly-summary-190729.html</loc>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
     <loc>https://www.kaaaaai.cn//objective-c-style-guide.html</loc>
     <lastmod>2026-08-03</lastmod>
   </url>
   <url>
-    <loc>https://www.kaaaaai.cn//oc-multi-delegate-implementation.html</loc>
+    <loc>https://www.kaaaaai.cn//on-the-road.html</loc>
     <lastmod>2026-08-03</lastmod>
   </url>
   <url>
-    <loc>https://www.kaaaaai.cn//on-the-road.html</loc>
+    <loc>https://www.kaaaaai.cn//oc-multi-delegate-implementation.html</loc>
     <lastmod>2026-08-03</lastmod>
   </url>
   <url>
@@ -153,23 +173,43 @@
     <lastmod>2026-08-03</lastmod>
   </url>
   <url>
-    <loc>https://www.kaaaaai.cn//swift-style-guide.html</loc>
+    <loc>https://www.kaaaaai.cn//literary-memoirs-reading-notes.html</loc>
     <lastmod>2026-08-03</lastmod>
   </url>
   <url>
-    <loc>https://www.kaaaaai.cn//swift-toppop-upboxencapsulation.html</loc>
+    <loc>https://www.kaaaaai.cn//in-the-eveing.html</loc>
     <lastmod>2026-08-03</lastmod>
   </url>
   <url>
-    <loc>https://www.kaaaaai.cn//teenages-like-you-and-me.html</loc>
+    <loc>https://www.kaaaaai.cn//ios-develop-tips-1.html</loc>
     <lastmod>2026-08-03</lastmod>
   </url>
   <url>
-    <loc>https://www.kaaaaai.cn//the-first-report-of-the-newcomer.html</loc>
+    <loc>https://www.kaaaaai.cn//ios-automated-packaging-complicated-by-mail.html</loc>
     <lastmod>2026-08-03</lastmod>
   </url>
   <url>
-    <loc>https://www.kaaaaai.cn//three-books-thick-with-nostalgia.html</loc>
+    <loc>https://www.kaaaaai.cn//ios-develop-tips-2.html</loc>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.kaaaaai.cn//ios-douban-open-source-license-mentioned-in-the-library.html</loc>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.kaaaaai.cn//ios-fastlane-snapshot.html</loc>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.kaaaaai.cn//ios-hmac-encryption-and-an-md5-problem.html</loc>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.kaaaaai.cn//ios-naming-rules-and-annotation-specifications.html</loc>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.kaaaaai.cn//ios-preliminary-study-of-symbolic-breakpoints.html</loc>
     <lastmod>2026-08-03</lastmod>
   </url>
   <url>
@@ -205,11 +245,15 @@
     <lastmod>2026-08-03</lastmod>
   </url>
   <url>
-    <loc>https://www.kaaaaai.cn//literary-memoirs-reading-notes.html</loc>
+    <loc>https://www.kaaaaai.cn//2023-year-end-review.html</loc>
     <lastmod>2026-08-03</lastmod>
   </url>
   <url>
     <loc>https://www.kaaaaai.cn//2024-year-end-review.html</loc>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.kaaaaai.cn//a-person-abandoned-by-the-light.html</loc>
     <lastmod>2026-08-03</lastmod>
   </url>
   <url>
@@ -221,7 +265,7 @@
     <lastmod>2026-08-03</lastmod>
   </url>
   <url>
-    <loc>https://www.kaaaaai.cn//a-person-abandoned-by-the-light.html</loc>
+    <loc>https://www.kaaaaai.cn//add-junk-code-to-ios-vest-project.html</loc>
     <lastmod>2026-08-03</lastmod>
   </url>
   <url>
@@ -230,10 +274,6 @@
   </url>
   <url>
     <loc>https://www.kaaaaai.cn//amateur-clipsself-improvement.html</loc>
-    <lastmod>2026-08-03</lastmod>
-  </url>
-  <url>
-    <loc>https://www.kaaaaai.cn//add-junk-code-to-ios-vest-project.html</loc>
     <lastmod>2026-08-03</lastmod>
   </url>
   <url>
@@ -317,11 +357,11 @@
     <lastmod>2026-08-03</lastmod>
   </url>
   <url>
-    <loc>https://www.kaaaaai.cn//fourthart.html</loc>
+    <loc>https://www.kaaaaai.cn//gangster-and-litchi.html</loc>
     <lastmod>2026-08-03</lastmod>
   </url>
   <url>
-    <loc>https://www.kaaaaai.cn//gangster-and-litchi.html</loc>
+    <loc>https://www.kaaaaai.cn//fourthart.html</loc>
     <lastmod>2026-08-03</lastmod>
   </url>
   <url>
@@ -354,46 +394,6 @@
   </url>
   <url>
     <loc>https://www.kaaaaai.cn//impromptu-late-spring.html</loc>
-    <lastmod>2026-08-03</lastmod>
-  </url>
-  <url>
-    <loc>https://www.kaaaaai.cn//in-the-eveing.html</loc>
-    <lastmod>2026-08-03</lastmod>
-  </url>
-  <url>
-    <loc>https://www.kaaaaai.cn//ios-develop-tips-1.html</loc>
-    <lastmod>2026-08-03</lastmod>
-  </url>
-  <url>
-    <loc>https://www.kaaaaai.cn//ios-automated-packaging-complicated-by-mail.html</loc>
-    <lastmod>2026-08-03</lastmod>
-  </url>
-  <url>
-    <loc>https://www.kaaaaai.cn//ios-develop-tips-2.html</loc>
-    <lastmod>2026-08-03</lastmod>
-  </url>
-  <url>
-    <loc>https://www.kaaaaai.cn//ios-douban-open-source-license-mentioned-in-the-library.html</loc>
-    <lastmod>2026-08-03</lastmod>
-  </url>
-  <url>
-    <loc>https://www.kaaaaai.cn//ios-fastlane-snapshot.html</loc>
-    <lastmod>2026-08-03</lastmod>
-  </url>
-  <url>
-    <loc>https://www.kaaaaai.cn//ios-hmac-encryption-and-an-md5-problem.html</loc>
-    <lastmod>2026-08-03</lastmod>
-  </url>
-  <url>
-    <loc>https://www.kaaaaai.cn//ios-preliminary-study-of-symbolic-breakpoints.html</loc>
-    <lastmod>2026-08-03</lastmod>
-  </url>
-  <url>
-    <loc>https://www.kaaaaai.cn//ios-naming-rules-and-annotation-specifications.html</loc>
-    <lastmod>2026-08-03</lastmod>
-  </url>
-  <url>
-    <loc>https://www.kaaaaai.cn//2023-year-end-review.html</loc>
     <lastmod>2026-08-03</lastmod>
   </url>
 </urlset> 

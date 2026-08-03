@@ -1404,7 +1404,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #ffffcd;
+    background: #fbffff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3877,11 +3877,9 @@ html[data-theme='dark'] body {
 }
 /* Pace coffee loader */
 :root {
-  --pace-loader-ink: #222;
-  --pace-loader-accent: #fc6423;
-}
-:root[data-theme='dark'] {
   --pace-loader-ink: #fff;
+  --pace-loader-accent: #fc6423;
+  --pace-loader-outline: #222;
 }
 html body .pace {
   background: none;
@@ -3921,7 +3919,7 @@ html body .pace .pace-activity::after {
   position: absolute;
 }
 html body .pace .pace-activity::before {
-  animation: pace-coffee-steam 1.9s ease-in-out infinite;
+  animation: pace-coffee-steam 1.2s linear 0s infinite;
   background: var(--pace-loader-accent);
   height: 15px;
   left: 7px;
@@ -3935,6 +3933,7 @@ html body .pace .pace-activity::after {
   animation: pace-coffee-breathe 2.4s ease-in-out infinite;
   background: var(--pace-loader-ink);
   inset: 3px;
+  filter: drop-shadow(1px 0 var(--pace-loader-outline)) drop-shadow(-1px 0 var(--pace-loader-outline)) drop-shadow(0 1px var(--pace-loader-outline)) drop-shadow(0 -1px var(--pace-loader-outline));
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5.5 11.5h12v5.8a2.7 2.7 0 0 1-2.7 2.7H8.2a2.7 2.7 0 0 1-2.7-2.7Zm12.1 1.5h1.1a2.2 2.2 0 0 1 0 4.4h-1.1M4.2 21h14.7' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5.5 11.5h12v5.8a2.7 2.7 0 0 1-2.7 2.7H8.2a2.7 2.7 0 0 1-2.7-2.7Zm12.1 1.5h1.1a2.2 2.2 0 0 1 0 4.4h-1.1M4.2 21h14.7' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
 }
@@ -4013,18 +4012,16 @@ html body .pace .pace-activity::after {
   }
 }
 @keyframes pace-coffee-steam {
-  0%, 100% {
-    opacity: 0.38;
-    transform: translateY(2px);
+  0% {
+    opacity: 0.7;
+    transform: translateY(4px) scaleY(0.9);
   }
-  35% {
+  45% {
     opacity: 1;
   }
-  75% {
-    opacity: 0.82;
-  }
   100% {
-    transform: translateY(-3px);
+    opacity: 0.7;
+    transform: translateY(-5px) scaleY(1.08);
   }
 }
 @keyframes pace-coffee-breathe {
