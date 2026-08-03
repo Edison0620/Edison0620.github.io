@@ -1404,7 +1404,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #afff6a;
+    background: #16b6ff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3876,12 +3876,6 @@ html[data-theme='dark'] body {
   color: var(--card-bg-color);
 }
 /* Pace coffee loader */
-:root {
-  --pace-loader-ink: #fff;
-  --pace-loader-accent: #fc6423;
-  --pace-loader-coffee: #8c4b2f;
-  --pace-loader-outline: #222;
-}
 html body .pace {
   background: none;
   height: 38px;
@@ -3904,7 +3898,7 @@ html body .pace .pace-progress {
 }
 html body .pace .pace-activity {
   animation: none;
-  background: none;
+  background: transparent url("/images/coffee-pour-loader.svg") center/contain no-repeat;
   border-radius: 0;
   box-shadow: none;
   height: 38px;
@@ -3915,49 +3909,25 @@ html body .pace .pace-activity {
 }
 html body .pace .pace-activity::before,
 html body .pace .pace-activity::after {
-  content: '';
-  display: block;
-  inset: 3px;
-  position: absolute;
-}
-html body .pace .pace-activity::before {
-  animation: pace-coffee-fill 2s cubic-bezier(0.45, 0, 0.25, 1) infinite;
-  background: linear-gradient(to bottom, var(--pace-loader-accent) 0 14%, var(--pace-loader-coffee) 14%);
-  opacity: 0.78;
-  transform: scaleY(0.08);
-  transform-origin: center 80%;
-  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.6 12.3h10.2v4.9c0 1.2-1 2.1-2.1 2.1h-6c-1.2 0-2.1-.9-2.1-2.1Z' fill='white'/%3E%3C/svg%3E") center/contain no-repeat;
-  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.6 12.3h10.2v4.9c0 1.2-1 2.1-2.1 2.1h-6c-1.2 0-2.1-.9-2.1-2.1Z' fill='white'/%3E%3C/svg%3E") center/contain no-repeat;
-}
-html body .pace .pace-activity::after {
-  background: var(--pace-loader-ink);
-  filter: drop-shadow(1px 0 var(--pace-loader-outline)) drop-shadow(-1px 0 var(--pace-loader-outline)) drop-shadow(0 1px var(--pace-loader-outline)) drop-shadow(0 -1px var(--pace-loader-outline));
-  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5.5 11.5h12v5.8a2.7 2.7 0 0 1-2.7 2.7H8.2a2.7 2.7 0 0 1-2.7-2.7Zm12.1 1.5h1.1a2.2 2.2 0 0 1 0 4.4h-1.1M4.2 21h14.7' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
-  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5.5 11.5h12v5.8a2.7 2.7 0 0 1-2.7 2.7H8.2a2.7 2.7 0 0 1-2.7-2.7Zm12.1 1.5h1.1a2.2 2.2 0 0 1 0 4.4h-1.1M4.2 21h14.7' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
+  content: none;
 }
 @media (max-width: 767px) {
-  html body .pace {
-    height: 34px;
-    right: 12px;
-    top: 12px;
-    width: 34px;
-  }
+  html body .pace,
   html body .pace .pace-activity {
     height: 34px;
     width: 34px;
+  }
+  html body .pace {
+    right: 12px;
+    top: 12px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
   html body .pace {
     transition: none;
   }
-  html body .pace .pace-activity::before,
-  html body .pace .pace-activity::after {
-    animation: none;
-  }
-  html body .pace .pace-activity::before {
-    opacity: 0.9;
-    transform: scaleY(0.55);
+  html body .pace .pace-activity {
+    background-image: url("/images/coffee-pour-loader.svg#reduced-motion");
   }
 }
 /* End Pace coffee loader */
@@ -4007,19 +3977,5 @@ html body .pace .pace-activity::after {
   }
   55%, 100% {
     background-position: -40% 0;
-  }
-}
-@keyframes pace-coffee-fill {
-  0% {
-    opacity: 0.78;
-    transform: scaleY(0.08);
-  }
-  72%, 86% {
-    opacity: 1;
-    transform: scaleY(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scaleY(1);
   }
 }
