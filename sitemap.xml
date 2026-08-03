@@ -20,6 +20,24 @@
   </url>
   
   <url>
+    <loc>https://www.kaaaaai.cn/categories/index.html</loc>
+    
+    <lastmod>2026-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/about/index.html</loc>
+    
+    <lastmod>2026-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.kaaaaai.cn/xiangzi-and-his-misfortune.html</loc>
     
     <lastmod>2026-08-03</lastmod>
@@ -56,87 +74,6 @@
   </url>
   
   <url>
-    <loc>https://www.kaaaaai.cn/xcode-plugin-research.html</loc>
-    
-    <lastmod>2026-08-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.kaaaaai.cn/wizard-world-revolution.html</loc>
-    
-    <lastmod>2026-08-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.kaaaaai.cn/yansi-who-knows.html</loc>
-    
-    <lastmod>2026-08-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.kaaaaai.cn/writing-plan.html</loc>
-    
-    <lastmod>2026-08-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.kaaaaai.cn/about/index.html</loc>
-    
-    <lastmod>2026-08-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.kaaaaai.cn/categories/index.html</loc>
-    
-    <lastmod>2026-08-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.kaaaaai.cn/translation-why-use-dependency-injection.html</loc>
-    
-    <lastmod>2026-08-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.kaaaaai.cn/swift-toppop-upboxencapsulation.html</loc>
-    
-    <lastmod>2026-08-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.kaaaaai.cn/web-resolve-recirculation-errors.html</loc>
-    
-    <lastmod>2026-08-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.kaaaaai.cn/weekly-summary-190729.html</loc>
     
     <lastmod>2026-08-03</lastmod>
@@ -147,6 +84,15 @@
   
   <url>
     <loc>https://www.kaaaaai.cn/weekly-summary-190722.html</loc>
+    
+    <lastmod>2026-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/xcode-plugin-research.html</loc>
     
     <lastmod>2026-08-03</lastmod>
     
@@ -200,6 +146,15 @@
   </url>
   
   <url>
+    <loc>https://www.kaaaaai.cn/weekly-summary-190511.html</loc>
+    
+    <lastmod>2026-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.kaaaaai.cn/weekly-summary-190518.html</loc>
     
     <lastmod>2026-08-03</lastmod>
@@ -209,7 +164,79 @@
   </url>
   
   <url>
-    <loc>https://www.kaaaaai.cn/weekly-summary-190511.html</loc>
+    <loc>https://www.kaaaaai.cn/wizard-world-revolution.html</loc>
+    
+    <lastmod>2026-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/yansi-who-knows.html</loc>
+    
+    <lastmod>2026-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/writing-plan.html</loc>
+    
+    <lastmod>2026-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/translation-why-use-dependency-injection.html</loc>
+    
+    <lastmod>2026-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/swift-permission-request-tools.html</loc>
+    
+    <lastmod>2026-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/swift-toppop-upboxencapsulation.html</loc>
+    
+    <lastmod>2026-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/web-resolve-recirculation-errors.html</loc>
+    
+    <lastmod>2026-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/swift-optional-and-unwrapping-learning.html</loc>
+    
+    <lastmod>2026-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/sun-sleeping-in-the-forest.html</loc>
     
     <lastmod>2026-08-03</lastmod>
     
@@ -308,34 +335,7 @@
   </url>
   
   <url>
-    <loc>https://www.kaaaaai.cn/swift-permission-request-tools.html</loc>
-    
-    <lastmod>2026-08-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.kaaaaai.cn/oc-multi-delegate-implementation.html</loc>
-    
-    <lastmod>2026-08-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.kaaaaai.cn/swift-optional-and-unwrapping-learning.html</loc>
-    
-    <lastmod>2026-08-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.kaaaaai.cn/sun-sleeping-in-the-forest.html</loc>
     
     <lastmod>2026-08-03</lastmod>
     
@@ -425,34 +425,7 @@
   </url>
   
   <url>
-    <loc>https://www.kaaaaai.cn/literary-memoirs-reading-notes.html</loc>
-    
-    <lastmod>2026-08-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.kaaaaai.cn/its-time-to-build-an-open-source-library.html</loc>
-    
-    <lastmod>2026-08-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.kaaaaai.cn/ios-douban-open-source-license-mentioned-in-the-library.html</loc>
-    
-    <lastmod>2026-08-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.kaaaaai.cn/ios-automated-packaging-complicated-by-mail.html</loc>
     
     <lastmod>2026-08-03</lastmod>
     
@@ -471,6 +444,15 @@
   
   <url>
     <loc>https://www.kaaaaai.cn/ios-some-question-about-bluetooth.html</loc>
+    
+    <lastmod>2026-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/literary-memoirs-reading-notes.html</loc>
     
     <lastmod>2026-08-03</lastmod>
     
@@ -551,33 +533,6 @@
   </url>
   
   <url>
-    <loc>https://www.kaaaaai.cn/ios-develop-tips-2.html</loc>
-    
-    <lastmod>2026-08-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.kaaaaai.cn/in-the-eveing.html</loc>
-    
-    <lastmod>2026-08-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.kaaaaai.cn/ios-develop-tips-1.html</loc>
-    
-    <lastmod>2026-08-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.kaaaaai.cn/learn-humor-before-become-a-hero.html</loc>
     
     <lastmod>2026-08-03</lastmod>
@@ -587,7 +542,7 @@
   </url>
   
   <url>
-    <loc>https://www.kaaaaai.cn/dream-in-2024.html</loc>
+    <loc>https://www.kaaaaai.cn/ios-douban-open-source-license-mentioned-in-the-library.html</loc>
     
     <lastmod>2026-08-03</lastmod>
     
@@ -596,52 +551,7 @@
   </url>
   
   <url>
-    <loc>https://www.kaaaaai.cn/dream-in-2023.html</loc>
-    
-    <lastmod>2026-08-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.kaaaaai.cn/2024-year-end-review.html</loc>
-    
-    <lastmod>2026-08-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.kaaaaai.cn/2023-year-end-review.html</loc>
-    
-    <lastmod>2026-08-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.kaaaaai.cn/amateur-clipsself-improvement.html</loc>
-    
-    <lastmod>2026-08-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.kaaaaai.cn/a-person-abandoned-by-the-light.html</loc>
-    
-    <lastmod>2026-08-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.kaaaaai.cn/about-my-notion-workflow.html</loc>
+    <loc>https://www.kaaaaai.cn/ios-automated-packaging-complicated-by-mail.html</loc>
     
     <lastmod>2026-08-03</lastmod>
     
@@ -651,15 +561,6 @@
   
   <url>
     <loc>https://www.kaaaaai.cn/god-will-rolls-the-dice-several-times.html</loc>
-    
-    <lastmod>2026-08-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.kaaaaai.cn/everyone-love-gtd.html</loc>
     
     <lastmod>2026-08-03</lastmod>
     
@@ -695,6 +596,141 @@
   </url>
   
   <url>
+    <loc>https://www.kaaaaai.cn/how-to-fix-warnings-about-unsafe-sites.html</loc>
+    
+    <lastmod>2026-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/forever-and-solongmyson.html</loc>
+    
+    <lastmod>2026-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/happy-new-year-2019.html</loc>
+    
+    <lastmod>2026-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/farewell-to-the-darkness.html</loc>
+    
+    <lastmod>2026-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/ios-develop-tips-2.html</loc>
+    
+    <lastmod>2026-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/impromptu-late-spring.html</loc>
+    
+    <lastmod>2026-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/in-the-eveing.html</loc>
+    
+    <lastmod>2026-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/ios-develop-tips-1.html</loc>
+    
+    <lastmod>2026-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/fourthart.html</loc>
+    
+    <lastmod>2026-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/firstart.html</loc>
+    
+    <lastmod>2026-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/hello-edison-s-world.html</loc>
+    
+    <lastmod>2026-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/hello-world.html</loc>
+    
+    <lastmod>2026-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/dream-in-2024.html</loc>
+    
+    <lastmod>2026-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/dream-in-2023.html</loc>
+    
+    <lastmod>2026-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/everyone-love-gtd.html</loc>
+    
+    <lastmod>2026-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.kaaaaai.cn/chicken-soup-from-inference-writer.html</loc>
     
     <lastmod>2026-08-03</lastmod>
@@ -722,34 +758,7 @@
   </url>
   
   <url>
-    <loc>https://www.kaaaaai.cn/how-to-fix-warnings-about-unsafe-sites.html</loc>
-    
-    <lastmod>2026-08-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.kaaaaai.cn/about-what-do-you-like.html</loc>
-    
-    <lastmod>2026-08-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.kaaaaai.cn/automatically-generates-annotation-documents.html</loc>
-    
-    <lastmod>2026-08-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.kaaaaai.cn/forever-and-solongmyson.html</loc>
     
     <lastmod>2026-08-03</lastmod>
     
@@ -767,24 +776,6 @@
   </url>
   
   <url>
-    <loc>https://www.kaaaaai.cn/happy-new-year-2019.html</loc>
-    
-    <lastmod>2026-08-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.kaaaaai.cn/after-reading-wangsuo.html</loc>
-    
-    <lastmod>2026-08-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.kaaaaai.cn/chinese-text-layout-study.html</loc>
     
     <lastmod>2026-08-03</lastmod>
@@ -794,34 +785,7 @@
   </url>
   
   <url>
-    <loc>https://www.kaaaaai.cn/farewell-to-the-darkness.html</loc>
-    
-    <lastmod>2026-08-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.kaaaaai.cn/be-a-man.html</loc>
-    
-    <lastmod>2026-08-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.kaaaaai.cn/add-junk-code-to-ios-vest-project.html</loc>
-    
-    <lastmod>2026-08-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.kaaaaai.cn/impromptu-late-spring.html</loc>
     
     <lastmod>2026-08-03</lastmod>
     
@@ -884,15 +848,6 @@
   </url>
   
   <url>
-    <loc>https://www.kaaaaai.cn/fourthart.html</loc>
-    
-    <lastmod>2026-08-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.kaaaaai.cn/eat-a-burger-with-chopped-green-onion-and-sugar.html</loc>
     
     <lastmod>2026-08-03</lastmod>
@@ -902,7 +857,7 @@
   </url>
   
   <url>
-    <loc>https://www.kaaaaai.cn/firstart.html</loc>
+    <loc>https://www.kaaaaai.cn/2024-year-end-review.html</loc>
     
     <lastmod>2026-08-03</lastmod>
     
@@ -911,7 +866,7 @@
   </url>
   
   <url>
-    <loc>https://www.kaaaaai.cn/hello-edison-s-world.html</loc>
+    <loc>https://www.kaaaaai.cn/2023-year-end-review.html</loc>
     
     <lastmod>2026-08-03</lastmod>
     
@@ -920,7 +875,52 @@
   </url>
   
   <url>
-    <loc>https://www.kaaaaai.cn/hello-world.html</loc>
+    <loc>https://www.kaaaaai.cn/amateur-clipsself-improvement.html</loc>
+    
+    <lastmod>2026-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/a-person-abandoned-by-the-light.html</loc>
+    
+    <lastmod>2026-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/about-my-notion-workflow.html</loc>
+    
+    <lastmod>2026-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/about-what-do-you-like.html</loc>
+    
+    <lastmod>2026-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/after-reading-wangsuo.html</loc>
+    
+    <lastmod>2026-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/add-junk-code-to-ios-vest-project.html</loc>
     
     <lastmod>2026-08-03</lastmod>
     
@@ -1008,7 +1008,35 @@
   </url>
   
   <url>
+    <loc>https://www.kaaaaai.cn/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/tags/%E7%8E%8B%E6%9C%94/</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.kaaaaai.cn/tags/EXP/</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/tags/%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91/</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/tags/Premiere-Pro/</loc>
     <lastmod>2026-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1030,34 +1058,6 @@
   
   <url>
     <loc>https://www.kaaaaai.cn/tags/Python/</loc>
-    <lastmod>2026-08-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.kaaaaai.cn/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/</loc>
-    <lastmod>2026-08-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.kaaaaai.cn/tags/%E7%8E%8B%E6%9C%94/</loc>
-    <lastmod>2026-08-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.kaaaaai.cn/tags/%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91/</loc>
-    <lastmod>2026-08-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.kaaaaai.cn/tags/Premiere-Pro/</loc>
     <lastmod>2026-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1099,13 +1099,6 @@
   </url>
   
   <url>
-    <loc>https://www.kaaaaai.cn/tags/%E8%A7%82%E5%BD%B1/</loc>
-    <lastmod>2026-08-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.kaaaaai.cn/tags/Swift/</loc>
     <lastmod>2026-08-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -1114,6 +1107,13 @@
   
   <url>
     <loc>https://www.kaaaaai.cn/tags/Xcode/</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/tags/%E8%A7%82%E5%BD%B1/</loc>
     <lastmod>2026-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1316,6 +1316,13 @@
   </url>
   
   <url>
+    <loc>https://www.kaaaaai.cn/tags/%E8%AF%97%E6%AD%8C/</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.kaaaaai.cn/tags/%E4%B8%AD%E5%9B%BD%E5%BD%93%E4%BB%A3/</loc>
     <lastmod>2026-08-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -1324,13 +1331,6 @@
   
   <url>
     <loc>https://www.kaaaaai.cn/tags/%E9%9D%92%E6%98%A5%E6%96%87%E5%AD%A6/</loc>
-    <lastmod>2026-08-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.kaaaaai.cn/tags/%E8%AF%97%E6%AD%8C/</loc>
     <lastmod>2026-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
