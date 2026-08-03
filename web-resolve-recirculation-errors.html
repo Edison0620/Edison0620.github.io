@@ -31,7 +31,7 @@
 <meta property="og:description" content="问题表现 博客网站更换了 DNS 解析的服务商，访问出现以下问题。 ![03oBxi-20200530][image-1] 问题原因 主要是使用的 DNS 解析服务的 SSL&#x2F;TLS 设置和 GitPage 的 HTTPS 设置冲突了。 解决方法 解决方法很简单，主要就是保证网页和 DNS 解析服务的设置一致就好了。可以从两个方向解决。 一、CloudFl…">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-05-30T17:24:52.000Z">
-<meta property="article:modified_time" content="2026-08-03T03:28:14.624Z">
+<meta property="article:modified_time" content="2026-08-03T08:25:02.131Z">
 <meta property="article:author" content="Kaaaaai">
 <meta property="article:tag" content="EXP">
 <meta property="article:tag" content="Web">
@@ -180,7 +180,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E8%A1%A8%E7%8E%B0"><span class="nav-number">1.</span> <span class="nav-text">问题表现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E5%8E%9F%E5%9B%A0"><span class="nav-number">2.</span> <span class="nav-text">问题原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">解决方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81CloudFlare-%E8%AE%BE%E7%BD%AE%E7%81%B5%E6%B4%BB%EF%BC%8CGitHub-%E5%8F%96%E6%B6%88-HTTPS"><span class="nav-number">3.1.</span> <span class="nav-text">一、CloudFlare 设置灵活，GitHub 取消 HTTPS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81GitHub-%E8%AE%BE%E7%BD%AE-HTTPS%EF%BC%8CCloudFlare-%E8%AE%BE%E7%BD%AE-%E5%AE%8C%E5%85%A8-%E6%A8%A1%E5%BC%8F"><span class="nav-number">3.2.</span> <span class="nav-text">二、GitHub 设置 HTTPS，CloudFlare 设置 完全 模式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-number">4.</span> <span class="nav-text">其他</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#title-%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8-GitPage-%E9%87%8D%E5%AE%9A%E5%90%91%E5%A4%9A%E6%AC%A1%E9%97%AE%E9%A2%98tags-EXP-Web-Https-DNS-%E8%A7%A3%E6%9E%90categories-%E7%AC%94%E8%AE%B0abbrlink-21686date-2020-05-30-17-24-52"><span class="nav-number">5.</span> <span class="nav-text">title: 解决使用 GitPage 重定向多次问题tags:  - EXP  - Web  - Https  - DNS 解析categories: 笔记abbrlink: 21686date: 2020-05-30 17:24:52</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E8%A1%A8%E7%8E%B0-1"><span class="nav-number">6.</span> <span class="nav-text">问题表现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E5%8E%9F%E5%9B%A0-1"><span class="nav-number">7.</span> <span class="nav-text">问题原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95-1"><span class="nav-number">8.</span> <span class="nav-text">解决方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81CloudFlare-%E8%AE%BE%E7%BD%AE%E7%81%B5%E6%B4%BB%EF%BC%8CGitHub-%E5%8F%96%E6%B6%88-HTTPS-1"><span class="nav-number">8.1.</span> <span class="nav-text">一、CloudFlare 设置灵活，GitHub 取消 HTTPS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81GitHub-%E8%AE%BE%E7%BD%AE-HTTPS%EF%BC%8CCloudFlare-%E8%AE%BE%E7%BD%AE-%E5%AE%8C%E5%85%A8-%E6%A8%A1%E5%BC%8F-1"><span class="nav-number">8.2.</span> <span class="nav-text">二、GitHub 设置 HTTPS，CloudFlare 设置 完全 模式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96-1"><span class="nav-number">9.</span> <span class="nav-text">其他</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E8%A1%A8%E7%8E%B0"><span class="nav-number">1.</span> <span class="nav-text">问题表现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E5%8E%9F%E5%9B%A0"><span class="nav-number">2.</span> <span class="nav-text">问题原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">解决方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81CloudFlare-%E8%AE%BE%E7%BD%AE%E7%81%B5%E6%B4%BB%EF%BC%8CGitHub-%E5%8F%96%E6%B6%88-HTTPS"><span class="nav-number">3.1.</span> <span class="nav-text">一、CloudFlare 设置灵活，GitHub 取消 HTTPS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81GitHub-%E8%AE%BE%E7%BD%AE-HTTPS%EF%BC%8CCloudFlare-%E8%AE%BE%E7%BD%AE-%E5%AE%8C%E5%85%A8-%E6%A8%A1%E5%BC%8F"><span class="nav-number">3.2.</span> <span class="nav-text">二、GitHub 设置 HTTPS，CloudFlare 设置 完全 模式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-number">4.</span> <span class="nav-text">其他</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -326,7 +326,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.5k</span>
+      <span>767</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -349,14 +349,6 @@
 <h3 id="一、CloudFlare-设置灵活，GitHub-取消-HTTPS"><a href="#一、CloudFlare-设置灵活，GitHub-取消-HTTPS" class="headerlink" title="一、CloudFlare 设置灵活，GitHub 取消 HTTPS"></a>一、CloudFlare 设置灵活，GitHub 取消 HTTPS</h3><p>进入 GitHub 的仓库，点击 <strong>Setting → Options</strong>，一路下拉到 GitHub Pages，把 Enforce HTTPS  取消勾选就好了。<br>![OjCxmm-20200530][image-2]</p>
 <h3 id="二、GitHub-设置-HTTPS，CloudFlare-设置-完全-模式"><a href="#二、GitHub-设置-HTTPS，CloudFlare-设置-完全-模式" class="headerlink" title="二、GitHub 设置 HTTPS，CloudFlare 设置 完全 模式"></a>二、GitHub 设置 HTTPS，CloudFlare 设置 完全 模式</h3><p>![DdM9XQ-20200530][image-3]</p>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>这里也推荐官方提供的解决方法-[解决重定向循环错误][1]，其实和我上述所说的是一致的。对于有经验的话按照里面所说的解决应该是不难的，但是对于第一次碰到这种问题的人来说，可能有点抽象。</p>
-<p>[1]:	<a target="_blank" rel="noopener" href="https://support.cloudflare.com/hc/zh-cn/articles/115000219871-%E8%A7%A3%E5%86%B3%E9%87%8D%E5%AE%9A%E5%90%91%E5%BE%AA%E7%8E%AF%E9%94%99%E8%AF%AF">https://support.cloudflare.com/hc/zh-cn/articles/115000219871-%E8%A7%A3%E5%86%B3%E9%87%8D%E5%AE%9A%E5%90%91%E5%BE%AA%E7%8E%AF%E9%94%99%E8%AF%AF</a> “解决重定向循环错误”</p>
-<hr>
-<h2 id="title-解决使用-GitPage-重定向多次问题tags-EXP-Web-Https-DNS-解析categories-笔记abbrlink-21686date-2020-05-30-17-24-52"><a href="#title-解决使用-GitPage-重定向多次问题tags-EXP-Web-Https-DNS-解析categories-笔记abbrlink-21686date-2020-05-30-17-24-52" class="headerlink" title="title: 解决使用 GitPage 重定向多次问题tags:  - EXP  - Web  - Https  - DNS 解析categories: 笔记abbrlink: 21686date: 2020-05-30 17:24:52"></a>title: 解决使用 GitPage 重定向多次问题<br>tags:<br>  - EXP<br>  - Web<br>  - Https<br>  - DNS 解析<br>categories: 笔记<br>abbrlink: 21686<br>date: 2020-05-30 17:24:52</h2><h2 id="问题表现-1"><a href="#问题表现-1" class="headerlink" title="问题表现"></a>问题表现</h2><p>博客网站更换了 DNS 解析的服务商，访问出现以下问题。<br>![03oBxi-20200530][image-1]</p>
-<h2 id="问题原因-1"><a href="#问题原因-1" class="headerlink" title="问题原因"></a>问题原因</h2><p>主要是使用的 <code>DNS</code> 解析服务的 <code>SSL/TLS</code> 设置和 GitPage 的 <code>HTTPS</code> 设置冲突了。</p>
-<h2 id="解决方法-1"><a href="#解决方法-1" class="headerlink" title="解决方法"></a>解决方法</h2><p>解决方法很简单，主要就是保证网页和 <code>DNS</code> 解析服务的设置一致就好了。可以从两个方向解决。</p>
-<h3 id="一、CloudFlare-设置灵活，GitHub-取消-HTTPS-1"><a href="#一、CloudFlare-设置灵活，GitHub-取消-HTTPS-1" class="headerlink" title="一、CloudFlare 设置灵活，GitHub 取消 HTTPS"></a>一、CloudFlare 设置灵活，GitHub 取消 HTTPS</h3><p>进入 GitHub 的仓库，点击 <strong>Setting → Options</strong>，一路下拉到 GitHub Pages，把 Enforce HTTPS  取消勾选就好了。<br>![OjCxmm-20200530][image-2]</p>
-<h3 id="二、GitHub-设置-HTTPS，CloudFlare-设置-完全-模式-1"><a href="#二、GitHub-设置-HTTPS，CloudFlare-设置-完全-模式-1" class="headerlink" title="二、GitHub 设置 HTTPS，CloudFlare 设置 完全 模式"></a>二、GitHub 设置 HTTPS，CloudFlare 设置 完全 模式</h3><p>![DdM9XQ-20200530][image-3]</p>
-<h2 id="其他-1"><a href="#其他-1" class="headerlink" title="其他"></a>其他</h2><p>这里也推荐官方提供的解决方法-[解决重定向循环错误][1]，其实和我上述所说的是一致的。对于有经验的话按照里面所说的解决应该是不难的，但是对于第一次碰到这种问题的人来说，可能有点抽象。</p>
 <p>[1]:	<a target="_blank" rel="noopener" href="https://support.cloudflare.com/hc/zh-cn/articles/115000219871-%E8%A7%A3%E5%86%B3%E9%87%8D%E5%AE%9A%E5%90%91%E5%BE%AA%E7%8E%AF%E9%94%99%E8%AF%AF">https://support.cloudflare.com/hc/zh-cn/articles/115000219871-%E8%A7%A3%E5%86%B3%E9%87%8D%E5%AE%9A%E5%90%91%E5%BE%AA%E7%8E%AF%E9%94%99%E8%AF%AF</a> “解决重定向循环错误”</p>
 <p>[image-1]:	<a target="_blank" rel="noopener" href="https://s2.loli.net/2022/04/02/QRqexU16yVaWFuY.jpg">https://s2.loli.net/2022/04/02/QRqexU16yVaWFuY.jpg</a></p>
 <p>[image-2]:	<a target="_blank" rel="noopener" href="https://s2.loli.net/2022/04/02/eWLNPRoSHapdO38.jpg">https://s2.loli.net/2022/04/02/eWLNPRoSHapdO38.jpg</a></p>
@@ -450,13 +442,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">233k</span>
+    <span title="站点总字数">232k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:32</span>
+    <span title="站点阅读时长">3:31</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -543,7 +535,7 @@
 <script src="/js/home-bb-random.js"></script>
 <script src="/js/clawd-physics.js"></script>
 <script src="/js/site-particle-effects.js?v=20260727.14"></script>
-<script src="/js/clawd-effects.js?v=20260727.8"></script>
+<script src="/js/clawd-effects.js?v=20260803.1"></script>
 <script src="/js/site-effects.js?v=20260727.12"></script>
 <script src="/js/content-image-states.js?v=20260727.1"></script>
 

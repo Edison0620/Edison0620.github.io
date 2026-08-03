@@ -93,9 +93,9 @@
       this.finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
       this.coarsePointer = window.matchMedia('(pointer: coarse)');
       try {
-        this.persistent = localStorage.getItem('clawd-permanent') === 'true';
+        this.persistent = localStorage.getItem('clawd-disabled') !== 'true';
       } catch (error) {
-        this.persistent = false;
+        this.persistent = true;
       }
 
       this._onDoubleClick = this._onDoubleClick.bind(this);
@@ -142,7 +142,9 @@
         this._onMediaChange
       );
 
-      if (this.persistent) this._schedulePersistentActivation();
+      if (this.persistent && this.finePointer.matches) {
+        this._schedulePersistentActivation();
+      }
     }
 
     _canActivate(input = 'mouse') {
@@ -606,6 +608,7 @@
       if (this.active || !this._canActivate(input)) return false;
 
       try {
+        this._cancelPersistentActivation();
         this._flushReleases();
         this._cancelAvatarCallbacks();
         this._ensureLayers();
@@ -799,12 +802,12 @@
       event.preventDefault();
 
       if (this.active) {
-        if (Date.now() - this.lastActivationTime > 500) this.deactivate();
+        if (Date.now() - this.lastActivationTime > 500) {
+          this.setPersistent(false);
+        }
         return;
       }
-      if (this.activate(event.clientX, event.clientY)) {
-        this.lastActivationTime = Date.now();
-      }
+      this.setPersistent(true, event.clientX, event.clientY, 'mouse');
     }
 
     _onMouseMove(event) {
@@ -862,7 +865,8 @@
       if (this.reducedMotion.matches || !hasPointer || inputUnavailable) {
         this.deactivate(false);
       }
-      if (this.persistent && !this.active && !this.reducedMotion.matches && hasPointer) {
+      if (this.persistent && this.finePointer.matches
+        && !this.active && !this.reducedMotion.matches) {
         this._schedulePersistentActivation();
       }
     }
@@ -877,7 +881,9 @@
 
     _onPjaxSuccess() {
       this.geometryDirty = true;
-      if (this.persistent) this._schedulePersistentActivation();
+      if (this.persistent && this.finePointer.matches) {
+        this._schedulePersistentActivation();
+      }
     }
 
     _cancelPersistentActivation() {
@@ -890,35 +896,30 @@
       this._cancelPersistentActivation();
       this.persistentActivationTimer = window.setTimeout(() => {
         this.persistentActivationTimer = null;
-        if (!this.persistent || this.active) return;
-        this.activate(
-          innerWidth / 2,
-          innerHeight / 2,
-          this.coarsePointer.matches ? 'touch' : 'mouse'
-        );
+        if (!this.persistent || this.active || !this.finePointer.matches) return;
+        this.activate(innerWidth / 2, innerHeight / 2, 'mouse');
       }, 0);
     }
 
-    setPersistent(enabled) {
+    setPersistent(
+      enabled,
+      x = innerWidth / 2,
+      y = innerHeight / 2,
+      input = this.coarsePointer.matches ? 'touch' : 'mouse'
+    ) {
       this.persistent = Boolean(enabled);
       try {
         if (this.persistent) {
-          localStorage.setItem('clawd-permanent', 'true');
+          localStorage.removeItem('clawd-disabled');
         } else {
-          localStorage.removeItem('clawd-permanent');
+          localStorage.setItem('clawd-disabled', 'true');
         }
       } catch (error) {
         // Persistence can be unavailable in privacy-restricted browsing modes.
       }
 
       if (this.persistent) {
-        if (!this.active) {
-          this.activate(
-            innerWidth / 2,
-            innerHeight / 2,
-            this.coarsePointer.matches ? 'touch' : 'mouse'
-          );
-        }
+        if (!this.active) this.activate(x, y, input);
       } else {
         this._cancelPersistentActivation();
         this.deactivate();
