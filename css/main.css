@@ -1404,7 +1404,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #c4c8ff;
+    background: #ffffcd;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3879,15 +3879,9 @@ html[data-theme='dark'] body {
 :root {
   --pace-loader-ink: #222;
   --pace-loader-accent: #fc6423;
-  --pace-loader-surface: rgba(255,255,255,0.94);
-  --pace-loader-border: rgba(34,34,34,0.16);
-  --pace-loader-shadow: 0 4px 14px rgba(34,34,34,0.16);
 }
 :root[data-theme='dark'] {
   --pace-loader-ink: #fff;
-  --pace-loader-surface: rgba(48,48,48,0.96);
-  --pace-loader-border: rgba(255,255,255,0.28);
-  --pace-loader-shadow: 0 4px 16px rgba(0,0,0,0.56), 0 0 0 1px rgba(252,100,35,0.12);
 }
 html body .pace {
   background: none;
@@ -3911,10 +3905,9 @@ html body .pace .pace-progress {
 }
 html body .pace .pace-activity {
   animation: none;
-  background: var(--pace-loader-surface);
-  border: 1px solid var(--pace-loader-border);
-  border-radius: 12px;
-  box-shadow: var(--pace-loader-shadow);
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
   height: 38px;
   left: 0;
   position: relative;
