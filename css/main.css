@@ -1404,7 +1404,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #ff9e87;
+    background: #7f4798;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3450,6 +3450,30 @@ code {
     background-color: rgba(0, 0, 0, 0.75); //black
 }*/
 /*底部 license 风格由主题主样式统一控制，避免旧覆盖残留*/
+/* BB channel credit in the NexT footer. */
+.bb-channel-credit {
+  color: var(--blockquote-color);
+  display: none;
+  font-size: 12px;
+  margin-top: 8px;
+}
+body:has(.bb-channel-portable) .bb-channel-credit {
+  display: block;
+}
+.bb-channel-credit a {
+  border-bottom: 1px solid currentColor;
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.bb-channel-credit a:hover {
+  color: var(--link-hover-color);
+}
+.bb-channel-credit a:focus-visible {
+  color: var(--link-hover-color);
+  outline: 2px solid var(--link-hover-color);
+  outline-offset: 3px;
+}
 /* Footer lightning strike */
 .with-love .fa-bolt {
   opacity: 0;
