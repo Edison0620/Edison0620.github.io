@@ -337,6 +337,7 @@
   }
 
   async function initHomeBbRandom(document, fetchRandomPost, config = {}) {
+    if (config.enabled === false) return () => {};
     const home = document.querySelector('.main-inner.index');
     if (!home || !isRootHomePath(document.location.pathname, config.siteRoot)) return () => {};
     if (home.querySelector('[data-home-bb-random]')) return () => {};

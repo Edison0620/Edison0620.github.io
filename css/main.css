@@ -1,5 +1,5 @@
 :root {
-  --body-bg-color: #eee;
+  --body-bg-color: #f9fafb;
   --content-bg-color: #fff;
   --card-bg-color: #f5f5f5;
   --text-color: #555;
@@ -1404,7 +1404,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #69dbbe;
+    background: #cf9fff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3018,10 +3018,10 @@ header.header {
 }
 .post-body h1,
 .post-body h2 {
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #f9fafb;
 }
 .post-body h3 {
-  border-bottom: 1px dotted #eee;
+  border-bottom: 1px dotted #f9fafb;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .main-inner {
@@ -3053,7 +3053,7 @@ header.header {
 }
 /* Manual color mode overrides NexT's system-only dark mode. */
 :root[data-theme='light'] {
-  --body-bg-color: #eee;
+  --body-bg-color: #f9fafb;
   --content-bg-color: #fff;
   --card-bg-color: #f5f5f5;
   --text-color: #555;
@@ -3205,17 +3205,8 @@ header.header {
     flex-wrap: wrap;
     justify-content: left;
 }*/
-/*添加背景图片*/
-body {
-/*https://s2.loli.net/2022/07/07/Tn26Kxe4vzVWpFD.png*/
-/*https://s2.loli.net/2022/07/07/TdCYRhj9oQBIVW5.jpg*/
-/*https://s2.loli.net/2022/07/08/oNgsPfZY1x8dKQ9.png*/
-/*https://w.wallhaven.cc/full/g8/wallhaven-g8gmde.png*/
-  background: url("https://res.cloudinary.com/clawvox/image/upload/f_auto,q_auto:good/blog/backgrounds/blog-bg.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-/*background-position: 50% 50%;*/
+.main-inner.index .post-block {
+  cursor: pointer;
 }
 html.clawd-effects-active,
 html.clawd-effects-active * {
@@ -3340,18 +3331,27 @@ h6) a:not(.btn):not(.fancybox):not(.headerlink):not(.header-anchor):not([data-fa
   padding-right: 5px;
 }*/
 /* 滚动条 */
+html {
+  scrollbar-color: rgba(60,60,67,0.4) transparent;
+  scrollbar-width: thin;
+}
+html[data-theme='dark'] {
+  scrollbar-color: rgba(255,255,255,0.35) transparent;
+}
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background-color: rgba(160,160,160,0.3);
-  border-radius: 2em;
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #555;
-  background-image: -webkit-linear-gradient(45deg, rgba(255,255,255,0.4) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.4) 75%, transparent 75%, transparent);
-  border-radius: 2em;
+  background: rgba(60,60,67,0.4);
+  border-radius: 6px;
+}
+html[data-theme='dark'] ::-webkit-scrollbar-thumb,
+html[data-theme='dark']::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.35);
 }
 ::-webkit-scrollbar-corner {
   background-color: transparent;
