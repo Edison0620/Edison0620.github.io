@@ -1404,7 +1404,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #cf9fff;
+    background: #b932ff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3207,6 +3207,10 @@ header.header {
 }*/
 .main-inner.index .post-block {
   cursor: pointer;
+  box-shadow: 0 4px 18px rgba(31,41,55,0.07);
+}
+:root[data-theme='dark'] .main-inner.index .post-block {
+  box-shadow: 0 4px 18px rgba(0,0,0,0.18);
 }
 html.clawd-effects-active,
 html.clawd-effects-active * {
