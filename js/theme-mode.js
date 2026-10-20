@@ -268,7 +268,7 @@
     var nextMode = MODES[(MODES.indexOf(currentMode) + 1) % MODES.length];
     var icon = button.querySelector('i');
 
-    icon.className = 'fa ' + MODE_ICONS[currentMode] + ' fa-fw';
+    icon.className = 'fa-regular ' + MODE_ICONS[currentMode] + ' fa-fw';
     button.dataset.mode = currentMode;
     button.setAttribute('aria-label', '当前为' + MODE_LABELS[currentMode] + '模式，切换到' + MODE_LABELS[nextMode] + '模式');
     button.title = '外观：' + MODE_LABELS[currentMode] + '；可上下拖动';
