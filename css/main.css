@@ -1404,7 +1404,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #b932ff;
+    background: #0ac9ff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2723,7 +2723,7 @@ mark.search-keyword {
 header.header {
   background: var(--content-bg-color);
   border-radius: 6px 6px 6px 6px;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
+  box-shadow: var(--gemini-block-shadow);
 }
 @media (max-width: 991px) {
   header.header {
@@ -2895,7 +2895,7 @@ header.header {
   .sidebar-inner {
     background: var(--content-bg-color);
     border-radius: 6px 6px 6px 6px;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
+    box-shadow: var(--gemini-block-shadow);
     box-sizing: border-box;
     color: var(--text-color);
     margin-top: 12px;
@@ -2964,11 +2964,11 @@ header.header {
 .main-inner .pagination {
   background: var(--content-bg-color);
   border-radius: 6px 6px 6px 6px;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
+  box-shadow: var(--gemini-block-shadow);
 }
 .main-inner .post-block:not(:first-child):not(:first-child) {
   border-radius: 6px 6px 6px 6px;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
+  box-shadow: var(--gemini-block-shadow);
   margin-top: 12px;
 }
 @media (min-width: 768px) and (max-width: 991px) {
@@ -2986,7 +2986,7 @@ header.header {
 .main-inner .comment-position .comments,
 .main-inner .pagination {
   border-radius: 6px 6px 6px 6px;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
+  box-shadow: var(--gemini-block-shadow);
   margin-top: 12px;
 }
 @media (min-width: 768px) and (max-width: 991px) {
@@ -3052,6 +3052,9 @@ header.header {
   }
 }
 /* Manual color mode overrides NexT's system-only dark mode. */
+:root {
+  --gemini-block-shadow: 0 4px 18px rgba(31,41,55,0.07);
+}
 :root[data-theme='light'] {
   --body-bg-color: #f9fafb;
   --content-bg-color: #fff;
@@ -3081,6 +3084,7 @@ header.header {
   color-scheme: light;
 }
 :root[data-theme='dark'] {
+  --gemini-block-shadow: 0 4px 18px rgba(0,0,0,0.18);
   --body-bg-color: #282828;
   --content-bg-color: #333;
   --card-bg-color: #555;
@@ -3207,10 +3211,6 @@ header.header {
 }*/
 .main-inner.index .post-block {
   cursor: pointer;
-  box-shadow: 0 4px 18px rgba(31,41,55,0.07);
-}
-:root[data-theme='dark'] .main-inner.index .post-block {
-  box-shadow: 0 4px 18px rgba(0,0,0,0.18);
 }
 html.clawd-effects-active,
 html.clawd-effects-active * {
