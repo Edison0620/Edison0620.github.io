@@ -63,6 +63,7 @@
       this.dpr = 1;
       this.pointerX = 0;
       this.pointerY = 0;
+      this.lastMousePosition = null;
       this.clawdX = 0;
       this.clawdY = 0;
       this.previousPointerX = 0;
@@ -811,15 +812,23 @@
     }
 
     _onMouseMove(event) {
+      this._rememberMousePosition(event);
       if (!this.active) return;
       this.pointerX = event.clientX;
       this.pointerY = event.clientY;
     }
 
     _onMouseDown(event) {
-      if (!this.active || event.button !== 0) return;
+      if (event.button !== 0) return;
+      this._rememberMousePosition(event);
+      if (!this.active) return;
       event.preventDefault();
       this.startShooting();
+    }
+
+    _rememberMousePosition(event) {
+      if (!Number.isFinite(event.clientX) || !Number.isFinite(event.clientY)) return;
+      this.lastMousePosition = { x: event.clientX, y: event.clientY };
     }
 
     _onMouseUp() {
@@ -897,7 +906,11 @@
       this.persistentActivationTimer = window.setTimeout(() => {
         this.persistentActivationTimer = null;
         if (!this.persistent || this.active || !this.finePointer.matches) return;
-        this.activate(innerWidth / 2, innerHeight / 2, 'mouse');
+        const position = this.lastMousePosition || {
+          x: innerWidth / 2,
+          y: innerHeight / 2
+        };
+        this.activate(position.x, position.y, 'mouse');
       }, 0);
     }
 

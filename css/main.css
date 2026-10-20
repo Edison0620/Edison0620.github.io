@@ -1404,7 +1404,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #ff907e;
+    background: #cb8eda;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -1783,12 +1783,12 @@ pre code {
 }
 @media (min-width: 1200px) {
   .footer-inner {
-    width: 75em;
+    width: 1052px;
   }
 }
 @media (min-width: 1600px) {
   .footer-inner {
-    width: 60%;
+    width: 1052px;
   }
 }
 .use-motion .footer {
@@ -2744,12 +2744,12 @@ header.header {
 }
 @media (min-width: 1200px) {
   .main {
-    width: 75em;
+    width: 1052px;
   }
 }
 @media (min-width: 1600px) {
   .main {
-    width: 60%;
+    width: 1052px;
   }
 }
 @media (max-width: 991px) {
@@ -3903,62 +3903,6 @@ html[data-theme='dark'] body {
   background: var(--link-hover-color);
   color: var(--card-bg-color);
 }
-/* Pace coffee loader */
-html body .pace {
-  background: none;
-  height: 38px;
-  opacity: 0;
-  pointer-events: none;
-  position: fixed;
-  right: 18px;
-  top: 14px;
-  transform: translateY(-7px) scale(0.84);
-  transition: opacity 0.26s ease, transform 0.26s cubic-bezier(0.22, 0.8, 0.3, 1);
-  width: 38px;
-  z-index: 2000;
-}
-html body .pace.pace-active {
-  opacity: 1;
-  transform: none;
-}
-html body .pace .pace-progress {
-  display: none;
-}
-html body .pace .pace-activity {
-  animation: none;
-  background: transparent url("/images/coffee-pour-loader.svg") center/contain no-repeat;
-  border-radius: 0;
-  box-shadow: none;
-  height: 38px;
-  left: 0;
-  position: relative;
-  top: 0;
-  width: 38px;
-}
-html body .pace .pace-activity::before,
-html body .pace .pace-activity::after {
-  content: none;
-}
-@media (max-width: 767px) {
-  html body .pace,
-  html body .pace .pace-activity {
-    height: 34px;
-    width: 34px;
-  }
-  html body .pace {
-    right: 12px;
-    top: 12px;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  html body .pace {
-    transition: none;
-  }
-  html body .pace .pace-activity {
-    background-image: url("/images/coffee-pour-loader.svg#reduced-motion");
-  }
-}
-/* End Pace coffee loader */
 @keyframes footer-bolt-motion {
   0%, 18% {
     transform: translate(9px, -12px) rotate(7deg);

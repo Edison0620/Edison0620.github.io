@@ -200,6 +200,47 @@ function createTokenUsageClient(overrides = {}) {
     container.replaceChildren(title, table);
   }
 
+  const MODEL_COLORS = [
+    '#b965bb', '#298fa5', '#dc795d', '#677acb',
+    '#bd9741', '#4a9c73', '#ca6689', '#8272bb',
+    '#b77a50', '#4596b9', '#989849', '#b16b9f'
+  ];
+
+  function buildModelSummary(container, models, total) {
+    const heading = appendTextElement(container, 'h2', 'Model share');
+    const list = document.createElement('ol');
+    list.className = 'token-model-list';
+    if (!models.length) {
+      appendTextElement(list, 'li', 'No model usage data.');
+    }
+    models.forEach((model, index) => {
+      const share = total ? numberValue(model.totalTokens) / total : 0;
+      const row = document.createElement('li');
+      row.className = 'token-model-row';
+      row.setAttribute('style', `--model-color: ${MODEL_COLORS[index % MODEL_COLORS.length]}`);
+      const top = document.createElement('div');
+      top.className = 'token-model-top';
+      const name = appendTextElement(top, 'span', String(model.model || 'Unknown model'));
+      name.className = 'token-model-name';
+      const percent = appendTextElement(top, 'strong', formatPercent(share));
+      percent.className = 'token-model-percent';
+      const track = document.createElement('div');
+      track.className = 'token-model-track';
+      const fill = document.createElement('div');
+      fill.className = 'token-model-fill';
+      fill.setAttribute('style', `width: ${Math.max(0, Math.min(100, share * 100))}%`);
+      track.append(fill);
+      const meta = document.createElement('div');
+      meta.className = 'token-model-meta';
+      const tokens = formatLedgerTokens(model.totalTokens);
+      appendTextElement(meta, 'span', tokens.text, tokens.attributes);
+      appendTextElement(meta, 'span', formatCost(model.totalCost));
+      row.append(top, track, meta);
+      list.append(row);
+    });
+    container.replaceChildren(heading, list);
+  }
+
   function populateSummaries(root, data) {
     const overview = data && typeof data.overview === 'object' ? data.overview : {};
     const models = Array.isArray(data?.models) ? data.models : [];
@@ -215,25 +256,21 @@ function createTokenUsageClient(overrides = {}) {
     setText(root, '[data-token-kpi-days]', formatInteger(activeDays));
 
     const modelTotal = models.reduce((sum, model) => sum + numberValue(model.totalTokens), 0);
-    const modelRows = models
-      .slice()
-      .sort((left, right) => numberValue(right.totalTokens) - numberValue(left.totalTokens))
-      .slice(0, 8)
-      .map(model => [
-        String(model.model || 'Unknown model'),
-        formatPercent(modelTotal ? numberValue(model.totalTokens) / modelTotal : 0),
-        formatLedgerTokens(model.totalTokens),
-        formatCost(model.totalCost)
-      ]);
+    const groupedModels = new Map();
+    models.forEach(model => {
+      const name = String(model.model || 'Unknown model');
+      const aggregate = groupedModels.get(name) || { model: name, totalTokens: 0, totalCost: 0 };
+      aggregate.totalTokens += numberValue(model.totalTokens);
+      aggregate.totalCost += numberValue(model.totalCost);
+      groupedModels.set(name, aggregate);
+    });
+    const topModels = [...groupedModels.values()]
+      .sort((left, right) => numberValue(right.totalTokens) - numberValue(left.totalTokens) ||
+        String(left.model || '').localeCompare(String(right.model || '')))
+      .slice(0, 6);
     const modelSummary = query(root, '[data-token-model-summary]');
     if (modelSummary) {
-      buildTable(
-        modelSummary,
-        'Model share',
-        ['Model', 'Share', 'Tokens', 'Cost'],
-        modelRows,
-        'No model usage data.'
-      );
+      buildModelSummary(modelSummary, topModels, modelTotal);
     }
 
     const dailyRows = daily
