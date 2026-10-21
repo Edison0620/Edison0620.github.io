@@ -54,6 +54,7 @@
       this.active = false;
       this.canvas = null;
       this.context = null;
+      this.canvasHasPixels = false;
       this.avatar = null;
       this.raf = null;
       this.avatarOpacityRaf = null;
@@ -69,6 +70,7 @@
       this.previousPointerX = 0;
       this.previousPointerY = 0;
       this.facingAngle = 0;
+      this.facingScale = 1;
       this.bullets = [];
       this.targets = [];
       this.displacements = new Map();
@@ -191,6 +193,8 @@
       this.avatar.setAttribute('aria-hidden', 'true');
       this.avatar.style.cssText = [
         'position:fixed',
+        'left:0',
+        'top:0',
         'width:100px',
         'height:100px',
         'pointer-events:none',
@@ -198,6 +202,7 @@
         'display:none',
         'opacity:0',
         'transition:opacity 0.3s ease',
+        'will-change:transform',
         'image-rendering:pixelated'
       ].join(';');
 
@@ -223,6 +228,7 @@
       this.dpr = Math.min(window.devicePixelRatio || 1, 2);
       this.canvas.width = Math.round(this.width * this.dpr);
       this.canvas.height = Math.round(this.height * this.dpr);
+      this.canvasHasPixels = false;
       this.context.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
     }
 
@@ -509,9 +515,11 @@
     }
 
     _draw() {
+      if (this.bullets.length === 0 && !this.canvasHasPixels) return;
       const context = this.context;
       context.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
       context.clearRect(0, 0, this.width, this.height);
+      this.canvasHasPixels = this.bullets.length > 0;
 
       for (const bullet of this.bullets) {
         const opacity = Math.min((bullet.life / bullet.maxLife) * 2, 1);
@@ -541,18 +549,18 @@
         this.lastTargetRefresh = now;
       }
 
-      this.clawdX += (this.pointerX - this.clawdX) * 0.1;
-      this.clawdY += (this.pointerY - this.clawdY) * 0.1;
+      const follow = 1 - Math.exp(-dt / 0.05);
+      this.clawdX += (this.pointerX - this.clawdX) * follow;
+      this.clawdY += (this.pointerY - this.clawdY) * follow;
       const movementX = this.pointerX - this.previousPointerX;
       const movementY = this.pointerY - this.previousPointerY;
       if (Math.hypot(movementX, movementY) > 1.5) {
         this.facingAngle = Math.atan2(movementY, movementX);
-        this.avatar.style.transform = movementX < 0 ? 'scaleX(1)' : 'scaleX(-1)';
+        this.facingScale = movementX < 0 ? 1 : -1;
         this.previousPointerX = this.pointerX;
         this.previousPointerY = this.pointerY;
       }
-      this.avatar.style.left = `${this.clawdX - 50}px`;
-      this.avatar.style.top = `${this.clawdY - 78}px`;
+      this.avatar.style.transform = `translate3d(${this.clawdX - 50}px, ${this.clawdY - 78}px, 0) scaleX(${this.facingScale})`;
 
       if (this.mouseDown) {
         const profile = physics.getFireProfile(now - this.holdStart);
@@ -623,6 +631,7 @@
         this.previousPointerX = x;
         this.previousPointerY = y;
         this.facingAngle = 0;
+        this.facingScale = 1;
         this.bullets = [];
         this.mouseDown = false;
         this.lastFireTime = 0;
@@ -644,8 +653,7 @@
         this._refreshGeometry(false);
         this.canvas.style.display = 'block';
         this.avatar.style.display = 'block';
-        this.avatar.style.left = `${x - 50}px`;
-        this.avatar.style.top = `${y - 78}px`;
+        this.avatar.style.transform = `translate3d(${x - 50}px, ${y - 78}px, 0) scaleX(1)`;
         this.avatarOpacityRaf = window.requestAnimationFrame(() => {
           this.avatarOpacityRaf = null;
           if (this.active) this.avatar.style.opacity = '1';
@@ -689,6 +697,7 @@
 
       if (this.context) {
         this.context.clearRect(0, 0, this.width, this.height);
+        this.canvasHasPixels = false;
       }
       if (this.canvas) this.canvas.style.display = 'none';
 
