@@ -1404,7 +1404,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #8f8a2e;
+    background: #ffbfff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3210,6 +3210,12 @@ header.header {
     flex-wrap: wrap;
     justify-content: left;
 }*/
+body {
+  background-image: url("https://res.cloudinary.com/clawvox/image/upload/v1792553671/blog/backgrounds/sunlit-cats-terrace-8c4aaa33c6.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 .main-inner.index .post-block {
   cursor: pointer;
 }
