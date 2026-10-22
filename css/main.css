@@ -1404,7 +1404,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #95b121;
+    background: #6ff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3228,7 +3228,7 @@ html.clawd-effects-active * {
 }
 /* sidebar-标题背景 */
 .site-brand-container {
-  background-color: #e9f1f4;
+  background-color: #0a0c14;
   background-image: var(--site-sidebar-bg-image, none);
   background-position: 70% 20%;
   background-size: cover;
@@ -3237,13 +3237,13 @@ html.clawd-effects-active * {
 }
 .site-brand-container .brand,
 .site-brand-container .site-subtitle {
-  color: #354957;
+  color: #f5f5f5;
 }
 .site-brand-container .site-nav-toggle .toggle-line {
-  background: #354957;
+  background: #f5f5f5;
 }
 .site-brand-container .site-nav-right .toggle {
-  color: #354957;
+  color: #f5f5f5;
 }
 /* 自定义的引用样式 */
 blockquote {
