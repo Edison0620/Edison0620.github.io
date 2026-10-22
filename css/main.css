@@ -1404,7 +1404,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #ffbfff;
+    background: #95b121;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3211,7 +3211,7 @@ header.header {
     justify-content: left;
 }*/
 body {
-  background-image: url("https://res.cloudinary.com/clawvox/image/upload/v1792553671/blog/backgrounds/sunlit-cats-terrace-8c4aaa33c6.webp");
+  background-image: var(--site-main-bg-image, none);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -3228,11 +3228,22 @@ html.clawd-effects-active * {
 }
 /* sidebar-标题背景 */
 .site-brand-container {
-  background: url("https://s2.loli.net/2022/04/27/wie1BDr4kExIcAH.gif");
+  background-color: #e9f1f4;
+  background-image: var(--site-sidebar-bg-image, none);
   background-position: 70% 20%;
   background-size: cover;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
+}
+.site-brand-container .brand,
+.site-brand-container .site-subtitle {
+  color: #354957;
+}
+.site-brand-container .site-nav-toggle .toggle-line {
+  background: #354957;
+}
+.site-brand-container .site-nav-right .toggle {
+  color: #354957;
 }
 /* 自定义的引用样式 */
 blockquote {
