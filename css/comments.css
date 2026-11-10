@@ -1,0 +1,130 @@
+/* Keep Waline controls visually consistent without changing its structure or behavior. */
+.writing-comments [data-waline] .wl-actions {
+  gap: 4px;
+  min-width: 0;
+}
+
+.writing-comments [data-waline] .wl-action {
+  box-sizing: border-box;
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  margin: 0;
+  border-radius: 4px;
+}
+
+.writing-comments [data-waline] .wl-action svg,
+.writing-comments [data-waline] .wl-info button svg {
+  display: block;
+  flex: none;
+  width: 18px;
+  height: 18px;
+}
+
+.writing-comments [data-waline] .wl-action:hover {
+  background: var(--waline-bg-color-hover);
+}
+
+.writing-comments [data-waline] .wl-action:focus-visible,
+.writing-comments [data-waline] #wl-image-upload:focus-visible + label,
+.writing-comments [data-waline] .wl-comment-actions button:focus-visible,
+.writing-comments [data-waline] .wl-comment-status .wl-btn:focus-visible {
+  outline: 2px solid var(--waline-theme-color);
+  outline-offset: 2px;
+}
+
+.writing-comments [data-waline] .wl-footer {
+  align-items: center;
+  gap: 8px;
+}
+
+.writing-comments [data-waline] .wl-info {
+  min-width: 0;
+}
+
+.writing-comments [data-waline] .wl-info .wl-btn {
+  box-sizing: border-box;
+  min-height: 36px;
+}
+
+.writing-comments [data-waline] .wl-card .wl-comment-actions {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.writing-comments [data-waline] .wl-card .wl-comment-actions button {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  min-width: 32px;
+  min-height: 32px;
+  padding: 6px;
+  border-radius: 4px;
+  font: inherit;
+}
+
+.writing-comments [data-waline] .wl-card .wl-comment-actions button:hover {
+  background: var(--waline-bg-color-hover);
+}
+
+.writing-comments [data-waline] .wl-card .wl-comment-actions button svg {
+  display: block;
+  flex: none;
+  width: 18px;
+  height: 18px;
+}
+
+.writing-comments [data-waline] .wl-card .wl-delete {
+  color: var(--waline-warning-color);
+}
+
+.writing-comments [data-waline] .wl-card .wl-delete:hover,
+.writing-comments [data-waline] .wl-card .wl-delete:focus-visible {
+  color: var(--waline-theme-color);
+}
+
+.writing-comments [data-waline] .wl-card .wl-admin-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.writing-comments [data-waline] .wl-card .wl-comment-status {
+  display: inline-flex;
+  margin: 0;
+}
+
+.writing-comments [data-waline] .wl-card .wl-comment-status .wl-btn {
+  box-sizing: border-box;
+  min-height: 32px;
+}
+
+@media (max-width: 580px) {
+  .writing-comments [data-waline] .wl-footer {
+    margin-inline: 0.5em;
+  }
+
+  .writing-comments [data-waline] .wl-actions {
+    flex: 1 1 100%;
+  }
+
+  .writing-comments [data-waline] .wl-info {
+    flex: 1 1 100%;
+    justify-content: space-between;
+  }
+
+  .writing-comments [data-waline] .wl-info button {
+    margin-inline-start: auto;
+  }
+
+  .writing-comments [data-waline] .wl-card .wl-comment-actions {
+    max-width: 100%;
+  }
+}

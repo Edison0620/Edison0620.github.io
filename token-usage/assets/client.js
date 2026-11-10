@@ -501,9 +501,18 @@ function createTokenUsageClient(overrides = {}) {
       }
       terminalResizeListener = () => {
         const terminal = query(root, '[data-token-terminal]');
-        restoreFocusAfterResize = restoreFocusAfterResize || Boolean(
+        const restoreFocus = restoreFocusAfterResize || Boolean(
           terminal && document?.activeElement && terminal.contains?.(document.activeElement)
         );
+        restoreFocusAfterResize = restoreFocus;
+        // DomBackend invalidates its DOM surface on window resize while Ratatui
+        // keeps its previous diff buffer. Recreate both before the next key redraw.
+        if (activeRoot !== root || !renderer || !rendererMounted) return;
+
+        renderer.redraw('tokscale-terminal');
+        const grid = configureTerminalGrid(root);
+        if (restoreFocus && grid?.focus) grid.focus({ preventScroll: true });
+        restoreFocusAfterResize = false;
       };
       addWindowEventListener('resize', terminalResizeListener, true);
     }

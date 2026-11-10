@@ -17,23 +17,32 @@
     '.post-body > pre',
     '.post-toc'
   ].join(', ');
-  const COLLISION_IGNORED_SELECTORS = [
+  const INTERACTIVE_COLLISION_SELECTOR = [
+    'a',
+    'button',
+    'summary',
+    'label',
+    '[role="button"]',
+    '[role="link"]',
+    '[tabindex]:not([tabindex="-1"])'
+  ].join(', ');
+  const COLLISION_IGNORED_SELECTOR = [
     'input',
     'textarea',
     'select',
-    'button',
     '[contenteditable="true"]',
     '[data-clawd-ignore]',
     '[data-site-effects-ignore]',
     '.fancybox__container',
     '.search-popup',
     '.search-pop-overlay',
+    '.site-search__overlay',
     '.comments',
     '.comment-container'
-  ];
-  const COLLISION_IGNORED_SELECTOR = COLLISION_IGNORED_SELECTORS.join(', ');
+  ].join(', ');
   const INTERACTION_IGNORED_SELECTOR = [
-    ...COLLISION_IGNORED_SELECTORS,
+    COLLISION_IGNORED_SELECTOR,
+    INTERACTIVE_COLLISION_SELECTOR,
     '.highlight',
     '.post-body pre',
     '.post-title-link',
@@ -57,8 +66,6 @@
       this.canvasHasPixels = false;
       this.avatar = null;
       this.raf = null;
-      this.avatarOpacityRaf = null;
-      this.avatarHideTimer = null;
       this.width = 0;
       this.height = 0;
       this.dpr = 1;
@@ -201,7 +208,6 @@
         'z-index:9999',
         'display:none',
         'opacity:0',
-        'transition:opacity 0.3s ease',
         'will-change:transform',
         'image-rendering:pixelated'
       ].join(';');
@@ -210,16 +216,6 @@
       this._resizeCanvas();
     }
 
-    _cancelAvatarCallbacks() {
-      if (this.avatarOpacityRaf !== null) {
-        window.cancelAnimationFrame(this.avatarOpacityRaf);
-        this.avatarOpacityRaf = null;
-      }
-      if (this.avatarHideTimer !== null) {
-        window.clearTimeout(this.avatarHideTimer);
-        this.avatarHideTimer = null;
-      }
-    }
 
     _resizeCanvas() {
       if (!this.canvas || !this.context) return;
@@ -262,12 +258,18 @@
           const element = textNode.parentElement;
           if (!element || element.closest(COLLISION_IGNORED_SELECTOR)) continue;
           if (element.closest('script, style, noscript, svg, canvas')) continue;
-          candidates.add(element);
+          candidates.add(element.closest(INTERACTIVE_COLLISION_SELECTOR) || element);
         }
       }
 
+      for (const control of document.querySelectorAll(INTERACTIVE_COLLISION_SELECTOR)) {
+        if (!control.closest(COLLISION_IGNORED_SELECTOR)) candidates.add(control);
+      }
+
       for (const element of document.querySelectorAll(GROUPED_TARGET_SELECTOR)) {
-        if (element.closest(TARGET_ROOT_SELECTOR)) candidates.add(element);
+        if (element.closest(TARGET_ROOT_SELECTOR) && !element.querySelector(INTERACTIVE_COLLISION_SELECTOR)) {
+          candidates.add(element);
+        }
       }
 
       for (const line of document.querySelectorAll(CODE_LINE_TARGET_SELECTOR)) {
@@ -276,8 +278,8 @@
 
       return [...candidates]
         .filter(element => {
-          const root = element.closest(TARGET_ROOT_SELECTOR);
-          if (!root || element === root) return false;
+          const root = element.closest(TARGET_ROOT_SELECTOR) || document.body;
+          if (element === root) return false;
           let ancestor = element.parentElement;
           while (ancestor && ancestor !== root) {
             if (candidates.has(ancestor)) return false;
@@ -286,16 +288,22 @@
           return true;
         })
         .filter(element => {
+          if (!element.matches(INTERACTIVE_COLLISION_SELECTOR) && element.querySelector(INTERACTIVE_COLLISION_SELECTOR)) return false;
           const style = getComputedStyle(element);
           if (style.display === 'none' || style.visibility === 'hidden') return false;
-          if (style.position === 'fixed' || style.position === 'sticky') return false;
+          const interactive = element.matches(INTERACTIVE_COLLISION_SELECTOR);
+          if (!interactive && (style.position === 'fixed' || style.position === 'sticky')) return false;
           const rect = element.getBoundingClientRect();
           return rect.width > 0
             && rect.height > 0
             && rect.top < window.innerHeight + 200
             && rect.bottom > -200;
         })
-        .map(element => ({ element, rect: null }));
+        .map(element => ({
+          element,
+          interactive: element.matches(INTERACTIVE_COLLISION_SELECTOR),
+          rect: null
+        }));
     }
 
     _refreshGeometry(recollect) {
@@ -522,6 +530,16 @@
       this.canvasHasPixels = this.bullets.length > 0;
 
       for (const bullet of this.bullets) {
+        if (bullet.impactAt !== undefined) {
+          const progress = Math.min((this.lastFrameTime - bullet.impactAt) / 240, 1);
+          context.globalAlpha = 1 - progress;
+          context.strokeStyle = '#f40';
+          context.lineWidth = 2;
+          context.beginPath();
+          context.arc(bullet.x, bullet.y, 4 + progress * 12, 0, Math.PI * 2);
+          context.stroke();
+          continue;
+        }
         const opacity = Math.min((bullet.life / bullet.maxLife) * 2, 1);
         context.globalAlpha = opacity;
         context.fillStyle = '#ffa657';
@@ -549,9 +567,11 @@
         this.lastTargetRefresh = now;
       }
 
-      const follow = 1 - Math.exp(-dt / 0.05);
-      this.clawdX += (this.pointerX - this.clawdX) * follow;
-      this.clawdY += (this.pointerY - this.clawdY) * follow;
+      if (this.activeInput === 'touch') {
+        const follow = 1 - Math.exp(-dt / 0.05);
+        this.clawdX += (this.pointerX - this.clawdX) * follow;
+        this.clawdY += (this.pointerY - this.clawdY) * follow;
+      }
       const movementX = this.pointerX - this.previousPointerX;
       const movementY = this.pointerY - this.previousPointerY;
       if (Math.hypot(movementX, movementY) > 1.5) {
@@ -574,11 +594,16 @@
       }
 
       this.bullets = this.bullets.filter(bullet => {
+        if (bullet.impactAt !== undefined) return now - bullet.impactAt < 240;
         if (!physics.stepBullet(bullet, dt, this.width, this.height)) return false;
 
         for (const target of this.targets) {
           const distance = physics.circleRectDistance(bullet.x, bullet.y, target.rect);
           if (distance >= physics.CONSTANTS.hitRadius) continue;
+          if (target.interactive) {
+            bullet.impactAt = now;
+            return true;
+          }
           const centerX = (target.rect.left + target.rect.right) / 2;
           const centerY = (target.rect.top + target.rect.bottom) / 2;
           const angle = Math.atan2(centerY - bullet.y, centerX - bullet.x);
@@ -618,8 +643,6 @@
 
       try {
         this._cancelPersistentActivation();
-        this._flushReleases();
-        this._cancelAvatarCallbacks();
         this._ensureLayers();
         this._capturePageState();
         this.active = true;
@@ -637,8 +660,8 @@
         this.lastFireTime = 0;
         this.lastTargetRefresh = 0;
         document.documentElement.style.cursor = 'none';
-        document.documentElement.style.userSelect = 'none';
         if (input === 'touch') {
+          document.documentElement.style.userSelect = 'none';
           document.documentElement.style.overflow = 'hidden';
           document.documentElement.style.touchAction = 'none';
           if (document.body) {
@@ -654,10 +677,7 @@
         this.canvas.style.display = 'block';
         this.avatar.style.display = 'block';
         this.avatar.style.transform = `translate3d(${x - 50}px, ${y - 78}px, 0) scaleX(1)`;
-        this.avatarOpacityRaf = window.requestAnimationFrame(() => {
-          this.avatarOpacityRaf = null;
-          if (this.active) this.avatar.style.opacity = '1';
-        });
+        this.avatar.style.opacity = '1';
         this.lastFrameTime = performance.now();
         this.raf = window.requestAnimationFrame(this._stepFrame);
         this.lastActivationTime = Date.now();
@@ -671,16 +691,12 @@
 
     deactivate(animate = true) {
       if (!this.active && this.displacements.size === 0) {
-        if (!animate) {
-          this._cancelAvatarCallbacks();
-          if (this.avatar) {
-            this.avatar.style.opacity = '0';
-            this.avatar.style.display = 'none';
-          }
+        if (!animate && this.avatar) {
+          this.avatar.style.opacity = '0';
+          this.avatar.style.display = 'none';
         }
         return;
       }
-      this._cancelAvatarCallbacks();
       this.active = false;
       this.activeInput = null;
       this.mouseDown = false;
@@ -822,13 +838,24 @@
 
     _onMouseMove(event) {
       this._rememberMousePosition(event);
-      if (!this.active) return;
+      if (!this.active) {
+        if (this.persistent && this.finePointer.matches && this.lastMousePosition) {
+          this.activate(this.lastMousePosition.x, this.lastMousePosition.y, 'mouse');
+        }
+        return;
+      }
       this.pointerX = event.clientX;
       this.pointerY = event.clientY;
+      if (this.activeInput === 'mouse') {
+        this.clawdX = event.clientX;
+        this.clawdY = event.clientY;
+        this.avatar.style.transform = `translate3d(${this.clawdX - 50}px, ${this.clawdY - 78}px, 0) scaleX(${this.facingScale})`;
+      }
     }
 
     _onMouseDown(event) {
       if (event.button !== 0) return;
+      if (this._isIgnoredTarget(event.target)) return;
       this._rememberMousePosition(event);
       if (!this.active) return;
       event.preventDefault();
@@ -912,14 +939,12 @@
 
     _schedulePersistentActivation() {
       this._cancelPersistentActivation();
+      if (!this.lastMousePosition) return;
       this.persistentActivationTimer = window.setTimeout(() => {
         this.persistentActivationTimer = null;
         if (!this.persistent || this.active || !this.finePointer.matches) return;
-        const position = this.lastMousePosition || {
-          x: innerWidth / 2,
-          y: innerHeight / 2
-        };
-        this.activate(position.x, position.y, 'mouse');
+        const position = this.lastMousePosition;
+        if (position) this.activate(position.x, position.y, 'mouse');
       }, 0);
     }
 
