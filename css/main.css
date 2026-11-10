@@ -282,14 +282,20 @@ body[data-mode="employee"] .view--employee {
 
 .site-signature {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
-  gap: 6px 10px;
+  gap: 16px 24px;
   max-width: 800px;
   margin: 0 auto;
   padding: 0 24px 48px;
   color: var(--ink-tertiary);
   font: 12px var(--font-mono);
+}
+.site-signature__identity {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
 }
 body:has(.writing-container) .site-signature {
   max-width: 680px;
@@ -413,11 +419,17 @@ body .token-usage-app .token-usage-details > div {
 
 .site-stats {
   display: flex;
-  justify-content: center;
-  gap: 24px;
-  padding: 0 24px 40px;
+  align-items: center;
+  gap: 20px;
   color: var(--ink-tertiary);
   font: 11px/1.5 var(--font-mono);
+  white-space: nowrap;
+}
+@media (max-width: 640px) {
+  .site-signature {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .writing-back {
@@ -1290,6 +1302,10 @@ body .token-usage-app .token-usage-details > div {
 @media (max-width: 600px) {
   .main-container {
     padding: 60px 20px 24px;
+  }
+  body:has(.main-container) .site-signature {
+    padding-right: 20px;
+    padding-left: 20px;
   }
 
   .project-row:hover {

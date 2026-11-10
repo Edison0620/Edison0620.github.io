@@ -5,10 +5,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>翻译：Why use dependency injection | 壹拾肆</title>
-<meta name="description" content="原文来自：Why use dependency injection 第一次翻译，如有问题还请留言指出。 E-mail：&amp;#114;&amp;#x6f;&amp;#x6f;&amp;#x74;&amp;#64;&amp;#x6b;&amp;#97;&amp;#x61;&amp;#x61;&amp;#97;&amp;#x61;&amp;#x69;&amp;#x2e;&amp;#99;&amp;#x6e; 为什么使用依赖注入？ 本文档介绍了依赖注入的基本知识；它是什么；以…">
+<meta name="description" content="原文来自：Why use dependency injection 第一次翻译，如有问题还请留言指出。 E-mail：&amp;#114;&amp;#x6f;&amp;#x6f;&amp;#x74;&amp;#64;&amp;#x6b;&amp;#97;&amp;#x61;&amp;#x61;&amp;#x61;&amp;#x61;&amp;#105;&amp;#x2e;&amp;#x63;&amp;#110; 为什么使用依赖注入？ 本文档介绍了依赖注入的基本知识；它是什么…">
 <meta name="theme-color" content="#f9f9f7">
 <meta property="og:title" content="翻译：Why use dependency injection | 壹拾肆">
-<meta property="og:description" content="原文来自：Why use dependency injection 第一次翻译，如有问题还请留言指出。 E-mail：&amp;#114;&amp;#x6f;&amp;#x6f;&amp;#x74;&amp;#64;&amp;#x6b;&amp;#97;&amp;#x61;&amp;#x61;&amp;#97;&amp;#x61;&amp;#x69;&amp;#x2e;&amp;#99;&amp;#x6e; 为什么使用依赖注入？ 本文档介绍了依赖注入的基本知识；它是什么；以…">
+<meta property="og:description" content="原文来自：Why use dependency injection 第一次翻译，如有问题还请留言指出。 E-mail：&amp;#114;&amp;#x6f;&amp;#x6f;&amp;#x74;&amp;#64;&amp;#x6b;&amp;#97;&amp;#x61;&amp;#x61;&amp;#x61;&amp;#x61;&amp;#105;&amp;#x2e;&amp;#x63;&amp;#110; 为什么使用依赖注入？ 本文档介绍了依赖注入的基本知识；它是什么…">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://www.kaaaaai.cn/translation-why-use-dependency-injection.html">
 <meta property="og:site_name" content="壹拾肆">
@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
-<link rel="stylesheet" href="/css/main.css?v=bb35f8ceeca4">
+<link rel="stylesheet" href="/css/main.css?v=2779cfd3717b">
 
 <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css">
 <link rel="stylesheet" href="/css/comments.css">
@@ -62,7 +62,7 @@
 </aside>
 
   <div class="writing-content"><p>原文来自：<a target="_blank" rel="noopener" href="https://github.com/uber/needle/blob/master/WHY_DI.md">Why use dependency injection</a></p>
-<p>第一次翻译，如有问题还请留言指出。<br>E-mail：<a href="mailto:&#114;&#x6f;&#x6f;&#x74;&#64;&#x6b;&#97;&#x61;&#x61;&#97;&#x61;&#x69;&#x2e;&#99;&#x6e;">&#114;&#x6f;&#x6f;&#x74;&#64;&#x6b;&#97;&#x61;&#x61;&#97;&#x61;&#x69;&#x2e;&#99;&#x6e;</a></p>
+<p>第一次翻译，如有问题还请留言指出。<br>E-mail：<a href="mailto:&#114;&#x6f;&#x6f;&#x74;&#64;&#x6b;&#97;&#x61;&#x61;&#x61;&#x61;&#105;&#x2e;&#x63;&#110;">&#114;&#x6f;&#x6f;&#x74;&#64;&#x6b;&#97;&#x61;&#x61;&#x61;&#x61;&#105;&#x2e;&#x63;&#110;</a></p>
 <hr>
 <h2 id="为什么使用依赖注入？"><a href="#为什么使用依赖注入？" class="headerlink" title="为什么使用依赖注入？"></a>为什么使用依赖注入？</h2><p>本文档介绍了依赖注入的基本知识；它是什么；以及为什么把它加入进你的应用开发中会是个好的模式？下文将用 DI 这个术语作为依赖注入（dependency injection）的简称。</p>
 <h3 id="一个真实的例子来说明"><a href="#一个真实的例子来说明" class="headerlink" title="一个真实的例子来说明"></a>一个真实的例子来说明</h3><p>与其用抽象的语言描述这个模式，不如用一个简单的基于视图控制器的例子来理解它。如果你对抽象描述感兴趣，维基百科有一篇很棒的<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Dependency_injection">文章</a>。</p>
@@ -120,9 +120,17 @@
 
   
   <footer class="site-signature">
-    <span>© 2017 – 2026</span>
-    <svg class="site-signature__bolt" width="16" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M13 0 2 13h7L7 24 22 9h-8l4-9z"/></svg>
-    <span class="site-signature__author">Kaaaaai</span>
+    <div class="site-signature__identity">
+      <span>© 2017 – 2026</span>
+      <svg class="site-signature__bolt" width="16" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M13 0 2 13h7L7 24 22 9h-8l4-9z"/></svg>
+      <span class="site-signature__author">Kaaaaai</span>
+    </div>
+    
+    <p class="site-stats" aria-label="网站访问统计">
+      <span id="busuanzi_container_site_uv" style="display:none">访客 <span id="busuanzi_value_site_uv"></span></span>
+      <span id="busuanzi_container_site_pv" style="display:none">浏览 <span id="busuanzi_value_site_pv"></span></span>
+    </p>
+    
   </footer>
   
 <div
@@ -185,13 +193,7 @@
 </div>
 
   <button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top" hidden>↑</button>
-  
-  <p class="site-stats" aria-label="网站访问统计">
-    <span id="busuanzi_container_site_uv" style="display:none">访客 <span id="busuanzi_value_site_uv"></span></span>
-    <span id="busuanzi_container_site_pv" style="display:none">浏览 <span id="busuanzi_value_site_pv"></span></span>
-  </p>
-  
-  <script src="/js/theme.js?v=bb35f8ceeca4" defer></script>
+  <script src="/js/theme.js?v=2779cfd3717b" defer></script>
   <script src="/js/search.js" defer></script>
   <script src="/js/toc.js" defer></script>
   
