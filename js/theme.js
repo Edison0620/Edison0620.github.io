@@ -86,8 +86,10 @@
       parts[index].chunks.forEach(function (chunk) {
         var shown = Math.max(0, Math.min(chunk.chars.length, count));
         var value = chunk.chars.slice(0, shown);
-        if (entering && chunk.accent && shown > 0 && count < 2) {
-          value[shown - 1] = NOISE[Math.floor(Math.random() * NOISE.length)];
+        if (entering && chunk.accent && shown > 0) {
+          for (var i = shown; i < chunk.chars.length; i += 1) {
+            value.push(NOISE[Math.floor(Math.random() * NOISE.length)]);
+          }
         }
         chunk.node.textContent = value.join('');
         count -= chunk.chars.length;

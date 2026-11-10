@@ -1548,7 +1548,6 @@ body .token-usage-app .token-usage-details > div {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-.toc-rail__link.is-active .toc-rail__label,
 .toc-rail__link:hover .toc-rail__label,
 .toc-rail__link:focus-visible .toc-rail__label { display: block; }
 .toc-rail__marker {
@@ -1556,12 +1555,14 @@ body .token-usage-app .token-usage-details > div {
   width: 12px;
   height: 2px;
   background: currentColor;
+  transform: scaleX(calc(1 + var(--wave, 0) * 1.4));
+  transform-origin: right center;
+  transition: transform 180ms ease-out;
 }
 .toc-rail__link.is-past { color: var(--ink-secondary); }
 .toc-rail__link:hover,
-.toc-rail__link.is-at-heading,
-.toc-rail__link.is-at-end { color: var(--accent); }
-@media (max-width: 1399px) and (min-width: 801px) {
+.toc-rail__link.is-at-heading { color: var(--accent); }
+@media (max-width: 1080px) and (min-width: 801px) {
   .toc-rail__label { display: none !important; }
 }
 @media (max-width: 1080px) and (min-width: 801px) {

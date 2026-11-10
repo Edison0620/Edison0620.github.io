@@ -110,6 +110,7 @@
     minorLayer.setAttribute('aria-hidden', 'true');
     list.appendChild(minorLayer);
     var minorTicks = [];
+    var markerWaves = [];
 
     var measureTicks = function () {
       minorTicks = [];
@@ -143,7 +144,7 @@
         tailTick.className = 'toc-rail__minor-tick';
         tailTick.style.top = (lastMarker + tailStep * 8) + 'px';
         fragment.appendChild(tailTick);
-        minorTicks.push({ element: tailTick, position: last + tailStep / (tailCount + 1), wave: '' });
+        minorTicks.push({ element: tailTick, position: last + tailStep / (tailCount + 1), wave: '', tail: true });
       }
       list.style.paddingBottom = (tailCount * 8) + 'px';
       minorLayer.appendChild(fragment);
@@ -162,7 +163,6 @@
         links[activeIndex].classList.remove('is-active');
         links[activeIndex].removeAttribute('aria-current');
         links[activeIndex].classList.remove('is-at-heading');
-        links[activeIndex].classList.remove('is-at-end');
       }
       activeIndex = index;
       links[activeIndex].classList.add('is-active');
@@ -176,7 +176,8 @@
 
     var updateActive = function () {
       ticking = false;
-      var target = window.pageYOffset + Math.max(96, window.innerHeight * 0.22);
+      var offset = Math.max(96, window.innerHeight * 0.22);
+      var target = window.pageYOffset + offset;
       var low = 0;
       var high = positions.length - 1;
       var result = 0;
@@ -190,27 +191,39 @@
           high = middle - 1;
         }
       }
-      var atPageEnd = window.pageYOffset + window.innerHeight >= document.documentElement.scrollHeight - 2;
-      if (atPageEnd) result = links.length - 1;
-      var atArticleEnd = result === links.length - 1 &&
-        (target >= articleEnd - 2 || atPageEnd);
+      var maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+      var atPageEnd = window.pageYOffset >= maxScroll - 2;
       renderActive(result);
       links[result].classList.toggle('is-at-heading',
         target >= positions[result] && target - positions[result] <= 32);
-      links[result].classList.toggle('is-at-end', atArticleEnd);
-      var end = positions[result + 1] || Math.max(articleEnd, positions[result] + 1);
-      var progress = atArticleEnd ? 1 :
-        Math.max(0, Math.min(1, (target - positions[result]) / Math.max(1, end - positions[result])));
+      var progress;
+      if (result === links.length - 1) {
+        var sectionStart = Math.min(maxScroll, positions[result] - offset);
+        progress = Math.max(0, Math.min(1,
+          (window.pageYOffset - sectionStart) / Math.max(1, maxScroll - sectionStart)));
+      } else {
+        progress = Math.max(0, Math.min(1,
+          (target - positions[result]) / Math.max(1, positions[result + 1] - positions[result])));
+      }
       var wavePosition = result + progress;
+      links.forEach(function (link, index) {
+        var proximity = Math.max(0, 1 - Math.abs(index - wavePosition) / 0.55);
+        var wave = (proximity * proximity).toFixed(2);
+        if (wave !== markerWaves[index]) {
+          link.style.setProperty('--wave', wave);
+          markerWaves[index] = wave;
+        }
+      });
       minorTicks.forEach(function (tick) {
         var proximity = Math.max(0, 1 - Math.abs(tick.position - wavePosition) / 0.55);
-        var wave = (proximity * proximity).toFixed(2);
+        var finalTick = tick.tail && tick === minorTicks[minorTicks.length - 1];
+        var wave = (finalTick && atPageEnd ? 1 : proximity * proximity).toFixed(2);
         if (wave !== tick.wave) {
           tick.element.style.setProperty('--wave', wave);
           tick.wave = wave;
         }
-        tick.element.classList.toggle('is-past', tick.position < wavePosition);
-        tick.element.classList.toggle('is-current', proximity > 0.7);
+        tick.element.classList.toggle('is-past', finalTick ? atPageEnd : tick.position < wavePosition);
+        tick.element.classList.toggle('is-current', finalTick ? atPageEnd : proximity > 0.7);
       });
     };
 
