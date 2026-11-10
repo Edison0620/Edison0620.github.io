@@ -102,6 +102,22 @@ body[data-mode="employee"] .view--employee {
 .hero__copy {
   margin-bottom: 40px;
 }
+.hero__copy[data-hero-rotation] { display: grid; }
+.hero__copy[data-hero-rotation] .hero__detail {
+  grid-area: 1 / 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 450ms ease, visibility 0s linear 450ms;
+}
+.hero__copy[data-hero-rotation] .hero__detail.is-current {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 450ms ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero__copy[data-hero-rotation] .hero__detail,
+  .hero__copy[data-hero-rotation] .hero__detail.is-current { transition: none; }
+}
 
 .hero__detail {
   font-family: var(--font-sans);

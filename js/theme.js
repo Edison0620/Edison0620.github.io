@@ -64,6 +64,34 @@
     });
   }
 
+  // Rotate complete lines only after a readable pause; keep hidden lines out of the accessibility tree.
+  var heroRotation = document.querySelector('[data-hero-rotation]');
+  if (heroRotation && !reduceMotion) {
+    var lines = heroRotation.querySelectorAll('.hero__detail');
+    var currentLine = 0;
+    var interval = Math.max(2500, Number(heroRotation.getAttribute('data-interval')) || 6500);
+    var rotationTimer = null;
+    var startRotation = function () {
+      if (rotationTimer) window.clearInterval(rotationTimer);
+      rotationTimer = window.setInterval(function () {
+        lines[currentLine].classList.remove('is-current');
+        lines[currentLine].setAttribute('aria-hidden', 'true');
+        currentLine = (currentLine + 1) % lines.length;
+        lines[currentLine].classList.add('is-current');
+        lines[currentLine].removeAttribute('aria-hidden');
+      }, interval);
+    };
+    startRotation();
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) {
+        window.clearInterval(rotationTimer);
+        rotationTimer = null;
+      } else {
+        startRotation();
+      }
+    });
+  }
+
   // --- wrap wide tables so they scroll instead of overflowing -------------
   var tables = document.querySelectorAll('.writing-content table');
   Array.prototype.forEach.call(tables, function (t) {
