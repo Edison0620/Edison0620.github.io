@@ -44,6 +44,7 @@
   var scramble = document.querySelectorAll('.scramble');
   if (!reduceMotion) {
     Array.prototype.forEach.call(scramble, function (el) {
+      if (el.closest('[data-hero-rotation] .hero__detail:not(.is-current)')) return;
       var target = el.getAttribute('data-text') || el.textContent;
       var frame = 0;
       var timer = window.setInterval(function () {
@@ -64,31 +65,70 @@
     });
   }
 
-  // Rotate complete lines only after a readable pause; keep hidden lines out of the accessibility tree.
+  // Retract the old line from its end, then reveal the next line character by character.
   var heroRotation = document.querySelector('[data-hero-rotation]');
   if (heroRotation && !reduceMotion) {
     var lines = heroRotation.querySelectorAll('.hero__detail');
-    var currentLine = 0;
     var interval = Math.max(2500, Number(heroRotation.getAttribute('data-interval')) || 6500);
+    var currentLine = 0;
     var rotationTimer = null;
-    var startRotation = function () {
-      if (rotationTimer) window.clearInterval(rotationTimer);
-      rotationTimer = window.setInterval(function () {
-        lines[currentLine].classList.remove('is-current');
-        lines[currentLine].setAttribute('aria-hidden', 'true');
-        currentLine = (currentLine + 1) % lines.length;
-        lines[currentLine].classList.add('is-current');
-        lines[currentLine].removeAttribute('aria-hidden');
+    var frameTimer = null;
+    var parts = Array.prototype.map.call(lines, function (line) {
+      var accent = line.querySelector('.scramble');
+      var segments = accent ? [line.firstChild, accent.firstChild, accent.nextSibling] : [line.firstChild];
+      var chunks = segments.filter(Boolean).map(function (node) {
+        return { node: node, chars: Array.from(node.parentNode === accent ? accent.getAttribute('data-text') : node.textContent), accent: node.parentNode === accent };
+      });
+      return { chunks: chunks, length: chunks.reduce(function (sum, chunk) { return sum + chunk.chars.length; }, 0) };
+    });
+    heroRotation.style.minHeight = heroRotation.offsetHeight + 'px';
+    var renderLine = function (index, count, entering) {
+      parts[index].chunks.forEach(function (chunk) {
+        var shown = Math.max(0, Math.min(chunk.chars.length, count));
+        var value = chunk.chars.slice(0, shown);
+        if (entering && chunk.accent && shown > 0 && count < 2) {
+          value[shown - 1] = NOISE[Math.floor(Math.random() * NOISE.length)];
+        }
+        chunk.node.textContent = value.join('');
+        count -= chunk.chars.length;
+      });
+    };
+    var schedule = function () {
+      rotationTimer = window.setTimeout(function () {
+        rotationTimer = null;
+        var outgoing = currentLine;
+        var remaining = parts[outgoing].length;
+        frameTimer = window.setInterval(function () {
+          remaining = Math.max(0, remaining - 1);
+          renderLine(outgoing, remaining, false);
+          if (remaining) return;
+          window.clearInterval(frameTimer);
+          frameTimer = null;
+          lines[outgoing].classList.remove('is-current');
+          lines[outgoing].setAttribute('aria-hidden', 'true');
+          currentLine = (outgoing + 1) % lines.length;
+          renderLine(currentLine, 0, false);
+          lines[currentLine].classList.add('is-current');
+          lines[currentLine].removeAttribute('aria-hidden');
+          var revealed = 0;
+          frameTimer = window.setInterval(function () {
+            revealed += 1;
+            renderLine(currentLine, revealed, true);
+            if (revealed < parts[currentLine].length) return;
+            window.clearInterval(frameTimer);
+            frameTimer = null;
+            schedule();
+          }, 32);
+        }, 24);
       }, interval);
     };
-    startRotation();
+    schedule();
     document.addEventListener('visibilitychange', function () {
-      if (document.hidden) {
-        window.clearInterval(rotationTimer);
-        rotationTimer = null;
-      } else {
-        startRotation();
-      }
+      if (rotationTimer) window.clearTimeout(rotationTimer);
+      if (frameTimer) window.clearInterval(frameTimer);
+      rotationTimer = frameTimer = null;
+      renderLine(currentLine, parts[currentLine].length, false);
+      if (!document.hidden) schedule();
     });
   }
 
