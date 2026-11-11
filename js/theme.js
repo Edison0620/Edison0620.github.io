@@ -98,14 +98,20 @@
       var chunks = segments.filter(Boolean).map(function (node) {
         return { node: node, chars: Array.from(node.parentNode === accent ? accent.getAttribute('data-text') : node.textContent), accent: node.parentNode === accent };
       });
-      return { chunks: chunks, length: chunks.reduce(function (sum, chunk) { return sum + chunk.chars.length; }, 0) };
+      var accentIndex = chunks.findIndex(function (chunk) { return chunk.accent; });
+      return {
+        chunks: chunks,
+        length: chunks.reduce(function (sum, chunk) { return sum + chunk.chars.length; }, 0),
+        prefixLength: accentIndex < 0 ? 0 : chunks.slice(0, accentIndex).reduce(function (sum, chunk) { return sum + chunk.chars.length; }, 0),
+        accentLength: accentIndex < 0 ? 0 : chunks[accentIndex].chars.length
+      };
     });
     heroRotation.style.minHeight = heroRotation.offsetHeight + 'px';
     var renderLine = function (index, count, entering) {
       parts[index].chunks.forEach(function (chunk) {
         var shown = Math.max(0, Math.min(chunk.chars.length, count));
         var value = chunk.chars.slice(0, shown);
-        if (entering && chunk.accent && shown > 0) {
+        if (entering && chunk.accent) {
           for (var i = shown; i < chunk.chars.length; i += 1) {
             value.push(NOISE[Math.floor(Math.random() * NOISE.length)]);
           }
@@ -128,16 +134,23 @@
           lines[outgoing].classList.remove('is-current');
           lines[outgoing].setAttribute('aria-hidden', 'true');
           currentLine = (outgoing + 1) % lines.length;
-          renderLine(currentLine, 0, false);
+          var next = parts[currentLine];
+          renderLine(currentLine, next.prefixLength, true);
           lines[currentLine].classList.add('is-current');
           lines[currentLine].removeAttribute('aria-hidden');
+          if (!next.accentLength) {
+            renderLine(currentLine, next.length, false);
+            schedule();
+            return;
+          }
           var revealed = 0;
           frameTimer = window.setInterval(function () {
             revealed += 1;
-            renderLine(currentLine, revealed, true);
-            if (revealed < parts[currentLine].length) return;
+            renderLine(currentLine, next.prefixLength + revealed, revealed < next.accentLength);
+            if (revealed < next.accentLength) return;
             window.clearInterval(frameTimer);
             frameTimer = null;
+            renderLine(currentLine, next.length, false);
             schedule();
           }, 160);
         }, 24);

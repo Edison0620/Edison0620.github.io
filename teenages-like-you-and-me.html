@@ -7,6 +7,19 @@
 <title>像你我的少年们 | 壹拾肆</title>
 <meta name="description" content="看了《濑户内海》。之前一直分不清电影名字是叫濑户内海，濑内户海，还是濑海内户,电影很好看，隆重的交响乐式的配乐也非常好，一个半小时完全不过瘾。主演们都不是很好看的人，对内海的第一印象甚至觉得他像个中年大叔，但十分意外，他们都给人感觉少年气十足。 电影百分之九十的时间都停在一个画面，都只是两个人的对话，但一点都不让人乏味，就像是看过去自己的日常，他们关心的事…">
 <meta name="theme-color" content="#f9f9f7">
+<meta name="color-scheme" content="light dark">
+<script>
+  (function () {
+    var selected = 'light';
+    try {
+      var stored = localStorage.getItem('eishan-theme');
+      if (stored === 'dark' || stored === 'light') selected = stored;
+    } catch (error) {}
+    document.documentElement.setAttribute('data-theme', selected);
+    document.documentElement.style.colorScheme = selected;
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', selected === 'dark' ? '#101311' : '#f9f9f7');
+  })();
+</script>
 <meta property="og:title" content="像你我的少年们 | 壹拾肆">
 <meta property="og:description" content="看了《濑户内海》。之前一直分不清电影名字是叫濑户内海，濑内户海，还是濑海内户,电影很好看，隆重的交响乐式的配乐也非常好，一个半小时完全不过瘾。主演们都不是很好看的人，对内海的第一印象甚至觉得他像个中年大叔，但十分意外，他们都给人感觉少年气十足。 电影百分之九十的时间都停在一个画面，都只是两个人的对话，但一点都不让人乏味，就像是看过去自己的日常，他们关心的事…">
 <meta property="og:type" content="article">
@@ -17,7 +30,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
-<link rel="stylesheet" href="/css/main.css?v=202b5eb7b702">
+<link rel="stylesheet" href="/css/main.css?v=85b898d416d5">
 
 <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css">
 <link rel="stylesheet" href="/css/comments.css">
@@ -30,6 +43,32 @@
 
 <meta name="generator" content="Hexo 7.3.0"></head>
 <body data-mode="builder">
+  
+  
+<div
+  class="liquid-theme-controls"
+  role="group"
+  aria-label="外观"
+  data-liquid-theme-controls
+  data-duration="1450"
+  data-label-dark="切换到深色主题"
+  data-label-light="切换到浅色主题"
+>
+  <svg class="liquid-theme-controls__symbols" aria-hidden="true">
+    <symbol id="liquid-theme-moon" viewBox="0 0 24 24">
+      <path d="M20.2 15.2A8.5 8.5 0 0 1 8.8 3.8 8.5 8.5 0 1 0 20.2 15.2Z"></path>
+    </symbol>
+    <symbol id="liquid-theme-sun" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="3.5"></circle>
+      <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path>
+    </symbol>
+  </svg>
+  <button class="liquid-theme-controls__button liquid-theme-controls__theme" type="button" aria-pressed="false" aria-label="切换到深色主题" title="切换到深色主题" data-theme-toggle>
+    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#liquid-theme-moon"></use></svg>
+  </button>
+</div>
+
+  
   
 <div class="writing-container main-inner">
   <a class="writing-back" data-post-back href="/">← Back home</a>
@@ -107,7 +146,7 @@
   <footer class="site-signature">
     <div class="site-signature__identity">
       <span>© 2017 – 2026</span>
-      <span class="site-signature__bolt" aria-hidden="true">⚡</span>
+      <span class="site-signature__bolt" aria-hidden="true">⚡️</span>
       <span class="site-signature__author">Kaaaaai</span>
     
     </div>
@@ -180,7 +219,11 @@
 
   <button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top" hidden>↑</button>
   
-  <script src="/js/theme.js?v=202b5eb7b702" defer></script>
+  
+  <script src="/js/liquid-theme-shape.js" defer></script>
+  <script src="/js/liquid-theme.js" defer></script>
+  
+  <script src="/js/theme.js?v=85b898d416d5" defer></script>
   <script src="/js/search.js" defer></script>
   <script src="/js/toc.js" defer></script>
   

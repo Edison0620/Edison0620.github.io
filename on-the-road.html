@@ -7,6 +7,19 @@
 <title>在路上 | 壹拾肆</title>
 <meta name="description" content="行百里者半九十，新年过来就一头扎进工作，晕头转向直到现在，让我这才走了十里路的人看着剩下的九十里，都有了些望洋兴叹的惆怅。所以趁现在有空，休息一下，回顾一下。 过年照旧仍去上山烧香拜了佛，不同的是，今年没抽到上上签，而是中上签。不过也说不清是好是坏，表哥去年抽到中下签，我和表弟抽的是上上签和上中签，但去年反倒是他订婚成了家先。因为这个今年过年在外游荡的人就…">
 <meta name="theme-color" content="#f9f9f7">
+<meta name="color-scheme" content="light dark">
+<script>
+  (function () {
+    var selected = 'light';
+    try {
+      var stored = localStorage.getItem('eishan-theme');
+      if (stored === 'dark' || stored === 'light') selected = stored;
+    } catch (error) {}
+    document.documentElement.setAttribute('data-theme', selected);
+    document.documentElement.style.colorScheme = selected;
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', selected === 'dark' ? '#101311' : '#f9f9f7');
+  })();
+</script>
 <meta property="og:title" content="在路上 | 壹拾肆">
 <meta property="og:description" content="行百里者半九十，新年过来就一头扎进工作，晕头转向直到现在，让我这才走了十里路的人看着剩下的九十里，都有了些望洋兴叹的惆怅。所以趁现在有空，休息一下，回顾一下。 过年照旧仍去上山烧香拜了佛，不同的是，今年没抽到上上签，而是中上签。不过也说不清是好是坏，表哥去年抽到中下签，我和表弟抽的是上上签和上中签，但去年反倒是他订婚成了家先。因为这个今年过年在外游荡的人就…">
 <meta property="og:type" content="article">
@@ -17,7 +30,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
-<link rel="stylesheet" href="/css/main.css?v=202b5eb7b702">
+<link rel="stylesheet" href="/css/main.css?v=85b898d416d5">
 
 <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css">
 <link rel="stylesheet" href="/css/comments.css">
@@ -30,6 +43,32 @@
 
 <meta name="generator" content="Hexo 7.3.0"></head>
 <body data-mode="builder">
+  
+  
+<div
+  class="liquid-theme-controls"
+  role="group"
+  aria-label="外观"
+  data-liquid-theme-controls
+  data-duration="1450"
+  data-label-dark="切换到深色主题"
+  data-label-light="切换到浅色主题"
+>
+  <svg class="liquid-theme-controls__symbols" aria-hidden="true">
+    <symbol id="liquid-theme-moon" viewBox="0 0 24 24">
+      <path d="M20.2 15.2A8.5 8.5 0 0 1 8.8 3.8 8.5 8.5 0 1 0 20.2 15.2Z"></path>
+    </symbol>
+    <symbol id="liquid-theme-sun" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="3.5"></circle>
+      <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path>
+    </symbol>
+  </svg>
+  <button class="liquid-theme-controls__button liquid-theme-controls__theme" type="button" aria-pressed="false" aria-label="切换到深色主题" title="切换到深色主题" data-theme-toggle>
+    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#liquid-theme-moon"></use></svg>
+  </button>
+</div>
+
+  
   
 <div class="writing-container main-inner">
   <a class="writing-back" data-post-back href="/">← Back home</a>
@@ -104,7 +143,7 @@
   <footer class="site-signature">
     <div class="site-signature__identity">
       <span>© 2017 – 2026</span>
-      <span class="site-signature__bolt" aria-hidden="true">⚡</span>
+      <span class="site-signature__bolt" aria-hidden="true">⚡️</span>
       <span class="site-signature__author">Kaaaaai</span>
     
     </div>
@@ -177,7 +216,11 @@
 
   <button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top" hidden>↑</button>
   
-  <script src="/js/theme.js?v=202b5eb7b702" defer></script>
+  
+  <script src="/js/liquid-theme-shape.js" defer></script>
+  <script src="/js/liquid-theme.js" defer></script>
+  
+  <script src="/js/theme.js?v=85b898d416d5" defer></script>
   <script src="/js/search.js" defer></script>
   <script src="/js/toc.js" defer></script>
   
