@@ -17,7 +17,7 @@
       window.ChatraID = button.getAttribute('data-chatra-id');
       window.ChatraSetup = {
         customWidgetButton: '[data-chat-open]',
-        buttonPosition: window.innerWidth <= 800 ? 'lt' : 'br',
+        buttonPosition: window.innerWidth <= 800 ? 'lt' : 'bl',
         colors: { buttonBg: '#f40', buttonText: '#fff' }
       };
       var script = document.createElement('script');

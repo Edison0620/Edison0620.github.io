@@ -1460,8 +1460,8 @@ body .token-usage-app .token-usage-details > div {
 
 .site-chat__floating {
   position: fixed;
-  right: 24px;
-  bottom: 24px;
+  left: max(24px, env(safe-area-inset-left));
+  bottom: max(24px, env(safe-area-inset-bottom));
   z-index: 90;
   min-height: 44px;
   padding: 0 16px;
@@ -1476,7 +1476,6 @@ body .token-usage-app .token-usage-details > div {
 .site-chat__floating:hover,
 .site-chat__footer:hover { color: var(--accent); }
 .site-chat__floating[hidden], .site-chat__footer[hidden] { display: none; }
-body:has(.site-chat__floating) .back-to-top { bottom: 80px; }
 @media (max-width: 800px) {
   .site-chat__floating { display: none; }
   .site-chat__footer {
@@ -1489,7 +1488,6 @@ body:has(.site-chat__floating) .back-to-top { bottom: 80px; }
     font: 12px var(--font-mono);
     cursor: pointer;
   }
-  body:has(.site-chat__floating) .back-to-top { bottom: 24px; }
 }
 
 .writing-reward {

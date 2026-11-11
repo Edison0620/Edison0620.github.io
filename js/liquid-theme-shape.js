@@ -24,6 +24,23 @@
     return geometry.height + amplitude - (geometry.height + amplitude * 2) * fill;
   }
 
+  function waveOffset(x, progress, geometry) {
+    var fill = clamp((progress - 0.16) / 0.82, 0, 1);
+    var amplitude = Math.max(5, Math.min(22, geometry.height * 0.025)) * Math.pow(1 - fill, 0.7);
+    var wavelength = Math.max(170, Math.min(400, geometry.width * 0.38));
+    var traveling = Math.sin(x * Math.PI * 2 / wavelength - progress * 12) * amplitude * 0.38;
+    var impact = Math.sin(Math.PI * clamp((progress - 0.2) / 0.55, 0, 1));
+    var distance = x - geometry.originX;
+    var spread = 48 + progress * 180;
+    var swell = impact * amplitude * 0.65 * Math.exp(-Math.pow(distance / spread, 2)) *
+      Math.cos(distance / 25 - progress * 16);
+    return traveling + swell;
+  }
+
+  function waterline(x, progress, geometry) {
+    return surfaceLevel(progress, geometry) + waveOffset(x, progress, geometry);
+  }
+
   function streamPath(progress, geometry) {
     var width = geometry.width;
     var originX = geometry.originX;
@@ -32,15 +49,17 @@
     if (pour <= 0 || tail >= 0.99) return "";
 
     // The falling tip meets the current surface; the trailing end follows it.
-    var surfaceY = surfaceLevel(progress, geometry);
+    var surfaceY = waterline(originX, progress, geometry);
     var originY = geometry.originY + (surfaceY - geometry.originY - 8) * tail;
-    var length = (surfaceY - originY + 18) * pour;
+    var length = (surfaceY - originY + 7) * pour;
     var tip = originY + length;
     var sway = Math.sin(progress * Math.PI * 6) * Math.min(28, width * 0.07) * pour;
     var ripple = Math.sin(progress * 39);
-    var neck = 3.5 + pour;
-    var waist = 8 + pour * 6 + ripple * 2;
-    var belly = 10 + pour * 7 + Math.sin(progress * 28 + 0.8) * 3;
+    var neck = 4.5 + pour * 1.5 + Math.sin(progress * 33) * pour;
+    var waist = 11 + pour * 6 + ripple * 2.7;
+    var belly = 12 + pour * 7 + Math.sin(progress * 28 + 0.8) * 3;
+    var waistLeft = waist + Math.sin(progress * 17 + 1.3) * 2.5;
+    var bellyLeft = belly + Math.cos(progress * 23) * 2;
     var x1 = originX + sway * 0.3 + ripple * 4 * pour;
     var x2 = originX + sway + Math.sin(progress * 24 + 1.2) * 5 * pour;
     var endX = originX + sway * 0.8;
@@ -51,16 +70,16 @@
       "C", originX + neck, originY + length * 0.12,
       x1 + waist, originY + length * 0.19,
       x1 + waist, originY + length * 0.32,
-      "C", x1 + waist + 4, originY + length * 0.48,
+      "C", x1 + waist + 1.5, originY + length * 0.48,
       x2 + belly, originY + length * 0.55,
       x2 + belly, originY + length * 0.73,
       "Q", x2 + belly, tip - length * 0.07, endX, tip,
-      "Q", x2 - belly, tip - length * 0.07,
-      x2 - belly, originY + length * 0.73,
-      "C", x2 - belly, originY + length * 0.55,
-      x1 - waist - 4, originY + length * 0.48,
-      x1 - waist, originY + length * 0.32,
-      "C", x1 - waist, originY + length * 0.19,
+      "Q", x2 - bellyLeft, tip - length * 0.07,
+      x2 - bellyLeft, originY + length * 0.73,
+      "C", x2 - bellyLeft, originY + length * 0.55,
+      x1 - waistLeft - 1.5, originY + length * 0.48,
+      x1 - waistLeft, originY + length * 0.32,
+      "C", x1 - waistLeft, originY + length * 0.19,
       originX - neck, originY + length * 0.12,
       originX - neck, originY,
       "Z"
@@ -92,7 +111,7 @@
     var paths = [];
     var energy = Math.sin(splash * Math.PI);
     var centerX = geometry.originX + Math.sin(progress * 31) * 8;
-    var baseY = geometry.height - 4;
+    var baseY = waterline(centerX, progress, geometry);
     var offsets = [-42, -25, 24, 45];
     for (var index = 0; index < offsets.length; index += 1) {
       var direction = offsets[index] < 0 ? -1 : 1;
@@ -126,19 +145,22 @@
       return "M 0 0 H " + geometry.width + " V " + geometry.height + " H 0 Z";
     }
 
-    var amplitude = Math.max(5, Math.min(22, geometry.height * 0.025)) * (1 - fill * 0.65);
-    var waveY = surfaceLevel(progress, geometry);
-    var segment = geometry.width / 6;
-    var phase = progress * Math.PI * 8;
-    var path = ["M", 0, geometry.height, "L", 0, waveY];
+    var segment = geometry.width / 12;
+    var path = ["M", 0, geometry.height, "L", 0, waterline(0, progress, geometry)];
 
-    for (var index = 0; index < 6; index += 1) {
+    // Sample the same traveling wave at both ends of each cubic: no fixed
+    // horizontal seams or repeating identical humps between segments.
+    for (var index = 0; index < 12; index += 1) {
       var startX = index * segment;
       var endX = (index + 1) * segment;
-      var direction = index % 2 ? -1 : 1;
-      var y1 = waveY + Math.sin(phase + index * 0.9) * amplitude * 0.42;
-      var y2 = waveY + direction * amplitude + Math.cos(phase * 0.8 + index) * amplitude * 0.28;
-      path.push("C", startX + segment * 0.3, y1, startX + segment * 0.7, y2, endX, waveY);
+      var startY = waterline(startX, progress, geometry);
+      var endY = waterline(endX, progress, geometry);
+      var startSlope = (waterline(startX + 1, progress, geometry) -
+        waterline(startX - 1, progress, geometry)) / 2;
+      var endSlope = (waterline(endX + 1, progress, geometry) -
+        waterline(endX - 1, progress, geometry)) / 2;
+      path.push("C", startX + segment / 3, startY + startSlope * segment / 3,
+        endX - segment / 3, endY - endSlope * segment / 3, endX, endY);
     }
 
     path.push("L", geometry.width, geometry.height, "Z");
