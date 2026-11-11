@@ -37,23 +37,15 @@ html {
 
 body {
   background-color: var(--bg-page);
+  background-image: radial-gradient(color-mix(in srgb, var(--paper-dot) 60%, transparent) 1px, transparent 1px);
+  background-size: 32px 32px;
   color: var(--ink-primary);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   line-height: 1.5;
 }
 
-/* Dotted paper texture */
-body:before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  opacity: 0.6;
-  pointer-events: none;
-  background-image: radial-gradient(var(--paper-dot) 1px, transparent 1px);
-  background-size: 32px 32px;
-}
+/* Dots are painted directly on the page so an opaque root cannot hide them. */
 
 ::selection {
   background-color: #ff440026;
@@ -2040,7 +2032,7 @@ html.clawd-effects-active body.search-open button { cursor: pointer !important; 
   contain: strict;
   pointer-events: none;
   background-color: var(--bg-page);
-  background-image: radial-gradient(var(--paper-dot) 1px, transparent 1px);
+  background-image: radial-gradient(color-mix(in srgb, var(--paper-dot) 60%, transparent) 1px, transparent 1px);
   background-size: 32px 32px;
 }
 

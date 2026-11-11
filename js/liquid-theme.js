@@ -233,6 +233,33 @@
     // Reversing the same clip drains the old dark snapshot into the trigger.
     var stage = createSnapshot(reverse ? "dark" : targetTheme, viewport);
     var clip = createClip(viewport);
+    var namespace = "http://www.w3.org/2000/svg";
+    var waterSvg = document.createElementNS(namespace, "svg");
+    var water = document.createElementNS(namespace, "path");
+    var texture = document.createElementNS(namespace, "pattern");
+    var base = document.createElementNS(namespace, "rect");
+    var dot = document.createElementNS(namespace, "circle");
+    var defs = document.createElementNS(namespace, "defs");
+    texture.setAttribute("id", clip.id + "-water");
+    texture.setAttribute("patternUnits", "userSpaceOnUse");
+    texture.setAttribute("width", "32");
+    texture.setAttribute("height", "32");
+    base.setAttribute("width", "32");
+    base.setAttribute("height", "32");
+    base.style.fill = "var(--bg-page)";
+    dot.setAttribute("r", "1");
+    dot.style.fill = "var(--paper-dot)";
+    dot.setAttribute("opacity", "0.6");
+    texture.appendChild(base);
+    texture.appendChild(dot);
+    defs.appendChild(texture);
+    waterSvg.appendChild(defs);
+    waterSvg.setAttribute("viewBox", "0 0 " + viewport.width + " " + viewport.height);
+    waterSvg.setAttribute("aria-hidden", "true");
+    waterSvg.style.cssText = "position:absolute;inset:0;width:100%;height:100%;pointer-events:none";
+    water.style.fill = 'url("#' + clip.id + '-water")';
+    waterSvg.appendChild(water);
+    stage.appendChild(waterSvg);
     var duration = controls.duration;
     var animationFrame = 0;
     var startedAt = 0;
@@ -242,7 +269,9 @@
 
     stage.style.clipPath = 'url("#' + clip.id + '")';
     stage.style.webkitClipPath = 'url("#' + clip.id + '")';
-    clip.path.setAttribute("d", global.EishanLiquidShape.createPath(reverse ? 1 : 0.001, viewport));
+    var initial = global.EishanLiquidShape.createFrame(reverse ? 1 : 0.001, viewport);
+    clip.path.setAttribute("d", initial.shape);
+    water.setAttribute("d", initial.water);
     if (reverse) {
       // The full-screen clip covers the live page while the target variables switch.
       document.documentElement.setAttribute("data-theme", targetTheme);
@@ -287,7 +316,10 @@
       if (finished) return;
       if (!startedAt) startedAt = timestamp;
       var progress = clamp((timestamp - startedAt) / duration, 0, 1);
-      clip.path.setAttribute("d", global.EishanLiquidShape.createPath(reverse ? 1 - progress : progress, viewport));
+      var liquidProgress = reverse ? 1 - progress : progress;
+      var shape = global.EishanLiquidShape.createFrame(liquidProgress, viewport);
+      clip.path.setAttribute("d", shape.shape);
+      water.setAttribute("d", shape.water);
       if (progress >= 1) {
         finish(true);
         return;

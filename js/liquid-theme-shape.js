@@ -5,10 +5,6 @@
     return Math.min(maximum, Math.max(minimum, value));
   }
 
-  function easeOutCubic(value) {
-    return 1 - Math.pow(1 - value, 3);
-  }
-
   function circlePath(x, y, radius) {
     return [
       "M", x - radius, y,
@@ -28,7 +24,7 @@
     var fill = clamp((progress - 0.16) / 0.82, 0, 1);
     var amplitude = Math.max(5, Math.min(22, geometry.height * 0.025)) * Math.pow(1 - fill, 0.7);
     var wavelength = Math.max(170, Math.min(400, geometry.width * 0.38));
-    var traveling = Math.sin(x * Math.PI * 2 / wavelength - progress * 12) * amplitude * 0.38;
+    var traveling = Math.sin(x * Math.PI * 2 / wavelength - progress * 12) * amplitude * 0.72;
     var impact = Math.sin(Math.PI * clamp((progress - 0.2) / 0.55, 0, 1));
     var distance = x - geometry.originX;
     var spread = 48 + progress * 180;
@@ -41,67 +37,53 @@
     return surfaceLevel(progress, geometry) + waveOffset(x, progress, geometry);
   }
 
-  function streamPath(progress, geometry) {
-    var width = geometry.width;
-    var originX = geometry.originX;
-    var pour = clamp(progress / 0.45, 0, 1);
-    var tail = clamp((progress - 0.54) / 0.36, 0, 1);
-    if (pour <= 0 || tail >= 0.99) return "";
-
-    // The falling tip meets the current surface; the trailing end follows it.
-    var surfaceY = waterline(originX, progress, geometry);
-    var originY = geometry.originY + (surfaceY - geometry.originY - 8) * tail;
-    var length = (surfaceY - originY + 7) * pour;
-    var tip = originY + length;
-    var sway = Math.sin(progress * Math.PI * 6) * Math.min(28, width * 0.07) * pour;
-    var ripple = Math.sin(progress * 39);
-    var neck = 4.5 + pour * 1.5 + Math.sin(progress * 33) * pour;
-    var waist = 11 + pour * 6 + ripple * 2.7;
-    var belly = 12 + pour * 7 + Math.sin(progress * 28 + 0.8) * 3;
-    var waistLeft = waist + Math.sin(progress * 17 + 1.3) * 2.5;
-    var bellyLeft = belly + Math.cos(progress * 23) * 2;
-    var x1 = originX + sway * 0.3 + ripple * 4 * pour;
-    var x2 = originX + sway + Math.sin(progress * 24 + 1.2) * 5 * pour;
-    var endX = originX + sway * 0.8;
-
-    // Keep the stream clockwise like the wave so their overlap remains a union.
-    return [
-      "M", originX + neck, originY,
-      "C", originX + neck, originY + length * 0.12,
-      x1 + waist, originY + length * 0.19,
-      x1 + waist, originY + length * 0.32,
-      "C", x1 + waist + 1.5, originY + length * 0.48,
-      x2 + belly, originY + length * 0.55,
-      x2 + belly, originY + length * 0.73,
-      "Q", x2 + belly, tip - length * 0.07, endX, tip,
-      "Q", x2 - bellyLeft, tip - length * 0.07,
-      x2 - bellyLeft, originY + length * 0.73,
-      "C", x2 - bellyLeft, originY + length * 0.55,
-      x1 - waistLeft - 1.5, originY + length * 0.48,
-      x1 - waistLeft, originY + length * 0.32,
-      "C", x1 - waistLeft, originY + length * 0.19,
-      originX - neck, originY + length * 0.12,
-      originX - neck, originY,
-      "Z"
-    ].join(" ");
+  function flowEdge(y, originX, originY, progress, side, widthScale) {
+    var depth = y - originY;
+    var sway = Math.min(1, depth / 76) *
+      (Math.sin(depth / 82 - progress * 15) * 6 + Math.sin(depth / 163 - progress * 9) * 3);
+    var width = Math.max(10.5, 12.5 +
+      Math.sin(depth / 46 - progress * 33) * 3 +
+      Math.sin(depth / 102 - progress * 21) * 2);
+    return originX + sway + side * width * widthScale;
   }
 
-  function detachedDrops(progress, geometry) {
-    if (progress < 0.035 || progress > 0.43) return "";
+  function streamPath(progress, geometry) {
+    var originX = geometry.originX;
+    var pour = clamp(progress / 0.22, 0, 1);
+    if (pour <= 0) return "";
 
-    var local = clamp((progress - 0.035) / 0.28, 0, 1);
-    var paths = [];
-    var count = 3;
-    for (var index = 0; index < count; index += 1) {
-      var phase = clamp(local * 1.55 - index * 0.25, 0, 1);
-      if (phase <= 0 || phase >= 1) continue;
-      var direction = index % 2 ? -1 : 1;
-      var x = geometry.originX + direction * (10 + index * 7) + Math.sin(progress * 22 + index) * 5;
-      var y = geometry.originY + (geometry.height - geometry.originY) * easeOutCubic(phase);
-      var radius = 2.5 + (1 - phase) * (3 + index);
-      paths.push(circlePath(x, y, radius));
+    var surfaceY = waterline(originX, progress, geometry);
+    var originY = geometry.originY;
+    var depth = surfaceY - originY;
+    if (depth <= 0) return "";
+    var widthScale = clamp(depth / 38, 0, 1);
+    var tip = originY + (depth + 3 * widthScale) * pour;
+    if (tip - originY < 1) return "";
+
+    // Traveling edge undulations give the continuous stream a flowing silhouette.
+    var sections = Math.max(2, Math.ceil((tip - originY) / 48));
+    var step = (tip - originY) / sections;
+    var path = ["M", flowEdge(originY, originX, originY, progress, -1, widthScale), originY];
+    for (var index = 0; index < sections; index += 1) {
+      var start = originY + step * index;
+      var end = start + step;
+      path.push("C",
+        flowEdge(start + step / 3, originX, originY, progress, -1, widthScale), start + step / 3,
+        flowEdge(end - step / 3, originX, originY, progress, -1, widthScale), end - step / 3,
+        flowEdge(end, originX, originY, progress, -1, widthScale), end);
     }
-    return paths.join(" ");
+    path.push("Q", flowEdge(tip, originX, originY, progress, 0, widthScale), tip + 5 * widthScale,
+      flowEdge(tip, originX, originY, progress, 1, widthScale), tip);
+    for (var reverse = sections - 1; reverse >= 0; reverse -= 1) {
+      var bottom = originY + step * (reverse + 1);
+      var top = bottom - step;
+      path.push("C",
+        flowEdge(bottom - step / 3, originX, originY, progress, 1, widthScale), bottom - step / 3,
+        flowEdge(top + step / 3, originX, originY, progress, 1, widthScale), top + step / 3,
+        flowEdge(top, originX, originY, progress, 1, widthScale), top);
+    }
+    path.push("Z");
+    return path.join(" ");
   }
 
   function splashPath(progress, geometry) {
@@ -167,21 +149,26 @@
     return path.join(" ");
   }
 
-  function createPath(progress, geometry) {
+  function createFrame(progress, geometry) {
     var normalized = clamp(progress, 0, 1);
     if (normalized >= 0.995) {
-      return "M 0 0 H " + geometry.width + " V " + geometry.height + " H 0 Z";
+      return { shape: "M 0 0 H " + geometry.width + " V " + geometry.height + " H 0 Z", water: "" };
     }
-    return [
-      surfacePath(normalized, geometry),
-      streamPath(normalized, geometry),
-      detachedDrops(normalized, geometry),
-      splashPath(normalized, geometry)
-    ].filter(Boolean).join(" ");
+    var water = streamPath(normalized, geometry);
+    return {
+      shape: [surfacePath(normalized, geometry), water, splashPath(normalized, geometry)]
+        .filter(Boolean).join(" "),
+      water: water
+    };
+  }
+
+  function createPath(progress, geometry) {
+    return createFrame(progress, geometry).shape;
   }
 
   global.EishanLiquidShape = Object.freeze({
     createPath: createPath,
+    createFrame: createFrame,
     phases: Object.freeze({ pour: 0, splash: 0.2, flow: 0.16, finish: 0.98 })
   });
 })(window);
