@@ -10,6 +10,12 @@
   }
 
   const EFFECT_TRANSITION = 'transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
+  const IMPACT_LIFETIME_MS = 220;
+  const MAX_IMPACT_BURSTS = 8;
+  const IMPACT_GRAINS = 12;
+  const GLYPH_SHAKE_MS = 320;
+  const MAX_GLYPH_GROUPS = 3;
+  const MAX_GLYPHS_PER_HIT = 9;
   const TARGET_ROOT_SELECTOR = '.header, .main-inner, .sidebar-inner';
   const CODE_LINE_TARGET_SELECTOR = '.post-body .highlight td.code .line';
   const GROUPED_TARGET_SELECTOR = [
@@ -79,6 +85,9 @@
       this.facingAngle = 0;
       this.facingScale = 1;
       this.bullets = [];
+      this.impactBursts = [];
+      this.glyphGroups = new Set();
+      this.graphemeSegmenter = null;
       this.targets = [];
       this.displacements = new Map();
       this.releaseRecords = new Set();
@@ -282,13 +291,18 @@
           if (element === root) return false;
           let ancestor = element.parentElement;
           while (ancestor && ancestor !== root) {
-            if (candidates.has(ancestor)) return false;
+            if (candidates.has(ancestor)
+              && !(element.matches(INTERACTIVE_COLLISION_SELECTOR)
+                && ancestor.matches('p')
+                && ancestor.closest('.post-body, .writing-content'))) return false;
             ancestor = ancestor.parentElement;
           }
           return true;
         })
         .filter(element => {
-          if (!element.matches(INTERACTIVE_COLLISION_SELECTOR) && element.querySelector(INTERACTIVE_COLLISION_SELECTOR)) return false;
+          if (!element.matches(INTERACTIVE_COLLISION_SELECTOR)
+            && element.querySelector(INTERACTIVE_COLLISION_SELECTOR)
+            && !(element.matches('p') && element.closest('.post-body, .writing-content'))) return false;
           const style = getComputedStyle(element);
           if (style.display === 'none' || style.visibility === 'hidden') return false;
           const interactive = element.matches(INTERACTIVE_COLLISION_SELECTOR);
@@ -522,21 +536,136 @@
       return 1000 / profile.rate;
     }
 
+    _spawnImpact(bullet, target, now) {
+      if (bullet.sparked) return;
+      bullet.sparked = true;
+      if (this.impactBursts.length === MAX_IMPACT_BURSTS) this.impactBursts.shift();
+      this.impactBursts.push({
+        x: Math.min(Math.max(bullet.x, target.rect.left), target.rect.right),
+        y: Math.min(Math.max(bullet.y, target.rect.top), target.rect.bottom),
+        angle: Math.atan2(bullet.vy || 0, bullet.vx || 0),
+        at: now
+      });
+    }
+
+    _restoreGlyphGroup(group) {
+      if (!this.glyphGroups.delete(group)) return;
+      window.clearTimeout(group.timer);
+      for (const animation of group.animations) animation.cancel();
+      if (!group.wrapper.isConnected) return;
+      if (group.prefix.nextSibling === group.wrapper
+        && group.wrapper.nextSibling === group.suffix) {
+        group.prefix.data += group.wrapper.textContent + group.suffix.data;
+        group.wrapper.remove();
+        group.suffix.remove();
+      } else {
+        group.wrapper.replaceWith(document.createTextNode(group.wrapper.textContent));
+      }
+    }
+
+    _flushGlyphGroups() {
+      for (const group of this.glyphGroups) this._restoreGlyphGroup(group);
+    }
+
+    _shakeNearbyGlyphs(target, bullet) {
+      const element = target.element;
+      if (typeof element.matches !== 'function'
+        || !element.matches('p, h1, h2, h3, h4, li, blockquote')
+        || !element.closest('.post-body, .writing-content')
+        || typeof document.caretPositionFromPoint !== 'function'
+        || typeof Intl.Segmenter !== 'function') return false;
+      if (bullet.textShaken) return true;
+      bullet.textShaken = true;
+      if (document.getSelection()?.isCollapsed === false) return true;
+      if (this.glyphGroups.size >= MAX_GLYPH_GROUPS) return true;
+      for (const group of this.glyphGroups) {
+        if (group.parent === element) return true;
+      }
+
+      const x = Math.min(Math.max(bullet.x, target.rect.left + 1), target.rect.right - 1);
+      const y = Math.min(Math.max(bullet.y, target.rect.top + 1), target.rect.bottom - 1);
+      const caret = document.caretPositionFromPoint(x, y);
+      const node = caret?.offsetNode;
+      if (node?.nodeType !== Node.TEXT_NODE || node.parentElement !== element || !node.data.trim()) {
+        return true;
+      }
+
+      const previous = [];
+      const next = [];
+      this.graphemeSegmenter ||= new Intl.Segmenter(undefined, { granularity: 'grapheme' });
+      const segments = this.graphemeSegmenter.segment(node.data);
+      for (const glyph of segments) {
+        if (glyph.index < caret.offset) {
+          if (previous.length === 4) previous.shift();
+          previous.push(glyph);
+        } else {
+          next.push(glyph);
+          if (next.length === MAX_GLYPHS_PER_HIT - 4) break;
+        }
+      }
+      const nearby = previous.concat(next);
+      const range = document.createRange();
+      const hits = [];
+      for (const glyph of nearby) {
+        range.setStart(node, glyph.index);
+        range.setEnd(node, glyph.index + glyph.segment.length);
+        const rect = range.getBoundingClientRect();
+        const dx = Math.max(rect.left - bullet.x, 0, bullet.x - rect.right);
+        const dy = Math.max(rect.top - bullet.y, 0, bullet.y - rect.bottom);
+        if (Math.hypot(dx, dy) < physics.CONSTANTS.hitRadius) hits.push(glyph);
+      }
+      if (hits.length === 0) return true;
+
+      const start = hits[0].index;
+      const end = hits[hits.length - 1].index + hits[hits.length - 1].segment.length;
+      const wrapper = document.createElement('span');
+      if (typeof wrapper.animate !== 'function') return true;
+      wrapper.dataset.clawdIgnore = '';
+      const prefix = node;
+      const middle = node.splitText(start);
+      const suffix = middle.splitText(end - start);
+      middle.replaceWith(wrapper);
+      const group = { parent: element, prefix, suffix, wrapper, animations: [], timer: 0 };
+      this.glyphGroups.add(group);
+      for (const glyph of nearby) {
+        if (glyph.index < start || glyph.index >= end) continue;
+        if (!glyph.segment.trim()) {
+          wrapper.append(glyph.segment);
+          continue;
+        }
+        const span = document.createElement('span');
+        span.dataset.clawdGlyph = '';
+        span.textContent = glyph.segment;
+        span.style.display = 'inline-block';
+        wrapper.append(span);
+        if (!hits.includes(glyph)) continue;
+        const direction = glyph.index % 2 === 0 ? 1 : -1;
+        group.animations.push(span.animate([
+          { transform: 'translate(0, 0) rotate(0deg)' },
+          { transform: `translate(${direction * 7}px, -7px) rotate(${direction * 4}deg)`, offset: 0.3 },
+          { transform: `translate(${-direction * 3}px, 3px) rotate(${-direction * 2}deg)`, offset: 0.7 },
+          { transform: 'translate(0, 0) rotate(0deg)' }
+        ], { duration: GLYPH_SHAKE_MS, easing: 'ease-out' }));
+      }
+      group.timer = window.setTimeout(() => this._restoreGlyphGroup(group), GLYPH_SHAKE_MS);
+      return true;
+    }
+
     _draw() {
-      if (this.bullets.length === 0 && !this.canvasHasPixels) return;
+      if (this.bullets.length === 0 && this.impactBursts.length === 0 && !this.canvasHasPixels) return;
       const context = this.context;
       context.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
       context.clearRect(0, 0, this.width, this.height);
-      this.canvasHasPixels = this.bullets.length > 0;
+      this.canvasHasPixels = this.bullets.length > 0 || this.impactBursts.length > 0;
 
       for (const bullet of this.bullets) {
         if (bullet.impactAt !== undefined) {
           const progress = Math.min((this.lastFrameTime - bullet.impactAt) / 240, 1);
           context.globalAlpha = 1 - progress;
           context.strokeStyle = '#f40';
-          context.lineWidth = 2;
+          context.lineWidth = 1.25;
           context.beginPath();
-          context.arc(bullet.x, bullet.y, 4 + progress * 12, 0, Math.PI * 2);
+          context.arc(bullet.x, bullet.y, 3 + progress * 7, 0, Math.PI * 2);
           context.stroke();
           continue;
         }
@@ -544,12 +673,28 @@
         context.globalAlpha = opacity;
         context.fillStyle = '#ffa657';
         context.beginPath();
-        context.arc(bullet.x, bullet.y, 3, 0, Math.PI * 2);
+        context.arc(bullet.x, bullet.y, 2.5, 0, Math.PI * 2);
         context.fill();
-        context.globalAlpha = opacity * 0.3;
+        context.globalAlpha = opacity * 0.18;
         context.beginPath();
-        context.arc(bullet.x, bullet.y, 9, 0, Math.PI * 2);
+        context.arc(bullet.x, bullet.y, 6, 0, Math.PI * 2);
         context.fill();
+      }
+      context.fillStyle = '#f40';
+      for (const burst of this.impactBursts) {
+        const progress = (this.lastFrameTime - burst.at) / IMPACT_LIFETIME_MS;
+        if (progress <= 0) continue;
+        context.globalAlpha = (1 - progress) * (1 - progress) * 0.85;
+        for (let index = 0; index < IMPACT_GRAINS; index += 1) {
+          const angle = burst.angle - 1.4 + index * 2.8 / (IMPACT_GRAINS - 1);
+          const distance = (8 + index % 3 * 4) * progress;
+          const size = index % 3 === 0 ? 1.4 : 1;
+          context.fillRect(
+            burst.x + Math.cos(angle) * distance,
+            burst.y + Math.sin(angle) * distance + 4 * progress * progress,
+            size, size
+          );
+        }
       }
       context.globalAlpha = 1;
     }
@@ -593,6 +738,11 @@
         this.lastFireTime = 0;
       }
 
+      for (let index = this.impactBursts.length - 1; index >= 0; index -= 1) {
+        if (now - this.impactBursts[index].at >= IMPACT_LIFETIME_MS) {
+          this.impactBursts.splice(index, 1);
+        }
+      }
       this.bullets = this.bullets.filter(bullet => {
         if (bullet.impactAt !== undefined) return now - bullet.impactAt < 240;
         if (!physics.stepBullet(bullet, dt, this.width, this.height)) return false;
@@ -600,10 +750,12 @@
         for (const target of this.targets) {
           const distance = physics.circleRectDistance(bullet.x, bullet.y, target.rect);
           if (distance >= physics.CONSTANTS.hitRadius) continue;
+          this._spawnImpact(bullet, target, now);
           if (target.interactive) {
             bullet.impactAt = now;
             return true;
           }
+          if (this._shakeNearbyGlyphs(target, bullet)) continue;
           const centerX = (target.rect.left + target.rect.right) / 2;
           const centerY = (target.rect.top + target.rect.bottom) / 2;
           const angle = Math.atan2(centerY - bullet.y, centerX - bullet.x);
@@ -657,6 +809,7 @@
         this.facingScale = 1;
         this.bullets = [];
         this.mouseDown = false;
+        this.impactBursts.length = 0;
         this.lastFireTime = 0;
         this.lastTargetRefresh = 0;
         document.documentElement.style.cursor = 'none';
@@ -690,6 +843,7 @@
     }
 
     deactivate(animate = true) {
+      this._flushGlyphGroups();
       if (!this.active && this.displacements.size === 0) {
         if (!animate && this.avatar) {
           this.avatar.style.opacity = '0';
@@ -703,6 +857,7 @@
       this.touchGestureActive = false;
       this.tapGesture = null;
       this.bullets = [];
+      this.impactBursts.length = 0;
       if (this.raf) window.cancelAnimationFrame(this.raf);
       this.raf = null;
       if (this.avatar) {
@@ -886,6 +1041,7 @@
     _onVisibilityChange() {
       if (!this.active) return;
       if (document.hidden) {
+        this._flushGlyphGroups();
         if (this.raf) window.cancelAnimationFrame(this.raf);
         this.raf = null;
         this.stopShooting();
