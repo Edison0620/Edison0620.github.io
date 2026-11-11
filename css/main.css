@@ -1476,6 +1476,33 @@ body .token-usage-app .token-usage-details > div {
 .site-chat__floating:hover,
 .site-chat__footer:hover { color: var(--accent); }
 .site-chat__floating[hidden], .site-chat__footer[hidden] { display: none; }
+@media (min-width: 801px) {
+  #chatra.chatra--custom-button {
+    left: max(24px, env(safe-area-inset-left)) !important;
+    right: auto !important;
+  }
+}
+
+.site-chat__floating[aria-busy="true"]::after,
+.site-chat__footer[aria-busy="true"]::after {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-left: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: chat-loading-pulse 700ms ease-in-out infinite alternate;
+}
+@keyframes chat-loading-pulse {
+  from { opacity: 0.25; }
+  to { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-chat__floating[aria-busy="true"]::after,
+  .site-chat__footer[aria-busy="true"]::after { animation: none; }
+}
+
 @media (max-width: 800px) {
   .site-chat__floating { display: none; }
   .site-chat__footer {
