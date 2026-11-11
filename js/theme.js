@@ -139,7 +139,7 @@
             window.clearInterval(frameTimer);
             frameTimer = null;
             schedule();
-          }, 32);
+          }, 160);
         }, 24);
       }, interval);
     };

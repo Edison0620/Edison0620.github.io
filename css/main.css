@@ -304,9 +304,11 @@ body:has(.writing-container--wide) .site-signature {
   max-width: 800px;
 }
 .site-signature__bolt {
+  display: inline-block;
   flex: 0 0 auto;
   overflow: visible;
-  color: #b89b5e;
+  font-size: 18px;
+  line-height: 1.5;
   opacity: 0;
   transform: translate(9px, -12px) rotate(7deg);
   transform-origin: center;
@@ -337,7 +339,7 @@ body:has(.writing-container--wide) .site-signature {
   }
   44% {
     opacity: 1;
-    filter: brightness(2.15) drop-shadow(0 0 4px rgba(205, 157, 66, .9));
+    filter: brightness(1.1) drop-shadow(0 0 4px rgba(205, 157, 66, .9));
     animation-timing-function: ease-out;
   }
   56% {
