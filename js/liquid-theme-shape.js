@@ -9,12 +9,6 @@
     return 1 - Math.pow(1 - value, 3);
   }
 
-  function easeInOutCubic(value) {
-    return value < 0.5
-      ? 4 * value * value * value
-      : 1 - Math.pow(-2 * value + 2, 3) / 2;
-  }
-
   function circlePath(x, y, radius) {
     return [
       "M", x - radius, y,
@@ -24,16 +18,23 @@
     ].join(" ");
   }
 
+  function surfaceLevel(progress, geometry) {
+    var fill = clamp((progress - 0.16) / 0.82, 0, 1);
+    var amplitude = Math.max(5, Math.min(22, geometry.height * 0.025)) * (1 - fill * 0.65);
+    return geometry.height + amplitude - (geometry.height + amplitude * 2) * fill;
+  }
+
   function streamPath(progress, geometry) {
     var width = geometry.width;
     var originX = geometry.originX;
-    var pour = clamp(progress / 0.24, 0, 1);
-    var tail = easeInOutCubic(clamp((progress - 0.31) / 0.14, 0, 1));
+    var pour = clamp(progress / 0.45, 0, 1);
+    var tail = clamp((progress - 0.54) / 0.36, 0, 1);
     if (pour <= 0 || tail >= 0.99) return "";
 
-    // Once the stream lands, its trailing end falls into the rising pool.
-    var originY = geometry.originY + (geometry.height - geometry.originY - 8) * tail;
-    var length = (geometry.height - originY + 18) * easeInOutCubic(pour);
+    // The falling tip meets the current surface; the trailing end follows it.
+    var surfaceY = surfaceLevel(progress, geometry);
+    var originY = geometry.originY + (surfaceY - geometry.originY - 8) * tail;
+    var length = (surfaceY - originY + 18) * pour;
     var tip = originY + length;
     var sway = Math.sin(progress * Math.PI * 6) * Math.min(28, width * 0.07) * pour;
     var ripple = Math.sin(progress * 39);
@@ -119,15 +120,14 @@
   }
 
   function surfacePath(progress, geometry) {
-    var fill = clamp((progress - 0.22) / 0.75, 0, 1);
+    var fill = clamp((progress - 0.16) / 0.82, 0, 1);
     if (fill <= 0) return "";
     if (fill >= 0.995) {
       return "M 0 0 H " + geometry.width + " V " + geometry.height + " H 0 Z";
     }
 
-    var eased = easeInOutCubic(fill);
     var amplitude = Math.max(5, Math.min(22, geometry.height * 0.025)) * (1 - fill * 0.65);
-    var waveY = geometry.height + amplitude - (geometry.height + amplitude * 2) * eased;
+    var waveY = surfaceLevel(progress, geometry);
     var segment = geometry.width / 6;
     var phase = progress * Math.PI * 8;
     var path = ["M", 0, geometry.height, "L", 0, waveY];
@@ -160,6 +160,6 @@
 
   global.EishanLiquidShape = Object.freeze({
     createPath: createPath,
-    phases: Object.freeze({ pour: 0, splash: 0.2, flow: 0.32, finish: 0.97 })
+    phases: Object.freeze({ pour: 0, splash: 0.2, flow: 0.16, finish: 0.98 })
   });
 })(window);
