@@ -1433,6 +1433,40 @@ body .token-usage-app .token-usage-details > div {
 .back-to-top[hidden] { display: none; }
 .back-to-top:hover, .code-copy:hover { color: var(--accent); }
 
+.site-chat__floating {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 90;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--hairline);
+  border-radius: 2px;
+  background: var(--bg-page);
+  color: var(--ink-secondary);
+  font: 12px var(--font-mono);
+  cursor: pointer;
+}
+.site-chat__footer { display: none; }
+.site-chat__floating:hover,
+.site-chat__footer:hover { color: var(--accent); }
+.site-chat__floating[hidden], .site-chat__footer[hidden] { display: none; }
+body:has(.site-chat__floating) .back-to-top { bottom: 80px; }
+@media (max-width: 800px) {
+  .site-chat__floating { display: none; }
+  .site-chat__footer {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    border: 0;
+    background: none;
+    color: var(--ink-secondary);
+    font: 12px var(--font-mono);
+    cursor: pointer;
+  }
+  body:has(.site-chat__floating) .back-to-top { bottom: 24px; }
+}
+
 .writing-reward {
   margin-top: 48px;
   border-top: 1px solid var(--hairline);

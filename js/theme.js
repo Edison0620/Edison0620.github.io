@@ -40,6 +40,25 @@
     });
   }
 
+  var postBack = document.querySelector('[data-post-back]');
+  if (postBack) {
+    postBack.addEventListener('click', function (event) {
+      if (event.defaultPrevented || event.button !== 0 || event.metaKey ||
+        event.ctrlKey || event.shiftKey || event.altKey || !document.referrer ||
+        window.history.length <= 1) return;
+      var previous = new URL(document.referrer);
+      var home = new URL(postBack.href);
+      var relative = previous.pathname.startsWith(home.pathname)
+        ? previous.pathname.slice(home.pathname.length)
+        : null;
+      if (previous.origin === home.origin &&
+        (relative === '' || relative === 'index.html' || /^page\/[1-9]\d*\/(index\.html)?$/.test(relative))) {
+        event.preventDefault();
+        window.history.back();
+      }
+    });
+  }
+
   // --- scramble reveal for accent words -----------------------------------
   var scramble = document.querySelectorAll('.scramble');
   if (!reduceMotion) {
