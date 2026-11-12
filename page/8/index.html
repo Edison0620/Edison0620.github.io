@@ -30,7 +30,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
-<link rel="stylesheet" href="/css/main.css?v=51a3915dc9cf">
+<link rel="stylesheet" href="/css/main.css?v=f60e8567d599">
+
 
 
 <link rel="alternate" type="application/atom+xml" title="壹拾肆" href="/atom.xml">
@@ -183,13 +184,38 @@
     
   </div>
   
-<nav class="pagination">
+
+<nav class="pagination pagination--numbered" aria-label="文章分页">
   
-  <a class="pagination__link" href="/page/7/">← Newer</a>
+  <a class="pagination__number" href="/page/7/" aria-label="上一页">‹</a>
   
-  <span class="pagination__count">8 / 10</span>
   
-  <a class="pagination__link" href="/page/9/">Older →</a>
+    
+  <a class="pagination__number" href="/" aria-label="转到第 1 页">1</a>
+    
+  
+    
+  <span class="pagination__ellipsis" aria-hidden="true">…</span>
+    
+  
+    
+  <a class="pagination__number" href="/page/7/" aria-label="转到第 7 页">7</a>
+    
+  
+    
+  <a class="pagination__number" href="/page/8/" aria-label="第 8 页，当前页" aria-current="page">8</a>
+    
+  
+    
+  <a class="pagination__number" href="/page/9/" aria-label="转到第 9 页">9</a>
+    
+  
+    
+  <a class="pagination__number" href="/page/10/" aria-label="转到第 10 页">10</a>
+    
+  
+  
+  <a class="pagination__number" href="/page/9/" aria-label="下一页">›</a>
   
 </nav>
 
@@ -214,6 +240,8 @@
     <a class="archive-link" href="/about/">About</a>
     
     <a class="archive-link" href="/bb/">Memos</a>
+    
+    <a class="archive-link" href="/douban/">书影音</a>
     
     <a class="archive-link" href="/token-usage/">Tokens</a>
     
@@ -321,8 +349,9 @@
   <script src="/js/liquid-theme-shape.js" defer></script>
   <script src="/js/liquid-theme.js" defer></script>
   
-  <script src="/js/theme.js?v=51a3915dc9cf" defer></script>
+  <script src="/js/theme.js?v=f60e8567d599" defer></script>
   <script src="/js/search.js" defer></script>
+  
   
   
   

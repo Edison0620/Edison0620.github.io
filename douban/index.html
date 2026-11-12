@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>书影音 | 壹拾肆</title>
+<meta name="description" content="读过、看过、听过的记录。">
+<meta name="theme-color" content="#f9f9f7">
+<meta name="color-scheme" content="light dark">
+<script>
+  (function () {
+    var selected = 'light';
+    try {
+      var stored = localStorage.getItem('eishan-theme');
+      if (stored === 'dark' || stored === 'light') selected = stored;
+    } catch (error) {}
+    document.documentElement.setAttribute('data-theme', selected);
+    document.documentElement.style.colorScheme = selected;
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', selected === 'dark' ? '#101311' : '#f9f9f7');
+  })();
+</script>
+<meta property="og:title" content="书影音 | 壹拾肆">
+<meta property="og:description" content="读过、看过、听过的记录。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.kaaaaai.cn/douban/">
+<meta property="og:site_name" content="壹拾肆">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://www.kaaaaai.cn/douban/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="/css/main.css?v=f60e8567d599">
+
+<link rel="stylesheet" href="/css/douban.css">
+<link rel="stylesheet" href="/css/douban-pagination.css">
+
+
+
+<link rel="alternate" type="application/atom+xml" title="壹拾肆" href="/atom.xml">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body data-mode="builder">
+  
+  
+<div
+  class="liquid-theme-controls"
+  role="group"
+  aria-label="外观"
+  data-liquid-theme-controls
+  data-duration="1450"
+  data-label-dark="切换到深色主题"
+  data-label-light="切换到浅色主题"
+>
+  <svg class="liquid-theme-controls__symbols" aria-hidden="true">
+    <symbol id="liquid-theme-moon" viewBox="0 0 24 24">
+      <path d="M20.2 15.2A8.5 8.5 0 0 1 8.8 3.8 8.5 8.5 0 1 0 20.2 15.2Z"></path>
+    </symbol>
+    <symbol id="liquid-theme-sun" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="3.5"></circle>
+      <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path>
+    </symbol>
+  </svg>
+  <button class="liquid-theme-controls__button liquid-theme-controls__theme" type="button" aria-pressed="false" aria-label="切换到深色主题" title="切换到深色主题" data-theme-toggle>
+    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#liquid-theme-moon"></use></svg>
+  </button>
+</div>
+
+  
+  <main class="writing-container writing-container--wide douban-page" data-douban-root data-douban-url="https://raw.githubusercontent.com/kaaaaai/kaaaaai.tools.token-usage-public/main/douban/media.json">
+  <a class="writing-back" href="/">← Back home</a>
+  <header class="douban-heading">
+    <span class="section-label">COLLECTION / 书影音</span>
+    <h1 class="writing-title">书影音</h1>
+    <p class="douban-heading__intro">读过的书、看过的电影，和听过的音乐。按最近标记排序。</p>
+  </header>
+  <nav class="douban-filters" aria-label="书影音分类">
+    <button type="button" class="douban-filters__button" data-douban-kind="book" aria-pressed="true">书籍 <span data-douban-count>—</span></button>
+    <button type="button" class="douban-filters__button" data-douban-kind="movie" aria-pressed="false">电影 <span data-douban-count>—</span></button>
+    <button type="button" class="douban-filters__button" data-douban-kind="music" aria-pressed="false">音乐 <span data-douban-count>—</span></button>
+  </nav>
+  <p class="douban-status" data-douban-status role="status" aria-live="polite">正在载入书影音…</p>
+  <button class="douban-retry" data-douban-retry type="button" hidden>重新加载</button>
+  <section class="douban-list" data-douban-list aria-label="书影音记录"></section>
+  <nav class="douban-pagination" data-douban-pagination aria-label="书影音分页" hidden></nav>
+  <noscript>请启用 JavaScript 以查看书影音记录。</noscript>
+</main>
+
+  
+  <footer class="site-signature">
+    <div class="site-signature__identity">
+      <span>© 2017 – 2026</span>
+      <span class="site-signature__bolt" aria-hidden="true">⚡️</span>
+      <span class="site-signature__author">Kaaaaai</span>
+    
+    <button class="site-chat__footer" type="button" data-chat-open data-chatra-id="QXLRxXcsfrRJR2KTG">Chat ↗</button>
+    
+    </div>
+    
+    <p class="site-stats" aria-label="网站访问统计">
+      <span id="busuanzi_container_site_uv" style="display:none">访客 <span id="busuanzi_value_site_uv"></span></span>
+      <span id="busuanzi_container_site_pv" style="display:none">浏览 <span id="busuanzi_value_site_pv"></span></span>
+    </p>
+    
+  </footer>
+  
+<div
+  class="site-search"
+  data-search-root
+  data-search-endpoint="/eishan-search.json"
+  data-site-origin="https://www.kaaaaai.cn"
+  data-label-idle="输入关键词开始搜索"
+  data-label-loading="正在加载搜索索引…"
+  data-label-empty="没有找到相关内容"
+  data-label-error="搜索索引加载失败，请重试"
+  data-label-count="找到 {count} 个结果"
+  data-label-limited="找到 {count} 个结果，显示前 {limit} 个"
+>
+  <button
+    class="site-search__trigger"
+    id="site-search-trigger"
+    type="button"
+    aria-haspopup="dialog"
+    aria-controls="site-search-dialog"
+    aria-expanded="false"
+    data-search-open
+  ><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="7" cy="7" r="4.5"></circle><path d="m10.5 10.5 4 4"></path></svg><span>搜索</span></button>
+
+  <div
+    class="site-search__overlay"
+    id="site-search-dialog"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="site-search-title"
+    hidden
+    data-search-dialog
+  >
+    <section class="site-search__panel">
+      <header class="site-search__header">
+        <h2 id="site-search-title">搜索文章</h2>
+        <button class="site-search__close" type="button" aria-label="关闭搜索" data-search-close>×</button>
+      </header>
+
+      <form class="site-search__form" role="search" data-search-form>
+        <label for="site-search-input">搜索关键词</label>
+        <input
+          class="site-search__input"
+          id="site-search-input"
+          type="search"
+          name="q"
+          autocomplete="off"
+          enterkeyhint="search"
+          placeholder="输入标题或内容关键词"
+          aria-describedby="site-search-status"
+          data-search-input
+        >
+      </form>
+
+      <p class="site-search__status" id="site-search-status" role="status" aria-live="polite" data-search-status>输入关键词开始搜索</p>
+      <button class="site-search__retry" type="button" hidden data-search-retry>重试</button>
+      <ol class="site-search__results" aria-label="搜索结果" data-search-results></ol>
+    </section>
+  </div>
+</div>
+
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top" hidden>↑</button>
+  
+  <button class="site-chat__floating" type="button" data-chat-open data-chatra-id="QXLRxXcsfrRJR2KTG">Chat ↗</button>
+  <script src="/js/chatra.js?v=c7b83a7" defer></script>
+  
+  
+  <script src="/js/liquid-theme-shape.js" defer></script>
+  <script src="/js/liquid-theme.js" defer></script>
+  
+  <script src="/js/theme.js?v=f60e8567d599" defer></script>
+  <script src="/js/search.js" defer></script>
+  
+  
+  <script src="/js/douban-pagination.js" defer></script>
+  <script src="/js/douban.js" defer></script>
+  
+  
+  
+  <script src="/js/clawd-physics.js" defer></script>
+  <script src="/js/site-particle-effects.js" defer></script>
+  <script src="/js/clawd-effects.js?v=20261111.8" defer></script>
+  
+  
+  <script>if (location.hostname === "www.kaaaaai.cn") { var s = document.createElement('script'); s.src = 'https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'; s.async = true; document.body.appendChild(s); }</script>
+  
+  
+  <script>if (!/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) { var _hmt = window._hmt || []; (function () { var s = document.createElement('script'); s.src = 'https://hm.baidu.com/hm.js?9578d14210d67becef48447e4f6b3f20'; s.async = true; document.head.appendChild(s); })(); }</script>
+  
+  
+</body>
+</html>
