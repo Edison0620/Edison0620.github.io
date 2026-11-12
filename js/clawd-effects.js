@@ -13,15 +13,19 @@
   const IMPACT_LIFETIME_MS = 220;
   const MAX_IMPACT_BURSTS = 8;
   const IMPACT_GRAINS = 12;
-  const GLYPH_SHAKE_MS = 320;
+  const MAX_GLYPH_DISPLACEMENT = 16;
   const MAX_GLYPH_GROUPS = 3;
   const MAX_GLYPHS_PER_HIT = 9;
+  const GLYPH_CONTACT_RADIUS = 12;
   const TARGET_ROOT_SELECTOR = '.header, .main-inner, .sidebar-inner';
   const CODE_LINE_TARGET_SELECTOR = '.post-body .highlight td.code .line';
+  const CONTENT_IMAGE_TARGET_SELECTOR = '.writing-content img';
   const GROUPED_TARGET_SELECTOR = [
     '.post-meta-container',
     '.post-body > pre',
-    '.post-toc'
+    '.post-toc',
+    '.token-usage-kpi',
+    '.token-usage-details > div'
   ].join(', ');
   const INTERACTIVE_COLLISION_SELECTOR = [
     'a',
@@ -89,6 +93,7 @@
       this.glyphGroups = new Set();
       this.graphemeSegmenter = null;
       this.targets = [];
+      this.terminalObserver = null;
       this.displacements = new Map();
       this.releaseRecords = new Set();
       this.mouseDown = false;
@@ -276,8 +281,19 @@
       }
 
       for (const element of document.querySelectorAll(GROUPED_TARGET_SELECTOR)) {
-        if (element.closest(TARGET_ROOT_SELECTOR) && !element.querySelector(INTERACTIVE_COLLISION_SELECTOR)) {
+        if (element.closest(TARGET_ROOT_SELECTOR)
+          && !element.closest(COLLISION_IGNORED_SELECTOR)
+          && !element.querySelector(INTERACTIVE_COLLISION_SELECTOR)) {
           candidates.add(element);
+        }
+      }
+
+      for (const image of document.querySelectorAll(CONTENT_IMAGE_TARGET_SELECTOR)) {
+        if (image.closest(TARGET_ROOT_SELECTOR)
+          && !image.closest(COLLISION_IGNORED_SELECTOR)
+          && !image.closest(INTERACTIVE_COLLISION_SELECTOR)
+          && !image.closest('[data-content-image-frame]:not([data-image-state="loaded"])')) {
+          candidates.add(image);
         }
       }
 
@@ -293,6 +309,9 @@
           while (ancestor && ancestor !== root) {
             if (candidates.has(ancestor)
               && !(element.matches(INTERACTIVE_COLLISION_SELECTOR)
+                && ancestor.matches('p, h1, h2, h3, h4')
+                && ancestor.closest('.post-body, .writing-content'))
+              && !(element.matches(CONTENT_IMAGE_TARGET_SELECTOR)
                 && ancestor.matches('p')
                 && ancestor.closest('.post-body, .writing-content'))) return false;
             ancestor = ancestor.parentElement;
@@ -302,7 +321,8 @@
         .filter(element => {
           if (!element.matches(INTERACTIVE_COLLISION_SELECTOR)
             && element.querySelector(INTERACTIVE_COLLISION_SELECTOR)
-            && !(element.matches('p') && element.closest('.post-body, .writing-content'))) return false;
+            && !(element.matches('p, h1, h2, h3, h4')
+              && element.closest('.post-body, .writing-content'))) return false;
           const style = getComputedStyle(element);
           if (style.display === 'none' || style.visibility === 'hidden') return false;
           const interactive = element.matches(INTERACTIVE_COLLISION_SELECTOR);
@@ -341,6 +361,15 @@
           && rect.bottom > -200;
       });
       this.geometryDirty = false;
+    }
+
+    _watchTerminalMount() {
+      this.terminalObserver?.disconnect();
+      this.terminalObserver = null;
+      const root = document.querySelector('[data-token-terminal]');
+      if (!root) return;
+      this.terminalObserver = new MutationObserver(() => { this.geometryDirty = true; });
+      this.terminalObserver.observe(root, { childList: true });
     }
 
     _flushReleases() {
@@ -550,8 +579,14 @@
 
     _restoreGlyphGroup(group) {
       if (!this.glyphGroups.delete(group)) return;
-      window.clearTimeout(group.timer);
-      for (const animation of group.animations) animation.cancel();
+      if (group.terminal) {
+        for (const glyph of group.glyphs) {
+          if (glyph.element.isConnected && glyph.element.style.transform === glyph.appliedTransform) {
+            glyph.element.style.transform = glyph.savedTransform;
+          }
+        }
+        return;
+      }
       if (!group.wrapper.isConnected) return;
       if (group.prefix.nextSibling === group.wrapper
         && group.wrapper.nextSibling === group.suffix) {
@@ -567,23 +602,59 @@
       for (const group of this.glyphGroups) this._restoreGlyphGroup(group);
     }
 
-    _shakeNearbyGlyphs(target, bullet) {
+    _applyGlyphImpulse(group, bullet, dt, now) {
+      let closest = Infinity;
+      for (const glyph of group.glyphs) {
+        closest = Math.min(closest, physics.circleRectDistance(bullet.x, bullet.y, glyph.rect));
+      }
+      if (closest > GLYPH_CONTACT_RADIUS) return false;
+      for (const glyph of group.glyphs) {
+        const distance = physics.circleRectDistance(bullet.x, bullet.y, glyph.rect);
+        if (distance >= physics.CONSTANTS.hitRadius) continue;
+        const centerX = (glyph.rect.left + glyph.rect.right) / 2;
+        const centerY = (glyph.rect.top + glyph.rect.bottom) / 2;
+        const angle = Math.atan2(centerY - bullet.y, centerX - bullet.x);
+        const magnitude = (1 - distance / physics.CONSTANTS.hitRadius)
+          * 30 * dt * physics.CONSTANTS.impulseScale;
+        physics.addImpulse(glyph.state, angle, magnitude);
+        const speed = Math.hypot(glyph.state.vx, glyph.state.vy);
+        if (speed > MAX_GLYPH_DISPLACEMENT) {
+          glyph.state.vx *= MAX_GLYPH_DISPLACEMENT / speed;
+          glyph.state.vy *= MAX_GLYPH_DISPLACEMENT / speed;
+        }
+      }
+      group.lastHit = now;
+      bullet.textShaken = true;
+      bullet.shakenElement = group.parent;
+      return true;
+    }
+
+    _springNearbyGlyphs(target, bullet, dt, now) {
       const element = target.element;
       if (typeof element.matches !== 'function'
         || !element.matches('p, h1, h2, h3, h4, li, blockquote')
-        || !element.closest('.post-body, .writing-content')
-        || typeof document.caretPositionFromPoint !== 'function'
-        || typeof Intl.Segmenter !== 'function') return false;
-      if (bullet.textShaken) return true;
-      bullet.textShaken = true;
+        || !element.closest('.post-body, .writing-content')) return false;
+      if (physics.circleRectDistance(bullet.x, bullet.y, target.rect) > GLYPH_CONTACT_RADIUS) return true;
       if (document.getSelection()?.isCollapsed === false) return true;
-      if (this.glyphGroups.size >= MAX_GLYPH_GROUPS) return true;
       for (const group of this.glyphGroups) {
-        if (group.parent === element) return true;
+        if (group.parent === element && this._applyGlyphImpulse(group, bullet, dt, now)) {
+          return true;
+        }
       }
+      if (typeof document.caretPositionFromPoint !== 'function'
+        || typeof Intl.Segmenter !== 'function') return true;
 
       const x = Math.min(Math.max(bullet.x, target.rect.left + 1), target.rect.right - 1);
       const y = Math.min(Math.max(bullet.y, target.rect.top + 1), target.rect.bottom - 1);
+      if (this.glyphGroups.size >= MAX_GLYPH_GROUPS) {
+        const candidate = document.caretPositionFromPoint(x, y)?.offsetNode;
+        if (candidate?.nodeType !== Node.TEXT_NODE || candidate.parentElement !== element) return true;
+        let oldest;
+        for (const group of this.glyphGroups) {
+          if (!oldest || group.lastHit < oldest.lastHit) oldest = group;
+        }
+        this._restoreGlyphGroup(oldest);
+      }
       const caret = document.caretPositionFromPoint(x, y);
       const node = caret?.offsetNode;
       if (node?.nodeType !== Node.TEXT_NODE || node.parentElement !== element || !node.data.trim()) {
@@ -605,29 +676,31 @@
       }
       const nearby = previous.concat(next);
       const range = document.createRange();
+      const measured = [];
       const hits = [];
+      let closest = Infinity;
       for (const glyph of nearby) {
         range.setStart(node, glyph.index);
         range.setEnd(node, glyph.index + glyph.segment.length);
         const rect = range.getBoundingClientRect();
-        const dx = Math.max(rect.left - bullet.x, 0, bullet.x - rect.right);
-        const dy = Math.max(rect.top - bullet.y, 0, bullet.y - rect.bottom);
-        if (Math.hypot(dx, dy) < physics.CONSTANTS.hitRadius) hits.push(glyph);
+        const entry = { index: glyph.index, segment: glyph.segment, rect };
+        measured.push(entry);
+        const distance = physics.circleRectDistance(bullet.x, bullet.y, rect);
+        closest = Math.min(closest, distance);
+        if (distance < physics.CONSTANTS.hitRadius) hits.push(entry);
       }
-      if (hits.length === 0) return true;
-
+      if (closest > GLYPH_CONTACT_RADIUS || !hits.some(glyph => glyph.segment.trim())) return true;
       const start = hits[0].index;
       const end = hits[hits.length - 1].index + hits[hits.length - 1].segment.length;
       const wrapper = document.createElement('span');
-      if (typeof wrapper.animate !== 'function') return true;
       wrapper.dataset.clawdIgnore = '';
       const prefix = node;
       const middle = node.splitText(start);
       const suffix = middle.splitText(end - start);
       middle.replaceWith(wrapper);
-      const group = { parent: element, prefix, suffix, wrapper, animations: [], timer: 0 };
+      const group = { parent: element, prefix, suffix, wrapper, glyphs: [], lastHit: now };
       this.glyphGroups.add(group);
-      for (const glyph of nearby) {
+      for (const glyph of measured) {
         if (glyph.index < start || glyph.index >= end) continue;
         if (!glyph.segment.trim()) {
           wrapper.append(glyph.segment);
@@ -638,17 +711,63 @@
         span.textContent = glyph.segment;
         span.style.display = 'inline-block';
         wrapper.append(span);
-        if (!hits.includes(glyph)) continue;
-        const direction = glyph.index % 2 === 0 ? 1 : -1;
-        group.animations.push(span.animate([
-          { transform: 'translate(0, 0) rotate(0deg)' },
-          { transform: `translate(${direction * 7}px, -7px) rotate(${direction * 4}deg)`, offset: 0.3 },
-          { transform: `translate(${-direction * 3}px, 3px) rotate(${-direction * 2}deg)`, offset: 0.7 },
-          { transform: 'translate(0, 0) rotate(0deg)' }
-        ], { duration: GLYPH_SHAKE_MS, easing: 'ease-out' }));
+        group.glyphs.push({
+          element: span,
+          rect: glyph.rect,
+          state: { dx: 0, dy: 0, vx: 0, vy: 0, atRest: true }
+        });
       }
-      group.timer = window.setTimeout(() => this._restoreGlyphGroup(group), GLYPH_SHAKE_MS);
+      this._applyGlyphImpulse(group, bullet, dt, now);
       return true;
+    }
+
+    _springTerminalGlyphs(target, bullet, dt, now) {
+      const grid = target.element;
+      for (const group of this.glyphGroups) {
+        if (group.terminal && group.parent === grid && group.wrapper.isConnected
+          && this._applyGlyphImpulse(group, bullet, dt, now)) return true;
+      }
+      const hit = document.elementFromPoint(bullet.x, bullet.y);
+      if (!hit?.matches('[data-token-terminal] pre > span')
+        || hit.closest('[data-token-terminal] > [tabindex]') !== grid) return false;
+      if (this.glyphGroups.size >= MAX_GLYPH_GROUPS) {
+        let oldest;
+        for (const group of this.glyphGroups) {
+          if (!oldest || group.lastHit < oldest.lastHit) oldest = group;
+        }
+        this._restoreGlyphGroup(oldest);
+      }
+      const neighbors = [];
+      let sibling = hit;
+      for (let index = 0; index < 4 && sibling.previousElementSibling; index += 1) {
+        sibling = sibling.previousElementSibling;
+        neighbors.unshift(sibling);
+      }
+      neighbors.push(hit);
+      sibling = hit;
+      for (let index = 0; index < 4 && sibling.nextElementSibling; index += 1) {
+        sibling = sibling.nextElementSibling;
+        neighbors.push(sibling);
+      }
+      const ownedGlyphs = new Set();
+      for (const existing of this.glyphGroups) {
+        if (!existing.terminal) continue;
+        for (const glyph of existing.glyphs) ownedGlyphs.add(glyph.element);
+      }
+      const group = { terminal: true, parent: grid, wrapper: hit.parentElement, glyphs: [], lastHit: now };
+      for (const element of neighbors) {
+        if (!element.textContent.trim() || ownedGlyphs.has(element)) continue;
+        group.glyphs.push({
+          element,
+          rect: element.getBoundingClientRect(),
+          state: { dx: 0, dy: 0, vx: 0, vy: 0, atRest: true },
+          savedTransform: element.style.transform,
+          appliedTransform: null
+        });
+      }
+      if (group.glyphs.length === 0) return false;
+      this.glyphGroups.add(group);
+      return this._applyGlyphImpulse(group, bullet, dt, now);
     }
 
     _draw() {
@@ -750,12 +869,22 @@
         for (const target of this.targets) {
           const distance = physics.circleRectDistance(bullet.x, bullet.y, target.rect);
           if (distance >= physics.CONSTANTS.hitRadius) continue;
-          this._spawnImpact(bullet, target, now);
+          if (target.interactive && target.element.parentElement?.matches('[data-token-terminal]')) {
+            if (this._springTerminalGlyphs(target, bullet, dt, now)) {
+              this._spawnImpact(bullet, target, now);
+            }
+            continue;
+          }
           if (target.interactive) {
+            this._spawnImpact(bullet, target, now);
             bullet.impactAt = now;
             return true;
           }
-          if (this._shakeNearbyGlyphs(target, bullet)) continue;
+          if (this._springNearbyGlyphs(target, bullet, dt, now)) {
+            if (bullet.shakenElement === target.element) this._spawnImpact(bullet, target, now);
+            continue;
+          }
+          this._spawnImpact(bullet, target, now);
           const centerX = (target.rect.left + target.rect.right) / 2;
           const centerY = (target.rect.top + target.rect.bottom) / 2;
           const angle = Math.atan2(centerY - bullet.y, centerX - bullet.x);
@@ -767,6 +896,40 @@
         }
         return true;
       });
+
+      for (const group of this.glyphGroups) {
+        if (!group.wrapper.isConnected || (group.terminal
+          && group.glyphs.some(glyph => !glyph.element.isConnected))) {
+          this._restoreGlyphGroup(group);
+          continue;
+        }
+        let atRest = true;
+        for (const glyph of group.glyphs) {
+          physics.stepDisplacement(glyph.state);
+          const length = Math.hypot(glyph.state.dx, glyph.state.dy);
+          if (length > MAX_GLYPH_DISPLACEMENT) {
+            glyph.state.dx *= MAX_GLYPH_DISPLACEMENT / length;
+            glyph.state.dy *= MAX_GLYPH_DISPLACEMENT / length;
+          }
+          if (glyph.state.atRest) {
+            if (group.terminal) {
+              if (glyph.element.style.transform === glyph.appliedTransform) {
+                glyph.element.style.transform = glyph.savedTransform;
+              }
+            } else {
+              glyph.element.style.transform = '';
+            }
+          } else {
+            atRest = false;
+            glyph.appliedTransform = `translate(${glyph.state.dx.toFixed(1)}px, ${glyph.state.dy.toFixed(1)}px)`;
+            glyph.element.style.transform = group.terminal
+              ? `${glyph.appliedTransform} ${glyph.savedTransform}`.trim()
+              : glyph.appliedTransform;
+            if (group.terminal) glyph.appliedTransform = glyph.element.style.transform;
+          }
+        }
+        if (atRest && now - group.lastHit > 100) this._restoreGlyphGroup(group);
+      }
 
       for (const state of [...this.displacements.values()]) {
         if (!state.element.isConnected) {
@@ -825,6 +988,7 @@
         document.documentElement.classList.add('clawd-effects-active');
         this._markPageStateApplied(input === 'touch');
         this._resizeCanvas();
+        this._watchTerminalMount();
         this.targets = this._collectTargets();
         this._refreshGeometry(false);
         this.canvas.style.display = 'block';
@@ -843,6 +1007,8 @@
     }
 
     deactivate(animate = true) {
+      this.terminalObserver?.disconnect();
+      this.terminalObserver = null;
       this._flushGlyphGroups();
       if (!this.active && this.displacements.size === 0) {
         if (!animate && this.avatar) {
@@ -1035,6 +1201,7 @@
     _onViewportChange() {
       if (!this.active) return;
       this.geometryDirty = true;
+      this._flushGlyphGroups();
       this._resizeCanvas();
     }
 

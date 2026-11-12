@@ -102,9 +102,6 @@
 }
 
 .token-usage-app .token-terminal-heading {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
   margin: 28px 0 10px;
 }
 
@@ -114,11 +111,6 @@
   color: var(--page-text);
   font-size: 16px;
   font-weight: 650;
-}
-
-.token-usage-app .token-terminal-heading span {
-  color: var(--page-muted);
-  font-size: 11px;
 }
 
 .token-usage-app .token-window-stack {
