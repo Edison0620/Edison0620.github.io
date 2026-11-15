@@ -14,7 +14,7 @@
 .douban-list { position: relative; margin-top: 12px; }
 .douban-item { position: absolute; top: 0; left: 0; box-sizing: border-box; width: calc((100% - 48px) / 2); padding: 24px 0; border-bottom: 1px dashed var(--hairline); }
 .douban-item__body { display: flex; gap: 24px; align-items: flex-start; min-height: 112px; }
-.douban-item__cover-link { display: block; flex: 0 0 80px; }
+.douban-item__cover-link { position: relative; display: block; flex: 0 0 80px; transform-origin: center; }
 .douban-item__cover { display: block; width: 80px; height: 112px; object-fit: cover; background: var(--bg-surface); }
 .douban-item__details { display: flex; flex: 1; flex-direction: column; align-items: flex-start; min-width: 0; gap: 6px; }
 .douban-item__title { color: var(--ink-primary); font-size: 16px; font-weight: 600; line-height: 1.5; overflow-wrap: anywhere; text-decoration: none; }
@@ -31,6 +31,22 @@
 .douban-pagination button { min-height: 44px; border: 0; background: transparent; color: var(--ink-primary); font: 14px var(--font-sans); cursor: pointer; }
 .douban-pagination button:disabled { color: var(--ink-tertiary); cursor: default; }
 .douban-page button:focus-visible, .douban-item__title:focus-visible, .douban-item__cover-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+@media (hover: hover) and (pointer: fine) {
+  .douban-item__cover-link { transition: transform 220ms ease-out; }
+  .douban-item__cover-link:hover {
+    transform: perspective(520px) rotateX(var(--cover-tilt-x, 0deg)) rotateY(var(--cover-tilt-y, 0deg)) translateY(-2px);
+  }
+  .douban-item__cover-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at var(--cover-light-x, 50%) var(--cover-light-y, 50%), color-mix(in srgb, var(--accent) 9%, transparent), #ffffff20 35%, transparent 68%);
+    opacity: 0;
+    transition: opacity 220ms ease-out;
+  }
+  .douban-item__cover-link:hover::after { opacity: 1; }
+}
 @media (max-width: 900px) {
   .douban-item { width: 100%; }
 }
@@ -44,4 +60,7 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .douban-item__comment-text { transition: none; }
+  .douban-item__cover-link, .douban-item__cover-link::after { transition: none; }
+  .douban-item__cover-link:hover { transform: none; }
+  .douban-item__cover-link:hover::after { opacity: 0; }
 }

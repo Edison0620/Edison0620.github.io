@@ -58,6 +58,8 @@
   var active = 'book';
   var page = 1;
   list.tabIndex = -1;
+  var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   var cardObserver = new ResizeObserver(scheduleLayout);
   var layoutFrame = 0;
 
@@ -112,6 +114,31 @@
         coverLink.target = '_blank';
         coverLink.rel = 'noopener noreferrer';
         coverLink.setAttribute('aria-label', item.title + ' · 豆瓣');
+        var coverFrame = 0;
+        coverLink.addEventListener('pointermove', function (event) {
+          if (!finePointer.matches || reduceMotion.matches || coverFrame) return;
+          var clientX = event.clientX;
+          var clientY = event.clientY;
+          coverFrame = requestAnimationFrame(function () {
+            coverFrame = 0;
+            var bounds = coverLink.getBoundingClientRect();
+            if (!bounds.width || !bounds.height) return;
+            var x = Math.max(0, Math.min(1, (clientX - bounds.left) / bounds.width));
+            var y = Math.max(0, Math.min(1, (clientY - bounds.top) / bounds.height));
+            coverLink.style.setProperty('--cover-tilt-x', ((0.5 - y) * 6).toFixed(2) + 'deg');
+            coverLink.style.setProperty('--cover-tilt-y', ((x - 0.5) * 6).toFixed(2) + 'deg');
+            coverLink.style.setProperty('--cover-light-x', (x * 100).toFixed(1) + '%');
+            coverLink.style.setProperty('--cover-light-y', (y * 100).toFixed(1) + '%');
+          });
+        });
+        coverLink.addEventListener('pointerleave', function () {
+          if (coverFrame) cancelAnimationFrame(coverFrame);
+          coverFrame = 0;
+          coverLink.style.removeProperty('--cover-tilt-x');
+          coverLink.style.removeProperty('--cover-tilt-y');
+          coverLink.style.removeProperty('--cover-light-x');
+          coverLink.style.removeProperty('--cover-light-y');
+        });
         var image = document.createElement('img');
         image.className = 'douban-item__cover';
         image.src = coverUrl(item.poster);
