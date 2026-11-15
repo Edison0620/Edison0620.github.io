@@ -14,7 +14,24 @@
 .douban-list { position: relative; margin-top: 12px; }
 .douban-item { position: absolute; top: 0; left: 0; box-sizing: border-box; width: calc((100% - 48px) / 2); padding: 24px 0; border-bottom: 1px dashed var(--hairline); }
 .douban-item__body { display: flex; gap: 24px; align-items: flex-start; min-height: 112px; }
-.douban-item__cover-link { position: relative; display: block; flex: 0 0 80px; transform-origin: center; }
+.douban-item__cover-link { position: relative; isolation: isolate; display: block; flex: 0 0 80px; transform-origin: center; }
+.douban-item__cover-link::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -5px;
+  pointer-events: none;
+  background: var(--bg-surface);
+  filter: drop-shadow(0 0 1px var(--hairline));
+  mask-image:
+    radial-gradient(circle at 50% 0, transparent 2px, #000 2.5px),
+    radial-gradient(circle at 50% 100%, transparent 2px, #000 2.5px),
+    radial-gradient(circle at 0 50%, transparent 2px, #000 2.5px),
+    radial-gradient(circle at 100% 50%, transparent 2px, #000 2.5px);
+  mask-size: 8px 100%, 8px 100%, 100% 8px, 100% 8px;
+  mask-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+  mask-composite: intersect;
+}
 .douban-item__cover { display: block; width: 80px; height: 112px; object-fit: cover; background: var(--bg-surface); }
 .douban-item__details { display: flex; flex: 1; flex-direction: column; align-items: flex-start; min-width: 0; gap: 6px; }
 .douban-item__title { color: var(--ink-primary); font-size: 16px; font-weight: 600; line-height: 1.5; overflow-wrap: anywhere; text-decoration: none; }
