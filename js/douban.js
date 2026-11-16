@@ -36,13 +36,134 @@
     return items.slice((page - 1) * size, page * size);
   }
 
+  function encodeItfBarPositions(digits) {
+    if (!/^\d{8}$/.test(digits)) return null;
+    var patterns = ['nnwwn', 'wnnnw', 'nwnnw', 'wwnnn', 'nnwnw', 'wnwnn', 'nwwnn', 'nnnww', 'wnnwn', 'nwnwn'];
+    var bars = [];
+    var x = 0;
+    function segment(bar, width) {
+      if (bar) bars.push({ x: x, width: width });
+      x += width;
+    }
+    segment(true, 1);
+    segment(false, 1);
+    segment(true, 1);
+    segment(false, 1);
+    for (var i = 0; i < digits.length; i += 2) {
+      var black = patterns[Number(digits[i])];
+      var white = patterns[Number(digits[i + 1])];
+      for (var j = 0; j < 5; j++) {
+        segment(true, black[j] === 'w' ? 2 : 1);
+        segment(false, white[j] === 'w' ? 2 : 1);
+      }
+    }
+    segment(true, 2);
+    segment(false, 1);
+    segment(true, 1);
+    return { bars: bars, width: x };
+  }
+
   if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { normalizeCollection: normalizeCollection, selectPage: selectPage };
+    module.exports = { normalizeCollection: normalizeCollection, selectPage: selectPage, encodeItfBarPositions: encodeItfBarPositions };
   }
   if (typeof document === 'undefined') return;
 
   var root = document.querySelector('[data-douban-root]');
   if (!root) return;
+  var tintCanvas;
+  function posterPalette(image) {
+    if (!tintCanvas) {
+      tintCanvas = document.createElement('canvas');
+      tintCanvas.width = 12;
+      tintCanvas.height = 12;
+    }
+    try {
+      var ctx = tintCanvas.getContext('2d', { willReadFrequently: true });
+      ctx.drawImage(image, 0, 0, 12, 12);
+      var pixels = ctx.getImageData(0, 0, 12, 12).data;
+      var counts = new Uint8Array(12), bottomCounts = new Uint8Array(12);
+      var red = new Uint16Array(12), green = new Uint16Array(12), blue = new Uint16Array(12);
+      var bottomRed = new Uint16Array(12), bottomGreen = new Uint16Array(12), bottomBlue = new Uint16Array(12);
+      var neutrals = new Uint8Array(8), neutralRed = new Uint16Array(8);
+      var neutralGreen = new Uint16Array(8), neutralBlue = new Uint16Array(8);
+      var white = 0, edgeR = 0, edgeG = 0, edgeB = 0, edgeCount = 0;
+      for (var y = 0; y < 12; y++) {
+        for (var x = 0; x < 12; x++) {
+          var i = (y * 12 + x) * 4;
+          if (pixels[i + 3] < 128) continue;
+          var r = pixels[i], g = pixels[i + 1], b = pixels[i + 2];
+          if (y >= 10) { edgeR += r; edgeG += g; edgeB += b; edgeCount++; }
+          var hi = Math.max(r, g, b), lo = Math.min(r, g, b), chroma = hi - lo;
+          if (y >= 8 && chroma < 30) {
+            var shade = Math.min(7, hi >> 5);
+            neutrals[shade]++;
+            neutralRed[shade] += r; neutralGreen[shade] += g; neutralBlue[shade] += b;
+            if (lo >= 238) white++;
+          }
+          if (chroma < 30 || hi < 55 || hi > 250) continue;
+          var hue = (hi === r ? ((g - b) / chroma + 6) % 6 :
+            hi === g ? (b - r) / chroma + 2 : (r - g) / chroma + 4) * 60;
+          var bin = Math.floor(hue / 30) % 12;
+          counts[bin]++; red[bin] += r; green[bin] += g; blue[bin] += b;
+          if (y >= 8) {
+            bottomCounts[bin]++;
+            bottomRed[bin] += r; bottomGreen[bin] += g; bottomBlue[bin] += b;
+          }
+        }
+      }
+      var most = 0, bottom = 0, shade = 0, neutralCount = 0;
+      for (var j = 0; j < 12; j++) {
+        if (counts[j] > counts[most]) most = j;
+        if (bottomCounts[j] > bottomCounts[bottom]) bottom = j;
+      }
+      for (var k = 0; k < 8; k++) {
+        neutralCount += neutrals[k];
+        if (neutrals[k] > neutrals[shade]) shade = k;
+      }
+      var lightPaper = white >= 18 && neutralCount >= 32;
+      var count, sums;
+      if (lightPaper) {
+        count = 1; sums = [255, 255, 255];
+      } else if (neutralCount >= 26 && neutralCount > bottomCounts[bottom]) {
+        count = neutrals[shade];
+        sums = [neutralRed[shade], neutralGreen[shade], neutralBlue[shade]];
+      } else if (bottomCounts[bottom] >= 5) {
+        count = bottomCounts[bottom];
+        sums = [bottomRed[bottom], bottomGreen[bottom], bottomBlue[bottom]];
+      } else if (counts[most] >= 4) {
+        count = counts[most];
+        sums = [red[most], green[most], blue[most]];
+      } else {
+        return null;
+      }
+      var pr = Math.round(sums[0] / count), pg = Math.round(sums[1] / count), pb = Math.round(sums[2] / count);
+      var er = edgeCount ? Math.round(edgeR / edgeCount) : pr;
+      var eg = edgeCount ? Math.round(edgeG / edgeCount) : pg;
+      var eb = edgeCount ? Math.round(edgeB / edgeCount) : pb;
+      if (!lightPaper && edgeCount) {
+        var difference = Math.max(Math.abs(pr - er), Math.abs(pg - eg), Math.abs(pb - eb));
+        if (difference > 20) {
+          var pull = Math.min(0.75, (difference - 12) / difference);
+          pr = Math.round(pr * (1 - pull) + er * pull);
+          pg = Math.round(pg * (1 - pull) + eg * pull);
+          pb = Math.round(pb * (1 - pull) + eb * pull);
+        }
+      }
+      function linear(value) {
+        value /= 255;
+        return value <= 0.04045 ? value / 12.92 : Math.pow((value + 0.055) / 1.055, 2.4);
+      }
+      var luminance = 0.2126 * linear(pr) + 0.7152 * linear(pg) + 0.0722 * linear(pb);
+      return {
+        paper: 'rgb(' + pr + ' ' + pg + ' ' + pb + ')',
+        ink: luminance < 0.18 ? '#fff' : '#000',
+        lightPaper: lightPaper,
+        edge: lightPaper ? '#fff' : edgeCount ? 'rgb(' + er + ' ' + eg + ' ' + eb + ')' : null
+      };
+    } catch (error) {
+      return null;
+    }
+  }
   var tabs = Array.prototype.slice.call(root.querySelectorAll('[data-douban-kind]'));
   var status = root.querySelector('[data-douban-status]');
   var list = root.querySelector('[data-douban-list]');
@@ -113,7 +234,11 @@
         coverLink.href = item.url;
         coverLink.target = '_blank';
         coverLink.rel = 'noopener noreferrer';
-        coverLink.setAttribute('aria-label', item.title + ' · 豆瓣');
+        var watched = String(item.star_time || '').slice(0, 10);
+        if (active === 'movie' && /^\d{4}-\d{2}-\d{2}$/.test(watched)) {
+          coverLink.setAttribute('data-watch-date', watched);
+        }
+        coverLink.setAttribute('aria-label', item.title + (active === 'movie' && coverLink.hasAttribute('data-watch-date') ? ' · 观看于 ' + watched : '') + ' · 豆瓣');
         var coverFrame = 0;
         coverLink.addEventListener('pointermove', function (event) {
           if (!finePointer.matches || reduceMotion.matches || coverFrame) return;
@@ -146,12 +271,42 @@
         image.height = 136;
         image.loading = 'lazy';
         image.decoding = 'async';
-        image.addEventListener('load', function () { coverLink.classList.remove('is-cover-loading'); }, { once: true });
+        if (active === 'movie') image.crossOrigin = 'anonymous';
+        function finishCover() {
+          if (card.classList.contains('douban-item--movie') && image.naturalWidth) {
+            var palette = posterPalette(image);
+            if (palette) {
+              card.style.setProperty('--ticket-paper', palette.paper);
+              card.style.setProperty('--ticket-ink', palette.ink);
+              if (palette.edge) card.style.setProperty('--ticket-edge', palette.edge);
+              if (palette.lightPaper) card.classList.add('douban-item--movie-light-paper');
+            }
+          }
+          coverLink.classList.remove('is-cover-loading');
+        }
+        image.addEventListener('load', finishCover, { once: true });
         image.addEventListener('error', function () { coverLink.classList.remove('is-cover-loading'); }, { once: true });
         coverLink.classList.add('is-cover-loading');
         image.src = coverUrl(item.poster);
-        if (image.complete) coverLink.classList.remove('is-cover-loading');
+        if (image.complete) finishCover();
         coverLink.appendChild(image);
+        if (active === 'movie' && coverLink.hasAttribute('data-watch-date')) {
+          var encoded = encodeItfBarPositions(watched.replace(/-/g, ''));
+          var ticketCode = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+          ticketCode.classList.add('douban-item__ticket-code');
+          ticketCode.setAttribute('viewBox', '0 0 ' + (encoded.width + 20) + ' 14');
+          ticketCode.setAttribute('width', encoded.width + 20);
+          ticketCode.setAttribute('height', '14');
+          ticketCode.setAttribute('aria-hidden', 'true');
+          var codeBars = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+          codeBars.setAttribute('fill', 'currentColor');
+          codeBars.setAttribute('d', encoded.bars.map(function (bar) {
+            var x = bar.x + 10;
+            return 'M' + x + ' 0h' + bar.width + 'v14h-' + bar.width + 'z';
+          }).join(''));
+          ticketCode.appendChild(codeBars);
+          coverLink.appendChild(ticketCode);
+        }
         var details = document.createElement('div');
         details.className = 'douban-item__details';
         var title = text('a', 'douban-item__title', item.title);
@@ -159,7 +314,7 @@
         title.target = '_blank';
         title.rel = 'noopener noreferrer';
         details.appendChild(title);
-        var meta = [String(item.star_time || '').slice(0, 10), String(item.pubdate || '').slice(0, 4)].filter(Boolean).join(' · ');
+        var meta = [watched, String(item.pubdate || '').slice(0, 4)].filter(Boolean).join(' · ');
         if (meta) details.appendChild(text('span', 'douban-item__meta', meta));
         if (item.star && /^[1-5]$/.test(String(item.star))) {
           var stars = text('span', 'douban-item__stars', '★'.repeat(Number(item.star)) + '☆'.repeat(5 - Number(item.star)));

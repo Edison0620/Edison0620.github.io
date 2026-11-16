@@ -99,3 +99,111 @@ html[data-theme="dark"] .douban-item__cover-link.is-cover-loading::after { backg
   .douban-item__cover-link:hover { transform: none; }
   .douban-item__cover-link:hover::after { opacity: 0; }
 }
+
+.douban-item--movie {
+  --ticket-paper: #d0cfcb;
+  --ticket-ink: #262827;
+  --stamp-fill: var(--ticket-paper);
+}
+html[data-theme="dark"] .douban-item--movie {
+  --ticket-paper: #4e4d4b;
+  --ticket-ink: #f1f2ef;
+}
+.douban-item--movie.douban-item--movie-light-paper,
+html[data-theme="dark"] .douban-item--movie.douban-item--movie-light-paper {
+  --ticket-paper: #fff;
+  --ticket-ink: #262827;
+}
+.douban-item--movie.douban-item--movie-light-paper .douban-item__cover {
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+.douban-item--movie .douban-item__cover-link {
+  height: 165px;
+  background: none;
+  filter: drop-shadow(0 1px 1px #00000022);
+}
+.douban-item--movie .douban-item__cover-link::before {
+  inset: 0 0 auto;
+  height: 165px;
+  background: linear-gradient(to bottom, var(--ticket-edge, var(--ticket-paper)) 136px, var(--ticket-paper) 147px);
+  filter: none;
+  -webkit-mask: url("../img/media-ticket-mask.svg?v=5") center / 100% 100% no-repeat;
+  mask: url("../img/media-ticket-mask.svg?v=5") center / 100% 100% no-repeat;
+}
+.douban-item--movie .douban-item__cover {
+  border: 0;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 130px, transparent 136px);
+  mask-image: linear-gradient(to bottom, #000 0, #000 130px, transparent 136px);
+}
+.douban-item--movie .douban-item__cover-link::after {
+  content: "";
+  inset: 141px 7px auto;
+  height: 0;
+  border-top: 1px dashed color-mix(in srgb, var(--ticket-ink) 44%, transparent);
+  background: none;
+  opacity: 1;
+}
+.douban-item--movie .douban-item__ticket-code {
+  position: absolute;
+  z-index: 2;
+  inset: 145px 6px auto;
+  display: block;
+  width: 84px;
+  height: 14px;
+  color: var(--ticket-ink);
+}
+.douban-item--movie .douban-item__cover-link.is-cover-loading::before {
+  background-image: linear-gradient(110deg, transparent 40%, #ffffff42 50%, transparent 60%), linear-gradient(var(--ticket-paper), var(--ticket-paper));
+  background-size: 240% 100%, 100% 100%;
+}
+.douban-item--movie .douban-item__cover-link.is-cover-loading::after { background: none; opacity: 1; }
+
+.douban-item--music {
+  --stamp-fill: var(--bg-surface);
+}
+.douban-item--music .douban-item__cover-link {
+  flex-basis: 118px;
+  height: 98px;
+  background: none;
+}
+.douban-item--music .douban-item__cover-link::before {
+  inset: 5px auto auto 30px;
+  width: 88px;
+  height: 88px;
+  border: 1px solid #00000060;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #202425 0 12%, #101314 12.5% 18%, #313738 18.5% 19%, #101414 19.5% 39%, transparent 39.5%), repeating-radial-gradient(circle at center, #141718 0 1px, #272c2d 2px, #141718 3px 5px);
+  box-shadow: 1px 2px 4px #0000002b;
+  -webkit-mask: none;
+  mask: none;
+  filter: none;
+}
+.douban-item--music .douban-item__cover {
+  width: 92px;
+  height: 92px;
+  border: 1px solid #00000027;
+  object-fit: cover;
+  box-shadow: 1px 2px 4px #00000024;
+}
+.douban-item--music .douban-item__cover-link::after {
+  inset: 0 auto auto 0;
+  width: 92px;
+  height: 92px;
+}
+.douban-item--music .douban-item__cover-link.is-cover-loading::after {
+  background: linear-gradient(110deg, transparent 40%, #ffffff57 50%, transparent 60%), var(--bg-surface);
+  background-size: 240% 100%, 100% 100%;
+  animation: stamp-edge-sheen 1.35s ease-out 1 both;
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .douban-item--music .douban-item__cover-link.is-cover-loading::after {
+    background: var(--bg-surface);
+    animation: none;
+  }
+  .douban-item--movie .douban-item__cover-link.is-cover-loading::before {
+    background: var(--ticket-paper);
+    animation: none;
+  }
+}
