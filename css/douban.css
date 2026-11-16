@@ -14,20 +14,21 @@
 .douban-list { position: relative; margin-top: 12px; }
 .douban-item { position: absolute; top: 0; left: 0; box-sizing: border-box; width: calc((100% - 48px) / 2); padding: 24px 0; border-bottom: 1px dashed var(--hairline); }
 .douban-item__body { display: flex; gap: 24px; align-items: flex-start; min-height: 112px; }
-.douban-item__cover-link { position: relative; isolation: isolate; display: block; flex: 0 0 80px; transform-origin: center; }
+.douban-item__cover-link { --shelf-stamp-silver: linear-gradient(140deg, #cdd2d6, #f7f8f8 35%, #c4cbd0 75%, #e5e8e9); position: relative; isolation: isolate; display: block; flex: 0 0 80px; transform-origin: center; }
+html[data-theme="dark"] .douban-item__cover-link { --shelf-stamp-silver: linear-gradient(140deg, #566265, #899395 35%, #4c585b 75%, #6e797b); }
 .douban-item__cover-link::before {
   content: "";
   position: absolute;
   z-index: -1;
-  inset: -5px;
+  inset: -3px;
   pointer-events: none;
-  background: color-mix(in srgb, var(--bg-surface) 84%, var(--ink-secondary));
+  background: var(--shelf-stamp-silver);
   filter: drop-shadow(0 0 1px var(--hairline));
   mask-image:
-    radial-gradient(circle at 50% 0, transparent 2px, #000 2.5px),
-    radial-gradient(circle at 50% 100%, transparent 2px, #000 2.5px),
-    radial-gradient(circle at 0 50%, transparent 2px, #000 2.5px),
-    radial-gradient(circle at 100% 50%, transparent 2px, #000 2.5px);
+    radial-gradient(circle at 50% 0, transparent 1.3px, #000 1.8px),
+    radial-gradient(circle at 50% 100%, transparent 1.3px, #000 1.8px),
+    radial-gradient(circle at 0 50%, transparent 1.3px, #000 1.8px),
+    radial-gradient(circle at 100% 50%, transparent 1.3px, #000 1.8px);
   mask-size: 8px 100%, 8px 100%, 100% 8px, 100% 8px;
   mask-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
   mask-composite: intersect;
