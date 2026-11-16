@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  var kinds = ['book', 'movie', 'music'];
+  var kinds = ['book', 'movie', 'music', 'game'];
   var pageSize = 24;
 
   function safeUrl(value, host, prefix) {
@@ -19,10 +19,18 @@
     }
     var result = {};
     kinds.forEach(function (kind) {
-      if (!Array.isArray(payload.items[kind])) throw new Error('Missing Douban collection: ' + kind);
+      if (!Array.isArray(payload.items[kind])) {
+        if (kind === 'game' && payload.items[kind] === undefined) {
+          result[kind] = [];
+          return;
+        }
+        throw new Error('Missing Douban collection: ' + kind);
+      }
       result[kind] = payload.items[kind].filter(function (item) {
         return item && typeof item.title === 'string' && typeof item.id === 'string' &&
-          safeUrl(item.url, kind + '.douban.com', '/subject/') &&
+          (kind === 'game'
+            ? safeUrl(item.url, 'www.douban.com', '/game/')
+            : safeUrl(item.url, kind + '.douban.com', '/subject/')) &&
           safeUrl(item.poster, 'res.cloudinary.com', '/clawvox/image/upload/');
       }).sort(function (a, b) {
         return String(b.star_time || '').localeCompare(String(a.star_time || ''));
@@ -405,13 +413,13 @@
   });
 
   function load() {
-    status.textContent = '正在载入书影音…';
+    status.textContent = '正在载入书影音与游戏…';
     retry.hidden = true;
     fetch(root.getAttribute('data-douban-url'), { cache: 'no-store' })
       .then(function (response) { if (!response.ok) throw new Error('Data unavailable'); return response.json(); })
       .then(function (payload) { data = normalizeCollection(payload); render(); })
       .catch(function () {
-        status.textContent = '书影音数据暂不可用，请稍后重试。';
+        status.textContent = '书影音与游戏数据暂不可用，请稍后重试。';
         retry.hidden = false;
       });
   }
