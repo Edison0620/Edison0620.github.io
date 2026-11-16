@@ -27,6 +27,32 @@ html.handwriting-ready {
   --font-sans: Excalifont, Xiaolai, ui-sans-serif, system-ui, sans-serif;
 }
 
+@view-transition {
+  navigation: auto;
+}
+
+@keyframes page-exit {
+  to { opacity: 0; transform: translateY(-4px); }
+}
+
+@keyframes page-enter {
+  from { opacity: 0; transform: translateY(6px); }
+}
+
+::view-transition-old(root) {
+  animation: 80ms ease-in both page-exit;
+}
+
+::view-transition-new(root) {
+  animation: 180ms 80ms cubic-bezier(.2, .8, .2, 1) both page-enter;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+}
+
 html {
   background-color: var(--bg-page);
 }

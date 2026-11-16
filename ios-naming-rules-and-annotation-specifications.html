@@ -20,6 +20,66 @@
     document.querySelector('meta[name="theme-color"]').setAttribute('content', selected === 'dark' ? '#101311' : '#f9f9f7');
   })();
 </script>
+<script>
+  (function () {
+    function titleFor(url) {
+      if (!url || new URL(url).origin !== location.origin) return null;
+      var path = new URL(url).pathname;
+      var match = null;
+      var rows = document.querySelectorAll('a.project-row--post');
+      for (var i = 0; i < rows.length; i++) {
+        var title = rows[i].querySelector('.project-title');
+        if (title.style.viewTransitionName === 'post-title') title.style.viewTransitionName = '';
+        if (new URL(rows[i].href).pathname === path) match = title;
+      }
+      return match;
+    }
+
+    var selectedHref = null;
+    document.addEventListener('click', function (event) {
+      var link = event.target.closest && event.target.closest('a.project-row--post');
+      if (link && event.button === 0 && !event.metaKey && !event.ctrlKey &&
+          !event.shiftKey && !event.altKey && !link.hasAttribute('download') &&
+          (!link.target || link.target === '_self')) selectedHref = link.href;
+    }, true);
+
+    window.addEventListener('pageswap', function (event) {
+      if (!event.viewTransition) return;
+      try {
+        if (document.querySelector('.writing-header .writing-title')) {
+          sessionStorage.setItem('eishan-transition-source', location.href);
+        } else {
+          sessionStorage.removeItem('eishan-transition-source');
+        }
+      } catch (error) {}
+      var destination = (event.activation && event.activation.entry && event.activation.entry.url) || selectedHref;
+      var title = titleFor(destination);
+      if (title) title.style.viewTransitionName = 'post-title';
+      else if (destination && new URL(destination).pathname.endsWith('.html')) {
+        var articleTitle = document.querySelector('.writing-header .writing-title');
+        if (articleTitle) articleTitle.style.viewTransitionName = 'none';
+      }
+    });
+    window.addEventListener('pagereveal', function (event) {
+      if (!event.viewTransition) return;
+      var activation = event.activation || (window.navigation && window.navigation.activation);
+      var title = titleFor(activation && activation.from && activation.from.url);
+      if (!title) {
+        try { title = titleFor(sessionStorage.getItem('eishan-transition-source')); } catch (error) {}
+      }
+      if (title) {
+        title.style.viewTransitionName = 'post-title';
+        var reset = function () { title.style.viewTransitionName = ''; };
+        event.viewTransition.finished.then(reset, reset);
+      }
+      var articleTitle = document.querySelector('.writing-header .writing-title');
+      if (articleTitle && articleTitle.style.viewTransitionName === 'none') {
+        var restore = function () { articleTitle.style.viewTransitionName = 'post-title'; };
+        event.viewTransition.finished.then(restore, restore);
+      }
+    });
+  })();
+</script>
 <meta property="og:title" content="iOS - 类、属性、方法、枚举等命名规则和注释规范 | 壹拾肆">
 <meta property="og:description" content="iOS开发者规范:以苹果开发者中心规范(Coding Guidelines for Cocoa)为标准，添加部分规范。 iOS 命名两大原则是:可读性高和防止命名冲突(通过加前缀来保证). Objective-C 的命名通常都比较长, 名称遵循驼峰式命名法. 一个好的命名标准很简单, 就是做到在开发者一看到名字时, 就能够懂得它的含义和使用方法. 另外, …">
 <meta property="og:type" content="article">
@@ -27,10 +87,34 @@
 <meta property="og:site_name" content="壹拾肆">
 <meta name="twitter:card" content="summary">
 <link rel="canonical" href="https://www.kaaaaai.cn/ios-naming-rules-and-annotation-specifications.html">
+<script>
+  try {
+    if (sessionStorage.getItem('eishan-handwriting-ready') === '1') {
+      var handwritingStyle = document.createElement('link');
+      handwritingStyle.rel = 'stylesheet';
+      handwritingStyle.href = "/css/handwriting-fonts.css";
+      handwritingStyle.setAttribute('blocking', 'render');
+      handwritingStyle.setAttribute('data-handwriting-warm', '');
+      var unblock = setTimeout(function () {
+        handwritingStyle.removeAttribute('blocking');
+      }, 80);
+      handwritingStyle.onload = function () {
+        clearTimeout(unblock);
+        handwritingStyle.removeAttribute('blocking');
+        document.documentElement.classList.add('handwriting-ready');
+      };
+      handwritingStyle.onerror = function () {
+        clearTimeout(unblock);
+        sessionStorage.removeItem('eishan-handwriting-ready');
+      };
+      document.head.appendChild(handwritingStyle);
+    }
+  } catch (error) {}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
-<link rel="stylesheet" href="/css/main.css?v=32cf9d7e6a92">
+<link rel="stylesheet" href="/css/main.css?v=e6da73d9acff">
 
 
 <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css">
@@ -74,7 +158,7 @@
 <div class="writing-container main-inner">
   <a class="writing-back" data-post-back href="/">← Back home</a>
   <header class="writing-header">
-    <h1 class="writing-title">iOS - 类、属性、方法、枚举等命名规则和注释规范</h1>
+    <h1 class="writing-title" style="view-transition-name: post-title">iOS - 类、属性、方法、枚举等命名规则和注释规范</h1>
     <div class="writing-meta">
       <span>OCTOBER 31, 2019</span>
       <span>8 min read</span>
@@ -308,8 +392,8 @@
   <script src="/js/liquid-theme-shape.js" defer></script>
   <script src="/js/liquid-theme.js" defer></script>
   
-  <script src="/js/handwriting-fonts.js" data-font-stylesheet="/css/handwriting-fonts.css" defer></script>
-  <script src="/js/theme.js?v=32cf9d7e6a92" defer></script>
+  <script src="/js/handwriting-fonts.js?v=3" data-font-stylesheet="/css/handwriting-fonts.css" defer></script>
+  <script src="/js/theme.js?v=e6da73d9acff" defer></script>
   <script src="/js/search.js" defer></script>
   <script src="/js/toc.js" defer></script>
   

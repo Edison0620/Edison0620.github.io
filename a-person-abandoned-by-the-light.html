@@ -20,6 +20,66 @@
     document.querySelector('meta[name="theme-color"]').setAttribute('content', selected === 'dark' ? '#101311' : '#f9f9f7');
   })();
 </script>
+<script>
+  (function () {
+    function titleFor(url) {
+      if (!url || new URL(url).origin !== location.origin) return null;
+      var path = new URL(url).pathname;
+      var match = null;
+      var rows = document.querySelectorAll('a.project-row--post');
+      for (var i = 0; i < rows.length; i++) {
+        var title = rows[i].querySelector('.project-title');
+        if (title.style.viewTransitionName === 'post-title') title.style.viewTransitionName = '';
+        if (new URL(rows[i].href).pathname === path) match = title;
+      }
+      return match;
+    }
+
+    var selectedHref = null;
+    document.addEventListener('click', function (event) {
+      var link = event.target.closest && event.target.closest('a.project-row--post');
+      if (link && event.button === 0 && !event.metaKey && !event.ctrlKey &&
+          !event.shiftKey && !event.altKey && !link.hasAttribute('download') &&
+          (!link.target || link.target === '_self')) selectedHref = link.href;
+    }, true);
+
+    window.addEventListener('pageswap', function (event) {
+      if (!event.viewTransition) return;
+      try {
+        if (document.querySelector('.writing-header .writing-title')) {
+          sessionStorage.setItem('eishan-transition-source', location.href);
+        } else {
+          sessionStorage.removeItem('eishan-transition-source');
+        }
+      } catch (error) {}
+      var destination = (event.activation && event.activation.entry && event.activation.entry.url) || selectedHref;
+      var title = titleFor(destination);
+      if (title) title.style.viewTransitionName = 'post-title';
+      else if (destination && new URL(destination).pathname.endsWith('.html')) {
+        var articleTitle = document.querySelector('.writing-header .writing-title');
+        if (articleTitle) articleTitle.style.viewTransitionName = 'none';
+      }
+    });
+    window.addEventListener('pagereveal', function (event) {
+      if (!event.viewTransition) return;
+      var activation = event.activation || (window.navigation && window.navigation.activation);
+      var title = titleFor(activation && activation.from && activation.from.url);
+      if (!title) {
+        try { title = titleFor(sessionStorage.getItem('eishan-transition-source')); } catch (error) {}
+      }
+      if (title) {
+        title.style.viewTransitionName = 'post-title';
+        var reset = function () { title.style.viewTransitionName = ''; };
+        event.viewTransition.finished.then(reset, reset);
+      }
+      var articleTitle = document.querySelector('.writing-header .writing-title');
+      if (articleTitle && articleTitle.style.viewTransitionName === 'none') {
+        var restore = function () { articleTitle.style.viewTransitionName = 'post-title'; };
+        event.viewTransition.finished.then(restore, restore);
+      }
+    });
+  })();
+</script>
 <meta property="og:title" content="被光放弃的人 | 壹拾肆">
 <meta property="og:description" content="看科幻小说常常会感到一种作为人类的自卑感，对于宇宙来说，我们只是其中数以亿计星球中的一个，即使拥有灿烂的文化和恢弘的历史，也一粒尘埃反射出的微弱光芒。 而作为个体，虽然每个人都有自己引以为傲的事情，经历过的人和事、在事件中的感受，我们也因为这些而变得与众不同。然而目光宇宙，时间、空间，都能比量出我们的不值一提。甚至可能只是一场灾难，我们日常曾以为很深刻的痛…">
 <meta property="og:type" content="article">
@@ -27,10 +87,34 @@
 <meta property="og:site_name" content="壹拾肆">
 <meta name="twitter:card" content="summary">
 <link rel="canonical" href="https://www.kaaaaai.cn/a-person-abandoned-by-the-light.html">
+<script>
+  try {
+    if (sessionStorage.getItem('eishan-handwriting-ready') === '1') {
+      var handwritingStyle = document.createElement('link');
+      handwritingStyle.rel = 'stylesheet';
+      handwritingStyle.href = "/css/handwriting-fonts.css";
+      handwritingStyle.setAttribute('blocking', 'render');
+      handwritingStyle.setAttribute('data-handwriting-warm', '');
+      var unblock = setTimeout(function () {
+        handwritingStyle.removeAttribute('blocking');
+      }, 80);
+      handwritingStyle.onload = function () {
+        clearTimeout(unblock);
+        handwritingStyle.removeAttribute('blocking');
+        document.documentElement.classList.add('handwriting-ready');
+      };
+      handwritingStyle.onerror = function () {
+        clearTimeout(unblock);
+        sessionStorage.removeItem('eishan-handwriting-ready');
+      };
+      document.head.appendChild(handwritingStyle);
+    }
+  } catch (error) {}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
-<link rel="stylesheet" href="/css/main.css?v=32cf9d7e6a92">
+<link rel="stylesheet" href="/css/main.css?v=e6da73d9acff">
 
 
 <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css">
@@ -74,7 +158,7 @@
 <div class="writing-container main-inner">
   <a class="writing-back" data-post-back href="/">← Back home</a>
   <header class="writing-header">
-    <h1 class="writing-title">被光放弃的人</h1>
+    <h1 class="writing-title" style="view-transition-name: post-title">被光放弃的人</h1>
     <div class="writing-meta">
       <span>JULY 18, 2020</span>
       <span>3 min read</span>
@@ -240,8 +324,8 @@
   <script src="/js/liquid-theme-shape.js" defer></script>
   <script src="/js/liquid-theme.js" defer></script>
   
-  <script src="/js/handwriting-fonts.js" data-font-stylesheet="/css/handwriting-fonts.css" defer></script>
-  <script src="/js/theme.js?v=32cf9d7e6a92" defer></script>
+  <script src="/js/handwriting-fonts.js?v=3" data-font-stylesheet="/css/handwriting-fonts.css" defer></script>
+  <script src="/js/theme.js?v=e6da73d9acff" defer></script>
   <script src="/js/search.js" defer></script>
   <script src="/js/toc.js" defer></script>
   
