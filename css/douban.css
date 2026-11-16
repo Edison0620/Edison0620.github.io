@@ -118,24 +118,40 @@ html[data-theme="dark"] .douban-item--movie.douban-item--movie-light-paper {
   -webkit-mask-image: none;
   mask-image: none;
 }
+
 .douban-item--movie .douban-item__cover-link {
   height: 165px;
   background: none;
-  filter: drop-shadow(0 1px 1px #00000022);
+  filter: none;
 }
 .douban-item--movie .douban-item__cover-link::before {
   inset: 0 0 auto;
   height: 165px;
-  background: linear-gradient(to bottom, var(--ticket-edge, var(--ticket-paper)) 136px, var(--ticket-paper) 147px);
+  background: var(--ticket-paper);
   filter: none;
-  -webkit-mask: url("../img/media-ticket-mask.svg?v=5") center / 100% 100% no-repeat;
-  mask: url("../img/media-ticket-mask.svg?v=5") center / 100% 100% no-repeat;
+  clip-path: path("M0 0H96V136C92 136 90 138 90 141V142H6V141C6 138 4 136 0 136Z");
+  -webkit-mask: none;
+  mask: none;
 }
 .douban-item--movie .douban-item__cover {
   border: 0;
   -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 130px, transparent 136px);
   mask-image: linear-gradient(to bottom, #000 0, #000 130px, transparent 136px);
 }
+.douban-item--movie .douban-item__ticket-stub {
+  position: absolute;
+  z-index: 1;
+  inset: 142px 0 auto;
+  width: 96px;
+  height: 23px;
+  pointer-events: none;
+  background: var(--ticket-paper);
+  clip-path: path("M6 0H90C90 2.7 92 4 96 4V23H0V4C4 4 6 2.7 6 0Z");
+  -webkit-mask: none;
+  mask: none;
+}
+.douban-item--movie .douban-item__ticket-stub { transform-origin: 96px 0; transition: transform 190ms ease-out; }
+.douban-item--movie .douban-item__cover-link.is-ticket-torn .douban-item__ticket-stub { transform: rotate(-15deg); transition-duration: 260ms; }
 .douban-item--movie .douban-item__cover-link::after {
   content: "";
   inset: 141px 7px auto;
@@ -147,23 +163,28 @@ html[data-theme="dark"] .douban-item--movie.douban-item--movie-light-paper {
 .douban-item--movie .douban-item__ticket-code {
   position: absolute;
   z-index: 2;
-  inset: 145px 6px auto;
-  display: block;
+  inset: 3px 6px auto;
   width: 84px;
   height: 14px;
   color: var(--ticket-ink);
+  pointer-events: none;
 }
 .douban-item--movie .douban-item__cover-link.is-cover-loading::before {
   background-image: linear-gradient(110deg, transparent 40%, #ffffff42 50%, transparent 60%), linear-gradient(var(--ticket-paper), var(--ticket-paper));
   background-size: 240% 100%, 100% 100%;
 }
 .douban-item--movie .douban-item__cover-link.is-cover-loading::after { background: none; opacity: 1; }
+.douban-item--movie .douban-item__cover-link.is-cover-loading { background: none; }
+.douban-item--movie .douban-item__cover-link.is-cover-loading::before {
+  clip-path: path("M0 0H96V136C92 136 90 138 90 141S92 146 96 146V165H0V146C4 146 6 144 6 141S4 136 0 136Z");
+}
+.douban-item--movie .douban-item__cover-link.is-cover-loading .douban-item__ticket-stub { visibility: hidden; }
 
 .douban-item--music {
   --stamp-fill: var(--bg-surface);
 }
 .douban-item--music .douban-item__cover-link {
-  flex-basis: 118px;
+  flex-basis: 136px;
   height: 98px;
   background: none;
 }
@@ -206,4 +227,24 @@ html[data-theme="dark"] .douban-item--movie.douban-item--movie-light-paper {
     background: var(--ticket-paper);
     animation: none;
   }
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .douban-item--music .douban-item__cover-link:hover { transform: none; }
+  .douban-item--music .douban-item__cover-link::before { transition: transform 210ms cubic-bezier(.2,.8,.2,1); }
+  .douban-item--music .douban-item__cover-link:hover::before { transform: translateX(17px) rotate(10deg); }
+  .douban-item--music .douban-item__cover-link.is-cover-activated::before { animation: shelf-vinyl-pop 400ms ease-out both; }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .douban-item--movie .douban-item__cover-link:hover { transform: none; }
+  .douban-item--movie .douban-item__cover-link:not(.is-cover-loading):hover .douban-item__ticket-stub { transform: rotate(-7deg); }
+  .douban-item--movie .douban-item__cover-link.is-ticket-torn .douban-item__ticket-stub { transform: rotate(-15deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .douban-item--movie .douban-item__ticket-stub { transition: none; }
+}
+@keyframes shelf-vinyl-pop {
+  0% { transform: translateX(17px) rotate(10deg); }
+  42% { transform: translateX(23px) rotate(32deg); }
+  100% { transform: translateX(17px) rotate(10deg); }
 }

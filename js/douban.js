@@ -239,9 +239,18 @@
           coverLink.setAttribute('data-watch-date', watched);
         }
         coverLink.setAttribute('aria-label', item.title + (active === 'movie' && coverLink.hasAttribute('data-watch-date') ? ' · 观看于 ' + watched : '') + ' · 豆瓣');
+        if (active === 'movie') {
+          coverLink.target = '_self';
+          coverLink.addEventListener('click', function (event) {
+            if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || reduceMotion.matches || coverLink.classList.contains('is-cover-loading')) return;
+            event.preventDefault();
+            coverLink.classList.add('is-ticket-torn');
+            setTimeout(function () { window.location.assign(coverLink.href); }, 260);
+          });
+        }
         var coverFrame = 0;
         coverLink.addEventListener('pointermove', function (event) {
-          if (!finePointer.matches || reduceMotion.matches || coverFrame) return;
+          if (active !== 'book' || !finePointer.matches || reduceMotion.matches || coverFrame) return;
           var clientX = event.clientX;
           var clientY = event.clientY;
           coverFrame = requestAnimationFrame(function () {
@@ -264,6 +273,17 @@
           coverLink.style.removeProperty('--cover-light-x');
           coverLink.style.removeProperty('--cover-light-y');
         });
+        if (active === 'music') {
+          var resetCover;
+          coverLink.addEventListener('click', function () {
+            if (!finePointer.matches || reduceMotion.matches) return;
+            coverLink.classList.add('is-cover-activated');
+            clearTimeout(resetCover);
+            resetCover = setTimeout(function () {
+              coverLink.classList.remove('is-cover-activated');
+            }, 410);
+          });
+        }
         var image = document.createElement('img');
         image.className = 'douban-item__cover';
         image.alt = item.title + '封面';
@@ -290,6 +310,13 @@
         image.src = coverUrl(item.poster);
         if (image.complete) finishCover();
         coverLink.appendChild(image);
+        var ticketStub;
+        if (active === 'movie') {
+          ticketStub = document.createElement('span');
+          ticketStub.className = 'douban-item__ticket-stub';
+          ticketStub.setAttribute('aria-hidden', 'true');
+          coverLink.appendChild(ticketStub);
+        }
         if (active === 'movie' && coverLink.hasAttribute('data-watch-date')) {
           var encoded = encodeItfBarPositions(watched.replace(/-/g, ''));
           var ticketCode = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -305,7 +332,7 @@
             return 'M' + x + ' 0h' + bar.width + 'v14h-' + bar.width + 'z';
           }).join(''));
           ticketCode.appendChild(codeBars);
-          coverLink.appendChild(ticketCode);
+          ticketStub.appendChild(ticketCode);
         }
         var details = document.createElement('div');
         details.className = 'douban-item__details';
