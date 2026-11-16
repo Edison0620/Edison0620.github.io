@@ -21,7 +21,7 @@
   z-index: -1;
   inset: -5px;
   pointer-events: none;
-  background: var(--bg-surface);
+  background: color-mix(in srgb, var(--bg-surface) 84%, var(--ink-secondary));
   filter: drop-shadow(0 0 1px var(--hairline));
   mask-image:
     radial-gradient(circle at 50% 0, transparent 2px, #000 2.5px),
