@@ -32,19 +32,26 @@ html.handwriting-ready {
 }
 
 @keyframes page-exit {
-  to { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 0; }
 }
 
 @keyframes page-enter {
-  from { opacity: 0; transform: translateY(6px); }
+  from { opacity: 0; }
+}
+
+::view-transition-group(root),
+::view-transition-group(post-title),
+::view-transition-old(post-title),
+::view-transition-new(post-title) {
+  animation-duration: 140ms;
 }
 
 ::view-transition-old(root) {
-  animation: 80ms ease-in both page-exit;
+  animation: 90ms ease-in both page-exit;
 }
 
 ::view-transition-new(root) {
-  animation: 180ms 80ms cubic-bezier(.2, .8, .2, 1) both page-enter;
+  animation: 140ms ease-out both page-enter;
 }
 
 @media (prefers-reduced-motion: reduce) {
