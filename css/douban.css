@@ -14,26 +14,42 @@
 .douban-list { position: relative; margin-top: 12px; }
 .douban-item { position: absolute; top: 0; left: 0; box-sizing: border-box; width: calc((100% - 48px) / 2); padding: 24px 0; border-bottom: 1px dashed var(--hairline); }
 .douban-item__body { display: flex; gap: 24px; align-items: flex-start; min-height: 112px; }
-.douban-item__cover-link { --shelf-stamp-silver: linear-gradient(140deg, #cdd2d6, #f7f8f8 35%, #c4cbd0 75%, #e5e8e9); position: relative; isolation: isolate; display: block; flex: 0 0 80px; transform-origin: center; }
-html[data-theme="dark"] .douban-item__cover-link { --shelf-stamp-silver: linear-gradient(140deg, #566265, #899395 35%, #4c585b 75%, #6e797b); }
+.douban-item__cover-link { position: relative; isolation: isolate; display: block; flex: 0 0 80px; transform-origin: center; }
+.douban-item__cover { display: block; box-sizing: border-box; width: 80px; height: 112px; border: 1px solid var(--hairline); object-fit: cover; background: var(--bg-surface); }
+.douban-item { --stamp-fill: linear-gradient(100deg, #cbd0cf 0%, #e5e8e6 16%, #d0d6d4 33%, #e2e5e3 51%, #c9d1d0 70%, #e6e9e7 85%, #cbd1d0 100%); }
+html[data-theme="dark"] .douban-item { --stamp-fill: linear-gradient(100deg, #373f41 0%, #697274 16%, #3d4748 33%, #616b6c 51%, #394244 70%, #6c7576 85%, #3b4445 100%); }
+.douban-item__cover-link { flex-basis: 96px; }
+.douban-item__cover { position: relative; z-index: 1; width: 96px; height: 136px; border: 1px solid #00000033; }
 .douban-item__cover-link::before {
   content: "";
   position: absolute;
-  z-index: -1;
-  inset: -3px;
+  z-index: 0;
+  inset: -5px;
   pointer-events: none;
-  background: var(--shelf-stamp-silver);
-  filter: drop-shadow(0 0 1px var(--hairline));
-  mask-image:
-    radial-gradient(circle at 50% 0, transparent 1.3px, #000 1.8px),
-    radial-gradient(circle at 50% 100%, transparent 1.3px, #000 1.8px),
-    radial-gradient(circle at 0 50%, transparent 1.3px, #000 1.8px),
-    radial-gradient(circle at 100% 50%, transparent 1.3px, #000 1.8px);
-  mask-size: 8px 100%, 8px 100%, 100% 8px, 100% 8px;
-  mask-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
-  mask-composite: intersect;
+  background: var(--stamp-fill);
+  filter: drop-shadow(0 1px 1px #0000001a);
+  -webkit-mask: url("../img/shelf-stamp-edge.svg") center / 100% 100% no-repeat;
+  mask: url("../img/shelf-stamp-edge.svg") center / 100% 100% no-repeat;
 }
-.douban-item__cover { display: block; width: 80px; height: 112px; object-fit: cover; background: var(--bg-surface); }
+.douban-item__cover-link.is-cover-loading { background: var(--stamp-fill); }
+.douban-item__cover-link.is-cover-loading .douban-item__cover { visibility: hidden; }
+.douban-item__cover-link.is-cover-loading::before {
+  background-image: linear-gradient(110deg, transparent 40%, #ffffff38 50%, transparent 60%), var(--stamp-fill);
+  background-size: 240% 100%, 100% 100%;
+  animation: stamp-edge-sheen 1.35s ease-out 1 both;
+}
+.douban-item__cover-link.is-cover-loading::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  pointer-events: none;
+  background: #ffffff24;
+  opacity: 1;
+  transition: none;
+}
+html[data-theme="dark"] .douban-item__cover-link.is-cover-loading::after { background: #10131129; }
+@keyframes stamp-edge-sheen { from { background-position: 150% 0, 0 0; } to { background-position: -150% 0, 0 0; } }
 .douban-item__details { display: flex; flex: 1; flex-direction: column; align-items: flex-start; min-width: 0; gap: 6px; }
 .douban-item__title { color: var(--ink-primary); font-size: 16px; font-weight: 600; line-height: 1.5; overflow-wrap: anywhere; text-decoration: none; }
 .douban-item__title:hover { color: var(--accent); }
@@ -78,6 +94,7 @@ html[data-theme="dark"] .douban-item__cover-link { --shelf-stamp-silver: linear-
 }
 @media (prefers-reduced-motion: reduce) {
   .douban-item__comment-text { transition: none; }
+  .douban-item__cover-link.is-cover-loading::before { background-image: var(--stamp-fill); animation: none; }
   .douban-item__cover-link, .douban-item__cover-link::after { transition: none; }
   .douban-item__cover-link:hover { transform: none; }
   .douban-item__cover-link:hover::after { opacity: 0; }

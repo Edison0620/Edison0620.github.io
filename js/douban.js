@@ -105,7 +105,7 @@
     var visible = selectPage(items, page, pageSize);
     visible.forEach(function (item) {
         var card = document.createElement('article');
-        card.className = 'douban-item';
+        card.className = 'douban-item douban-item--' + active;
         var body = document.createElement('div');
         body.className = 'douban-item__body';
         var coverLink = document.createElement('a');
@@ -141,12 +141,16 @@
         });
         var image = document.createElement('img');
         image.className = 'douban-item__cover';
-        image.src = coverUrl(item.poster);
         image.alt = item.title + '封面';
-        image.width = 80;
-        image.height = 112;
+        image.width = 96;
+        image.height = 136;
         image.loading = 'lazy';
         image.decoding = 'async';
+        image.addEventListener('load', function () { coverLink.classList.remove('is-cover-loading'); }, { once: true });
+        image.addEventListener('error', function () { coverLink.classList.remove('is-cover-loading'); }, { once: true });
+        coverLink.classList.add('is-cover-loading');
+        image.src = coverUrl(item.poster);
+        if (image.complete) coverLink.classList.remove('is-cover-loading');
         coverLink.appendChild(image);
         var details = document.createElement('div');
         details.className = 'douban-item__details';
