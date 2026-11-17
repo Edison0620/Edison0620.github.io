@@ -228,53 +228,141 @@ html[data-theme="dark"] .douban-item--movie.douban-item--movie-light-paper {
   opacity: 1;
 }
 .douban-item--music .douban-item__cover-link.is-cover-error::after { background: color-mix(in srgb, var(--ink-primary) 8%, var(--bg-page)); animation: none; }
-.douban-item--game {
-  --cartridge-shell: #3c4141;
+.douban-list--game { margin-top: 28px; }
+.douban-list--game .douban-item {
+  position: relative;
+  width: 100%;
+  min-height: 164px;
+  margin-bottom: 15px;
+  padding: 0;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid var(--hairline);
+  border-radius: 5px;
+  background: var(--bg-page);
+  box-shadow: 0 2px 8px #00000012;
 }
-html[data-theme="dark"] .douban-item--game {
-  --cartridge-shell: #4b5050;
+.douban-list--game .douban-item::before,
+.douban-list--game .douban-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.douban-list--game .douban-item::before {
+  z-index: 1;
+  background: linear-gradient(90deg, var(--bg-page) 2%, color-mix(in srgb, var(--bg-page) 94%, transparent) 35%, color-mix(in srgb, var(--bg-page) 82%, transparent) 65%, color-mix(in srgb, var(--bg-page) 30%, transparent));
+}
+.douban-list--game .douban-item::after {
+  z-index: 2;
+  background: #070a0cd1;
+  opacity: 0;
+  transition: opacity 220ms ease-out;
+}
+html[data-theme="dark"] .douban-list--game .douban-item::before {
+  background: linear-gradient(90deg, var(--bg-page) 2%, #070a0ca1 40%, #070a0ca1 85%, #070a0c73);
+}
+.douban-list--game .douban-item:hover::after,
+.douban-list--game .douban-item:focus-within::after { opacity: 1; }
+.douban-item__game-backdrop {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 45%;
+  filter: saturate(.85) blur(1px);
+  transform: scale(1.06);
+}
+.douban-item--game .douban-item__body {
+  position: relative;
+  z-index: 3;
+  align-items: center;
+  gap: 0;
+  min-height: 162px;
 }
 .douban-item--game .douban-item__cover-link {
-  height: 136px;
+  flex: 0 0 112px;
+  width: 112px;
+  height: 144px;
+  margin: 9px 16px;
+  overflow: hidden;
+  box-shadow: 0 3px 13px #0005;
   background: none;
 }
-.douban-item--game .douban-item__cover-link::before {
-  inset: 0;
-  background: var(--stamp-fill) 7px 15px / 82px 98px no-repeat,
-    linear-gradient(to bottom, #737978 0 9px, #252b2b 10px 12px, var(--cartridge-shell) 13px 100%);
-  border-radius: 4px 4px 2px 2px;
-  clip-path: polygon(0 0, 79% 0, 79% 4%, 100% 4%, 100% 100%, 0 100%);
-  filter: drop-shadow(1px 2px 2px #0000004d);
-  -webkit-mask: none;
-  mask: none;
+.douban-item--game .douban-item__cover-link::before,
+.douban-item--game .douban-item__cover-link::after { content: none; }
+.douban-item--game .douban-item__cover-link:hover { transform: none; }
+.douban-item--game .douban-item__cover-link.is-cover-loading {
+  background: color-mix(in srgb, var(--ink-primary) 8%, var(--bg-page));
 }
 .douban-item--game .douban-item__cover {
-  width: 82px;
-  height: 98px;
-  margin: 15px 7px 0;
-  border: 1px solid #00000066;
-  border-radius: 1px;
-  box-shadow: 0 1px 2px #00000052;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  transform: scale(1.1);
 }
-.douban-item--game .douban-item__cover-link::after {
-  content: "";
-  z-index: 2;
-  inset: auto 14px 5px;
-  height: 7px;
-  border-radius: 1px;
-  background: repeating-linear-gradient(to right, transparent 0 2px, #a98d5e 2px 7px, #544831 7px 8px, transparent 8px 10px);
-  opacity: 1;
+.douban-item--game .douban-item__details {
+  display: block;
+  padding: 18px 16px 18px 0;
 }
-.douban-item--game .douban-item__cover-link.is-cover-loading {
-  background: none;
+.douban-item--game .douban-item__title {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 19px;
+  line-height: 1.35;
 }
-.douban-item--game .douban-item__cover-link.is-cover-loading::before {
-  animation: none;
+.douban-item--game .douban-item__game-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
 }
-.douban-item--game .douban-item__cover-link.is-cover-loading::after {
-  background: repeating-linear-gradient(to right, transparent 0 2px, #a98d5e 2px 7px, #544831 7px 8px, transparent 8px 10px);
+.douban-item--game .douban-item__meta,
+.douban-item--game .douban-item__stars { color: var(--ink-secondary); font-size: 12px; letter-spacing: 0; }
+.douban-item--game .douban-item__short-comment,
+.douban-item--game .douban-item__comment { font-size: 14px; line-height: 1.55; }
+.douban-item--game .douban-item__title,
+.douban-item--game .douban-item__meta,
+.douban-item--game .douban-item__stars,
+.douban-item--game .douban-item__rating,
+.douban-item--game .douban-item__short-comment,
+.douban-item--game .douban-item__comment { transition: color 220ms ease-out; }
+.douban-item--game:hover .douban-item__title,
+.douban-item--game:focus-within .douban-item__title { color: #fafafa; }
+.douban-item--game:hover .douban-item__meta,
+.douban-item--game:hover .douban-item__stars,
+.douban-item--game:hover .douban-item__rating,
+.douban-item--game:hover .douban-item__short-comment,
+.douban-item--game:hover .douban-item__comment,
+.douban-item--game:focus-within .douban-item__meta,
+.douban-item--game:focus-within .douban-item__stars,
+.douban-item--game:focus-within .douban-item__rating,
+.douban-item--game:focus-within .douban-item__short-comment,
+.douban-item--game:focus-within .douban-item__comment { color: #d7dadb; }
+@media (max-width: 580px) {
+  .douban-item--game .douban-item__body { min-height: 133px; }
+  .douban-item--game .douban-item__cover-link {
+    flex-basis: 84px;
+    width: 84px;
+    height: 115px;
+    margin: 9px 12px;
+  }
+  .douban-item--game .douban-item__details { padding: 14px 10px 10px 0; }
+  .douban-item--game .douban-item__title { font-size: 15px; }
+  .douban-item--game .douban-item__short-comment,
+  .douban-item--game .douban-item__comment { font-size: 12px; }
 }
 @media (prefers-reduced-motion: reduce) {
+  .douban-list--game .douban-item::after { transition: none; }
+  .douban-item--game .douban-item__title,
+  .douban-item--game .douban-item__meta,
+  .douban-item--game .douban-item__stars,
+  .douban-item--game .douban-item__rating,
+  .douban-item--game .douban-item__short-comment,
+  .douban-item--game .douban-item__comment { transition: none; }
   .douban-item--music .douban-item__cover-link.is-cover-loading::after {
     background: color-mix(in srgb, var(--ink-primary) 8%, var(--bg-page));
     animation: none;

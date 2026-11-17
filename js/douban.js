@@ -194,9 +194,19 @@
   var layoutFrame = 0;
 
   function scheduleLayout() {
+    if (active === 'game') {
+      if (layoutFrame) cancelAnimationFrame(layoutFrame);
+      layoutFrame = 0;
+      list.style.height = '';
+      return;
+    }
     if (layoutFrame) return;
     layoutFrame = requestAnimationFrame(function () {
       layoutFrame = 0;
+      if (active === 'game') {
+        list.style.height = '';
+        return;
+      }
       var cards = list.querySelectorAll('.douban-item');
       var single = window.matchMedia('(max-width: 900px)').matches;
       var width = list.clientWidth;
@@ -229,6 +239,7 @@
   function render() {
     if (!data) return;
     cardObserver.disconnect();
+    list.classList.toggle('douban-list--game', active === 'game');
     var items = data[active];
     var totalPages = Math.max(1, Math.ceil(items.length / pageSize));
     var fragment = document.createDocumentFragment();
@@ -322,6 +333,16 @@
         image.src = coverUrl(item.poster);
         if (image.complete) finishCover();
         coverLink.appendChild(image);
+        if (active === 'game') {
+          var backdrop = document.createElement('img');
+          backdrop.className = 'douban-item__game-backdrop';
+          backdrop.alt = '';
+          backdrop.setAttribute('aria-hidden', 'true');
+          backdrop.loading = 'lazy';
+          backdrop.decoding = 'async';
+          backdrop.src = image.src;
+          card.appendChild(backdrop);
+        }
         var ticketStub;
         if (active === 'movie') {
           ticketStub = document.createElement('span');
@@ -354,12 +375,18 @@
         title.rel = 'noopener noreferrer';
         details.appendChild(title);
         var meta = [watched, String(item.pubdate || '').slice(0, 4)].filter(Boolean).join(' · ');
-        if (meta) details.appendChild(text('span', 'douban-item__meta', meta));
+        var metaRow = active === 'game' ? document.createElement('div') : details;
+        if (active === 'game') {
+          metaRow.className = 'douban-item__game-meta';
+          meta = '玩过' + (watched ? ' · ' + watched.replace(/-/g, '.') : '');
+        }
+        if (meta) metaRow.appendChild(text('span', 'douban-item__meta', meta));
         if (item.star && /^[1-5]$/.test(String(item.star))) {
           var stars = text('span', 'douban-item__stars', '★'.repeat(Number(item.star)) + '☆'.repeat(5 - Number(item.star)));
           stars.setAttribute('aria-label', '我的评分 ' + item.star + ' / 5');
-          details.appendChild(stars);
+          metaRow.appendChild(stars);
         }
+        if (active === 'game') details.appendChild(metaRow);
         if (item.rating) details.appendChild(text('span', 'douban-item__rating', '豆瓣 ' + item.rating));
         if (item.comment) {
           var comment = text('button', 'douban-item__comment', '');
@@ -383,9 +410,11 @@
         fragment.appendChild(card);
     });
     list.replaceChildren(fragment);
-    Array.prototype.forEach.call(list.querySelectorAll('.douban-item'), function (card) {
-      cardObserver.observe(card);
-    });
+    if (active !== 'game') {
+      Array.prototype.forEach.call(list.querySelectorAll('.douban-item'), function (card) {
+        cardObserver.observe(card);
+      });
+    }
     scheduleLayout();
     requestAnimationFrame(function () {
       Array.prototype.forEach.call(list.querySelectorAll('.douban-item'), function (card) {
