@@ -232,6 +232,7 @@
         bottoms[column] += card.getBoundingClientRect().height;
       });
       list.style.height = Math.max(bottoms[0], bottoms[1]) + 'px';
+      if (data) list.classList.remove('is-loading');
     });
   }
   window.addEventListener('resize', scheduleLayout);
@@ -473,10 +474,11 @@
   function load() {
     status.textContent = '正在载入书影音与游戏…';
     retry.hidden = true;
-    fetch(root.getAttribute('data-douban-url'), { cache: 'no-store' })
+    fetch(root.getAttribute('data-douban-url'))
       .then(function (response) { if (!response.ok) throw new Error('Data unavailable'); return response.json(); })
       .then(function (payload) { data = normalizeCollection(payload); render(); })
       .catch(function () {
+        list.classList.remove('is-loading');
         status.textContent = '书影音与游戏数据暂不可用，请稍后重试。';
         retry.hidden = false;
       });

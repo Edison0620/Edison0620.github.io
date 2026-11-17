@@ -114,11 +114,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
-<link rel="stylesheet" href="/css/main.css?v=6f68e2151cd6">
+<link rel="stylesheet" href="/css/main.css?v=62f936846eca">
 
-
-<link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css">
-<link rel="stylesheet" href="/css/comments.css">
 
 
 <link rel="stylesheet" href="/assets/css/APlayer.min.css">
@@ -189,12 +186,12 @@
 
   <div class="writing-content"><p>  哈哈哈我终于解决了部署时出现的 cannot find module、local hexo not found in finder 等问题用<code>github</code>仓库做服务器弄好了基于<code>Node.js</code>的静态博客<code>Hexo</code>我的独立博客了不过，会不会写东西就不知道喽~~~~</p>
 
-        <div id="aplayer-mRAADIpH" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-CNqKujkn" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-mRAADIpH"),
+            element: document.getElementById("aplayer-CNqKujkn"),
             narrow: false,
             autoplay: true,
             showlrc: false,
@@ -331,7 +328,7 @@
   <script src="/js/liquid-theme.js" defer></script>
   
   <script src="/js/handwriting-fonts.js?v=3" data-font-stylesheet="/css/handwriting-fonts.css" defer></script>
-  <script src="/js/theme.js?v=6f68e2151cd6" defer></script>
+  <script src="/js/theme.js?v=62f936846eca" defer></script>
   <script src="/js/search.js" defer></script>
   <script src="/js/toc.js" defer></script>
   
@@ -348,19 +345,15 @@
   <script>if (!/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) { var _hmt = window._hmt || []; (function () { var s = document.createElement('script'); s.src = 'https://hm.baidu.com/hm.js?9578d14210d67becef48447e4f6b3f20'; s.async = true; document.head.appendChild(s); })(); }</script>
   
   
-  <script type="module">
-    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
-    init({
-      el: '#waline',
-      serverURL: "https://comments.kaaaaai.cn",
-      path: "/hello-edison-s-world.html",
-      placeholder: "请文明评论呀",
-      avatar: 'mm',
-      meta: ['nick', 'mail', 'link'],
-      pageSize: 10,
-      lang: 'zh-CN'
-    });
-  </script>
+  <script
+    src="/js/comments.js"
+    data-server-url="https://comments.kaaaaai.cn"
+    data-path="/hello-edison-s-world.html"
+    data-placeholder="请文明评论呀"
+    data-waline-module="https://unpkg.com/@waline/client@v3/dist/waline.js"
+    data-waline-stylesheet="https://unpkg.com/@waline/client@v3/dist/waline.css"
+    data-comments-stylesheet="/css/comments.css"
+    defer></script>
   
 </body>
 </html>
