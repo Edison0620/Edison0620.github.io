@@ -11,7 +11,7 @@
   --paper-dot: #e5e5e5;
   --code-surface: #f2f1ed;
   --soft-fill: #00000005;
-  --inline-code-fill: #0000000a;
+  --inline-code-fill: #ff440026;
   --strong-rule: #00000040;
   --control-track: #e5e5e5;
   --control-shadow: #0000000f;
@@ -1993,7 +1993,7 @@ html.clawd-effects-active body.search-open button { cursor: pointer !important; 
   --paper-dot: #293029;
   --code-surface: #171b18;
   --soft-fill: #ffffff0a;
-  --inline-code-fill: #ffffff12;
+  --inline-code-fill: #ff440033;
   --strong-rule: #ffffff5c;
   --control-track: #3d453f;
   --control-shadow: #00000059;
