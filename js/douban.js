@@ -44,6 +44,18 @@
     return items.slice((page - 1) * size, page * size);
   }
 
+  function bookStampPose(id) {
+    var hash = 2166136261;
+    for (var i = 0; i < id.length; i++) {
+      hash = Math.imul(hash ^ id.charCodeAt(i), 16777619);
+    }
+    return {
+      x: (hash >>> 0) % 9 - 4,
+      y: (hash >>> 8) % 7 - 3,
+      angle: ((hash >>> 16) % 41 - 20) / 10
+    };
+  }
+
   function encodeItfBarPositions(digits) {
     if (!/^\d{8}$/.test(digits)) return null;
     var patterns = ['nnwwn', 'wnnnw', 'nwnnw', 'wwnnn', 'nnwnw', 'wnwnn', 'nwwnn', 'nnnww', 'wnnwn', 'nwnwn'];
@@ -72,7 +84,7 @@
   }
 
   if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { normalizeCollection: normalizeCollection, selectPage: selectPage, encodeItfBarPositions: encodeItfBarPositions };
+    module.exports = { normalizeCollection: normalizeCollection, selectPage: selectPage, encodeItfBarPositions: encodeItfBarPositions, bookStampPose: bookStampPose };
   }
   if (typeof document === 'undefined') return;
 
@@ -254,6 +266,15 @@
         coverLink.href = item.url;
         coverLink.target = '_blank';
         coverLink.rel = 'noopener noreferrer';
+        if (active === 'book') {
+          var pose = bookStampPose(item.id);
+          coverLink.style.setProperty('--stamp-x-full', pose.x + 'px');
+          coverLink.style.setProperty('--stamp-y-full', pose.y + 'px');
+          coverLink.style.setProperty('--stamp-angle-full', pose.angle + 'deg');
+          coverLink.style.setProperty('--stamp-x-half', pose.x / 2 + 'px');
+          coverLink.style.setProperty('--stamp-y-half', pose.y / 2 + 'px');
+          coverLink.style.setProperty('--stamp-angle-half', pose.angle / 2 + 'deg');
+        }
         var watched = String(item.star_time || '').slice(0, 10);
         if (active === 'movie' && /^\d{4}-\d{2}-\d{2}$/.test(watched)) {
           coverLink.setAttribute('data-watch-date', watched);
