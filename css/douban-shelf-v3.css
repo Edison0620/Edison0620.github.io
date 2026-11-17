@@ -218,6 +218,54 @@ html[data-theme="dark"] .douban-item--movie.douban-item--movie-light-paper {
   animation: stamp-edge-sheen 1.35s ease-out 1 both;
   opacity: 1;
 }
+
+.douban-item--game {
+  --cartridge-shell: #3c4141;
+}
+html[data-theme="dark"] .douban-item--game {
+  --cartridge-shell: #4b5050;
+}
+.douban-item--game .douban-item__cover-link {
+  height: 136px;
+  background: none;
+}
+.douban-item--game .douban-item__cover-link::before {
+  inset: 0;
+  background: var(--stamp-fill) 7px 15px / 82px 98px no-repeat,
+    linear-gradient(to bottom, #737978 0 9px, #252b2b 10px 12px, var(--cartridge-shell) 13px 100%);
+  border-radius: 4px 4px 2px 2px;
+  clip-path: polygon(0 0, 79% 0, 79% 4%, 100% 4%, 100% 100%, 0 100%);
+  filter: drop-shadow(1px 2px 2px #0000004d);
+  -webkit-mask: none;
+  mask: none;
+}
+.douban-item--game .douban-item__cover {
+  width: 82px;
+  height: 98px;
+  margin: 15px 7px 0;
+  border: 1px solid #00000066;
+  border-radius: 1px;
+  box-shadow: 0 1px 2px #00000052;
+}
+.douban-item--game .douban-item__cover-link::after {
+  content: "";
+  z-index: 2;
+  inset: auto 14px 5px;
+  height: 7px;
+  border-radius: 1px;
+  background: repeating-linear-gradient(to right, transparent 0 2px, #a98d5e 2px 7px, #544831 7px 8px, transparent 8px 10px);
+  opacity: 1;
+}
+.douban-item--game .douban-item__cover-link.is-cover-loading {
+  background: none;
+}
+.douban-item--game .douban-item__cover-link.is-cover-loading::before {
+  animation: none;
+}
+.douban-item--game .douban-item__cover-link.is-cover-loading::after {
+  background: repeating-linear-gradient(to right, transparent 0 2px, #a98d5e 2px 7px, #544831 7px 8px, transparent 8px 10px);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .douban-item--music .douban-item__cover-link.is-cover-loading::after {
     background: var(--bg-surface);
