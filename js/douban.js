@@ -184,7 +184,8 @@
     list.scrollIntoView({ block: 'start' });
   });
   var data = null;
-  var active = 'book';
+  var requestedTab = new URL(window.location.href).searchParams.get('tab');
+  var active = tabs.some(function (tab) { return tab.getAttribute('data-douban-kind') === requestedTab; }) ? requestedTab : 'book';
   var page = 1;
   list.tabIndex = -1;
   var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
@@ -313,7 +314,10 @@
           coverLink.classList.remove('is-cover-loading');
         }
         image.addEventListener('load', finishCover, { once: true });
-        image.addEventListener('error', function () { coverLink.classList.remove('is-cover-loading'); }, { once: true });
+        image.addEventListener('error', function () {
+          if (active === 'music') coverLink.classList.add('is-cover-error');
+          coverLink.classList.remove('is-cover-loading');
+        }, { once: true });
         coverLink.classList.add('is-cover-loading');
         image.src = coverUrl(item.poster);
         if (image.complete) finishCover();
@@ -407,6 +411,10 @@
   tabs.forEach(function (tab) {
     tab.addEventListener('click', function () {
       active = tab.getAttribute('data-douban-kind');
+      var url = new URL(window.location.href);
+      if (active === 'book') url.searchParams.delete('tab');
+      else url.searchParams.set('tab', active);
+      window.history.replaceState(window.history.state, '', url);
       page = 1;
       render();
     });

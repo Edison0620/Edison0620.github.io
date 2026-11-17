@@ -207,18 +207,27 @@ html[data-theme="dark"] .douban-item--movie.douban-item--movie-light-paper {
   object-fit: cover;
   box-shadow: 1px 2px 4px #00000024;
 }
+.douban-item--music .douban-item__cover { transition: opacity 160ms ease-out; }
+.douban-item--music .douban-item__cover-link.is-cover-loading .douban-item__cover {
+  visibility: visible;
+  opacity: 0;
+}
+.douban-item--music .douban-item__cover-link.is-cover-error .douban-item__cover { visibility: hidden; }
 .douban-item--music .douban-item__cover-link::after {
   inset: 0 auto auto 0;
   width: 92px;
   height: 92px;
 }
-.douban-item--music .douban-item__cover-link.is-cover-loading::after {
-  background: linear-gradient(110deg, transparent 40%, #ffffff57 50%, transparent 60%), var(--bg-surface);
+.douban-item--music .douban-item__cover-link.is-cover-loading::after,
+.douban-item--music .douban-item__cover-link.is-cover-error::after {
+  background: linear-gradient(110deg, transparent 40%, #ffffff38 50%, transparent 60%), color-mix(in srgb, var(--ink-primary) 8%, var(--bg-page));
   background-size: 240% 100%, 100% 100%;
+  border: 1px solid var(--hairline);
+  box-sizing: border-box;
   animation: stamp-edge-sheen 1.35s ease-out 1 both;
   opacity: 1;
 }
-
+.douban-item--music .douban-item__cover-link.is-cover-error::after { background: color-mix(in srgb, var(--ink-primary) 8%, var(--bg-page)); animation: none; }
 .douban-item--game {
   --cartridge-shell: #3c4141;
 }
@@ -265,12 +274,12 @@ html[data-theme="dark"] .douban-item--game {
 .douban-item--game .douban-item__cover-link.is-cover-loading::after {
   background: repeating-linear-gradient(to right, transparent 0 2px, #a98d5e 2px 7px, #544831 7px 8px, transparent 8px 10px);
 }
-
 @media (prefers-reduced-motion: reduce) {
   .douban-item--music .douban-item__cover-link.is-cover-loading::after {
-    background: var(--bg-surface);
+    background: color-mix(in srgb, var(--ink-primary) 8%, var(--bg-page));
     animation: none;
   }
+  .douban-item--music .douban-item__cover { transition: none; }
   .douban-item--movie .douban-item__cover-link.is-cover-loading::before {
     background: var(--ticket-paper);
     animation: none;
