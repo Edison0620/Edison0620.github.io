@@ -583,8 +583,19 @@ body .token-usage-app .token-usage-details > div {
   width: auto;
   max-width: 100%;
   height: auto;
-  margin: 0 auto 32px;
+  margin: 0 0 32px;
   border-radius: 2px;
+}
+
+.writing-content > img,
+.writing-content p img,
+.writing-content figure:not(.highlight) img {
+  max-width: min(100%, 420px);
+  max-height: min(420px, 55vh);
+}
+
+.writing-content img[style*="--image-ratio"] {
+  width: min(100%, 420px, calc(min(420px, 55vh) * var(--image-ratio)));
 }
 
 .writing-content .media-paragraph img {
@@ -601,6 +612,53 @@ body .token-usage-app .token-usage-details > div {
 .writing-content p img.media-image {
   margin-top: 16px;
   margin-bottom: 16px;
+}
+
+.writing-content img[data-inline-zoom] {
+  cursor: zoom-in;
+  transition: width 200ms ease-out, max-width 200ms ease-out, max-height 200ms ease-out;
+}
+
+.writing-content img[data-inline-zoom].is-expanded,
+.writing-content p img[data-inline-zoom].is-expanded {
+  max-width: 100%;
+  max-height: min(1200px, 90vh);
+  cursor: zoom-out;
+}
+
+.writing-content img[data-inline-zoom][style*="--image-ratio"].is-expanded {
+  width: min(100%, calc(min(1200px, 90vh) * var(--image-ratio)));
+}
+
+.writing-content img[data-image-state="loading"] {
+  background: var(--soft-fill);
+}
+
+.writing-content img[data-image-state="error"] {
+  border: 1px solid var(--hairline);
+  background: var(--soft-fill);
+}
+
+.writing-content a[data-image-original] {
+  display: block;
+  width: fit-content;
+  margin: -22px 0 32px;
+  font-size: 13px;
+}
+
+@media (max-width: 640px) {
+  .writing-content img[data-inline-zoom]:not(.is-expanded) {
+    max-width: min(100%, 300px);
+    max-height: min(400px, 50vh);
+  }
+
+  .writing-content img[style*="--image-ratio"]:not(.is-expanded) {
+    width: min(100%, 300px, calc(min(400px, 50vh) * var(--image-ratio)));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .writing-content img[data-inline-zoom] { transition: none; }
 }
 
 .writing-content ul,
@@ -1474,42 +1532,6 @@ body .token-usage-app .token-usage-details > div {
   overflow: hidden;
   clip-path: inset(50%);
   white-space: nowrap;
-}
-
-.writing-content > img,
-.writing-content p > img {
-  cursor: zoom-in;
-}
-
-.image-viewer {
-  width: 100vw;
-  max-width: none;
-  height: 100dvh;
-  max-height: none;
-  border: 0;
-  background: transparent;
-  overflow: auto;
-}
-
-.image-viewer::backdrop { background: #111e; }
-.image-viewer img {
-  display: block;
-  max-width: 90vw;
-  max-height: 90dvh;
-  margin: 5dvh auto;
-  object-fit: contain;
-}
-.image-viewer__close {
-  position: fixed;
-  top: 16px;
-  right: 16px;
-  width: 44px;
-  height: 44px;
-  border: 1px solid var(--hairline);
-  background: var(--bg-surface);
-  color: var(--ink-primary);
-  font: 24px var(--font-sans);
-  cursor: pointer;
 }
 
 .back-to-top {
