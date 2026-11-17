@@ -1,7 +1,7 @@
 (function (global, document) {
   "use strict";
 
-  var THEME_KEY = "eishan-theme";
+  var THEME_KEY = "carver-theme";
   var activeTransition = null;
   var controls = null;
   var initialized = false;
@@ -40,12 +40,12 @@
     if (meta) meta.setAttribute("content", themeColor(normalized));
     updateControl(normalized);
     if (persist !== false) safeWrite(THEME_KEY, normalized);
-    document.dispatchEvent(new CustomEvent("eishan:themechange", { detail: { theme: normalized } }));
+    document.dispatchEvent(new CustomEvent("carver:themechange", { detail: { theme: normalized } }));
   }
 
   function supportsAnimatedReveal() {
     return Boolean(
-      global.EishanLiquidShape &&
+      global.CarverLiquidShape &&
       global.requestAnimationFrame &&
       global.CSS &&
       (CSS.supports("clip-path", "url(#liquid-theme-clip)") || CSS.supports("-webkit-clip-path", "url(#liquid-theme-clip)")) &&
@@ -269,7 +269,7 @@
 
     stage.style.clipPath = 'url("#' + clip.id + '")';
     stage.style.webkitClipPath = 'url("#' + clip.id + '")';
-    var initial = global.EishanLiquidShape.createFrame(reverse ? 1 : 0.001, viewport);
+    var initial = global.CarverLiquidShape.createFrame(reverse ? 1 : 0.001, viewport);
     clip.path.setAttribute("d", initial.shape);
     water.setAttribute("d", initial.water);
     if (reverse) {
@@ -317,7 +317,7 @@
       if (!startedAt) startedAt = timestamp;
       var progress = clamp((timestamp - startedAt) / duration, 0, 1);
       var liquidProgress = reverse ? 1 - progress : progress;
-      var shape = global.EishanLiquidShape.createFrame(liquidProgress, viewport);
+      var shape = global.CarverLiquidShape.createFrame(liquidProgress, viewport);
       clip.path.setAttribute("d", shape.shape);
       water.setAttribute("d", shape.water);
       if (progress >= 1) {
@@ -371,7 +371,7 @@
     toggle.addEventListener("click", function () { switchTheme(); });
   }
 
-  global.EishanLiquidTheme = Object.freeze({
+  global.CarverLiquidTheme = Object.freeze({
     init: initialize,
     switchTheme: switchTheme,
     cancel: function () { if (activeTransition) activeTransition.finish(true); },

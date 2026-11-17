@@ -12,9 +12,21 @@
   (function () {
     var selected = 'light';
     try {
-      var stored = localStorage.getItem('eishan-theme');
+      var stored = localStorage.getItem('carver-theme');
+      if (stored === 'dark' || stored === 'light') {
+        selected = stored;
+        localStorage.removeItem('eishan-theme');
+      } else {
+        var legacy = localStorage.getItem('eishan-theme');
+        if (legacy === 'dark' || legacy === 'light') {
+          selected = legacy;
+          localStorage.setItem('carver-theme', legacy);
+          localStorage.removeItem('eishan-theme');
+        }
+      }
+    } catch (error) {
       if (stored === 'dark' || stored === 'light') selected = stored;
-    } catch (error) {}
+    }
     document.documentElement.setAttribute('data-theme', selected);
     document.documentElement.style.colorScheme = selected;
     document.querySelector('meta[name="theme-color"]').setAttribute('content', selected === 'dark' ? '#101311' : '#f9f9f7');
@@ -47,9 +59,9 @@
       if (!event.viewTransition) return;
       try {
         if (document.querySelector('.writing-header .writing-title')) {
-          sessionStorage.setItem('eishan-transition-source', location.href);
+          sessionStorage.setItem('carver-transition-source', location.href);
         } else {
-          sessionStorage.removeItem('eishan-transition-source');
+          sessionStorage.removeItem('carver-transition-source');
         }
       } catch (error) {}
       var destination = (event.activation && event.activation.entry && event.activation.entry.url) || selectedHref;
@@ -65,7 +77,7 @@
       var activation = event.activation || (window.navigation && window.navigation.activation);
       var title = titleFor(activation && activation.from && activation.from.url);
       if (!title) {
-        try { title = titleFor(sessionStorage.getItem('eishan-transition-source')); } catch (error) {}
+        try { title = titleFor(sessionStorage.getItem('carver-transition-source')); } catch (error) {}
       }
       if (title) {
         title.style.viewTransitionName = 'post-title';
@@ -89,7 +101,7 @@
 <link rel="canonical" href="https://www.kaaaaai.cn/ios-uitableview-shadow-rounded-corners-coexist.html">
 <script>
   try {
-    if (sessionStorage.getItem('eishan-handwriting-ready') === '1') {
+    if (sessionStorage.getItem('carver-handwriting-ready') === '1') {
       var handwritingStyle = document.createElement('link');
       handwritingStyle.rel = 'stylesheet';
       handwritingStyle.href = "/css/handwriting-fonts.css";
@@ -105,7 +117,7 @@
       };
       handwritingStyle.onerror = function () {
         clearTimeout(unblock);
-        sessionStorage.removeItem('eishan-handwriting-ready');
+        sessionStorage.removeItem('carver-handwriting-ready');
       };
       document.head.appendChild(handwritingStyle);
     }
@@ -114,7 +126,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
-<link rel="stylesheet" href="/css/main.css?v=a4e822f63711">
+<link rel="stylesheet" href="/css/main.css?v=218c23cd2c78">
 
 
 
@@ -238,7 +250,7 @@
 <div
   class="site-search"
   data-search-root
-  data-search-endpoint="/eishan-search.json"
+  data-search-endpoint="/carver-search.json"
   data-site-origin="https://www.kaaaaai.cn"
   data-label-idle="输入关键词开始搜索"
   data-label-loading="正在加载搜索索引…"
@@ -304,7 +316,7 @@
   <script src="/js/liquid-theme.js" defer></script>
   
   <script src="/js/handwriting-fonts.js?v=3" data-font-stylesheet="/css/handwriting-fonts.css" defer></script>
-  <script src="/js/theme.js?v=a4e822f63711" defer></script>
+  <script src="/js/theme.js?v=218c23cd2c78" defer></script>
   <script src="/js/search.js" defer></script>
   <script src="/js/toc.js" defer></script>
   

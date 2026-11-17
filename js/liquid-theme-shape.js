@@ -166,7 +166,7 @@
     return createFrame(progress, geometry).shape;
   }
 
-  global.EishanLiquidShape = Object.freeze({
+  global.CarverLiquidShape = Object.freeze({
     createPath: createPath,
     createFrame: createFrame,
     phases: Object.freeze({ pour: 0, splash: 0.2, flow: 0.16, finish: 0.98 })

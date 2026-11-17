@@ -11,7 +11,17 @@
     var label = toggle.querySelector('.mode-toggle__label');
     var stored = null;
     try {
-      stored = window.localStorage.getItem('eishan-mode');
+      stored = window.localStorage.getItem('carver-mode');
+      if (stored === 'builder' || stored === 'employee') {
+        window.localStorage.removeItem('eishan-mode');
+      } else {
+        var legacyMode = window.localStorage.getItem('eishan-mode');
+        if (legacyMode === 'builder' || legacyMode === 'employee') {
+          stored = legacyMode;
+          window.localStorage.setItem('carver-mode', legacyMode);
+          window.localStorage.removeItem('eishan-mode');
+        }
+      }
     } catch (e) {}
 
     var apply = function (mode) {
@@ -26,7 +36,7 @@
       var next = document.body.getAttribute('data-mode') === 'employee' ? 'builder' : 'employee';
       apply(next);
       try {
-        window.localStorage.setItem('eishan-mode', next);
+        window.localStorage.setItem('carver-mode', next);
       } catch (e) {}
     };
 

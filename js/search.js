@@ -15,7 +15,7 @@
 
   if (!trigger || !dialog || !closeButton || !form || !input || !status || !retry || !resultsList) return;
 
-  var endpoint = root.getAttribute('data-search-endpoint') || '/eishan-search.json';
+  var endpoint = root.getAttribute('data-search-endpoint') || '/carver-search.json';
   var locale = document.documentElement.lang || window.navigator.language || 'en';
   var index = null;
   var loading = null;

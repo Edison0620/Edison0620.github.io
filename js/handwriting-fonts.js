@@ -14,7 +14,7 @@
       ]);
       document.documentElement.classList.add('handwriting-ready');
       try {
-        sessionStorage.setItem('eishan-handwriting-ready', '1');
+        sessionStorage.setItem('carver-handwriting-ready', '1');
       } catch {
         // Storage may be unavailable in private browsing.
       }
