@@ -2166,3 +2166,56 @@ html.clawd-effects-active .liquid-theme-controls input { cursor: pointer !import
     left: max(12px, env(safe-area-inset-left));
   }
 }
+
+/* Page shortcuts share the paper palette in both color schemes. */
+.site-context-menu {
+  position: fixed;
+  z-index: 2147483001;
+  width: min(264px, calc(100vw - 16px));
+  padding: 6px 0 0;
+  border: 1px solid var(--hairline);
+  background: var(--bg-surface);
+  box-shadow: 0 12px 32px var(--control-shadow);
+  color: var(--ink-primary);
+  font-size: 14px;
+}
+.site-context-menu[hidden] { display: none; }
+html.clawd-context-menu-open [data-clawd-avatar] {
+  z-index: 2147483002 !important;
+}
+.site-context-menu:focus-visible { outline: none; }
+.site-context-menu__history {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px solid var(--hairline);
+  padding: 0 6px 6px;
+}
+.site-context-menu :is(button, a) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+.site-context-menu :is(button, a):hover,
+.site-context-menu :is(button, a):focus-visible {
+  background: var(--code-surface);
+  color: var(--accent);
+}
+.site-context-menu__actions { padding: 6px; }
+.site-context-menu__actions :is(button, a) {
+  justify-content: flex-start;
+  width: 100%;
+  padding: 0 12px;
+}
+.site-context-menu__hint {
+  border-top: 1px solid var(--hairline);
+  padding: 10px 12px;
+  color: var(--ink-secondary);
+  font-size: 12px;
+}
