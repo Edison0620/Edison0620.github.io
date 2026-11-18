@@ -171,9 +171,9 @@
 <main id="main-content" class="writing-container main-inner writing-container--wide" tabindex="-1">
   <a class="writing-back" href="/">← 返回首页</a>
   
-  <div class="writing-content"><div class="token-usage-app" data-token-usage-root data-data-url="https://raw.githubusercontent.com/kaaaaai/kaaaaai.tools.token-usage-public/main/token-usage.json" data-asset-base="/token-usage/assets" data-asset-version="c2bbef13e061">
+  <div class="writing-content"><div class="token-usage-app" data-token-usage-root data-data-url="https://raw.githubusercontent.com/kaaaaai/kaaaaai.tools.token-usage-public/main/token-usage.json" data-asset-base="/token-usage/assets" data-asset-version="c445c60b20d4">
   <header class="token-usage-heading">
-    <div><h1>Tokens</h1><p>AI token usage dashboard</p></div>
+    <div><h1>Tokens</h1></div>
     <div class="token-usage-status" data-token-status aria-live="polite">Syncing usage data...</div>
   </header>
   <section class="token-usage-kpis" data-token-kpis aria-label="Token usage summary">
@@ -181,9 +181,36 @@
     <div class="token-usage-kpi"><span>Estimated cost</span><strong data-token-kpi-cost>--</strong></div>
     <div class="token-usage-kpi"><span>Active days</span><strong data-token-kpi-days>--</strong></div>
   </section>
+  <section class="token-usage-snapshot" data-token-yesterday aria-label="Yesterday's usage">
+    <h2>Yesterday <span data-token-yesterday-date></span></h2>
+    <div class="token-usage-metrics">
+      <div><span>Tokens</span><strong data-token-yesterday-tokens>--</strong></div>
+      <div><span>Estimated cost</span><strong data-token-yesterday-cost>--</strong></div>
+      <div><span>Messages</span><strong data-token-yesterday-messages>--</strong></div>
+    </div>
+  </section>
+  <section class="token-usage-snapshot" data-token-window-summary aria-label="Usage by time window">
+    <div class="token-usage-snapshot-heading">
+      <h2>Usage window</h2>
+      <div class="token-usage-periods" role="group" aria-label="Usage period">
+        <button type="button" data-token-period="7" aria-pressed="true">7D</button>
+        <button type="button" data-token-period="30" aria-pressed="false">30D</button>
+        <button type="button" data-token-period="90" aria-pressed="false">90D</button>
+        <button type="button" data-token-period="all" aria-pressed="false">All</button>
+      </div>
+    </div>
+    <div class="token-usage-metrics">
+      <div><span>Tokens</span><strong data-token-window-tokens>--</strong></div>
+      <div><span>Estimated cost</span><strong data-token-window-cost>--</strong></div>
+      <div><span>Messages</span><strong data-token-window-messages>--</strong></div>
+    </div>
+  </section>
   <section class="token-usage-details" aria-label="Token usage details">
     <div data-token-model-summary></div>
     <div data-token-daily-summary></div>
+  </section>
+  <section class="token-usage-clients" aria-label="Usage by tool">
+    <div data-token-client-summary></div>
   </section>
   <div class="token-terminal-heading"><h2>Explore the data</h2></div>
   <div class="token-window-stack">
@@ -223,8 +250,8 @@
   </section>
   <noscript>This page requires JavaScript to load the public usage ledger.</noscript>
 </div>
-<link rel="stylesheet" href="/token-usage/assets/tokens.css?v=c2bbef13e061">
-<script type="module" src="/token-usage/assets/client.js?v=c2bbef13e061" data-pjax></script></div>
+<link rel="stylesheet" href="/token-usage/assets/tokens.css?v=c445c60b20d4">
+<script type="module" src="/token-usage/assets/client.js?v=c445c60b20d4" data-pjax></script></div>
   
 
   

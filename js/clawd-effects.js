@@ -23,9 +23,7 @@
   const GROUPED_TARGET_SELECTOR = [
     '.post-meta-container',
     '.post-body > pre',
-    '.post-toc',
-    '.token-usage-kpi',
-    '.token-usage-details > div'
+    '.post-toc'
   ].join(', ');
   const INTERACTIVE_COLLISION_SELECTOR = [
     'a',

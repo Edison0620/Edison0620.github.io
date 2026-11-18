@@ -206,8 +206,8 @@ function createTokenUsageClient(overrides = {}) {
     '#b77a50', '#4596b9', '#989849', '#b16b9f'
   ];
 
-  function buildModelSummary(container, models, total) {
-    const heading = appendTextElement(container, 'h2', 'Model share');
+  function buildModelSummary(container, models, total, heading = 'Model share') {
+    const title = appendTextElement(container, 'h2', heading);
     const list = document.createElement('ol');
     list.className = 'token-model-list';
     if (!models.length) {
@@ -238,8 +238,178 @@ function createTokenUsageClient(overrides = {}) {
       row.append(top, track, meta);
       list.append(row);
     });
-    container.replaceChildren(heading, list);
+    container.replaceChildren(title, list);
   }
+
+
+  function populateTimeWindows(root, data, overview, renderBreakdowns) {
+    const offset = String(data.generatedAt || '').match(/([+-])(\d{2}):(\d{2})$/);
+    const minutes = offset
+      ? (offset[1] === '-' ? -1 : 1) * (Number(offset[2]) * 60 + Number(offset[3]))
+      : 0;
+    const today = data.generatedAt
+      ? new Date(now().getTime() + minutes * 60000).toISOString().slice(0, 10)
+      : localDateKey(now());
+    const dateBefore = days => {
+      const date = new Date(`${today}T00:00:00Z`);
+      date.setUTCDate(date.getUTCDate() - days);
+      return date.toISOString().slice(0, 10);
+    };
+    const yesterday = dateBefore(1);
+    const daily = data.daily;
+    const completedDay = daily.find(day => day.date === yesterday);
+    setText(root, '[data-token-yesterday-date]', yesterday);
+    setText(root, '[data-token-yesterday-tokens]', completedDay ? formatCompact(completedDay.tokens) : 'No data');
+    setText(root, '[data-token-yesterday-cost]', completedDay ? formatCost(completedDay.cost) : 'No data');
+    setText(root, '[data-token-yesterday-messages]', completedDay ? formatInteger(completedDay.messages) : 'No data');
+
+    const buttons = root.querySelectorAll('[data-token-period]');
+    const renderPeriod = period => {
+      buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.tokenPeriod === period)));
+      if (period === 'all') {
+        setText(root, '[data-token-window-tokens]', formatCompact(overview.totalTokens));
+        setText(root, '[data-token-window-cost]', formatCost(overview.totalCost));
+        setText(root, '[data-token-window-messages]', formatInteger(overview.totalMessages));
+        renderBreakdowns(period, []);
+        return;
+      }
+      const start = dateBefore(Number(period) - 1);
+      const end = today;
+      const windowDays = daily.filter(day => day.date >= start && day.date <= end);
+      let tokens = 0;
+      let cost = 0;
+      let messages = 0;
+      for (const day of windowDays) {
+        tokens += numberValue(day.tokens);
+        cost += numberValue(day.cost);
+        messages += numberValue(day.messages);
+      }
+      setText(root, '[data-token-window-tokens]', windowDays.length ? formatCompact(tokens) : 'No data');
+      setText(root, '[data-token-window-cost]', windowDays.length ? formatCost(cost) : 'No data');
+      setText(root, '[data-token-window-messages]', windowDays.length ? formatInteger(messages) : 'No data');
+      renderBreakdowns(period, windowDays);
+    };
+    buttons.forEach(button => button.addEventListener('click', () => renderPeriod(button.dataset.tokenPeriod)));
+    renderPeriod('7');
+  }
+
+  function buildClientSummary(root, clients, heading) {
+    const container = query(root, '[data-token-client-summary]');
+    if (!container) return;
+    const rows = [...clients.values()]
+      .sort((a, b) => b.cost - a.cost || a.name.localeCompare(b.name))
+      .map(client => [client.name, formatCost(client.cost), formatCompact(client.tokens), formatInteger(client.messages)]);
+    buildTable(container, heading, ['Tool', 'Estimated cost', 'Tokens', 'Messages'], rows, 'No tool usage data.');
+  }
+
+  function aggregateAllTimeClients(models) {
+    const clients = new Map();
+    for (const model of models) {
+      const name = String(model.client || 'Unknown');
+      const row = clients.get(name) || { name, cost: 0, tokens: 0, messages: 0 };
+      row.cost += numberValue(model.totalCost);
+      row.tokens += numberValue(model.totalTokens);
+      row.messages += numberValue(model.messageCount);
+      clients.set(name, row);
+    }
+    return clients;
+  }
+
+  function aggregateAllTimeModels(models) {
+    const grouped = new Map();
+    for (const model of models) {
+      const name = String(model.model || 'Unknown model');
+      const row = grouped.get(name) || { model: name, totalTokens: 0, totalCost: 0 };
+      row.totalTokens += numberValue(model.totalTokens);
+      row.totalCost += numberValue(model.totalCost);
+      grouped.set(name, row);
+    }
+    return grouped;
+  }
+
+  function topModels(grouped) {
+    return [...grouped.values()]
+      .sort((left, right) => numberValue(right.totalTokens) - numberValue(left.totalTokens) ||
+        String(left.model || '').localeCompare(String(right.model || '')))
+      .slice(0, 6);
+  }
+
+  function completeWindowBreakdowns(data, windowDays) {
+    const modelDays = Array.isArray(data?.dailyModels?.days) ? data.dailyModels.days : null;
+    const clientDays = Array.isArray(data?.dailyClients) ? data.dailyClients : null;
+    if (!windowDays.length || !modelDays || !clientDays) return null;
+    const modelsByDate = new Map(modelDays.map(day => [String(day?.date || ''), day]));
+    const clientsByDate = new Map(clientDays.map(day => [String(day?.date || ''), day]));
+    const finiteNumber = value => typeof value === 'number' && Number.isFinite(value);
+    const closeEnough = (left, right) => Math.abs(left - right) <= 0.000001;
+
+    for (const day of windowDays) {
+      const modelDay = modelsByDate.get(String(day.date || ''));
+      const clientDay = clientsByDate.get(String(day.date || ''));
+      if (!isRecord(modelDay?.models) || !isRecord(modelDay?.modelCosts) || !isRecord(clientDay?.clients)) {
+        return null;
+      }
+      const modelNames = Object.keys(modelDay.models);
+      if (!modelNames.every(name =>
+        finiteNumber(modelDay.models[name]) &&
+        Object.hasOwn(modelDay.modelCosts, name) &&
+        finiteNumber(modelDay.modelCosts[name]))) {
+        return null;
+      }
+      const clients = Object.values(clientDay.clients);
+      if (!clients.every(client =>
+        isRecord(client) &&
+        finiteNumber(client.tokens) &&
+        finiteNumber(client.cost) &&
+        finiteNumber(client.messages))) {
+        return null;
+      }
+      const modelTokens = modelNames.reduce((sum, name) => sum + modelDay.models[name], 0);
+      const modelCost = modelNames.reduce((sum, name) => sum + modelDay.modelCosts[name], 0);
+      const clientTokens = clients.reduce((sum, client) => sum + client.tokens, 0);
+      const clientCost = clients.reduce((sum, client) => sum + client.cost, 0);
+      const clientMessages = clients.reduce((sum, client) => sum + client.messages, 0);
+      if (modelTokens !== numberValue(day.tokens) ||
+        !closeEnough(modelCost, numberValue(day.cost)) ||
+        clientTokens !== numberValue(day.tokens) ||
+        !closeEnough(clientCost, numberValue(day.cost)) ||
+        clientMessages !== numberValue(day.messages)) {
+        return null;
+      }
+    }
+    return { modelsByDate, clientsByDate };
+  }
+
+  function aggregateWindowModels(windowDays, modelsByDate) {
+    const grouped = new Map();
+    for (const day of windowDays) {
+      const modelDay = modelsByDate.get(String(day.date || ''));
+      for (const [name, tokens] of Object.entries(modelDay.models)) {
+        const row = grouped.get(name) || { model: name, totalTokens: 0, totalCost: 0 };
+        row.totalTokens += tokens;
+        row.totalCost += modelDay.modelCosts[name];
+        grouped.set(name, row);
+      }
+    }
+    return grouped;
+  }
+
+  function aggregateWindowClients(windowDays, clientsByDate) {
+    const grouped = new Map();
+    for (const day of windowDays) {
+      const clientDay = clientsByDate.get(String(day.date || ''));
+      for (const [name, values] of Object.entries(clientDay.clients)) {
+        const row = grouped.get(name) || { name, cost: 0, tokens: 0, messages: 0 };
+        row.cost += values.cost;
+        row.tokens += values.tokens;
+        row.messages += values.messages;
+        grouped.set(name, row);
+      }
+    }
+    return grouped;
+  }
+
+
 
   function populateSummaries(root, data) {
     const overview = data && typeof data.overview === 'object' ? data.overview : {};
@@ -250,28 +420,45 @@ function createTokenUsageClient(overrides = {}) {
       : [];
     const totalTokens = numberValue(overview.totalTokens);
     const activeDays = numberValue(overview.activeDays);
+    const allTimeModels = aggregateAllTimeModels(models);
+    const allTimeModelTotal = [...allTimeModels.values()]
+      .reduce((sum, model) => sum + numberValue(model.totalTokens), 0);
+    const allTimeClients = aggregateAllTimeClients(models);
+    const modelSummary = query(root, '[data-token-model-summary]');
+    const renderAllTimeBreakdowns = () => {
+      if (modelSummary) {
+        buildModelSummary(modelSummary, topModels(allTimeModels), allTimeModelTotal, 'Model share · all time');
+      }
+      buildClientSummary(root, allTimeClients, 'Tools · all time');
+    };
+    const renderBreakdowns = (period, windowDays) => {
+      if (period === 'all') {
+        renderAllTimeBreakdowns();
+        return;
+      }
+      const complete = completeWindowBreakdowns(data, windowDays);
+      if (!complete) {
+        renderAllTimeBreakdowns();
+        return;
+      }
+      const windowModels = aggregateWindowModels(windowDays, complete.modelsByDate);
+      const windowModelTotal = [...windowModels.values()]
+        .reduce((sum, model) => sum + model.totalTokens, 0);
+      if (modelSummary) {
+        buildModelSummary(modelSummary, topModels(windowModels), windowModelTotal, `Model share · ${period}D`);
+      }
+      buildClientSummary(
+        root,
+        aggregateWindowClients(windowDays, complete.clientsByDate),
+        `Tools · ${period}D`
+      );
+    };
 
     setText(root, '[data-token-kpi-total]', formatCompact(totalTokens));
     setText(root, '[data-token-kpi-cost]', formatCost(overview.totalCost));
     setText(root, '[data-token-kpi-days]', formatInteger(activeDays));
+    populateTimeWindows(root, data, overview, renderBreakdowns);
 
-    const modelTotal = models.reduce((sum, model) => sum + numberValue(model.totalTokens), 0);
-    const groupedModels = new Map();
-    models.forEach(model => {
-      const name = String(model.model || 'Unknown model');
-      const aggregate = groupedModels.get(name) || { model: name, totalTokens: 0, totalCost: 0 };
-      aggregate.totalTokens += numberValue(model.totalTokens);
-      aggregate.totalCost += numberValue(model.totalCost);
-      groupedModels.set(name, aggregate);
-    });
-    const topModels = [...groupedModels.values()]
-      .sort((left, right) => numberValue(right.totalTokens) - numberValue(left.totalTokens) ||
-        String(left.model || '').localeCompare(String(right.model || '')))
-      .slice(0, 6);
-    const modelSummary = query(root, '[data-token-model-summary]');
-    if (modelSummary) {
-      buildModelSummary(modelSummary, topModels, modelTotal);
-    }
 
     const dailyRows = daily
       .slice()
