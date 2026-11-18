@@ -13,6 +13,13 @@
     });
   };
 
+  function colors() {
+    return {
+      buttonBg: getComputedStyle(document.documentElement).getPropertyValue('--accent').trim(),
+      buttonText: document.documentElement.getAttribute('data-theme') === 'dark' ? '#101311' : '#fff'
+    };
+  }
+
   function loadChatra() {
     if (loading || loaded) return;
     loading = true;
@@ -20,7 +27,7 @@
     window.ChatraSetup = {
       customWidgetButton: '[data-chat-open]',
       buttonPosition: window.innerWidth <= 800 ? 'lt' : 'bl',
-      colors: { buttonBg: '#f40', buttonText: '#fff' }
+      colors: colors()
     };
     var script = document.createElement('script');
     script.src = 'https://call.chatra.io/chatra.js';
@@ -46,6 +53,14 @@
     };
     document.head.appendChild(script);
   }
+
+  function updateColors() {
+    var palette = colors();
+    if (window.ChatraSetup) window.ChatraSetup.colors = palette;
+    if (loaded && typeof window.Chatra === 'function') window.Chatra('setColors', palette);
+  }
+  document.addEventListener('carver:accentchange', updateColors);
+  document.addEventListener('carver:themechange', updateColors);
 
   buttons.forEach(function (button) {
     button.addEventListener('pointerenter', loadChatra);

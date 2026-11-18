@@ -106,6 +106,10 @@
       var clone = cloneElements[index];
       if (!clone) return;
       copyControlState(source, clone);
+      if (source instanceof HTMLInputElement && source.type === "file" &&
+          global.getComputedStyle(source).display === "none") {
+        clone.style.display = "none";
+      }
       if (source.scrollTop || source.scrollLeft) {
         scrolled.push({ node: clone, top: source.scrollTop, left: source.scrollLeft });
       }
@@ -140,6 +144,7 @@
       if (snapshotUse) snapshotUse.setAttribute("href", targetTheme === "dark" ? "#liquid-theme-sun" : "#liquid-theme-moon");
     }
     cloneBody.setAttribute("data-theme", targetTheme);
+    cloneBody.setAttribute("data-accent", document.documentElement.getAttribute("data-accent") || "orange");
     cloneBody.setAttribute("data-liquid-theme-snapshot", "");
     cloneBody.setAttribute("aria-hidden", "true");
     cloneBody.setAttribute("inert", "");

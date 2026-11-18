@@ -4,10 +4,15 @@
 :root {
   --ink-primary: #111;
   --ink-secondary: #555;
+  /* Contrast adjustment in 7eb8f99: muted text #999 -> #6d6d6d and
+     light accent #ff4400 -> #c73500; the hero subtitle uses this accent too. */
   --ink-tertiary: #6d6d6d;
   --bg-page: #f9f9f7;
   --bg-surface: #fff;
   --accent: #c73500;
+  --clawd-impact: #f40;
+  --clawd-bullet: #ffa657;
+  --clawd-filter: none;
   --paper-dot: #e5e5e5;
   --code-surface: #f2f1ed;
   --soft-fill: #00000005;
@@ -85,7 +90,7 @@ body {
 /* Dots are painted directly on the page so an opaque root cannot hide them. */
 
 ::selection {
-  background-color: #ff440026;
+  background-color: var(--inline-code-fill);
 }
 
 :focus-visible {
@@ -2045,6 +2050,7 @@ html.clawd-effects-active body.search-open button { cursor: pointer !important; 
   --ink-primary: #edf1ed;
   --ink-secondary: #adb7ae;
   --ink-tertiary: #7f8a81;
+  /* Retain the original bright accent in dark mode. */
   --accent: #ff4400;
   --bg-page: #101311;
   --bg-surface: #181c19;
@@ -2058,6 +2064,58 @@ html.clawd-effects-active body.search-open button { cursor: pointer !important; 
   --image-surface: #fff;
   --hairline: #edf1ed2b;
 }
+
+/* Use one readable accent for every surface, as with green, blue, and purple. */
+:root[data-accent="yellow"], [data-liquid-theme-snapshot][data-accent="yellow"] {
+  --accent: #777400;
+  --inline-code-fill: #77740026;
+  --clawd-impact: #777400;
+  --clawd-bullet: #f6e44e;
+  --clawd-filter: hue-rotate(48deg) saturate(1.2) brightness(1.44);
+}
+
+:root[data-accent="green"], [data-liquid-theme-snapshot][data-accent="green"] {
+  --accent: #37741d;
+  --inline-code-fill: #37741d26;
+  --clawd-impact: #37741d;
+  --clawd-bullet: #8ad56f;
+  --clawd-filter: hue-rotate(100deg) saturate(1.2);
+}
+:root[data-accent="blue"], [data-liquid-theme-snapshot][data-accent="blue"] {
+  --accent: #2569a8;
+  --inline-code-fill: #2569a826;
+  --clawd-impact: #2569a8;
+  --clawd-bullet: #80c3ff;
+  --clawd-filter: hue-rotate(198deg) saturate(1.2);
+}
+:root[data-accent="purple"], [data-liquid-theme-snapshot][data-accent="purple"] {
+  --accent: #7e4a93;
+  --inline-code-fill: #7e4a9326;
+  --clawd-impact: #7e4a93;
+  --clawd-bullet: #d8a3f0;
+  --clawd-filter: hue-rotate(260deg) saturate(1.15);
+}
+:root[data-theme="dark"][data-accent="yellow"], [data-liquid-theme-snapshot][data-theme="dark"][data-accent="yellow"] {
+  --accent: #f6e44e;
+  --inline-code-fill: #f6e44e33;
+  --clawd-impact: #f6e44e;
+}
+:root[data-theme="dark"][data-accent="green"], [data-liquid-theme-snapshot][data-theme="dark"][data-accent="green"] {
+  --accent: #8ad56f;
+  --inline-code-fill: #8ad56f33;
+  --clawd-impact: #8ad56f;
+}
+:root[data-theme="dark"][data-accent="blue"], [data-liquid-theme-snapshot][data-theme="dark"][data-accent="blue"] {
+  --accent: #80c3ff;
+  --inline-code-fill: #80c3ff33;
+  --clawd-impact: #80c3ff;
+}
+:root[data-theme="dark"][data-accent="purple"], [data-liquid-theme-snapshot][data-theme="dark"][data-accent="purple"] {
+  --accent: #d8a3f0;
+  --inline-code-fill: #d8a3f033;
+  --clawd-impact: #d8a3f0;
+}
+[data-clawd-avatar] { filter: var(--clawd-filter); }
 
 [data-theme="dark"] .writing-comments {
   --waline-white: #edf1ed;
@@ -2262,3 +2320,32 @@ html.clawd-context-menu-open [data-clawd-avatar] {
   color: var(--ink-secondary);
   font-size: 12px;
 }
+.site-context-menu__palettes {
+  border-top: 1px solid var(--hairline);
+  padding: 6px;
+}
+.site-context-menu__palette-choices {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+.site-context-menu__swatch {
+  display: block;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--swatch-color);
+}
+.site-context-menu [aria-checked="true"] .site-context-menu__swatch {
+  outline: 2px solid var(--ink-primary);
+  outline-offset: 3px;
+}
+.site-context-menu [data-accent-choice="orange"] { --swatch-color: #c73500; }
+.site-context-menu [data-accent-choice="yellow"] { --swatch-color: #777400; }
+.site-context-menu [data-accent-choice="green"] { --swatch-color: #37741d; }
+.site-context-menu [data-accent-choice="blue"] { --swatch-color: #2569a8; }
+.site-context-menu [data-accent-choice="purple"] { --swatch-color: #7e4a93; }
+[data-theme="dark"] .site-context-menu [data-accent-choice="orange"] { --swatch-color: #ff4400; }
+[data-theme="dark"] .site-context-menu [data-accent-choice="yellow"] { --swatch-color: #f6e44e; }
+[data-theme="dark"] .site-context-menu [data-accent-choice="green"] { --swatch-color: #8ad56f; }
+[data-theme="dark"] .site-context-menu [data-accent-choice="blue"] { --swatch-color: #80c3ff; }
+[data-theme="dark"] .site-context-menu [data-accent-choice="purple"] { --swatch-color: #d8a3f0; }

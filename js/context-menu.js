@@ -6,8 +6,9 @@
   if (!menu || !postsData) return;
 
   var posts = JSON.parse(postsData.textContent);
-  var items = Array.prototype.slice.call(menu.querySelectorAll('[role="menuitem"]'));
+  var items = Array.prototype.slice.call(menu.querySelectorAll('[role="menuitem"], [role="menuitemradio"]'));
   var random = menu.querySelector('[data-context-random]');
+  var palettes = Array.prototype.slice.call(menu.querySelectorAll('[data-accent-choice]'));
   var previousFocus = null;
   var nativeTargets = 'a, button, input, textarea, select, option, img, picture, video, audio, canvas, iframe, p, h1, h2, h3, h4, h5, h6, pre, code, blockquote, label, summary, [contenteditable], [role="button"], [role="link"], [role="menu"]';
 
@@ -18,6 +19,13 @@
     if (menu.contains(document.activeElement) && previousFocus && previousFocus.isConnected) {
       previousFocus.focus({ preventScroll: true });
     }
+  }
+
+  function syncPalette() {
+    var selected = document.documentElement.getAttribute('data-accent') || 'orange';
+    palettes.forEach(function (button) {
+      button.setAttribute('aria-checked', String(button.dataset.accentChoice === selected));
+    });
   }
 
   document.addEventListener('contextmenu', function (event) {
@@ -37,6 +45,7 @@
     } else {
       random.hidden = true;
     }
+    syncPalette();
     menu.hidden = false;
     document.documentElement.classList.add('clawd-context-menu-open');
     menu.style.left = Math.max(8, Math.min(event.clientX, window.innerWidth - menu.offsetWidth - 8)) + 'px';
@@ -62,6 +71,20 @@
     window.scrollTo({ top: 0, behavior: window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
   });
 
+  palettes.forEach(function (button) {
+    button.addEventListener('click', function () {
+      var accent = button.dataset.accentChoice;
+      document.documentElement.setAttribute('data-accent', accent);
+      try {
+        if (accent === 'orange') localStorage.removeItem('carver-accent');
+        else localStorage.setItem('carver-accent', accent);
+      } catch (error) { /* The selection still applies to this page. */ }
+      syncPalette();
+      document.dispatchEvent(new CustomEvent('carver:accentchange', { detail: { accent: accent } }));
+      close();
+    });
+  });
+
   document.addEventListener('pointerdown', function (event) {
     if (!menu.contains(event.target)) close();
   });
@@ -71,7 +94,7 @@
   });
   document.addEventListener('scroll', close, true);
   menu.addEventListener('pointerover', function (event) {
-    if (event.target.closest('[role="menuitem"]') && menu.contains(document.activeElement)) {
+    if (event.target.closest('[role="menuitem"], [role="menuitemradio"]') && menu.contains(document.activeElement)) {
       menu.focus({ preventScroll: true });
     }
   });
@@ -89,6 +112,11 @@
         event.key === 'Home' ? 0 : event.key === 'End' ? visible.length - 1 :
         (index + (event.key === 'ArrowDown' ? 1 : -1) + visible.length) % visible.length;
       visible[next].focus({ preventScroll: true });
+    } else if ((event.key === 'ArrowRight' || event.key === 'ArrowLeft') &&
+               document.activeElement.matches('[data-accent-choice]')) {
+      event.preventDefault();
+      var direction = event.key === 'ArrowRight' ? 1 : -1;
+      palettes[(palettes.indexOf(document.activeElement) + direction + palettes.length) % palettes.length].focus({ preventScroll: true });
     }
   });
 })();

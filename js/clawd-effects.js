@@ -113,6 +113,10 @@
       this.previousTouchEnd = 0;
       this.tapGesture = null;
       this.persistentActivationTimer = null;
+      this.impactColor = '#f40';
+      this.bulletColor = '#ffa657';
+      this._onAccentChange = this._onAccentChange.bind(this);
+      this._onAccentChange();
       this.reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
       this.finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
       this.coarsePointer = window.matchMedia('(pointer: coarse)');
@@ -150,6 +154,8 @@
       document.addEventListener('visibilitychange', this._onVisibilityChange);
       document.addEventListener('pjax:send', this._onPjaxSend);
       document.addEventListener('pjax:success', this._onPjaxSuccess);
+      document.addEventListener('carver:accentchange', this._onAccentChange);
+      document.addEventListener('carver:themechange', this._onAccentChange);
       window.addEventListener('resize', this._onViewportChange);
       window.addEventListener('scroll', this._onViewportChange, { passive: true });
       window.addEventListener('blur', this._onMouseUp);
@@ -770,6 +776,12 @@
       return this._applyGlyphImpulse(group, bullet, dt, now);
     }
 
+    _onAccentChange() {
+      const styles = getComputedStyle(document.documentElement);
+      this.impactColor = styles.getPropertyValue('--clawd-impact').trim() || '#f40';
+      this.bulletColor = styles.getPropertyValue('--clawd-bullet').trim() || '#ffa657';
+    }
+
     _draw() {
       if (this.bullets.length === 0 && this.impactBursts.length === 0 && !this.canvasHasPixels) return;
       const context = this.context;
@@ -781,7 +793,7 @@
         if (bullet.impactAt !== undefined) {
           const progress = Math.min((this.lastFrameTime - bullet.impactAt) / 240, 1);
           context.globalAlpha = 1 - progress;
-          context.strokeStyle = '#f40';
+          context.strokeStyle = this.impactColor;
           context.lineWidth = 1.25;
           context.beginPath();
           context.arc(bullet.x, bullet.y, 3 + progress * 7, 0, Math.PI * 2);
@@ -790,7 +802,7 @@
         }
         const opacity = Math.min((bullet.life / bullet.maxLife) * 2, 1);
         context.globalAlpha = opacity;
-        context.fillStyle = '#ffa657';
+        context.fillStyle = this.bulletColor;
         context.beginPath();
         context.arc(bullet.x, bullet.y, 2.5, 0, Math.PI * 2);
         context.fill();
@@ -799,7 +811,7 @@
         context.arc(bullet.x, bullet.y, 6, 0, Math.PI * 2);
         context.fill();
       }
-      context.fillStyle = '#f40';
+      context.fillStyle = this.impactColor;
       for (const burst of this.impactBursts) {
         const progress = (this.lastFrameTime - burst.at) / IMPACT_LIFETIME_MS;
         if (progress <= 0) continue;
@@ -1317,6 +1329,8 @@
       document.removeEventListener('visibilitychange', this._onVisibilityChange);
       document.removeEventListener('pjax:send', this._onPjaxSend);
       document.removeEventListener('pjax:success', this._onPjaxSuccess);
+      document.removeEventListener('carver:accentchange', this._onAccentChange);
+      document.removeEventListener('carver:themechange', this._onAccentChange);
       window.removeEventListener('resize', this._onViewportChange);
       window.removeEventListener('scroll', this._onViewportChange);
       window.removeEventListener('blur', this._onMouseUp);
