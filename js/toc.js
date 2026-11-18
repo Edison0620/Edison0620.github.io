@@ -51,7 +51,7 @@
       var link = document.createElement('a');
       link.className = 'toc-rail__link';
       link.href = '#' + heading.id;
-      link.setAttribute('aria-label', heading.textContent.trim() || 'Untitled section');
+      link.setAttribute('aria-label', heading.textContent.trim() || (document.documentElement.lang.startsWith('zh') ? '无标题章节' : 'Untitled section'));
 
       var marker = document.createElement('span');
       marker.className = 'toc-rail__marker';
@@ -59,7 +59,7 @@
 
       var label = document.createElement('span');
       label.className = 'toc-rail__label';
-      label.textContent = heading.textContent.trim() || 'Untitled section';
+      label.textContent = heading.textContent.trim() || (document.documentElement.lang.startsWith('zh') ? '无标题章节' : 'Untitled section');
 
       link.appendChild(marker);
       link.appendChild(label);
@@ -171,7 +171,7 @@
         link.classList.toggle('is-past', position < index);
       });
       toggle.querySelector('.toc-rail__toggle-label').textContent =
-        'On this page · ' + links[index].getAttribute('aria-label');
+        (document.documentElement.lang.startsWith('zh') ? '本文目录 · ' : 'On this page · ') + links[index].getAttribute('aria-label');
     };
 
     var updateActive = function () {

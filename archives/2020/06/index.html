@@ -126,7 +126,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
-<link rel="stylesheet" href="/css/main.css?v=e38094bd86da">
+<link rel="stylesheet" href="/css/main.css?v=33cdec355fb2">
 
 
 
@@ -155,22 +155,22 @@
     </symbol>
   </svg>
   <button class="liquid-theme-controls__button liquid-theme-controls__theme" type="button" aria-pressed="false" aria-label="切换到深色主题" title="切换到深色主题" data-theme-toggle>
-    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#liquid-theme-moon"></use></svg>
+    <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#liquid-theme-moon"></use></svg>
   </button>
 </div>
 
   
   
 <div class="writing-container">
-  <a class="writing-back" href="/">← Back home</a>
-  <h1 class="writing-title">Writings</h1>
+  <a class="writing-back" href="/">← 返回首页</a>
+  <h1 class="writing-title">文章</h1>
   <p class="writing-lead">写代码，也写字。这里放长文，短句都在别处。</p>
   <div class="project-list">
   
   <a class="project-row project-row--post" href="/about-my-notion-workflow.html">
     <div class="project-row__main">
       <span class="project-title">我的 AIO-notion 工作流搭建</span>
-      <span class="project-year">JUN 2020</span>
+      <span class="project-year">2020 年 6 月</span>
     </div>
     <p class="project-desc"></p>
   </a>
@@ -188,7 +188,7 @@
       <span class="site-signature__bolt" aria-hidden="true">⚡️</span>
       <span class="site-signature__author">Kaaaaai</span>
     
-    <button class="site-chat__footer" type="button" data-chat-open data-chatra-id="QXLRxXcsfrRJR2KTG">Chat ↗</button>
+    <button class="site-chat__footer" type="button" data-chat-open data-chatra-id="QXLRxXcsfrRJR2KTG">聊天 ↗</button>
     
     </div>
     
@@ -204,7 +204,6 @@
   data-search-root
   data-search-endpoint="/carver-search.json"
   data-site-origin="https://www.kaaaaai.cn"
-  data-label-idle="输入关键词开始搜索"
   data-label-loading="正在加载搜索索引…"
   data-label-empty="没有找到相关内容"
   data-label-error="搜索索引加载失败，请重试"
@@ -218,8 +217,10 @@
     aria-haspopup="dialog"
     aria-controls="site-search-dialog"
     aria-expanded="false"
+    aria-label="搜索"
+    title="搜索"
     data-search-open
-  ><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="7" cy="7" r="4.5"></circle><path d="m10.5 10.5 4 4"></path></svg><span>搜索</span></button>
+  ><svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="7" cy="7" r="4.5"></circle><path d="m10.5 10.5 4 4"></path></svg></button>
 
   <div
     class="site-search__overlay"
@@ -237,21 +238,21 @@
       </header>
 
       <form class="site-search__form" role="search" data-search-form>
-        <label for="site-search-input">搜索关键词</label>
         <input
           class="site-search__input"
           id="site-search-input"
           type="search"
           name="q"
+          aria-label="搜索关键词"
           autocomplete="off"
           enterkeyhint="search"
-          placeholder="输入标题或内容关键词"
+          placeholder="输入关键词"
           aria-describedby="site-search-status"
           data-search-input
         >
       </form>
 
-      <p class="site-search__status" id="site-search-status" role="status" aria-live="polite" data-search-status>输入关键词开始搜索</p>
+      <p class="site-search__status" id="site-search-status" role="status" aria-live="polite" data-search-status></p>
       <button class="site-search__retry" type="button" hidden data-search-retry>重试</button>
       <ol class="site-search__results" aria-label="搜索结果" data-search-results></ol>
     </section>
@@ -261,9 +262,9 @@
   
 <nav class="site-context-menu" id="site-context-menu" aria-label="页面快捷菜单" role="menu" tabindex="-1" hidden>
   <div class="site-context-menu__history">
-    <button type="button" role="menuitem" data-context-back>后退</button>
-    <button type="button" role="menuitem" data-context-forward>前进</button>
-    <button type="button" role="menuitem" data-context-reload>刷新</button>
+    <button type="button" role="menuitem" data-context-back aria-label="后退" title="后退"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14 6-6 6 6 6"></path><path d="M8 12h12"></path></svg></button>
+    <button type="button" role="menuitem" data-context-forward aria-label="前进" title="前进"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h12"></path><path d="m10 6 6 6-6 6"></path></svg></button>
+    <button type="button" role="menuitem" data-context-reload aria-label="刷新" title="刷新"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.7"></path><path d="M20 4v6h-6"></path></svg></button>
   </div>
   <div class="site-context-menu__actions">
     <a role="menuitem" data-context-random href="/">随机文章</a>
@@ -273,9 +274,9 @@
 </nav>
 <script type="application/json" id="site-context-posts">["/dream-in-2024.html","/dream-in-2023.html","/2024-year-end-review.html","/2023-year-end-review.html","/translation-why-use-dependency-injection.html","/its-time-to-build-an-open-source-library.html","/ios-douban-open-source-license-mentioned-in-the-library.html","/recommend-a-few-podcasts.html","/ios-automated-packaging-complicated-by-mail.html","/amateur-clipsself-improvement.html","/swift-permission-request-tools.html","/ios-hmac-encryption-and-an-md5-problem.html","/ios-some-question-about-bluetooth.html","/swift-toppop-upboxencapsulation.html","/a-person-abandoned-by-the-light.html","/oc-multi-delegate-implementation.html","/about-my-notion-workflow.html","/web-resolve-recirculation-errors.html","/swift-optional-and-unwrapping-learning.html","/literary-memoirs-reading-notes.html","/ios-uitableview-shadow-rounded-corners-coexist.html","/god-will-rolls-the-dice-several-times.html","/everyone-love-gtd.html","/git-submodule.html","/i-can't-stay-here-to-love-you.html","/ios-preliminary-study-of-symbolic-breakpoints.html","/gangster-and-litchi.html","/ios-private-repository-introduces-engineering-through-cocoapods.html","/sun-sleeping-in-the-forest.html","/chicken-soup-from-inference-writer.html","/android-learning-audio-ocus.html","/android-more-than-seekbar-slider-dynamic-change.html","/xiangzi-and-his-misfortune.html","/how-to-fix-warnings-about-unsafe-sites.html","/ios-naming-rules-and-annotation-specifications.html","/ios-xcode-setup-code-snippet.html","/ios-fastlane-snapshot.html","/weekly-summary-190831.html","/about-what-do-you-like.html","/weekly-summary-190819.html","/ios-runtime-study.html","/ios-utf8-to-chinese.html","/weekly-summary-190803.html","/weekly-summary-190729.html","/automatically-generates-annotation-documents.html","/weekly-summary-190722.html","/xcode-plugin-research.html","/weekly-summary-190713.html","/weekly-summary-190706.html","/weekly-summary-190629.html","/weekly-summary-190622.html","/weekly-summary-190601.html","/weekly-summary-190511.html","/weekly-summary-190518.html","/forever-and-solongmyson.html","/weekly-summary-190428.html","/weekly-summary-190418.html","/development_stage_reflection.html","/on-the-road.html","/swift-style-guide.html","/happy-new-year-2019.html","/objective-c-style-guide.html","/after-reading-wangsuo.html","/veteran_science_fiction.html","/wizard-world-revolution.html","/python-study-notes.html","/other-fragment-about-huan.html","/chinese-text-layout-study.html","/outside-the-straw-house.html","/platypus-philosophy.html","/farewell-to-the-darkness.html","/be-a-man.html","/add-junk-code-to-ios-vest-project.html","/yansi-who-knows.html","/ios-develop-tips-2.html","/three-books-thick-with-nostalgia.html","/impromptu-late-spring.html","/as-the-boat.html","/the-first-report-of-the-newcomer.html","/three-fragments-of-poetry.html","/writing-plan.html","/dreaming-about-you-and-me.html","/in-the-eveing.html","/died-of-brandy.html","/teenages-like-you-and-me.html","/evolution.html","/end-of-july.html","/ios-develop-tips-1.html","/unreasonable-guess.html","/learn-humor-before-become-a-hero.html","/political-attitudes-and-attitudes-towards-politics.html","/sudden-self.html","/android-call-the-system-to-send-text-messages-customize-the-number-and-text-message-content.html","/recent-reading-notes.html","/fourthart.html","/eat-a-burger-with-chopped-green-onion-and-sugar.html","/firstart.html","/hello-edison-s-world.html","/hello-world.html"]</script>
 
-  <button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top" hidden>↑</button>
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="返回顶部" title="返回顶部" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20V4"></path><path d="m6 10 6-6 6 6"></path></svg></button>
   
-  <button class="site-chat__floating" type="button" data-chat-open data-chatra-id="QXLRxXcsfrRJR2KTG">Chat ↗</button>
+  <button class="site-chat__floating" type="button" data-chat-open data-chatra-id="QXLRxXcsfrRJR2KTG" aria-label="聊天 ↗" title="聊天 ↗"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-8 8 9 9 0 0 1-3.5-.7L4 20l1.2-4.5A8 8 0 1 1 20 11.5Z"></path></svg></button>
   <script src="/js/chatra.js?v=c7b83a7" defer></script>
   
   
@@ -283,9 +284,9 @@
   <script src="/js/liquid-theme.js?v=carver-1" defer></script>
   
   <script src="/js/handwriting-fonts.js?v=carver-1" data-font-stylesheet="/css/handwriting-fonts.css" defer></script>
-  <script src="/js/theme.js?v=e38094bd86da" defer></script>
+  <script src="/js/theme.js?v=33cdec355fb2" defer></script>
   <script src="/js/context-menu.js?v=27425f2" defer></script>
-  <script src="/js/search.js?v=carver-1" defer></script>
+  <script src="/js/search.js?v=zh-search-1" defer></script>
   
   
   

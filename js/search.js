@@ -23,7 +23,6 @@
   var resultLimit = 20;
 
   var labels = {
-    idle: root.getAttribute('data-label-idle') || 'Enter a term to search',
     loading: root.getAttribute('data-label-loading') || 'Loading search index…',
     empty: root.getAttribute('data-label-empty') || 'No matching content found',
     error: root.getAttribute('data-label-error') || 'Could not load the search index. Please try again.',
@@ -194,7 +193,7 @@
 
     if (!terms.length) {
       clearResults();
-      status.textContent = labels.idle;
+      status.textContent = '';
       return;
     }
 

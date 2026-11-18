@@ -3,6 +3,7 @@
 
   var NOISE = '-+<>/[]!_';
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var isZh = document.documentElement.lang.toLowerCase().indexOf('zh') === 0;
 
   // --- mode toggle: builder <-> employee -----------------------------------
   var toggle = document.getElementById('mode-toggle');
@@ -28,7 +29,7 @@
       var employee = mode === 'employee';
       document.body.setAttribute('data-mode', employee ? 'employee' : 'builder');
       knob.classList.toggle('active', employee);
-      label.textContent = employee ? 'EMPLOYEE MODE' : 'BUILDER MODE';
+      label.textContent = employee ? (isZh ? '职员模式' : 'EMPLOYEE MODE') : (isZh ? '创作模式' : 'BUILDER MODE');
       toggle.setAttribute('aria-checked', employee ? 'true' : 'false');
     };
 
@@ -261,15 +262,15 @@
         var label = document.createElement('span');
         label.className = 'code-frame__language';
         label.textContent = block.matches('figure.highlight')
-          ? (Array.prototype.slice.call(block.classList).filter(function (name) { return name !== 'highlight'; })[0] || 'Code')
-          : 'Code';
+          ? (Array.prototype.slice.call(block.classList).filter(function (name) { return name !== 'highlight'; })[0] || (isZh ? '代码' : 'Code'))
+          : (isZh ? '代码' : 'Code');
         toolbar.appendChild(label);
       }
       var button = document.createElement('button');
       button.className = 'code-copy';
       button.type = 'button';
-      button.title = 'Copy code';
-      button.setAttribute('aria-label', 'Copy code');
+      button.title = isZh ? '复制代码' : 'Copy code';
+      button.setAttribute('aria-label', button.title);
       button.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect class="code-copy__copy" x="8" y="8" width="11" height="11" rx="1"></rect><path class="code-copy__copy" d="M5 16H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1v1"></path><path class="code-copy__check" d="m4 12 5 5L20 6"></path></svg>';
       var status = document.createElement('span');
       status.className = 'code-copy__status';
@@ -280,25 +281,25 @@
         navigator.clipboard.writeText(code).then(function () {
           button.classList.add('is-copied');
           button.classList.remove('is-error');
-          button.title = 'Copied';
-          button.setAttribute('aria-label', 'Copied');
-          status.textContent = 'Copied';
+          button.title = isZh ? '已复制' : 'Copied';
+          button.setAttribute('aria-label', button.title);
+          status.textContent = button.title;
           window.clearTimeout(resetTimer);
           resetTimer = window.setTimeout(reset, 1800);
         }, function () {
           button.classList.add('is-error');
           button.classList.remove('is-copied');
-          button.title = 'Copy failed';
-          button.setAttribute('aria-label', 'Copy failed');
-          status.textContent = 'Copy failed';
+          button.title = isZh ? '复制失败' : 'Copy failed';
+          button.setAttribute('aria-label', button.title);
+          status.textContent = button.title;
           window.clearTimeout(resetTimer);
           resetTimer = window.setTimeout(reset, 1800);
         });
       });
       function reset() {
         button.classList.remove('is-copied', 'is-error');
-        button.title = 'Copy code';
-        button.setAttribute('aria-label', 'Copy code');
+        button.title = isZh ? '复制代码' : 'Copy code';
+        button.setAttribute('aria-label', button.title);
         status.textContent = '';
       }
       var scroller = document.createElement('div');

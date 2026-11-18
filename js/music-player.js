@@ -1,6 +1,7 @@
 (function () {
   'use strict';
 
+  var isZh = document.documentElement.lang.toLowerCase().indexOf('zh') === 0;
   var players = document.querySelectorAll('[data-music-player]');
 
   Array.prototype.forEach.call(players, function (player) {
@@ -20,23 +21,23 @@
     };
 
     var trackName = function (track) {
-      return track.getAttribute('data-title') + ' by ' + track.getAttribute('data-artist');
+      return track.getAttribute('data-title') + (isZh ? ' — ' : ' by ') + track.getAttribute('data-artist');
     };
 
     var setPlaybackState = function (playing) {
       player.classList.toggle('is-playing', playing);
       player.classList.remove('is-loading');
       toggle.setAttribute('aria-pressed', playing ? 'true' : 'false');
-      toggle.setAttribute('aria-label', (playing ? 'Pause ' : 'Play ') + trackName(getTrack()));
-      status.textContent = playing ? 'Now playing' : 'Music ready';
+      toggle.setAttribute('aria-label', (playing ? (isZh ? '暂停 ' : 'Pause ') : (isZh ? '播放 ' : 'Play ')) + trackName(getTrack()));
+      status.textContent = playing ? (isZh ? '正在播放' : 'Now playing') : (isZh ? '准备播放' : 'Music ready');
     };
 
     var showError = function () {
       player.classList.remove('is-loading', 'is-playing');
       player.classList.add('has-error');
       toggle.setAttribute('aria-pressed', 'false');
-      toggle.setAttribute('aria-label', 'Retry ' + trackName(getTrack()));
-      status.textContent = 'Playback unavailable';
+      toggle.setAttribute('aria-label', (isZh ? '重试 ' : 'Retry ') + trackName(getTrack()));
+      status.textContent = isZh ? '无法播放' : 'Playback unavailable';
     };
 
     var updateTrack = function () {
