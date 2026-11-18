@@ -126,7 +126,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
-<link rel="stylesheet" href="/css/main.css?v=33cdec355fb2">
+<link rel="stylesheet" href="/css/main.css?v=19bbf8839efc">
 
 
 
@@ -134,6 +134,7 @@
 
 <meta name="generator" content="Hexo 7.3.0"></head>
 <body data-mode="builder">
+  <a class="skip-link" href="#main-content">跳到正文</a>
   
   
 <div
@@ -161,49 +162,46 @@
 
   
   
-<div class="writing-container">
+<main id="main-content" class="writing-container" tabindex="-1">
   <a class="writing-back" href="/">← 返回首页</a>
-  <h1 class="writing-title">文章</h1>
-  <p class="writing-lead">写代码，也写字。这里放长文，短句都在别处。</p>
-  <div class="project-list">
+  <h1 class="writing-title">归档</h1>
+  <p class="writing-lead">共 99 篇文章</p>
   
-  <a class="project-row project-row--post" href="/swift-optional-and-unwrapping-learning.html">
-    <div class="project-row__main">
-      <span class="project-title">Swift - ?和!的学习</span>
-      <span class="project-year">2020 年 4 月</span>
-    </div>
-    <p class="project-desc">最近在优化一个项目的过程，过程中发现之前开发时由于刚接触 Swift 的原因，在 Swift 中的类里使用了很多 OC 的写法，比如字典数组对象会习惯性用 NSDictionary、NSArray来初始化，而不是用 [KeyType: ValueType]() 或是 [SomeType]() 这种类型来实例化变量。虽然在使用上没有什么问题…</p>
-  </a>
   
-  <a class="project-row project-row--post" href="/literary-memoirs-reading-notes.html">
-    <div class="project-row__main">
-      <span class="project-title">《文学回忆录》读书笔记</span>
-      <span class="project-year">2020 年 4 月</span>
-    </div>
-    <p class="project-desc">《文学回忆录》 [木心](https://book.douban.com/subject/20440644/) 97 条标注 我觉得艺术、哲学、宗教，都是人类的自恋，都在适当保持距离时，才有美的可能、真的可能、善的可能。如果你把宗教当做哲学对待，就有了距离，看清宗教究竟是什么；如果你把哲学当做艺术对待，就有了距离，看清哲学究竟是什么；如果…</p>
-  </a>
+    
+  <section class="archive-year" aria-label="2020 年">
+    <h2 class="archive-year__heading">2020</h2>
+    <ol class="archive-timeline">
+    
+      <li><a class="archive-entry" href="/swift-optional-and-unwrapping-learning.html">
+        <time datetime="2020-04-24">04-24</time>
+        <span>Swift - ?和!的学习</span>
+      </a></li>
   
-  <a class="project-row project-row--post" href="/ios-uitableview-shadow-rounded-corners-coexist.html">
-    <div class="project-row__main">
-      <span class="project-title">iOS - UITableview 阴影圆角共存</span>
-      <span class="project-year">2020 年 4 月</span>
-    </div>
-    <p class="project-desc">前言 给 UITableView 同时设置圆角和阴影时发现在视图上只会显示圆角，原因是因为当我们设置 masksToBounds 为 YES 允许圆角剪裁时，圆角以外的阴影也会一并被剪裁掉。在网上找了一下解决方法，ios阴影圆角共存 这篇文章提供了一个思路，就是把圆角和阴影放在不同的两个控件上实现，然后叠加到一块。基本思路是正确的，但实际…</p>
-  </a>
+    
+      <li><a class="archive-entry" href="/literary-memoirs-reading-notes.html">
+        <time datetime="2020-04-18">04-18</time>
+        <span>《文学回忆录》读书笔记</span>
+      </a></li>
   
-  <a class="project-row project-row--post" href="/god-will-rolls-the-dice-several-times.html">
-    <div class="project-row__main">
-      <span class="project-title">上帝会掷几次骰子</span>
-      <span class="project-year">2020 年 4 月</span>
-    </div>
-    <p class="project-desc">看了一本图说量子物理学史的书，《上帝的骰子》，书名来自于爱因斯坦的一句话：上帝不会掷骰子。去年也有一本书很火叫《量子物理史話：上帝掷骰子嗎？》，不说大家为什么都一窝蜂的抓着骰子不放，从这些现象我们可以看出，量子的不确定性的迷人魅力让许多人趋之如骛。</p>
-  </a>
+    
+      <li><a class="archive-entry" href="/ios-uitableview-shadow-rounded-corners-coexist.html">
+        <time datetime="2020-04-11">04-11</time>
+        <span>iOS - UITableview 阴影圆角共存</span>
+      </a></li>
   
-</div>
-
+    
+      <li><a class="archive-entry" href="/god-will-rolls-the-dice-several-times.html">
+        <time datetime="2020-04-04">04-04</time>
+        <span>上帝会掷几次骰子</span>
+      </a></li>
+  
+    </ol>
+  </section>
+  
   
 
-</div>
+</main>
 
   
   <footer class="site-signature">
@@ -308,7 +306,7 @@
   <script src="/js/liquid-theme.js?v=carver-1" defer></script>
   
   <script src="/js/handwriting-fonts.js?v=carver-1" data-font-stylesheet="/css/handwriting-fonts.css" defer></script>
-  <script src="/js/theme.js?v=33cdec355fb2" defer></script>
+  <script src="/js/theme.js?v=19bbf8839efc" defer></script>
   <script src="/js/context-menu.js?v=27425f2" defer></script>
   <script src="/js/search.js?v=zh-search-1" defer></script>
   

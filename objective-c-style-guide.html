@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>iOS - Objective-C 开发规范 | 壹拾肆</title>
-<meta name="description" content="规范文档翻译自 raywenderlich.com 的编码规范 语言 应该使用US英语. 应该: 1 UIColor *myColor &amp;#x3D; [UIColor whiteColor]; 不应该: 1 UIColor *myColour &amp;#x3D; [UIColor whiteColor]; 代码组织 在函数分组和protocol&amp;#x2F;dele">
+<meta name="description" content="三个字符前缀应该经常用在类和常量命名，但在Core Data的实体名中应被忽略。对于官方的raywenderlich.com书、初学者工具包或教程，前缀’RWT’应该被使用。">
 <meta name="theme-color" content="#f9f9f7">
 <meta name="color-scheme" content="light dark">
 <script>
@@ -93,7 +93,7 @@
   })();
 </script>
 <meta property="og:title" content="iOS - Objective-C 开发规范 | 壹拾肆">
-<meta property="og:description" content="规范文档翻译自 raywenderlich.com 的编码规范 语言 应该使用US英语. 应该: 1 UIColor *myColor &amp;#x3D; [UIColor whiteColor]; 不应该: 1 UIColor *myColour &amp;#x3D; [UIColor whiteColor]; 代码组织 在函数分组和protocol&amp;#x2F;dele">
+<meta property="og:description" content="三个字符前缀应该经常用在类和常量命名，但在Core Data的实体名中应被忽略。对于官方的raywenderlich.com书、初学者工具包或教程，前缀’RWT’应该被使用。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://www.kaaaaai.cn/objective-c-style-guide.html">
 <meta property="og:site_name" content="壹拾肆">
@@ -126,7 +126,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
-<link rel="stylesheet" href="/css/main.css?v=33cdec355fb2">
+<link rel="stylesheet" href="/css/main.css?v=19bbf8839efc">
 
 
 
@@ -134,6 +134,7 @@
 
 <meta name="generator" content="Hexo 7.3.0"></head>
 <body data-mode="builder">
+  <a class="skip-link" href="#main-content">跳到正文</a>
   
   
 <div
@@ -161,7 +162,7 @@
 
   
   
-<div class="writing-container main-inner">
+<main id="main-content" class="writing-container main-inner" tabindex="-1">
   <a class="writing-back" data-post-back href="/">← 返回首页</a>
   <header class="writing-header">
     <h1 class="writing-title" style="view-transition-name: post-title">iOS - Objective-C 开发规范</h1>
@@ -169,6 +170,11 @@
       <span>2018 年 12 月 29 日</span>
       <span>阅读约 12 分钟</span>
       <span id="busuanzi_container_page_pv" style="display:none">阅读 <span id="busuanzi_value_page_pv"></span></span>
+      
+      <span class="writing-tags">
+        分类 <a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+      </span>
+      
       
       <span class="writing-tags">
         <a href="/tags/EXP/">#EXP</a> · <a href="/tags/OC/">#OC</a>
@@ -437,7 +443,7 @@
     
   </nav>
   
-</div>
+</main>
 
   
   <footer class="site-signature">
@@ -542,7 +548,7 @@
   <script src="/js/liquid-theme.js?v=carver-1" defer></script>
   
   <script src="/js/handwriting-fonts.js?v=carver-1" data-font-stylesheet="/css/handwriting-fonts.css" defer></script>
-  <script src="/js/theme.js?v=33cdec355fb2" defer></script>
+  <script src="/js/theme.js?v=19bbf8839efc" defer></script>
   <script src="/js/context-menu.js?v=27425f2" defer></script>
   <script src="/js/search.js?v=zh-search-1" defer></script>
   <script src="/js/toc.js?v=zh-1" defer></script>

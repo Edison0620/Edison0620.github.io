@@ -71,109 +71,74 @@
   }
 
   // --- scramble reveal for accent words -----------------------------------
-  var scramble = document.querySelectorAll('.scramble');
+  var heroRotation = document.querySelector('[data-hero-rotation]');
+  var accentTimer = null;
+  var startScramble = function (el) {
+    var target = el.getAttribute('data-text') || el.textContent;
+    var frame = 0;
+    var timer = window.setInterval(function () {
+      var out = target
+        .split('')
+        .map(function (ch, i) {
+          if (i < frame) return ch;
+          return NOISE[Math.floor(Math.random() * NOISE.length)];
+        })
+        .join('');
+      el.textContent = out;
+      frame += 0.1;
+      if (frame >= target.length) {
+        el.textContent = target;
+        window.clearInterval(timer);
+      }
+    }, 16);
+    return timer;
+  };
   if (!reduceMotion) {
-    Array.prototype.forEach.call(scramble, function (el) {
-      if (el.closest('[data-hero-rotation] .hero__detail:not(.is-current)')) return;
-      var target = el.getAttribute('data-text') || el.textContent;
-      var frame = 0;
-      var timer = window.setInterval(function () {
-        var out = target
-          .split('')
-          .map(function (ch, i) {
-            if (i < frame) return ch;
-            return NOISE[Math.floor(Math.random() * NOISE.length)];
-          })
-          .join('');
-        el.textContent = out;
-        frame += 0.1;
-        if (frame >= target.length) {
-          el.textContent = target;
-          window.clearInterval(timer);
-        }
-      }, 16);
+    Array.prototype.forEach.call(document.querySelectorAll('.scramble'), function (el) {
+      if (heroRotation && heroRotation.contains(el)) {
+        if (!el.closest('.hero__detail.is-current')) return;
+        accentTimer = startScramble(el);
+      } else {
+        startScramble(el);
+      }
     });
   }
 
-  // Retract the old line from its end, then reveal the next line character by character.
-  var heroRotation = document.querySelector('[data-hero-rotation]');
+  // Each new tagline appears fully, with the same accent reveal as the first.
   if (heroRotation && !reduceMotion) {
     var lines = heroRotation.querySelectorAll('.hero__detail');
     var interval = Math.max(2500, Number(heroRotation.getAttribute('data-interval')) || 6500);
     var currentLine = 0;
     var rotationTimer = null;
-    var frameTimer = null;
-    var parts = Array.prototype.map.call(lines, function (line) {
-      var accent = line.querySelector('.scramble');
-      var segments = accent ? [line.firstChild, accent.firstChild, accent.nextSibling] : [line.firstChild];
-      var chunks = segments.filter(Boolean).map(function (node) {
-        return { node: node, chars: Array.from(node.parentNode === accent ? accent.getAttribute('data-text') : node.textContent), accent: node.parentNode === accent };
-      });
-      var accentIndex = chunks.findIndex(function (chunk) { return chunk.accent; });
-      return {
-        chunks: chunks,
-        length: chunks.reduce(function (sum, chunk) { return sum + chunk.chars.length; }, 0),
-        prefixLength: accentIndex < 0 ? 0 : chunks.slice(0, accentIndex).reduce(function (sum, chunk) { return sum + chunk.chars.length; }, 0),
-        accentLength: accentIndex < 0 ? 0 : chunks[accentIndex].chars.length
-      };
-    });
-    heroRotation.style.minHeight = heroRotation.offsetHeight + 'px';
-    var renderLine = function (index, count, entering) {
-      parts[index].chunks.forEach(function (chunk) {
-        var shown = Math.max(0, Math.min(chunk.chars.length, count));
-        var value = chunk.chars.slice(0, shown);
-        if (entering && chunk.accent) {
-          for (var i = shown; i < chunk.chars.length; i += 1) {
-            value.push(NOISE[Math.floor(Math.random() * NOISE.length)]);
-          }
-        }
-        chunk.node.textContent = value.join('');
-        count -= chunk.chars.length;
-      });
+    var finishAccent = function () {
+      if (accentTimer !== null) {
+        window.clearInterval(accentTimer);
+        accentTimer = null;
+      }
+      var accent = lines[currentLine].querySelector('.scramble');
+      if (accent) accent.textContent = accent.getAttribute('data-text') || accent.textContent;
     };
     var schedule = function () {
+      if (document.hidden) return;
       rotationTimer = window.setTimeout(function () {
         rotationTimer = null;
-        var outgoing = currentLine;
-        var remaining = parts[outgoing].length;
-        frameTimer = window.setInterval(function () {
-          remaining = Math.max(0, remaining - 1);
-          renderLine(outgoing, remaining, false);
-          if (remaining) return;
-          window.clearInterval(frameTimer);
-          frameTimer = null;
-          lines[outgoing].classList.remove('is-current');
-          lines[outgoing].setAttribute('aria-hidden', 'true');
-          currentLine = (outgoing + 1) % lines.length;
-          var next = parts[currentLine];
-          renderLine(currentLine, next.prefixLength, true);
-          lines[currentLine].classList.add('is-current');
-          lines[currentLine].removeAttribute('aria-hidden');
-          if (!next.accentLength) {
-            renderLine(currentLine, next.length, false);
-            schedule();
-            return;
-          }
-          var revealed = 0;
-          frameTimer = window.setInterval(function () {
-            revealed += 1;
-            renderLine(currentLine, next.prefixLength + revealed, revealed < next.accentLength);
-            if (revealed < next.accentLength) return;
-            window.clearInterval(frameTimer);
-            frameTimer = null;
-            renderLine(currentLine, next.length, false);
-            schedule();
-          }, 160);
-        }, 24);
+        finishAccent();
+        lines[currentLine].classList.remove('is-current');
+        lines[currentLine].setAttribute('aria-hidden', 'true');
+        currentLine = (currentLine + 1) % lines.length;
+        lines[currentLine].classList.add('is-current');
+        lines[currentLine].removeAttribute('aria-hidden');
+        var accent = lines[currentLine].querySelector('.scramble');
+        if (accent) accentTimer = startScramble(accent);
+        schedule();
       }, interval);
     };
     schedule();
     document.addEventListener('visibilitychange', function () {
       if (rotationTimer) window.clearTimeout(rotationTimer);
-      if (frameTimer) window.clearInterval(frameTimer);
-      rotationTimer = frameTimer = null;
-      renderLine(currentLine, parts[currentLine].length, false);
-      if (!document.hidden) schedule();
+      rotationTimer = null;
+      finishAccent();
+      schedule();
     });
   }
 

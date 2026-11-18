@@ -4,10 +4,10 @@
 :root {
   --ink-primary: #111;
   --ink-secondary: #555;
-  --ink-tertiary: #999;
+  --ink-tertiary: #6d6d6d;
   --bg-page: #f9f9f7;
   --bg-surface: #fff;
-  --accent: #f40;
+  --accent: #c73500;
   --paper-dot: #e5e5e5;
   --code-surface: #f2f1ed;
   --soft-fill: #00000005;
@@ -92,6 +92,20 @@ body {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 80px;
+  z-index: 100;
+  padding: 8px 12px;
+  border: 1px solid var(--hairline);
+  background: var(--bg-surface);
+  color: var(--ink-primary);
+  text-decoration: none;
+  transform: translateY(-160%);
+}
+.skip-link:focus { transform: none; }
 html.clawd-effects-active,
 html.clawd-effects-active * { cursor: none !important; }
 
@@ -280,6 +294,47 @@ body[data-mode="employee"] .view--employee {
   font-size: 14px;
   line-height: 1.5;
   color: var(--ink-secondary);
+}
+
+/* ---------- archive timeline ---------- */
+.archive-year { margin-top: 32px; }
+.archive-year__heading {
+  margin-bottom: 12px;
+  font: 600 22px var(--font-mono);
+  color: var(--ink-primary);
+}
+.archive-timeline {
+  margin-left: 5px;
+  border-left: 1px solid var(--hairline);
+  list-style: none;
+}
+.archive-entry {
+  position: relative;
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  gap: 12px;
+  align-items: baseline;
+  min-height: 48px;
+  padding: 12px 0 12px 20px;
+  border-bottom: 1px dashed var(--hairline);
+  color: var(--ink-primary);
+  text-decoration: none;
+}
+.archive-entry:before {
+  content: "";
+  position: absolute;
+  top: 21px;
+  left: -4px;
+  width: 7px;
+  height: 7px;
+  border: 1px solid var(--ink-tertiary);
+  border-radius: 50%;
+  background: var(--bg-page);
+}
+.archive-entry:hover { color: var(--accent); }
+.archive-entry time {
+  font: 12px var(--font-mono);
+  color: var(--ink-tertiary);
 }
 
 /* ---------- footer links ---------- */
@@ -989,7 +1044,7 @@ body .token-usage-app .token-usage-details > div {
 
 @media (max-width: 600px) {
   .pagination--numbered { gap: 2px; }
-  .pagination--numbered .pagination__number { min-width: 40px; min-height: 40px; padding: 0 8px; }
+  .pagination--numbered .pagination__number { min-width: 30px; min-height: 44px; padding: 0 2px; }
   .pagination--numbered .pagination__ellipsis { width: 14px; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -1990,6 +2045,7 @@ html.clawd-effects-active body.search-open button { cursor: pointer !important; 
   --ink-primary: #edf1ed;
   --ink-secondary: #adb7ae;
   --ink-tertiary: #7f8a81;
+  --accent: #ff4400;
   --bg-page: #101311;
   --bg-surface: #181c19;
   --paper-dot: #293029;

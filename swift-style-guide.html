@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>iOS - Swift 开发规范 | 壹拾肆</title>
-<meta name="description" content="规范文档翻译自 raywenderlich.com 的编码规范 目录 正确性 命名 文章 类前缀 代理 使用上下文推断的类型 一般的 语言 代码组织 协议遵循 无用代码 最小引用 空格 注释 类和结构体 Self 的用法 计算属性 Final 函数声明 函数调用 闭包表达式 类型 常量 静态方法和可变类型属性 可选类型 延迟初始化 类型推断 语法糖 函数 …">
+<meta name="description" content="努力让你的代码在没有警告的情况下编译。 这条规则决定了许多风格决策，比如使用 #selector 类型而不是字符串字面量。(更多请阅读 Swift 3 为什么推荐使用 #selector)。">
 <meta name="theme-color" content="#f9f9f7">
 <meta name="color-scheme" content="light dark">
 <script>
@@ -93,7 +93,7 @@
   })();
 </script>
 <meta property="og:title" content="iOS - Swift 开发规范 | 壹拾肆">
-<meta property="og:description" content="规范文档翻译自 raywenderlich.com 的编码规范 目录 正确性 命名 文章 类前缀 代理 使用上下文推断的类型 一般的 语言 代码组织 协议遵循 无用代码 最小引用 空格 注释 类和结构体 Self 的用法 计算属性 Final 函数声明 函数调用 闭包表达式 类型 常量 静态方法和可变类型属性 可选类型 延迟初始化 类型推断 语法糖 函数 …">
+<meta property="og:description" content="努力让你的代码在没有警告的情况下编译。 这条规则决定了许多风格决策，比如使用 #selector 类型而不是字符串字面量。(更多请阅读 Swift 3 为什么推荐使用 #selector)。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://www.kaaaaai.cn/swift-style-guide.html">
 <meta property="og:site_name" content="壹拾肆">
@@ -126,7 +126,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
-<link rel="stylesheet" href="/css/main.css?v=33cdec355fb2">
+<link rel="stylesheet" href="/css/main.css?v=19bbf8839efc">
 
 
 
@@ -134,6 +134,7 @@
 
 <meta name="generator" content="Hexo 7.3.0"></head>
 <body data-mode="builder">
+  <a class="skip-link" href="#main-content">跳到正文</a>
   
   
 <div
@@ -161,7 +162,7 @@
 
   
   
-<div class="writing-container main-inner">
+<main id="main-content" class="writing-container main-inner" tabindex="-1">
   <a class="writing-back" data-post-back href="/">← 返回首页</a>
   <header class="writing-header">
     <h1 class="writing-title" style="view-transition-name: post-title">iOS - Swift 开发规范</h1>
@@ -169,6 +170,11 @@
       <span>2019 年 1 月 16 日</span>
       <span>阅读约 18 分钟</span>
       <span id="busuanzi_container_page_pv" style="display:none">阅读 <span id="busuanzi_value_page_pv"></span></span>
+      
+      <span class="writing-tags">
+        分类 <a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+      </span>
+      
       
       <span class="writing-tags">
         <a href="/tags/EXP/">#EXP</a> · <a href="/tags/Swift/">#Swift</a>
@@ -579,7 +585,7 @@
     
   </nav>
   
-</div>
+</main>
 
   
   <footer class="site-signature">
@@ -684,7 +690,7 @@
   <script src="/js/liquid-theme.js?v=carver-1" defer></script>
   
   <script src="/js/handwriting-fonts.js?v=carver-1" data-font-stylesheet="/css/handwriting-fonts.css" defer></script>
-  <script src="/js/theme.js?v=33cdec355fb2" defer></script>
+  <script src="/js/theme.js?v=19bbf8839efc" defer></script>
   <script src="/js/context-menu.js?v=27425f2" defer></script>
   <script src="/js/search.js?v=zh-search-1" defer></script>
   <script src="/js/toc.js?v=zh-1" defer></script>

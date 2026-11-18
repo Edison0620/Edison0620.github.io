@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>iOS - 如何把 Xcode 打印出来的 UTF-8 格式字符变成汉字？ | 壹拾肆</title>
-<meta name="description" content="下午在测试一个语音 SDK 的时候，发现打印出来字典里的中文汉字都显示为 UTF-8 的字符，百度了一下解决办法，发现大都是用给 NSArray 和 NSDictionary 创建分类的方法解决的，但是很多文章可能是写的匆忙，或者是复制粘贴的，不够美观和一目了然。而且创建分类的方式，对比我以前用小码哥的一个类来说，多了一个 .h 文件，不够精简。所以就做个…">
+<meta name="description" content="下午在测试一个语音 SDK 的时候，发现打印出来字典里的中文汉字都显示为 UTF-8 的字符，百度了一下解决办法，发现大都是用给 NSArray 和 NSDictionary 创建分类的方法解决的，但是很多文章可能是写的匆忙，或者是复制粘贴的，不够美观和一目了然。而且创建分类的方式，对比我以前用小码哥的一个类来说，多了一个 .h 文件，不够精简。所以就做个笔">
 <meta name="theme-color" content="#f9f9f7">
 <meta name="color-scheme" content="light dark">
 <script>
@@ -93,7 +93,7 @@
   })();
 </script>
 <meta property="og:title" content="iOS - 如何把 Xcode 打印出来的 UTF-8 格式字符变成汉字？ | 壹拾肆">
-<meta property="og:description" content="下午在测试一个语音 SDK 的时候，发现打印出来字典里的中文汉字都显示为 UTF-8 的字符，百度了一下解决办法，发现大都是用给 NSArray 和 NSDictionary 创建分类的方法解决的，但是很多文章可能是写的匆忙，或者是复制粘贴的，不够美观和一目了然。而且创建分类的方式，对比我以前用小码哥的一个类来说，多了一个 .h 文件，不够精简。所以就做个…">
+<meta property="og:description" content="下午在测试一个语音 SDK 的时候，发现打印出来字典里的中文汉字都显示为 UTF-8 的字符，百度了一下解决办法，发现大都是用给 NSArray 和 NSDictionary 创建分类的方法解决的，但是很多文章可能是写的匆忙，或者是复制粘贴的，不够美观和一目了然。而且创建分类的方式，对比我以前用小码哥的一个类来说，多了一个 .h 文件，不够精简。所以就做个笔">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://www.kaaaaai.cn/ios-utf8-to-chinese.html">
 <meta property="og:site_name" content="壹拾肆">
@@ -126,7 +126,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
-<link rel="stylesheet" href="/css/main.css?v=33cdec355fb2">
+<link rel="stylesheet" href="/css/main.css?v=19bbf8839efc">
 
 
 
@@ -134,6 +134,7 @@
 
 <meta name="generator" content="Hexo 7.3.0"></head>
 <body data-mode="builder">
+  <a class="skip-link" href="#main-content">跳到正文</a>
   
   
 <div
@@ -161,7 +162,7 @@
 
   
   
-<div class="writing-container main-inner">
+<main id="main-content" class="writing-container main-inner" tabindex="-1">
   <a class="writing-back" data-post-back href="/">← 返回首页</a>
   <header class="writing-header">
     <h1 class="writing-title" style="view-transition-name: post-title">iOS - 如何把 Xcode 打印出来的 UTF-8 格式字符变成汉字？</h1>
@@ -169,6 +170,11 @@
       <span>2019 年 8 月 7 日</span>
       <span>阅读约 1 分钟</span>
       <span id="busuanzi_container_page_pv" style="display:none">阅读 <span id="busuanzi_value_page_pv"></span></span>
+      
+      <span class="writing-tags">
+        分类 <a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+      </span>
+      
       
       <span class="writing-tags">
         <a href="/tags/EXP/">#EXP</a> · <a href="/tags/OC/">#OC</a> · <a href="/tags/Xcode/">#Xcode</a>
@@ -229,7 +235,7 @@
     
   </nav>
   
-</div>
+</main>
 
   
   <footer class="site-signature">
@@ -334,7 +340,7 @@
   <script src="/js/liquid-theme.js?v=carver-1" defer></script>
   
   <script src="/js/handwriting-fonts.js?v=carver-1" data-font-stylesheet="/css/handwriting-fonts.css" defer></script>
-  <script src="/js/theme.js?v=33cdec355fb2" defer></script>
+  <script src="/js/theme.js?v=19bbf8839efc" defer></script>
   <script src="/js/context-menu.js?v=27425f2" defer></script>
   <script src="/js/search.js?v=zh-search-1" defer></script>
   <script src="/js/toc.js?v=zh-1" defer></script>

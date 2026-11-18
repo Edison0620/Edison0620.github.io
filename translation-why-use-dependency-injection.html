@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>翻译：Why use dependency injection | 壹拾肆</title>
-<meta name="description" content="翻译 Uber Needle 的 Why use dependency injection，通过照片浏览应用示例解释依赖注入的概念、解耦方式与单元测试优势。">
+<meta name="description" content="本文档介绍了依赖注入的基本知识；它是什么；以及为什么把它加入进你的应用开发中会是个好的模式？下文将用 DI 这个术语作为依赖注入（dependency injection）的简称。">
 <meta name="theme-color" content="#f9f9f7">
 <meta name="color-scheme" content="light dark">
 <script>
@@ -93,7 +93,7 @@
   })();
 </script>
 <meta property="og:title" content="翻译：Why use dependency injection | 壹拾肆">
-<meta property="og:description" content="翻译 Uber Needle 的 Why use dependency injection，通过照片浏览应用示例解释依赖注入的概念、解耦方式与单元测试优势。">
+<meta property="og:description" content="本文档介绍了依赖注入的基本知识；它是什么；以及为什么把它加入进你的应用开发中会是个好的模式？下文将用 DI 这个术语作为依赖注入（dependency injection）的简称。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://www.kaaaaai.cn/translation-why-use-dependency-injection.html">
 <meta property="og:site_name" content="壹拾肆">
@@ -126,7 +126,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
-<link rel="stylesheet" href="/css/main.css?v=33cdec355fb2">
+<link rel="stylesheet" href="/css/main.css?v=19bbf8839efc">
 
 
 
@@ -134,6 +134,7 @@
 
 <meta name="generator" content="Hexo 7.3.0"></head>
 <body data-mode="builder">
+  <a class="skip-link" href="#main-content">跳到正文</a>
   
   
 <div
@@ -161,7 +162,7 @@
 
   
   
-<div class="writing-container main-inner">
+<main id="main-content" class="writing-container main-inner" tabindex="-1">
   <a class="writing-back" data-post-back href="/">← 返回首页</a>
   <header class="writing-header">
     <h1 class="writing-title" style="view-transition-name: post-title">翻译：Why use dependency injection</h1>
@@ -169,6 +170,11 @@
       <span>2021 年 2 月 22 日</span>
       <span>阅读约 3 分钟</span>
       <span id="busuanzi_container_page_pv" style="display:none">阅读 <span id="busuanzi_value_page_pv"></span></span>
+      
+      <span class="writing-tags">
+        分类 <a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+      </span>
+      
       
       <span class="writing-tags">
         <a href="/tags/EXP/">#EXP</a> · <a href="/tags/GitHub/">#GitHub</a> · <a href="/tags/Translation/">#Translation</a>
@@ -192,7 +198,7 @@
 </aside>
 
   <div class="writing-content"><p>原文来自：<a target="_blank" rel="noopener" href="https://github.com/uber/needle/blob/master/WHY_DI.md">Why use dependency injection</a></p>
-<p>第一次翻译，如有问题还请留言指出。<br>E-mail：<a href="mailto:&#x72;&#111;&#111;&#x74;&#64;&#x6b;&#97;&#97;&#x61;&#97;&#97;&#x69;&#x2e;&#99;&#x6e;">&#x72;&#111;&#111;&#x74;&#64;&#x6b;&#97;&#97;&#x61;&#97;&#97;&#x69;&#x2e;&#99;&#x6e;</a></p>
+<p>第一次翻译，如有问题还请留言指出。<br>E-mail：<a href="mailto:&#114;&#x6f;&#x6f;&#116;&#64;&#x6b;&#x61;&#x61;&#97;&#97;&#97;&#x69;&#46;&#x63;&#x6e;">&#114;&#x6f;&#x6f;&#116;&#64;&#x6b;&#x61;&#x61;&#97;&#97;&#97;&#x69;&#46;&#x63;&#x6e;</a></p>
 <hr>
 <h2 id="为什么使用依赖注入？"><a href="#为什么使用依赖注入？" class="headerlink" title="为什么使用依赖注入？"></a>为什么使用依赖注入？</h2><p>本文档介绍了依赖注入的基本知识；它是什么；以及为什么把它加入进你的应用开发中会是个好的模式？下文将用 DI 这个术语作为依赖注入（dependency injection）的简称。</p>
 <h3 id="一个真实的例子来说明"><a href="#一个真实的例子来说明" class="headerlink" title="一个真实的例子来说明"></a>一个真实的例子来说明</h3><p>与其用抽象的语言描述这个模式，不如用一个简单的基于视图控制器的例子来理解它。如果你对抽象描述感兴趣，维基百科有一篇很棒的<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Dependency_injection">文章</a>。</p>
@@ -246,7 +252,7 @@
     
   </nav>
   
-</div>
+</main>
 
   
   <footer class="site-signature">
@@ -351,7 +357,7 @@
   <script src="/js/liquid-theme.js?v=carver-1" defer></script>
   
   <script src="/js/handwriting-fonts.js?v=carver-1" data-font-stylesheet="/css/handwriting-fonts.css" defer></script>
-  <script src="/js/theme.js?v=33cdec355fb2" defer></script>
+  <script src="/js/theme.js?v=19bbf8839efc" defer></script>
   <script src="/js/context-menu.js?v=27425f2" defer></script>
   <script src="/js/search.js?v=zh-search-1" defer></script>
   <script src="/js/toc.js?v=zh-1" defer></script>
