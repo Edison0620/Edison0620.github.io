@@ -85,6 +85,18 @@
     });
   });
 
+  window.addEventListener('pageshow', function (event) {
+    if (!event.persisted) return;
+    var stored;
+    try { stored = localStorage.getItem('carver-accent'); }
+    catch (error) { return; }
+    var accent = /^(yellow|green|blue|purple)$/.test(stored) ? stored : 'orange';
+    if (accent === document.documentElement.getAttribute('data-accent')) return;
+    document.documentElement.setAttribute('data-accent', accent);
+    syncPalette();
+    document.dispatchEvent(new CustomEvent('carver:accentchange', { detail: { accent: accent } }));
+  });
+
   document.addEventListener('pointerdown', function (event) {
     if (!menu.contains(event.target)) close();
   });

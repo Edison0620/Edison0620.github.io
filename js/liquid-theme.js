@@ -354,6 +354,7 @@
       applyTheme(target, true);
       return;
     }
+    safeWrite(THEME_KEY, target);
     runReveal(target);
   }
 
@@ -388,4 +389,14 @@
   } else {
     initialize();
   }
+
+  global.addEventListener("pageshow", function (event) {
+    if (!event.persisted) return;
+    try {
+      var stored = global.localStorage.getItem(THEME_KEY);
+      if ((stored === "dark" || stored === "light") && stored !== currentTheme()) {
+        applyTheme(stored, false);
+      }
+    } catch (error) { /* Storage may be unavailable. */ }
+  });
 })(window, document);
