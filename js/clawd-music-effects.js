@@ -19,7 +19,7 @@
       sheet.originalPixels = atlasContext.getImageData(0,0,512,512).data;
     };
     image.onerror = () => console.error('Music preview: impact atlas could not be loaded.',src);
-    image.src = new URL(src, assetRoot).href;
+    image.src = new URL(src + '?v=comic-1', assetRoot).href;
     return sheet;
   });
   }
