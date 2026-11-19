@@ -541,6 +541,7 @@
       tab.setAttribute('aria-pressed', selected ? 'true' : 'false');
       tab.querySelector('[data-douban-count]').textContent = data[tab.getAttribute('data-douban-kind')].length;
     });
+    document.dispatchEvent(new CustomEvent('carver:doubanchange'));
   }
 
   tabs.forEach(function (tab) {

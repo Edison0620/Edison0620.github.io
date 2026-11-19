@@ -12,6 +12,16 @@
   const tears = new Map();
   const spinningVinyl = new Map();
   const musicEffects = window.ClawdMusicEffects();
+  function prepareMusic() {
+    if (!surfaceMotion.matches && document.querySelector('[data-douban-kind="music"][aria-pressed="true"]')) {
+      musicEffects.prepare();
+    }
+  }
+  document.addEventListener('carver:doubanchange', prepareMusic);
+  document.addEventListener('carver:accentchange', musicEffects.updatePalette);
+  document.addEventListener('carver:themechange', musicEffects.updatePalette);
+  surfaceMotion.addEventListener('change', prepareMusic);
+  prepareMusic();
   const paperStress = new WeakMap();
   const peelThreshold = 3.65;
   const peelSeconds = .19;
@@ -62,7 +72,6 @@
   function updateMaterialTargets() {
     surfaceTargets = [];
     const kind = document.querySelector('[data-douban-kind][aria-pressed="true"]')?.dataset.doubanKind;
-    if (kind === 'music' && !surfaceMotion.matches) musicEffects.prepare();
     for (const link of shelfList.querySelectorAll('.douban-item__cover-link')) {
       const image = link.querySelector('img');
       if (kind === 'book') {

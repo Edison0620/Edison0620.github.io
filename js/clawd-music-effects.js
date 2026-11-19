@@ -6,22 +6,52 @@
   // Sinestesia's three CC0 hit animations; local downsampled 4x4 atlases.
   // https://opengameart.org/users/sinestesia
   let sheets;
+  let paletteColor;
+  function updatePalette() {
+    if (!sheets) return;
+    paletteColor = getComputedStyle(document.documentElement).getPropertyValue('--clawd-impact').trim() || '#f40';
+    for (const sheet of sheets) {
+      if (sheet.originalPixels) tint(sheet, paletteColor);
+    }
+  }
   function prepare() {
     if (sheets) return;
-    sheets = ['hit-2.png', 'hit-1.png', 'hit-3.png'].map(src => {
+    paletteColor = getComputedStyle(document.documentElement).getPropertyValue('--clawd-impact').trim() || '#f40';
+    sheets = ['hit-2.png', 'hit-1.png', 'hit-3.png'].map((src, index) => {
     const atlas = document.createElement('canvas');
     atlas.width = atlas.height = 512;
     const atlasContext = atlas.getContext('2d', {willReadFrequently:true});
-    const sheet = {atlas, atlasContext, tintedPixels:atlasContext.createImageData(512,512)};
+    const sheet = {index, atlas, atlasContext, tintedPixels:atlasContext.createImageData(512,512)};
     const image = new Image();
+    image.fetchPriority = index === 0 ? 'high' : 'low';
     image.onload = () => {
       atlasContext.drawImage(image,0,0);
       sheet.originalPixels = atlasContext.getImageData(0,0,512,512).data;
+      tint(sheet, paletteColor);
     };
     image.onerror = () => console.error('Music preview: impact atlas could not be loaded.',src);
     image.src = new URL(src + '?v=comic-1', assetRoot).href;
     return sheet;
   });
+  }
+  function tint(sheet, color) {
+    if (sheet.paletteColor === color) return;
+    const {atlasContext, originalPixels, tintedPixels} = sheet;
+    atlasContext.clearRect(0, 0, 1, 1);
+    atlasContext.fillStyle = color;
+    atlasContext.fillRect(0, 0, 1, 1);
+    const rgb = atlasContext.getImageData(0, 0, 1, 1).data;
+    const data = tintedPixels.data;
+    for (let i = 0; i < data.length; i += 4) {
+      const light = Math.min(originalPixels[i], originalPixels[i+1], originalPixels[i+2]) / 255;
+      const shade = sheet.index === 2 ? originalPixels[i] / 255 : .45 + .55 * originalPixels[i+1] / 255;
+      for (let channel = 0; channel < 3; channel++) {
+        data[i+channel] = rgb[channel] * shade * (1-light) + 255 * light;
+      }
+      data[i+3] = originalPixels[i+3];
+    }
+    atlasContext.putImageData(tintedPixels, 0, 0);
+    sheet.paletteColor = color;
   }
   const discs = new Map();
   const sequence = [0,2,0,1,0];
@@ -93,8 +123,10 @@
         const spread = Math.sin(s.hitIndex * 2.399963);
         const forward = rect.width * (.08 + .06 * (s.hitIndex % 3));
         const sideways = rect.width * .21 * spread;
+        const preferred = sequence[s.hitIndex % 5];
+        const available = sheets?.findIndex(sheet => sheet.originalPixels) ?? -1;
         impact.comic = {
-          sheet: sequence[s.hitIndex % 5],
+          sheet: sheets?.[preferred]?.originalPixels ? preferred : available,
           angle, flip: torque < 0 ? -1 : 1,
           size: Math.min(78, rect.width * (.42 + .08 * Math.abs(spread))),
           sparkX: nx * forward - ny * sideways,
@@ -104,32 +136,13 @@
         impact.duration = 160;
   }
   function draw(ctx, impact, progress, color) {
-    const sheet = sheets?.[impact.comic.sheet];
+    const sheet = sheets?.[impact.comic.sheet] || sheets?.find(candidate => candidate.originalPixels);
     if (!sheet?.originalPixels) return;
       const {angle, flip, size} = impact.comic;
-      const {atlas, atlasContext, originalPixels, tintedPixels} = sheet;
+      const {atlas} = sheet;
       const age = progress * impact.duration;
       const frame = Math.min(15, 1 + Math.floor(age < 45 ? age / 9 : 5 + (age - 45) / 11.5));
-      if (color !== sheet.paletteColor) {
-        sheet.paletteColor = color;
-        atlasContext.clearRect(0, 0, 1, 1);
-        atlasContext.fillStyle = color;
-        atlasContext.fillRect(0, 0, 1, 1);
-        const rgb = atlasContext.getImageData(0, 0, 1, 1).data;
-        const data = tintedPixels.data;
-        // Retain the painted light core, shading and transparency.
-        // Recolor once per theme change, never once per impact or frame.
-        for (let i = 0; i < data.length; i += 4) {
-          const light = Math.min(originalPixels[i],originalPixels[i+1],originalPixels[i+2]) / 255;
-          const shade = impact.comic.sheet === 2 ? originalPixels[i] / 255
-            : .45 + .55 * originalPixels[i + 1] / 255;
-          for (let channel = 0; channel < 3; channel++) {
-            data[i + channel] = rgb[channel] * shade * (1 - light) + 255 * light;
-          }
-          data[i + 3] = originalPixels[i + 3];
-        }
-        atlasContext.putImageData(tintedPixels, 0, 0);
-      }
+      tint(sheet, color);
       ctx.save();
       ctx.globalAlpha = 1;
       ctx.translate(impact.x, impact.y);
@@ -153,6 +166,6 @@
         ctx.restore();
       }
   }
-  return {prepare, step, clear, kick, draw};
+  return {prepare, updatePalette, step, clear, kick, draw};
   };
 })();
