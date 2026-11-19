@@ -200,6 +200,15 @@
   </url>
   
   <url>
+    <loc>https://www.kaaaaai.cn/development_stage_reflection.html</loc>
+    
+    <lastmod>2019-03-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.kaaaaai.cn/on-the-road.html</loc>
     
     <lastmod>2019-03-11</lastmod>
@@ -621,6 +630,20 @@
   </url>
   
   <url>
+    <loc>https://www.kaaaaai.cn/tags/iOS/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/tags/Development/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.kaaaaai.cn/tags/%E6%97%A5%E5%B8%B8/</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
@@ -706,13 +729,6 @@
   
   <url>
     <loc>https://www.kaaaaai.cn/tags/%E7%94%9F%E6%B4%BB/</loc>
-    <lastmod>2026-11-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.kaaaaai.cn/tags/iOS/</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
