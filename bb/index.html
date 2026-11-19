@@ -132,7 +132,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
-<link rel="stylesheet" href="/css/main.css?v=5c5cbc5ac006">
+<link rel="stylesheet" href="/css/main.css?v=cc481d8f381b">
 
 
 
@@ -416,6 +416,14 @@ restore,
 start,
 };
 };
+const renderTags = function renderTags(post, escapeHtml) {
+const html = post.html || '';
+const tags = (post.tags || [])
+.filter(tag => !html.includes('>#' + escapeHtml(tag) + '</a>'))
+.map(tag => '<span>#' + escapeHtml(tag) + '</span>')
+.join('');
+return tags ? '<footer class="bb-channel-tags">' + tags + '</footer>' : '';
+};
 window.initBbChannel = window.initBbChannel || (() => {
 const root = document.querySelector('[data-bb-channel-root]');
 const previousRuntime = window.__bbChannelRuntime;
@@ -467,7 +475,7 @@ const viewerImages = images.map((item) =>
 '</figure>'
 ).join('');
 const carousel = images.length > 1;
-const tags = (post.tags || []).map((tag) => '<span>#' + escapeHtml(tag) + '</span>').join('');
+const tags = renderTags(post, escapeHtml);
 const attachments = (post.attachments || []).map((item) =>
 '<a class="bb-channel-attachment" href="' + escapeHtml(item.url || (post.source && post.source.telegramUrl) || '#') + '" target="_blank" rel="noopener noreferrer">' +
 '<span class="bb-channel-attachment-icon">' + bbChannelFileIcon + '</span>' +
@@ -488,7 +496,7 @@ return '<section class="bb-channel-card" id="bb-' + escapeHtml(post.id) + '">' +
 '<div class="bb-channel-main">' +
 (post.html || '') +
 (attachments ? '<div class="bb-channel-attachments">' + attachments + '</div>' : '') +
-(tags ? '<footer class="bb-channel-tags">' + tags + '</footer>' : '') +
+tags +
 '</div>' +
 (media ? '<div class="bb-channel-media-rail" data-bb-media-rail>' + media + '</div>' : '') +
 '</div>' +
@@ -951,7 +959,7 @@ document.addEventListener('pjax:success', window.initBbChannel);
   <script src="/js/liquid-theme.js?v=history-2" defer></script>
   
   <script src="/js/handwriting-fonts.js?v=carver-1" data-font-stylesheet="/css/handwriting-fonts.css" defer></script>
-  <script src="/js/theme.js?v=5c5cbc5ac006" defer></script>
+  <script src="/js/theme.js?v=cc481d8f381b" defer></script>
   <script src="/js/context-menu.js?v=bfcache-3" defer></script>
   <script src="/js/search.js?v=zh-search-1" defer></script>
   
