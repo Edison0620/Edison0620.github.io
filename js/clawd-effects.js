@@ -57,6 +57,7 @@
     '.post-button .btn'
   ].join(', ');
 
+
   function listenMediaQuery(query, listener) {
     if (typeof query.addEventListener === 'function') {
       query.addEventListener('change', listener);
@@ -114,6 +115,9 @@
       this.impactColor = '#f40';
       this.bulletColor = '#ffa657';
       this._onAccentChange = this._onAccentChange.bind(this);
+      this.shelfEffects = typeof window.ClawdShelfEffects === 'function'
+        ? window.ClawdShelfEffects(physics, MAX_IMPACT_BURSTS)
+        : null;
       this._onAccentChange();
       this.reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
       this.finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
@@ -177,7 +181,9 @@
 
     _canActivate(input = 'mouse') {
       if (this.reducedMotion.matches) return false;
-      return input === 'touch' ? this.coarsePointer.matches : this.finePointer.matches;
+      return input === 'touch' || input === 'launcher'
+        ? this.coarsePointer.matches
+        : this.finePointer.matches;
     }
 
     _isIgnoredTarget(target) {
@@ -564,8 +570,19 @@
 
     _spawnBullet(now) {
       const profile = physics.getFireProfile(now - this.holdStart);
-      const angle = this.facingAngle + (Math.random() - 0.5) * profile.spread;
-      this.bullets.push(physics.createBullet(this.clawdX, this.clawdY - 5, angle));
+      const isBook = Boolean(this.shelfEffects
+        && document.querySelector('[data-douban-list] .douban-item--book'));
+      const spread = isBook ? Math.max(profile.spread, 0.22) : profile.spread;
+      const angle = this.facingAngle + (Math.random() - 0.5) * spread;
+      const bullet = physics.createBullet(this.clawdX, this.clawdY - 5, angle);
+      if (this.shelfEffects
+        && document.querySelector('[data-douban-list] .douban-item--game')) {
+        bullet.skipLift = 224 * (0.85 + Math.random() * 0.30);
+        const launchSpeed = 1.65 * (0.7 + Math.random() * 0.65);
+        bullet.vx *= launchSpeed;
+        bullet.vy *= launchSpeed;
+      }
+      this.bullets.push(bullet);
       return 1000 / profile.rate;
     }
 
@@ -781,6 +798,7 @@
     }
 
     _draw() {
+      this.shelfEffects?.clearSurfaceLayers();
       if (this.bullets.length === 0 && this.impactBursts.length === 0 && !this.canvasHasPixels) return;
       const context = this.context;
       context.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
@@ -811,7 +829,14 @@
       }
       context.fillStyle = this.impactColor;
       for (const burst of this.impactBursts) {
-        const progress = (this.lastFrameTime - burst.at) / IMPACT_LIFETIME_MS;
+        const progress = (this.lastFrameTime - burst.at)
+          / (burst.duration ?? IMPACT_LIFETIME_MS);
+        if (burst.kind) {
+          if (progress > 0 && progress < 1) {
+            this.shelfEffects?.drawMaterial(context, burst, progress, this.impactColor);
+          }
+          continue;
+        }
         if (progress <= 0) continue;
         context.globalAlpha = (1 - progress) * (1 - progress) * 0.85;
         for (let index = 0; index < IMPACT_GRAINS; index += 1) {
@@ -868,15 +893,43 @@
       }
 
       for (let index = this.impactBursts.length - 1; index >= 0; index -= 1) {
-        if (now - this.impactBursts[index].at >= IMPACT_LIFETIME_MS) {
+        const burst = this.impactBursts[index];
+        if (now - burst.at >= (burst.duration ?? IMPACT_LIFETIME_MS)) {
           this.impactBursts.splice(index, 1);
         }
       }
+      if (this.shelfEffects
+        && this.bullets.some(bullet => bullet.impactAt === undefined)) {
+        this.shelfEffects.updateMaterialTargets();
+      }
       this.bullets = this.bullets.filter(bullet => {
         if (bullet.impactAt !== undefined) return now - bullet.impactAt < 240;
+        const fromX = bullet.x;
+        const fromY = bullet.y;
+        if (bullet.bookPaper) {
+          return this.shelfEffects?.stepBookPaperBullet(bullet, dt) ?? false;
+        }
+        if (bullet.waterSkip) {
+          return this.shelfEffects?.stepWaterSkip(
+            bullet,
+            dt,
+            now,
+            this.impactBursts
+          ) ?? false;
+        }
         if (!physics.stepBullet(bullet, dt, this.width, this.height)) return false;
+        if (this.shelfEffects?.hitMaterial(
+          bullet,
+          fromX,
+          fromY,
+          now,
+          this.impactBursts
+        )) return false;
+        if (bullet.bookPaper || bullet.waterSkip) return true;
 
         for (const target of this.targets) {
+          if (this.shelfEffects
+            && target.element.matches('.douban-item__cover-link')) continue;
           const distance = physics.circleRectDistance(bullet.x, bullet.y, target.rect);
           if (distance >= physics.CONSTANTS.hitRadius) continue;
           if (target.interactive && target.element.parentElement?.matches('[data-token-terminal]')) {
@@ -959,6 +1012,9 @@
         state.appliedStyleAttribute = state.element.getAttribute('style');
       }
 
+      this.shelfEffects?.stepPaperCurls(now);
+      this.shelfEffects?.stepVinyl(now);
+      this.shelfEffects?.stepBookFlex(now);
       this._draw();
       this.raf = window.requestAnimationFrame(this._stepFrame);
     }
@@ -985,7 +1041,7 @@
         this.impactBursts.length = 0;
         this.lastFireTime = 0;
         this.lastTargetRefresh = 0;
-        document.documentElement.style.cursor = 'none';
+        if (input !== 'launcher') document.documentElement.style.cursor = 'none';
         if (input === 'touch') {
           document.documentElement.style.userSelect = 'none';
           document.documentElement.style.overflow = 'hidden';
@@ -995,7 +1051,9 @@
             document.body.style.touchAction = 'none';
           }
         }
-        document.documentElement.classList.add('clawd-effects-active');
+        if (input !== 'launcher') {
+          document.documentElement.classList.add('clawd-effects-active');
+        }
         this._markPageStateApplied(input === 'touch');
         this._resizeCanvas();
         this._watchTerminalMount();
@@ -1017,6 +1075,10 @@
     }
 
     deactivate(animate = true) {
+      this.shelfEffects?.clearSurfaceLayers();
+      this.shelfEffects?.clearPaperCurls();
+      this.shelfEffects?.clearVinyl();
+      this.shelfEffects?.clearBookFlex();
       this.terminalObserver?.disconnect();
       this.terminalObserver = null;
       this._flushGlyphGroups();
@@ -1059,6 +1121,15 @@
       this.mouseDown = true;
       this.holdStart = performance.now();
       this.lastFireTime = 0;
+      if (this.shelfEffects && document.querySelector(
+        '[data-douban-list] .douban-item--movie,'
+        + ' [data-douban-list] .douban-item--music,'
+        + ' [data-douban-list] .douban-item--book,'
+        + ' [data-douban-list] .douban-item--game'
+      )) {
+        this._spawnBullet(this.holdStart);
+        this.lastFireTime = this.holdStart;
+      }
     }
 
     stopShooting() {
@@ -1066,6 +1137,11 @@
     }
 
     _onTouchStart(event) {
+      if (window.__clawdLauncherEnabled && this.coarsePointer.matches) {
+        this.tapGesture = null;
+        this.previousTouchEnd = 0;
+        return;
+      }
       if (!this.coarsePointer.matches) {
         this.tapGesture = null;
         this.previousTouchEnd = 0;
@@ -1091,6 +1167,7 @@
     }
 
     _onTouchMove(event) {
+      if (window.__clawdLauncherEnabled && this.coarsePointer.matches) return;
       const touch = event.touches[0];
       if (!touch) return;
       if (this.tapGesture && Math.hypot(
@@ -1107,6 +1184,11 @@
     }
 
     _onTouchEnd(event) {
+      if (window.__clawdLauncherEnabled && this.coarsePointer.matches) {
+        this.tapGesture = null;
+        this.previousTouchEnd = 0;
+        return;
+      }
       this.stopShooting();
       this.touchGestureActive = false;
       if (!this.coarsePointer.matches) {
@@ -1147,6 +1229,11 @@
     }
 
     _onTouchCancel() {
+      if (window.__clawdLauncherEnabled && this.coarsePointer.matches) {
+        this.tapGesture = null;
+        this.previousTouchEnd = 0;
+        return;
+      }
       this.stopShooting();
       this.touchGestureActive = false;
       this.tapGesture = null;
@@ -1154,6 +1241,7 @@
     }
 
     _onDoubleClick(event) {
+      if (window.__clawdLauncherEnabled && this.coarsePointer.matches) return;
       if (this._isIgnoredTarget(event.target)) return;
       if (!this.active && !this._canActivate()) return;
       event.preventDefault();
@@ -1168,6 +1256,7 @@
     }
 
     _onMouseMove(event) {
+      if (this.activeInput === 'launcher') return;
       this._rememberMousePosition(event);
       if (!this.active) {
         if (this.persistent && this.finePointer.matches && this.lastMousePosition) {
@@ -1185,6 +1274,7 @@
     }
 
     _onMouseDown(event) {
+      if (this.activeInput === 'launcher') return;
       if (event.button !== 0) return;
       if (this._isIgnoredTarget(event.target)) return;
       this._rememberMousePosition(event);
