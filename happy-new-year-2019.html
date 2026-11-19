@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>喘口气上来 | 壹拾肆</title>
+<meta name="description" content="问朋友今年用什么字总结，他说，一。意思大概是一年都在原地踏步，年头年尾的状态没什么区别。我没有回他。 今年换了一份新的工作，状况比去年的好上很多，去年没来得及和朋友说的展望词，今年恰好可以作为总结——“木”：总算是从原来的处境脱身出来，另外也存了一些小钱。比起工作和休息，我反倒喜欢找工作，坐着公交地铁在城市里穿来穿去的感觉，固然傍晚回家会有点风尘仆仆的疲惫，">
+<meta name="theme-color" content="#f9f9f7">
+<meta name="color-scheme" content="light dark">
+<script>
+  (function () {
+    var selected = 'light';
+    try {
+      var stored = localStorage.getItem('carver-theme');
+      if (stored === 'dark' || stored === 'light') {
+        selected = stored;
+        localStorage.removeItem('eishan-theme');
+      } else {
+        var legacy = localStorage.getItem('eishan-theme');
+        if (legacy === 'dark' || legacy === 'light') {
+          selected = legacy;
+          localStorage.setItem('carver-theme', legacy);
+          localStorage.removeItem('eishan-theme');
+        }
+      }
+    } catch (error) {
+      if (stored === 'dark' || stored === 'light') selected = stored;
+    }
+    document.documentElement.setAttribute('data-theme', selected);
+    document.documentElement.style.colorScheme = selected;
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', selected === 'dark' ? '#101311' : '#f9f9f7');
+    var accent = 'orange';
+    try {
+      var storedAccent = localStorage.getItem('carver-accent');
+      if (/^(yellow|green|blue|purple)$/.test(storedAccent)) accent = storedAccent;
+    } catch (error) { /* Storage may be unavailable. */ }
+    document.documentElement.setAttribute('data-accent', accent);
+  })();
+</script>
+<script>
+  (function () {
+    function titleFor(url) {
+      if (!url || new URL(url).origin !== location.origin) return null;
+      var path = new URL(url).pathname;
+      var match = null;
+      var rows = document.querySelectorAll('a.project-row--post');
+      for (var i = 0; i < rows.length; i++) {
+        var title = rows[i].querySelector('.project-title');
+        if (title.style.viewTransitionName === 'post-title') title.style.viewTransitionName = '';
+        if (new URL(rows[i].href).pathname === path) match = title;
+      }
+      return match;
+    }
+
+    var selectedHref = null;
+    document.addEventListener('click', function (event) {
+      var link = event.target.closest && event.target.closest('a.project-row--post');
+      if (link && event.button === 0 && !event.metaKey && !event.ctrlKey &&
+          !event.shiftKey && !event.altKey && !link.hasAttribute('download') &&
+          (!link.target || link.target === '_self')) selectedHref = link.href;
+    }, true);
+
+    window.addEventListener('pageswap', function (event) {
+      if (!event.viewTransition) return;
+      try {
+        if (document.querySelector('.writing-header .writing-title')) {
+          sessionStorage.setItem('carver-transition-source', location.href);
+        } else {
+          sessionStorage.removeItem('carver-transition-source');
+        }
+      } catch (error) {}
+      var destination = (event.activation && event.activation.entry && event.activation.entry.url) || selectedHref;
+      var title = titleFor(destination);
+      if (title) title.style.viewTransitionName = 'post-title';
+      else if (destination && new URL(destination).pathname.endsWith('.html')) {
+        var articleTitle = document.querySelector('.writing-header .writing-title');
+        if (articleTitle) articleTitle.style.viewTransitionName = 'none';
+      }
+    });
+    window.addEventListener('pagereveal', function (event) {
+      if (!event.viewTransition) return;
+      var activation = event.activation || (window.navigation && window.navigation.activation);
+      var title = titleFor(activation && activation.from && activation.from.url);
+      if (!title) {
+        try { title = titleFor(sessionStorage.getItem('carver-transition-source')); } catch (error) {}
+      }
+      if (title) {
+        title.style.viewTransitionName = 'post-title';
+        var reset = function () { title.style.viewTransitionName = ''; };
+        event.viewTransition.finished.then(reset, reset);
+      }
+      var articleTitle = document.querySelector('.writing-header .writing-title');
+      if (articleTitle && articleTitle.style.viewTransitionName === 'none') {
+        var restore = function () { articleTitle.style.viewTransitionName = 'post-title'; };
+        event.viewTransition.finished.then(restore, restore);
+      }
+    });
+  })();
+</script>
+<meta property="og:title" content="喘口气上来 | 壹拾肆">
+<meta property="og:description" content="问朋友今年用什么字总结，他说，一。意思大概是一年都在原地踏步，年头年尾的状态没什么区别。我没有回他。 今年换了一份新的工作，状况比去年的好上很多，去年没来得及和朋友说的展望词，今年恰好可以作为总结——“木”：总算是从原来的处境脱身出来，另外也存了一些小钱。比起工作和休息，我反倒喜欢找工作，坐着公交地铁在城市里穿来穿去的感觉，固然傍晚回家会有点风尘仆仆的疲惫，">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.kaaaaai.cn/happy-new-year-2019.html">
+<meta property="og:site_name" content="壹拾肆">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://www.kaaaaai.cn/happy-new-year-2019.html">
+<script>
+  try {
+    if (sessionStorage.getItem('carver-handwriting-ready') === '1') {
+      var handwritingStyle = document.createElement('link');
+      handwritingStyle.rel = 'stylesheet';
+      handwritingStyle.href = "/css/handwriting-fonts.css";
+      handwritingStyle.setAttribute('blocking', 'render');
+      handwritingStyle.setAttribute('data-handwriting-warm', '');
+      var unblock = setTimeout(function () {
+        handwritingStyle.removeAttribute('blocking');
+      }, 80);
+      handwritingStyle.onload = function () {
+        clearTimeout(unblock);
+        handwritingStyle.removeAttribute('blocking');
+        document.documentElement.classList.add('handwriting-ready');
+      };
+      handwritingStyle.onerror = function () {
+        clearTimeout(unblock);
+        sessionStorage.removeItem('carver-handwriting-ready');
+      };
+      document.head.appendChild(handwritingStyle);
+    }
+  } catch (error) {}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="/css/main.css?v=cc481d8f381b">
+
+
+
+<link rel="alternate" type="application/atom+xml" title="壹拾肆" href="/atom.xml">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body data-mode="builder">
+  <a class="skip-link" href="#main-content">跳到正文</a>
+  
+  
+<div
+  class="liquid-theme-controls"
+  role="group"
+  aria-label="外观"
+  data-liquid-theme-controls
+  data-duration="1450"
+  data-label-dark="切换到深色主题"
+  data-label-light="切换到浅色主题"
+>
+  <svg class="liquid-theme-controls__symbols" aria-hidden="true">
+    <symbol id="liquid-theme-moon" viewBox="0 0 24 24">
+      <path d="M20.2 15.2A8.5 8.5 0 0 1 8.8 3.8 8.5 8.5 0 1 0 20.2 15.2Z"></path>
+    </symbol>
+    <symbol id="liquid-theme-sun" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="3.5"></circle>
+      <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path>
+    </symbol>
+  </svg>
+  <button class="liquid-theme-controls__button liquid-theme-controls__theme" type="button" aria-pressed="false" aria-label="切换到深色主题" title="切换到深色主题" data-theme-toggle>
+    <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#liquid-theme-moon"></use></svg>
+  </button>
+</div>
+
+  
+  
+<main id="main-content" class="writing-container main-inner" tabindex="-1">
+  <a class="writing-back" data-post-back href="/">← 返回首页</a>
+  <header class="writing-header">
+    <h1 class="writing-title" style="view-transition-name: post-title">喘口气上来</h1>
+    <div class="writing-meta">
+      <span>2018 年 12 月 31 日</span>
+      <span>阅读约 3 分钟</span>
+      <span id="busuanzi_container_page_pv" style="display:none">阅读 <span id="busuanzi_value_page_pv"></span></span>
+      
+      <span class="writing-tags">
+        分类 <a href="/categories/%E6%B6%82%E9%B8%A6/">涂鸦</a>
+      </span>
+      
+      
+      <span class="writing-tags">
+        <a href="/tags/%E9%9A%8F%E7%AC%94/">#随笔</a> · <a href="/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/">#年终总结</a> · <a href="/tags/%E6%B1%9F%E6%B9%96%E4%BD%93%E9%AA%8C%E6%8A%A5%E5%91%8A/">#江湖体验报告</a>
+      </span>
+      
+    </div>
+  </header>
+  <aside class="toc-rail" data-toc-rail hidden>
+  <button
+    class="toc-rail__toggle"
+    type="button"
+    aria-expanded="false"
+    aria-controls="post-toc-navigation"
+  >
+    <span class="toc-rail__toggle-label">本文目录</span>
+    <span class="toc-rail__toggle-icon" aria-hidden="true"></span>
+  </button>
+  <nav id="post-toc-navigation" class="toc-rail__nav" aria-label="文章目录" hidden>
+    <ol class="toc-rail__list" data-toc-list></ol>
+  </nav>
+</aside>
+
+  <div class="writing-content"><p>　　问朋友今年用什么字总结，他说，一。意思大概是一年都在原地踏步，年头年尾的状态没什么区别。我没有回他。<br>　　<span id="more"></span><br>　　今年换了一份新的工作，状况比去年的好上很多，去年没来得及和朋友说的展望词，今年恰好可以作为总结——“木”：总算是从原来的处境脱身出来，另外也存了一些小钱。比起工作和休息，我反倒喜欢找工作，坐着公交地铁在城市里穿来穿去的感觉，固然傍晚回家会有点风尘仆仆的疲惫，甚至某天面试很糟糕的时候，看着车水马龙的城市，想到万家灯火，何处有我那盏，会有点泄气。但那时候觉得很自由，而且目的是为了找工作，并不是漫无目的的奔波，自由，且自由得很踏实。<br>　　和一个女性朋友说起我找工作就当观光的事，她说我很乐观。我收下了她的称赞，也很乐意把我好的一面给她看，她离我很远，那会找工作，蓦然间看到一个很像她的人，便和她说了一声， 还说了电影里看到和她气质很像的人，后来我们有一阵子联系很频繁，说了很多琐事，互相交换了烦恼，我忘记，我们说了那么多，我有没有告诉她我很想她。再后来就没有联系了。<br>　　疏于和旧日朋友联系这大概是我今年不好的变化吧。到现在我也还没问我那位朋友 2019 年的展望词是什么。另一位朋友常打电话过来聊天，我也大部分时间都以一种不耐烦，拒绝配合的态度应付，当然一部分也有他太啰嗦的缘故，但我想按着我去年心态好的时候，大概会以一种朋友在胡闹，我除了原谅还能有什么办法的态度和他愉快的聊下去。和他有一段以最近书店里出的新书都没法看，老书才是经典的观点开始的对话，后面我说他是不是有些焦虑，对自己或者出来以后有很多怀才不遇的感慨，他犹豫着点头说是。现在回过头去看，他变得啰嗦是因为焦虑的缘故，我对人对事的不耐烦又何尝不是。<br>　　找到工作后生活就规律了很多，新公司的同事们都很友好，也在去年的基础上学了点新的东西。和公司旅游的时候惊讶的发现上司是个塞尔达粉，后来我们就交换游戏机玩，n3ds 和 ps4 让我废寝忘食。上半年的学习计划到了下半年流产也大半是因为这个原因。夏天的时候去学了游泳，从在心里说服自己克服恐惧，到在水里站起来还能游一个来回，整个过程让我感觉很有成就感。<br>　　今年看的书没有去年多，去电影院倒是比去年多多了，《江湖儿女》里有个地方让我印象深刻，斌哥还是出租车公司老总的时候，走路上被小年轻用钢管敲断了小腿，疼半天只是冲车子消失的地方喊了句，不至于吧。但后面中风偏瘫的时候却因为小弟的小弟先上主食后上菜说他没有规矩而大发雷霆把桌子翻了。境遇让人的心态变好又变坏，之前有些悲观，把自己个性签名写，心由境生。现在看起来像个黑色幽默——不由得想起我对自己其他的悲观的预见性结论了。<br>　　今年作为从去年的困境脱离的过渡期，好和不好都有一些，勉强给自己的表现打个及格分。来年的展望词是林，希望明年可以存更多的钱，多吃蔬菜，减轻体重，可以有“阵阵晚风吹动着松涛，只有青山藏在白云间”的心态，可以境由心生。
+　
+　　
+　</p>
+</div>
+  
+  <details class="writing-reward" data-clawd-ignore>
+    <summary>请我喝杯咖啡 <span aria-hidden="true">↗</span></summary>
+    <div class="writing-reward__content">
+      <img src="https://s2.loli.net/2022/07/02/Gce8a5QAqrZ3X9R.gif" alt="微信打赏二维码" loading="lazy" width="192" height="192">
+      <span class="writing-reward__caption">微信</span>
+    </div>
+  </details>
+  
+  
+<section class="writing-comments" aria-label="评论" data-clawd-ignore>
+  <h2 class="section-label">评论</h2>
+  <div id="waline"></div>
+</section>
+
+
+  
+  <nav class="post-nav">
+    
+    <a class="post-nav__item post-nav__item--prev" href="/on-the-road.html" aria-label="上一篇：在路上">
+      <span class="post-nav__label" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m14 6-6 6 6 6"></path><path d="M8 12h12"></path></svg></span>
+      <span class="post-nav__title">在路上</span>
+    </a>
+    
+    
+    <a class="post-nav__item post-nav__item--next" href="/after-reading-wangsuo.html" aria-label="下一篇：半把瘾">
+      <span class="post-nav__label" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h12"></path><path d="m10 6 6 6-6 6"></path></svg></span>
+      <span class="post-nav__title">半把瘾</span>
+    </a>
+    
+  </nav>
+  
+</main>
+
+  
+  <footer class="site-signature">
+    <div class="site-signature__identity">
+      <span>© 2017 – 2026</span>
+      <span class="site-signature__bolt" aria-hidden="true">⚡️</span>
+      <span class="site-signature__author">Kaaaaai</span>
+    
+    <button class="site-chat__footer" type="button" data-chat-open data-chatra-id="QXLRxXcsfrRJR2KTG">聊天 ↗</button>
+    
+    </div>
+    
+    <p class="site-stats" aria-label="网站访问统计">
+      <span id="busuanzi_container_site_uv" style="display:none">访客 <span id="busuanzi_value_site_uv"></span></span>
+      <span id="busuanzi_container_site_pv" style="display:none">浏览 <span id="busuanzi_value_site_pv"></span></span>
+    </p>
+    
+  </footer>
+  
+<div
+  class="site-search"
+  data-search-root
+  data-search-endpoint="/carver-search.json"
+  data-site-origin="https://www.kaaaaai.cn"
+  data-label-loading="正在加载搜索索引…"
+  data-label-empty="没有找到相关内容"
+  data-label-error="搜索索引加载失败，请重试"
+  data-label-count="找到 {count} 个结果"
+  data-label-limited="找到 {count} 个结果，显示前 {limit} 个"
+>
+  <button
+    class="site-search__trigger"
+    id="site-search-trigger"
+    type="button"
+    aria-haspopup="dialog"
+    aria-controls="site-search-dialog"
+    aria-expanded="false"
+    aria-label="搜索"
+    title="搜索"
+    data-search-open
+  ><svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="7" cy="7" r="4.5"></circle><path d="m10.5 10.5 4 4"></path></svg></button>
+
+  <div
+    class="site-search__overlay"
+    id="site-search-dialog"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="site-search-title"
+    hidden
+    data-search-dialog
+  >
+    <section class="site-search__panel">
+      <header class="site-search__header">
+        <h2 id="site-search-title">搜索文章</h2>
+        <button class="site-search__close" type="button" aria-label="关闭搜索" data-search-close>×</button>
+      </header>
+
+      <form class="site-search__form" role="search" data-search-form>
+        <input
+          class="site-search__input"
+          id="site-search-input"
+          type="search"
+          name="q"
+          aria-label="搜索关键词"
+          autocomplete="off"
+          enterkeyhint="search"
+          placeholder="输入关键词"
+          aria-describedby="site-search-status"
+          data-search-input
+        >
+      </form>
+
+      <p class="site-search__status" id="site-search-status" role="status" aria-live="polite" data-search-status></p>
+      <button class="site-search__retry" type="button" hidden data-search-retry>重试</button>
+      <ol class="site-search__results" aria-label="搜索结果" data-search-results></ol>
+    </section>
+  </div>
+</div>
+
+  
+<nav class="site-context-menu" id="site-context-menu" aria-label="页面快捷菜单" role="menu" tabindex="-1" hidden>
+  <div class="site-context-menu__history">
+    <button type="button" role="menuitem" data-context-back aria-label="后退" title="后退"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14 6-6 6 6 6"></path><path d="M8 12h12"></path></svg></button>
+    <button type="button" role="menuitem" data-context-forward aria-label="前进" title="前进"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h12"></path><path d="m10 6 6 6-6 6"></path></svg></button>
+    <button type="button" role="menuitem" data-context-reload aria-label="刷新" title="刷新"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.7"></path><path d="M20 4v6h-6"></path></svg></button>
+  </div>
+  <div class="site-context-menu__actions">
+    <a role="menuitem" data-context-random href="/">随机文章</a>
+    <button type="button" role="menuitem" data-context-top>返回顶部</button>
+  </div>
+  <div class="site-context-menu__palettes" role="group" aria-label="主题配色">
+    <div class="site-context-menu__palette-choices">
+      <button type="button" role="menuitemradio" aria-label="橙色" title="橙色" aria-checked="false" data-accent-choice="orange"><span class="site-context-menu__swatch" aria-hidden="true"></span></button>
+      <button type="button" role="menuitemradio" aria-label="黄色" title="黄色" aria-checked="false" data-accent-choice="yellow"><span class="site-context-menu__swatch" aria-hidden="true"></span></button>
+      <button type="button" role="menuitemradio" aria-label="绿色" title="绿色" aria-checked="false" data-accent-choice="green"><span class="site-context-menu__swatch" aria-hidden="true"></span></button>
+      <button type="button" role="menuitemradio" aria-label="蓝色" title="蓝色" aria-checked="false" data-accent-choice="blue"><span class="site-context-menu__swatch" aria-hidden="true"></span></button>
+      <button type="button" role="menuitemradio" aria-label="紫色" title="紫色" aria-checked="false" data-accent-choice="purple"><span class="site-context-menu__swatch" aria-hidden="true"></span></button>
+    </div>
+  </div>
+  <p class="site-context-menu__hint">按住 Shift 右键使用浏览器菜单</p>
+</nav>
+<script type="application/json" id="site-context-posts">["/dream-in-2024.html","/dream-in-2023.html","/its-time-to-build-an-open-source-library.html","/recommend-a-few-podcasts.html","/amateur-clipsself-improvement.html","/a-person-abandoned-by-the-light.html","/oc-multi-delegate-implementation.html","/about-my-notion-workflow.html","/god-will-rolls-the-dice-several-times.html","/everyone-love-gtd.html","/git-submodule.html","/i-can't-stay-here-to-love-you.html","/ios-preliminary-study-of-symbolic-breakpoints.html","/gangster-and-litchi.html","/sun-sleeping-in-the-forest.html","/chicken-soup-from-inference-writer.html","/xiangzi-and-his-misfortune.html","/how-to-fix-warnings-about-unsafe-sites.html","/about-what-do-you-like.html","/forever-and-solongmyson.html","/on-the-road.html","/happy-new-year-2019.html","/after-reading-wangsuo.html","/veteran_science_fiction.html","/wizard-world-revolution.html","/other-fragment-about-huan.html","/chinese-text-layout-study.html","/outside-the-straw-house.html","/platypus-philosophy.html","/be-a-man.html","/yansi-who-knows.html","/impromptu-late-spring.html","/as-the-boat.html","/the-first-report-of-the-newcomer.html","/writing-plan.html","/dreaming-about-you-and-me.html","/in-the-eveing.html","/teenages-like-you-and-me.html","/evolution.html","/end-of-july.html","/unreasonable-guess.html","/political-attitudes-and-attitudes-towards-politics.html","/sudden-self.html","/fourthart.html","/eat-a-burger-with-chopped-green-onion-and-sugar.html","/firstart.html","/hello-edison-s-world.html","/hello-world.html"]</script>
+
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="返回顶部" title="返回顶部" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20V4"></path><path d="m6 10 6-6 6 6"></path></svg></button>
+  
+  <button class="site-chat__floating" type="button" data-chat-open data-chatra-id="QXLRxXcsfrRJR2KTG" aria-label="聊天 ↗" title="聊天 ↗"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-8 8 9 9 0 0 1-3.5-.7L4 20l1.2-4.5A8 8 0 1 1 20 11.5Z"></path></svg></button>
+  <script src="/js/chatra.js?v=accent-1" defer></script>
+  
+  
+  <script src="/js/liquid-theme-shape.js?v=carver-1" defer></script>
+  <script src="/js/liquid-theme.js?v=history-2" defer></script>
+  
+  <script src="/js/handwriting-fonts.js?v=carver-1" data-font-stylesheet="/css/handwriting-fonts.css" defer></script>
+  <script src="/js/theme.js?v=cc481d8f381b" defer></script>
+  <script src="/js/context-menu.js?v=bfcache-3" defer></script>
+  <script src="/js/search.js?v=zh-search-1" defer></script>
+  <script src="/js/toc.js?v=zh-1" defer></script>
+  
+  
+  
+  <script src="/js/clawd-physics.js" defer></script>
+  <script src="/js/site-particle-effects.js" defer></script>
+  <script src="/js/clawd-effects.js?v=accent-1" defer></script>
+  
+  
+  <script>if (location.hostname === "www.kaaaaai.cn") { var s = document.createElement('script'); s.src = 'https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'; s.async = true; document.body.appendChild(s); }</script>
+  
+  
+  <script>if (!/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) { var _hmt = window._hmt || []; (function () { var s = document.createElement('script'); s.src = 'https://hm.baidu.com/hm.js?9578d14210d67becef48447e4f6b3f20'; s.async = true; document.head.appendChild(s); })(); }</script>
+  
+  
+  <script
+    src="/js/comments.js"
+    data-server-url="https://comments.kaaaaai.cn"
+    data-path="/happy-new-year-2019.html"
+    data-placeholder="请文明评论呀"
+    data-waline-module="https://unpkg.com/@waline/client@v3/dist/waline.js"
+    data-waline-stylesheet="https://unpkg.com/@waline/client@v3/dist/waline.css"
+    data-comments-stylesheet="/css/comments.css"
+    defer></script>
+  
+</body>
+</html>

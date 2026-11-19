@@ -56,6 +56,83 @@
       </tags>
   </entry>
   <entry>
+    <title>是时候维护一个属于自己的开源库了</title>
+    <url>//its-time-to-build-an-open-source-library.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>使用 GitHub 很久，除了无脑 star、fork 大神们的仓库、输出一些学习代码以外，对于 GitHub 本身的贡献似乎寥寥。<a href="https://archiveprogram.github.com/arctic-vault/"><strong>Arctic Code Vault Contributor</strong></a> 的勋章我受之有愧。如果你也有和我类似的想法，那么，是时候可以尝试一下维护一个自己的开源库了。</p>
+<p>维护一个开源库，听起来很简单，但是真正要开始动手，似乎颇有些千头万绪，无从下手。那让我们来捋一捋，首先我们碰到的第一个问题可能是：我们可以去维护一个怎样的开源库？</p>
+<h2 id="目的和意义"><a href="#目的和意义" class="headerlink" title="目的和意义"></a>目的和意义</h2><p>该维护一个怎样的开源库，讨论这个问题之前。我们先把维护开源库这件事当做一个项目来分析，首先我们来思考这个项目的目的和意义——这个思考的结果有利于我们对于这个项目的持续维护，也可以当做一项工作开始前的心理建设。</p>
+<p>我们的目的除了上面提到的增加一些对 GitHub 的贡献，我们所选择去维护的开源库类型也可以从另一方面确认我们这个项目的目的，比如如果你打算维护一个你所对应的开发语言的工具类框架，那你们目的就是把这个框架完成，并且好用。</p>
+<p>而在这个过程中，你的技能水平有所提升，是附带产生的收获，也是可以在这个阶段当做我们的目的之一。</p>
+<p>另外如果你期望你的框架可以满足了一部分人的需求，可以帮助到别人，得到一些 <strong>Star</strong> 和 <strong>Follow</strong>，那么获得他人认可也是作为这个项目的目的之一。</p>
+<p>最后，当我们选择去维护一个开源库，这个开源库必然是我们最想去维护的，那这个过程中我们必然是开心和满足的，获得自我满足感也可以当做我们的目的之一，这点也是我认为最重要的。</p>
+<p>以上几点，既可以当做目的，从结果上也可以当做我们维护开源库所具备的意义。</p>
+<h2 id="选题"><a href="#选题" class="headerlink" title="选题"></a>选题</h2><p>进入正题，我们该维护一个怎样的开源库？对于大神来说，这个问题很简单，基本就是输出一些自制的小工具或者简洁优美的代码轮子，但对于一个还在自己的知识领域里辛苦耕耘的朋友来说，要独立维护一个技术含量比较高的开源库也许会略感吃力，甚至有可能是劝退性的。对于这类心里打鼓的朋友，也许前面干巴巴的文字无法成功完成第一轮的心理建设，也许需要一些更直观的东西来把退堂鼓换成锣鼓，比如：</p>
+<ul>
+<li><a href="https://www.zhihu.com/question/23498424/answer/565475152">你在 GitHub 上看到过的最有意思的项目是什么？ - 知乎</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/58404875">我在 GitHub 上都见过哪些沙雕项目？ - 知乎</a></li>
+</ul>
+<p>这两个链接里面有许多技术含量不高，但很有趣也有很多 <strong>Star</strong> 的项目，比如这个<a href="https://github.com/kelseyhightower/nocode">nocode</a><br><img align="center" src="https://i.loli.net/2020/11/22/IJGh1tVqATzZlYL.jpg" width=650px loading="lazy" decoding="async"/></p>
+<p>没有一行代码的应用程序，看起来像是一个愚人节玩笑。</p>
+<blockquote>
+<p>Write nothing; deploy nowhere.</p>
+</blockquote>
+<p>OK，maybe it is the most secure and reliable applications.这个项目在 GitHub 有四万多的 <strong>Star</strong>，颇有几分不着一字，尽得风流的意味。</p>
+<p>总之，从以上例子来看，其实我们无需局限于技术，在开源库的类型选择上，我们可以有更开放的选择，总结如下：</p>
+<ul>
+<li>技术：<a href="https://github.com/AFNetworking/AFNetworking">AFNetworking</a></li>
+<li>某个领域的资讯整合：<a href="https://github.com/SwiftOldDriver/iOS-Weekly">iOS-Weekly</a></li>
+<li>学习资料：<a href="https://github.com/soapyigu/Swift-30-Projects">Swift-30-Projects</a></li>
+<li>同一类资源的合集：<a href="https://github.com/jaywcjlove/awesome-mac">awesome-mac</a>、<a href="https://github.com/timmy3131/design-resource">design-resource</a></li>
+<li>偏生活向的：<a href="https://github.com/hoosin/EveryDaySport">EveryDaySport</a>、<a href="https://github.com/YixuanFranco/YourBoyfriend">YourBoyfriend</a></li>
+<li>emmmmm：<a href="https://github.com/komeiji-satori/Dress">Dress</a></li>
+</ul>
+<p>确定一个方向后，然后在此基础上从自己擅长或者感兴趣的入手，相信你很快就能找到一个合适的项目。当然别忘了开始前在 GitHub 上检索一下，看看是否有类似的仓库，避免重复造轮子。</p>
+<h2 id="维护"><a href="#维护" class="headerlink" title="维护"></a>维护</h2><p>确定好要维护一个怎样的开源库后，接下来就是怎样去维护一个开源库了，即是走一遍创建仓库，拉取部署和维护的流程。——这里默认所有想维护开源库的朋友对 GitHub 的基本操作都熟悉。</p>
+<h3 id="创建仓库-Tips"><a href="#创建仓库-Tips" class="headerlink" title="创建仓库 Tips"></a>创建仓库 Tips</h3><p>创建仓库这里有个小 Tips，是公司同事分享的，就是一个比较正式的开源库，通常会挂在一个组织底下，比如：<br><img align="center" src="https://i.loli.net/2020/11/22/9FHA4eQsfUqkWYX.png" width=650px loading="lazy" decoding="async"/><br>比如：<br><img align="center" src="https://i.loli.net/2020/11/22/F39zC7M2nTcXGyP.png" width=650px loading="lazy" decoding="async"/><br>再比如<br><img align="center" src="https://i.loli.net/2020/11/22/b4ga6fzWIvkVoce.png" width=650px loading="lazy" decoding="async"/><br>由以上例子可见，挂在组织底下的项目会比挂在个人底下的项目看起来更会正式。哪怕我们是个人维护的，但让他看起来正式一点也没什么错误。另外在被搜索和在 url 路径展示上也相对会工整一点。<br><img align="center" src="https://i.loli.net/2020/11/22/ezD8NbqloGFipHX.png" width=650px loading="lazy" decoding="async"/></p>
+<h3 id="维护和一些设定"><a href="#维护和一些设定" class="headerlink" title="维护和一些设定"></a>维护和一些设定</h3><p>创建完一个仓库以后，拉取部署等常规操作略过不提，说说维护。步入正轨的维护，其实就是持续的 push 就好，根据仓库类型不同，有的也许是周期需要维护的，有的也许上线已接近完成，需要做的只是抓虫和偶尔更新。这个时候需要注意：</p>
+<ol>
+<li>对项目保持一定的关注，给自己固定一个周期性的时间检查项目，以防止时间断层导致项目失去维护。</li>
+<li>每次 commit 的描述，清晰直观的提交历史可以让人对你的表述能力有大概了解，也方便给潜在的，想要一起维护的开发者一个直观的项目过往，有利于增加与你一起协作维护的吸引力。</li>
+<li>项目结构的条理性，原因同上。</li>
+</ol>
+<p>除了步入正轨的维护，在创建时，还有项目本身的一些设定也很重要：<br><img src="https://i.loli.net/2020/11/22/qKgJbv1x2cGzk7e.png" alt="qKgJbv1x2cGzk7e" loading="lazy" decoding="async"></p>
+<ul>
+<li>项目 logo</li>
+<li>readme 文件的书写</li>
+<li>项目描述</li>
+<li>开源声明</li>
+</ul>
+<p>项目 logo 如果动手能力强的朋友可以考虑自己设计一下，网上也有在线工具可以用符号排列组合生成属于自己的 logo。</p>
+<p>readme 文件作为一个项目的头脸，描述清晰直观的重要性远远超过上述提到的 commint，需要注意的主要有内容排版，头部和尾部信息。</p>
+<p>细心的朋友可能注意到许多项目的 readme 文件的头部会有类似于这种<a href="https://awesome-online-efficiency.github.io/Awesome-Online-Efficiency/"><img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=website&color=%230076D6&style=flat&logo=google-chrome&logoColor=%230076D6" alt="website" loading="lazy" decoding="async"/></a>展示仓库属性信息的小标签，这种标签可以使用 <a href="https://shields.io/">Shields.io</a> 这个网站来制作。</p>
+<p>以我的仓库为例，在网站首页填入仓库地址，点击 <strong>Suggest badges</strong> 会自动生成几个标签，不同的标签代表着不同的含义。<br><img src="https://i.loli.net/2020/11/22/pcHKt3e9LRv1jdV.png" alt="pcHKt3e9LRv1jdV" loading="lazy" decoding="async"></p>
+<p>如果想展示更多的内容，可以上拉网页自己定制。</p>
+<p>readme 的底部信息，没有标准，有的仓库会把作者的个人信息挂上，有的会列出贡献者名单，也有的会把自己的收款二维码贴上，供人打赏。全凭个人喜欢。</p>
+<p>关于仓库 <strong>About</strong> 的描述，力求简洁，明朗，最好一句话能说清楚是干嘛的。而一个有网站可以浏览的仓库体验也会相对好点，这方面使用 GitHub 提供的服务——GitHub Pages 已然可以满足。实现起来有两种方式：</p>
+<ol>
+<li>可以在仓库设置界面点击 <code>Change Theme</code>，在进去的二级页面选择好主题后，GitHub 会自动帮你生成一个网站分支，自动拉取你主分支的内容更新。<br> <img src="https://i.loli.net/2020/11/22/s6yAmwq84ZRFkoz.png" alt="s6yAmwq84ZRFkoz" loading="lazy" decoding="async"></li>
+<li>如果不喜欢产生多余分支，有强迫症的朋友也可以尝试在仓库主路径底下增加 <code>_config.yml</code> 文件，在里面添加主题配置： <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">theme: jekyll-theme-cayman</span><br></pre></td></tr></table></figure>
+ 并在设置中选择，通过主分支来构建网站，即可生成仓库网站。<br> <img src="https://i.loli.net/2020/11/22/Mmc8NQbY4g5Tw3q.png" alt="Mmc8NQbY4g5Tw3q" loading="lazy" decoding="async"></li>
+</ol>
+<p>给仓库设置标签有利于检索，比如我给我的仓库设置了一个 <code>awesome</code> 的标签，那么如果有人搜索相关字段，或者直接在 <a href="https://github.com/topics/awesome">Awesome Lists</a> 这个列表里找，会有相对较高的曝光率。</p>
+<p>关于版权声明，如果在创建仓库时勾选了生成版权声明的文件，创建后会自动生成该文件。如果没有后面自己加也可以，添加后侧边栏会自动生成版权声明的描述。我这里选择的是 CC0-1.0 的版本。关于不同版本声明的区别会在<del>后续文章中更新</del>——本来想更新一篇关于不同版本开源声明的区别的文章，在网上检索资料时发现一个开源库可以帮助开发者选择不同的软件开源声明：<a href="https://choosealicense.com/">Choose a License</a>。</p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>要维护好一个开源库需要做的事情远比上面列举的还要多，只是对于一个刚开始维护一个开源库的新手来说，不至于劝退，这些内容已经足够。</p>
+<p>而在步入正轨以后，你可能需要回答 <code>Issues</code> 里提出来的各种意想不到的问题，也可能要甄别 <code>Pull requests</code> 下的提交是否有益，利用好 GitHub 提供的额外功能 <code>Actions</code>、<code>Projects</code> 则可以大大提高维护和协作的效率。另外你还可以在 <code>Insights</code> 看到自己仓库的各种统计信息，仓库的贡献曲线图，浏览次数，被下载次数等等。</p>
+<p>最后，无论你的开源库是否因为代码优美而获得许多 <strong>Star</strong>，还是持续维护仍无人问津，都祝你好运。最后分享一句孔子的一段话，也做自我勉励：</p>
+<blockquote>
+<p>芝兰生于空谷，不以无人而不芳。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>EXP</tag>
+        <tag>GitHub</tag>
+        <tag>OpenSource</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>推荐几个播客节目</title>
     <url>//recommend-a-few-podcasts.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>因为最近有点用眼过度，所以在空闲时间想找一件尽量可以不用到眼睛又能涨知识的事情做。我先想到的其实是听书和听线上的付费课程。</p>
@@ -268,6 +345,45 @@
       </tags>
   </entry>
   <entry>
+    <title>OC - 多代理的实现</title>
+    <url>//oc-multi-delegate-implementation.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="一、背景"><a href="#一、背景" class="headerlink" title="一、背景"></a>一、背景</h2><p>迭代项目的时候碰到一个问题， 原因是负责的内容有一项是封装各大 AI 开放平台的 SDK 集成到一个 SDK 里，然后输出统一的接口，目的是为了可以在不同的 AI 中快速切换并使用。但由于之前输出给了兄弟公司使用，他们在一个音乐 SDK 中用语音 SDK 实现语音点歌的功能。然后当我的主应用同时使用两个 SDK 时，由于音乐 SDK 中实现了语音 SDK 的代理，所以我在上层再初始化语音 SDK 设置代理就不起作用。</p>
+<h2 id="二、解决方式"><a href="#二、解决方式" class="headerlink" title="二、解决方式"></a>二、解决方式</h2><p>知道问题原因后，就比较容易解决了，具体有几种思路：</p>
+<ol>
+<li>打电话给兄弟公司的开发人员，你不要这样弄了，如果你非要这么弄，就暴露一个接口给我，让我选择是否要让你初始化。</li>
+<li>延迟上层语音 SDK 的初始化，不和你抢代理的设置，就不存在被抢夺这件事了。</li>
+<li>语音 SDK 实现多代理——既然你们都要实现我的代理方法，我就全部都给你们。</li>
+</ol>
+<p>作为一个有追求的开发仔，当然选择实现最高难度的自己实现多代理的方式——虽然由于时间关系，也用了第二种方式作为缓冲，然后也发现第二种方式存在一个问题，就是当网络较差的情况下，未能初始化成功，在初始化成功后，音乐 SDK 又会设置一次语音 SDK 的代理，又被抢回去了~</p>
+<h2 id="三、具体实现"><a href="#三、具体实现" class="headerlink" title="三、具体实现"></a>三、具体实现</h2><p>实现的过程中，以下几篇文章的内容给了我很大的帮助：</p>
+<ul>
+<li><a href="https://www.jianshu.com/p/fed580fa45eb">iOS 如何实现多代理模式–OC</a></li>
+<li><a href="https://juejin.im/post/5bd6842f6fb9a05d0045f925#heading-4">【OC梳理】多播代理</a></li>
+</ul>
+<p>两篇文章都讲的很细，所以对于有些细节就不展开讲了，只讲一下具体实现原理：</p>
+<ol>
+<li>首先理解代理模式。也就是由一个对象 A 通过他的<strong>唯一一个代理成员</strong>把消息发个对象 B。</li>
+<li>多代理就是在第一步的基础上，把对象 A 的代理成员从唯一一个，拓展为多个，消息接收者也从单一的 B，可以延伸为 B1、B2、B3…Bx。</li>
+</ol>
+<p>所以实现的时候很简单。</p>
+<h3 id="1-定义一个储存多个代理成员的数组："><a href="#1-定义一个储存多个代理成员的数组：" class="headerlink" title="1.定义一个储存多个代理成员的数组："></a>1.定义一个储存多个代理成员的数组：</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@property (strong, nonatomic) NSPointerArray* delegates;</span><br><span class="line"></span><br><span class="line">-(NSPointerArray *)delegates&#123;</span><br><span class="line">    if (!_delegates) &#123;</span><br><span class="line">        _delegates = [[NSPointerArray alloc]init];</span><br><span class="line">    &#125;</span><br><span class="line">    return _delegates;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-重写代理的-set-方法"><a href="#2-重写代理的-set-方法" class="headerlink" title="2.重写代理的 set 方法"></a>2.重写代理的 set 方法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">- (void)setDelegate:(id&lt;ManagerDelegate&gt;)delegate&#123;</span><br><span class="line">    </span><br><span class="line">    for (id existDelegate in self.delegates) &#123;</span><br><span class="line">        if ([delegate isEqual:existDelegate]) &#123;</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    [_delegates addPointer:(__bridge void*)delegate];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-多代理响应"><a href="#3-多代理响应" class="headerlink" title="3.多代理响应"></a>3.多代理响应</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">- (void)asrResultIsTimeOut&#123;</span><br><span class="line">    if (self.currentCount != 0) &#123;</span><br><span class="line">        self.currentCount--;</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        [self.asrTimer invalidate];</span><br><span class="line">        self.asrTimer = nil;</span><br><span class="line">        for (id delegate in self.delegates) &#123;</span><br><span class="line">            if ([delegate respondsToSelector:@selector(asrManagerActiveError:)]) &#123;</span><br><span class="line">                [delegate asrManagerActiveError:NETWORKERROR];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">      //原始响应方法</span><br><span class="line">//        if ([self.asrDelegate respondsToSelector:@selector(asrManagerActiveError:)]) &#123;</span><br><span class="line">//            [self.asrDelegate asrManagerActiveError:TIMEOUT];</span><br><span class="line">//        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、拓展阅读"><a href="#四、拓展阅读" class="headerlink" title="四、拓展阅读"></a>四、拓展阅读</h2><p>在实现的过程中，我一开始用的是 <code>NSMutableArray</code>，因为使用运行也没有什么问题，但看到👆多代理文章里说，用 <code>NSPointerArray</code> 会好点，不增加成员的应用计数，相当于弱引用。听起来不错哦，但忽然之前想到一个问题，为什么 <code>delegate</code> 一一定要用 <code>weak</code> 引用呢，这个问题之前一直没仔细去思考过，像灯下黑，一直用的反倒忽略了。当下，想起来就去百度了一下。在这里看到：<a href="https://www.jianshu.com/p/398472616435">iOS 代理为啥要用weak修饰? (刨根问底一)</a>——刨根问底的副标题深得我心~，里面有生动详细的例子说明，简单来说就是强引用会出现循环引用的问题。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>EXP</tag>
+        <tag>iOS</tag>
+        <tag>OC</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>我的 AIO-notion 工作流搭建</title>
     <url>//about-my-notion-workflow.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="https://i.loli.net/2020/06/07/cSgrjKnkbB41AxI.jpg" alt="cSgrjKnkbB41AxI" loading="lazy" decoding="async"></p>
@@ -358,6 +474,34 @@
       </tags>
   </entry>
   <entry>
+    <title>Git - Submodule 使用简单教程</title>
+    <url>//git-submodule.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　最近在项目中使用了 <code>Git Submodule</code> 的功能，好处是如果是自己开发的封装库，比较方便调试，push 时可以同时上传项目和库的修改，别人通过主仓库地址下载工程的时候速度也会快上一些。<br>　　<code>Git Submodule</code> 的使用可以通过终端命令来操作（<a href="https://tnie.github.io/2018/04/02/git_submodule/">Git Submoudle 使用完整教程</a>），或者通过 <code>Git</code> 第三方可视化客户端直接操作。本文展示的是通过 <code>Git</code> 第三方客户端 Sourcetree 来实现这个功能的。
+　　</p>
+<h2 id="一、通过-Sourcetree-使用-Git-Submodule"><a href="#一、通过-Sourcetree-使用-Git-Submodule" class="headerlink" title="一、通过 Sourcetree 使用 Git Submodule"></a>一、通过 Sourcetree 使用 Git Submodule</h2><p>1.首先下载一个你想要添加 Git Submodule 功能的主仓库。<br>这里以我用来学习的仓库为例子<br><img src="https://s1.ax1x.com/2020/03/14/8MjX4S.jpg" loading="lazy" decoding="async"><br>　　<br>2.在下载好的仓库左侧菜单栏，右键点击 SUMODULES，在弹出的菜单中选中“Add Sumodelues”<br><img src="https://s1.ax1x.com/2020/03/14/8MjON8.jpg" loading="lazy" decoding="async"></p>
+<p>3.在弹出的菜单中填写远程仓库地址，和本地仓库地址<br>这里我填的远程仓库地址是一个第三方库 AFNetworking，大家可以根据自己的实际需求填写自己私有仓库地址或者其他仓库地址。<br>需要注意的是，Git Submodule 的文件夹地址的路径最好是在主工程文件路径的子目录底下，比如：</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">master path：~/User/xxx/主工程文件夹</span><br><span class="line">Submodule path：~/User/xxx/主工程文件夹/Submodule 文件夹</span><br></pre></td></tr></table></figure>
+<p><img src="https://s1.ax1x.com/2020/03/14/8MjLAf.jpg" loading="lazy" decoding="async"><br>点击 OK 就可以随意使用了。</p>
+<p>后面如果需要 push&#x2F;pull Submodule 仓库，更新方式也和在 sourcetree 中正常使用其他工程的流程是一样的。</p>
+<p>4.切换分支和节点<br>如果需要指定 Submodule 固定的版本或分支，也很简单。<br>双击左侧菜单 SUMODULES 下我们添加的子仓库，仍以上面 AFNetworking 为例子：<br><img src="https://s1.ax1x.com/2020/03/23/8TJuqK.jpg" loading="lazy" decoding="async"><br>在弹出的窗口可以看到很多很多 Tag 和分支，按自己需求手动点击切换即可。</p>
+<p>5.删除子模块<br><img src="https://s1.ax1x.com/2020/03/23/8TBwdI.jpg" loading="lazy" decoding="async"><br>操作也很简单，右键点击左侧菜单 SUMODULES 下我们添加的子仓库，在弹出的菜单中选择“删除”，然后点击确认“即可”</p>
+<p>Sourcetree 会帮我们完成剩下的事情：<br><img src="https://s1.ax1x.com/2020/03/23/8TBnsJ.jpg" loading="lazy" decoding="async"></p>
+<h2 id="二、其他说明"><a href="#二、其他说明" class="headerlink" title="二、其他说明"></a>二、其他说明</h2><ol>
+<li>实际开发中建议子仓库权限除管理员和子仓库维护人员以外设置为 reporter 权限（即可以克隆代码，不能提交）。</li>
+<li>当子仓库有更新时，需要通知主仓库底下所有开发人员手动更新。</li>
+</ol>
+<p>以下测试结果为上述结论提供依据：<br>1） 当子仓库为 reporter 权限的开发人员提交子仓库修改。其他开发人员会在主仓库中会收到子仓库的 commit 提交，但实际代码并无改变。<br>2） 当子仓库为 Developer 权限以上的开发人员提交代码更新时。其他开发人员会在主仓库收到子仓库的更新提醒，但需要手动 pull 到本地，代码才会发生变化。<br>3） 当有两个开发人员分别在子仓库中使用了不同分支或节点，并把使用的设置提交了修改。其他开发人员会在主仓库中会收到子仓库的 commit 提交，但实际代码并无改变。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>EXP</tag>
+        <tag>Git</tag>
+        <tag>Sourcetree</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>我不能留在这里爱你</title>
     <url>//i-can&#39;t-stay-here-to-love-you.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
@@ -373,6 +517,38 @@
         <tag>随笔</tag>
         <tag>电影</tag>
         <tag>观后感</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>iOS - 初探符号断点调试</title>
+    <url>//ios-preliminary-study-of-symbolic-breakpoints.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><em>在调试一个项目中包含库工程的工程时发现，平常在代码视图左侧点击添加断点调试，忽然发现不起作用了，然后尝试使用了一些不同的方法去解决，虽然最后仍然是通过开关机，重启 Xcode 的方式解决问题的，但那些尝试也在过程中期起到了排除问题的作用，记录一下其中用到的符号断点的用法。</em></p>
+<h2 id="一、介绍"><a href="#一、介绍" class="headerlink" title="一、介绍"></a>一、介绍</h2><p>Symbolic Breakpoint 为符号断点，可以针对某一个方法(函数)设置断点并暂停执行；有时候，我们并不清楚会在什么情况下调用某一个函数，那我们可以通过符号断点来跟踪获取调用该函数的程序堆栈。</p>
+<h2 id="二、使用方法"><a href="#二、使用方法" class="headerlink" title="二、使用方法"></a>二、使用方法</h2><p>例：跟踪应用程序的启动函数。<br>第一步：左侧导航视图切换到“Breakpoint Navigator”<br><img src="https://s2.ax1x.com/2020/02/29/3s1QNF.jpg" loading="lazy" decoding="async"></p>
+<p>第二步：点击左侧导航栏左下角的“+”<br><img src="https://s2.ax1x.com/2020/02/29/3s139J.jpg" loading="lazy" decoding="async"></p>
+<p>第三步：在弹出的菜单中选择“Add Symbolic Breakpoint”<br><img src="https://s2.ax1x.com/2020/02/29/3s1MAU.jpg" loading="lazy" decoding="async"></p>
+<p>第四步：在“Symbol”右侧的输入框中输入要设置断点的函数(方法)<br><img src="https://s2.ax1x.com/2020/02/29/3s1lh4.jpg" loading="lazy" decoding="async"></p>
+<p>第五步：本例中设置断点在 App 应用的启动函数<br><img src="https://s2.ax1x.com/2020/02/29/3s1nBV.jpg" loading="lazy" decoding="async"></p>
+<p>第六步：模拟器运行 APP，断点停留在了启动函数“- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions”<br><img src="https://s2.ax1x.com/2020/02/29/3s1839.jpg" loading="lazy" decoding="async"></p>
+<p>3、符号断点输入框中各字段说明<br><strong>Symbol</strong>：填入你想设置断点的方法<br>（例如：-[NSException raise]，-号是实例方法，+号是类方法）。<br>你也可以输入：</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">objc_exception_throw malloc_error_break <span class="comment">//跟踪调试释放了2次的对象</span></span><br><span class="line">-[<span class="built_in">NSObject</span> doesNotRecognizeSelector:] <span class="comment">//向某个object发送没有的方法</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Module</strong>：填入要设置断点的方法或函数是否在位于dylib中，默认不填。</p>
+<p><strong>Conditon</strong>：填入条件，例如：(BOOL)[item isEqualToString:@“test”]前面的（BOOL）是必须的。否则 console 会提示类型不符号，导致条件不能生效。意思是 <code>item（NSString）</code> 是 <code>test</code> 时停下。<br>同样可以写一下判断的方法比如用来确定类类型的 <code>isKindOfClass</code>:，确定对象在继承体系中的位置的 <code>isMemberOfClass</code>:，判断一个对象是否能接收某个特定消息的 <code>respondsToSelector:，判断一个对象是否遵循某个协议的 </code>conformsToProtocol<code>:，以及提供方法实现地址的 </code>methodForSelector&#96;:。</p>
+<p><strong>Ignore</strong>：忽略几次。</p>
+<p><strong>Action</strong>：可在程序断点执行后增加额外动作（Applescript，捕捉动画帧速，调试器命令（lldb），输入 log 记录，终端命令（shell）,播放声音）<br>例如：Debugger Commond 中可填入<br>po item 输出 item 变量的值<br>bt 表示输出方法调用堆栈信息</p>
+<p>4、示例<br>查找项目中哪些地方对 <code>UICollectionView</code> 的背景色进行了设置。<br>注 <code>UICollectionView</code> 的设置背景色方法继续了 <code>UIView</code> 的 <code>setBackgroundColor</code>，故使用以下设置：<br><img src="https://s2.ax1x.com/2020/02/29/3s1GcR.jpg" loading="lazy" decoding="async"></p>
+<p>设置成功后断点下方显示了要跟踪的方法：<br><img src="https://s2.ax1x.com/2020/02/29/3s1Jj1.jpg" loading="lazy" decoding="async"></p>
+<p>运行调试，断点停留在方法的调用位置：<br><img src="https://s2.ax1x.com/2020/02/29/3s1cut.jpg" loading="lazy" decoding="async"></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>EXP</tag>
+        <tag>iOS</tag>
+        <tag>OC</tag>
+        <tag>Xcode</tag>
       </tags>
   </entry>
   <entry>
@@ -458,6 +634,23 @@
       </tags>
   </entry>
   <entry>
+    <title>如何解决网站访问时弹出“您要访问的网站包含恶意软件”的页面</title>
+    <url>//how-to-fix-warnings-about-unsafe-sites.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　前一阵子公司网站的访问出了一点问题，每次访问的时候都会弹出一个警告页面，类似于这种</p>
+<img src="https://s2.ax1x.com/2019/11/07/MACQ0A.png" alt="网站访问警告页" width="817" height="489" style="--image-ratio: 1.670757" loading="lazy" decoding="async">
+
+<p>　　由于之前也没碰过这种问题，只能简单粗暴的归纳出两个方向：<br>　　１.可能是域名原因<br>　　２.可能是服务器原因<br>　　后来问题已经解决的时候看网上分享的资料知道还有一种可能就是，网站本身没问题，之所以出现这个警告页面是因为被运营商 HTTP 或 DNS 劫持了。<br>　　这里刷一条给我们提供域名服务的服务商——<a href="http://now.cn/">时代互联</a>的差评，在解决这个问题的过程中，联系我们账号底下的客服和电话客服，大概联系了不下十次，都没能解决问题，其中有几次，不仅没能帮我解决问题，还用一种推卸责任和不耐烦的态度把我怼的差点憋不住气的跳脚。<br>　　不仅态度有问题，而且他们的工作人员对自己那块的业务好像也不太熟练。因为怀疑网站网站报警告问题，可能和域名服务商的服务可能存在某些问题，所以预期的解决方案中也有一项是迁移域名，迁移域名的话需要通过手机或者邮箱验证，而手机和邮箱这些信息，由于公司人员变动，需要修改。基于这点我问他们工作人员，在修改信息页面中的一个需要勾选的选项，“修改信息之后的 <strong>720</strong> 天内不能迁移域名”，和接我电话的工作人员再三确认，是不是必须勾选，不勾选会不会有问题，告知我可以不用勾选，并且确认不勾选不会造成什么问题。结果最后我确认修改信息的时候，发现那个选项不勾选竟然不能到下一步。。。<br>　　回归正题，当域名问题不能再域名服务商那边解决时，我开始尝试定位到底是域名还是服务器的问题，具体方式：<br>　　1.把我们的域名指向到另一个服务器，如果仍然报警告，那就是域名问题<br>　　2.用其他的域名指向当前服务器，如果仍然报警告，那就是服务器问题<br>　　测试结果出来后，基本可以定位是域名问题，然后让后台的同事帮了一下忙，安装了一个在腾讯云申请的免费 SSL 证书（这个好像也能解决上述所说的未发现的被劫持问题），但仍然无效，打电话给域名服务商，他说肯定是 SSL 证书不起作用或者是根本就没用，没办法，我只好追着皮球到了腾讯云客服人员那，幸运的是，大厂不愧为大厂，服务完全没有可比性，只是提交了怀疑 SSL 证书可能没生效的工单，对方就帮我检测了我的网站是否有异常，以及用不同浏览器测试，得出 QQ 浏览器访问正常，可能需要向谷歌站长平台提供申述。不过因为在此之前，我就在一个网站申述平台提了一个申述：<a href="https://www.stopbadware.org/">StopBadware</a>，因为申述通过但网站访问仍然异常。所以带着将信将疑的态度，又重新激活腾讯问题的工单，然后过了一个上午就接到腾讯云平台技术人员的电话，非常耐心的给我解释了他们所做的所有尝试，最后得出结果，只能去<a href="https://www.google.com/webmasters/tools/home?hl=zh-CN">谷歌站长平台</a>注册，申述试试看了。<br>　　在谷歌站长平台添加了网站之后，立马有个警告消息提醒我，我们公司的网站存在一些问题，不加思索，我反手就是一个申述，第二天收到邮件，有点出乎意料，竟然没有通过，仔细看邮件描述，推测问题可能出在我们的网站因为提供了很多安卓 apk 的下载，而有一部分 apk 之前在 Google 应用市场因为添加了<strong>有风险的广告 SDK 被下架了</strong>，然后谷歌站长平台也默认这些 apk 存在一定风险。再次提交申述之前，让安卓的同事提供了去除广告 SDK 的 apk 替换掉服务器里的文件，果然，第二天收到邮件，审核通过了。<br>　　<img src="https://s2.ax1x.com/2019/11/07/MAClTI.jpg" loading="lazy" decoding="async"><br>　　这次网站申述的经历给我有两个体会，一个是，只要死磕到底，就一定能让周润发翻译出什么他妈的叫他妈的惊喜。另一个是互联网服务一定要选大厂，盘靓活好态度也呱呱叫。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>EXP</tag>
+        <tag>domain name</tag>
+        <tag>Google Search Console</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>关于“猜你喜欢”的思考</title>
     <url>//about-what-do-you-like.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　最近刷知乎的频率上升，刷的多了之后隐隐感觉到知乎在内容显示上有一些变化，我想可能是它的推荐算法有些不一样了。这种不一样让我想起抖音，我偶尔也会刷一下抖音，频率大概一个月一两次左右，主要目的是看看朋友们的近况，刚下抖音的时候也有过一阵上瘾期，有刷抖音的朋友都很明白他推荐算法的强大，一个视频十几秒，不占用时间，能无限往下翻，虽然一个视频很短，但不知不觉就让人耗费了一两个小时，有隐性的成瘾机制。后来也是因为这个，导致我戒断抖音的，因为太消耗时间了，而且事后心里总有一种不踏实的感觉，就好像放暑假愉快的玩了两个月，一回头发现一无所获，作业一大堆没写的感觉，也可以简单归纳为放纵后的空虚。最近的知乎也给我这种感觉。<br>　　其实除了这些资讯娱乐类的应用，还有很多应用都有这种推荐机制，比如购物应用，淘宝，你在搜索框搜索了某个产品后，接下来几天，他的顶部滚动条，和往下滑的猜你喜欢，一定会存在类似的产品，或者是和产品配套的周边产品，比如你搜 苹果手机，隔天可能就给你推荐苹果手机壳，更过分一点的就是你在某个搜索引擎上搜索，想了解产品相关的信息，然后打开购物应用，就发现里面已经开始推荐你搜索过的产品了。不过这是他们内部的交易，又是另一件事了。<br>　　猜你喜欢这种产品功能，应用极为广泛。包括不止互联网行业，很多传统行业，其实也有做类似的方式，最宽泛的例子，就是当某个行业要出一款新产品的时候，首先会做市场调查，然后确认目标受众，而这个目标受众的反向概念，其实就是为这个群体做一个猜他们喜欢的产品。<br>　　而猜你喜欢的好处也是显而易见的，对于企业来说，可以提升用户粘性，刺激用户消费，有利于开拓新用户等等。对于用户来说，看资讯买东西看到的都是自己感兴趣的东西，可以更好更快地找到自己想要的东西，省时省力。<br>　　但就像前面说的，猜你喜欢也存在着一些缺点。就像你可能在某个投资公司或者投资理财顾问留过号码，之后总有一阵子会频繁的收到好多金融公司的电话，问你杭州地铁口的公寓要不要了解一下。我之前因为学历提升的问题，在某个机构留了一个电话，还是几年前留的，后来每年九月三月学校开学的点，就总有教育机构打电话过来询问我有没有这方面的意向。这种打扰其实是很不好的，而在应用里这种打扰就表现成，很多时候你可能只是想了解一下某方面的信息，但之后就不断收到这类信息。<br>　　我之前因为买了 iPad，想知道有什么应用可以提高 iPad 的生产力，就在知乎上搜索相似问题，搜到了，最后也得到了满意结果。以为事情就此告一段落了。但没想到之后打开他还是给我推送相关内容，而且还是在我没关注这个问题的情况下。而我也因为总有答案是我没看过的，会点开看一遍，正中他们的下怀。但新出现的答案对我有没有帮助呢，答案是否定的。因为 iPad 上有用的应用就那么些，所以很多答案给我推荐的应用重复率很高。我只是看他们在一个结果上的不同解法而已，最终我没有得到新的东西，但时间和精力却被消耗掉了。<br>　　当然你可能会说，是自制力的问题。对于不想再看的东西不看就好喽，但如果真能做到这种地步，抖音这类的应用就不会红红火火的走到现在了，毕竟这个内容也确实是你自己感兴趣的，而且你能克制住自己不看这一类的信息，但还有另一类的信息在等着你，总有一个内容会抓住你的注意力。就像我的知乎上有 iPad 应用的答案推荐，也有“女生什么样的身材算是身材好？”这类的答案推荐，虽然看小姐姐很好，但是在看小姐姐的事上花太多时间就不是很好了。<br>　　当然你还可能会说，那就统统不看喽，把应用卸载掉。这个很好做到，但是结合实际看，其实也有一些问题，我们是社会性的生物，需要和人沟通，和人沟通的核心是信息交换，当我们主动接切断自己的信息来源，我们如何保持和人无代沟的沟通？哪怕你性格孤僻，你也总要生活，总要去了解社会上的各种信息，以掌握如何更好生活的方式，买东西对比不同产品，评测看不看？对比价格优惠，电商网站活动看不看？投资理财更不用说了。<br>　　信息推荐相似度高同质化严重，造成精力耗费是猜你喜欢的一个问题。还有另一个我想说的是，应用的推荐机制虽然给人推荐了很多信息，扩展知识面，但其实因为是按需分配，它在不断推荐的过程中，其实他也在用我们喜欢的信息给我们建造了一个坚硬的认知壁垒。<br>　　为什么这么说呢？我记得我刚开始使用知乎的时候，那时还没有现在的去中心化概念，我看到的内容都是我关注的大 V 们关注、点赞的内容和自己关注的问题内容，当我还在上高中的收，限于见识，我还只是想看看有没有什么好书推荐，有没有什么段子可以解闷，所以关注的都是那类的信息，忽然有一天我看到我关注的一个大 V 点赞了一个修建一个穿透地球的电梯会是怎样，点进去看，里面的答题人真的很认真在用物理知识和地理知识去解释这个问题，列公式上图片做图解，就好像身体力行的告诉我说天马行空的脑洞也可以用一板一眼的数学思维去解答，让我这个知乎萌新好像被反向的按了一下“F5”键，但现在的知乎却很少再给我这种感觉，乏善可称更多了一些。抖音的例子就不举了，情况也大致如此。<br>　　信息时代，我们每天接收的信息看似很多，但其实很多信息是垃圾信息，有些有很强的时效性，有些只是别人输出观点的变体，而更多的是重复信息。我们在享受信息时代的便利，也要警惕信息时代给我们的负面影响，不要让信息主宰我们。<br>　　忽然想起现在在生活里越来越被弱化的存在——电视，他也同样作为信息来源渠道，虽然可能有些东西在电视上是被美化杯筛选后的结果，但是我更喜欢他把各种各样的东西就放在那，放在不同的频道里，等你自己去切台的特点。还记得小学放假在家找电视台动画片看不小心点到 CCTV-10 探索频道，第一次看人文科学的节目被刷新三观的感觉，我觉得一个好的产品应该多给人带来这种感觉。在保留更多的选择权的情况下，加一点点猜你喜欢。</p>
@@ -505,6 +698,23 @@
         <tag>随笔</tag>
         <tag>扯谈</tag>
         <tag>季度总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>喘口气上来</title>
+    <url>//happy-new-year-2019.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　问朋友今年用什么字总结，他说，一。意思大概是一年都在原地踏步，年头年尾的状态没什么区别。我没有回他。<br>　　<span id="more"></span><br>　　今年换了一份新的工作，状况比去年的好上很多，去年没来得及和朋友说的展望词，今年恰好可以作为总结——“木”：总算是从原来的处境脱身出来，另外也存了一些小钱。比起工作和休息，我反倒喜欢找工作，坐着公交地铁在城市里穿来穿去的感觉，固然傍晚回家会有点风尘仆仆的疲惫，甚至某天面试很糟糕的时候，看着车水马龙的城市，想到万家灯火，何处有我那盏，会有点泄气。但那时候觉得很自由，而且目的是为了找工作，并不是漫无目的的奔波，自由，且自由得很踏实。<br>　　和一个女性朋友说起我找工作就当观光的事，她说我很乐观。我收下了她的称赞，也很乐意把我好的一面给她看，她离我很远，那会找工作，蓦然间看到一个很像她的人，便和她说了一声， 还说了电影里看到和她气质很像的人，后来我们有一阵子联系很频繁，说了很多琐事，互相交换了烦恼，我忘记，我们说了那么多，我有没有告诉她我很想她。再后来就没有联系了。<br>　　疏于和旧日朋友联系这大概是我今年不好的变化吧。到现在我也还没问我那位朋友 2019 年的展望词是什么。另一位朋友常打电话过来聊天，我也大部分时间都以一种不耐烦，拒绝配合的态度应付，当然一部分也有他太啰嗦的缘故，但我想按着我去年心态好的时候，大概会以一种朋友在胡闹，我除了原谅还能有什么办法的态度和他愉快的聊下去。和他有一段以最近书店里出的新书都没法看，老书才是经典的观点开始的对话，后面我说他是不是有些焦虑，对自己或者出来以后有很多怀才不遇的感慨，他犹豫着点头说是。现在回过头去看，他变得啰嗦是因为焦虑的缘故，我对人对事的不耐烦又何尝不是。<br>　　找到工作后生活就规律了很多，新公司的同事们都很友好，也在去年的基础上学了点新的东西。和公司旅游的时候惊讶的发现上司是个塞尔达粉，后来我们就交换游戏机玩，n3ds 和 ps4 让我废寝忘食。上半年的学习计划到了下半年流产也大半是因为这个原因。夏天的时候去学了游泳，从在心里说服自己克服恐惧，到在水里站起来还能游一个来回，整个过程让我感觉很有成就感。<br>　　今年看的书没有去年多，去电影院倒是比去年多多了，《江湖儿女》里有个地方让我印象深刻，斌哥还是出租车公司老总的时候，走路上被小年轻用钢管敲断了小腿，疼半天只是冲车子消失的地方喊了句，不至于吧。但后面中风偏瘫的时候却因为小弟的小弟先上主食后上菜说他没有规矩而大发雷霆把桌子翻了。境遇让人的心态变好又变坏，之前有些悲观，把自己个性签名写，心由境生。现在看起来像个黑色幽默——不由得想起我对自己其他的悲观的预见性结论了。<br>　　今年作为从去年的困境脱离的过渡期，好和不好都有一些，勉强给自己的表现打个及格分。来年的展望词是林，希望明年可以存更多的钱，多吃蔬菜，减轻体重，可以有“阵阵晚风吹动着松涛，只有青山藏在白云间”的心态，可以境由心生。
+　
+　　
+　</p>
+]]></content>
+      <categories>
+        <category>涂鸦</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+        <tag>年终总结</tag>
+        <tag>江湖体验报告</tag>
       </tags>
   </entry>
   <entry>
@@ -580,6 +790,33 @@
       <tags>
         <tag>随笔</tag>
         <tag>读后感</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>中文文案排版学习</title>
+    <url>//chinese-text-layout-study.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>*　　偶尔在知乎、少数派或其他社区资讯网站上看文章，会发现有的文章看起来很舒服，有的感觉怪怪的，变扭。细究之下，大概就是排版的原因。那么如何学习好的排版呢，再细究，发现里面的学问也有不少，如何分段落，如何引用图片，以及句子段落本身的排版。刻意去看了下<a href="https://github.com/mzlogin/chinese-copywriting-guidelines">中文文案排版指北</a>，这里介绍了一些中文文案，中英文排版约定俗成的标准，而且许多网站也都引入了这些标准。值得学习，那现在就一起来看看。*</p>
+<p>　　第一部分讲空格，引言有这么一段：</p>
+<blockquote>
+<p>「有研究显示，打字的时候不喜欢在中文和英文之间加空格的人，感情路都走得很辛苦，有七成的比例会在 34 岁的时候跟自己不爱的人结婚，而其余三成的人最后只能把遗产留给自己的猫。毕竟爱情跟书写都需要适时地留白。</p>
+<p>与大家共勉之。」——<a href="https://github.com/vinta/pangu.js">vinta&#x2F;paranoid-auto-spacing</a></p>
+</blockquote>
+<p>　　我刻意去搜索了这句话是出自哪个研究，但发现这段话除了出现在所有介绍排版的文章里以外，再没有第二个地方引用他，他的真实性值得商榷。另外也忍不住让人较真，我不加空格就爱情不行了吗，不加空格就运气不好了吗，大字不识白首偕老的人比比皆是，哼。<br>　　考虑到他的初衷是给人警醒作用，虽然仍旧觉得从中文和英文之间是否加空格延伸到爱情幸福有点小题大做，但还是可以勉强接受到的。不过也难免会想：第一个把两者混为一谈的可能还有些俏皮似的聪明，后面跟风的只能是泛泛了。<br>　　OK，回归正题，第一部分讲的是中文和英文，中文和数字需要加空格，数字与单位之间，全角标点与其他字符之间不加空格。只记个标题基本就可以掌握，平常我为了加强记忆，在用社交软件和人聊天的时候也会强迫自己遵循这个标准。和以前背英语单词，在周遭事物都贴上英文名，潜移默化一个道理。<br>　　第二部分是讲标点符号的使用，有时在聊天中我们为了加强语气，会重复使用某个感叹号或者问号，也有碰见重复使用逗号的朋友，这个部分就说到这种情况：</p>
+<blockquote>
+<p><strong>不重复使用标点符号</strong></p>
+<p>正确：<br>　　德国队竟然战胜了巴西队！<br>　　她竟然对你说「喵」？！</p>
+</blockquote>
+<blockquote>
+<p>错误：<br>　　德国队竟然战胜了巴西队！！<br>　　德国队竟然战胜了巴西队！！！！！！！！<br>　　她竟然对你说「喵」？？！！<br>　　她竟然对你说「喵」？！？！？？！！</p>
+</blockquote>
+<p>　　但我仍然有个疑问，就是这里是正常的文本处理，那如果遇到双引号以内，人物对话时呢，该怎么处理。打算之后在其他使用这些规范的网站多注意这点。<br>　　第三部分全角和半角，这个在实际使用上会有点别扭，应为总是要在全角和半角来回切换，先前的文章中我唯一用到全角的就是文章段落头部两个空格，全角的空格会大一点，排版会好看，但每次使用完总得切回来，不然涉及到英文、数字就会自动的在首尾加上空格。<br>　　第四部分是容易错误的点，是讲关于名词正确的大小写和地道的缩写的，我也总在这上面犯一些错误。这种错误是低级的，犯这种错误也是低级的。在这点上我反而更相信：在书写上会犯低级错误的人，感情路都走得很辛苦，有七成的比例会在 34 岁的时候跟自己不爱的人结婚，而其余三成的人最后只能把遗产留给自己的猫。毕竟爱情跟书写都需要避免犯低级错误。<br>　　最后一部分就是按个人喜好选择，在链接之前是否增加空格，简体中文是或否使用直接引号。<br>　　中英文排版的学习就基本告一段落，但还有许多需要注意的，比如在简书上，我发现他们的文章习惯性的每个自然段都会追加空行，而微信公众号则发现极少出现一个自然段有很长的文字，而且图文并茂也是非常重要的一点，甚至是在知乎和微信都关注了的，我觉得很有古代文人气质的张佳玮，也无能免俗的会给自己的文章配上图，靠纯文字来说服人似乎已经是一件很困难的事，看图说话仿佛大势所趋。孰好孰坏先放在一遍，尝试一下先。<br>　　以上。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>EXP</tag>
+        <tag>Other</tag>
       </tags>
   </entry>
   <entry>
@@ -880,12 +1117,12 @@
     <url>//sudden-self.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>　　傍晚朋友打电话过来，叫我一起吃晚饭，我有些困说不想去，太累了。他重复，来嘛，我请客的。我笑了一下，不再坚持。骑自行车去吧，好像楼下有辆摩拜。<br> 　　路边有一个女孩，我想看清她长相，她抬头看过来，她和我对视了一会，我把目光轻巧的抽了回来。有个朋友总和我说他一个理论，他把和人对视看做一种比赛。一定不能认输，要看的对方先避开你才行。我觉得那种胜负太刻意了，有时候避开也不见得是输。<br>　　你以为我在看你吗，一点也没有。路上一辆警车把一辆巡逻摩托车撞倒了，副驾驶下来了一个人，他挺直了腰，指挥起了因为这个小车祸有点紊乱的交通。我骑车上了过河桥。<br> 　　有点挤。是因为刚刚的车祸吗？天气可真热啊。桥下的河堤有一个男人，那个河堤我之前都没有见过有人走下去。那个男人刚挂了电话，背着手看河，过了一会，在那个方寸里踱起了步，悠闲的快没了形状。那么悠闲的男人，那么平静的河流。<br>　　我下桥的时候，回头看了一眼那个男人，他已经融化在岸边，变成一滩平静的水洼。我想那么年轻就能成为自己想成为的事物可真好啊——水洼是河流的幼年。<br>　　在骑进一条窄巷前，又接到朋友电话，你还来不来啊，我们可先吃了。旁边一个小声音，都快吃完了。<br>　　那等我待会给你们上饭后甜点吧。挂了电话，车铃因为经过一个坑响了声，叮铃~铃。刚刚出来门好像只锁了一下，早上洗头发的时候好像用的是那瓶新的洗发水，旧的还有多少，丢了吧，和那瓶过期的花露水一起丢了好了。<br>　　接下来是一条窄巷，一只大熊牵着一只小熊，小熊走路的节奏是冲刺的跑一阵，再挂在大熊的手上走不动一阵。起初我不知道，以为他们是在匀速走，我贴近，想从旁边绕过去，小熊停下，我急刹车，没有绕过去。大熊说，你看你不好好走路，后边的叔叔都过不去了。我又刹了一下车。我倒像蹒跚学步的小孩了。我从旁边绕过去，歪头说，不是叔叔，是哥哥。但又全然不是因为计较年龄才说的。<br>　　夏日傍晚的小巷里，一只大熊牵着一只小熊一起呆住。谁看见，食欲都会变得旺盛起来。<br>　　差不多到了。我把单车停好。坐电梯，进了饭店，正找他们坐哪呢，天花板上传来一个声音，你怎么才来啊，我们都快吃完了。朋友喝醉了，飘在天花板上，还有一些我不认识的陌生人，也醉眼朦胧的飘在上面。我问他，他们呢，哪个房间。哝哝就那里。我牵着他散了的鞋带，带着他往里走。<br>　　诶我说，你们怎么都不照顾一下他，他都飘到大厅去了。房间里还有两个人，说请我吃饭的朋友，正准备夹菜。他喝醉了，拉不住啊。拉不住在天花板喃喃，放开我，我要去救紫霞仙子。<br>　　我们都笑了，不一会，就融化在了房间里。</p>
 
-        <div id="aplayer-jazuZTpy" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-sXgMbBtf" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-jazuZTpy"),
+            element: document.getElementById("aplayer-sXgMbBtf"),
             narrow: false,
             autoplay: true,
             showlrc: false,
@@ -972,12 +1209,12 @@
     <url>//hello-edison-s-world.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>  哈哈哈我终于解决了部署时出现的 cannot find module、local hexo not found in finder 等问题用<code>github</code>仓库做服务器弄好了基于<code>Node.js</code>的静态博客<code>Hexo</code>我的独立博客了不过，会不会写东西就不知道喽~~~~</p>
 
-        <div id="aplayer-QyacJPuG" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-MrJZxXax" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-QyacJPuG"),
+            element: document.getElementById("aplayer-MrJZxXax"),
             narrow: false,
             autoplay: true,
             showlrc: false,

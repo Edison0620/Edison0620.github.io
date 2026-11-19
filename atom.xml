@@ -59,6 +59,29 @@
   </entry>
   
   <entry>
+    <title>是时候维护一个属于自己的开源库了</title>
+    <link href="https://www.kaaaaai.cn/its-time-to-build-an-open-source-library.html"/>
+    <id>https://www.kaaaaai.cn/its-time-to-build-an-open-source-library.html</id>
+    <published>2020-11-21T09:37:05.000Z</published>
+    <updated>2020-11-21T09:37:05.000Z</updated>
+    
+    
+    <summary type="html">使用 GitHub 很久，除了无脑 star、fork 大神们的仓库、输出一些学习代码以外，对于 GitHub 本身的贡献似乎寥寥。Arctic Code Vault Contributor 的勋章我受之有愧。如果你也有和我类似的想法，那么，是时候可以尝试一下维护一个自己的开源库了。 维护一个开源库，听起来很简单，但是真正要开始动手，似乎颇有些千头万绪，无…</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="EXP" scheme="https://www.kaaaaai.cn/tags/EXP/"/>
+    
+    <category term="GitHub" scheme="https://www.kaaaaai.cn/tags/GitHub/"/>
+    
+    <category term="OpenSource" scheme="https://www.kaaaaai.cn/tags/OpenSource/"/>
+    
+  </entry>
+  
+  <entry>
     <title>推荐几个播客节目</title>
     <link href="https://www.kaaaaai.cn/recommend-a-few-podcasts.html"/>
     <id>https://www.kaaaaai.cn/recommend-a-few-podcasts.html</id>
@@ -120,6 +143,29 @@
     <category term="电影" scheme="https://www.kaaaaai.cn/tags/%E7%94%B5%E5%BD%B1/"/>
     
     <category term="观后感" scheme="https://www.kaaaaai.cn/tags/%E8%A7%82%E5%90%8E%E6%84%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>OC - 多代理的实现</title>
+    <link href="https://www.kaaaaai.cn/oc-multi-delegate-implementation.html"/>
+    <id>https://www.kaaaaai.cn/oc-multi-delegate-implementation.html</id>
+    <published>2020-07-16T13:24:52.000Z</published>
+    <updated>2020-07-16T13:24:52.000Z</updated>
+    
+    
+    <summary type="html">一、背景 迭代项目的时候碰到一个问题， 原因是负责的内容有一项是封装各大 AI 开放平台的 SDK 集成到一个 SDK 里，然后输出统一的接口，目的是为了可以在不同的 AI 中快速切换并使用。但由于之前输出给了兄弟公司使用，他们在一个音乐 SDK 中用语音 SDK 实现语音点歌的功能。然后当我的主应用同时使用两个 SDK 时，由于音乐 SDK 中实现了语音…</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="EXP" scheme="https://www.kaaaaai.cn/tags/EXP/"/>
+    
+    <category term="iOS" scheme="https://www.kaaaaai.cn/tags/iOS/"/>
+    
+    <category term="OC" scheme="https://www.kaaaaai.cn/tags/OC/"/>
     
   </entry>
   
@@ -189,6 +235,29 @@
   </entry>
   
   <entry>
+    <title>Git - Submodule 使用简单教程</title>
+    <link href="https://www.kaaaaai.cn/git-submodule.html"/>
+    <id>https://www.kaaaaai.cn/git-submodule.html</id>
+    <published>2020-03-14T11:24:52.000Z</published>
+    <updated>2020-03-14T11:24:52.000Z</updated>
+    
+    
+    <summary type="html">最近在项目中使用了 Git Submodule 的功能，好处是如果是自己开发的封装库，比较方便调试，push 时可以同时上传项目和库的修改，别人通过主仓库地址下载工程的时候速度也会快上一些。 Git Submodule 的使用可以通过终端命令来操作（Git Submoudle 使用完整教程），或者通过 Git 第三方可视化客户端直接操作。本文展示的是通过 …</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="EXP" scheme="https://www.kaaaaai.cn/tags/EXP/"/>
+    
+    <category term="Git" scheme="https://www.kaaaaai.cn/tags/Git/"/>
+    
+    <category term="Sourcetree" scheme="https://www.kaaaaai.cn/tags/Sourcetree/"/>
+    
+  </entry>
+  
+  <entry>
     <title>我不能留在这里爱你</title>
     <link href="https://www.kaaaaai.cn/i-can&#39;t-stay-here-to-love-you.html"/>
     <id>https://www.kaaaaai.cn/i-can&#39;t-stay-here-to-love-you.html</id>
@@ -208,6 +277,31 @@
     <category term="电影" scheme="https://www.kaaaaai.cn/tags/%E7%94%B5%E5%BD%B1/"/>
     
     <category term="观后感" scheme="https://www.kaaaaai.cn/tags/%E8%A7%82%E5%90%8E%E6%84%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS - 初探符号断点调试</title>
+    <link href="https://www.kaaaaai.cn/ios-preliminary-study-of-symbolic-breakpoints.html"/>
+    <id>https://www.kaaaaai.cn/ios-preliminary-study-of-symbolic-breakpoints.html</id>
+    <published>2020-02-29T11:24:52.000Z</published>
+    <updated>2020-02-29T11:24:52.000Z</updated>
+    
+    
+    <summary type="html">在调试一个项目中包含库工程的工程时发现，平常在代码视图左侧点击添加断点调试，忽然发现不起作用了，然后尝试使用了一些不同的方法去解决，虽然最后仍然是通过开关机，重启 Xcode 的方式解决问题的，但那些尝试也在过程中期起到了排除问题的作用，记录一下其中用到的符号断点的用法。 一、介绍 Symbolic Breakpoint 为符号断点，可以针对某一个方法(函…</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="EXP" scheme="https://www.kaaaaai.cn/tags/EXP/"/>
+    
+    <category term="iOS" scheme="https://www.kaaaaai.cn/tags/iOS/"/>
+    
+    <category term="OC" scheme="https://www.kaaaaai.cn/tags/OC/"/>
+    
+    <category term="Xcode" scheme="https://www.kaaaaai.cn/tags/Xcode/"/>
     
   </entry>
   
@@ -296,6 +390,29 @@
   </entry>
   
   <entry>
+    <title>如何解决网站访问时弹出“您要访问的网站包含恶意软件”的页面</title>
+    <link href="https://www.kaaaaai.cn/how-to-fix-warnings-about-unsafe-sites.html"/>
+    <id>https://www.kaaaaai.cn/how-to-fix-warnings-about-unsafe-sites.html</id>
+    <published>2019-11-07T15:00:52.000Z</published>
+    <updated>2019-11-07T15:00:52.000Z</updated>
+    
+    
+    <summary type="html">前一阵子公司网站的访问出了一点问题，每次访问的时候都会弹出一个警告页面，类似于这种 由于之前也没碰过这种问题，只能简单粗暴的归纳出两个方向： １.可能是域名原因 ２.可能是服务器原因 后来问题已经解决的时候看网上分享的资料知道还有一种可能就是，网站本身没问题，之所以出现这个警告页面是因为被运营商 HTTP 或 DNS 劫持了。 这里刷一条给我们提供域名服务…</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://www.kaaaaai.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="EXP" scheme="https://www.kaaaaai.cn/tags/EXP/"/>
+    
+    <category term="domain name" scheme="https://www.kaaaaai.cn/tags/domain-name/"/>
+    
+    <category term="Google Search Console" scheme="https://www.kaaaaai.cn/tags/Google-Search-Console/"/>
+    
+  </entry>
+  
+  <entry>
     <title>关于“猜你喜欢”的思考</title>
     <link href="https://www.kaaaaai.cn/about-what-do-you-like.html"/>
     <id>https://www.kaaaaai.cn/about-what-do-you-like.html</id>
@@ -338,115 +455,6 @@
     <category term="观后感" scheme="https://www.kaaaaai.cn/tags/%E8%A7%82%E5%90%8E%E6%84%9F/"/>
     
     <category term="书籍" scheme="https://www.kaaaaai.cn/tags/%E4%B9%A6%E7%B1%8D/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>在路上</title>
-    <link href="https://www.kaaaaai.cn/on-the-road.html"/>
-    <id>https://www.kaaaaai.cn/on-the-road.html</id>
-    <published>2019-03-11T18:00:52.000Z</published>
-    <updated>2019-03-11T18:00:52.000Z</updated>
-    
-    
-    <summary type="html">行百里者半九十，新年过来就一头扎进工作，晕头转向直到现在，让我这才走了十里路的人看着剩下的九十里，都有了些望洋兴叹的惆怅。所以趁现在有空，休息一下，回顾一下。 过年照旧仍去上山烧香拜了佛，不同的是，今年没抽到上上签，而是中上签。不过也说不清是好是坏，表哥去年抽到中下签，我和表弟抽的是上上签和上中签，但去年反倒是他订婚成了家先。因为这个今年过年在外游荡的人就…</summary>
-    
-    
-    
-    <category term="涂鸦" scheme="https://www.kaaaaai.cn/categories/%E6%B6%82%E9%B8%A6/"/>
-    
-    
-    <category term="随笔" scheme="https://www.kaaaaai.cn/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-    <category term="扯谈" scheme="https://www.kaaaaai.cn/tags/%E6%89%AF%E8%B0%88/"/>
-    
-    <category term="季度总结" scheme="https://www.kaaaaai.cn/tags/%E5%AD%A3%E5%BA%A6%E6%80%BB%E7%BB%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>半把瘾</title>
-    <link href="https://www.kaaaaai.cn/after-reading-wangsuo.html"/>
-    <id>https://www.kaaaaai.cn/after-reading-wangsuo.html</id>
-    <published>2018-12-14T18:00:52.000Z</published>
-    <updated>2018-12-14T18:00:52.000Z</updated>
-    
-    
-    <summary type="html">前阵子在看王朔的全集，94 年出版的，当时大概还是王朔人正当红，全集有四本——《纯情卷》、《谐虐卷》、《矫情卷》、《挚情卷》，四本书的封面上都印着王朔年轻的脸。看了两本半，后来就放下去看其他的书了，原本是想看完全集，得到一个完整印象才写读后感，但想到放下就不知道什么时候会重新拿起来，索性就按看过的部分写一篇感想。 以纯情小说出道的王朔，爱情主题在他的作品里…</summary>
-    
-    
-    
-    <category term="旁白" scheme="https://www.kaaaaai.cn/categories/%E6%97%81%E7%99%BD/"/>
-    
-    
-    <category term="随笔" scheme="https://www.kaaaaai.cn/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-    <category term="读后感" scheme="https://www.kaaaaai.cn/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/"/>
-    
-    <category term="王朔" scheme="https://www.kaaaaai.cn/tags/%E7%8E%8B%E6%9C%94/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>老派科幻</title>
-    <link href="https://www.kaaaaai.cn/veteran_science_fiction.html"/>
-    <id>https://www.kaaaaai.cn/veteran_science_fiction.html</id>
-    <published>2018-11-29T20:00:52.000Z</published>
-    <updated>2018-11-29T20:00:52.000Z</updated>
-    
-    
-    <summary type="html">因为某天坐地铁的时候忽然想到《黑衣人3》的结尾，因为特工 J 吃饭给了小费而避免了彗星撞击地球导致世界毁灭的蝴蝶效应现象。忽然想起第二部好像没看过，就抽空看了一下。 在还没拍成电影之前，他还是一部动画片，记得以前在 CCTV 1 套每天下午播放，每天两集，但因为每次都在放学前就开始放了，所以导致我都只能看一集半，不过即使这样也无法阻止我当时对他的热爱。虽然…</summary>
-    
-    
-    
-    <category term="旁白" scheme="https://www.kaaaaai.cn/categories/%E6%97%81%E7%99%BD/"/>
-    
-    
-    <category term="随笔" scheme="https://www.kaaaaai.cn/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-    <category term="观影" scheme="https://www.kaaaaai.cn/tags/%E8%A7%82%E5%BD%B1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>巫师世界革命</title>
-    <link href="https://www.kaaaaai.cn/wizard-world-revolution.html"/>
-    <id>https://www.kaaaaai.cn/wizard-world-revolution.html</id>
-    <published>2018-11-22T18:00:52.000Z</published>
-    <updated>2018-11-22T18:00:52.000Z</updated>
-    
-    
-    <summary type="html">上个礼拜去看了《神奇动物：格林德沃之罪》，和哈利波特系列比起来，精美壮观许多，如果不考虑人物关系，他更像后传，在内容上，延伸远多过补充。德普在这一部的戏份比上一部多，作为一个大反派，他的思想核心在所有的电影反派里也应该是数一数二站的住脚的了，用建立一个法师凌驾在麻瓜之上的阶级社会，来阻止预言中所看到二战的核弹爆炸，这让他的邪恶都蒙上一层睿智和远见的色彩，墓…</summary>
-    
-    
-    
-    <category term="旁白" scheme="https://www.kaaaaai.cn/categories/%E6%97%81%E7%99%BD/"/>
-    
-    
-    <category term="随笔" scheme="https://www.kaaaaai.cn/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-    <category term="观影" scheme="https://www.kaaaaai.cn/tags/%E8%A7%82%E5%BD%B1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>胡安另一些片段</title>
-    <link href="https://www.kaaaaai.cn/other-fragment-about-huan.html"/>
-    <id>https://www.kaaaaai.cn/other-fragment-about-huan.html</id>
-    <published>2018-09-03T18:00:52.000Z</published>
-    <updated>2018-09-03T18:00:52.000Z</updated>
-    
-    
-    <summary type="html">鹿同时是阿喀琉斯和乌龟，同时是弓和箭：它们奔跑着，却永远追不到自己； 它们停下来，有些东西却永远留在身外继续疾驰。 这是《动物集》里的一段话，我很喜欢。因为把他从小说里摘出来放在某本诗集里，也丝毫没有违和感，充满想象力和诗意。作者是胡安.何塞.阿雷奥拉，墨西哥人，名字有些绕口，不过比起人名本身就可以搭成迷宫的俄罗斯人也还算好。然后因为这本书我又买了他的另一…</summary>
-    
-    
-    
-    <category term="旁白" scheme="https://www.kaaaaai.cn/categories/%E6%97%81%E7%99%BD/"/>
-    
-    
-    <category term="随笔" scheme="https://www.kaaaaai.cn/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-    <category term="读后感" scheme="https://www.kaaaaai.cn/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/"/>
     
   </entry>
   
