@@ -99,6 +99,7 @@
       this.releaseRecords = new Set();
       this.mouseDown = false;
       this.touchGestureActive = false;
+      this.touchDragActive = false;
       this.holdStart = 0;
       this.lastFireTime = 0;
       this.lastFrameTime = 0;
@@ -1035,6 +1036,7 @@
       this.activeInput = null;
       this.mouseDown = false;
       this.touchGestureActive = false;
+      this.touchDragActive = false;
       this.tapGesture = null;
       this.bullets = [];
       this.impactBursts.length = 0;
@@ -1093,6 +1095,10 @@
       this.touchDwellTimer = window.setTimeout(() => {
         this.touchDwellTimer = null;
         if (this.activeInput === 'touch' && this.touchGestureActive) {
+          if (!this.touchDragActive) {
+            this.pointerX = x;
+            this.pointerY = y;
+          }
           this.startShooting();
         }
       }, TOUCH_DWELL_MS);
@@ -1105,9 +1111,14 @@
         return;
       }
       const touch = event.touches[0];
-      if (!touch || event.touches.length !== 1 || this._isIgnoredTarget(event.target)) {
+      const onClawd = this.activeInput === 'touch' && touch
+        && touch.clientX >= this.clawdX - 50 && touch.clientX <= this.clawdX + 50
+        && touch.clientY >= this.clawdY - 78 && touch.clientY <= this.clawdY + 22;
+      if (!touch || event.touches.length !== 1
+        || (!onClawd && this._isIgnoredTarget(event.target))) {
         this._stopTouchDwell();
         this.touchGestureActive = false;
+        this.touchDragActive = false;
         this.tapGesture = null;
         this.previousTouchEnd = 0;
         return;
@@ -1119,8 +1130,8 @@
       };
       if (this.activeInput !== 'touch') return;
       this.touchGestureActive = true;
-      this.pointerX = touch.clientX;
-      this.pointerY = touch.clientY;
+      this.touchDragActive = onClawd;
+      if (onClawd) event.preventDefault();
       this._startTouchDwell(touch.clientX, touch.clientY);
     }
 
@@ -1135,19 +1146,27 @@
         this.previousTouchEnd = 0;
       }
       if (this.activeInput !== 'touch' || !this.touchGestureActive) return;
-      this.pointerX = touch.clientX;
-      this.pointerY = touch.clientY;
+      if (this.touchDragActive) {
+        event.preventDefault();
+        this.pointerX = touch.clientX;
+        this.pointerY = touch.clientY;
+      }
       if (this.touchAnchor && Math.hypot(
         touch.clientX - this.touchAnchor.x,
         touch.clientY - this.touchAnchor.y
       ) > TOUCH_JITTER_RADIUS) {
-        this._startTouchDwell(touch.clientX, touch.clientY);
+        if (this.touchDragActive) this._startTouchDwell(touch.clientX, touch.clientY);
+        else {
+          this._stopTouchDwell();
+          this.touchGestureActive = false;
+        }
       }
     }
 
     _onTouchEnd(event) {
       this._stopTouchDwell();
       this.touchGestureActive = false;
+      this.touchDragActive = false;
       if (!this.coarsePointer.matches) {
         this.tapGesture = null;
         this.previousTouchEnd = 0;
@@ -1189,6 +1208,7 @@
       this._stopTouchDwell();
       this.touchGestureActive = false;
       this.tapGesture = null;
+      this.touchDragActive = false;
       this.previousTouchEnd = 0;
     }
 
@@ -1265,6 +1285,7 @@
         this._stopTouchDwell();
         this.touchGestureActive = false;
         this.tapGesture = null;
+        this.touchDragActive = false;
         this.previousTouchEnd = 0;
         return;
       }
@@ -1278,6 +1299,7 @@
       this._stopTouchDwell();
       this.touchGestureActive = false;
       this.tapGesture = null;
+      this.touchDragActive = false;
       this.previousTouchEnd = 0;
       const hasPointer = this.finePointer.matches || this.coarsePointer.matches;
       const inputUnavailable = this.activeInput && !this._canActivate(this.activeInput);
