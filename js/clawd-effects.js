@@ -9,6 +9,8 @@
     return;
   }
 
+  const TOUCH_DWELL_MS = 550;
+  const TOUCH_JITTER_RADIUS = 12;
   const EFFECT_TRANSITION = 'transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
   const IMPACT_LIFETIME_MS = 220;
   const MAX_IMPACT_BURSTS = 8;
@@ -104,13 +106,12 @@
       this.lastActivationTime = 0;
       this.geometryDirty = true;
       this.warned = false;
-      this.savedCursor = '';
-      this.savedUserSelect = '';
-      this.savedOverflow = '';
       this.pageState = null;
       this.activeInput = null;
       this.previousTouchEnd = 0;
       this.tapGesture = null;
+      this.touchDwellTimer = null;
+      this.touchAnchor = null;
       this.persistentActivationTimer = null;
       this.impactColor = '#f40';
       this.bulletColor = '#ffa657';
@@ -181,9 +182,7 @@
 
     _canActivate(input = 'mouse') {
       if (this.reducedMotion.matches) return false;
-      return input === 'touch' || input === 'launcher'
-        ? this.coarsePointer.matches
-        : this.finePointer.matches;
+      return input === 'touch' ? this.coarsePointer.matches : this.finePointer.matches;
     }
 
     _isIgnoredTarget(target) {
@@ -413,41 +412,21 @@
 
     _capturePageState() {
       const html = document.documentElement;
-      const body = document.body;
-      this.savedCursor = html.style.cursor;
-      this.savedUserSelect = html.style.userSelect;
-      this.savedOverflow = html.style.overflow;
       this.pageState = {
         html,
-        body,
         htmlStyleAttribute: html.getAttribute('style'),
-        bodyStyleAttribute: body ? body.getAttribute('style') : null,
         htmlStyles: {
           cursor: html.style.cursor,
-          userSelect: html.style.userSelect,
-          overflow: html.style.overflow,
-          touchAction: html.style.touchAction
+          userSelect: html.style.userSelect
         },
-        bodyStyles: body ? {
-          overflow: body.style.overflow,
-          touchAction: body.style.touchAction
-        } : null,
-        scrollX: window.scrollX,
-        scrollY: window.scrollY,
         htmlAppliedStyleAttribute: null,
-        bodyAppliedStyleAttribute: null,
-        touchMode: false,
         hadActiveClass: html.classList.contains('clawd-effects-active')
       };
     }
 
-    _markPageStateApplied(touchMode) {
+    _markPageStateApplied() {
       if (!this.pageState) return;
-      this.pageState.touchMode = touchMode;
       this.pageState.htmlAppliedStyleAttribute = this.pageState.html.getAttribute('style');
-      this.pageState.bodyAppliedStyleAttribute = this.pageState.body
-        ? this.pageState.body.getAttribute('style')
-        : null;
     }
 
     _restoreElementStyles(element, originalAttribute, appliedAttribute, currentAttribute, styles) {
@@ -467,41 +446,13 @@
     _restorePageState() {
       const state = this.pageState;
       if (!state) return;
-
-      const currentHtmlStyleAttribute = state.html.getAttribute('style');
-      const currentBodyStyleAttribute = state.body ? state.body.getAttribute('style') : null;
-      if (state.touchMode) {
-        document.documentElement.style.overflow = this.savedOverflow;
-      }
-      const htmlStyles = state.touchMode
-        ? state.htmlStyles
-        : {
-            cursor: state.htmlStyles.cursor,
-            userSelect: state.htmlStyles.userSelect
-          };
       this._restoreElementStyles(
         state.html,
         state.htmlStyleAttribute,
         state.htmlAppliedStyleAttribute,
-        currentHtmlStyleAttribute,
-        htmlStyles
+        state.html.getAttribute('style'),
+        state.htmlStyles
       );
-      if (state.body && state.touchMode) {
-        this._restoreElementStyles(
-          state.body,
-          state.bodyStyleAttribute,
-          state.bodyAppliedStyleAttribute,
-          currentBodyStyleAttribute,
-          state.bodyStyles
-        );
-      }
-      if (state.touchMode) {
-        try {
-          window.scrollTo(state.scrollX, state.scrollY);
-        } catch {
-          // Scroll restoration is best effort; owned teardown must still finish.
-        }
-      }
       if (state.hadActiveClass) {
         state.html.classList.add('clawd-effects-active');
       } else {
@@ -1041,20 +992,10 @@
         this.impactBursts.length = 0;
         this.lastFireTime = 0;
         this.lastTargetRefresh = 0;
-        if (input !== 'launcher') document.documentElement.style.cursor = 'none';
-        if (input === 'touch') {
-          document.documentElement.style.userSelect = 'none';
-          document.documentElement.style.overflow = 'hidden';
-          document.documentElement.style.touchAction = 'none';
-          if (document.body) {
-            document.body.style.overflow = 'hidden';
-            document.body.style.touchAction = 'none';
-          }
-        }
-        if (input !== 'launcher') {
-          document.documentElement.classList.add('clawd-effects-active');
-        }
-        this._markPageStateApplied(input === 'touch');
+        document.documentElement.style.cursor = 'none';
+        if (input === 'touch') document.documentElement.style.userSelect = 'none';
+        document.documentElement.classList.add('clawd-effects-active');
+        this._markPageStateApplied();
         this._resizeCanvas();
         this._watchTerminalMount();
         this.targets = this._collectTargets();
@@ -1089,6 +1030,7 @@
         }
         return;
       }
+      this._stopTouchDwell();
       this.active = false;
       this.activeInput = null;
       this.mouseDown = false;
@@ -1136,19 +1078,36 @@
       this.mouseDown = false;
     }
 
-    _onTouchStart(event) {
-      if (window.__clawdLauncherEnabled && this.coarsePointer.matches) {
-        this.tapGesture = null;
-        this.previousTouchEnd = 0;
-        return;
+    _stopTouchDwell() {
+      if (this.touchDwellTimer !== null) {
+        window.clearTimeout(this.touchDwellTimer);
+        this.touchDwellTimer = null;
       }
+      this.touchAnchor = null;
+      this.stopShooting();
+    }
+
+    _startTouchDwell(x, y) {
+      this._stopTouchDwell();
+      this.touchAnchor = { x, y };
+      this.touchDwellTimer = window.setTimeout(() => {
+        this.touchDwellTimer = null;
+        if (this.activeInput === 'touch' && this.touchGestureActive) {
+          this.startShooting();
+        }
+      }, TOUCH_DWELL_MS);
+    }
+
+    _onTouchStart(event) {
       if (!this.coarsePointer.matches) {
         this.tapGesture = null;
         this.previousTouchEnd = 0;
         return;
       }
       const touch = event.touches[0];
-      if (!touch || this._isIgnoredTarget(event.target)) {
+      if (!touch || event.touches.length !== 1 || this._isIgnoredTarget(event.target)) {
+        this._stopTouchDwell();
+        this.touchGestureActive = false;
         this.tapGesture = null;
         this.previousTouchEnd = 0;
         return;
@@ -1158,38 +1117,36 @@
         x: touch.clientX,
         y: touch.clientY
       };
-      if (!this.active) return;
-      event.preventDefault();
+      if (this.activeInput !== 'touch') return;
       this.touchGestureActive = true;
       this.pointerX = touch.clientX;
       this.pointerY = touch.clientY;
-      this.startShooting();
+      this._startTouchDwell(touch.clientX, touch.clientY);
     }
 
     _onTouchMove(event) {
-      if (window.__clawdLauncherEnabled && this.coarsePointer.matches) return;
       const touch = event.touches[0];
       if (!touch) return;
       if (this.tapGesture && Math.hypot(
         touch.clientX - this.tapGesture.x,
         touch.clientY - this.tapGesture.y
-      ) > 12) {
+      ) > TOUCH_JITTER_RADIUS) {
         this.tapGesture = null;
         this.previousTouchEnd = 0;
       }
-      if (!this.active || !this.coarsePointer.matches) return;
-      event.preventDefault();
+      if (this.activeInput !== 'touch' || !this.touchGestureActive) return;
       this.pointerX = touch.clientX;
       this.pointerY = touch.clientY;
+      if (this.touchAnchor && Math.hypot(
+        touch.clientX - this.touchAnchor.x,
+        touch.clientY - this.touchAnchor.y
+      ) > TOUCH_JITTER_RADIUS) {
+        this._startTouchDwell(touch.clientX, touch.clientY);
+      }
     }
 
     _onTouchEnd(event) {
-      if (window.__clawdLauncherEnabled && this.coarsePointer.matches) {
-        this.tapGesture = null;
-        this.previousTouchEnd = 0;
-        return;
-      }
-      this.stopShooting();
+      this._stopTouchDwell();
       this.touchGestureActive = false;
       if (!this.coarsePointer.matches) {
         this.tapGesture = null;
@@ -1229,19 +1186,13 @@
     }
 
     _onTouchCancel() {
-      if (window.__clawdLauncherEnabled && this.coarsePointer.matches) {
-        this.tapGesture = null;
-        this.previousTouchEnd = 0;
-        return;
-      }
-      this.stopShooting();
+      this._stopTouchDwell();
       this.touchGestureActive = false;
       this.tapGesture = null;
       this.previousTouchEnd = 0;
     }
 
     _onDoubleClick(event) {
-      if (window.__clawdLauncherEnabled && this.coarsePointer.matches) return;
       if (this._isIgnoredTarget(event.target)) return;
       if (!this.active && !this._canActivate()) return;
       event.preventDefault();
@@ -1256,7 +1207,7 @@
     }
 
     _onMouseMove(event) {
-      if (this.activeInput === 'launcher') return;
+      if (this.activeInput === 'touch') return;
       this._rememberMousePosition(event);
       if (!this.active) {
         if (this.persistent && this.finePointer.matches && this.lastMousePosition) {
@@ -1274,7 +1225,7 @@
     }
 
     _onMouseDown(event) {
-      if (this.activeInput === 'launcher') return;
+      if (this.active && this.activeInput !== 'mouse') return;
       if (event.button !== 0) return;
       if (this._isIgnoredTarget(event.target)) return;
       this._rememberMousePosition(event);
@@ -1311,7 +1262,7 @@
         this._flushGlyphGroups();
         if (this.raf) window.cancelAnimationFrame(this.raf);
         this.raf = null;
-        this.stopShooting();
+        this._stopTouchDwell();
         this.touchGestureActive = false;
         this.tapGesture = null;
         this.previousTouchEnd = 0;
@@ -1324,7 +1275,7 @@
     }
 
     _onMediaChange() {
-      this.stopShooting();
+      this._stopTouchDwell();
       this.touchGestureActive = false;
       this.tapGesture = null;
       this.previousTouchEnd = 0;

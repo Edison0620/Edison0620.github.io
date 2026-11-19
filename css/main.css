@@ -2320,6 +2320,9 @@ html.clawd-context-menu-open [data-clawd-avatar] {
   color: var(--ink-secondary);
   font-size: 12px;
 }
+@media (pointer: coarse) {
+  .site-context-menu__hint { display: none; }
+}
 .site-context-menu__palettes {
   border-top: 1px solid var(--hairline);
   padding: 6px;
