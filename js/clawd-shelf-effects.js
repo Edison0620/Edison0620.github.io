@@ -11,6 +11,7 @@
   const surfaceMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const tears = new Map();
   const spinningVinyl = new Map();
+  const musicEffects = window.ClawdMusicEffects();
   const paperStress = new WeakMap();
   const peelThreshold = 3.65;
   const peelSeconds = .19;
@@ -61,6 +62,7 @@
   function updateMaterialTargets() {
     surfaceTargets = [];
     const kind = document.querySelector('[data-douban-kind][aria-pressed="true"]')?.dataset.doubanKind;
+    if (kind === 'music' && !surfaceMotion.matches) musicEffects.prepare();
     for (const link of shelfList.querySelectorAll('.douban-item__cover-link')) {
       const image = link.querySelector('img');
       if (kind === 'book') {
@@ -117,14 +119,13 @@
     return t <= Math.min(1, (-b + root) / a) ? t : Infinity;
   }
 
-  function kickVinyl(link, now, tangent, normal, strength, nx, ny) {
+  function kickVinyl(link, now, tangent, strength) {
     let state = spinningVinyl.get(link);
     if (!state) {
       state = {at:now, angle:parseFloat(link.style.getPropertyValue('--preview-vinyl-spin')) || 0, omega:0};
       spinningVinyl.set(link, state);
     }
     state.omega = limit(state.omega + 490 * tangent * strength, -620, 620);
-    state.tap = {at:now, magnitude:normal * strength, nx, ny};
   }
 
   function clearVinyl() {
@@ -133,6 +134,7 @@
       link.style.removeProperty('--preview-vinyl-tilt');
     }
     spinningVinyl.clear();
+    musicEffects.clear();
   }
 
   function stepVinyl(now) {
@@ -143,18 +145,10 @@
       state.at = now;
       state.angle = (state.angle + state.omega * (1-damping) / 6) % 360;
       state.omega *= damping;
-      const age = (now-state.tap.at) / 1000;
-      const shake = -1.65 * state.tap.magnitude * Math.exp(-13 * age) * Math.sin(40 * age);
+      if (Math.abs(state.omega) < 2) spinningVinyl.delete(link);
       link.style.setProperty('--preview-vinyl-spin', `${state.angle}deg`);
-      if (age > .28) {
-        link.style.removeProperty('--preview-vinyl-recoil');
-        link.style.removeProperty('--preview-vinyl-tilt');
-        if (Math.abs(state.omega) < 2) spinningVinyl.delete(link);
-      } else {
-        link.style.setProperty('--preview-vinyl-recoil', `${shake*state.tap.nx}px ${shake*state.tap.ny}px`);
-        link.style.setProperty('--preview-vinyl-tilt', `${-state.tap.ny} ${state.tap.nx} 0 ${-shake*30}deg`);
-      }
     }
+    musicEffects.step(now);
   }
 
   const waterGravity=1800;
@@ -240,20 +234,22 @@
           const armY=hy-(target.jacket.top+target.jacket.bottom)/2;
           const torque=limit((armX*dy-armY*dx)/(target.radius*travel),-1,1);
           const strength=limit(Math.hypot(bullet.vx,bullet.vy)/physics.CONSTANTS.bulletSpeed,0,1);
-          kickVinyl(target.link,now,torque,.8,strength*.34,-dx/travel,-dy/travel);
+          kickVinyl(target.link,now,torque,strength*.34);
         }
-        bursts.push({x:hx,y:hy,angle:bulletAngle,at:now});
+        const impact = {kind,target,x:hx,y:hy,angle:bulletAngle,at:now,duration:160};
+        bursts.push(impact);
+        if (!surfaceMotion.matches) musicEffects.kick(impact,bullet,now,bursts);
         return true;
       }
       const speed = Math.hypot(dx,dy);
       const radius = Math.hypot(hx-target.cx,hy-target.cy) || target.radius;
       const nx = (hx-target.cx)/radius, ny = (hy-target.cy)/radius;
       const tangent = (nx*dy-ny*dx)/speed;
-      const normal = Math.abs(nx*dx+ny*dy)/speed;
       const strength = limit(Math.hypot(bullet.vx,bullet.vy)/physics.CONSTANTS.bulletSpeed,0,1);
-      if (!surfaceMotion.matches) kickVinyl(target.link,now,tangent,normal,strength,nx,ny);
-      const sign = Math.sign(tangent) || 1;
-      bursts.push({kind,target,at:now,duration:235,x:hx,y:hy,tx:-ny*sign,ty:nx*sign,nx,ny,energy:Math.abs(tangent)*strength});
+      if (!surfaceMotion.matches) kickVinyl(target.link,now,tangent,strength);
+      const impact = {kind,target,x:hx,y:hy,angle:bulletAngle,at:now,duration:160};
+      bursts.push(impact);
+      if (!surfaceMotion.matches) musicEffects.kick(impact,bullet,now,bursts);
       return true;
     }
     if (kind === 'book') {
@@ -616,35 +612,10 @@
     waterLayers.set(card,layer);
     return layer;
   }
-  function drawVinylSparks(ctx, hit, t) {
-    if (!hit.target.link.isConnected) return;
-    const {x,y,nx,ny,tx,ty,energy} = hit;
-    ctx.save();
-    ctx.lineCap = 'round';
-    const count = 2 + Math.floor(4 * energy);
-    for (let i=0; i<count; i++) {
-      const age = t-i*.005, life = .12+i*.013;
-      if (age<=0 || age>=life) continue;
-      const speed = (32+i*24) * (.39 + .78*energy);
-      const outward = 6 + i*4;
-      const drift = -Math.expm1(-9*age)/9;
-      const tailAge = Math.max(0,age-(.019 + .024*energy));
-      const tail = -Math.expm1(-9*tailAge)/9;
-      const vx = tx*speed+nx*outward, vy = ty*speed+ny*outward;
-      ctx.globalAlpha = .93*(1-age/life)**1.6;
-      ctx.strokeStyle = age<.048 ? '#fff0bf' : '#ee8738';
-      ctx.lineWidth = i===0 ? 1.55 : 1;
-      ctx.beginPath();
-      ctx.moveTo(x+vx*tail,y+vy*tail+142*tailAge*tailAge);
-      ctx.lineTo(x+vx*drift,y+vy*drift+142*age*age);
-      ctx.stroke();
-    }
-    ctx.restore();
-  }
 
-  function drawMaterial(ctx, hit, progress) {
+  function drawMaterial(ctx, hit, progress, color) {
     if (hit.kind === 'music') {
-      drawVinylSparks(ctx, hit, progress * hit.duration / 1000);
+      if (hit.comic && hit.target.link.isConnected) musicEffects.draw(ctx, hit, progress, color);
       return;
     }
     const {target, kind} = hit;
