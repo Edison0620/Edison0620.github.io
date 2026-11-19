@@ -186,6 +186,7 @@
   }
   var tabs = Array.prototype.slice.call(root.querySelectorAll('[data-douban-kind]'));
   var status = root.querySelector('[data-douban-status]');
+  var updated = root.querySelector('[data-douban-updated]');
   var list = root.querySelector('[data-douban-list]');
   var retry = root.querySelector('[data-douban-retry]');
   var pagination = root.querySelector('[data-douban-pagination]');
@@ -561,7 +562,22 @@
     retry.hidden = true;
     fetch(root.getAttribute('data-douban-url'))
       .then(function (response) { if (!response.ok) throw new Error('Data unavailable'); return response.json(); })
-      .then(function (payload) { data = normalizeCollection(payload); render(); })
+      .then(function (payload) {
+        data = normalizeCollection(payload);
+        var generatedAt = new Date(payload.generatedAt);
+        if (payload.generatedAt && !Number.isNaN(generatedAt.getTime())) {
+          updated.dateTime = generatedAt.toISOString();
+          updated.textContent = '更新于 ' + generatedAt.toLocaleString('zh-CN', {
+            year: 'numeric', month: '2-digit', day: '2-digit',
+            hour: '2-digit', minute: '2-digit', hour12: false
+          });
+          updated.hidden = false;
+        } else {
+          updated.hidden = true;
+          updated.removeAttribute('datetime');
+        }
+        render();
+      })
       .catch(function () {
         list.classList.remove('is-loading');
         status.textContent = '书影音与游戏数据暂不可用，请稍后重试。';
