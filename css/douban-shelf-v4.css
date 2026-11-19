@@ -93,8 +93,14 @@ html[data-theme="dark"] .douban-item__cover-link.is-cover-loading::after { backg
 @media (hover: hover) and (pointer: fine) {
   .douban-item--book .douban-item__cover-link:hover { --stamp-angle: 0deg; --stamp-lift: -2px; }
 }
+.douban-item__book-cover-region { position: relative; flex: none; }
 .reading-seal-clip { display: none; }
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .douban-item__book-cover-region::before {
+    content: "";
+    position: absolute;
+    inset: -12px;
+  }
   .reading-seal-clip {
     display: block;
     position: absolute;
@@ -106,7 +112,6 @@ html[data-theme="dark"] .douban-item__cover-link.is-cover-loading::after { backg
       linear-gradient(#fff, #fff) content-box;
     pointer-events: none;
     opacity: 0;
-    transition: opacity 130ms ease-out;
   }
   .reading-seal {
     position: absolute;
@@ -119,10 +124,10 @@ html[data-theme="dark"] .douban-item__cover-link.is-cover-loading::after { backg
     transform: translate3d(var(--seal-x), var(--seal-y), 0) translate(-50%, -50%) rotate(-12deg);
   }
   [data-theme="dark"] .reading-seal { color: color-mix(in oklab, var(--accent) 60%, #77716c); }
-  .douban-item__cover-link:hover > .reading-seal-clip { opacity: .9; }
-  html:has(.douban-item__cover-link:hover > .reading-seal-clip) > [data-clawd-avatar] { visibility: hidden; }
-  html.clawd-effects-active .douban-item__cover-link:hover:has(> .reading-seal-clip),
-  html.clawd-effects-active .douban-item__cover-link:hover:has(> .reading-seal-clip) * { cursor: pointer !important; }
+  .reading-seal-clip { opacity: var(--seal-reveal, 0); }
+  html > [data-clawd-avatar] { clip-path: var(--seal-occlusion, none); }
+  .is-reading-seal-active,
+  .is-reading-seal-active * { cursor: none !important; }
 }
 @media (max-width: 900px) {
   .douban-item { width: 100%; }

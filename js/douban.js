@@ -191,6 +191,51 @@
   var pagination = root.querySelector('[data-douban-pagination]');
   var readingSealTemplate = root.querySelector('[data-douban-reading-seal]');
   var readingSealId = 0;
+  var sealCover, sealFrame, sealAvatar;
+
+  function updateSealReveal() {
+    sealFrame = 0;
+    if (!sealCover) return;
+    if (sealAvatar) sealAvatar.style.removeProperty('--seal-occlusion');
+    var progress = 0;
+    var activeRegion = sealCover.parentElement.classList.contains('is-reading-seal-active');
+    sealAvatar = document.querySelector('[data-clawd-avatar]');
+    if (!reduceMotion.matches && finePointer.matches && sealCover.isConnected) {
+      var sprite = sealAvatar && sealAvatar.getBoundingClientRect();
+      if (sprite && sprite.width && sprite.height && getComputedStyle(sealAvatar).opacity !== '0') {
+        var cover = sealCover.getBoundingClientRect();
+        var clamp = function (value) { return Math.max(0, Math.min(1, value)); };
+        var left = clamp((cover.left - 5 - sprite.left) / sprite.width);
+        var right = clamp((cover.right + 5 - sprite.left) / sprite.width);
+        var top = clamp((cover.top - 5 - sprite.top) / sprite.height);
+        var bottom = clamp((cover.bottom + 5 - sprite.top) / sprite.height);
+        // The SVG's painted body occupies the center third, near the bottom.
+        var width = Math.max(0, Math.min(right, 2 / 3) - Math.max(left, 1 / 3));
+        var height = Math.max(0, Math.min(bottom, 41 / 45) - Math.max(top, 30 / 45));
+        progress = clamp(width * height / (11 / 135));
+        if (right > left && bottom > top) {
+          if (new DOMMatrixReadOnly(getComputedStyle(sealAvatar).transform).a < 0) {
+            var oldLeft = left;
+            left = 1 - right;
+            right = 1 - oldLeft;
+          }
+          var tl = left * 100 + '% ' + top * 100 + '%';
+          var tr = right * 100 + '% ' + top * 100 + '%';
+          var br = right * 100 + '% ' + bottom * 100 + '%';
+          var bl = left * 100 + '% ' + bottom * 100 + '%';
+          sealAvatar.style.setProperty('--seal-occlusion', 'polygon(evenodd, 0 0,100% 0,100% 100%,0 100%,0 0,' + [tl,tr,br,bl,tl].join(',') + ',0 0)');
+        }
+      } else if (activeRegion) {
+        progress = 1;
+      }
+      if (activeRegion || progress > 0) sealFrame = requestAnimationFrame(updateSealReveal);
+    }
+    sealCover.style.setProperty('--seal-reveal', progress * .9);
+    if (!sealFrame) {
+      if (sealAvatar) sealAvatar.style.removeProperty('--seal-occlusion');
+      sealCover = null;
+    }
+  }
   var updatePagination = window.createDoubanPagination(pagination, function (target) {
     page = target;
     render();
@@ -309,7 +354,13 @@
         var coverFrame = 0;
         var readingSeal;
         var pointerX, pointerY, pointerType;
-        coverLink.addEventListener('pointermove', function (event) {
+        var coverRegion = coverLink;
+        if (active === 'book') {
+          coverRegion = document.createElement('div');
+          coverRegion.className = 'douban-item__book-cover-region';
+          coverRegion.appendChild(coverLink);
+        }
+        coverRegion.addEventListener('pointermove', function (event) {
           if (active !== 'book' || !finePointer.matches || reduceMotion.matches) return;
           pointerX = event.clientX;
           pointerY = event.clientY;
@@ -332,12 +383,17 @@
               if (!readingSeal) return;
               readingSeal.style.setProperty('--seal-x', (x * coverLink.clientWidth) + 'px');
               readingSeal.style.setProperty('--seal-y', (y * coverLink.clientHeight) + 'px');
+              coverRegion.classList.add('is-reading-seal-active');
+              if (sealCover && sealCover !== coverLink) sealCover.style.removeProperty('--seal-reveal');
+              sealCover = coverLink;
+              if (!sealFrame) sealFrame = requestAnimationFrame(updateSealReveal);
             }
           });
         });
-        coverLink.addEventListener('pointerleave', function () {
+        coverRegion.addEventListener('pointerleave', function () {
           if (coverFrame) cancelAnimationFrame(coverFrame);
           coverFrame = 0;
+          coverRegion.classList.remove('is-reading-seal-active');
           coverLink.style.removeProperty('--cover-tilt-x');
           coverLink.style.removeProperty('--cover-tilt-y');
           coverLink.style.removeProperty('--cover-light-x');
@@ -454,7 +510,7 @@
           details.appendChild(comment);
           card._comment = comment;
         }
-        body.appendChild(coverLink);
+        body.appendChild(coverRegion);
         body.appendChild(details);
         card.appendChild(body);
         fragment.appendChild(card);
