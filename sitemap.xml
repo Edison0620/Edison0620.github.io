@@ -1246,6 +1246,13 @@
   </url>
   
   <url>
+    <loc>https://www.kaaaaai.cn/tags/OpenSource/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.kaaaaai.cn/tags/Format/</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
@@ -1254,13 +1261,6 @@
   
   <url>
     <loc>https://www.kaaaaai.cn/tags/CocoaPods/</loc>
-    <lastmod>2026-11-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.kaaaaai.cn/tags/OpenSource/</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

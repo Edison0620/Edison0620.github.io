@@ -134,7 +134,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
 <link rel="stylesheet" href="/css/main.css?v=cc481d8f381b">
 
-<link rel="stylesheet" href="/css/douban-shelf-v4.css?v=perf-cache-1">
+<link rel="stylesheet" href="/css/douban-shelf-v4.css?v=reading-seal-1">
 <link rel="stylesheet" href="/css/douban-pagination.css">
 
 
@@ -188,6 +188,28 @@
   <section class="douban-list is-loading" data-douban-list aria-label="书影音与游戏记录"></section>
   <nav class="douban-pagination" data-douban-pagination aria-label="书影音与游戏分页" hidden></nav>
   <noscript>请启用 JavaScript 以查看书影音与游戏记录。</noscript>
+  <template data-douban-reading-seal>
+    <span class="reading-seal-clip" aria-hidden="true">
+      <svg class="reading-seal" viewBox="0 0 100 100" focusable="false">
+        <defs>
+          <path data-seal-arc="top" d="M18 50 A32 32 0 0 1 82 50"/>
+          <path data-seal-arc="bottom" d="M11 50 A39 39 0 0 0 89 50"/>
+        </defs>
+        <g fill="none" stroke="currentColor">
+          <circle cx="50" cy="50" r="46" stroke-width="1.75"/>
+          <circle cx="50" cy="50" r="26" stroke-width="1"/>
+        </g>
+        <g fill="currentColor" text-anchor="middle">
+          <path d="M13 47.5 15.5 50 13 52.5 10.5 50Z M87 47.5 89.5 50 87 52.5 84.5 50Z"/>
+          <text x="49" y="65" font-family="Georgia, serif" font-style="italic" font-size="46" font-weight="bold">k</text>
+          <g font-family="system-ui, sans-serif" font-size="11" font-weight="650">
+            <text letter-spacing="1.4"><textPath data-seal-label="top" startOffset="50%">READ</textPath></text>
+            <text letter-spacing=".65"><textPath data-seal-label="bottom" data-seal-date startOffset="50%"></textPath></text>
+          </g>
+        </g>
+      </svg>
+    </span>
+  </template>
 </main>
 
   
@@ -308,7 +330,7 @@
   
   
   <script src="/js/douban-pagination.js" defer></script>
-  <script src="/js/douban.js?v=perf-cache-1" defer></script>
+  <script src="/js/douban.js?v=reading-seal-1" defer></script>
   
   
   

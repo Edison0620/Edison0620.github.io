@@ -93,6 +93,37 @@ html[data-theme="dark"] .douban-item__cover-link.is-cover-loading::after { backg
 @media (hover: hover) and (pointer: fine) {
   .douban-item--book .douban-item__cover-link:hover { --stamp-angle: 0deg; --stamp-lift: -2px; }
 }
+.reading-seal-clip { display: none; }
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .reading-seal-clip {
+    display: block;
+    position: absolute;
+    z-index: 3;
+    inset: -5px;
+    padding: 5px;
+    /* Reuse the perforated border mask, plus the opaque cover area. */
+    mask: url("../img/shelf-stamp-edge.svg") center / 100% 100% no-repeat,
+      linear-gradient(#fff, #fff) content-box;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 130ms ease-out;
+  }
+  .reading-seal {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: calc((100% - 10px) * .65);
+    height: auto;
+    color: color-mix(in oklab, var(--accent) 74%, #241e1b);
+    filter: drop-shadow(0 0 .7px #fff4e7) drop-shadow(0 0 .35px #fff4e7);
+    transform: translate3d(var(--seal-x), var(--seal-y), 0) translate(-50%, -50%) rotate(-12deg);
+  }
+  [data-theme="dark"] .reading-seal { color: color-mix(in oklab, var(--accent) 60%, #77716c); }
+  .douban-item__cover-link:hover > .reading-seal-clip { opacity: .9; }
+  html:has(.douban-item__cover-link:hover > .reading-seal-clip) > [data-clawd-avatar] { visibility: hidden; }
+  html.clawd-effects-active .douban-item__cover-link:hover:has(> .reading-seal-clip),
+  html.clawd-effects-active .douban-item__cover-link:hover:has(> .reading-seal-clip) * { cursor: pointer !important; }
+}
 @media (max-width: 900px) {
   .douban-item { width: 100%; }
 }

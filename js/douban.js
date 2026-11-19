@@ -189,6 +189,8 @@
   var list = root.querySelector('[data-douban-list]');
   var retry = root.querySelector('[data-douban-retry]');
   var pagination = root.querySelector('[data-douban-pagination]');
+  var readingSealTemplate = root.querySelector('[data-douban-reading-seal]');
+  var readingSealId = 0;
   var updatePagination = window.createDoubanPagination(pagination, function (target) {
     page = target;
     render();
@@ -245,6 +247,20 @@
     return node;
   }
 
+  function attachReadingSeal(cover, date) {
+    var clip = readingSealTemplate.content.firstElementChild.cloneNode(true);
+    var seal = clip.firstElementChild;
+    var id = ++readingSealId;
+    ['top', 'bottom'].forEach(function (arc) {
+      var pathId = 'reading-seal-' + id + '-' + arc;
+      seal.querySelector('[data-seal-arc="' + arc + '"]').id = pathId;
+      seal.querySelector('[data-seal-label="' + arc + '"]').setAttribute('href', '#' + pathId);
+    });
+    seal.querySelector('[data-seal-date]').textContent = date.replace(/-/g, '.');
+    cover.appendChild(clip);
+    return seal;
+  }
+
   function coverUrl(url) {
     return url.replace('/image/upload/', '/image/upload/f_auto,q_auto,w_320,c_limit/');
   }
@@ -291,20 +307,32 @@
           });
         }
         var coverFrame = 0;
+        var readingSeal;
+        var pointerX, pointerY, pointerType;
         coverLink.addEventListener('pointermove', function (event) {
-          if (active !== 'book' || !finePointer.matches || reduceMotion.matches || coverFrame) return;
-          var clientX = event.clientX;
-          var clientY = event.clientY;
+          if (active !== 'book' || !finePointer.matches || reduceMotion.matches) return;
+          pointerX = event.clientX;
+          pointerY = event.clientY;
+          pointerType = event.pointerType;
+          if (coverFrame) return;
           coverFrame = requestAnimationFrame(function () {
             coverFrame = 0;
             var bounds = coverLink.getBoundingClientRect();
             if (!bounds.width || !bounds.height) return;
-            var x = Math.max(0, Math.min(1, (clientX - bounds.left) / bounds.width));
-            var y = Math.max(0, Math.min(1, (clientY - bounds.top) / bounds.height));
+            var x = Math.max(0, Math.min(1, (pointerX - bounds.left) / bounds.width));
+            var y = Math.max(0, Math.min(1, (pointerY - bounds.top) / bounds.height));
             coverLink.style.setProperty('--cover-tilt-x', ((0.5 - y) * 6).toFixed(2) + 'deg');
             coverLink.style.setProperty('--cover-tilt-y', ((x - 0.5) * 6).toFixed(2) + 'deg');
             coverLink.style.setProperty('--cover-light-x', (x * 100).toFixed(1) + '%');
             coverLink.style.setProperty('--cover-light-y', (y * 100).toFixed(1) + '%');
+            if (pointerType === 'mouse' && image.naturalWidth) {
+              if (!readingSeal && readingSealTemplate && /^\d{4}-\d{2}-\d{2}$/.test(watched)) {
+                readingSeal = attachReadingSeal(coverLink, watched);
+              }
+              if (!readingSeal) return;
+              readingSeal.style.setProperty('--seal-x', (x * coverLink.clientWidth) + 'px');
+              readingSeal.style.setProperty('--seal-y', (y * coverLink.clientHeight) + 'px');
+            }
           });
         });
         coverLink.addEventListener('pointerleave', function () {
