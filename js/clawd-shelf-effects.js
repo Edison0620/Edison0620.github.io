@@ -195,7 +195,7 @@
       const incidence=s.lift/s.speed;
       s.speed*=.90-.24*Math.min(incidence,1);
       s.lift*=.78;
-      s.energy=(s.lift/224)**2;
+      s.energy=s.lift/224;
       if(!addWaterContact(s,now-s.elapsed*1000,bursts)) return false;
       if(s.speed<260||s.lift<35||incidence>.55) {
         s.sinking=0;
@@ -527,8 +527,8 @@
             p.x*=.59;
             float age=waves[i].z,energy=waves[i].w;
             float phase=length(p)-age*360.;
-            float envelope=energy*exp(-.006*phase*phase)*exp(-age*2.8)*smoothstep(0.,.024,age);
-            off+=normalize(p+vec2(.0001))*sin(phase*.26)*envelope*12./size;
+            float envelope=energy*exp(-.006*phase*phase)*exp(-age*2.3)*smoothstep(0.,.024,age);
+            off+=normalize(p+vec2(.0001))*sin(phase*.26)*envelope*16./size;
             opacity+=envelope*4.;
             light+=cos(phase*.41)*envelope*.10;
           }
