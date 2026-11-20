@@ -3,6 +3,47 @@
 .douban-item--movie [data-preview-curl-active]:not(.is-ticket-torn)::before,
 .douban-item--movie [data-preview-curl-active]:not(.is-ticket-torn)::after,
 .douban-item--movie [data-preview-curl-active]:not(.is-ticket-torn) > :not([data-preview-paper-curl], [data-preview-ticket-slot]) { visibility: hidden; }
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  html.clawd-effects-active.is-movie-spotlight > [data-clawd-avatar] {
+    clip-path: var(--movie-ticket-occlusion, none);
+  }
+  .douban-item--movie .douban-item__cover-link {
+    --spot-falloff: color-mix(in srgb, var(--accent) 5%, rgb(255 255 255 / .05)) 0 42%,
+      rgb(0 0 0 / .07) 62%, rgb(0 0 0 / .29) 91%, rgb(0 0 0 / .35) 100%;
+  }
+  .douban-item--movie .douban-item__spotlight {
+    position: absolute;
+    z-index: 2;
+    inset: 0 0 auto;
+    height: var(--ticket-seam-y);
+    clip-path: var(--ticket-face-shape);
+    background: radial-gradient(ellipse 42px 49px at var(--spot-x) var(--spot-y), var(--spot-falloff));
+  }
+  .douban-item--movie .douban-item__ticket-stub::after {
+    content: "";
+    position: absolute;
+    z-index: 3;
+    inset: -32px;
+    background: radial-gradient(ellipse 42px 49px at calc(var(--spot-x) + 32px)
+      calc(var(--spot-y) - var(--ticket-seam-y) + 32px), var(--spot-falloff));
+    /* Keep the light fixed in ticket space while the paper rotates beneath it. */
+    transform-origin: calc(100% - 32px) 32px;
+    transform: rotate(calc(-1 * var(--ticket-stub-angle)));
+    transition: opacity 120ms ease-out, transform var(--ticket-stub-duration) ease-out;
+  }
+  .douban-item--movie .douban-item__spotlight,
+  .douban-item--movie .douban-item__ticket-stub::after {
+    pointer-events: none;
+    opacity: 0;
+  }
+  .douban-item--movie .douban-item__spotlight {
+    transition: opacity 120ms ease-out;
+  }
+  html.clawd-effects-active .douban-item--movie .is-spotlighting .douban-item__spotlight,
+  html.clawd-effects-active .douban-item--movie .is-spotlighting .douban-item__ticket-stub::after {
+    opacity: var(--spot-strength);
+  }
+}
 [data-preview-paper-curl] { position: absolute; inset: 0; z-index: 3; perspective: 440px; pointer-events: none; }
 .is-ticket-torn > [data-preview-paper-curl] { display: none; }
 [data-preview-ticket-slot] {

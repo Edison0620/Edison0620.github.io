@@ -177,13 +177,17 @@ html[data-theme="dark"] .douban-item--movie.douban-item--movie-light-paper {
   height: 165px;
   background: none;
   filter: none;
+  --ticket-seam-y: 142px;
+  --ticket-face-shape: path("M0 0H96V136C92 136 90 138 90 141V142H6V141C6 138 4 136 0 136Z");
+  --ticket-stub-angle: 0deg;
+  --ticket-stub-duration: 190ms;
 }
 .douban-item--movie .douban-item__cover-link::before {
   inset: 0 0 auto;
   height: 165px;
   background: var(--ticket-paper);
   filter: none;
-  clip-path: path("M0 0H96V136C92 136 90 138 90 141V142H6V141C6 138 4 136 0 136Z");
+  clip-path: var(--ticket-face-shape);
   -webkit-mask: none;
   mask: none;
 }
@@ -195,7 +199,7 @@ html[data-theme="dark"] .douban-item--movie.douban-item--movie-light-paper {
 .douban-item--movie .douban-item__ticket-stub {
   position: absolute;
   z-index: 1;
-  inset: 142px 0 auto;
+  inset: var(--ticket-seam-y) 0 auto;
   width: 96px;
   height: 23px;
   pointer-events: none;
@@ -204,8 +208,15 @@ html[data-theme="dark"] .douban-item--movie.douban-item--movie-light-paper {
   -webkit-mask: none;
   mask: none;
 }
-.douban-item--movie .douban-item__ticket-stub { transform-origin: 96px 0; transition: transform 190ms ease-out; }
-.douban-item--movie .douban-item__cover-link.is-ticket-torn .douban-item__ticket-stub { transform: rotate(-15deg); transition-duration: 260ms; }
+.douban-item--movie .douban-item__ticket-stub {
+  transform-origin: right top;
+  transform: rotate(var(--ticket-stub-angle));
+  transition: transform var(--ticket-stub-duration) ease-out;
+}
+.douban-item--movie .douban-item__cover-link.is-ticket-torn {
+  --ticket-stub-angle: -15deg;
+  --ticket-stub-duration: 260ms;
+}
 .douban-item--movie .douban-item__cover-link::after {
   content: "";
   inset: 141px 7px auto;
@@ -439,8 +450,9 @@ html[data-theme="dark"] .douban-list--game .douban-item::before {
 }
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
   .douban-item--movie .douban-item__cover-link:hover { transform: none; }
-  .douban-item--movie .douban-item__cover-link:not(.is-cover-loading):hover .douban-item__ticket-stub { transform: rotate(-7deg); }
-  .douban-item--movie .douban-item__cover-link.is-ticket-torn .douban-item__ticket-stub { transform: rotate(-15deg); }
+  .douban-item--movie .douban-item__cover-link:not(.is-cover-loading):not(.is-ticket-torn):hover {
+    --ticket-stub-angle: -7deg;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .douban-item--movie .douban-item__ticket-stub { transition: none; }

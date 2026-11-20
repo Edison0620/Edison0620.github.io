@@ -193,6 +193,111 @@
   var readingSealTemplate = root.querySelector('[data-douban-reading-seal]');
   var readingSealId = 0;
   var sealCover, sealFrame, sealAvatar;
+  var movieSpotlightLink, movieSpotlightLayer, movieSpotlightAvatar;
+  var movieSpotlightFrame = 0, moviePointerX, moviePointerY;
+  var spotlightReach = 20;
+  var spotlightCoverSelector = '.douban-item--movie .douban-item__cover-link:not(.is-cover-loading):not(.is-ticket-torn):not([data-preview-curl-active])';
+
+  function trackMovieSpotlight(event) {
+    if (active !== 'movie' || event.pointerType !== 'mouse' || reduceMotion.matches || !finePointer.matches) return;
+    moviePointerX = event.clientX;
+    moviePointerY = event.clientY;
+    if (movieSpotlightFrame) return;
+    movieSpotlightFrame = requestAnimationFrame(function () {
+      movieSpotlightFrame = 0;
+      if (active !== 'movie') return;
+      var x = moviePointerX, y = moviePointerY, r = spotlightReach;
+      var link = ticketAt(x, y) || ticketAt(x + r, y) || ticketAt(x - r, y) ||
+        ticketAt(x, y + r) || ticketAt(x, y - r);
+      if (link) moveMovieSpotlight(link, x, y);
+      else clearMovieSpotlight();
+    });
+  }
+
+  function ticketAt(x, y) {
+    var link = document.elementFromPoint(x, y)?.closest(spotlightCoverSelector);
+    return link?.firstElementChild.naturalWidth ? link : null;
+  }
+
+  function clearMovieSpotlight() {
+    if (movieSpotlightFrame) cancelAnimationFrame(movieSpotlightFrame);
+    movieSpotlightFrame = 0;
+    if (!movieSpotlightLink) return;
+    movieSpotlightLink.classList.remove('is-spotlighting');
+    movieSpotlightLink = null;
+    document.documentElement.classList.remove('is-movie-spotlight');
+    movieSpotlightAvatar.style.removeProperty('--movie-ticket-occlusion');
+    movieSpotlightAvatar = null;
+  }
+
+  function movieTicketOcclusion(avatar, facing, link, bounds) {
+    var sprite = avatar.getBoundingClientRect();
+    if (!sprite.width || !sprite.height) return 'none';
+    function point(x, y) {
+      var localX = x - sprite.left;
+      return (facing < 0 ? sprite.width - localX : localX).toFixed(2) + ' ' +
+        (y - sprite.top).toFixed(2);
+    }
+    var left = bounds.left, right = bounds.right, top = bounds.top;
+    var stub = link.querySelector('.douban-item__ticket-stub');
+    var seam = top + stub.offsetTop;
+    var matrix = new DOMMatrixReadOnly(getComputedStyle(stub).transform);
+    var w = stub.offsetWidth, h = stub.offsetHeight;
+    function foot(x, y) {
+      return point(right + matrix.a * (x - w) + matrix.c * y,
+        seam + matrix.b * (x - w) + matrix.d * y);
+    }
+    // Bridge only the straight part of the seam; the outer notches stay open.
+    var silhouette = 'M' + point(left, top) + 'L' + point(right, top) +
+      'L' + point(right, seam - 6) + 'C' + point(right - 4, seam - 6) + ' ' +
+      point(right - 6, seam - 4) + ' ' + point(right - 6, seam - 1) +
+      'L' + point(right - 6, seam) + 'L' + foot(w - 6, 0) +
+      'C' + foot(w - 6, 2.7) + ' ' + foot(w - 4, 4) + ' ' + foot(w, 4) +
+      'L' + foot(w, h) + 'L' + foot(0, h) + 'L' + foot(0, 4) +
+      'C' + foot(4, 4) + ' ' + foot(6, 2.7) + ' ' + foot(6, 0) +
+      'L' + point(left + 6, seam) + 'L' + point(left + 6, seam - 1) +
+      'C' + point(left + 6, seam - 4) + ' ' + point(left + 4, seam - 6) + ' ' +
+      point(left, seam - 6) + 'Z';
+    return 'path(evenodd, "M0 0H' + sprite.width + 'V' + sprite.height + 'H0Z' + silhouette + '")';
+  }
+
+  list.addEventListener('transitionend', function (event) {
+    if (movieSpotlightLink && event.propertyName === 'transform' &&
+        event.target.matches('.douban-item__ticket-stub') &&
+        event.target.parentElement === movieSpotlightLink) {
+      moveMovieSpotlight(movieSpotlightLink, moviePointerX, moviePointerY);
+    }
+  });
+
+  function moveMovieSpotlight(link, clientX, clientY) {
+    var claw = window.__clawdEffects;
+    if (!claw || !claw.active || claw.activeInput !== 'mouse' || reduceMotion.matches || !finePointer.matches) {
+      clearMovieSpotlight();
+      return;
+    }
+    var bounds = link.getBoundingClientRect();
+    var x = clientX - bounds.left, y = clientY - bounds.top;
+    var depth = Math.min(x, y, bounds.width - x, bounds.height - y);
+    var strength = Math.max(0, Math.min(1, (depth + 10) / 26));
+    if (!movieSpotlightLayer) {
+      movieSpotlightLayer = document.createElement('span');
+      movieSpotlightLayer.className = 'douban-item__spotlight';
+      movieSpotlightLayer.setAttribute('aria-hidden', 'true');
+    }
+    if (movieSpotlightLink !== link) {
+      if (movieSpotlightLink) movieSpotlightLink.classList.remove('is-spotlighting');
+      link.appendChild(movieSpotlightLayer);
+      movieSpotlightLink = link;
+      link.classList.add('is-spotlighting');
+      document.documentElement.classList.add('is-movie-spotlight');
+    }
+    link.style.setProperty('--spot-x', x + 'px');
+    link.style.setProperty('--spot-y', y + 'px');
+    link.style.setProperty('--spot-strength', strength);
+    movieSpotlightAvatar = claw.avatar;
+    movieSpotlightAvatar.style.setProperty('--movie-ticket-occlusion',
+      movieTicketOcclusion(movieSpotlightAvatar, claw.facingScale, link, bounds));
+  }
 
   function updateSealReveal() {
     sealFrame = 0;
@@ -250,6 +355,12 @@
   list.tabIndex = -1;
   var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  document.addEventListener('pointermove', trackMovieSpotlight, { passive: true });
+  document.documentElement.addEventListener('pointerleave', clearMovieSpotlight);
+  window.addEventListener('blur', clearMovieSpotlight);
+  window.addEventListener('scroll', clearMovieSpotlight, { passive: true });
+  reduceMotion.addEventListener('change', clearMovieSpotlight);
+  finePointer.addEventListener('change', clearMovieSpotlight);
   var cardObserver = new ResizeObserver(scheduleLayout);
   var layoutFrame = 0;
 
@@ -313,6 +424,7 @@
 
   function render() {
     if (!data) return;
+    clearMovieSpotlight();
     cardObserver.disconnect();
     list.classList.toggle('douban-list--game', active === 'game');
     var items = data[active];
