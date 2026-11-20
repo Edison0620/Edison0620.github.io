@@ -5,32 +5,36 @@
     return Math.min(maximum, Math.max(minimum, value));
   }
 
-  function circlePath(x, y, radius) {
-    return [
-      "M", x - radius, y,
-      "a", radius, radius, 0, 1, 0, radius * 2, 0,
-      "a", radius, radius, 0, 1, 0, -radius * 2, 0,
-      "Z"
-    ].join(" ");
+  var pourStart = 0.075;
+  var contact = 0.16;
+
+  function fillFraction(progress) {
+    return clamp((progress - contact) / (0.98 - contact), 0, 1);
   }
 
   function surfaceLevel(progress, geometry) {
-    var fill = clamp((progress - 0.16) / 0.82, 0, 1);
-    var amplitude = Math.max(5, Math.min(22, geometry.height * 0.025)) * (1 - fill * 0.65);
-    return geometry.height + amplitude - (geometry.height + amplitude * 2) * fill;
+    var fill = fillFraction(progress);
+    var margin = Math.max(5, Math.min(22, geometry.height * 0.025));
+    return geometry.height - (geometry.height + margin) * fill;
   }
 
   function waveOffset(x, progress, geometry) {
-    var fill = clamp((progress - 0.16) / 0.82, 0, 1);
-    var amplitude = Math.max(5, Math.min(22, geometry.height * 0.025)) * Math.pow(1 - fill, 0.7);
+    var fill = fillFraction(progress);
+    if (!fill) return 0;
+    var age = progress - contact;
+    var amplitude = Math.max(5, Math.min(22, geometry.height * 0.025)) *
+      Math.pow(1 - fill, 0.7) * Math.min(1, age / 0.10);
     var wavelength = Math.max(170, Math.min(400, geometry.width * 0.38));
     var traveling = Math.sin(x * Math.PI * 2 / wavelength - progress * 12) * amplitude * 0.72;
-    var impact = Math.sin(Math.PI * clamp((progress - 0.2) / 0.55, 0, 1));
+    // Two low pressure ridges travel outward once, leaving a shallow inlet.
     var distance = x - geometry.originX;
-    var spread = 48 + progress * 180;
-    var swell = impact * amplitude * 0.65 * Math.exp(-Math.pow(distance / spread, 2)) *
-      Math.cos(distance / 25 - progress * 16);
-    return traveling + swell;
+    var reach = (distance < 0 ? 420 : 510) * age;
+    var width = 8 + 38 * age;
+    var attack = 1 - Math.exp(-age * 85);
+    var ridge = (distance < 0 ? 12 : 16) * attack * Math.exp(-age * 8) *
+      Math.exp(-Math.pow((Math.abs(distance) - reach) / width, 2));
+    var inlet = 4 * attack * Math.exp(-distance * distance / 100) * (1 - fill);
+    return traveling + inlet - ridge;
   }
 
   function waterline(x, progress, geometry) {
@@ -39,17 +43,15 @@
 
   function flowEdge(y, originX, originY, progress, side, widthScale) {
     var depth = y - originY;
-    var sway = Math.min(1, depth / 76) *
-      (Math.sin(depth / 82 - progress * 15) * 6 + Math.sin(depth / 163 - progress * 9) * 3);
-    var width = Math.max(10.5, 12.5 +
-      Math.sin(depth / 46 - progress * 33) * 3 +
-      Math.sin(depth / 102 - progress * 21) * 2);
+    // A falling jet accelerates; constant volume flux makes its radius shrink.
+    var width = 3.2 * Math.pow(1 + depth / 55, -0.25);
+    var sway = Math.min(1, depth / 90) * Math.sin(depth / 95 - progress * 12) * 1.1;
     return originX + sway + side * width * widthScale;
   }
 
   function streamPath(progress, geometry) {
     var originX = geometry.originX;
-    var pour = clamp(progress / 0.22, 0, 1);
+    var pour = clamp((progress - pourStart) / (contact - pourStart), 0, 1);
     if (pour <= 0) return "";
 
     var surfaceY = waterline(originX, progress, geometry);
@@ -57,7 +59,7 @@
     var depth = surfaceY - originY;
     if (depth <= 0) return "";
     var widthScale = clamp(depth / 38, 0, 1);
-    var tip = originY + (depth + 3 * widthScale) * pour;
+    var tip = originY + (depth + 3 * widthScale) * pour * (0.18 + 0.82 * pour);
     if (tip - originY < 1) return "";
 
     // Traveling edge undulations give the continuous stream a flowing silhouette.
@@ -86,42 +88,9 @@
     return path.join(" ");
   }
 
-  function splashPath(progress, geometry) {
-    var splash = clamp((progress - 0.2) / 0.22, 0, 1);
-    if (splash <= 0 || splash >= 1) return "";
-
-    var paths = [];
-    var energy = Math.sin(splash * Math.PI);
-    var centerX = geometry.originX + Math.sin(progress * 31) * 8;
-    var baseY = waterline(centerX, progress, geometry);
-    var offsets = [-42, -25, 24, 45];
-    for (var index = 0; index < offsets.length; index += 1) {
-      var direction = offsets[index] < 0 ? -1 : 1;
-      var x = centerX + offsets[index] * energy;
-      var y = baseY - (20 + index % 2 * 16) * energy - Math.abs(offsets[index]) * 0.15;
-      paths.push(circlePath(x, y, 2.5 + energy * 2));
-      paths.push([
-        "M", centerX + direction * 5, baseY,
-        "Q", centerX + offsets[index] * 0.55, baseY - (18 + index * 3) * energy,
-        x, y + 5,
-        "Q", centerX + offsets[index] * 0.5, baseY - 4,
-        centerX + direction * 11, baseY,
-        "Z"
-      ].join(" "));
-    }
-
-    var rippleWidth = 28 + energy * 72;
-    paths.push([
-      "M", centerX - rippleWidth, baseY,
-      "Q", centerX, baseY - 8 * energy, centerX + rippleWidth, baseY,
-      "Q", centerX, baseY + 5, centerX - rippleWidth, baseY,
-      "Z"
-    ].join(" "));
-    return paths.join(" ");
-  }
 
   function surfacePath(progress, geometry) {
-    var fill = clamp((progress - 0.16) / 0.82, 0, 1);
+    var fill = fillFraction(progress);
     if (fill <= 0) return "";
     if (fill >= 0.995) {
       return "M 0 0 H " + geometry.width + " V " + geometry.height + " H 0 Z";
@@ -132,17 +101,20 @@
 
     // Sample the same traveling wave at both ends of each cubic: no fixed
     // horizontal seams or repeating identical humps between segments.
-    for (var index = 0; index < 12; index += 1) {
-      var startX = index * segment;
-      var endX = (index + 1) * segment;
+    var near = Math.max(0, geometry.originX - 150);
+    var far = Math.min(geometry.width, geometry.originX + 150);
+    for (var startX = 0, endX; startX < geometry.width; startX = endX) {
+      endX = startX < near ? Math.min(startX + segment, near) :
+        startX < far ? Math.min(startX + 7, far) : Math.min(startX + segment, geometry.width);
+      var span = endX - startX;
       var startY = waterline(startX, progress, geometry);
       var endY = waterline(endX, progress, geometry);
       var startSlope = (waterline(startX + 1, progress, geometry) -
         waterline(startX - 1, progress, geometry)) / 2;
       var endSlope = (waterline(endX + 1, progress, geometry) -
         waterline(endX - 1, progress, geometry)) / 2;
-      path.push("C", startX + segment / 3, startY + startSlope * segment / 3,
-        endX - segment / 3, endY - endSlope * segment / 3, endX, endY);
+      path.push("C", startX + span / 3, startY + startSlope * span / 3,
+        endX - span / 3, endY - endSlope * span / 3, endX, endY);
     }
 
     path.push("L", geometry.width, geometry.height, "Z");
@@ -156,19 +128,19 @@
     }
     var water = streamPath(normalized, geometry);
     return {
-      shape: [surfacePath(normalized, geometry), water, splashPath(normalized, geometry)]
-        .filter(Boolean).join(" "),
+      shape: surfacePath(normalized, geometry),
       water: water
     };
   }
 
   function createPath(progress, geometry) {
-    return createFrame(progress, geometry).shape;
+    var frame = createFrame(progress, geometry);
+    return [frame.shape, frame.water].filter(Boolean).join(" ");
   }
 
   global.CarverLiquidShape = Object.freeze({
     createPath: createPath,
     createFrame: createFrame,
-    phases: Object.freeze({ pour: 0, splash: 0.2, flow: 0.16, finish: 0.98 })
+    phases: Object.freeze({ pour: 0, flow: contact, finish: 0.98 })
   });
 })(window);

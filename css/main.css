@@ -1621,10 +1621,8 @@ body .token-usage-app .token-usage-details > div {
   width: 44px;
   height: 44px;
   padding: 0;
-  border: 1px solid var(--hairline);
-  border-radius: 2px;
-  background: var(--bg-surface);
-  box-shadow: 0 1px 3px var(--control-shadow);
+  border: 0;
+  background: transparent;
   color: var(--ink-secondary);
   cursor: pointer;
 }
@@ -2203,20 +2201,20 @@ html.clawd-effects-active body.search-open button { cursor: pointer !important; 
   place-items: center;
   width: 44px;
   height: 44px;
-  border: 1px solid var(--hairline);
-  border-radius: 2px;
-  background: var(--bg-surface);
-  box-shadow: 0 1px 3px var(--control-shadow);
+  border: 0;
+  background: transparent;
   color: var(--ink-secondary);
   cursor: pointer;
   touch-action: manipulation;
 }
 
 .liquid-theme-controls__button:hover,
-.liquid-theme-controls__button:focus-visible,
-.liquid-theme-controls__button[aria-pressed="true"] {
-  background: var(--soft-fill);
+.liquid-theme-controls__button:focus-visible {
   color: var(--accent);
+}
+
+.liquid-theme-controls__button:focus:not(:focus-visible) {
+  outline: none;
 }
 
 .liquid-theme-controls__button svg {
@@ -2226,6 +2224,24 @@ html.clawd-effects-active body.search-open button { cursor: pointer !important; 
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+
+/* Paint the jet behind the lifted lip, but the rising surface in front. */
+.liquid-theme-stream {
+  position: fixed;
+  z-index: 2147482998;
+  pointer-events: none;
+}
+
+.liquid-theme-peel {
+  position: fixed;
+  /* The clipped liquid surface must occlude the paper as it rises. */
+  z-index: 2147482999;
+  width: 32px;
+  height: 32px;
+  pointer-events: none;
+  overflow: visible;
+}
+
 
 .liquid-theme-reveal {
   position: fixed;

@@ -602,13 +602,6 @@
   </url>
   
   <url>
-    <loc>https://www.kaaaaai.cn/tags/%E8%A7%82%E5%BD%B1/</loc>
-    <lastmod>2026-11-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.kaaaaai.cn/tags/%E6%89%AF%E8%B0%88/</loc>
     <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -617,6 +610,13 @@
   
   <url>
     <loc>https://www.kaaaaai.cn/tags/%E6%A2%A6/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kaaaaai.cn/tags/%E8%A7%82%E5%BD%B1/</loc>
     <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
