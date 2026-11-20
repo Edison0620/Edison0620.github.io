@@ -98,7 +98,8 @@ html[data-theme="dark"] .douban-item__cover-link.is-cover-loading::after { backg
   .douban-item__book-cover-region::before {
     content: "";
     position: absolute;
-    inset: -12px;
+    /* Arm reach (17px) + perforation (5px), with room for the cover tilt. */
+    inset: -26px;
   }
   .reading-seal-clip {
     display: block;
