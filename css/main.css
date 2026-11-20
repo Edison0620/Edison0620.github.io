@@ -1665,18 +1665,18 @@ body .token-usage-app .token-usage-details > div {
   .site-chat__footer[aria-busy="true"]::after { animation: none; }
 }
 
+.site-chat__footer {
+  align-items: center;
+  min-height: 44px;
+  border: 0;
+  background: none;
+  color: var(--ink-secondary);
+  font: 12px var(--font-mono);
+  cursor: pointer;
+}
 @media (max-width: 800px) {
-  .site-chat__floating { display: none; }
-  .site-chat__footer {
-    display: inline-flex;
-    align-items: center;
-    min-height: 44px;
-    border: 0;
-    background: none;
-    color: var(--ink-secondary);
-    font: 12px var(--font-mono);
-    cursor: pointer;
-  }
+  body:not(:has(.view--builder)) .site-chat__floating { display: none; }
+  body:not(:has(.view--builder)) .site-chat__footer:not([hidden]) { display: inline-flex; }
 }
 
 .writing-reward {
@@ -2281,6 +2281,31 @@ html.clawd-effects-active .liquid-theme-controls input { cursor: pointer !import
   .liquid-theme-controls {
     top: max(8px, env(safe-area-inset-top));
     left: max(20px, env(safe-area-inset-left));
+  }
+}
+
+/* Homepage utilities stay on the viewport corners while the content scrolls. */
+body:has(.view--builder) {
+  --home-control-top: max(24px, env(safe-area-inset-top));
+  --home-control-inset: max(24px, env(safe-area-inset-left), env(safe-area-inset-right));
+}
+body:has(.view--builder) .liquid-theme-controls {
+  top: var(--home-control-top);
+  left: var(--home-control-inset);
+}
+body:has(.view--builder) .site-search__trigger {
+  position: fixed;
+  top: var(--home-control-top);
+  right: var(--home-control-inset);
+}
+body:has(.view--builder) .site-chat__floating {
+  left: var(--home-control-inset);
+  bottom: max(24px, env(safe-area-inset-bottom));
+}
+@media (max-width: 600px) {
+  body:has(.view--builder) {
+    --home-control-top: max(8px, env(safe-area-inset-top));
+    --home-control-inset: max(20px, env(safe-area-inset-left), env(safe-area-inset-right));
   }
 }
 
