@@ -35,11 +35,5 @@
   .douban-item--music .douban-item__cover-link::before {
     translate: var(--preview-vinyl-recoil, 0px 0px);
     rotate: var(--preview-vinyl-tilt, none);
-    background:
-      conic-gradient(from calc(21deg + var(--preview-vinyl-spin, 0deg)),
-        transparent 0deg, #c0c4c502 20deg, #c0c4c533 39deg, #c0c4c50a 65deg, transparent 82deg,
-        transparent 180deg, #c0c4c521 220deg, transparent 252deg),
-      radial-gradient(circle at center, #202425 0 12%, #101314 12.5% 18%, #313738 18.5% 19%, #101414 19.5% 39%, transparent 39.5%),
-      repeating-radial-gradient(circle at center, #141718 0 1px, #272c2d 2px, #141718 3px 5px);
   }
 }

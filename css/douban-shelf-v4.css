@@ -242,16 +242,22 @@ html[data-theme="dark"] .douban-item--movie.douban-item--movie-light-paper {
   height: 98px;
   background: none;
 }
-.douban-item--music .douban-item__cover-link::before {
+.douban-list .douban-item--music .douban-item__cover-link::before {
   inset: 5px auto auto 30px;
   width: 88px;
   height: 88px;
   border: 1px solid #00000060;
   border-radius: 50%;
-  background: radial-gradient(circle at center, #202425 0 12%, #101314 12.5% 18%, #313738 18.5% 19%, #101414 19.5% 39%, transparent 39.5%), repeating-radial-gradient(circle at center, #141718 0 1px, #272c2d 2px, #141718 3px 5px);
-  box-shadow: 1px 2px 4px #0000002b;
-  -webkit-mask: none;
-  mask: none;
+  --vinyl-label: color-mix(in srgb, var(--accent) 65%, #93897f);
+  background:
+    radial-gradient(circle closest-side, var(--vinyl-label) 0 32%, color-mix(in srgb, var(--vinyl-label) 75%, #191718) 33%, #191718 34% 39%, #302b29 40%, #1a1919 41% 46%, transparent 47%),
+    radial-gradient(circle closest-side, transparent 0 55%, #11111280 56% 57%, transparent 58% 68%, #11111290 69% 70.5%, transparent 71.5% 82%, #11111270 83% 84%, transparent 85% 95%, #111112 97%, #262628 99%, #141415),
+    conic-gradient(from calc(21deg + var(--preview-vinyl-spin, 0deg)),
+      transparent 0deg, #f1e4d006 40deg, #f1e4d028 62deg, #f1e4d00b 79deg, transparent 103deg,
+      transparent 204deg, #d9dbe31f 240deg, transparent 276deg),
+    repeating-radial-gradient(circle closest-side, #171719 0 .65px, #212123 .9px, #171719 1.35px 1.65px);
+  box-shadow: inset 0 0 0 1px #ffffff16, 1px 2px 4px #0000002b;
+  mask: radial-gradient(circle, transparent 0 .9px, #000 1.25px);
   filter: none;
 }
 .douban-item--music .douban-item__cover {
