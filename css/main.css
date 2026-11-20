@@ -1877,11 +1877,11 @@ body .token-usage-app .token-usage-details > div {
   .toc-rail__minor-layer { display: none; }
 }
 
-/* Search stays outside the content flow and loads its index on demand. */
+/* Search stays in the same viewport corner on every page. */
 .site-search__trigger {
-  position: absolute;
-  top: 32px;
-  right: max(24px, calc((100vw - 800px) / 2 + 24px));
+  position: fixed;
+  top: max(24px, env(safe-area-inset-top));
+  right: max(24px, env(safe-area-inset-left), env(safe-area-inset-right));
   z-index: 90;
   display: inline-flex;
   align-items: center;
@@ -1895,14 +1895,6 @@ body .token-usage-app .token-usage-details > div {
   cursor: pointer;
 }
 .site-search__trigger:hover { color: var(--accent); }
-/* Keep search on the same content rail and baseline as the back link. */
-body:has(.writing-container) .site-search__trigger {
-  top: 112px;
-  right: max(24px, calc((100vw - 680px) / 2 + 24px));
-}
-body:has(.writing-container--wide) .site-search__trigger {
-  right: max(24px, calc((100vw - 800px) / 2 + 24px));
-}
 .site-search__overlay {
   position: fixed;
   inset: 0;
@@ -1992,7 +1984,7 @@ html.clawd-effects-active body.search-open .site-search__overlay * { cursor: aut
 html.clawd-effects-active body.search-open .site-search__input { cursor: text !important; }
 html.clawd-effects-active body.search-open button { cursor: pointer !important; }
 @media (max-width: 600px) {
-  .site-search__trigger { top: 8px; right: 20px; }
+  .site-search__trigger { top: max(8px, env(safe-area-inset-top)); right: max(20px, env(safe-area-inset-left), env(safe-area-inset-right)); }
   .site-search__overlay { padding: 76px 20px 20px; }
   .site-search__header { padding-top: 20px; }
 }
@@ -2225,23 +2217,6 @@ html.clawd-effects-active body.search-open button { cursor: pointer !important; 
   stroke-linejoin: round;
 }
 
-/* Paint the jet behind the lifted lip, but the rising surface in front. */
-.liquid-theme-stream {
-  position: fixed;
-  z-index: 2147482998;
-  pointer-events: none;
-}
-
-.liquid-theme-peel {
-  position: fixed;
-  /* The clipped liquid surface must occlude the paper as it rises. */
-  z-index: 2147482999;
-  width: 32px;
-  height: 32px;
-  pointer-events: none;
-  overflow: visible;
-}
-
 
 .liquid-theme-reveal {
   position: fixed;
@@ -2292,11 +2267,6 @@ body:has(.view--builder) {
 body:has(.view--builder) .liquid-theme-controls {
   top: var(--home-control-top);
   left: var(--home-control-inset);
-}
-body:has(.view--builder) .site-search__trigger {
-  position: fixed;
-  top: var(--home-control-top);
-  right: var(--home-control-inset);
 }
 body:has(.view--builder) .site-chat__floating {
   left: var(--home-control-inset);

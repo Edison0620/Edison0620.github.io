@@ -5,7 +5,6 @@
     return Math.min(maximum, Math.max(minimum, value));
   }
 
-  var pourStart = 0.075;
   var contact = 0.16;
 
   function fillFraction(progress) {
@@ -41,53 +40,6 @@
     return surfaceLevel(progress, geometry) + waveOffset(x, progress, geometry);
   }
 
-  function flowEdge(y, originX, originY, progress, side, widthScale) {
-    var depth = y - originY;
-    // A falling jet accelerates; constant volume flux makes its radius shrink.
-    var width = 3.2 * Math.pow(1 + depth / 55, -0.25);
-    var sway = Math.min(1, depth / 90) * Math.sin(depth / 95 - progress * 12) * 1.1;
-    return originX + sway + side * width * widthScale;
-  }
-
-  function streamPath(progress, geometry) {
-    var originX = geometry.originX;
-    var pour = clamp((progress - pourStart) / (contact - pourStart), 0, 1);
-    if (pour <= 0) return "";
-
-    var surfaceY = waterline(originX, progress, geometry);
-    var originY = geometry.originY;
-    var depth = surfaceY - originY;
-    if (depth <= 0) return "";
-    var widthScale = clamp(depth / 38, 0, 1);
-    var tip = originY + (depth + 3 * widthScale) * pour * (0.18 + 0.82 * pour);
-    if (tip - originY < 1) return "";
-
-    // Traveling edge undulations give the continuous stream a flowing silhouette.
-    var sections = Math.max(2, Math.ceil((tip - originY) / 48));
-    var step = (tip - originY) / sections;
-    var path = ["M", flowEdge(originY, originX, originY, progress, -1, widthScale), originY];
-    for (var index = 0; index < sections; index += 1) {
-      var start = originY + step * index;
-      var end = start + step;
-      path.push("C",
-        flowEdge(start + step / 3, originX, originY, progress, -1, widthScale), start + step / 3,
-        flowEdge(end - step / 3, originX, originY, progress, -1, widthScale), end - step / 3,
-        flowEdge(end, originX, originY, progress, -1, widthScale), end);
-    }
-    path.push("Q", flowEdge(tip, originX, originY, progress, 0, widthScale), tip + 5 * widthScale,
-      flowEdge(tip, originX, originY, progress, 1, widthScale), tip);
-    for (var reverse = sections - 1; reverse >= 0; reverse -= 1) {
-      var bottom = originY + step * (reverse + 1);
-      var top = bottom - step;
-      path.push("C",
-        flowEdge(bottom - step / 3, originX, originY, progress, 1, widthScale), bottom - step / 3,
-        flowEdge(top + step / 3, originX, originY, progress, 1, widthScale), top + step / 3,
-        flowEdge(top, originX, originY, progress, 1, widthScale), top);
-    }
-    path.push("Z");
-    return path.join(" ");
-  }
-
 
   function surfacePath(progress, geometry) {
     var fill = fillFraction(progress);
@@ -121,26 +73,12 @@
     return path.join(" ");
   }
 
-  function createFrame(progress, geometry) {
-    var normalized = clamp(progress, 0, 1);
-    if (normalized >= 0.995) {
-      return { shape: "M 0 0 H " + geometry.width + " V " + geometry.height + " H 0 Z", water: "" };
-    }
-    var water = streamPath(normalized, geometry);
-    return {
-      shape: surfacePath(normalized, geometry),
-      water: water
-    };
-  }
-
   function createPath(progress, geometry) {
-    var frame = createFrame(progress, geometry);
-    return [frame.shape, frame.water].filter(Boolean).join(" ");
+    return surfacePath(clamp(progress, 0, 1), geometry);
   }
 
   global.CarverLiquidShape = Object.freeze({
     createPath: createPath,
-    createFrame: createFrame,
-    phases: Object.freeze({ pour: 0, flow: contact, finish: 0.98 })
+    phases: Object.freeze({ flow: contact, finish: 0.98 })
   });
 })(window);

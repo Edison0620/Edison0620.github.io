@@ -232,81 +232,6 @@
     return { svg: svg, path: path, id: id };
   }
 
-  function createPeel(button, viewport) {
-    var rect = button.getBoundingClientRect();
-    var ns = "http://www.w3.org/2000/svg";
-    var peel = document.createElementNS(ns, "svg");
-    peel.classList.add("liquid-theme-peel");
-    peel.setAttribute("viewBox", "0 0 32 32");
-    peel.setAttribute("aria-hidden", "true");
-    peel.style.left = rect.right - 32 + "px";
-    peel.style.top = rect.bottom - 32 + "px";
-    var bead = document.createElementNS(ns, "ellipse");
-    bead.setAttribute("fill", themeColor("dark"));
-    peel.appendChild(bead);
-    var shadow = document.createElementNS(ns, "path");
-    shadow.style.cssText = "fill:none;stroke:#241e18;stroke-width:2;filter:blur(1.5px)";
-    peel.appendChild(shadow);
-    var strips = [];
-    for (var i = 0; i < 28; i++) {
-      var strip = document.createElementNS(ns, "path");
-      strip.setAttribute("stroke-width", "0.35");
-      strip.setAttribute("stroke-linejoin", "round");
-      peel.appendChild(strip);
-      strips.push(strip);
-    }
-    document.documentElement.appendChild(peel);
-    function ease(x) {
-      x = clamp(x, 0, 1);
-      return x * x * (3 - 2 * x);
-    }
-    // Fixed diagonal root, with pressure and damping concentrated at the tip.
-    function project(x, y, t) {
-      var d = Math.max(0, (x + y - 53) / 35), side = (x - y) / 35;
-      var time = t - 0.032 * d - 0.015 * side;
-      var load = ease(time / 0.29) * (1 - ease((time - 1.70) / 0.38));
-      var wet = ease((time - 0.24) / 0.22) * (1 - ease((time - 1.52) / 0.24));
-      var age = Math.max(0, time - 1.72);
-      var rebound = 0.16 * Math.exp(-8 * age) * Math.sin(32 * age);
-      var pressure = wet * (0.075 * Math.sin(17 * time + 0.8 * side) +
-        0.038 * Math.sin(25 * time - 1.1 * side));
-      var bend = 1.84 * load + (pressure + rebound) * d * d, a = bend * d;
-      var slip = Math.abs(a) < 0.00001 ? 0 : 17.5 * d * (1 - Math.sin(a) / a);
-      var z = Math.abs(bend) < 0.00001 ? 0 : 17.5 * (1 - Math.cos(a)) / bend;
-      return [x - 12 - slip - 0.21 * z, y - 12 - slip - 0.40 * z, a];
-    }
-    return {
-      remove: function () { peel.remove(); },
-      draw: function (p) {
-        var t = p * 2.16, lip = project(44, 44, t);
-        var flow = ease((p - 0.075) / 0.10) * (1 - ease((p - 0.88) / 0.08));
-        viewport.originX = rect.right - 32 - viewport.left + lip[0] - 0.7;
-        viewport.originY = rect.bottom - 32 - viewport.top + lip[1] - 3 * flow;
-        peel.style.visibility = p > 0 && p < 0.98 ? "visible" : "hidden";
-        bead.setAttribute("cx", lip[0] - 0.7);
-        bead.setAttribute("cy", lip[1] + 0.4);
-        bead.setAttribute("rx", 3.2 * flow);
-        bead.setAttribute("ry", 5.76 * flow);
-        shadow.setAttribute("d", "M32 -3 Q" + (lip[0]+4) + " " + (lip[1]+4) + " -3 32");
-        shadow.style.opacity = 0.24 * flow;
-        var A = project(44,9,t), D = project(9,44,t);
-        for (var j = 0; j < strips.length; j++) {
-          var w = 9 + 35 * (j + 1) / strips.length;
-          var B = project(44,w,t), C = project(w,44,t);
-          var path = strips[j], n = A[2];
-          path.setAttribute("d", "M"+A[0]+" "+A[1]+"L"+B[0]+" "+B[1]+" "+
-            C[0]+" "+C[1]+" "+D[0]+" "+D[1]+"Z");
-          var shade = 1 - 0.19 * (1 - Math.cos(n)) + 0.055 * Math.sin(2*n);
-          var tone = Math.round(249 * shade);
-          var color = "rgb("+tone+","+tone+","+(tone-2)+")";
-          path.setAttribute("fill", color);
-          path.setAttribute("stroke", color);
-          A = B; D = C;
-        }
-      }
-    };
-  }
-
 
   function runReveal(targetTheme) {
     var viewport = getViewport(controls.toggle);
@@ -314,41 +239,7 @@
     // Reversing the same clip drains the old dark snapshot into the trigger.
     var stage = createSnapshot(reverse ? "dark" : targetTheme, viewport);
     var clip = createClip(viewport);
-    var namespace = "http://www.w3.org/2000/svg";
-    var waterSvg = document.createElementNS(namespace, "svg");
-    var water = document.createElementNS(namespace, "path");
-    var texture = document.createElementNS(namespace, "pattern");
-    var base = document.createElementNS(namespace, "rect");
-    var dot = document.createElementNS(namespace, "circle");
-    var defs = document.createElementNS(namespace, "defs");
-    texture.setAttribute("id", clip.id + "-water");
-    texture.setAttribute("patternUnits", "userSpaceOnUse");
-    texture.setAttribute("width", "32");
-    texture.setAttribute("height", "32");
-    base.setAttribute("width", "32");
-    base.setAttribute("height", "32");
-    base.style.fill = "var(--bg-page)";
-    dot.setAttribute("r", "1");
-    dot.style.fill = "var(--paper-dot)";
-    dot.setAttribute("opacity", "0.6");
-    texture.appendChild(base);
-    texture.appendChild(dot);
-    defs.appendChild(texture);
-    waterSvg.appendChild(defs);
-    waterSvg.setAttribute("viewBox", "0 0 " + viewport.width + " " + viewport.height);
-    waterSvg.setAttribute("aria-hidden", "true");
-    waterSvg.classList.add("liquid-theme-stream");
-    waterSvg.setAttribute("data-theme", "dark");
-    waterSvg.style.left = viewport.left + "px";
-    waterSvg.style.top = viewport.top + "px";
-    waterSvg.style.width = viewport.width + "px";
-    waterSvg.style.height = viewport.height + "px";
-    water.style.fill = 'url("#' + clip.id + '-water")';
-    waterSvg.appendChild(water);
-    document.documentElement.appendChild(waterSvg);
     var duration = controls.duration;
-    var peel = createPeel(controls.toggle, viewport);
-    peel.draw(reverse ? 1 : 0);
     var animationFrame = 0;
     var startedAt = 0;
     var finished = false;
@@ -357,9 +248,7 @@
 
     stage.style.clipPath = 'url("#' + clip.id + '")';
     stage.style.webkitClipPath = 'url("#' + clip.id + '")';
-    var initial = global.CarverLiquidShape.createFrame(reverse ? 1 : 0.001, viewport);
-    clip.path.setAttribute("d", initial.shape);
-    water.setAttribute("d", initial.water);
+    clip.path.setAttribute("d", global.CarverLiquidShape.createPath(reverse ? 1 : 0.001, viewport));
     if (reverse) {
       // The full-screen clip covers the live page while the target variables switch.
       document.documentElement.setAttribute("data-theme", targetTheme);
@@ -377,9 +266,7 @@
       document.removeEventListener("visibilitychange", abort);
       global.removeEventListener("pagehide", abort);
       stage.remove();
-      waterSvg.remove();
       clip.svg.remove();
-      peel.remove();
       if (activeTransition && activeTransition.cleanup === cleanup) activeTransition = null;
     }
 
@@ -407,10 +294,7 @@
       if (!startedAt) startedAt = timestamp;
       var progress = clamp((timestamp - startedAt) / duration, 0, 1);
       var liquidProgress = reverse ? 1 - progress : progress;
-      peel.draw(liquidProgress);
-      var shape = global.CarverLiquidShape.createFrame(liquidProgress, viewport);
-      clip.path.setAttribute("d", shape.shape);
-      water.setAttribute("d", shape.water);
+      clip.path.setAttribute("d", global.CarverLiquidShape.createPath(liquidProgress, viewport));
       if (progress >= 1) {
         finish(true);
         return;
