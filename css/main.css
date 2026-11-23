@@ -2217,6 +2217,22 @@ html.clawd-effects-active body.search-open button { cursor: pointer !important; 
   stroke-linejoin: round;
 }
 
+/* Paint the jet behind the lifted lip, but the rising surface in front. */
+.liquid-theme-stream {
+  position: fixed;
+  z-index: 2147482998;
+  pointer-events: none;
+}
+
+.liquid-theme-peel {
+  position: fixed;
+  /* The clipped liquid surface must occlude the paper as it rises. */
+  z-index: 2147482999;
+  width: 32px;
+  height: 32px;
+  pointer-events: none;
+  overflow: visible;
+}
 
 .liquid-theme-reveal {
   position: fixed;
