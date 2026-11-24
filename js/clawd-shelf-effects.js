@@ -679,11 +679,11 @@
         const drift = -Math.expm1(-t*5)/5;
         const angle = hit.angle + (i-2)*.47;
         ctx.save();
-        ctx.globalAlpha = .87 * Math.max(0,1-(t/.42)**2);
+        ctx.globalAlpha = (i%2 ? .87 : .48) * Math.max(0,1-(t/.42)**2);
         ctx.translate(Math.cos(angle)*(40+i*19)*drift, Math.sin(angle)*(40+i*19)*drift-44*drift+116*t*t);
         ctx.rotate(i+(i%2?-1:1)*t*17);
         ctx.scale(Math.cos(t*16+i),1);
-        ctx.fillStyle = i%2 ? '#deb991' : '#f5e5ca';
+        ctx.fillStyle = color;
         ctx.beginPath(); ctx.moveTo(-2,-1); ctx.lineTo(2,-1.5);ctx.lineTo(3,.6);ctx.lineTo(-1,1.4);ctx.fill();
         ctx.restore();
       }
